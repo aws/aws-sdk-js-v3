@@ -52,6 +52,7 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * @see {@link ModifySnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To modify a snapshot attribute
  * ```javascript
  * // This example modifies snapshot ``snap-1234567890abcdef0`` to remove the create volume permission for a user with the account ID ``123456789012``. If the command succeeds, no output is returned.

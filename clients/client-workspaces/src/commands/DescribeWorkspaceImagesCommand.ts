@@ -51,6 +51,10 @@ export interface DescribeWorkspaceImagesCommandOutput extends DescribeWorkspaceI
  * @see {@link DescribeWorkspaceImagesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ *
  */
 export class DescribeWorkspaceImagesCommand extends $Command<
   DescribeWorkspaceImagesCommandInput,

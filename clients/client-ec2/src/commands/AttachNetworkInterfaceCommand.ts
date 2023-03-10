@@ -50,6 +50,7 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * @see {@link AttachNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To attach a network interface to an instance
  * ```javascript
  * // This example attaches the specified network interface to the specified instance.

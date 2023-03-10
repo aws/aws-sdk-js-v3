@@ -45,6 +45,10 @@ export interface UpdateFeatureMetadataCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateFeatureMetadataCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ *
  */
 export class UpdateFeatureMetadataCommand extends $Command<
   UpdateFeatureMetadataCommandInput,

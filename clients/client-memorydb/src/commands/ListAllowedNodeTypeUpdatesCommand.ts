@@ -52,6 +52,19 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  * @see {@link ListAllowedNodeTypeUpdatesCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class ListAllowedNodeTypeUpdatesCommand extends $Command<
   ListAllowedNodeTypeUpdatesCommandInput,

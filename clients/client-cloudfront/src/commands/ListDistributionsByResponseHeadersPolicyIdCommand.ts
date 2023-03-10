@@ -59,6 +59,16 @@ export interface ListDistributionsByResponseHeadersPolicyIdCommandOutput
  * @see {@link ListDistributionsByResponseHeadersPolicyIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
+ *  <p>The response headers policy does not exist.</p>
+ *
+ *
  */
 export class ListDistributionsByResponseHeadersPolicyIdCommand extends $Command<
   ListDistributionsByResponseHeadersPolicyIdCommandInput,

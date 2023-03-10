@@ -108,6 +108,35 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  * @see {@link TestFailoverCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link APICallRateForCustomerExceededFault} (client fault)
+ *  <p>The customer has exceeded the allowed rate of API calls.</p>
+ *
+ * @throws {@link InvalidCacheClusterStateFault} (client fault)
+ *  <p>The requested cluster is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link InvalidKMSKeyFault} (client fault)
+ *  <p>The KMS key supplied is not valid.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link NodeGroupNotFoundFault} (client fault)
+ *  <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.
+ *             Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link TestFailoverNotAvailableFault} (client fault)
+ *  <p>The <code>TestFailover</code> action is not available.</p>
+ *
+ *
  */
 export class TestFailoverCommand extends $Command<
   TestFailoverCommandInput,

@@ -52,6 +52,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @see {@link DescribeAccountLimitsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class DescribeAccountLimitsCommand extends $Command<
   DescribeAccountLimitsCommandInput,

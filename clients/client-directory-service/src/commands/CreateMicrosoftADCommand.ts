@@ -53,6 +53,24 @@ export interface CreateMicrosoftADCommandOutput extends CreateMicrosoftADResult,
  * @see {@link CreateMicrosoftADCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryLimitExceededException} (client fault)
+ *  <p>The maximum number of directories in the region has been reached. You can use the
+ *                 <a>GetDirectoryLimits</a> operation to determine your directory limits in
+ *             the region.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ *
  */
 export class CreateMicrosoftADCommand extends $Command<
   CreateMicrosoftADCommandInput,

@@ -51,6 +51,10 @@ export interface GetCrawlersCommandOutput extends GetCrawlersResponse, __Metadat
  * @see {@link GetCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class GetCrawlersCommand extends $Command<
   GetCrawlersCommandInput,

@@ -56,6 +56,14 @@ export interface DeleteClusterSecurityGroupCommandOutput extends __MetadataBeare
  * @see {@link DeleteClusterSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
+ *  <p>The cluster security group name does not refer to an existing cluster security
+ *             group.</p>
+ *
+ * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
+ *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ *
  */
 export class DeleteClusterSecurityGroupCommand extends $Command<
   DeleteClusterSecurityGroupCommandInput,

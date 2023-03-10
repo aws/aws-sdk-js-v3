@@ -56,6 +56,19 @@ export interface DisassociateDeviceFromPlacementCommandOutput
  * @see {@link DisassociateDeviceFromPlacementCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DisassociateDeviceFromPlacementCommand extends $Command<
   DisassociateDeviceFromPlacementCommandInput,

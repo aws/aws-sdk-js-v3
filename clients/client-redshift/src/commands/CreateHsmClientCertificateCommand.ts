@@ -57,6 +57,23 @@ export interface CreateHsmClientCertificateCommandOutput extends CreateHsmClient
  * @see {@link CreateHsmClientCertificateCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link HsmClientCertificateAlreadyExistsFault} (client fault)
+ *  <p>There is already an existing Amazon Redshift HSM client certificate with the specified
+ *             identifier.</p>
+ *
+ * @throws {@link HsmClientCertificateQuotaExceededFault} (client fault)
+ *  <p>The quota for HSM client certificates has been reached.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ *
  */
 export class CreateHsmClientCertificateCommand extends $Command<
   CreateHsmClientCertificateCommandInput,

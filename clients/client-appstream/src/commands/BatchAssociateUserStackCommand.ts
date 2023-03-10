@@ -50,6 +50,13 @@ export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUser
  * @see {@link BatchAssociateUserStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ *
  */
 export class BatchAssociateUserStackCommand extends $Command<
   BatchAssociateUserStackCommandInput,

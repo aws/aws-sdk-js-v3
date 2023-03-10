@@ -51,6 +51,16 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

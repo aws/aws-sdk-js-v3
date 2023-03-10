@@ -50,6 +50,7 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * @see {@link BatchDescribeModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class BatchDescribeModelPackageCommand extends $Command<
   BatchDescribeModelPackageCommandInput,

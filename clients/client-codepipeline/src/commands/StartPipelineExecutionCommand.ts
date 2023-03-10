@@ -51,6 +51,17 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @see {@link StartPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Your request cannot be handled because the pipeline is busy handling ongoing
+ *             activities. Try again later.</p>
+ *
+ * @throws {@link PipelineNotFoundException} (client fault)
+ *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class StartPipelineExecutionCommand extends $Command<
   StartPipelineExecutionCommandInput,

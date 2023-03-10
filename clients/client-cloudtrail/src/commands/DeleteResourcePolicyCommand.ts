@@ -52,6 +52,30 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link ResourceARNNotValidException} (client fault)
+ *  <p>
+ *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid. The following is the valid format for a resource ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
+ *       </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>This exception is thrown when the specified resource is not found.</p>
+ *
+ * @throws {@link ResourcePolicyNotFoundException} (client fault)
+ *  <p>
+ *          This exception is thrown when the specified resource policy is not found.
+ *       </p>
+ *
+ * @throws {@link ResourceTypeNotSupportedException} (client fault)
+ *  <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class DeleteResourcePolicyCommand extends $Command<
   DeleteResourcePolicyCommandInput,

@@ -59,6 +59,41 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * @see {@link ListDeploymentInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link DeploymentNotStartedException} (client fault)
+ *  <p>The specified deployment has not started.</p>
+ *
+ * @throws {@link InvalidComputePlatformException} (client fault)
+ *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentInstanceTypeException} (client fault)
+ *  <p>An instance type was specified for an in-place deployment. Instance types are
+ *             supported for blue/green deployments only.</p>
+ *
+ * @throws {@link InvalidInstanceStatusException} (client fault)
+ *  <p>The specified instance status does not exist.</p>
+ *
+ * @throws {@link InvalidInstanceTypeException} (client fault)
+ *  <p>An invalid instance type was specified for instances in a blue/green deployment. Valid
+ *             values include "Blue" for an original environment and "Green" for a replacement
+ *             environment.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTargetFilterNameException} (client fault)
+ *  <p> The target filter name is invalid. </p>
+ *
+ *
  */
 export class ListDeploymentInstancesCommand extends $Command<
   ListDeploymentInstancesCommandInput,

@@ -52,6 +52,30 @@ export interface PurchaseReservedNodesOfferingCommandOutput
  * @see {@link PurchaseReservedNodesOfferingCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
+ *  <p>You already have a reservation with the given identifier.</p>
+ *
+ * @throws {@link ReservedNodeQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the user's node quota.</p>
+ *
+ * @throws {@link ReservedNodesOfferingNotFoundFault} (client fault)
+ *  <p>The requested node offering does not exist.
+ *
+ *       </p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class PurchaseReservedNodesOfferingCommand extends $Command<
   PurchaseReservedNodesOfferingCommandInput,

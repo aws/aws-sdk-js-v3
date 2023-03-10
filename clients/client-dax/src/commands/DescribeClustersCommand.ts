@@ -62,6 +62,19 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @see {@link DescribeClustersCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ *
  */
 export class DescribeClustersCommand extends $Command<
   DescribeClustersCommandInput,

@@ -56,6 +56,15 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  * @see {@link DescribeDBClusterBacktracksCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBClusterBacktrackNotFoundFault} (client fault)
+ *  <p>
+ *             <code>BacktrackIdentifier</code> doesn't refer to an existing backtrack.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ *
  */
 export class DescribeDBClusterBacktracksCommand extends $Command<
   DescribeDBClusterBacktracksCommandInput,

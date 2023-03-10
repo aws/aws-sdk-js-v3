@@ -54,6 +54,13 @@ export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatu
  * @see {@link GetTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
+ *
  */
 export class GetTableRestoreStatusCommand extends $Command<
   GetTableRestoreStatusCommandInput,

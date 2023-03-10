@@ -54,6 +54,16 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link InvalidCertificateFault} (client fault)
+ *  <p>The certificate was not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsFault} (client fault)
+ *  <p>The resource you are attempting to create already exists.</p>
+ *
+ * @throws {@link ResourceQuotaExceededFault} (client fault)
+ *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ *
  * @example Import certificate
  * ```javascript
  * // Uploads the specified certificate.

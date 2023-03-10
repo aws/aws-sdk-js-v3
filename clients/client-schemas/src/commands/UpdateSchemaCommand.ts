@@ -50,6 +50,17 @@ export interface UpdateSchemaCommandOutput extends UpdateSchemaResponse, __Metad
  * @see {@link UpdateSchemaCommandOutput} for command's `response` shape.
  * @see {@link SchemasClientResolvedConfig | config} for SchemasClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *
+ *
  */
 export class UpdateSchemaCommand extends $Command<
   UpdateSchemaCommandInput,

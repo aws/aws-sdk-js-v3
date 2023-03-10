@@ -51,6 +51,24 @@ export interface DescribeConnectorEntityCommandOutput extends DescribeConnectorE
  * @see {@link DescribeConnectorEntityCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
+ * @throws {@link ConnectorAuthenticationException} (client fault)
+ *  <p> An error occurred when authenticating with the connector endpoint. </p>
+ *
+ * @throws {@link ConnectorServerException} (client fault)
+ *  <p> An error occurred when retrieving data from the connector endpoint. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *       later. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The resource specified in the request (such as the source or destination connector
+ *       profile) is not found. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
+ *
  */
 export class DescribeConnectorEntityCommand extends $Command<
   DescribeConnectorEntityCommandInput,

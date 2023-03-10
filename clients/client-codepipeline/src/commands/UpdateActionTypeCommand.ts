@@ -48,6 +48,16 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ActionTypeNotFoundException} (client fault)
+ *  <p>The specified action type cannot be found.</p>
+ *
+ * @throws {@link RequestFailedException} (client fault)
+ *  <p>The request failed because of an unknown error, exception, or failure.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class UpdateActionTypeCommand extends $Command<
   UpdateActionTypeCommandInput,

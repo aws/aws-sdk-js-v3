@@ -73,6 +73,23 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link NotServiceResourceError} (client fault)
+ *  <p>The resource specified for the tagging operation is not a resource type owned by
+ *             Amazon FSx. Use the API of the relevant service to perform the operation. </p>
+ *
+ * @throws {@link ResourceDoesNotSupportTagging} (client fault)
+ *  <p>The resource specified does not support tagging. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>The resource specified by the Amazon Resource Name (ARN) can't be found.</p>
+ *
+ *
  * @example To list tags for a resource
  * ```javascript
  * // This operation lists tags for an Amazon FSx resource.

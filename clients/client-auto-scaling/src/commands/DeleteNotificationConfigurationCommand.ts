@@ -48,6 +48,11 @@ export interface DeleteNotificationConfigurationCommandOutput extends __Metadata
  * @see {@link DeleteNotificationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
  * @example To delete an Auto Scaling notification
  * ```javascript
  * // This example deletes the specified notification from the specified Auto Scaling group.

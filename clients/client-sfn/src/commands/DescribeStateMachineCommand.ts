@@ -56,6 +56,13 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * @see {@link DescribeStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link StateMachineDoesNotExist} (client fault)
+ *  <p>The specified state machine does not exist.</p>
+ *
+ *
  */
 export class DescribeStateMachineCommand extends $Command<
   DescribeStateMachineCommandInput,

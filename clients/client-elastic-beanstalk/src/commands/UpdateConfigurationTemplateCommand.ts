@@ -63,6 +63,14 @@ export interface UpdateConfigurationTemplateCommandOutput extends ConfigurationS
  * @see {@link UpdateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link TooManyBucketsException} (client fault)
+ *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ *
  * @example To update a configuration template
  * ```javascript
  * // The following operation removes the configured CloudWatch custom health metrics configuration ConfigDocument from a saved configuration template named my-template:

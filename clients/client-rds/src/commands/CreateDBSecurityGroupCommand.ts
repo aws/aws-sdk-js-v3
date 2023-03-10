@@ -58,6 +58,18 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
  * @see {@link CreateDBSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBSecurityGroupAlreadyExistsFault} (client fault)
+ *  <p>A DB security group with the name specified in
+ *         <code>DBSecurityGroupName</code> already exists.</p>
+ *
+ * @throws {@link DBSecurityGroupNotSupportedFault} (client fault)
+ *  <p>A DB security group isn't allowed for this action.</p>
+ *
+ * @throws {@link DBSecurityGroupQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB security
+ *             groups.</p>
+ *
+ *
  * @example To create a DB security group.
  * ```javascript
  * // This example creates a DB security group.

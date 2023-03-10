@@ -70,6 +70,7 @@ export interface DetectStackDriftCommandOutput extends DetectStackDriftOutput, _
  * @see {@link DetectStackDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class DetectStackDriftCommand extends $Command<
   DetectStackDriftCommandInput,

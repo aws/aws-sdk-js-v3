@@ -51,6 +51,25 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  * @see {@link UpdateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetInUse} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetNotAllowedFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class UpdateSubnetGroupCommand extends $Command<
   UpdateSubnetGroupCommandInput,

@@ -54,6 +54,7 @@ export interface DisassociateIamInstanceProfileCommandOutput
  * @see {@link DisassociateIamInstanceProfileCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To disassociate an IAM instance profile
  * ```javascript
  * // This example disassociates the specified IAM instance profile from an instance.

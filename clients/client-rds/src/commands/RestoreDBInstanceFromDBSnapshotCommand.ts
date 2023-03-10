@@ -65,6 +65,87 @@ export interface RestoreDBInstanceFromDBSnapshotCommandOutput
  * @see {@link RestoreDBInstanceFromDBSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link AuthorizationNotFoundFault} (client fault)
+ *  <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized
+ *             for the specified DB security group.</p>
+ *          <p>Or, RDS might not be authorized to perform necessary actions using IAM on your
+ *             behalf.</p>
+ *
+ * @throws {@link BackupPolicyNotFoundFault} (client fault)
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+ *
+ * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
+ *  <p>The user already has a DB instance with the given identifier.</p>
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ * @throws {@link DBSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
+ *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>
+ *
+ * @throws {@link DomainNotFoundFault} (client fault)
+ *  <p>
+ *             <code>Domain</code> doesn't refer to an existing Active Directory domain.</p>
+ *
+ * @throws {@link InstanceQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB
+ *             instances.</p>
+ *
+ * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
+ *  <p>The specified DB instance class isn't available in the specified Availability
+ *             Zone.</p>
+ *
+ * @throws {@link InvalidDBSnapshotStateFault} (client fault)
+ *  <p>The state of the DB snapshot doesn't allow deletion.</p>
+ *
+ * @throws {@link InvalidRestoreFault} (client fault)
+ *  <p>Cannot restore from VPC backup to non-VPC DB instance.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The DB subnet group doesn't cover all Availability Zones after it's
+ *             created because of users' change.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * @throws {@link NetworkTypeNotSupported} (client fault)
+ *  <p>The network type is invalid for the DB instance. Valid nework type values are <code>IPV4</code> and <code>DUAL</code>.</p>
+ *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The specified option group could not be found.</p>
+ *
+ * @throws {@link ProvisionedIopsNotAvailableInAZFault} (client fault)
+ *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed amount of storage
+ *             available across all DB instances.</p>
+ *
+ * @throws {@link StorageTypeNotSupportedFault} (client fault)
+ *  <p>Storage of the <code>StorageType</code> specified can't be associated
+ *             with the DB instance.</p>
+ *
+ *
  * @example To restore a DB instance from a DB snapshot.
  * ```javascript
  * // The following example restores a DB instance from a DB snapshot.

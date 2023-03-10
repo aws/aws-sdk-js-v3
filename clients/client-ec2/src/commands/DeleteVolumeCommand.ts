@@ -46,6 +46,7 @@ export interface DeleteVolumeCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteVolumeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To delete a volume
  * ```javascript
  * // This example deletes an available volume with the volume ID of ``vol-049df61146c4d7901``. If the command succeeds, no output is returned.

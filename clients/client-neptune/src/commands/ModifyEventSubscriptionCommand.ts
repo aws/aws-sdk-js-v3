@@ -54,6 +54,25 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the number of events you can subscribe to.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>The SNS topic is invalid.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>There is no SNS authorization.</p>
+ *
+ * @throws {@link SNSTopicArnNotFoundFault} (client fault)
+ *  <p>The ARN of the SNS topic could not be found.</p>
+ *
+ * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
+ *  <p>The designated subscription category could not be found.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The designated subscription could not be found.</p>
+ *
+ *
  */
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,

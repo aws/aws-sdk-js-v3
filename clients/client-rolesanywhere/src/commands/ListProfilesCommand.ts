@@ -54,6 +54,13 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * @see {@link ListProfilesCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validation exception error.</p>
+ *
+ *
  */
 export class ListProfilesCommand extends $Command<
   ListProfilesCommandInput,

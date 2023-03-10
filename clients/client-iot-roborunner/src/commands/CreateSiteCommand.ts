@@ -50,6 +50,25 @@ export interface CreateSiteCommandOutput extends CreateSiteResponse, __MetadataB
  * @see {@link CreateSiteCommandOutput} for command's `response` shape.
  * @see {@link IoTRoboRunnerClientResolvedConfig | config} for IoTRoboRunnerClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *   User does not have sufficient access to perform this action.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  Exception thrown if a resource in a create request already exists.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Exception thrown if something goes wrong within the service.
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  Exception thrown if the user's AWS account has reached a service limit and the operation cannot proceed.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Exception thrown if the api has been called too quickly be the client.
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  Exception thrown if an invalid parameter is provided to an API.
+ *
+ *
  */
 export class CreateSiteCommand extends $Command<
   CreateSiteCommandInput,

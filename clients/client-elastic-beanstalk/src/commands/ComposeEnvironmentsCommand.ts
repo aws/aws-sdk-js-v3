@@ -55,6 +55,14 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * @see {@link ComposeEnvironmentsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link TooManyEnvironmentsException} (client fault)
+ *  <p>The specified account has reached its limit of environments.</p>
+ *
+ *
  */
 export class ComposeEnvironmentsCommand extends $Command<
   ComposeEnvironmentsCommandInput,

@@ -53,6 +53,22 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * @see {@link PutAlternateContactCommandOutput} for command's `response` shape.
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The operation failed because the calling identity doesn't have the minimum required
+ *             permissions.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again
+ *             later.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The operation failed because it was called too frequently and exceeded a throttle
+ *             limit.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation failed because one of the input parameters was invalid.</p>
+ *
+ *
  */
 export class PutAlternateContactCommand extends $Command<
   PutAlternateContactCommandInput,

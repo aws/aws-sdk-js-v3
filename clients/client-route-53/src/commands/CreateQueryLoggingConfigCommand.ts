@@ -218,6 +218,51 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  * @see {@link CreateQueryLoggingConfigCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InsufficientCloudWatchLogsResourcePolicy} (client fault)
+ *  <p>Amazon Route 53 doesn't have the permissions required to create log streams and send
+ * 			query logs to log streams. Possible causes include the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>There is no resource policy that specifies the log group ARN in the value for
+ * 						<code>Resource</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>The resource policy that includes the log group ARN in the value for
+ * 						<code>Resource</code> doesn't have the necessary permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>The resource policy hasn't finished propagating yet.</p>
+ *             </li>
+ *             <li>
+ *                <p>The Key management service (KMS) key you specified doesn’t exist or it can’t
+ * 					be used with the log group associated with query log. Update or provide a
+ * 					resource policy to grant permissions for the KMS key.</p>
+ *             </li>
+ *             <li>
+ *                <p>The Key management service (KMS) key you specified is marked as
+ * 				disabled for the log group associated with query log. Update or provide
+ * 				a resource policy to grant permissions for the KMS key.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchCloudWatchLogsLogGroup} (client fault)
+ *  <p>There is no CloudWatch Logs log group with the specified ARN.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link QueryLoggingConfigAlreadyExists} (client fault)
+ *  <p>You can create only one query logging configuration for a hosted zone, and a query
+ * 			logging configuration already exists for this hosted zone.</p>
+ *
+ *
  */
 export class CreateQueryLoggingConfigCommand extends $Command<
   CreateQueryLoggingConfigCommandInput,

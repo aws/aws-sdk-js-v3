@@ -52,6 +52,16 @@ export interface DeleteDeviceUsageDataCommandOutput extends DeleteDeviceUsageDat
  * @see {@link DeleteDeviceUsageDataCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link DeviceNotRegisteredException} (client fault)
+ *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class DeleteDeviceUsageDataCommand extends $Command<
   DeleteDeviceUsageDataCommandInput,

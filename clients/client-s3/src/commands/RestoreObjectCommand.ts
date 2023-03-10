@@ -334,6 +334,10 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * @see {@link RestoreObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link ObjectAlreadyInActiveTierError} (client fault)
+ *  <p>This action is not allowed against this storage tier.</p>
+ *
+ *
  * @example To restore an archived object
  * ```javascript
  * // The following example restores for one day an archived copy of an object back into Amazon S3 bucket.

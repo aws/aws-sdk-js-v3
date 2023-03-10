@@ -50,6 +50,16 @@ export interface ListGitHubAccountTokenNamesCommandOutput extends ListGitHubAcco
  * @see {@link ListGitHubAccountTokenNamesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>The API used does not support the deployment.</p>
+ *
+ * @throws {@link ResourceValidationException} (client fault)
+ *  <p>The specified resource could not be validated.</p>
+ *
+ *
  */
 export class ListGitHubAccountTokenNamesCommand extends $Command<
   ListGitHubAccountTokenNamesCommandInput,

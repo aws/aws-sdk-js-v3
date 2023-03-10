@@ -50,6 +50,17 @@ export interface DescribeInventoryDeletionsCommandOutput extends DescribeInvento
  * @see {@link DescribeInventoryDeletionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDeletionIdException} (client fault)
+ *  <p>The ID specified for the delete operation doesn't exist or isn't valid. Verify the ID and
+ *    try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ *
  */
 export class DescribeInventoryDeletionsCommand extends $Command<
   DescribeInventoryDeletionsCommandInput,

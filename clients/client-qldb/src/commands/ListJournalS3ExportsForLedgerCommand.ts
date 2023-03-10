@@ -57,6 +57,7 @@ export interface ListJournalS3ExportsForLedgerCommandOutput
  * @see {@link ListJournalS3ExportsForLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ *
  */
 export class ListJournalS3ExportsForLedgerCommand extends $Command<
   ListJournalS3ExportsForLedgerCommandInput,

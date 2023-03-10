@@ -82,6 +82,37 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * @see {@link CreateFileSystemFromBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @throws {@link ActiveDirectoryError} (client fault)
+ *  <p>An Active Directory error.</p>
+ *
+ * @throws {@link BackupNotFound} (client fault)
+ *  <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link InvalidNetworkSettings} (client fault)
+ *  <p>One or more network settings specified in the request are invalid.</p>
+ *
+ * @throws {@link InvalidPerUnitStorageThroughput} (client fault)
+ *  <p>An invalid value for <code>PerUnitStorageThroughput</code> was provided. Please create your file system again, using a valid value.</p>
+ *
+ * @throws {@link MissingFileSystemConfiguration} (client fault)
+ *  <p>A file system configuration is required for this operation.</p>
+ *
+ * @throws {@link ServiceLimitExceeded} (client fault)
+ *  <p>An error indicating that a particular service limit was exceeded. You can increase
+ *             some service limits by contacting Amazon Web Services Support.</p>
+ *
+ *
  * @example To create a new file system from backup
  * ```javascript
  * // This operation creates a new file system from backup.

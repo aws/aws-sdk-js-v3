@@ -53,6 +53,7 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @see {@link StopNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class StopNotebookInstanceCommand extends $Command<
   StopNotebookInstanceCommandInput,

@@ -55,6 +55,18 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * @see {@link CloneReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>Indicates that a resource could not be created because of a naming conflict.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Indicates that a resource could not be created because of service limits. For a list
+ *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ *
+ * @throws {@link RuleSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ *
  * @example CloneReceiptRuleSet
  * ```javascript
  * // The following example creates a receipt rule set by cloning an existing one:

@@ -50,6 +50,11 @@ export interface TerminateEnvironmentCommandOutput extends EnvironmentDescriptio
  * @see {@link TerminateEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ *
  * @example To terminate an environment
  * ```javascript
  * // The following operation terminates an Elastic Beanstalk environment named my-env:

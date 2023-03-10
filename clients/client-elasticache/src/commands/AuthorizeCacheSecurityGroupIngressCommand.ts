@@ -58,6 +58,22 @@ export interface AuthorizeCacheSecurityGroupIngressCommandOutput
  * @see {@link AuthorizeCacheSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link AuthorizationAlreadyExistsFault} (client fault)
+ *  <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>
+ *
+ * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
+ *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *
+ * @throws {@link InvalidCacheSecurityGroupStateFault} (client fault)
+ *  <p>The current state of the cache security group does not allow deletion.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ *
  * @example AuthorizeCacheCacheSecurityGroupIngress
  * ```javascript
  * // Allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2. Amazon EC2 security groups are used as the authorization mechanism.

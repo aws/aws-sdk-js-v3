@@ -77,6 +77,13 @@ export interface CountPendingActivityTasksCommandOutput extends PendingTaskCount
  * @see {@link CountPendingActivityTasksCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ *
  */
 export class CountPendingActivityTasksCommand extends $Command<
   CountPendingActivityTasksCommandInput,

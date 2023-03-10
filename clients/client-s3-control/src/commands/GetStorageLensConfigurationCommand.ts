@@ -58,6 +58,7 @@ export interface GetStorageLensConfigurationCommandOutput extends GetStorageLens
  * @see {@link GetStorageLensConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class GetStorageLensConfigurationCommand extends $Command<
   GetStorageLensConfigurationCommandInput,

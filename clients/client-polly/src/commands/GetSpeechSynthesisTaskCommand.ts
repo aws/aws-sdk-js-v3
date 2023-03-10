@@ -53,6 +53,18 @@ export interface GetSpeechSynthesisTaskCommandOutput extends GetSpeechSynthesisT
  * @see {@link GetSpeechSynthesisTaskCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ * @throws {@link InvalidTaskIdException} (client fault)
+ *  <p>The provided Task ID is not valid. Please provide a valid Task ID and
+ *       try again.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>An unknown condition has caused a service failure.</p>
+ *
+ * @throws {@link SynthesisTaskNotFoundException} (client fault)
+ *  <p>The Speech Synthesis task with requested Task ID cannot be
+ *       found.</p>
+ *
+ *
  */
 export class GetSpeechSynthesisTaskCommand extends $Command<
   GetSpeechSynthesisTaskCommandInput,

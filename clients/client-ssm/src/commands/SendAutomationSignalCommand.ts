@@ -51,6 +51,21 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * @see {@link SendAutomationSignalCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link AutomationExecutionNotFoundException} (client fault)
+ *  <p>There is no automation execution information for the requested automation execution
+ *    ID.</p>
+ *
+ * @throws {@link AutomationStepNotFoundException} (client fault)
+ *  <p>The specified step name and execution ID don't exist. Verify the information and try
+ *    again.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAutomationSignalException} (client fault)
+ *  <p>The signal isn't valid for the current Automation execution.</p>
+ *
+ *
  */
 export class SendAutomationSignalCommand extends $Command<
   SendAutomationSignalCommandInput,

@@ -50,6 +50,13 @@ export interface StartTransactionCommandOutput extends StartTransactionResponse,
  * @see {@link StartTransactionCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class StartTransactionCommand extends $Command<
   StartTransactionCommandInput,

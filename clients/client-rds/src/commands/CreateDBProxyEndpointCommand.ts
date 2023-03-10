@@ -52,6 +52,22 @@ export interface CreateDBProxyEndpointCommandOutput extends CreateDBProxyEndpoin
  * @see {@link CreateDBProxyEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBProxyEndpointAlreadyExistsFault} (client fault)
+ *  <p>The specified DB proxy endpoint name must be unique for all DB proxy endpoints owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * @throws {@link DBProxyEndpointQuotaExceededFault} (client fault)
+ *  <p>The DB proxy already has the maximum number of endpoints.</p>
+ *
+ * @throws {@link DBProxyNotFoundFault} (client fault)
+ *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ * @throws {@link InvalidDBProxyStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the proxy is in this state.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>
+ *
+ *
  */
 export class CreateDBProxyEndpointCommand extends $Command<
   CreateDBProxyEndpointCommandInput,

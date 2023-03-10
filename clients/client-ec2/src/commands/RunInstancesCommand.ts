@@ -104,6 +104,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * @see {@link RunInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To launch an instance
  * ```javascript
  * // This example launches an instance using the specified AMI, instance type, security group, subnet, block device mapping, and tags.

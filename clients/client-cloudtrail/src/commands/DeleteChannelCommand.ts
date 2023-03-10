@@ -50,6 +50,20 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @see {@link DeleteChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link ChannelARNInvalidException} (client fault)
+ *  <p>This exception is thrown when the specified value of <code>ChannelARN</code> is not
+ *          valid.</p>
+ *
+ * @throws {@link ChannelNotFoundException} (client fault)
+ *  <p>This exception is thrown when CloudTrail cannot find the specified channel.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class DeleteChannelCommand extends $Command<
   DeleteChannelCommandInput,

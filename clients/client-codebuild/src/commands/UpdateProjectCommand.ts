@@ -50,6 +50,13 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ *
  */
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,

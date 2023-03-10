@@ -52,6 +52,10 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * @see {@link AuthorizeDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidDataShareFault} (client fault)
+ *  <p>There is an error with the datashare.</p>
+ *
+ *
  */
 export class AuthorizeDataShareCommand extends $Command<
   AuthorizeDataShareCommandInput,

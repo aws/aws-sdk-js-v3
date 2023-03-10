@@ -52,6 +52,33 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * @see {@link DescribeQueryCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link QueryIdNotFoundException} (client fault)
+ *  <p>The query ID does not exist or does not map to a query.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class DescribeQueryCommand extends $Command<
   DescribeQueryCommandInput,

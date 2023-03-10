@@ -58,6 +58,7 @@ export interface PurchaseScheduledInstancesCommandOutput extends PurchaseSchedul
  * @see {@link PurchaseScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To purchase a Scheduled Instance
  * ```javascript
  * // This example purchases a Scheduled Instance.

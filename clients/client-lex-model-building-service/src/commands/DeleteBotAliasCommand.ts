@@ -57,6 +57,44 @@ export interface DeleteBotAliasCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBotAliasCommandOutput} for command's `response` shape.
  * @see {@link LexModelBuildingServiceClientResolvedConfig | config} for LexModelBuildingServiceClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or
+ *       a required field is missing. Check the field values, and try
+ *       again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> There was a conflict processing the request. Try your request
+ *       again. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal Amazon Lex error occurred. Try your request again.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a limit. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the
+ *       resource and try again.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource that you are attempting to delete is referred to by
+ *       another resource. Use this information to remove references to the
+ *       resource that you are trying to delete.</p>
+ *          <p>The body of the exception contains a JSON object that describes the
+ *       resource.</p>
+ *          <p>
+ *             <code>{ "resourceType": BOT | BOTALIAS | BOTCHANNEL |
+ *         INTENT,</code>
+ *          </p>
+ *          <p>
+ *             <code>"resourceReference": {</code>
+ *          </p>
+ *          <p>
+ *             <code>"name": <i>string</i>, "version":
+ *           <i>string</i> } }</code>
+ *          </p>
+ *
+ *
  */
 export class DeleteBotAliasCommand extends $Command<
   DeleteBotAliasCommandInput,

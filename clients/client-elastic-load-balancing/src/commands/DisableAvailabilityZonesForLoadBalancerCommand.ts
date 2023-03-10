@@ -64,6 +64,13 @@ export interface DisableAvailabilityZonesForLoadBalancerCommandOutput
  * @see {@link DisableAvailabilityZonesForLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ *
  * @example To disable an Availability Zone for a load balancer
  * ```javascript
  * // This example removes the specified Availability Zone from the set of Availability Zones for the specified load balancer.

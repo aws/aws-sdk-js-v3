@@ -73,6 +73,28 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
+ *  <p>You have reached the maximum number of event subscriptions.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>SNS has responded that there is a problem with the SNS topic specified.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You do not have permission to publish to the SNS topic ARN.</p>
+ *
+ * @throws {@link SNSTopicArnNotFoundFault} (client fault)
+ *  <p>The SNS topic ARN does not exist.</p>
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The requested source could not be found.</p>
+ *
+ * @throws {@link SubscriptionAlreadyExistFault} (client fault)
+ *  <p>The supplied subscription name already exists.</p>
+ *
+ * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
+ *  <p>The supplied category does not exist.</p>
+ *
+ *
  * @example To create an event notification subscription
  * ```javascript
  * // This example creates an event notification subscription.

@@ -44,6 +44,7 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __Metad
  * @see {@link XmlEmptyBlobsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class XmlEmptyBlobsCommand extends $Command<
   XmlEmptyBlobsCommandInput,

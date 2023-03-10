@@ -53,6 +53,18 @@ export interface ListMonitorEvaluationsCommandOutput extends ListMonitorEvaluati
  * @see {@link ListMonitorEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try
+ *       again.</p>
+ *
+ *
  */
 export class ListMonitorEvaluationsCommand extends $Command<
   ListMonitorEvaluationsCommandInput,

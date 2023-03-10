@@ -51,6 +51,13 @@ export interface PutDataLakeSettingsCommandOutput extends PutDataLakeSettingsRes
  * @see {@link PutDataLakeSettingsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ *
  */
 export class PutDataLakeSettingsCommand extends $Command<
   PutDataLakeSettingsCommandInput,

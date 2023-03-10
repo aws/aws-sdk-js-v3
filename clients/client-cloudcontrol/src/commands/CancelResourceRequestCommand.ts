@@ -53,6 +53,13 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * @see {@link CancelResourceRequestCommandOutput} for command's `response` shape.
  * @see {@link CloudControlClientResolvedConfig | config} for CloudControlClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>The resource is currently being modified by another operation.</p>
+ *
+ * @throws {@link RequestTokenNotFoundException} (client fault)
+ *  <p>A resource operation with the specified request token can't be found.</p>
+ *
+ *
  */
 export class CancelResourceRequestCommand extends $Command<
   CancelResourceRequestCommandInput,

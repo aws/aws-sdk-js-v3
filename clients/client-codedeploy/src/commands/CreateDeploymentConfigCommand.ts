@@ -50,6 +50,30 @@ export interface CreateDeploymentConfigCommandOutput extends CreateDeploymentCon
  * @see {@link CreateDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link DeploymentConfigAlreadyExistsException} (client fault)
+ *  <p>A deployment configuration with the specified name with the IAM user or
+ *                 Amazon Web Services account already exists.</p>
+ *
+ * @throws {@link DeploymentConfigLimitExceededException} (client fault)
+ *  <p>The deployment configurations limit was exceeded.</p>
+ *
+ * @throws {@link DeploymentConfigNameRequiredException} (client fault)
+ *  <p>The deployment configuration name was not specified.</p>
+ *
+ * @throws {@link InvalidComputePlatformException} (client fault)
+ *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * @throws {@link InvalidDeploymentConfigNameException} (client fault)
+ *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidMinimumHealthyHostValueException} (client fault)
+ *  <p>The minimum healthy instance value was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTrafficRoutingConfigurationException} (client fault)
+ *  <p> The configuration that specifies how traffic is routed during a deployment is
+ *             invalid.</p>
+ *
+ *
  */
 export class CreateDeploymentConfigCommand extends $Command<
   CreateDeploymentConfigCommandInput,

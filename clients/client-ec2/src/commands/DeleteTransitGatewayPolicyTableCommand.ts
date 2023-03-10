@@ -52,6 +52,7 @@ export interface DeleteTransitGatewayPolicyTableCommandOutput
  * @see {@link DeleteTransitGatewayPolicyTableCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeleteTransitGatewayPolicyTableCommand extends $Command<
   DeleteTransitGatewayPolicyTableCommandInput,

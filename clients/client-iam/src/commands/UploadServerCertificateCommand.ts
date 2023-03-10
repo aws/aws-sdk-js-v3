@@ -73,6 +73,35 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * @see {@link UploadServerCertificateCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The request was rejected because multiple requests to change this object were submitted
+ *       simultaneously. Wait a few minutes and submit your request again.</p>
+ *
+ * @throws {@link EntityAlreadyExistsException} (client fault)
+ *  <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link KeyPairMismatchException} (client fault)
+ *  <p>The request was rejected because the public key certificate and the private key do not
+ *       match.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *       account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link MalformedCertificateException} (client fault)
+ *  <p>The request was rejected because the certificate was malformed or expired. The error
+ *       message describes the specific error.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
  * @example To upload a server certificate to your AWS account
  * ```javascript
  * // The following upload-server-certificate command uploads a server certificate to your AWS account:

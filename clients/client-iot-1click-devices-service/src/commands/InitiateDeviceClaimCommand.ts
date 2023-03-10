@@ -58,6 +58,15 @@ export interface InitiateDeviceClaimCommandOutput extends InitiateDeviceClaimRes
  * @see {@link InitiateDeviceClaimCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *
+ *
  */
 export class InitiateDeviceClaimCommand extends $Command<
   InitiateDeviceClaimCommandInput,

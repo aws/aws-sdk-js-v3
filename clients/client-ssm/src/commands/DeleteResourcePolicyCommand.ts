@@ -53,6 +53,19 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourcePolicyConflictException} (client fault)
+ *  <p>The hash provided in the call doesn't match the stored hash. This exception is thrown when
+ *    trying to update an obsolete policy version or when multiple requests to update a policy are
+ *    sent.</p>
+ *
+ * @throws {@link ResourcePolicyInvalidParameterException} (client fault)
+ *  <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
+ *    values and try again.</p>
+ *
+ *
  */
 export class DeleteResourcePolicyCommand extends $Command<
   DeleteResourcePolicyCommandInput,

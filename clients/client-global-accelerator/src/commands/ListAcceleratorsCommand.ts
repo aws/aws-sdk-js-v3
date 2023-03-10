@@ -54,6 +54,16 @@ export interface ListAcceleratorsCommandOutput extends ListAcceleratorsResponse,
  * @see {@link ListAcceleratorsCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>There isn't another item to return.</p>
+ *
+ *
  */
 export class ListAcceleratorsCommand extends $Command<
   ListAcceleratorsCommandInput,

@@ -60,6 +60,24 @@ export interface SetLoadBalancerListenerSSLCertificateCommandOutput
  * @see {@link SetLoadBalancerListenerSSLCertificateCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link CertificateNotFoundException} (client fault)
+ *  <p>The specified ARN does not refer to a valid SSL certificate in AWS Identity and Access Management (IAM)
+ *             or AWS Certificate Manager (ACM). Note that if you recently uploaded the certificate to IAM, this error might
+ *             indicate that the certificate is not fully available yet.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The load balancer does not have a listener configured at the specified port.</p>
+ *
+ * @throws {@link UnsupportedProtocolException} (client fault)
+ *  <p>The specified protocol or signature version is not supported.</p>
+ *
+ *
  * @example To update the SSL certificate for an HTTPS listener
  * ```javascript
  * // This example replaces the existing SSL certificate for the specified HTTPS listener.

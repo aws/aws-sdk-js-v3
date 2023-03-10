@@ -62,6 +62,7 @@ export interface RequestSpotInstancesCommandOutput extends RequestSpotInstancesR
  * @see {@link RequestSpotInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To create a one-time Spot Instance request
  * ```javascript
  * // This example creates a one-time Spot Instance request for five instances in the specified Availability Zone. If your account supports EC2-VPC only, Amazon EC2 launches the instances in the default subnet of the specified Availability Zone. If your account supports EC2-Classic, Amazon EC2 launches the instances in EC2-Classic in the specified Availability Zone.

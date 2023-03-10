@@ -56,6 +56,24 @@ export interface CreateFleetAdvisorCollectorCommandOutput
  * @see {@link CreateFleetAdvisorCollectorCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceQuotaExceededFault} (client fault)
+ *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * @throws {@link S3AccessDeniedFault} (client fault)
+ *  <p>Insufficient privileges are preventing access to an Amazon S3 object.</p>
+ *
+ * @throws {@link S3ResourceNotFoundFault} (client fault)
+ *  <p>A specified Amazon S3 bucket, bucket folder, or other object can't be
+ *             found.</p>
+ *
+ *
  */
 export class CreateFleetAdvisorCollectorCommand extends $Command<
   CreateFleetAdvisorCollectorCommandInput,

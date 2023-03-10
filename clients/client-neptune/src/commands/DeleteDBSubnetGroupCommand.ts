@@ -48,6 +48,18 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDBSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBSubnetGroupName</i> does not refer to an
+ *       existing DB subnet group.</p>
+ *
+ * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
+ *  <p>The DB subnet group cannot be deleted because it is in use.</p>
+ *
+ * @throws {@link InvalidDBSubnetStateFault} (client fault)
+ *  <p>The DB subnet is not in the <i>available</i> state.</p>
+ *
+ *
  */
 export class DeleteDBSubnetGroupCommand extends $Command<
   DeleteDBSubnetGroupCommandInput,

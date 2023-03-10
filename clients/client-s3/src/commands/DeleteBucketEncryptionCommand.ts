@@ -67,6 +67,7 @@ export interface DeleteBucketEncryptionCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketEncryptionCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  */
 export class DeleteBucketEncryptionCommand extends $Command<
   DeleteBucketEncryptionCommandInput,

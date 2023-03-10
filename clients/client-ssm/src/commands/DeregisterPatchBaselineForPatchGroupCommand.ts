@@ -52,6 +52,13 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * @see {@link DeregisterPatchBaselineForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidResourceId} (client fault)
+ *  <p>The resource ID isn't valid. Verify that you entered the correct ID and try again.</p>
+ *
+ *
  */
 export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
   DeregisterPatchBaselineForPatchGroupCommandInput,

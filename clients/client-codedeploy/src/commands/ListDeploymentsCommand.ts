@@ -51,6 +51,40 @@ export interface ListDeploymentsCommandOutput extends ListDeploymentsOutput, __M
  * @see {@link ListDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link ApplicationDoesNotExistException} (client fault)
+ *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
+ *  <p>The named deployment group with the IAM user or Amazon Web Services account does not exist.</p>
+ *
+ * @throws {@link DeploymentGroupNameRequiredException} (client fault)
+ *  <p>The deployment group name was not specified.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentGroupNameException} (client fault)
+ *  <p>The deployment group name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentStatusException} (client fault)
+ *  <p>The specified deployment status doesn't exist or cannot be determined.</p>
+ *
+ * @throws {@link InvalidExternalIdException} (client fault)
+ *  <p>The external ID was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTimeRangeException} (client fault)
+ *  <p>The specified time range was specified in an invalid format.</p>
+ *
+ *
  */
 export class ListDeploymentsCommand extends $Command<
   ListDeploymentsCommandInput,

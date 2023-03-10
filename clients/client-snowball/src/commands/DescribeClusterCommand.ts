@@ -51,6 +51,11 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * @see {@link DescribeClusterCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ *
  * @example To describe a cluster
  * ```javascript
  * // Returns information about a specific cluster including shipping information, cluster status, and other important metadata.

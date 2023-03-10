@@ -50,6 +50,10 @@ export interface DeauthorizeDataShareCommandOutput extends DataShare, __Metadata
  * @see {@link DeauthorizeDataShareCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidDataShareFault} (client fault)
+ *  <p>There is an error with the datashare.</p>
+ *
+ *
  */
 export class DeauthorizeDataShareCommand extends $Command<
   DeauthorizeDataShareCommandInput,

@@ -62,6 +62,23 @@ export interface DeleteAcceleratorCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAcceleratorCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link AcceleratorNotDisabledException} (client fault)
+ *  <p>The accelerator that you specified could not be disabled.</p>
+ *
+ * @throws {@link AcceleratorNotFoundException} (client fault)
+ *  <p>The accelerator that you specified doesn't exist.</p>
+ *
+ * @throws {@link AssociatedListenerFoundException} (client fault)
+ *  <p>The accelerator that you specified has a listener associated with it. You must remove all dependent resources from an
+ * 			accelerator before you can delete it.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ *
  */
 export class DeleteAcceleratorCommand extends $Command<
   DeleteAcceleratorCommandInput,

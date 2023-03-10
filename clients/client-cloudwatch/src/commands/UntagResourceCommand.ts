@@ -50,6 +50,19 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>More than one process tried to modify a resource at the same time.</p>
+ *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The named resource does not exist.</p>
+ *
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

@@ -50,6 +50,7 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * @see {@link DescribeVpcAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe the enableDnsSupport attribute
  * ```javascript
  * // This example describes the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.

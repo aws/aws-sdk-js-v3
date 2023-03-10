@@ -49,6 +49,11 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @see {@link ListGroupsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
  * @example To list the IAM groups for the current account
  * ```javascript
  * // The following command lists the IAM groups in the current account:

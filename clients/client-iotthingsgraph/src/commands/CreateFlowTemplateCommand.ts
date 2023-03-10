@@ -54,6 +54,22 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  * @see {@link CreateFlowTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class CreateFlowTemplateCommand extends $Command<
   CreateFlowTemplateCommandInput,

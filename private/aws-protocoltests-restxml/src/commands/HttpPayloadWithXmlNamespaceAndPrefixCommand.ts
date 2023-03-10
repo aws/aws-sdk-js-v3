@@ -50,6 +50,7 @@ export interface HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
  * @see {@link HttpPayloadWithXmlNamespaceAndPrefixCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class HttpPayloadWithXmlNamespaceAndPrefixCommand extends $Command<
   HttpPayloadWithXmlNamespaceAndPrefixCommandInput,

@@ -53,6 +53,16 @@ export interface ListRecordingConfigurationsCommandOutput
  * @see {@link ListRecordingConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class ListRecordingConfigurationsCommand extends $Command<
   ListRecordingConfigurationsCommandInput,

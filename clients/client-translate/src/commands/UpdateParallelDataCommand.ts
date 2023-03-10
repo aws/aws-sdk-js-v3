@@ -51,6 +51,38 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  * @see {@link UpdateParallelDataCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Try your request again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of the parameter is not valid. Review the value of the parameter you are using
+ *       to correct it, and then retry your operation.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p> The request that you made is not valid. Check your request to determine why it's not
+ *       valid and then retry the request. </p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The specified limit has been exceeded. Review your request and retry it with a quantity
+ *       below the stated limit.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you are looking for has not been found. Review the resource you're looking
+ *       for and see if a different resource will accomplish your needs before retrying the revised
+ *       request.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again.</p>
+ *
+ *
  */
 export class UpdateParallelDataCommand extends $Command<
   UpdateParallelDataCommandInput,

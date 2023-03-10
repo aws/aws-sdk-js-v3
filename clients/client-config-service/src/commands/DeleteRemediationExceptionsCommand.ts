@@ -56,6 +56,10 @@ export interface DeleteRemediationExceptionsCommandOutput
  * @see {@link DeleteRemediationExceptionsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link NoSuchRemediationExceptionException} (client fault)
+ *  <p>You tried to delete a remediation exception that does not exist.</p>
+ *
+ *
  */
 export class DeleteRemediationExceptionsCommand extends $Command<
   DeleteRemediationExceptionsCommandInput,

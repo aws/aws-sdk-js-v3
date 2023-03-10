@@ -50,6 +50,16 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * @see {@link ModifyClientPropertiesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The user is not authorized to access a resource.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  */
 export class ModifyClientPropertiesCommand extends $Command<
   ModifyClientPropertiesCommandInput,

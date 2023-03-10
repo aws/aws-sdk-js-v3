@@ -58,6 +58,20 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * @see {@link GetCalendarStateCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidDocumentType} (client fault)
+ *  <p>The SSM document type isn't valid. Valid document types are described in the
+ *     <code>DocumentType</code> property.</p>
+ *
+ * @throws {@link UnsupportedCalendarException} (client fault)
+ *  <p>The calendar entry contained in the specified SSM document isn't supported.</p>
+ *
+ *
  */
 export class GetCalendarStateCommand extends $Command<
   GetCalendarStateCommandInput,

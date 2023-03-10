@@ -49,6 +49,7 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  * @see {@link GetAccountSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example GetAccountSendingEnabled
  * ```javascript
  * // The following example returns if sending status for an account is enabled. (true / false):

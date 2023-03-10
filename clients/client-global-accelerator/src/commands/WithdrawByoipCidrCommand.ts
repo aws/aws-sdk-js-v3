@@ -60,6 +60,23 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrRespons
  * @see {@link WithdrawByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have access permission.</p>
+ *
+ * @throws {@link ByoipCidrNotFoundException} (client fault)
+ *  <p>The CIDR that you specified was not found or is incorrect.</p>
+ *
+ * @throws {@link IncorrectCidrStateException} (client fault)
+ *  <p>The CIDR that you specified is not valid for this action. For example, the state of the CIDR might be
+ * 		incorrect for this action.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ *
  */
 export class WithdrawByoipCidrCommand extends $Command<
   WithdrawByoipCidrCommandInput,

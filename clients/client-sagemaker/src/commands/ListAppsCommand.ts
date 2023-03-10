@@ -47,6 +47,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  * @see {@link ListAppsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListAppsCommand extends $Command<
   ListAppsCommandInput,

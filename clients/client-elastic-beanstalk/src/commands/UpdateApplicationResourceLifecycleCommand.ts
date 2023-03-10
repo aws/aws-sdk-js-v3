@@ -52,6 +52,11 @@ export interface UpdateApplicationResourceLifecycleCommandOutput
  * @see {@link UpdateApplicationResourceLifecycleCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ *
  */
 export class UpdateApplicationResourceLifecycleCommand extends $Command<
   UpdateApplicationResourceLifecycleCommandInput,

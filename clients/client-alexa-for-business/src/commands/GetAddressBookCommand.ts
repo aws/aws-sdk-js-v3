@@ -50,6 +50,10 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
  * @see {@link GetAddressBookCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class GetAddressBookCommand extends $Command<
   GetAddressBookCommandInput,

@@ -53,6 +53,15 @@ export interface DeleteAccessControlRuleCommandOutput extends DeleteAccessContro
  * @see {@link DeleteAccessControlRuleCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
+ *
  */
 export class DeleteAccessControlRuleCommand extends $Command<
   DeleteAccessControlRuleCommandInput,

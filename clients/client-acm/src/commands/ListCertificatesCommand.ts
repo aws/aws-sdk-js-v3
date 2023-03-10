@@ -53,6 +53,13 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @see {@link ListCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
+ * @throws {@link InvalidArgsException} (client fault)
+ *  <p>One or more of of request parameters specified is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ *
+ *
  */
 export class ListCertificatesCommand extends $Command<
   ListCertificatesCommandInput,

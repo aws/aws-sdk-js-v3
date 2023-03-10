@@ -50,6 +50,16 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  * @see {@link ListNodesCommandOutput} for command's `response` shape.
  * @see {@link PanoramaClientResolvedConfig | config} for PanoramaClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The target resource is in use.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request contains an invalid parameter value.</p>
+ *
+ *
  */
 export class ListNodesCommand extends $Command<
   ListNodesCommandInput,

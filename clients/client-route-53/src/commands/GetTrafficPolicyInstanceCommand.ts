@@ -62,6 +62,13 @@ export interface GetTrafficPolicyInstanceCommandOutput extends GetTrafficPolicyI
  * @see {@link GetTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicyInstance} (client fault)
+ *  <p>No traffic policy instance exists with the specified ID.</p>
+ *
+ *
  */
 export class GetTrafficPolicyInstanceCommand extends $Command<
   GetTrafficPolicyInstanceCommandInput,

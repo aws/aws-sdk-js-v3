@@ -58,6 +58,7 @@ export interface DescribeEventsCommandOutput extends DescribeEventsResponse, __M
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
  */
 export class DescribeEventsCommand extends $Command<
   DescribeEventsCommandInput,

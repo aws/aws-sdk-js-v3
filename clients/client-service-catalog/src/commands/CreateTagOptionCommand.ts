@@ -50,6 +50,19 @@ export interface CreateTagOptionCommandOutput extends CreateTagOptionOutput, __M
  * @see {@link CreateTagOptionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link DuplicateResourceException} (client fault)
+ *  <p>The specified resource is a duplicate.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The current limits of the service would have been exceeded by this operation. Decrease your
+ *          resource use or increase your service limits and retry the operation.</p>
+ *
+ * @throws {@link TagOptionNotMigratedException} (client fault)
+ *  <p>An operation requiring TagOptions failed because the TagOptions migration process has
+ *          not been performed for this account. Use the Amazon Web Services Management Console to perform the migration
+ *          process before retrying the operation.</p>
+ *
+ *
  */
 export class CreateTagOptionCommand extends $Command<
   CreateTagOptionCommandInput,

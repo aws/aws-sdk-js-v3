@@ -51,6 +51,29 @@ export interface CreateUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @see {@link CreateUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidUsageLimitFault} (client fault)
+ *  <p>The usage limit is not valid.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ * @throws {@link UsageLimitAlreadyExistsFault} (client fault)
+ *  <p>The usage limit already exists. </p>
+ *
+ *
  */
 export class CreateUsageLimitCommand extends $Command<
   CreateUsageLimitCommandInput,

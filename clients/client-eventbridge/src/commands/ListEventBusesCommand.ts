@@ -51,6 +51,10 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @see {@link ListEventBusesCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ *
  */
 export class ListEventBusesCommand extends $Command<
   ListEventBusesCommandInput,

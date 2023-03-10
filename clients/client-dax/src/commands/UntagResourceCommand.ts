@@ -51,6 +51,29 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *
+ * @throws {@link InvalidARNFault} (client fault)
+ *  <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The requested DAX cluster is not in the <i>available</i>
+ *             state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link TagNotFoundFault} (client fault)
+ *  <p>The tag does not exist.</p>
+ *
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

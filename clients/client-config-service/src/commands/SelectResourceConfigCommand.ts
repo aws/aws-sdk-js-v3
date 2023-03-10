@@ -54,6 +54,18 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  * @see {@link SelectResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link InvalidExpressionException} (client fault)
+ *  <p>The syntax of the query is incorrect.</p>
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is invalid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ *
  */
 export class SelectResourceConfigCommand extends $Command<
   SelectResourceConfigCommandInput,

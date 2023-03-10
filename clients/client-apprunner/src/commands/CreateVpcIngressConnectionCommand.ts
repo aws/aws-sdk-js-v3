@@ -50,6 +50,21 @@ export interface CreateVpcIngressConnectionCommandOutput extends CreateVpcIngres
  * @see {@link CreateVpcIngressConnectionCommandOutput} for command's `response` shape.
  * @see {@link AppRunnerClientResolvedConfig | config} for AppRunnerClient's `config` shape.
  *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An unexpected service exception occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>One or more input parameters aren't valid. Refer to the API action's document page, correct the input parameters, and try the action again.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>You can't perform this action when the resource is in its current state.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>App Runner can't create this resource. You've reached your account quota for this resource type.</p>
+ *          <p>For App Runner per-resource quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/apprunner.html">App Runner endpoints and quotas</a> in the
+ *         <i>Amazon Web Services General Reference</i>.</p>
+ *
+ *
  */
 export class CreateVpcIngressConnectionCommand extends $Command<
   CreateVpcIngressConnectionCommandInput,

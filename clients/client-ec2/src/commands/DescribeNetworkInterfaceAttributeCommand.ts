@@ -52,6 +52,7 @@ export interface DescribeNetworkInterfaceAttributeCommandOutput
  * @see {@link DescribeNetworkInterfaceAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe the attachment attribute of a network interface
  * ```javascript
  * // This example describes the attachment attribute of the specified network interface.

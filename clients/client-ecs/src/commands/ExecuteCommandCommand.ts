@@ -56,6 +56,43 @@ export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __M
  * @see {@link ExecuteCommandCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have authorization to perform the requested action.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link TargetNotConnectedException} (client fault)
+ *  <p>The execute command cannot run. This error can be caused by any of the following
+ * 			configuration issues:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Incorrect IAM permissions</p>
+ *             </li>
+ *             <li>
+ *                <p>The SSM agent is not installed or is not running</p>
+ *             </li>
+ *             <li>
+ *                <p> There is an interface Amazon VPC endpoint for Amazon ECS, but there is not one for
+ * 					for Systems Manager Session Manager</p>
+ *             </li>
+ *          </ul>
+ *          <p>For information about how to troubleshoot the issues, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-exec.html">Troubleshooting issues with ECS
+ * 				Exec</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *
+ *
  */
 export class ExecuteCommandCommand extends $Command<
   ExecuteCommandCommandInput,

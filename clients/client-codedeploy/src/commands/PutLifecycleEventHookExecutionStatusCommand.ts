@@ -60,6 +60,33 @@ export interface PutLifecycleEventHookExecutionStatusCommandOutput
  * @see {@link PutLifecycleEventHookExecutionStatusCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidLifecycleEventHookExecutionIdException} (client fault)
+ *  <p>A lifecycle event hook is invalid. Review the <code>hooks</code> section in your
+ *             AppSpec file to ensure the lifecycle events and <code>hooks</code> functions are
+ *             valid.</p>
+ *
+ * @throws {@link InvalidLifecycleEventHookExecutionStatusException} (client fault)
+ *  <p>The result of a Lambda validation function that verifies a lifecycle event
+ *             is invalid. It should return <code>Succeeded</code> or <code>Failed</code>.</p>
+ *
+ * @throws {@link LifecycleEventAlreadyCompletedException} (client fault)
+ *  <p>An attempt to return the status of an already completed lifecycle event
+ *             occurred.</p>
+ *
+ * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
+ *  <p>A call was submitted that is not supported for the specified deployment type.</p>
+ *
+ *
  */
 export class PutLifecycleEventHookExecutionStatusCommand extends $Command<
   PutLifecycleEventHookExecutionStatusCommandInput,

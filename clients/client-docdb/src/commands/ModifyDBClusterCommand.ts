@@ -52,6 +52,47 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * @see {@link ModifyDBClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link DBClusterAlreadyExistsFault} (client fault)
+ *  <p>You already have a cluster with the given identifier.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing cluster parameter group. </p>
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The cluster isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p> The specified instance isn't in the <i>available</i> state.
+ *         </p>
+ *
+ * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
+ *  <p>The state of the security group doesn't allow deletion.</p>
+ *
+ * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
+ *  <p>The subnet group can't be deleted because it's in use.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
+ *             in a common virtual private cloud (VPC).</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The subnet group doesn't cover all Availability Zones after it is created
+ *             because of changes that were made.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The request would cause you to exceed the allowed amount of storage available across
+ *             all instances.</p>
+ *
+ *
  */
 export class ModifyDBClusterCommand extends $Command<
   ModifyDBClusterCommandInput,

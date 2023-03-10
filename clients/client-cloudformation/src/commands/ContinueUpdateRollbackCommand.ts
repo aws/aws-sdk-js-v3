@@ -59,6 +59,10 @@ export interface ContinueUpdateRollbackCommandOutput extends ContinueUpdateRollb
  * @see {@link ContinueUpdateRollbackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link TokenAlreadyExistsException} (client fault)
+ *  <p>A client request token already exists.</p>
+ *
+ *
  */
 export class ContinueUpdateRollbackCommand extends $Command<
   ContinueUpdateRollbackCommandInput,

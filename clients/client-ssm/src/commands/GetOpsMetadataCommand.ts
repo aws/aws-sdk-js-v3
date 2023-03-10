@@ -50,6 +50,16 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  * @see {@link GetOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
+ *  <p>One of the arguments passed is invalid. </p>
+ *
+ * @throws {@link OpsMetadataNotFoundException} (client fault)
+ *  <p>The OpsMetadata object doesn't exist. </p>
+ *
+ *
  */
 export class GetOpsMetadataCommand extends $Command<
   GetOpsMetadataCommandInput,

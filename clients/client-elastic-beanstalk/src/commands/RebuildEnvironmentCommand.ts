@@ -46,6 +46,11 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  * @see {@link RebuildEnvironmentCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ *
  * @example To rebuild an environment
  * ```javascript
  * // The following operation terminates and recreates the resources in an environment named my-env:

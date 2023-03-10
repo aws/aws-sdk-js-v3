@@ -48,6 +48,17 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * @see {@link ModifyClusterSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidClusterSnapshotScheduleStateFault} (client fault)
+ *  <p>The cluster snapshot schedule state is not valid.</p>
+ *
+ * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
+ *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ *
  */
 export class ModifyClusterSnapshotScheduleCommand extends $Command<
   ModifyClusterSnapshotScheduleCommandInput,

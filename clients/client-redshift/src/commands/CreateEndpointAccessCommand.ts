@@ -50,6 +50,39 @@ export interface CreateEndpointAccessCommandOutput extends EndpointAccess, __Met
  * @see {@link CreateEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link AccessToClusterDeniedFault} (client fault)
+ *  <p>You are not authorized to access the cluster.</p>
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
+ *  <p>The cluster subnet group name does not refer to an existing cluster subnet
+ *             group.</p>
+ *
+ * @throws {@link EndpointAlreadyExistsFault} (client fault)
+ *  <p>The account already has a Redshift-managed VPC endpoint with the given identifier.</p>
+ *
+ * @throws {@link EndpointsPerAuthorizationLimitExceededFault} (client fault)
+ *  <p>The number of Redshift-managed VPC endpoints per authorization has exceeded its limit.</p>
+ *
+ * @throws {@link EndpointsPerClusterLimitExceededFault} (client fault)
+ *  <p>The number of Redshift-managed VPC endpoints per cluster has exceeded its limit.</p>
+ *
+ * @throws {@link InvalidClusterSecurityGroupStateFault} (client fault)
+ *  <p>The state of the cluster security group is not <code>available</code>. </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class CreateEndpointAccessCommand extends $Command<
   CreateEndpointAccessCommandInput,

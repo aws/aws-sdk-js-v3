@@ -45,6 +45,15 @@ export interface DeleteSnapshotCopyGrantCommandOutput extends __MetadataBearer {
  * @see {@link DeleteSnapshotCopyGrantCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidSnapshotCopyGrantStateFault} (client fault)
+ *  <p>The snapshot copy grant can't be deleted because it is used by one or more
+ *             clusters.</p>
+ *
+ * @throws {@link SnapshotCopyGrantNotFoundFault} (client fault)
+ *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
+ *             correctly and that the grant exists in the destination region.</p>
+ *
+ *
  */
 export class DeleteSnapshotCopyGrantCommand extends $Command<
   DeleteSnapshotCopyGrantCommandInput,

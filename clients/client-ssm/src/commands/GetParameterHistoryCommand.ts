@@ -56,6 +56,19 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  * @see {@link GetParameterHistoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidKeyId} (client fault)
+ *  <p>The query key ID isn't valid.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link ParameterNotFound} (client fault)
+ *  <p>The parameter couldn't be found. Verify the name and try again.</p>
+ *
+ *
  */
 export class GetParameterHistoryCommand extends $Command<
   GetParameterHistoryCommandInput,

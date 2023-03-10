@@ -50,6 +50,13 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResult, __Metadat
  * @see {@link GetPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchPublicKey} (client fault)
+ *  <p>The specified public key doesn't exist.</p>
+ *
+ *
  */
 export class GetPublicKeyCommand extends $Command<
   GetPublicKeyCommandInput,

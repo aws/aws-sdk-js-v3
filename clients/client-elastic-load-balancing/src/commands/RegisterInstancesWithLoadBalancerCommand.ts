@@ -72,6 +72,13 @@ export interface RegisterInstancesWithLoadBalancerCommandOutput extends Register
  * @see {@link RegisterInstancesWithLoadBalancerCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidEndPointException} (client fault)
+ *  <p>The specified endpoint is not valid.</p>
+ *
+ *
  * @example To register instances with a load balancer
  * ```javascript
  * // This example registers the specified instance with the specified load balancer.

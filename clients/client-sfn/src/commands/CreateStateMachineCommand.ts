@@ -69,6 +69,41 @@ export interface CreateStateMachineCommandOutput extends CreateStateMachineOutpu
  * @see {@link CreateStateMachineCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidDefinition} (client fault)
+ *  <p>The provided Amazon States Language definition is not valid.</p>
+ *
+ * @throws {@link InvalidLoggingConfiguration} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidName} (client fault)
+ *  <p>The provided name is not valid.</p>
+ *
+ * @throws {@link InvalidTracingConfiguration} (client fault)
+ *  <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
+ *       been set to <code>true</code> or <code>false</code>.</p>
+ *
+ * @throws {@link StateMachineAlreadyExists} (client fault)
+ *  <p>A state machine with the same name but a different definition or role ARN already
+ *       exists.</p>
+ *
+ * @throws {@link StateMachineDeleting} (client fault)
+ *  <p>The specified state machine is being deleted.</p>
+ *
+ * @throws {@link StateMachineLimitExceeded} (client fault)
+ *  <p>The maximum number of state machines has been reached. Existing state machines must be
+ *       deleted before a new state machine can be created.</p>
+ *
+ * @throws {@link StateMachineTypeNotSupported} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TooManyTags} (client fault)
+ *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
+ *       Step Functions Developer Guide.</p>
+ *
+ *
  */
 export class CreateStateMachineCommand extends $Command<
   CreateStateMachineCommandInput,

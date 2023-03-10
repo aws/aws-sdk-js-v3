@@ -64,6 +64,59 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * @see {@link GenerateRandomCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @throws {@link CustomKeyStoreInvalidStateException} (client fault)
+ *  <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
+ *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
+ *          <p>This exception is thrown under the following conditions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key
+ *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
+ *             <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>
+ *           values. To reconnect a custom key store in a <code>FAILED</code> state, disconnect it
+ *             (<a>DisconnectCustomKeyStore</a>), then connect it
+ *             (<code>ConnectCustomKeyStore</code>).</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>CreateKey</a> operation in a custom key store that is
+ *           not connected. This operations is valid only when the custom key store
+ *             <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>DisconnectCustomKeyStore</a> operation on a custom key
+ *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
+ *             <code>DISCONNECTED</code>. This operation is valid for all other
+ *             <code>ConnectionState</code> values.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
+ *           disconnected. This operation is valid only when the custom key store
+ *             <code>ConnectionState</code> is <code>DISCONNECTED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
+ *           that is not connected. This operation is valid only when the CloudHSM key store
+ *             <code>ConnectionState</code> is <code>CONNECTED</code>. </p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link CustomKeyStoreNotFoundException} (client fault)
+ *  <p>The request was rejected because KMS cannot find a custom key store with the specified
+ *       key store name or ID.</p>
+ *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified
+ *       resource is not valid for this operation.</p>
+ *
+ *
  * @example To generate random data
  * ```javascript
  * // The following example generates 32 bytes of random data.

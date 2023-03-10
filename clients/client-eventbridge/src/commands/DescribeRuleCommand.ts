@@ -52,6 +52,13 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * @see {@link DescribeRuleCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ *
  */
 export class DescribeRuleCommand extends $Command<
   DescribeRuleCommandInput,

@@ -62,6 +62,15 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  * @see {@link DescribeGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link GlobalTableNotFoundException} (client fault)
+ *  <p>The specified global table does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ *
  */
 export class DescribeGlobalTableCommand extends $Command<
   DescribeGlobalTableCommandInput,

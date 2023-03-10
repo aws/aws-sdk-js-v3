@@ -54,6 +54,25 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
+ *  <p>You have reached the maximum number of event subscriptions.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>SNS has responded that there is a problem with the SNS topic specified.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You do not have permission to publish to the SNS topic ARN.</p>
+ *
+ * @throws {@link SNSTopicArnNotFoundFault} (client fault)
+ *  <p>The SNS topic ARN does not exist.</p>
+ *
+ * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
+ *  <p>The supplied category does not exist.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist.</p>
+ *
+ *
  * @example To change event notification subscription settings
  * ```javascript
  * // This example changes the specified setting for the specified event notification subscription.

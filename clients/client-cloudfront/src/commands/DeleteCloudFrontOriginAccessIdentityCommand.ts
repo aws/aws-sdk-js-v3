@@ -48,6 +48,23 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  * @see {@link DeleteCloudFrontOriginAccessIdentityCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link CloudFrontOriginAccessIdentityInUse} (client fault)
+ *  <p>The Origin Access Identity specified is already in use.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchCloudFrontOriginAccessIdentity} (client fault)
+ *  <p>The specified origin access identity does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ *
  */
 export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command<
   DeleteCloudFrontOriginAccessIdentityCommandInput,

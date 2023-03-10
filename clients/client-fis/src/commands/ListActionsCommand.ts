@@ -50,6 +50,10 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * @see {@link ListActionsCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is not valid, or fails to satisfy the constraints for the request.</p>
+ *
+ *
  */
 export class ListActionsCommand extends $Command<
   ListActionsCommandInput,

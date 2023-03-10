@@ -52,6 +52,10 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * @see {@link GetQueueUrlCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link QueueDoesNotExist} (client fault)
+ *  <p>The specified queue doesn't exist.</p>
+ *
+ *
  */
 export class GetQueueUrlCommand extends $Command<
   GetQueueUrlCommandInput,

@@ -62,6 +62,13 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * @see {@link GetChangeCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchChange} (client fault)
+ *  <p>A change with the specified change ID does not exist.</p>
+ *
+ *
  */
 export class GetChangeCommand extends $Command<
   GetChangeCommandInput,

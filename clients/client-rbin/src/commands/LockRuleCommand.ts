@@ -50,6 +50,19 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * @see {@link LockRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The specified retention rule lock request can't be completed.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the parameters in the request is not valid.</p>
+ *
+ *
  */
 export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleCommandOutput, RbinClientResolvedConfig> {
   // Start section: command_properties

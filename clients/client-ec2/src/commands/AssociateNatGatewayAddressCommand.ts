@@ -51,6 +51,7 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  * @see {@link AssociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class AssociateNatGatewayAddressCommand extends $Command<
   AssociateNatGatewayAddressCommandInput,

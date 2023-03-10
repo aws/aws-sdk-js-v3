@@ -51,6 +51,16 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link InternalServiceFault} (server fault)
+ *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The named resource does not exist.</p>
+ *
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

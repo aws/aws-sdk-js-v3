@@ -50,6 +50,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link FisClientResolvedConfig | config} for FisClient's `config` shape.
  *
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

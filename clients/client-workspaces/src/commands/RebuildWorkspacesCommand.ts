@@ -58,6 +58,10 @@ export interface RebuildWorkspacesCommandOutput extends RebuildWorkspacesResult,
  * @see {@link RebuildWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
+ *
  */
 export class RebuildWorkspacesCommand extends $Command<
   RebuildWorkspacesCommandInput,

@@ -87,6 +87,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingResult, _
  * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class GetBucketTaggingCommand extends $Command<
   GetBucketTaggingCommandInput,

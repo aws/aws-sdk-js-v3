@@ -56,6 +56,13 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
  * @see {@link CreateDetectorCommandOutput} for command's `response` shape.
  * @see {@link GuardDutyClientResolvedConfig | config} for GuardDutyClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>A bad request exception object.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal server error exception object.</p>
+ *
+ *
  */
 export class CreateDetectorCommand extends $Command<
   CreateDetectorCommandInput,

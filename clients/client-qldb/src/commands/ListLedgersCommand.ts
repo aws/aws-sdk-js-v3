@@ -53,6 +53,7 @@ export interface ListLedgersCommandOutput extends ListLedgersResponse, __Metadat
  * @see {@link ListLedgersCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ *
  */
 export class ListLedgersCommand extends $Command<
   ListLedgersCommandInput,

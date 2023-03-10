@@ -61,6 +61,20 @@ export interface GetDeployablePatchSnapshotForInstanceCommandOutput
  * @see {@link GetDeployablePatchSnapshotForInstanceCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link UnsupportedFeatureRequiredException} (client fault)
+ *  <p>Patching for applications released by Microsoft is only available on EC2 instances and
+ *    advanced instances. To patch applications released by Microsoft on on-premises servers and VMs,
+ *    you must enable advanced instances. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Enabling
+ *     the advanced-instances tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *
+ * @throws {@link UnsupportedOperatingSystem} (client fault)
+ *  <p>The operating systems you specified isn't supported, or the operation isn't supported for
+ *    the operating system.</p>
+ *
+ *
  */
 export class GetDeployablePatchSnapshotForInstanceCommand extends $Command<
   GetDeployablePatchSnapshotForInstanceCommandInput,

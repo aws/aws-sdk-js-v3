@@ -50,6 +50,16 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
  * @see {@link StartBuildCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link AccountLimitExceededException} (client fault)
+ *  <p>An Amazon Web Services service limit was exceeded for the calling Amazon Web Services account.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified Amazon Web Services resource cannot be found.</p>
+ *
+ *
  */
 export class StartBuildCommand extends $Command<
   StartBuildCommandInput,

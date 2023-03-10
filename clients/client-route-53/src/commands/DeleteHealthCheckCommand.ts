@@ -64,6 +64,16 @@ export interface DeleteHealthCheckCommandOutput extends DeleteHealthCheckRespons
  * @see {@link DeleteHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link HealthCheckInUse} (client fault)
+ *  <p>This error code is not in use.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHealthCheck} (client fault)
+ *  <p>No health check exists with the specified ID.</p>
+ *
+ *
  */
 export class DeleteHealthCheckCommand extends $Command<
   DeleteHealthCheckCommandInput,

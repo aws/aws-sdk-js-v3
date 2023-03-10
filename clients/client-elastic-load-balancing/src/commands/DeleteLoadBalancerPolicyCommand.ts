@@ -54,6 +54,13 @@ export interface DeleteLoadBalancerPolicyCommandOutput extends DeleteLoadBalance
  * @see {@link DeleteLoadBalancerPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ *
  * @example To delete a policy from your load balancer
  * ```javascript
  * // This example deletes the specified policy from the specified load balancer. The policy must not be enabled on any listener.

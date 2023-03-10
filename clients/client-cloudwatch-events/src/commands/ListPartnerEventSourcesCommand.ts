@@ -51,6 +51,13 @@ export interface ListPartnerEventSourcesCommandOutput extends ListPartnerEventSo
  * @see {@link ListPartnerEventSourcesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link OperationDisabledException} (client fault)
+ *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ *
  */
 export class ListPartnerEventSourcesCommand extends $Command<
   ListPartnerEventSourcesCommandInput,

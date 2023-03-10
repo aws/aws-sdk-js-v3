@@ -58,6 +58,16 @@ export interface GetDeliverabilityDashboardOptionsCommandOutput
  * @see {@link GetDeliverabilityDashboardOptionsCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
+ *
  */
 export class GetDeliverabilityDashboardOptionsCommand extends $Command<
   GetDeliverabilityDashboardOptionsCommandInput,

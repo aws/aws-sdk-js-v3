@@ -65,6 +65,25 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * @see {@link CreateCacheParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A cache parameter group with the requested name already exists.</p>
+ *
+ * @throws {@link CacheParameterGroupQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>
+ *
+ * @throws {@link InvalidCacheParameterGroupStateFault} (client fault)
+ *  <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ *
  * @example CreateCacheParameterGroup
  * ```javascript
  * // Creates the Amazon ElastiCache parameter group custom-redis2-8.

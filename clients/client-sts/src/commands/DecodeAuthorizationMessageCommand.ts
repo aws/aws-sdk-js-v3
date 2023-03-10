@@ -86,6 +86,12 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  * @see {@link DecodeAuthorizationMessageCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
+ * @throws {@link InvalidAuthorizationMessageException} (client fault)
+ *  <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code>
+ *             was invalid. This can happen if the token contains invalid characters, such as
+ *             linebreaks. </p>
+ *
+ *
  * @example To decode information about an authorization status of a request
  * ```javascript
  * //

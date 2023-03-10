@@ -47,6 +47,7 @@ export interface DocumentTypeAsPayloadCommandOutput extends DocumentTypeAsPayloa
  * @see {@link DocumentTypeAsPayloadCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class DocumentTypeAsPayloadCommand extends $Command<
   DocumentTypeAsPayloadCommandInput,

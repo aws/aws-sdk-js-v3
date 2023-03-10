@@ -54,6 +54,13 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @see {@link ListDevicesCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickDevicesServiceClientResolvedConfig | config} for IoT1ClickDevicesServiceClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *
+ * @throws {@link RangeNotSatisfiableException} (client fault)
+ *
+ *
  */
 export class ListDevicesCommand extends $Command<
   ListDevicesCommandInput,

@@ -48,6 +48,14 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * @see {@link ResumeProcessesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ResourceInUseFault} (client fault)
+ *  <p>The operation can't be performed because the resource is in use.</p>
+ *
+ *
  * @example To resume Auto Scaling processes
  * ```javascript
  * // This example resumes the specified suspended scaling process for the specified Auto Scaling group.

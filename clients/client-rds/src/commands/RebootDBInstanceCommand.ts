@@ -59,6 +59,14 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * @see {@link RebootDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ *
  * @example To reboot a DB instance
  * ```javascript
  * // This example reboots the specified DB instance without forcing a failover.

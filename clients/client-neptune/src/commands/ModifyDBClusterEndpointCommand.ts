@@ -50,6 +50,23 @@ export interface ModifyDBClusterEndpointCommandOutput extends ModifyDBClusterEnd
  * @see {@link ModifyDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link DBClusterEndpointNotFoundFault} (client fault)
+ *  <p>The specified custom endpoint doesn't exist.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
+ *  <p>The requested operation cannot be performed on the endpoint while the endpoint is in this state.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ *
  */
 export class ModifyDBClusterEndpointCommand extends $Command<
   ModifyDBClusterEndpointCommandInput,

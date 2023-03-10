@@ -101,6 +101,7 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketCorsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  * @example To set cors configuration on a bucket.
  * ```javascript
  * // The following example enables PUT, POST, and DELETE requests from www.example.com, and enables GET requests from any domain.

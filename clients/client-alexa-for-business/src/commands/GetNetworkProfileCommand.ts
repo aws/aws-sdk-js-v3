@@ -50,6 +50,13 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileRespons
  * @see {@link GetNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link InvalidSecretsManagerResourceException} (client fault)
+ *  <p>A password in SecretsManager is in an invalid state.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class GetNetworkProfileCommand extends $Command<
   GetNetworkProfileCommandInput,

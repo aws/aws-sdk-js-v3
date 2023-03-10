@@ -45,6 +45,7 @@ export interface DescribeStorageCommandOutput extends CustomerStorageMessage, __
  * @see {@link DescribeStorageCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ *
  */
 export class DescribeStorageCommand extends $Command<
   DescribeStorageCommandInput,

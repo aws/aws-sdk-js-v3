@@ -56,6 +56,32 @@ export interface PutWebhookCommandOutput extends PutWebhookOutput, __MetadataBea
  * @see {@link PutWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * @throws {@link InvalidTagsException} (client fault)
+ *  <p>The specified resource tags are invalid.</p>
+ *
+ * @throws {@link InvalidWebhookAuthenticationParametersException} (client fault)
+ *  <p>The specified authentication type is in an invalid format.</p>
+ *
+ * @throws {@link InvalidWebhookFilterPatternException} (client fault)
+ *  <p>The specified event filter rule is in an invalid format.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The number of pipelines associated with the AWS account has exceeded the limit
+ *             allowed for the account.</p>
+ *
+ * @throws {@link PipelineNotFoundException} (client fault)
+ *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The tags limit for a resource has been exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class PutWebhookCommand extends $Command<
   PutWebhookCommandInput,

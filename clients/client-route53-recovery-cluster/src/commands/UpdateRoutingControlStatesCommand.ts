@@ -87,6 +87,31 @@ export interface UpdateRoutingControlStatesCommandOutput extends UpdateRoutingCo
  * @see {@link UpdateRoutingControlStatesCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryClusterClientResolvedConfig | config} for Route53RecoveryClusterClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict with this request. Try again.</p>
+ *
+ * @throws {@link EndpointTemporarilyUnavailableException} (server fault)
+ *  <p>The cluster endpoint isn't available. Try another cluster endpoint.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an unexpected error during processing of the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a routing control or control panel that was not found.</p>
+ *
+ * @throws {@link ServiceLimitExceededException} (client fault)
+ *  <p>The request can't update that many routing control states at the same time. Try again with fewer routing control states.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because of request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was a validation error on the request.</p>
+ *
+ *
  */
 export class UpdateRoutingControlStatesCommand extends $Command<
   UpdateRoutingControlStatesCommandInput,

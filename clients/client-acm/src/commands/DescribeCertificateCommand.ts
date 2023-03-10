@@ -52,6 +52,14 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * @see {@link DescribeCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account
+ *       cannot be found.</p>
+ *
+ *
  */
 export class DescribeCertificateCommand extends $Command<
   DescribeCertificateCommandInput,

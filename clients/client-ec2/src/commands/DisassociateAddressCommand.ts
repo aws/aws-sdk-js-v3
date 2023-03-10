@@ -52,6 +52,7 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * @see {@link DisassociateAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To disassociate an Elastic IP address in EC2-VPC
  * ```javascript
  * // This example disassociates an Elastic IP address from an instance in a VPC.

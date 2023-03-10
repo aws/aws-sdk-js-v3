@@ -98,6 +98,15 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link QueueDeletedRecently} (client fault)
+ *  <p>You must wait 60 seconds after deleting a queue before you can create another queue
+ *             with the same name.</p>
+ *
+ * @throws {@link QueueNameExists} (client fault)
+ *  <p>A queue with this name already exists. Amazon SQS returns this error only if the request
+ *             includes attributes whose values differ from those of the existing queue.</p>
+ *
+ *
  */
 export class CreateQueueCommand extends $Command<
   CreateQueueCommandInput,

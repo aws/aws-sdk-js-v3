@@ -52,6 +52,13 @@ export interface UpdateGroupCertificateConfigurationCommandOutput
  * @see {@link UpdateGroupCertificateConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  General error information.
+ *
+ *
  */
 export class UpdateGroupCertificateConfigurationCommand extends $Command<
   UpdateGroupCertificateConfigurationCommandInput,

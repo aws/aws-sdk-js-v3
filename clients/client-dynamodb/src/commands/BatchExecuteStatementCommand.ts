@@ -62,6 +62,15 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @see {@link BatchExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link RequestLimitExceeded} (client fault)
+ *  <p>Throughput exceeds the current throughput quota for your account. Please contact
+ *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *             quota increase.</p>
+ *
+ *
  */
 export class BatchExecuteStatementCommand extends $Command<
   BatchExecuteStatementCommandInput,

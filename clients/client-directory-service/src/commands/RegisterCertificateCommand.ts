@@ -50,6 +50,34 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * @see {@link RegisterCertificateCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
+ * @throws {@link CertificateAlreadyExistsException} (client fault)
+ *  <p>The certificate has already been registered into the system.</p>
+ *
+ * @throws {@link CertificateLimitExceededException} (client fault)
+ *  <p>The certificate could not be added because the certificate limit has been reached.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link InvalidCertificateException} (client fault)
+ *  <p>The certificate PEM that was provided has incorrect encoding.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ *
  */
 export class RegisterCertificateCommand extends $Command<
   RegisterCertificateCommandInput,

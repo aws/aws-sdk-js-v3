@@ -50,6 +50,16 @@ export interface RetryDataReplicationCommandOutput extends SourceServer, __Metad
  * @see {@link RetryDataReplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
+ *
  */
 export class RetryDataReplicationCommand extends $Command<
   RetryDataReplicationCommandInput,

@@ -51,6 +51,21 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  * @see {@link DeleteBillingGroupCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ * @throws {@link VersionConflictException} (client fault)
+ *  <p>An exception thrown when the version of an entity specified with the
+ *             <code>expectedVersion</code> parameter does not match the latest version in the
+ *          system.</p>
+ *
+ *
  */
 export class DeleteBillingGroupCommand extends $Command<
   DeleteBillingGroupCommandInput,

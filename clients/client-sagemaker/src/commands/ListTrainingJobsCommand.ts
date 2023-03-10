@@ -71,6 +71,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  * @see {@link ListTrainingJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListTrainingJobsCommand extends $Command<
   ListTrainingJobsCommandInput,

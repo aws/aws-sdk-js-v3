@@ -53,6 +53,10 @@ export interface GetQueueAttributesCommandOutput extends GetQueueAttributesResul
  * @see {@link GetQueueAttributesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link InvalidAttributeName} (client fault)
+ *  <p>The specified attribute doesn't exist.</p>
+ *
+ *
  */
 export class GetQueueAttributesCommand extends $Command<
   GetQueueAttributesCommandInput,

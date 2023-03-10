@@ -51,6 +51,14 @@ export interface DescribeResourceGroupsCommandOutput extends DescribeResourceGro
  * @see {@link DescribeResourceGroupsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ *
  * @example Describe resource groups
  * ```javascript
  * // Describes the resource groups that are specified by the ARNs of the resource groups.

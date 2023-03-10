@@ -54,6 +54,34 @@ export interface ListPendingInvitationResourcesCommandOutput
  * @see {@link ListPendingInvitationResourcesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required input parameter is missing.</p>
+ *
+ * @throws {@link ResourceShareInvitationAlreadyRejectedException} (client fault)
+ *  <p>The specified invitation was already rejected.</p>
+ *
+ * @throws {@link ResourceShareInvitationArnNotFoundException} (client fault)
+ *  <p>The specified Amazon Resource Name (ARN) for an invitation was not found.</p>
+ *
+ * @throws {@link ResourceShareInvitationExpiredException} (client fault)
+ *  <p>The specified invitation is expired.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ *
  */
 export class ListPendingInvitationResourcesCommand extends $Command<
   ListPendingInvitationResourcesCommandInput,

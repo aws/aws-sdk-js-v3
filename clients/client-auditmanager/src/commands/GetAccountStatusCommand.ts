@@ -50,6 +50,11 @@ export interface GetAccountStatusCommandOutput extends GetAccountStatusResponse,
  * @see {@link GetAccountStatusCommandOutput} for command's `response` shape.
  * @see {@link AuditManagerClientResolvedConfig | config} for AuditManagerClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *          later. </p>
+ *
+ *
  */
 export class GetAccountStatusCommand extends $Command<
   GetAccountStatusCommandInput,

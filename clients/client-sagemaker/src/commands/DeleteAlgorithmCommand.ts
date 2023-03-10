@@ -45,6 +45,7 @@ export interface DeleteAlgorithmCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class DeleteAlgorithmCommand extends $Command<
   DeleteAlgorithmCommandInput,

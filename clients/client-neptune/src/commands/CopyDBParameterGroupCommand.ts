@@ -50,6 +50,18 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  * @see {@link CopyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link DBParameterGroupAlreadyExistsFault} (client fault)
+ *  <p>A DB parameter group with the same name exists.</p>
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBParameterGroupName</i> does not refer to an
+ *       existing DB parameter group.</p>
+ *
+ * @throws {@link DBParameterGroupQuotaExceededFault} (client fault)
+ *  <p>Request would result in user exceeding the allowed number of DB parameter groups.</p>
+ *
+ *
  */
 export class CopyDBParameterGroupCommand extends $Command<
   CopyDBParameterGroupCommandInput,

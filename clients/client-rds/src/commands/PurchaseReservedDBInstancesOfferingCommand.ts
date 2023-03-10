@@ -52,6 +52,16 @@ export interface PurchaseReservedDBInstancesOfferingCommandOutput
  * @see {@link PurchaseReservedDBInstancesOfferingCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link ReservedDBInstanceAlreadyExistsFault} (client fault)
+ *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * @throws {@link ReservedDBInstanceQuotaExceededFault} (client fault)
+ *  <p>Request would exceed the user's DB Instance quota.</p>
+ *
+ * @throws {@link ReservedDBInstancesOfferingNotFoundFault} (client fault)
+ *  <p>Specified offering does not exist.</p>
+ *
+ *
  * @example To purchase a reserved DB instance offering
  * ```javascript
  * // This example purchases a reserved DB instance offering that matches the specified settings.

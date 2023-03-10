@@ -61,6 +61,10 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  * @see {@link GenerateDataSetCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCommerceAnalyticsClientResolvedConfig | config} for MarketplaceCommerceAnalyticsClient's `config` shape.
  *
+ * @throws {@link MarketplaceCommerceAnalyticsException} (server fault)
+ *  This exception is thrown when an internal service error occurs.
+ *
+ *
  */
 export class GenerateDataSetCommand extends $Command<
   GenerateDataSetCommandInput,

@@ -53,6 +53,17 @@ export interface ListGraphsCommandOutput extends ListGraphsResponse, __MetadataB
  * @see {@link ListGraphsCommandOutput} for command's `response` shape.
  * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request parameters are invalid.</p>
+ *
+ *
  */
 export class ListGraphsCommand extends $Command<
   ListGraphsCommandInput,

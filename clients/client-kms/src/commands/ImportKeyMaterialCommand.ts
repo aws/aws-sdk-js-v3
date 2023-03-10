@@ -113,6 +113,65 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * @see {@link ImportKeyMaterialCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link ExpiredImportTokenException} (client fault)
+ *  <p>The request was rejected because the specified import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new
+ *       public key to encrypt the key material, and then try the request again.</p>
+ *
+ * @throws {@link IncorrectKeyMaterialException} (client fault)
+ *  <p>The request was rejected because the key material in the request is, expired, invalid, or
+ *       is not the same key material that was previously imported into this KMS key.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not
+ *       valid.</p>
+ *
+ * @throws {@link InvalidCiphertextException} (client fault)
+ *  <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
+ *       was rejected because the specified ciphertext, or additional authenticated data incorporated
+ *       into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise
+ *       invalid.</p>
+ *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
+ *       KMS could not decrypt the encrypted (wrapped) key material. </p>
+ *
+ * @throws {@link InvalidImportTokenException} (client fault)
+ *  <p>The request was rejected because the provided import token is invalid or is associated
+ *       with a different KMS key.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified
+ *       resource is not valid for this operation.</p>
+ *
+ *
  * @example To import key material into a KMS key
  * ```javascript
  * // The following example imports key material into the specified KMS key.

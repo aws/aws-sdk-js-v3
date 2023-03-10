@@ -52,6 +52,14 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * @see {@link DescribeDomainsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An internal error occurred while processing the request. If this problem persists,
+ *       report an issue from the <a href="http://status.aws.amazon.com/" target="_blank">Service Health Dashboard</a>.</p>
+ *
+ *
  */
 export class DescribeDomainsCommand extends $Command<
   DescribeDomainsCommandInput,

@@ -50,6 +50,26 @@ export interface AuthorizeEndpointAccessCommandOutput extends EndpointAuthorizat
  * @see {@link AuthorizeEndpointAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link EndpointAuthorizationAlreadyExistsFault} (client fault)
+ *  <p>The authorization already exists for this endpoint.</p>
+ *
+ * @throws {@link EndpointAuthorizationsPerClusterLimitExceededFault} (client fault)
+ *  <p>The number of endpoint authorizations per cluster has exceeded its limit.</p>
+ *
+ * @throws {@link InvalidAuthorizationStateFault} (client fault)
+ *  <p>The status of the authorization is not valid.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class AuthorizeEndpointAccessCommand extends $Command<
   AuthorizeEndpointAccessCommandInput,

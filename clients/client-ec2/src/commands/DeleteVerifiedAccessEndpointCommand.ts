@@ -52,6 +52,7 @@ export interface DeleteVerifiedAccessEndpointCommandOutput
  * @see {@link DeleteVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeleteVerifiedAccessEndpointCommand extends $Command<
   DeleteVerifiedAccessEndpointCommandInput,

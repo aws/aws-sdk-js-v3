@@ -50,6 +50,7 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  * @see {@link DeleteVodSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class DeleteVodSourceCommand extends $Command<
   DeleteVodSourceCommandInput,

@@ -50,6 +50,16 @@ export interface DescribeUserGroupsCommandOutput extends DescribeUserGroupsResul
  * @see {@link DescribeUserGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link UserGroupNotFoundFault} (client fault)
+ *  <p>The user group was not found or does not exist</p>
+ *
+ *
  */
 export class DescribeUserGroupsCommand extends $Command<
   DescribeUserGroupsCommandInput,

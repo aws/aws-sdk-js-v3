@@ -50,6 +50,19 @@ export interface DescribeReservedNodesCommandOutput extends DescribeReservedNode
  * @see {@link DescribeReservedNodesCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ReservedNodeNotFoundFault} (client fault)
+ *  <p>The requested node does not exist.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DescribeReservedNodesCommand extends $Command<
   DescribeReservedNodesCommandInput,

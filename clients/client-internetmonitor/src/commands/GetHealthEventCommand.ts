@@ -54,6 +54,19 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * @see {@link GetHealthEventCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Invalid request.</p>
+ *
+ *
  */
 export class GetHealthEventCommand extends $Command<
   GetHealthEventCommandInput,

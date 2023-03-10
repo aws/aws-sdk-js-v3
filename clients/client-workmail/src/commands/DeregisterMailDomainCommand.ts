@@ -51,6 +51,25 @@ export interface DeregisterMailDomainCommandOutput extends DeregisterMailDomainR
  * @see {@link DeregisterMailDomainCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
+ * @throws {@link InvalidCustomSesConfigurationException} (client fault)
+ *  <p>You SES configuration has customizations that WorkMail cannot save. The error message lists the invalid setting. For examples of invalid settings, refer to
+ *          <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_CreateReceiptRule.html">CreateReceiptRule</a>.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link MailDomainInUseException} (client fault)
+ *  <p>The domain you're trying to change is in use by another user or organization in your account. See the error message for details.</p>
+ *
+ * @throws {@link OrganizationNotFoundException} (client fault)
+ *  <p>An operation received a valid organization identifier that either doesn't belong or
+ *          exist in the system.</p>
+ *
+ * @throws {@link OrganizationStateException} (client fault)
+ *  <p>The organization must have a valid state to perform certain
+ *          operations on the organization or its members.</p>
+ *
+ *
  */
 export class DeregisterMailDomainCommand extends $Command<
   DeregisterMailDomainCommandInput,

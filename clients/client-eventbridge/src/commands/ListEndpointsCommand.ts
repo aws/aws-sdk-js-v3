@@ -50,6 +50,10 @@ export interface ListEndpointsCommandOutput extends ListEndpointsResponse, __Met
  * @see {@link ListEndpointsCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ *
  */
 export class ListEndpointsCommand extends $Command<
   ListEndpointsCommandInput,

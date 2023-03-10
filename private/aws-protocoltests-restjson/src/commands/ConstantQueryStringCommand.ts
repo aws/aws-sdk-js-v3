@@ -47,6 +47,7 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * @see {@link ConstantQueryStringCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class ConstantQueryStringCommand extends $Command<
   ConstantQueryStringCommandInput,

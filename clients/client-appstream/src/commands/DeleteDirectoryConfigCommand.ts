@@ -50,6 +50,13 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  * @see {@link DeleteDirectoryConfigCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DeleteDirectoryConfigCommand extends $Command<
   DeleteDirectoryConfigCommandInput,

@@ -48,6 +48,13 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
  *
+ * @throws {@link InvalidGreeting} (client fault)
+ *  This error is thrown when an invalid greeting value is provided.
+ *
+ * @throws {@link ComplexError} (client fault)
+ *  This error is thrown when a request is invalid.
+ *
+ *
  */
 export class GreetingWithErrorsCommand extends $Command<
   GreetingWithErrorsCommandInput,

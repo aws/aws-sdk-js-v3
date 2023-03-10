@@ -51,6 +51,16 @@ export interface CreateVPCEConfigurationCommandOutput extends CreateVPCEConfigur
  * @see {@link CreateVPCEConfigurationCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ *
  */
 export class CreateVPCEConfigurationCommand extends $Command<
   CreateVPCEConfigurationCommandInput,

@@ -57,6 +57,31 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  * @see {@link SendSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.
  *
+ * @throws {@link AuthException} (client fault)
+ *  <p>Either your AWS credentials are not valid or you do not have access to the EC2 instance.</p>
+ *
+ * @throws {@link EC2InstanceNotFoundException} (client fault)
+ *  <p>The specified instance was not found.</p>
+ *
+ * @throws {@link EC2InstanceStateInvalidException} (client fault)
+ *  <p>Unable to connect because the instance is not in a valid state.
+ *             Connecting to a stopped or terminated instance is not supported. If the instance is stopped,
+ *             start your instance, and try to connect again.</p>
+ *
+ * @throws {@link EC2InstanceUnavailableException} (server fault)
+ *  <p>The instance is currently unavailable. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link InvalidArgsException} (client fault)
+ *  <p>One of the parameters is not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The requests were made too frequently and have been throttled. Wait a while and try again.
+ *             To increase the limit on your request frequency, contact AWS Support.</p>
+ *
+ *
  * @example To push an SSH key to an EC2 instance
  * ```javascript
  * // The following example pushes a sample SSH public key to the EC2 instance i-abcd1234 in AZ us-west-2b for use by the instance OS user ec2-user.

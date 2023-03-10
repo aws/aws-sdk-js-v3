@@ -50,6 +50,29 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * @see {@link RollbackTransactionCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>There is an error in the call or in a SQL statement.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>There are insufficient privileges to make the call.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The <code>resourceArn</code>, <code>secretArn</code>, or <code>transactionId</code> value can't be found.</p>
+ *
+ * @throws {@link ServiceUnavailableError} (server fault)
+ *  <p>The service specified by the <code>resourceArn</code> parameter is not
+ *             available.</p>
+ *
+ * @throws {@link StatementTimeoutException} (client fault)
+ *  <p>The execution of the SQL statement timed out.</p>
+ *
+ *
  */
 export class RollbackTransactionCommand extends $Command<
   RollbackTransactionCommandInput,

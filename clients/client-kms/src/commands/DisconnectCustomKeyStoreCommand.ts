@@ -101,6 +101,51 @@ export interface DisconnectCustomKeyStoreCommandOutput extends DisconnectCustomK
  * @see {@link DisconnectCustomKeyStoreCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @throws {@link CustomKeyStoreInvalidStateException} (client fault)
+ *  <p>The request was rejected because of the <code>ConnectionState</code> of the custom key
+ *       store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
+ *          <p>This exception is thrown under the following conditions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key
+ *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
+ *             <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>
+ *           values. To reconnect a custom key store in a <code>FAILED</code> state, disconnect it
+ *             (<a>DisconnectCustomKeyStore</a>), then connect it
+ *             (<code>ConnectCustomKeyStore</code>).</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>CreateKey</a> operation in a custom key store that is
+ *           not connected. This operations is valid only when the custom key store
+ *             <code>ConnectionState</code> is <code>CONNECTED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>DisconnectCustomKeyStore</a> operation on a custom key
+ *           store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or
+ *             <code>DISCONNECTED</code>. This operation is valid for all other
+ *             <code>ConnectionState</code> values.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not
+ *           disconnected. This operation is valid only when the custom key store
+ *             <code>ConnectionState</code> is <code>DISCONNECTED</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>You requested the <a>GenerateRandom</a> operation in an CloudHSM key store
+ *           that is not connected. This operation is valid only when the CloudHSM key store
+ *             <code>ConnectionState</code> is <code>CONNECTED</code>. </p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link CustomKeyStoreNotFoundException} (client fault)
+ *  <p>The request was rejected because KMS cannot find a custom key store with the specified
+ *       key store name or ID.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ *
  * @example To disconnect a custom key store from its CloudHSM cluster
  * ```javascript
  * // This example disconnects an AWS KMS custom key store from its backing key store. For an AWS CloudHSM key store, it disconnects the key store from its AWS CloudHSM cluster. For an external key store, it disconnects the key store from the external key store proxy that communicates with your external key manager. This operation doesn't return any data. To verify that the custom key store is disconnected, use the <code>DescribeCustomKeyStores</code> operation.

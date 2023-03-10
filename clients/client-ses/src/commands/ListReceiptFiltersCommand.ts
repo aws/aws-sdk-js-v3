@@ -54,6 +54,7 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * @see {@link ListReceiptFiltersCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example ListReceiptFilters
  * ```javascript
  * // The following example lists the IP address filters that are associated with an AWS account:

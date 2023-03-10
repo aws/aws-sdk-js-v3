@@ -62,6 +62,15 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  * @see {@link GetJobUnlockCodeCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link InvalidJobStateException} (client fault)
+ *  <p>The action can't be performed because the job's current state doesn't allow that action
+ *       to be performed.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ *
  * @example To get the unlock code for a job you've created for AWS Snowball
  * ```javascript
  * // Returns the UnlockCode code value for the specified job. A particular UnlockCode value can be accessed for up to 90 days after the associated job has been created.

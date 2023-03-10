@@ -53,6 +53,13 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  * @see {@link DescribeActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link ActivityDoesNotExist} (client fault)
+ *  <p>The specified activity does not exist.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ *
  */
 export class DescribeActivityCommand extends $Command<
   DescribeActivityCommandInput,

@@ -54,6 +54,20 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * @see {@link DeleteScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
+ * @throws {@link ConcurrentUpdateException} (server fault)
+ *  <p>Concurrent updates caused an exception, for example, if you request an update to a
+ *          scaling plan that already has a pending update.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link ObjectNotFoundException} (client fault)
+ *  <p>The specified object could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+ *
+ *
  */
 export class DeleteScalingPlanCommand extends $Command<
   DeleteScalingPlanCommandInput,

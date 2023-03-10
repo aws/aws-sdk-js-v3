@@ -55,6 +55,22 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  * @see {@link CreateCacheSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheSecurityGroupAlreadyExistsFault} (client fault)
+ *  <p>A cache security group with the specified name already exists.</p>
+ *
+ * @throws {@link CacheSecurityGroupQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ *
  * @example CreateCacheSecurityGroup
  * ```javascript
  * // Creates an ElastiCache security group. ElastiCache security groups are only for clusters not running in an AWS VPC.

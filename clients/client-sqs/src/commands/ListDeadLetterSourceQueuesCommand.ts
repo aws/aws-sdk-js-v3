@@ -60,6 +60,10 @@ export interface ListDeadLetterSourceQueuesCommandOutput extends ListDeadLetterS
  * @see {@link ListDeadLetterSourceQueuesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link QueueDoesNotExist} (client fault)
+ *  <p>The specified queue doesn't exist.</p>
+ *
+ *
  */
 export class ListDeadLetterSourceQueuesCommand extends $Command<
   ListDeadLetterSourceQueuesCommandInput,

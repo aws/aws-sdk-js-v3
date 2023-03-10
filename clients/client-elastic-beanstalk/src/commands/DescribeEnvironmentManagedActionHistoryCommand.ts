@@ -53,6 +53,10 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput
  * @see {@link DescribeEnvironmentManagedActionHistoryCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link ElasticBeanstalkServiceException} (client fault)
+ *  <p>A generic service exception has occurred.</p>
+ *
+ *
  */
 export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
   DescribeEnvironmentManagedActionHistoryCommandInput,

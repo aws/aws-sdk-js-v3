@@ -51,6 +51,35 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * @see {@link UpdateSubscriberCommandOutput} for command's `response` shape.
  * @see {@link SecurityLakeClientResolvedConfig | config} for SecurityLakeClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. Access denied errors appear when Amazon Security Lake explicitly or implicitly denies an authorization
+ *          request. An explicit denial occurs when a policy contains a Deny statement for the specific
+ *          Amazon Web Services action. An implicit denial occurs when there is no applicable Deny statement and also
+ *          no applicable Allow statement.</p>
+ *
+ * @throws {@link AccountNotFoundException} (client fault)
+ *  <p>Amazon Security Lake cannot find an Amazon Web Services account with the accountID that you
+ *          specified, or the account whose credentials you used to make this request isn't a member of
+ *          an organization.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>More than one process tried to modify a resource at the same time. </p>
+ *
+ * @throws {@link ConflictSubscriptionException} (client fault)
+ *  <p>A conflicting subscription exception operation is in progress. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal service exceptions are sometimes caused by transient issues. Before you start
+ *          troubleshooting, perform the operation again. </p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because a value that's not valid or is out of range was
+ *          supplied for an input parameter. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Your signing certificate could not be validated. </p>
+ *
+ *
  */
 export class UpdateSubscriberCommand extends $Command<
   UpdateSubscriberCommandInput,

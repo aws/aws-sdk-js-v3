@@ -53,6 +53,16 @@ export interface DescribeCacheSecurityGroupsCommandOutput extends CacheSecurityG
  * @see {@link DescribeCacheSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
+ *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ *
  * @example DescribeCacheSecurityGroups
  * ```javascript
  * // Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.

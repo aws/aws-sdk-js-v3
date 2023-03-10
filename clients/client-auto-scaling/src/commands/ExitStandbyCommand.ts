@@ -52,6 +52,11 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  * @see {@link ExitStandbyCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
  * @example To move instances out of standby mode
  * ```javascript
  * // This example moves the specified instance out of standby mode.

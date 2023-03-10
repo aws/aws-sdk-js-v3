@@ -50,6 +50,7 @@ export interface ListConferenceProvidersCommandOutput extends ListConferenceProv
  * @see {@link ListConferenceProvidersCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ *
  */
 export class ListConferenceProvidersCommand extends $Command<
   ListConferenceProvidersCommandInput,

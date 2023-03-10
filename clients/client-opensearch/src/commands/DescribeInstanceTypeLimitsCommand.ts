@@ -51,6 +51,25 @@ export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanc
  * @see {@link DescribeInstanceTypeLimitsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ *
+ * @throws {@link InvalidTypeException} (client fault)
+ *  <p>An exception for trying to create or access a sub-resource that's either invalid or not supported.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An exception for trying to create more than the allowed number of resources or sub-resources.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that does not exist..</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ *
+ *
  */
 export class DescribeInstanceTypeLimitsCommand extends $Command<
   DescribeInstanceTypeLimitsCommandInput,

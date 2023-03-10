@@ -52,6 +52,26 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  * @see {@link CreateTrafficPolicyCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidTrafficPolicyDocument} (client fault)
+ *  <p>The format of the traffic policy document that you specified in the
+ * 				<code>Document</code> element is not valid.</p>
+ *
+ * @throws {@link TooManyTrafficPolicies} (client fault)
+ *  <p>This traffic policy can't be created because the current account has reached the limit
+ * 			on the number of traffic policies.</p>
+ *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
+ * 				<i>Amazon Route 53 Developer Guide</i>.</p>
+ *          <p>To get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. </p>
+ *          <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a
+ * 				case</a> with the Amazon Web Services Support Center.</p>
+ *
+ * @throws {@link TrafficPolicyAlreadyExists} (client fault)
+ *  <p>A traffic policy that has the same value for <code>Name</code> already exists.</p>
+ *
+ *
  */
 export class CreateTrafficPolicyCommand extends $Command<
   CreateTrafficPolicyCommandInput,

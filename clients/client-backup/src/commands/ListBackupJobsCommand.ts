@@ -51,6 +51,14 @@ export interface ListBackupJobsCommandOutput extends ListBackupJobsOutput, __Met
  * @see {@link ListBackupJobsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ *
  */
 export class ListBackupJobsCommand extends $Command<
   ListBackupJobsCommandInput,

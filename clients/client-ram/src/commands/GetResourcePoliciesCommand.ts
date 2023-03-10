@@ -51,6 +51,25 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified value for <code>NextToken</code> is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link ResourceArnNotFoundException} (client fault)
+ *  <p>The specified Amazon Resource Name (ARN) was not found.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ *
  */
 export class GetResourcePoliciesCommand extends $Command<
   GetResourcePoliciesCommandInput,

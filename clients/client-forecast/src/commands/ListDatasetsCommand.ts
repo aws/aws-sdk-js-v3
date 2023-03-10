@@ -52,6 +52,10 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ *
  */
 export class ListDatasetsCommand extends $Command<
   ListDatasetsCommandInput,

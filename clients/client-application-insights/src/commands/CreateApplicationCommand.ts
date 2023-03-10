@@ -54,6 +54,25 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link ApplicationInsightsClientResolvedConfig | config} for ApplicationInsightsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> User does not have permissions to perform this action. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is already created or in use.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource does not exist in the customer account.</p>
+ *
+ * @throws {@link TagsAlreadyExistException} (client fault)
+ *  <p>Tags are already registered for the specified application ARN.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
+ *
  */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,

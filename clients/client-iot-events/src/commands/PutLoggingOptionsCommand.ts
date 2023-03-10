@@ -49,6 +49,25 @@ export interface PutLoggingOptionsCommandOutput extends __MetadataBearer {}
  * @see {@link PutLoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTEventsClientResolvedConfig | config} for IoTEventsClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request was invalid.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is in use.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request could not be completed due to throttling.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (server fault)
+ *  <p>The requested operation is not supported.</p>
+ *
+ *
  */
 export class PutLoggingOptionsCommand extends $Command<
   PutLoggingOptionsCommandInput,

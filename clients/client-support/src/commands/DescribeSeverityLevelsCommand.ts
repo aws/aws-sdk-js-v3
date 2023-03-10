@@ -66,6 +66,10 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  * @see {@link DescribeSeverityLevelsCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ *
  */
 export class DescribeSeverityLevelsCommand extends $Command<
   DescribeSeverityLevelsCommandInput,

@@ -58,6 +58,11 @@ export interface DescribeDBSecurityGroupsCommandOutput extends DBSecurityGroupMe
  * @see {@link DescribeDBSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ *
  * @example To list DB security group settings
  * ```javascript
  * // This example lists settings for the specified security group.

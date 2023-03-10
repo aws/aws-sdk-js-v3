@@ -54,6 +54,22 @@ export interface ListUsageLimitsCommandOutput extends ListUsageLimitsResponse, _
  * @see {@link ListUsageLimitsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link InvalidPaginationException} (client fault)
+ *  <p>The provided pagination token is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
+ *
  */
 export class ListUsageLimitsCommand extends $Command<
   ListUsageLimitsCommandInput,

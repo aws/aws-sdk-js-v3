@@ -55,6 +55,13 @@ export interface ListQualificationTypesCommandOutput extends ListQualificationTy
  * @see {@link ListQualificationTypesCommandOutput} for command's `response` shape.
  * @see {@link MTurkClientResolvedConfig | config} for MTurkClient's `config` shape.
  *
+ * @throws {@link RequestError} (client fault)
+ *  <p>Your request is invalid.</p>
+ *
+ * @throws {@link ServiceFault} (server fault)
+ *  <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>
+ *
+ *
  */
 export class ListQualificationTypesCommand extends $Command<
   ListQualificationTypesCommandInput,

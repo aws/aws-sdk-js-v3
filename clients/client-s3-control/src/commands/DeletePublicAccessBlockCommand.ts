@@ -61,6 +61,7 @@ export interface DeletePublicAccessBlockCommandOutput extends __MetadataBearer {
  * @see {@link DeletePublicAccessBlockCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class DeletePublicAccessBlockCommand extends $Command<
   DeletePublicAccessBlockCommandInput,

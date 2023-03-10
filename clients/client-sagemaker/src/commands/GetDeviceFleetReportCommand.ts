@@ -50,6 +50,7 @@ export interface GetDeviceFleetReportCommandOutput extends GetDeviceFleetReportR
  * @see {@link GetDeviceFleetReportCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class GetDeviceFleetReportCommand extends $Command<
   GetDeviceFleetReportCommandInput,

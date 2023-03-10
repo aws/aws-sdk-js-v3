@@ -53,6 +53,16 @@ export interface ListOnPremisesInstancesCommandOutput extends ListOnPremisesInst
  * @see {@link ListOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidRegistrationStatusException} (client fault)
+ *  <p>The registration status was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTagFilterException} (client fault)
+ *  <p>The tag filter was specified in an invalid format.</p>
+ *
+ *
  */
 export class ListOnPremisesInstancesCommand extends $Command<
   ListOnPremisesInstancesCommandInput,

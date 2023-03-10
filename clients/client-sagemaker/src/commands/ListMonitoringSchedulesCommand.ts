@@ -50,6 +50,7 @@ export interface ListMonitoringSchedulesCommandOutput extends ListMonitoringSche
  * @see {@link ListMonitoringSchedulesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListMonitoringSchedulesCommand extends $Command<
   ListMonitoringSchedulesCommandInput,

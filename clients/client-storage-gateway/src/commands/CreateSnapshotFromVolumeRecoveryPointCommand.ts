@@ -72,6 +72,19 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  * @see {@link CreateSnapshotFromVolumeRecoveryPointCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ * @throws {@link ServiceUnavailableError} (server fault)
+ *  <p>An internal server error has occurred because the service is unavailable. For more
+ *          information, see the error and message fields.</p>
+ *
+ *
  * @example To create a snapshot of a gateway volume
  * ```javascript
  * // Initiates a snapshot of a gateway from a volume recovery point.

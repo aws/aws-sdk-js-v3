@@ -50,6 +50,10 @@ export interface DescribeCodeCoveragesCommandOutput extends DescribeCodeCoverage
  * @see {@link DescribeCodeCoveragesCommandOutput} for command's `response` shape.
  * @see {@link CodeBuildClientResolvedConfig | config} for CodeBuildClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input value that was provided is not valid.</p>
+ *
+ *
  */
 export class DescribeCodeCoveragesCommand extends $Command<
   DescribeCodeCoveragesCommandInput,

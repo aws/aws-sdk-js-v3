@@ -50,6 +50,22 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  * @see {@link GetProductsCommandOutput} for command's `response` shape.
  * @see {@link PricingClientResolvedConfig | config} for PricingClient's `config` shape.
  *
+ * @throws {@link ExpiredNextTokenException} (client fault)
+ *  <p>The pagination token expired. Try again without a pagination token.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters had an invalid value.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
+ *
  */
 export class GetProductsCommand extends $Command<
   GetProductsCommandInput,

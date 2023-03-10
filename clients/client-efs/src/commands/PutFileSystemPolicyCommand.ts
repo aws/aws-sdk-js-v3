@@ -61,6 +61,26 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  * @see {@link PutFileSystemPolicyCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidPolicyException} (client fault)
+ *  <p>Returned if the <code>FileSystemPolicy</code> is malformed or contains an error such
+ *             as a parameter value that is not valid or a missing required parameter. Returned in the
+ *             case of a policy lockout safety check error.</p>
+ *
+ *
  */
 export class PutFileSystemPolicyCommand extends $Command<
   PutFileSystemPolicyCommandInput,

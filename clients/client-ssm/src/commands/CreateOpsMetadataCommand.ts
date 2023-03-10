@@ -51,6 +51,24 @@ export interface CreateOpsMetadataCommandOutput extends CreateOpsMetadataResult,
  * @see {@link CreateOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsMetadataAlreadyExistsException} (client fault)
+ *  <p>An OpsMetadata object already exists for the selected resource.</p>
+ *
+ * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
+ *  <p>One of the arguments passed is invalid. </p>
+ *
+ * @throws {@link OpsMetadataLimitExceededException} (client fault)
+ *  <p>Your account reached the maximum number of OpsMetadata objects allowed by Application Manager. The
+ *    maximum is 200 OpsMetadata objects. Delete one or more OpsMetadata object and try again.</p>
+ *
+ * @throws {@link OpsMetadataTooManyUpdatesException} (client fault)
+ *  <p>The system is processing too many concurrent updates. Wait a few moments and try
+ *    again.</p>
+ *
+ *
  */
 export class CreateOpsMetadataCommand extends $Command<
   CreateOpsMetadataCommandInput,

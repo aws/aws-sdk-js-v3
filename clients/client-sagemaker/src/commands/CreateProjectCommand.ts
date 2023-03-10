@@ -51,6 +51,11 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ *
  */
 export class CreateProjectCommand extends $Command<
   CreateProjectCommandInput,

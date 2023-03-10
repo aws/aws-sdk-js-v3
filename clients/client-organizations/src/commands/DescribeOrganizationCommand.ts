@@ -52,6 +52,33 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * @see {@link DescribeOrganizationCommandOutput} for command's `response` shape.
  * @see {@link OrganizationsClientResolvedConfig | config} for OrganizationsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permissions to perform the requested operation. The user or role that
+ *             is making the request must have at least one IAM permissions policy attached that
+ *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
+ *                 <i>IAM User Guide.</i>
+ *          </p>
+ *
+ * @throws {@link AWSOrganizationsNotInUseException} (client fault)
+ *  <p>Your account isn't a member of an organization. To make this request, you must use the
+ *             credentials of an account that belongs to an organization.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The target of the operation is currently being modified by a different request. Try
+ *             again later.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>Organizations can't complete your request because of an internal service error. Try again
+ *             later.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>You have sent too many requests in too short a period of time. The quota helps protect
+ *             against denial-of-service attacks. Try again later.</p>
+ *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
+ *                 <i>Organizations User Guide.</i>
+ *          </p>
+ *
+ *
  * @example To get information about an organization
  * ```javascript
  * // The following example shows how to request information about the current user's organization:/n/n

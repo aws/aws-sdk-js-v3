@@ -76,6 +76,7 @@ export interface RequestSpotFleetCommandOutput extends RequestSpotFleetResponse,
  * @see {@link RequestSpotFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To request a Spot fleet in the subnet with the lowest price
  * ```javascript
  * // This example creates a Spot fleet request with two launch specifications that differ only by subnet. The Spot fleet launches the instances in the specified subnet with the lowest price. If the instances are launched in a default VPC, they receive a public IP address by default. If the instances are launched in a nondefault VPC, they do not receive a public IP address by default. Note that you can't specify different subnets from the same Availability Zone in a Spot fleet request.

@@ -50,6 +50,27 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * @see {@link GetImageCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
+ * @throws {@link CallRateLimitExceededException} (client fault)
+ *  <p>You have exceeded the permitted request rate for the specific operation.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action, such as using an action or resource on
+ * 			behalf of a user that doesn't have permissions to use the action or resource, or specifying an
+ * 			invalid resource identifier.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>You are not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>You have made a request for an action that is not supported by the service.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>This exception is thrown when the service encounters an unrecoverable exception.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unable to process your request at this time.</p>
+ *
+ *
  */
 export class GetImageCommand extends $Command<
   GetImageCommandInput,

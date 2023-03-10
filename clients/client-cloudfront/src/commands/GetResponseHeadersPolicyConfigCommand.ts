@@ -58,6 +58,13 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
  * @see {@link GetResponseHeadersPolicyConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchResponseHeadersPolicy} (client fault)
+ *  <p>The response headers policy does not exist.</p>
+ *
+ *
  */
 export class GetResponseHeadersPolicyConfigCommand extends $Command<
   GetResponseHeadersPolicyConfigCommandInput,

@@ -73,6 +73,30 @@ export interface UpdateContinuousDeploymentPolicyCommandOutput
  * @see {@link UpdateContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchContinuousDeploymentPolicy} (client fault)
+ *  <p>The continuous deployment policy doesn't exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link StagingDistributionInUse} (client fault)
+ *  <p>A continuous deployment policy for this staging distribution already exists.</p>
+ *
+ *
  */
 export class UpdateContinuousDeploymentPolicyCommand extends $Command<
   UpdateContinuousDeploymentPolicyCommandInput,

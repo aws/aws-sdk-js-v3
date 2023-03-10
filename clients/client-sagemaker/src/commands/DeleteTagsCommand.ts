@@ -61,6 +61,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * @see {@link DeleteTagsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class DeleteTagsCommand extends $Command<
   DeleteTagsCommandInput,

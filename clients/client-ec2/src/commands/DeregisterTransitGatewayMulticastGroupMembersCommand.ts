@@ -53,6 +53,7 @@ export interface DeregisterTransitGatewayMulticastGroupMembersCommandOutput
  * @see {@link DeregisterTransitGatewayMulticastGroupMembersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeregisterTransitGatewayMulticastGroupMembersCommand extends $Command<
   DeregisterTransitGatewayMulticastGroupMembersCommandInput,

@@ -50,6 +50,16 @@ export interface UpdateRecipeJobCommandOutput extends UpdateRecipeJobResponse, _
  * @see {@link UpdateRecipeJobCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to the specified resource was denied.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
+ *
  */
 export class UpdateRecipeJobCommand extends $Command<
   UpdateRecipeJobCommandInput,

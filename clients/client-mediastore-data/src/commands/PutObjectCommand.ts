@@ -59,6 +59,13 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * @see {@link PutObjectCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
  *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The specified container was not found for the specified account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ *
  */
 export class PutObjectCommand extends $Command<
   PutObjectCommandInput,

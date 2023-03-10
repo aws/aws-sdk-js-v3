@@ -140,6 +140,27 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  * @see {@link ChangeResourceRecordSetsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidChangeBatch} (client fault)
+ *  <p>This exception contains a list of messages that might contain one or more error
+ * 			messages. Each error message indicates one error in the change batch.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHealthCheck} (client fault)
+ *  <p>No health check exists with the specified ID.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link PriorRequestNotComplete} (client fault)
+ *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
+ * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
+ * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
+ * 			for the same request, we recommend that you wait, in intervals of increasing duration,
+ * 			before you try the request again.</p>
+ *
+ *
  * @example To create a basic resource record set
  * ```javascript
  * // The following example creates a resource record set that routes Internet traffic to a resource with an IP address of 192.0.2.44.

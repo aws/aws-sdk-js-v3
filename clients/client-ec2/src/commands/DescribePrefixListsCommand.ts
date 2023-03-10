@@ -52,6 +52,7 @@ export interface DescribePrefixListsCommandOutput extends DescribePrefixListsRes
  * @see {@link DescribePrefixListsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribePrefixListsCommand extends $Command<
   DescribePrefixListsCommandInput,

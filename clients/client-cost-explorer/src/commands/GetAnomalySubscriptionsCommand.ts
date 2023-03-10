@@ -51,6 +51,16 @@ export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscrip
  * @see {@link GetAnomalySubscriptionsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link UnknownSubscriptionException} (client fault)
+ *  <p>The cost anomaly subscription does not exist for the account. </p>
+ *
+ *
  */
 export class GetAnomalySubscriptionsCommand extends $Command<
   GetAnomalySubscriptionsCommandInput,

@@ -52,6 +52,13 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * @see {@link GetCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
+ *
  */
 export class GetCanaryCommand extends $Command<
   GetCanaryCommandInput,

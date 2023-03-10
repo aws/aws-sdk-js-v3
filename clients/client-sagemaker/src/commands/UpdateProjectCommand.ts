@@ -57,6 +57,7 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
  * @see {@link UpdateProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class UpdateProjectCommand extends $Command<
   UpdateProjectCommandInput,

@@ -56,6 +56,7 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * @see {@link DescribeScheduledInstanceAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe an available schedule
  * ```javascript
  * // This example describes a schedule that occurs every week on Sunday, starting on the specified date. Note that the output contains a single schedule as an example.

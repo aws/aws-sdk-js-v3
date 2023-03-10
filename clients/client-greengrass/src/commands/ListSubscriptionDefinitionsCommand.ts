@@ -52,6 +52,7 @@ export interface ListSubscriptionDefinitionsCommandOutput
  * @see {@link ListSubscriptionDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ *
  */
 export class ListSubscriptionDefinitionsCommand extends $Command<
   ListSubscriptionDefinitionsCommandInput,

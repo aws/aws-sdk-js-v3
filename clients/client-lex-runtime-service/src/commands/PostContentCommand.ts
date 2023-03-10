@@ -144,6 +144,62 @@ export interface PostContentCommandOutput
  * @see {@link PostContentCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
  *
+ * @throws {@link BadGatewayException} (server fault)
+ *  <p>Either the Amazon Lex bot is still building, or one of the dependent
+ *       services (Amazon Polly, AWS Lambda) failed with an internal service
+ *       error.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> Request validation failed, there is no usable message in the context,
+ *       or the bot build failed, is still in progress, or contains unbuilt
+ *       changes. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> Two clients are using the same AWS account, Amazon Lex bot, and user
+ *       ID. </p>
+ *
+ * @throws {@link DependencyFailedException} (client fault)
+ *  <p> One of the dependencies, such as AWS Lambda or Amazon Polly, threw an
+ *       exception. For example, </p>
+ *          <ul>
+ *             <li>
+ *                <p>If Amazon Lex does not have sufficient permissions to call a Lambda
+ *           function.</p>
+ *             </li>
+ *             <li>
+ *                <p>If a Lambda function takes longer than 30 seconds to
+ *           execute.</p>
+ *             </li>
+ *             <li>
+ *                <p>If a fulfillment Lambda function returns a <code>Delegate</code>
+ *           dialog action without removing any slot values.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>Internal service error. Retry the call.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Exceeded a limit.</p>
+ *
+ * @throws {@link LoopDetectedException} (server fault)
+ *  <p>This exception is not used.</p>
+ *
+ * @throws {@link NotAcceptableException} (client fault)
+ *  <p>The accept header in the request does not have a valid value.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
+ *       to is not found.</p>
+ *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The input speech is too long.</p>
+ *
+ * @throws {@link UnsupportedMediaTypeException} (client fault)
+ *  <p>The Content-Type header (<code>PostContent</code> API) has an invalid
+ *       value. </p>
+ *
+ *
  */
 export class PostContentCommand extends $Command<
   PostContentCommandInput,

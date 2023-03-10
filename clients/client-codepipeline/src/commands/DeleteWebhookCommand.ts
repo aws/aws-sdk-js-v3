@@ -54,6 +54,13 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * @see {@link DeleteWebhookCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class DeleteWebhookCommand extends $Command<
   DeleteWebhookCommandInput,

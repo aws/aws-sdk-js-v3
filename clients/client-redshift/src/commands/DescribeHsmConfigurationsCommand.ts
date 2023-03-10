@@ -60,6 +60,13 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  * @see {@link DescribeHsmConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link HsmConfigurationNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ *
  */
 export class DescribeHsmConfigurationsCommand extends $Command<
   DescribeHsmConfigurationsCommandInput,

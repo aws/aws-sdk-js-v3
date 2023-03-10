@@ -51,6 +51,24 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link FunctionInUse} (client fault)
+ *  <p>Cannot delete the function because it's attached to one or more cache
+ * 			behaviors.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchFunctionExists} (client fault)
+ *  <p>The function does not exist.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
+ *
  */
 export class DeleteFunctionCommand extends $Command<
   DeleteFunctionCommandInput,

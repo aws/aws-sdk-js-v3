@@ -52,6 +52,20 @@ export interface TestRenderTemplateCommandOutput extends TestRenderTemplateRespo
  * @see {@link TestRenderTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link InvalidRenderingParameterException} (client fault)
+ *  <p>Indicates that one or more of the replacement values you provided is invalid. This
+ *             error may occur when the TemplateData object contains invalid JSON.</p>
+ *
+ * @throws {@link MissingRenderingAttributeException} (client fault)
+ *  <p>Indicates that one or more of the replacement values for the specified template was
+ *             not specified. Ensure that the TemplateData object contains references to all of the
+ *             replacement tags in the specified template.</p>
+ *
+ * @throws {@link TemplateDoesNotExistException} (client fault)
+ *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
+ *             account.</p>
+ *
+ *
  */
 export class TestRenderTemplateCommand extends $Command<
   TestRenderTemplateCommandInput,

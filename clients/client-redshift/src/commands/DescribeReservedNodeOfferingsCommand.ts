@@ -59,6 +59,17 @@ export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNode
  * @see {@link DescribeReservedNodeOfferingsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link DependentServiceUnavailableFault} (client fault)
+ *  <p>Your request cannot be completed because a dependent internal service is
+ *             temporarily unavailable. Wait 30 to 60 seconds and try again.</p>
+ *
+ * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
+ *  <p>Specified offering does not exist.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class DescribeReservedNodeOfferingsCommand extends $Command<
   DescribeReservedNodeOfferingsCommandInput,

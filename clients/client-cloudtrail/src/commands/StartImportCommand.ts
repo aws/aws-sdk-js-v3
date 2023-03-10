@@ -66,6 +66,48 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * @see {@link StartImportCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link AccountHasOngoingImportException} (client fault)
+ *  <p> This exception is thrown when you start a new import and a previous import is still in
+ *          progress. </p>
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link ImportNotFoundException} (client fault)
+ *  <p> The specified import was not found. </p>
+ *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
+ * @throws {@link InsufficientEncryptionPolicyException} (client fault)
+ *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *
+ * @throws {@link InvalidEventDataStoreCategoryException} (client fault)
+ *  <p>This exception is thrown when event categories of specified event data stores are not
+ *          valid.</p>
+ *
+ * @throws {@link InvalidEventDataStoreStatusException} (client fault)
+ *  <p>The event data store is not in a status that supports the operation.</p>
+ *
+ * @throws {@link InvalidImportSourceException} (client fault)
+ *  <p> This exception is thrown when the provided source S3 bucket is not valid for import.
+ *       </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class StartImportCommand extends $Command<
   StartImportCommandInput,

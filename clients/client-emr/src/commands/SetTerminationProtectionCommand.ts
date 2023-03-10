@@ -59,6 +59,11 @@ export interface SetTerminationProtectionCommandOutput extends __MetadataBearer 
  * @see {@link SetTerminationProtectionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Indicates that an error occurred while processing the request and that the request was
+ *          not completed.</p>
+ *
+ *
  */
 export class SetTerminationProtectionCommand extends $Command<
   SetTerminationProtectionCommandInput,

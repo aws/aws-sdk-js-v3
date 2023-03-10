@@ -63,6 +63,37 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * @see {@link StartExecutionCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link ExecutionAlreadyExists} (client fault)
+ *  <p>The execution has the same <code>name</code> as another execution (but a different
+ *         <code>input</code>).</p>
+ *          <note>
+ *             <p>Executions with the same <code>name</code> and <code>input</code> are considered
+ *         idempotent.</p>
+ *          </note>
+ *
+ * @throws {@link ExecutionLimitExceeded} (client fault)
+ *  <p>The maximum number of running executions has been reached. Running executions must end or
+ *       be stopped before a new execution can be started.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidExecutionInput} (client fault)
+ *  <p>The provided JSON input data is not valid.</p>
+ *
+ * @throws {@link InvalidName} (client fault)
+ *  <p>The provided name is not valid.</p>
+ *
+ * @throws {@link StateMachineDeleting} (client fault)
+ *  <p>The specified state machine is being deleted.</p>
+ *
+ * @throws {@link StateMachineDoesNotExist} (client fault)
+ *  <p>The specified state machine does not exist.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ *
  */
 export class StartExecutionCommand extends $Command<
   StartExecutionCommandInput,

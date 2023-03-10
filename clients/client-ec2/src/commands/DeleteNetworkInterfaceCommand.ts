@@ -45,6 +45,7 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteNetworkInterfaceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To delete a network interface
  * ```javascript
  * // This example deletes the specified network interface.

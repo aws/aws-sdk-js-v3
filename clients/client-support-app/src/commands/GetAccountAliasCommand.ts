@@ -51,6 +51,10 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  * @see {@link GetAccountAliasCommandOutput} for command's `response` shape.
  * @see {@link SupportAppClientResolvedConfig | config} for SupportAppClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
+ *
+ *
  */
 export class GetAccountAliasCommand extends $Command<
   GetAccountAliasCommandInput,

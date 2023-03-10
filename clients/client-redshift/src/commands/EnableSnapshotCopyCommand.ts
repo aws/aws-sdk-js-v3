@@ -51,6 +51,45 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * @see {@link EnableSnapshotCopyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link CopyToRegionDisabledFault} (client fault)
+ *  <p>Cross-region snapshot copy was temporarily disabled. Try your request
+ *             again.</p>
+ *
+ * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
+ *  <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link IncompatibleOrderableOptions} (client fault)
+ *  <p>The specified options are incompatible.</p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * @throws {@link SnapshotCopyAlreadyEnabledFault} (client fault)
+ *  <p>The cluster already has cross-region snapshot copy enabled.</p>
+ *
+ * @throws {@link SnapshotCopyGrantNotFoundFault} (client fault)
+ *  <p>The specified snapshot copy grant can't be found. Make sure that the name is typed
+ *             correctly and that the grant exists in the destination region.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link UnknownSnapshotCopyRegionFault} (client fault)
+ *  <p>The specified region is incorrect or does not exist.</p>
+ *
+ *
  */
 export class EnableSnapshotCopyCommand extends $Command<
   EnableSnapshotCopyCommandInput,

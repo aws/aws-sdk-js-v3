@@ -50,6 +50,17 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * @see {@link ListNamespacesCommandOutput} for command's `response` shape.
  * @see {@link ServiceDiscoveryClientResolvedConfig | config} for ServiceDiscoveryClient's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>One or more specified values aren't valid. For example, a required value might be missing, a
+ *    numeric value might be outside the allowed range, or a string value might exceed length
+ *    constraints.</p>
+ *
+ * @throws {@link RequestLimitExceeded} (client fault)
+ *  <p>The operation can't be completed because you've reached the quota for the number of
+ *    requests. For more information, see <a href="https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html">Cloud Map API request throttling quota</a> in the
+ *     <i>Cloud Map Developer Guide</i>.</p>
+ *
+ *
  * @example Example: List namespaces
  * ```javascript
  * // Example: List namespaces

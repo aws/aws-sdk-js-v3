@@ -84,6 +84,36 @@ export interface CreateHealthCheckCommandOutput extends CreateHealthCheckRespons
  * @see {@link CreateHealthCheckCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link HealthCheckAlreadyExists} (client fault)
+ *  <p> The health check you're attempting to create already exists. Amazon Route 53 returns
+ * 			this error when you submit a request that has the following values:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The same value for <code>CallerReference</code> as an existing health check,
+ * 					and one or more values that differ from the existing health check that has the
+ * 					same caller reference.</p>
+ *             </li>
+ *             <li>
+ *                <p>The same value for <code>CallerReference</code> as a health check that you
+ * 					created and later deleted, regardless of the other settings in the
+ * 					request.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link TooManyHealthChecks} (client fault)
+ *  <p>This health check can't be created because the current account has reached the limit
+ * 			on the number of active health checks.</p>
+ *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
+ * 				<i>Amazon Route 53 Developer Guide</i>.</p>
+ *          <p>For information about how to get the current limit for an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
+ * 			Center.</p>
+ *          <p>You have reached the maximum number of active health checks for an Amazon Web Services account. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
+ * 			Center.</p>
+ *
+ *
  */
 export class CreateHealthCheckCommand extends $Command<
   CreateHealthCheckCommandInput,

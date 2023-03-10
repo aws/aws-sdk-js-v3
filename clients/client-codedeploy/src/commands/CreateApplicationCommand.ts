@@ -50,6 +50,25 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * @see {@link CreateApplicationCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link ApplicationAlreadyExistsException} (client fault)
+ *  <p>An application with the specified name with the IAM user or Amazon Web Services account already exists.</p>
+ *
+ * @throws {@link ApplicationLimitExceededException} (client fault)
+ *  <p>More applications were attempted to be created than are allowed.</p>
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidComputePlatformException} (client fault)
+ *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * @throws {@link InvalidTagsToAddException} (client fault)
+ *  <p> The specified tags are not valid. </p>
+ *
+ *
  */
 export class CreateApplicationCommand extends $Command<
   CreateApplicationCommandInput,

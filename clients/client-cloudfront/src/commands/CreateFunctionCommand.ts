@@ -60,6 +60,27 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * @see {@link CreateFunctionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link FunctionAlreadyExists} (client fault)
+ *  <p>A function with the same name already exists in this Amazon Web Services account. To create a
+ * 			function, you must provide a unique name. To update an existing function, use
+ * 				<code>UpdateFunction</code>.</p>
+ *
+ * @throws {@link FunctionSizeLimitExceeded} (client fault)
+ *  <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link TooManyFunctions} (client fault)
+ *  <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
+ *
  */
 export class CreateFunctionCommand extends $Command<
   CreateFunctionCommandInput,

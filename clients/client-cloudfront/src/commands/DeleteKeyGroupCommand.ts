@@ -51,6 +51,20 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link NoSuchResource} (client fault)
+ *  <p>A resource that was specified is not valid.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Cannot delete this resource because it is in use.</p>
+ *
+ *
  */
 export class DeleteKeyGroupCommand extends $Command<
   DeleteKeyGroupCommandInput,

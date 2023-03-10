@@ -70,6 +70,34 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. Actions can include using an
+ *             action or resource on behalf of a user that doesn't have permissions to use the action
+ *             or resource or specifying an identifier that is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>You have encountered a service limit on the specified resource.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
+ * @throws {@link UnsupportedAvailabilityZoneException} (client fault)
+ *  <p>At least one of your specified cluster subnets is in an Availability Zone that does
+ *             not support Amazon EKS. The exception output specifies the supported
+ *             Availability Zones for your account, from which you can choose subnets for your
+ *             cluster.</p>
+ *
+ *
  * @example To create a new cluster
  * ```javascript
  * // The following example creates an Amazon EKS cluster called prod.

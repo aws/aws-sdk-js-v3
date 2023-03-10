@@ -46,6 +46,11 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * @see {@link AbortEnvironmentUpdateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ *
  * @example To abort a deployment
  * ```javascript
  * // The following code aborts a running application version deployment for an environment named my-env:

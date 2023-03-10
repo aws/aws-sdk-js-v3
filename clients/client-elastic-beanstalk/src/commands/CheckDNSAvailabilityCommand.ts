@@ -50,6 +50,7 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  * @see {@link CheckDNSAvailabilityCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
  * @example To check the availability of a CNAME
  * ```javascript
  * // The following operation checks the availability of the subdomain my-cname:

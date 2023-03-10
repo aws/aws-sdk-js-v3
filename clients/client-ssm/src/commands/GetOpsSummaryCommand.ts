@@ -49,6 +49,27 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  * @see {@link GetOpsSummaryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAggregatorException} (client fault)
+ *  <p>The specified aggregator isn't valid for inventory groups. Verify that the aggregator uses a
+ *    valid inventory type such as <code>AWS:Application</code> or
+ *    <code>AWS:InstanceInformation</code>.</p>
+ *
+ * @throws {@link InvalidFilter} (client fault)
+ *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ * @throws {@link InvalidTypeNameException} (client fault)
+ *  <p>The parameter type name isn't valid.</p>
+ *
+ * @throws {@link ResourceDataSyncNotFoundException} (client fault)
+ *  <p>The specified sync name wasn't found.</p>
+ *
+ *
  */
 export class GetOpsSummaryCommand extends $Command<
   GetOpsSummaryCommandInput,

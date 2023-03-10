@@ -52,6 +52,7 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * @see {@link XmlListsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class XmlListsCommand extends $Command<
   XmlListsCommandInput,

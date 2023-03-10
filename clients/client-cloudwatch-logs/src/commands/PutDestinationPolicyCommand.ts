@@ -47,6 +47,16 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  * @see {@link PutDestinationPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link OperationAbortedException} (client fault)
+ *  <p>Multiple concurrent requests to update the same resource were in conflict.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ *
  */
 export class PutDestinationPolicyCommand extends $Command<
   PutDestinationPolicyCommandInput,

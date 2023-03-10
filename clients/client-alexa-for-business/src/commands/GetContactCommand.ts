@@ -50,6 +50,10 @@ export interface GetContactCommandOutput extends GetContactResponse, __MetadataB
  * @see {@link GetContactCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class GetContactCommand extends $Command<
   GetContactCommandInput,

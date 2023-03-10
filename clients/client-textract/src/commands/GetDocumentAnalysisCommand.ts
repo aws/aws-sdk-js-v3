@@ -114,6 +114,41 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  * @see {@link GetDocumentAnalysisCommandOutput} for command's `response` shape.
  * @see {@link TextractClientResolvedConfig | config} for TextractClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You aren't authorized to perform the action. Use the Amazon Resource Name (ARN)
+ *             of an authorized user or IAM role to perform the operation.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Amazon Textract experienced a service issue. Try your call again.</p>
+ *
+ * @throws {@link InvalidJobIdException} (client fault)
+ *  <p>An invalid job identifier was passed to an asynchronous analysis operation.</p>
+ *
+ * @throws {@link InvalidKMSKeyException} (client fault)
+ *  <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
+ *         was entered incorrectly. </p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An input parameter violated a constraint. For example, in synchronous operations,
+ *        an <code>InvalidParameterException</code> exception occurs
+ *       when neither of the <code>S3Object</code> or <code>Bytes</code> values are supplied in the <code>Document</code>
+ *       request parameter.
+ *        Validate your parameter before calling the API operation again.</p>
+ *
+ * @throws {@link InvalidS3ObjectException} (client fault)
+ *  <p>Amazon Textract is unable to access the S3 object that's specified in the request.
+ *          for more information, <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html">Configure Access to Amazon S3</a>
+ *          For troubleshooting information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/troubleshooting.html">Troubleshooting Amazon S3</a>
+ *          </p>
+ *
+ * @throws {@link ProvisionedThroughputExceededException} (client fault)
+ *  <p>The number of requests exceeded your throughput limit. If you want to increase this limit,
+ *          contact Amazon Textract.</p>
+ *
+ * @throws {@link ThrottlingException} (server fault)
+ *  <p>Amazon Textract is temporarily unable to process the request. Try your call again.</p>
+ *
+ *
  */
 export class GetDocumentAnalysisCommand extends $Command<
   GetDocumentAnalysisCommandInput,

@@ -45,6 +45,13 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  * @see {@link GetAccountConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have access required to perform this action.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded a quota.</p>
+ *
+ *
  */
 export class GetAccountConfigurationCommand extends $Command<
   GetAccountConfigurationCommandInput,

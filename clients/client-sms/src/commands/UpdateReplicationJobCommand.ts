@@ -50,6 +50,32 @@ export interface UpdateReplicationJobCommandOutput extends UpdateReplicationJobR
  * @see {@link UpdateReplicationJobCommandOutput} for command's `response` shape.
  * @see {@link SMSClientResolvedConfig | config} for SMSClient's `config` shape.
  *
+ * @throws {@link InternalError} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A specified parameter is not valid.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>A required parameter is missing.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link ReplicationJobNotFoundException} (client fault)
+ *  <p>The specified replication job does not exist.</p>
+ *
+ * @throws {@link ServerCannotBeReplicatedException} (client fault)
+ *  <p>The specified server cannot be replicated.</p>
+ *
+ * @throws {@link TemporarilyUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>You lack permissions needed to perform this operation. Check your IAM policies,
+ *             and ensure that you are using the correct access keys.</p>
+ *
+ *
  */
 export class UpdateReplicationJobCommand extends $Command<
   UpdateReplicationJobCommandInput,

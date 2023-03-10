@@ -50,6 +50,18 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  * @see {@link CreateAuthenticationProfileCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link AuthenticationProfileAlreadyExistsFault} (client fault)
+ *  <p>The authentication profile already exists.</p>
+ *
+ * @throws {@link AuthenticationProfileQuotaExceededFault} (client fault)
+ *  <p>The size or number of authentication profiles has exceeded the quota.
+ *             The maximum length of the JSON string and maximum number of authentication profiles is determined by a quota for your account.</p>
+ *
+ * @throws {@link InvalidAuthenticationProfileRequestFault} (client fault)
+ *  <p>The authentication profile request is not valid. The profile name can't be null or empty.
+ *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+ *
+ *
  */
 export class CreateAuthenticationProfileCommand extends $Command<
   CreateAuthenticationProfileCommandInput,

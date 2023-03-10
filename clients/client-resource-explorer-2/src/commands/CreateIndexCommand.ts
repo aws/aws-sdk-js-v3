@@ -104,6 +104,28 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * @see {@link CreateIndexCommandOutput} for command's `response` shape.
  * @see {@link ResourceExplorer2ClientResolvedConfig | config} for ResourceExplorer2Client's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The credentials that you used to call this operation don't have the minimum required
+ *             permissions.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You tried to create a new view or index when one already exists, and you either didn't
+ *             specify or specified a different idempotency token as the original request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request failed because of internal service error. Try your request again
+ *             later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request failed because you exceeded a rate limit for this operation. For more
+ *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
+ *                 for Resource Explorer</a>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
+ *             for the operation, and try again.</p>
+ *
+ *
  */
 export class CreateIndexCommand extends $Command<
   CreateIndexCommandInput,

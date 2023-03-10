@@ -67,6 +67,21 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput
  * @see {@link AuthorizeDBSecurityGroupIngressCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link AuthorizationAlreadyExistsFault} (client fault)
+ *  <p>The specified CIDR IP range or Amazon EC2 security group is already authorized for
+ *             the specified DB security group.</p>
+ *
+ * @throws {@link AuthorizationQuotaExceededFault} (client fault)
+ *  <p>The DB security group authorization quota has been reached.</p>
+ *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.</p>
+ *
+ * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
+ *  <p>The state of the DB security group doesn't allow deletion.</p>
+ *
+ *
  * @example To authorize DB security group integress
  * ```javascript
  * // This example authorizes access to the specified security group by the specified CIDR block.

@@ -46,6 +46,15 @@ export interface DeleteResourceConfigCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link NoRunningConfigurationRecorderException} (client fault)
+ *  <p>There is no configuration recorder running.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is invalid.</p>
+ * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
+ *
  */
 export class DeleteResourceConfigCommand extends $Command<
   DeleteResourceConfigCommandInput,

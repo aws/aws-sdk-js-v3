@@ -61,6 +61,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * @see {@link DescribeInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe an Amazon EC2 instance
  * ```javascript
  * // This example describes the specified instance.

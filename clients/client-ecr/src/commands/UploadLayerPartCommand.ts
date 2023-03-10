@@ -57,6 +57,34 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * @see {@link UploadLayerPartCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @throws {@link InvalidLayerPartException} (client fault)
+ *  <p>The layer part size is not valid, or the first byte specified is not consecutive to
+ *             the last byte of a previous layer part upload.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link KmsException} (client fault)
+ *  <p>The operation failed due to a KMS exception.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The operation did not succeed because it would have exceeded a service limit for your
+ *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
+ *             the Amazon Elastic Container Registry User Guide.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UploadNotFoundException} (client fault)
+ *  <p>The upload could not be found, or the specified upload ID is not valid for this
+ *             repository.</p>
+ *
+ *
  */
 export class UploadLayerPartCommand extends $Command<
   UploadLayerPartCommandInput,

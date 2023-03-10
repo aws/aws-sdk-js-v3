@@ -58,6 +58,7 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  * @see {@link MoveAddressToVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To move an address to EC2-VPC
  * ```javascript
  * // This example moves the specified Elastic IP address to the EC2-VPC platform.

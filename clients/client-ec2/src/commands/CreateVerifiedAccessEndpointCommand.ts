@@ -52,6 +52,7 @@ export interface CreateVerifiedAccessEndpointCommandOutput
  * @see {@link CreateVerifiedAccessEndpointCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateVerifiedAccessEndpointCommand extends $Command<
   CreateVerifiedAccessEndpointCommandInput,

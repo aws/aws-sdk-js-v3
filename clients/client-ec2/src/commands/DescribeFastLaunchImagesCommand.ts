@@ -50,6 +50,7 @@ export interface DescribeFastLaunchImagesCommandOutput extends DescribeFastLaunc
  * @see {@link DescribeFastLaunchImagesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeFastLaunchImagesCommand extends $Command<
   DescribeFastLaunchImagesCommandInput,

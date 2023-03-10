@@ -51,6 +51,10 @@ export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsRes
  * @see {@link ListCidrCollectionsCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ *
  */
 export class ListCidrCollectionsCommand extends $Command<
   ListCidrCollectionsCommandInput,

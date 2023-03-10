@@ -50,6 +50,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListDomainsCommand extends $Command<
   ListDomainsCommandInput,

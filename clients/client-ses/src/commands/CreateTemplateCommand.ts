@@ -53,6 +53,19 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
  * @see {@link CreateTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>Indicates that a resource could not be created because of a naming conflict.</p>
+ *
+ * @throws {@link InvalidTemplateException} (client fault)
+ *  <p>Indicates that the template that you specified could not be rendered. This issue may
+ *             occur when a template refers to a partial that does not exist.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Indicates that a resource could not be created because of service limits. For a list
+ *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ *
+ *
  */
 export class CreateTemplateCommand extends $Command<
   CreateTemplateCommandInput,

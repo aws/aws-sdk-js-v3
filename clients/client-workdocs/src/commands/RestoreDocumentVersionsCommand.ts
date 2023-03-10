@@ -45,6 +45,33 @@ export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {
  * @see {@link RestoreDocumentVersionsCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>The resource hierarchy is changing.</p>
+ *
+ * @throws {@link ConflictingOperationException} (client fault)
+ *  <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
+ *
+ * @throws {@link EntityNotExistsException} (client fault)
+ *  <p>The resource does not exist.</p>
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  <p>The Directory Service cannot reach an on-premises instance. Or a dependency
+ *             under the control of the organization is failing, such as a connected Active
+ *             Directory.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation is invalid.</p>
+ *
+ * @throws {@link ProhibitedStateException} (client fault)
+ *  <p>The specified document version is not in the INITIALIZED state.</p>
+ *
+ * @throws {@link UnauthorizedOperationException} (client fault)
+ *  <p>The operation is not permitted.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ *
  */
 export class RestoreDocumentVersionsCommand extends $Command<
   RestoreDocumentVersionsCommandInput,

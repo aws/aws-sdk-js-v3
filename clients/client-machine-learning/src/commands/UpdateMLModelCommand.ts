@@ -51,6 +51,16 @@ export interface UpdateMLModelCommandOutput extends UpdateMLModelOutput, __Metad
  * @see {@link UpdateMLModelCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource cannot be located.</p>
+ *
+ *
  */
 export class UpdateMLModelCommand extends $Command<
   UpdateMLModelCommandInput,

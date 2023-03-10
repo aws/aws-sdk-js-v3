@@ -51,6 +51,14 @@ export interface DescribeResizeCommandOutput extends ResizeProgressMessage, __Me
  * @see {@link DescribeResizeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link ResizeNotFoundFault} (client fault)
+ *  <p>A resize operation for the specified cluster is not found.</p>
+ *
+ *
  */
 export class DescribeResizeCommand extends $Command<
   DescribeResizeCommandInput,

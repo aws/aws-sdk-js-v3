@@ -46,6 +46,18 @@ export interface AssociateMemberAccountCommandOutput extends __MetadataBearer {}
  * @see {@link AssociateMemberAccountCommandOutput} for command's `response` shape.
  * @see {@link MacieClientResolvedConfig | config} for MacieClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>(Discontinued) Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>(Discontinued) The request was rejected because an invalid or out-of-range value was supplied for an
+ *       input parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>(Discontinued) The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account quotas. The error code describes the quota exceeded.</p>
+ *
+ *
  */
 export class AssociateMemberAccountCommand extends $Command<
   AssociateMemberAccountCommandInput,

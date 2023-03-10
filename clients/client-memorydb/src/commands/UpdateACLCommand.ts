@@ -47,6 +47,28 @@ export interface UpdateACLCommandOutput extends UpdateACLResponse, __MetadataBea
  * @see {@link UpdateACLCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ACLNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link DefaultUserRequired} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link DuplicateUserNameFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidACLStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class UpdateACLCommand extends $Command<
   UpdateACLCommandInput,

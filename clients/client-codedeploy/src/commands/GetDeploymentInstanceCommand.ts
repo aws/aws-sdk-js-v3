@@ -52,6 +52,29 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
  * @see {@link GetDeploymentInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link InstanceDoesNotExistException} (client fault)
+ *  <p>The specified instance does not exist in the deployment group.</p>
+ *
+ * @throws {@link InstanceIdRequiredException} (client fault)
+ *  <p>The instance ID was not specified.</p>
+ *
+ * @throws {@link InvalidComputePlatformException} (client fault)
+ *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ *
  */
 export class GetDeploymentInstanceCommand extends $Command<
   GetDeploymentInstanceCommandInput,

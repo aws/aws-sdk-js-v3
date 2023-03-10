@@ -60,6 +60,22 @@ export interface PurchaseReservedNodeOfferingCommandOutput
  * @see {@link PurchaseReservedNodeOfferingCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ReservedNodeAlreadyExistsFault} (client fault)
+ *  <p>User already has a reservation with the given identifier.</p>
+ *
+ * @throws {@link ReservedNodeOfferingNotFoundFault} (client fault)
+ *  <p>Specified offering does not exist.</p>
+ *
+ * @throws {@link ReservedNodeQuotaExceededFault} (client fault)
+ *  <p>Request would exceed the user's compute node quota.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class PurchaseReservedNodeOfferingCommand extends $Command<
   PurchaseReservedNodeOfferingCommandInput,

@@ -50,6 +50,16 @@ export interface ListResourcesCommandOutput extends ListResourcesResult, __Metad
  * @see {@link ListResourcesCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token is not valid.</p>
+ *
+ * @throws {@link ProjectNotFoundException} (client fault)
+ *  <p>The specified AWS CodeStar project was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ *
  */
 export class ListResourcesCommand extends $Command<
   ListResourcesCommandInput,

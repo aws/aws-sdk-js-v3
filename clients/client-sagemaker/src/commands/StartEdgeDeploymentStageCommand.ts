@@ -45,6 +45,7 @@ export interface StartEdgeDeploymentStageCommandOutput extends __MetadataBearer 
  * @see {@link StartEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class StartEdgeDeploymentStageCommand extends $Command<
   StartEdgeDeploymentStageCommandInput,

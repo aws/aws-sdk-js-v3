@@ -59,6 +59,10 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.
  *
+ * @throws {@link SearchException} (client fault)
+ *  <p>Information about any problems encountered while processing a search request.</p>
+ *
+ *
  */
 export class SearchCommand extends $Command<
   SearchCommandInput,

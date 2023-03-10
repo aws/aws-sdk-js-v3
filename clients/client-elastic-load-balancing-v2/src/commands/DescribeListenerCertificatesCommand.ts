@@ -63,6 +63,10 @@ export interface DescribeListenerCertificatesCommandOutput
  * @see {@link DescribeListenerCertificatesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The specified listener does not exist.</p>
+ *
+ *
  */
 export class DescribeListenerCertificatesCommand extends $Command<
   DescribeListenerCertificatesCommandInput,

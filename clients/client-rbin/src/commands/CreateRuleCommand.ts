@@ -51,6 +51,16 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link RbinClientResolvedConfig | config} for RbinClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota for the number of tags per resource to be exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the parameters in the request is not valid.</p>
+ *
+ *
  */
 export class CreateRuleCommand extends $Command<
   CreateRuleCommandInput,

@@ -50,6 +50,16 @@ export interface ListSimulationsCommandOutput extends ListSimulationsOutput, __M
  * @see {@link ListSimulationsCommandOutput} for command's `response` shape.
  * @see {@link SimSpaceWeaverClientResolvedConfig | config} for SimSpaceWeaverClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class ListSimulationsCommand extends $Command<
   ListSimulationsCommandInput,

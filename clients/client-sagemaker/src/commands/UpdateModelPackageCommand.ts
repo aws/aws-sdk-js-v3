@@ -50,6 +50,7 @@ export interface UpdateModelPackageCommandOutput extends UpdateModelPackageOutpu
  * @see {@link UpdateModelPackageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class UpdateModelPackageCommand extends $Command<
   UpdateModelPackageCommandInput,

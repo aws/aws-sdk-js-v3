@@ -66,6 +66,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
+ *
  */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,

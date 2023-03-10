@@ -49,6 +49,19 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  * @see {@link PostToConnectionCommandOutput} for command's `response` shape.
  * @see {@link ApiGatewayManagementApiClientResolvedConfig | config} for ApiGatewayManagementApiClient's `config` shape.
  *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>The caller is not authorized to invoke this operation.</p>
+ *
+ * @throws {@link GoneException} (client fault)
+ *  <p>The connection with the provided id no longer exists.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
+ *
+ * @throws {@link PayloadTooLargeException} (client fault)
+ *  <p>The data has exceeded the maximum size allowed.</p>
+ *
+ *
  */
 export class PostToConnectionCommand extends $Command<
   PostToConnectionCommandInput,

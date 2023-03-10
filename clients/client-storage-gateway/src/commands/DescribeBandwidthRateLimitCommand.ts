@@ -58,6 +58,15 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * @see {@link DescribeBandwidthRateLimitCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
  * @example To describe the bandwidth rate limits of a gateway
  * ```javascript
  * // Returns a value for a bandwidth rate limit if set. If not set, then only the gateway ARN is returned.

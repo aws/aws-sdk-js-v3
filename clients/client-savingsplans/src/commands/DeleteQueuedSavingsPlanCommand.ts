@@ -50,6 +50,19 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  * @see {@link DeleteQueuedSavingsPlanCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>A service quota has been exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the input parameters is not valid.</p>
+ *
+ *
  */
 export class DeleteQueuedSavingsPlanCommand extends $Command<
   DeleteQueuedSavingsPlanCommandInput,

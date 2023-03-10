@@ -50,6 +50,16 @@ export interface GetConfigurationProfileCommandOutput extends ConfigurationProfi
  * @see {@link GetConfigurationProfileCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource could not be found.</p>
+ *
+ *
  * @example To retrieve configuration profile details
  * ```javascript
  * // The following get-configuration-profile example returns the details of the specified configuration profile.

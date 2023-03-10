@@ -58,6 +58,7 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * @see {@link DescribeOrderableReplicationInstancesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
  * @example Describe orderable replication instances
  * ```javascript
  * // Returns information about the replication instance types that can be created in the specified region.

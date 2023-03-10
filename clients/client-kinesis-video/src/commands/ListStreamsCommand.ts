@@ -52,6 +52,14 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @see {@link ListStreamsCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Kinesis Video Streams has throttled the request because you have exceeded the limit of
+ *             allowed client calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ *
  */
 export class ListStreamsCommand extends $Command<
   ListStreamsCommandInput,

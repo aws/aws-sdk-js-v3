@@ -52,6 +52,13 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * @see {@link GetActionTypeCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ActionTypeNotFoundException} (client fault)
+ *  <p>The specified action type cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class GetActionTypeCommand extends $Command<
   GetActionTypeCommandInput,

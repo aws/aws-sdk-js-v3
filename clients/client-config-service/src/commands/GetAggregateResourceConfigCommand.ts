@@ -50,6 +50,22 @@ export interface GetAggregateResourceConfigCommandOutput extends GetAggregateRes
  * @see {@link GetAggregateResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
+ *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ * @throws {@link OversizedConfigurationItemException} (client fault)
+ *  <p>The configuration item size is outside the allowable range.</p>
+ *
+ * @throws {@link ResourceNotDiscoveredException} (client fault)
+ *  <p>You have specified a resource that is either unknown or has not
+ * 			been discovered.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is invalid.</p>
+ * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
+ *
  */
 export class GetAggregateResourceConfigCommand extends $Command<
   GetAggregateResourceConfigCommandInput,

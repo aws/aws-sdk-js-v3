@@ -59,6 +59,13 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * @see {@link GetRuleGroupCommandOutput} for command's `response` shape.
  * @see {@link WAFRegionalClientResolvedConfig | config} for WAFRegionalClient's `config` shape.
  *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>The operation failed because the referenced object doesn't exist.</p>
+ *
+ *
  */
 export class GetRuleGroupCommand extends $Command<
   GetRuleGroupCommandInput,

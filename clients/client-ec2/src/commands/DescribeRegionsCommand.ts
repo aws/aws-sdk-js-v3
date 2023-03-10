@@ -50,6 +50,7 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @see {@link DescribeRegionsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe your regions
  * ```javascript
  * // This example describes all the regions that are available to you.

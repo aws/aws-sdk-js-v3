@@ -72,6 +72,27 @@ export interface RollbackInstanceRefreshCommandOutput extends RollbackInstanceRe
  * @see {@link RollbackInstanceRefreshCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ActiveInstanceRefreshNotFoundFault} (client fault)
+ *  <p>The request failed because an active instance refresh or rollback for the specified
+ *             Auto Scaling group was not found.</p>
+ *
+ * @throws {@link IrreversibleInstanceRefreshFault} (client fault)
+ *  <p>The request failed because a desired configuration was not found or an incompatible
+ *             launch template (uses a Systems Manager parameter instead of an AMI ID) or launch
+ *             template version (<code>$Latest</code> or <code>$Default</code>) is present on the Auto Scaling
+ *             group.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>You have already reached a limit for your Amazon EC2 Auto Scaling
+ *             resources (for example, Auto Scaling groups, launch configurations, or lifecycle hooks). For
+ *             more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeAccountLimits.html">DescribeAccountLimits</a> in the <i>Amazon EC2 Auto Scaling API
+ *             Reference</i>.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
  */
 export class RollbackInstanceRefreshCommand extends $Command<
   RollbackInstanceRefreshCommandInput,

@@ -52,6 +52,16 @@ export interface DescribeAssociationExecutionsCommandOutput
  * @see {@link DescribeAssociationExecutionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link AssociationDoesNotExist} (client fault)
+ *  <p>The specified association doesn't exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ *
  */
 export class DescribeAssociationExecutionsCommand extends $Command<
   DescribeAssociationExecutionsCommandInput,

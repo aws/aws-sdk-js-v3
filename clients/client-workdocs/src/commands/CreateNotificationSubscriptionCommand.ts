@@ -55,6 +55,20 @@ export interface CreateNotificationSubscriptionCommandOutput
  * @see {@link CreateNotificationSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link WorkDocsClientResolvedConfig | config} for WorkDocsClient's `config` shape.
  *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The pagination marker or limit fields are not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>One or more of the dependencies is unavailable.</p>
+ *
+ * @throws {@link TooManySubscriptionsException} (client fault)
+ *  <p>You've reached the limit on the number of subscriptions for the WorkDocs
+ *             instance.</p>
+ *
+ * @throws {@link UnauthorizedResourceAccessException} (client fault)
+ *  <p>The caller does not have access to perform the action on the resource.</p>
+ *
+ *
  */
 export class CreateNotificationSubscriptionCommand extends $Command<
   CreateNotificationSubscriptionCommandInput,

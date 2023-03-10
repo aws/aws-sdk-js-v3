@@ -84,6 +84,10 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  * @see {@link RollbackStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link TokenAlreadyExistsException} (client fault)
+ *  <p>A client request token already exists.</p>
+ *
+ *
  */
 export class RollbackStackCommand extends $Command<
   RollbackStackCommandInput,

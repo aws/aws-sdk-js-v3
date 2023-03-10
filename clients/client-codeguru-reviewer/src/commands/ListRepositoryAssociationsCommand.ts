@@ -51,6 +51,16 @@ export interface ListRepositoryAssociationsCommandOutput extends ListRepositoryA
  * @see {@link ListRepositoryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruReviewerClientResolvedConfig | config} for CodeGuruReviewerClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the specified constraints.</p>
+ *
+ *
  */
 export class ListRepositoryAssociationsCommand extends $Command<
   ListRepositoryAssociationsCommandInput,

@@ -54,6 +54,19 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @see {@link CreateNamespaceCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The submitted action has conflicts.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The request exceeded the number of tags allowed for a resource.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
+ *
  */
 export class CreateNamespaceCommand extends $Command<
   CreateNamespaceCommandInput,

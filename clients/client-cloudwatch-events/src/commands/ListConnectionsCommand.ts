@@ -50,6 +50,10 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ *
  */
 export class ListConnectionsCommand extends $Command<
   ListConnectionsCommandInput,

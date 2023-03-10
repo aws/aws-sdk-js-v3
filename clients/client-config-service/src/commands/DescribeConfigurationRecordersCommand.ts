@@ -59,6 +59,11 @@ export interface DescribeConfigurationRecordersCommandOutput
  * @see {@link DescribeConfigurationRecordersCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link NoSuchConfigurationRecorderException} (client fault)
+ *  <p>You have specified a configuration recorder that does not
+ * 			exist.</p>
+ *
+ *
  */
 export class DescribeConfigurationRecordersCommand extends $Command<
   DescribeConfigurationRecordersCommandInput,

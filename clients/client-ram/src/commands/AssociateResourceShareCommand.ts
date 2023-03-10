@@ -52,6 +52,43 @@ export interface AssociateResourceShareCommandOutput extends AssociateResourceSh
  * @see {@link AssociateResourceShareCommandOutput} for command's `response` shape.
  * @see {@link RAMClientResolvedConfig | config} for RAMClient's `config` shape.
  *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>The client token input parameter was matched one used with a previous call to the
+ *             operation, but at least one of the other input parameters is different from the previous
+ *             call.</p>
+ *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is not valid.</p>
+ *
+ * @throws {@link InvalidStateTransitionException} (client fault)
+ *  <p>The requested state transition is not valid.</p>
+ *
+ * @throws {@link MalformedArnException} (client fault)
+ *  <p>The format of an Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The requested operation is not permitted.</p>
+ *
+ * @throws {@link ResourceShareLimitExceededException} (client fault)
+ *  <p>This request would exceed the limit for resource shares for your account.</p>
+ *
+ * @throws {@link ServerInternalException} (server fault)
+ *  <p>The service could not respond to the request due to an internal problem.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is not available.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You exceeded the rate at which you are allowed to perform this operation. Please try
+ *             again later.</p>
+ *
+ * @throws {@link UnknownResourceException} (client fault)
+ *  <p>A specified resource was not found.</p>
+ *
+ *
  */
 export class AssociateResourceShareCommand extends $Command<
   AssociateResourceShareCommandInput,

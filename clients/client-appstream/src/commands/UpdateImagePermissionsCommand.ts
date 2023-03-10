@@ -50,6 +50,16 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  * @see {@link UpdateImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ * @throws {@link ResourceNotAvailableException} (client fault)
+ *  <p>The specified resource exists and is not in use, but isn't available.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class UpdateImagePermissionsCommand extends $Command<
   UpdateImagePermissionsCommandInput,

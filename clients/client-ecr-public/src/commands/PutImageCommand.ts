@@ -54,6 +54,48 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * @see {@link PutImageCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
+ * @throws {@link ImageAlreadyExistsException} (client fault)
+ *  <p>The specified image has already been pushed, and there were no changes to the manifest
+ *          or image tag after the last push.</p>
+ *
+ * @throws {@link ImageDigestDoesNotMatchException} (client fault)
+ *  <p>The specified image digest doesn't match the digest that Amazon ECR calculated for the
+ *          image.</p>
+ *
+ * @throws {@link ImageTagAlreadyExistsException} (client fault)
+ *  <p>The specified image is tagged with a tag that already exists. The repository is
+ *          configured for tag immutability.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link LayersNotFoundException} (client fault)
+ *  <p>The specified layers can't be found, or the specified layer isn't valid for this
+ *          repository.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The operation didn't succeed because it would have exceeded a service limit for your
+ *          account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in the
+ *          Amazon Elastic Container Registry User Guide.</p>
+ *
+ * @throws {@link ReferencedImagesNotFoundException} (client fault)
+ *  <p>The manifest list is referencing an image that doesn't exist.</p>
+ *
+ * @throws {@link RegistryNotFoundException} (client fault)
+ *  <p>The registry doesn't exist.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
+ *
  */
 export class PutImageCommand extends $Command<
   PutImageCommandInput,

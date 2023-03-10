@@ -52,6 +52,13 @@ export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBea
  * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link RuleNotFoundException} (client fault)
+ *  <p>The specified rule does not exist.</p>
+ *
+ *
  * @example To delete a rule
  * ```javascript
  * // This example deletes the specified rule.

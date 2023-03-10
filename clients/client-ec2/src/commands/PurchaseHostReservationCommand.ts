@@ -53,6 +53,7 @@ export interface PurchaseHostReservationCommandOutput extends PurchaseHostReserv
  * @see {@link PurchaseHostReservationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class PurchaseHostReservationCommand extends $Command<
   PurchaseHostReservationCommandInput,

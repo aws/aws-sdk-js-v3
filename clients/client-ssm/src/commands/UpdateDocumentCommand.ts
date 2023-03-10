@@ -50,6 +50,41 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link DocumentVersionLimitExceeded} (client fault)
+ *  <p>The document has too many versions. Delete one or more document versions and try
+ *    again.</p>
+ *
+ * @throws {@link DuplicateDocumentContent} (client fault)
+ *  <p>The content of the association document matches another document. Change the content of the
+ *    document and try again.</p>
+ *
+ * @throws {@link DuplicateDocumentVersionName} (client fault)
+ *  <p>The version name has already been used in this document. Specify a different version name,
+ *    and then try again.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidDocumentContent} (client fault)
+ *  <p>The content for the document isn't valid.</p>
+ *
+ * @throws {@link InvalidDocumentOperation} (client fault)
+ *  <p>You attempted to delete a document while it is still shared. You must stop sharing the
+ *    document before you can delete it.</p>
+ *
+ * @throws {@link InvalidDocumentSchemaVersion} (client fault)
+ *  <p>The version of the document schema isn't supported.</p>
+ *
+ * @throws {@link InvalidDocumentVersion} (client fault)
+ *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ * @throws {@link MaxDocumentSizeExceeded} (client fault)
+ *  <p>The size limit of a document is 64 KB.</p>
+ *
+ *
  */
 export class UpdateDocumentCommand extends $Command<
   UpdateDocumentCommandInput,

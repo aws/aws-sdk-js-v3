@@ -59,6 +59,46 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * @see {@link SendSerialConsoleSSHPublicKeyCommandOutput} for command's `response` shape.
  * @see {@link EC2InstanceConnectClientResolvedConfig | config} for EC2InstanceConnectClient's `config` shape.
  *
+ * @throws {@link AuthException} (client fault)
+ *  <p>Either your AWS credentials are not valid or you do not have access to the EC2 instance.</p>
+ *
+ * @throws {@link EC2InstanceNotFoundException} (client fault)
+ *  <p>The specified instance was not found.</p>
+ *
+ * @throws {@link EC2InstanceStateInvalidException} (client fault)
+ *  <p>Unable to connect because the instance is not in a valid state.
+ *             Connecting to a stopped or terminated instance is not supported. If the instance is stopped,
+ *             start your instance, and try to connect again.</p>
+ *
+ * @throws {@link EC2InstanceTypeInvalidException} (client fault)
+ *  <p>The instance type is not supported for connecting via the serial console. Only Nitro
+ *             instance types are currently supported.</p>
+ *
+ * @throws {@link EC2InstanceUnavailableException} (server fault)
+ *  <p>The instance is currently unavailable. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link InvalidArgsException} (client fault)
+ *  <p>One of the parameters is not valid.</p>
+ *
+ * @throws {@link SerialConsoleAccessDisabledException} (client fault)
+ *  <p>Your account is not authorized to use the EC2 Serial Console. To authorize your
+ *             account, run the EnableSerialConsoleAccess API. For more information, see
+ *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableSerialConsoleAccess.html">EnableSerialConsoleAccess</a> in the <i>Amazon EC2 API Reference</i>.</p>
+ *
+ * @throws {@link SerialConsoleSessionLimitExceededException} (client fault)
+ *  <p>The instance currently has 1 active serial console session. Only 1 session is supported at a time.</p>
+ *
+ * @throws {@link SerialConsoleSessionUnavailableException} (server fault)
+ *  <p>Unable to start a serial console session. Please try again.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The requests were made too frequently and have been throttled. Wait a while and try again.
+ *             To increase the limit on your request frequency, contact AWS Support.</p>
+ *
+ *
  */
 export class SendSerialConsoleSSHPublicKeyCommand extends $Command<
   SendSerialConsoleSSHPublicKeyCommandInput,

@@ -55,6 +55,7 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCom
  * @see {@link DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommand extends $Command<
   DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationCommandInput,

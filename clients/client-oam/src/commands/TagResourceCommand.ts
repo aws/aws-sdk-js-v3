@@ -66,6 +66,16 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link OAMClientResolvedConfig | config} for OAMClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>A resource can have no more than 50 tags.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The value of a parameter in the request caused an error.</p>
+ *
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

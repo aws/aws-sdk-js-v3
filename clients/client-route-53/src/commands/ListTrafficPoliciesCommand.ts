@@ -54,6 +54,10 @@ export interface ListTrafficPoliciesCommandOutput extends ListTrafficPoliciesRes
  * @see {@link ListTrafficPoliciesCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ *
  */
 export class ListTrafficPoliciesCommand extends $Command<
   ListTrafficPoliciesCommandInput,

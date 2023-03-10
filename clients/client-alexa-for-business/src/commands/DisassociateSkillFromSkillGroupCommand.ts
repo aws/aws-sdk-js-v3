@@ -52,6 +52,13 @@ export interface DisassociateSkillFromSkillGroupCommandOutput
  * @see {@link DisassociateSkillFromSkillGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class DisassociateSkillFromSkillGroupCommand extends $Command<
   DisassociateSkillFromSkillGroupCommandInput,

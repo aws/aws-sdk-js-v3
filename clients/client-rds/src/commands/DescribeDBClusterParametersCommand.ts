@@ -56,6 +56,12 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  * @see {@link DescribeDBClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ *
  * @example To list DB cluster parameters
  * ```javascript
  * // This example lists system parameters for the specified DB cluster parameter group.

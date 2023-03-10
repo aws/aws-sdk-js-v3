@@ -60,6 +60,13 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  * @see {@link SetAlarmStateCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link InvalidFormatFault} (client fault)
+ *  <p>Data was not syntactically valid JSON.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>The named resource does not exist.</p>
+ *
+ *
  */
 export class SetAlarmStateCommand extends $Command<
   SetAlarmStateCommandInput,

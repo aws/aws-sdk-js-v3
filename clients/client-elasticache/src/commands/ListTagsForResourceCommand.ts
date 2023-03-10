@@ -55,6 +55,40 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *
+ * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
+ *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *
+ * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
+ *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ *
+ * @throws {@link InvalidARNFault} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link ReservedCacheNodeNotFoundFault} (client fault)
+ *  <p>The requested reserved cache node was not found.</p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ * @throws {@link UserGroupNotFoundFault} (client fault)
+ *  <p>The user group was not found or does not exist</p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p>The user does not exist or could not be found.</p>
+ *
+ *
  * @example ListTagsForResource
  * ```javascript
  * // Lists all cost allocation tags currently on the named resource. A cost allocation tag is a key-value pair where the key is case-sensitive and the value is optional. You can use cost allocation tags to categorize and track your AWS costs.

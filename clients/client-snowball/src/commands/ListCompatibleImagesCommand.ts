@@ -54,6 +54,16 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  * @see {@link ListCompatibleImagesCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link Ec2RequestFailedException} (client fault)
+ *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *       action.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
+ *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
+ *       again.</p>
+ *
+ *
  */
 export class ListCompatibleImagesCommand extends $Command<
   ListCompatibleImagesCommandInput,

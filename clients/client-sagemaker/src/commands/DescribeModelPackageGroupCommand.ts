@@ -50,6 +50,7 @@ export interface DescribeModelPackageGroupCommandOutput extends DescribeModelPac
  * @see {@link DescribeModelPackageGroupCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class DescribeModelPackageGroupCommand extends $Command<
   DescribeModelPackageGroupCommandInput,

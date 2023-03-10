@@ -52,6 +52,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * @see {@link SearchCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOutput, SageMakerClientResolvedConfig> {
   // Start section: command_properties

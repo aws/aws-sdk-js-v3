@@ -55,6 +55,7 @@ export interface DescribeEndpointSettingsCommandOutput extends DescribeEndpointS
  * @see {@link DescribeEndpointSettingsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ *
  */
 export class DescribeEndpointSettingsCommand extends $Command<
   DescribeEndpointSettingsCommandInput,

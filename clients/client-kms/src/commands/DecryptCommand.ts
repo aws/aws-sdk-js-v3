@@ -134,6 +134,82 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * @see {@link DecryptCommandOutput} for command's `response` shape.
  * @see {@link KMSClientResolvedConfig | config} for KMSClient's `config` shape.
  *
+ * @throws {@link DependencyTimeoutException} (server fault)
+ *  <p>The system timed out while trying to fulfill the request. You can retry the
+ *       request.</p>
+ *
+ * @throws {@link DisabledException} (client fault)
+ *  <p>The request was rejected because the specified KMS key is not enabled.</p>
+ *
+ * @throws {@link IncorrectKeyException} (client fault)
+ *  <p>The request was rejected because the specified KMS key cannot decrypt the data. The
+ *         <code>KeyId</code> in a <a>Decrypt</a> request and the <code>SourceKeyId</code>
+ *       in a <a>ReEncrypt</a> request must identify the same KMS key that was used to
+ *       encrypt the ciphertext.</p>
+ *
+ * @throws {@link InvalidCiphertextException} (client fault)
+ *  <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request
+ *       was rejected because the specified ciphertext, or additional authenticated data incorporated
+ *       into the ciphertext, such as the encryption context, is corrupted, missing, or otherwise
+ *       invalid.</p>
+ *          <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because
+ *       KMS could not decrypt the encrypted (wrapped) key material. </p>
+ *
+ * @throws {@link InvalidGrantTokenException} (client fault)
+ *  <p>The request was rejected because the specified grant token is not valid.</p>
+ *
+ * @throws {@link InvalidKeyUsageException} (client fault)
+ *  <p>The request was rejected for one of the following reasons: </p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>KeyUsage</code> value of the KMS key is incompatible with the API
+ *           operation.</p>
+ *             </li>
+ *             <li>
+ *                <p>The encryption algorithm or signing algorithm specified for the operation is
+ *           incompatible with the type of key material in the KMS key <code>(KeySpec</code>).</p>
+ *             </li>
+ *          </ul>
+ *          <p>For encrypting, decrypting, re-encrypting, and generating data keys, the
+ *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
+ *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
+ *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
+ *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
+ *         <a>DescribeKey</a> operation.</p>
+ *
+ * @throws {@link KeyUnavailableException} (server fault)
+ *  <p>The request was rejected because the specified KMS key was not available. You can retry
+ *       the request.</p>
+ *
+ * @throws {@link KMSInternalException} (server fault)
+ *  <p>The request was rejected because an internal exception occurred. The request can be
+ *       retried.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource is not valid for this
+ *       request.</p>
+ *          <p>This exceptions means one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The key state of the KMS key is not compatible with the operation. </p>
+ *                <p>To find the key state, use the <a>DescribeKey</a> operation. For more
+ *           information about which key states are compatible with each KMS operation, see
+ *           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *                      <i>Key Management Service Developer Guide</i>
+ *                   </i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For cryptographic operations on KMS keys in custom key stores, this exception represents a general failure with many possible causes. To identify the cause, see the error message that accompanies the exception.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource could not be
+ *       found.</p>
+ *
+ *
  * @example To decrypt data
  * ```javascript
  * // The following example decrypts data that was encrypted with a KMS key.

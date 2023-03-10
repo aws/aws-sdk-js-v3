@@ -50,6 +50,7 @@ export interface ListConnectorDefinitionsCommandOutput extends ListConnectorDefi
  * @see {@link ListConnectorDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ *
  */
 export class ListConnectorDefinitionsCommand extends $Command<
   ListConnectorDefinitionsCommandInput,

@@ -92,6 +92,25 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * @see {@link UpdateGlobalTableCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link GlobalTableNotFoundException} (client fault)
+ *  <p>The specified global table does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ * @throws {@link ReplicaAlreadyExistsException} (client fault)
+ *  <p>The specified replica is already part of the global table.</p>
+ *
+ * @throws {@link ReplicaNotFoundException} (client fault)
+ *  <p>The specified replica is no longer part of the global table.</p>
+ *
+ * @throws {@link TableNotFoundException} (client fault)
+ *  <p>A source table with the name <code>TableName</code> does not currently exist within
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
+ *
+ *
  */
 export class UpdateGlobalTableCommand extends $Command<
   UpdateGlobalTableCommandInput,

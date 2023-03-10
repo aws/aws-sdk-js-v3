@@ -64,6 +64,22 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * @see {@link InvokeAsyncCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
+ * @throws {@link InvalidRequestContentException} (client fault)
+ *  <p>The request body could not be parsed as JSON.</p>
+ *
+ * @throws {@link InvalidRuntimeException} (server fault)
+ *  <p>The runtime or runtime version specified is not supported.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ *
  */
 export class InvokeAsyncCommand extends $Command<
   InvokeAsyncCommandInput,

@@ -53,6 +53,10 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  * @see {@link DeleteReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link RuleSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ *
  * @example DeleteReceiptRule
  * ```javascript
  * // The following example deletes a receipt rule:

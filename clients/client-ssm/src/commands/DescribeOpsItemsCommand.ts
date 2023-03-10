@@ -55,6 +55,10 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  * @see {@link DescribeOpsItemsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ *
  */
 export class DescribeOpsItemsCommand extends $Command<
   DescribeOpsItemsCommandInput,

@@ -51,6 +51,16 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * @see {@link RestoreVolumeFromSnapshotCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link VolumeNotFound} (client fault)
+ *  <p>No Amazon FSx volumes were found based upon the supplied parameters.</p>
+ *
+ *
  */
 export class RestoreVolumeFromSnapshotCommand extends $Command<
   RestoreVolumeFromSnapshotCommandInput,

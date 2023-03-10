@@ -176,6 +176,37 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * @see {@link ImportCertificateAuthorityCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
+ * @throws {@link CertificateMismatchException} (client fault)
+ *  <p>The certificate authority certificate you are importing does not comply with
+ * 			conditions specified in the certificate that signed it.</p>
+ *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>A previous update to your private CA is still ongoing.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request action cannot be performed or is prohibited.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The state of the private CA does not allow this action to occur.</p>
+ *
+ * @throws {@link MalformedCertificateException} (client fault)
+ *  <p>One or more fields in the certificate are invalid.</p>
+ *
+ * @throws {@link RequestFailedException} (client fault)
+ *  <p>The request has failed for an unspecified reason.</p>
+ *
+ * @throws {@link RequestInProgressException} (client fault)
+ *  <p>Your request is already in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
+ *
  */
 export class ImportCertificateAuthorityCertificateCommand extends $Command<
   ImportCertificateAuthorityCertificateCommandInput,

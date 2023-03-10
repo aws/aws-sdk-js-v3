@@ -50,6 +50,13 @@ export interface GetCrawlerCommandOutput extends GetCrawlerResponse, __MetadataB
  * @see {@link GetCrawlerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class GetCrawlerCommand extends $Command<
   GetCrawlerCommandInput,

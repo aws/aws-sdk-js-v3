@@ -74,6 +74,7 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * @see {@link TerminateWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ *
  */
 export class TerminateWorkspacesCommand extends $Command<
   TerminateWorkspacesCommandInput,

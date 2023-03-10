@@ -50,6 +50,7 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  * @see {@link RemoveAutoTerminationPolicyCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ *
  */
 export class RemoveAutoTerminationPolicyCommand extends $Command<
   RemoveAutoTerminationPolicyCommandInput,

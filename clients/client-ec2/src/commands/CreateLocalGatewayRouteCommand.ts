@@ -63,6 +63,7 @@ export interface CreateLocalGatewayRouteCommandOutput extends CreateLocalGateway
  * @see {@link CreateLocalGatewayRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateLocalGatewayRouteCommand extends $Command<
   CreateLocalGatewayRouteCommandInput,

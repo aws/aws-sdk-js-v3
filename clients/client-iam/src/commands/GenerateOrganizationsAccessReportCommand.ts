@@ -183,6 +183,11 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  * @see {@link GenerateOrganizationsAccessReportCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link ReportGenerationLimitExceededException} (client fault)
+ *  <p>The request failed because the maximum number of concurrent requests for this account are
+ *       already running.</p>
+ *
+ *
  * @example To generate a service last accessed data report for an organizational unit
  * ```javascript
  * // The following operation generates a report for the organizational unit ou-rge0-awexample

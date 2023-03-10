@@ -55,6 +55,14 @@ export interface DeregisterTargetsCommandOutput extends DeregisterTargetsOutput,
  * @see {@link DeregisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link InvalidTargetException} (client fault)
+ *  <p>The specified target does not exist, is not in the same VPC as the target group, or has an
+ *       unsupported instance type.</p>
+ *
+ * @throws {@link TargetGroupNotFoundException} (client fault)
+ *  <p>The specified target group does not exist.</p>
+ *
+ *
  * @example To deregister a target from a target group
  * ```javascript
  * // This example deregisters the specified instance from the specified target group.

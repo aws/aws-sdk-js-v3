@@ -46,6 +46,22 @@ export interface SetV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @see {@link SetV2LoggingLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit has been exceeded.</p>
+ *
+ * @throws {@link NotConfiguredException} (client fault)
+ *  <p>The resource is not configured.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ *
  */
 export class SetV2LoggingLevelCommand extends $Command<
   SetV2LoggingLevelCommandInput,

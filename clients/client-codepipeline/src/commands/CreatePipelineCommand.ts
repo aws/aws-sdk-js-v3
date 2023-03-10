@@ -56,6 +56,38 @@ export interface CreatePipelineCommandOutput extends CreatePipelineOutput, __Met
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * @throws {@link InvalidActionDeclarationException} (client fault)
+ *  <p>The action declaration was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidBlockerDeclarationException} (client fault)
+ *  <p>Reserved for future use.</p>
+ *
+ * @throws {@link InvalidStageDeclarationException} (client fault)
+ *  <p>The stage declaration was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidStructureException} (client fault)
+ *  <p>The structure was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTagsException} (client fault)
+ *  <p>The specified resource tags are invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The number of pipelines associated with the AWS account has exceeded the limit
+ *             allowed for the account.</p>
+ *
+ * @throws {@link PipelineNameInUseException} (client fault)
+ *  <p>The specified pipeline name is already in use.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The tags limit for a resource has been exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class CreatePipelineCommand extends $Command<
   CreatePipelineCommandInput,

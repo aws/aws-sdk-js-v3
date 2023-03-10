@@ -59,6 +59,20 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * @see {@link SendAlexaOfferToMasterCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoSignalingClientResolvedConfig | config} for KinesisVideoSignalingClient's `config` shape.
  *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>Your request was throttled because you have exceeded the limit of allowed client
+ *             calls. Try making the call later.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>The caller is not authorized to perform this operation.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource is not found.</p>
+ *
+ *
  */
 export class SendAlexaOfferToMasterCommand extends $Command<
   SendAlexaOfferToMasterCommandInput,

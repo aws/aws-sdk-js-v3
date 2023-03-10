@@ -49,6 +49,22 @@ export interface DeactivateEventSourceCommandOutput extends __MetadataBearer {}
  * @see {@link DeactivateEventSourceCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link InvalidStateException} (client fault)
+ *  <p>The specified state is not a valid state for an event source.</p>
+ *
+ * @throws {@link OperationDisabledException} (client fault)
+ *  <p>The operation you are attempting is not available in this region.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ *
  */
 export class DeactivateEventSourceCommand extends $Command<
   DeactivateEventSourceCommandInput,

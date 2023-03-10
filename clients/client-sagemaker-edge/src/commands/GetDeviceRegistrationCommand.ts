@@ -50,6 +50,11 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  * @see {@link GetDeviceRegistrationCommandOutput} for command's `response` shape.
  * @see {@link SagemakerEdgeClientResolvedConfig | config} for SagemakerEdgeClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (client fault)
+ *  <p>An internal failure occurred. Try your request again. If the problem
+ *       persists, contact Amazon Web Services customer support.</p>
+ *
+ *
  */
 export class GetDeviceRegistrationCommand extends $Command<
   GetDeviceRegistrationCommandInput,

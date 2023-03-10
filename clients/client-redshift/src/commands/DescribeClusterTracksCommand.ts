@@ -50,6 +50,13 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * @see {@link DescribeClusterTracksCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidClusterTrackFault} (client fault)
+ *  <p>The provided cluster track name is not valid.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ *
  */
 export class DescribeClusterTracksCommand extends $Command<
   DescribeClusterTracksCommandInput,

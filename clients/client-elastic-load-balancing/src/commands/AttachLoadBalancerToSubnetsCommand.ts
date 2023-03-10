@@ -57,6 +57,19 @@ export interface AttachLoadBalancerToSubnetsCommandOutput extends AttachLoadBala
  * @see {@link AttachLoadBalancerToSubnetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link InvalidSubnetException} (client fault)
+ *  <p>The specified VPC has no associated Internet gateway.</p>
+ *
+ * @throws {@link SubnetNotFoundException} (client fault)
+ *  <p>One or more of the specified subnets do not exist.</p>
+ *
+ *
  * @example To attach subnets to a load balancer
  * ```javascript
  * // This example adds the specified subnet to the set of configured subnets for the specified load balancer.

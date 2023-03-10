@@ -50,6 +50,7 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
  * @see {@link SearchDevicesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ *
  */
 export class SearchDevicesCommand extends $Command<
   SearchDevicesCommandInput,

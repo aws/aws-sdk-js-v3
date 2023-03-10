@@ -53,6 +53,16 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class ListChannelsCommand extends $Command<
   ListChannelsCommandInput,

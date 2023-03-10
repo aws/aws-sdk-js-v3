@@ -52,6 +52,7 @@ export interface StartWorkspacesCommandOutput extends StartWorkspacesResult, __M
  * @see {@link StartWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ *
  */
 export class StartWorkspacesCommand extends $Command<
   StartWorkspacesCommandInput,

@@ -50,6 +50,14 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link ResourcePolicyInvalidParameterException} (client fault)
+ *  <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
+ *    values and try again.</p>
+ *
+ *
  */
 export class GetResourcePoliciesCommand extends $Command<
   GetResourcePoliciesCommandInput,

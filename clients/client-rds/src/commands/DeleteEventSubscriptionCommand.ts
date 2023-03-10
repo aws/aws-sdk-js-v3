@@ -50,6 +50,13 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link InvalidEventSubscriptionStateFault} (client fault)
+ *  <p>This error can occur if someone else is modifying a subscription. You should retry the action.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The subscription name does not exist.</p>
+ *
+ *
  * @example To delete a DB event subscription.
  * ```javascript
  * // This example deletes the specified DB event subscription.

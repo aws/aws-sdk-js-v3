@@ -67,6 +67,17 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * @see {@link GetActivityTaskCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link ActivityDoesNotExist} (client fault)
+ *  <p>The specified activity does not exist.</p>
+ *
+ * @throws {@link ActivityWorkerLimitExceeded} (client fault)
+ *  <p>The maximum number of workers concurrently polling for activity tasks has been
+ *       reached.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ *
  */
 export class GetActivityTaskCommand extends $Command<
   GetActivityTaskCommandInput,

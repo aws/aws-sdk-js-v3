@@ -51,6 +51,13 @@ export interface ListJobRunsCommandOutput extends ListJobRunsResponse, __Metadat
  * @see {@link ListJobRunsCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This is an internal server exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There are invalid parameters in the client request.</p>
+ *
+ *
  */
 export class ListJobRunsCommand extends $Command<
   ListJobRunsCommandInput,

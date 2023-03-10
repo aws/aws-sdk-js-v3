@@ -50,6 +50,10 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ *
  */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,

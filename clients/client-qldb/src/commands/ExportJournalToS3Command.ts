@@ -64,6 +64,13 @@ export interface ExportJournalToS3CommandOutput extends ExportJournalToS3Respons
  * @see {@link ExportJournalToS3CommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ * @throws {@link ResourcePreconditionNotMetException} (client fault)
+ *  <p>The operation failed because a condition wasn't satisfied in advance.</p>
+ *
+ *
  */
 export class ExportJournalToS3Command extends $Command<
   ExportJournalToS3CommandInput,

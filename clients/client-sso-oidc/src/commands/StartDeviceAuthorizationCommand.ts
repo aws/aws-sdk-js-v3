@@ -51,6 +51,28 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * @see {@link StartDeviceAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link SSOOIDCClientResolvedConfig | config} for SSOOIDCClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Indicates that an error from the service occurred while trying to process a
+ *       request.</p>
+ *
+ * @throws {@link InvalidClientException} (client fault)
+ *  <p>Indicates that the <code>clientId</code> or <code>clientSecret</code> in the request is
+ *       invalid. For example, this can occur when a client sends an incorrect <code>clientId</code> or
+ *       an expired <code>clientSecret</code>.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Indicates that something is wrong with the input to the request. For example, a required
+ *       parameter might be missing or out of range.</p>
+ *
+ * @throws {@link SlowDownException} (client fault)
+ *  <p>Indicates that the client is making the request too frequently and is more than the
+ *       service can handle. </p>
+ *
+ * @throws {@link UnauthorizedClientException} (client fault)
+ *  <p>Indicates that the client is not currently authorized to make the request. This can happen
+ *       when a <code>clientId</code> is not issued for a public client.</p>
+ *
+ *
  */
 export class StartDeviceAuthorizationCommand extends $Command<
   StartDeviceAuthorizationCommandInput,

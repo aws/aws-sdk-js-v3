@@ -52,6 +52,7 @@ export interface DescribeEventCategoriesCommandOutput extends EventCategoriesMes
  * @see {@link DescribeEventCategoriesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ *
  */
 export class DescribeEventCategoriesCommand extends $Command<
   DescribeEventCategoriesCommandInput,

@@ -50,6 +50,28 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  * @see {@link DeleteKeyspaceCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. </p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Amazon Keyspaces could not complete the requested action. This error may occur if you try to
+ *          perform an action and the same or a different action is already
+ *          in progress, or if you try to create a resource that already exists. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
+ *             Guide</i>.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The operation failed due to an invalid or malformed request.</p>
+ *
+ *
  */
 export class DeleteKeyspaceCommand extends $Command<
   DeleteKeyspaceCommandInput,

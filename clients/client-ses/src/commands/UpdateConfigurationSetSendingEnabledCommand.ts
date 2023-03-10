@@ -53,6 +53,10 @@ export interface UpdateConfigurationSetSendingEnabledCommandOutput extends __Met
  * @see {@link UpdateConfigurationSetSendingEnabledCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ *
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript
  * // Set the sending enabled flag for a specific configuration set.

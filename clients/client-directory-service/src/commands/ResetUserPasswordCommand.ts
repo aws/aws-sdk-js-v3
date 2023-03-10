@@ -67,6 +67,29 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * @see {@link ResetUserPasswordCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidPasswordException} (client fault)
+ *  <p>The new password provided by the user does not meet the password complexity
+ *             requirements defined in your directory.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ * @throws {@link UserDoesNotExistException} (client fault)
+ *  <p>The user provided a username that does not exist in your directory.</p>
+ *
+ *
  */
 export class ResetUserPasswordCommand extends $Command<
   ResetUserPasswordCommandInput,

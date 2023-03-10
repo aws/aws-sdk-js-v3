@@ -56,6 +56,21 @@ export interface RevokeSnapshotAccessCommandOutput extends RevokeSnapshotAccessR
  * @see {@link RevokeSnapshotAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link AccessToSnapshotDeniedFault} (client fault)
+ *  <p>The owner of the specified snapshot has not authorized your account to access the
+ *             snapshot.</p>
+ *
+ * @throws {@link AuthorizationNotFoundFault} (client fault)
+ *  <p>The specified CIDR IP range or EC2 security group is not authorized for the
+ *             specified cluster security group.</p>
+ *
+ * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
+ *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class RevokeSnapshotAccessCommand extends $Command<
   RevokeSnapshotAccessCommandInput,

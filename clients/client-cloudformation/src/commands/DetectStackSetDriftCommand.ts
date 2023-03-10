@@ -94,6 +94,17 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * @see {@link DetectStackSetDriftCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The specified operation isn't valid.</p>
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Another operation is currently in progress for this stack set. Only one operation can be
+ *          performed for a stack set at a given time.</p>
+ *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
+ *
  */
 export class DetectStackSetDriftCommand extends $Command<
   DetectStackSetDriftCommandInput,

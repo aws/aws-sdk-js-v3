@@ -59,6 +59,7 @@ export interface DescribeStackResourceDriftsCommandOutput extends DescribeStackR
  * @see {@link DescribeStackResourceDriftsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class DescribeStackResourceDriftsCommand extends $Command<
   DescribeStackResourceDriftsCommandInput,

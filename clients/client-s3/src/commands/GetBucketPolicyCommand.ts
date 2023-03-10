@@ -72,6 +72,7 @@ export interface GetBucketPolicyCommandOutput extends GetBucketPolicyOutput, __M
  * @see {@link GetBucketPolicyCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  * @example To get bucket policy
  * ```javascript
  * // The following example returns bucket policy associated with a bucket.

@@ -42,6 +42,7 @@ export interface DeleteKeyPairCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteKeyPairCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To delete a key pair
  * ```javascript
  * // This example deletes the specified key pair.

@@ -66,6 +66,18 @@ export interface CreateActivityCommandOutput extends CreateActivityOutput, __Met
  * @see {@link CreateActivityCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link ActivityLimitExceeded} (client fault)
+ *  <p>The maximum number of activities has been reached. Existing activities must be deleted
+ *       before a new activity can be created.</p>
+ *
+ * @throws {@link InvalidName} (client fault)
+ *  <p>The provided name is not valid.</p>
+ *
+ * @throws {@link TooManyTags} (client fault)
+ *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
+ *       Step Functions Developer Guide.</p>
+ *
+ *
  */
 export class CreateActivityCommand extends $Command<
   CreateActivityCommandInput,

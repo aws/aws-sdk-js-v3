@@ -53,6 +53,14 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileResult,
  * @see {@link CreateUserProfileCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
+ * @throws {@link UserProfileAlreadyExistsException} (client fault)
+ *  <p>A user profile with that name already exists in this region for the AWS account. AWS
+ *       CodeStar user profile names must be unique within a region for the AWS account. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ *
  */
 export class CreateUserProfileCommand extends $Command<
   CreateUserProfileCommandInput,

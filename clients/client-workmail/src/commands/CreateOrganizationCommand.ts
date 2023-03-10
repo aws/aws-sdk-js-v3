@@ -58,6 +58,22 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  * @see {@link CreateOrganizationCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
+ * @throws {@link DirectoryInUseException} (client fault)
+ *  <p>The directory is already in use by another WorkMail organization in the same account and Region.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The directory is unavailable. It might be located in another Region or deleted.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeds the limit of the resource.</p>
+ *
+ * @throws {@link NameAvailabilityException} (client fault)
+ *  <p>The user, group, or resource name isn't unique in WorkMail.</p>
+ *
+ *
  */
 export class CreateOrganizationCommand extends $Command<
   CreateOrganizationCommandInput,

@@ -49,6 +49,7 @@ export interface DeleteIpamScopeCommandOutput extends DeleteIpamScopeResult, __M
  * @see {@link DeleteIpamScopeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeleteIpamScopeCommand extends $Command<
   DeleteIpamScopeCommandInput,

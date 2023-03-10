@@ -58,6 +58,15 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  * @see {@link UpdateGatewayInformationCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
  * @example To update a gateway's metadata
  * ```javascript
  * // Updates a gateway's metadata, which includes the gateway's name and time zone.

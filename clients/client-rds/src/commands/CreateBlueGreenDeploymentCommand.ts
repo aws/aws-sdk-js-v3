@@ -64,6 +64,48 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * @see {@link CreateBlueGreenDeploymentCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link BlueGreenDeploymentAlreadyExistsFault} (client fault)
+ *  <p>A blue/green deployment with the specified name already exists.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
+ *             cluster parameter group.</p>
+ *
+ * @throws {@link DBClusterQuotaExceededFault} (client fault)
+ *  <p>The user attempted to create a new DB cluster and the user has already reached the
+ *             maximum allowed DB cluster quota.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ * @throws {@link InstanceQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of DB
+ *             instances.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link SourceClusterNotSupportedFault} (client fault)
+ *  <p>The source DB cluster isn't supported for a blue/green deployment.</p>
+ *
+ * @throws {@link SourceDatabaseNotSupportedFault} (client fault)
+ *  <p>The source DB instance isn't supported for a blue/green deployment.</p>
+ *
+ *
  */
 export class CreateBlueGreenDeploymentCommand extends $Command<
   CreateBlueGreenDeploymentCommandInput,

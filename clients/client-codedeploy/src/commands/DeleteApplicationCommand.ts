@@ -45,6 +45,18 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteApplicationCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidRoleException} (client fault)
+ *  <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
+ *             group was specified, the specified service role does not grant the appropriate
+ *             permissions to Amazon EC2 Auto Scaling.</p>
+ *
+ *
  */
 export class DeleteApplicationCommand extends $Command<
   DeleteApplicationCommandInput,

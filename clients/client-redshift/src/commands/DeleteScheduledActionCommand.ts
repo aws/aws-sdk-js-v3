@@ -46,6 +46,13 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ScheduledActionNotFoundFault} (client fault)
+ *  <p>The scheduled action cannot be found. </p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ *
  */
 export class DeleteScheduledActionCommand extends $Command<
   DeleteScheduledActionCommandInput,

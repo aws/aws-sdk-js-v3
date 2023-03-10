@@ -55,6 +55,15 @@ export interface ResetClusterParameterGroupCommandOutput extends ClusterParamete
  * @see {@link ResetClusterParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * @throws {@link InvalidClusterParameterGroupStateFault} (client fault)
+ *  <p>The cluster parameter group action can not be completed because another task is in
+ *             progress that involves the parameter group. Wait a few moments and try the operation
+ *             again.</p>
+ *
+ *
  */
 export class ResetClusterParameterGroupCommand extends $Command<
   ResetClusterParameterGroupCommandInput,

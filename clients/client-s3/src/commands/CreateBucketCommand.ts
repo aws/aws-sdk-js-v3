@@ -196,6 +196,17 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * @see {@link CreateBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link BucketAlreadyExists} (client fault)
+ *  <p>The requested bucket name is not available. The bucket namespace is shared by all users
+ *          of the system. Select a different name and try again.</p>
+ *
+ * @throws {@link BucketAlreadyOwnedByYou} (client fault)
+ *  <p>The bucket you tried to create already exists, and you own it. Amazon S3 returns this error
+ *          in all Amazon Web Services Regions except in the North Virginia Region. For legacy compatibility, if you
+ *          re-create an existing bucket that you already own in the North Virginia Region, Amazon S3
+ *          returns 200 OK and resets the bucket access control lists (ACLs).</p>
+ *
+ *
  * @example To create a bucket in a specific region
  * ```javascript
  * // The following example creates a bucket. The request specifies an AWS region where to create the bucket.

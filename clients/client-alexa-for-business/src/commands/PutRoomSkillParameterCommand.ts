@@ -51,6 +51,10 @@ export interface PutRoomSkillParameterCommandOutput extends PutRoomSkillParamete
  * @see {@link PutRoomSkillParameterCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ *
  */
 export class PutRoomSkillParameterCommand extends $Command<
   PutRoomSkillParameterCommandInput,

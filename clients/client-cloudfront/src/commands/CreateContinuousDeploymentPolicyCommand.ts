@@ -60,6 +60,27 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
  * @see {@link CreateContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link ContinuousDeploymentPolicyAlreadyExists} (client fault)
+ *  <p>A continuous deployment policy with this configuration already exists.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link StagingDistributionInUse} (client fault)
+ *  <p>A continuous deployment policy for this staging distribution already exists.</p>
+ *
+ * @throws {@link TooManyContinuousDeploymentPolicies} (client fault)
+ *  <p>You have reached the maximum number of continuous deployment policies for this
+ * 			Amazon Web Services account.</p>
+ *
+ *
  */
 export class CreateContinuousDeploymentPolicyCommand extends $Command<
   CreateContinuousDeploymentPolicyCommandInput,

@@ -50,6 +50,10 @@ export interface DeleteMaintenanceWindowCommandOutput extends DeleteMaintenanceW
  * @see {@link DeleteMaintenanceWindowCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ *
  */
 export class DeleteMaintenanceWindowCommand extends $Command<
   DeleteMaintenanceWindowCommandInput,

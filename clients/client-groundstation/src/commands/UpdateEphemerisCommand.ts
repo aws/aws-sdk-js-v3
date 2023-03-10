@@ -50,6 +50,16 @@ export interface UpdateEphemerisCommandOutput extends EphemerisIdResponse, __Met
  * @see {@link UpdateEphemerisCommandOutput} for command's `response` shape.
  * @see {@link GroundStationClientResolvedConfig | config} for GroundStationClient's `config` shape.
  *
+ * @throws {@link DependencyException} (server fault)
+ *  <p>Dependency encountered an error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource was not found.</p>
+ *
+ *
  */
 export class UpdateEphemerisCommand extends $Command<
   UpdateEphemerisCommandInput,

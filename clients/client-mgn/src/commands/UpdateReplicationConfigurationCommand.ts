@@ -50,6 +50,22 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * @see {@link UpdateReplicationConfigurationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Operating denied due to a file permission or access check error.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found exception.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
+ *
  */
 export class UpdateReplicationConfigurationCommand extends $Command<
   UpdateReplicationConfigurationCommandInput,

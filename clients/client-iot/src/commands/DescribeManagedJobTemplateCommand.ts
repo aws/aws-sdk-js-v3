@@ -50,6 +50,20 @@ export interface DescribeManagedJobTemplateCommandOutput extends DescribeManaged
  * @see {@link DescribeManagedJobTemplateCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Internal error from the service that indicates an unexpected error or that the service
+ *             is unavailable.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The rate exceeds the limit.</p>
+ *
+ *
  */
 export class DescribeManagedJobTemplateCommand extends $Command<
   DescribeManagedJobTemplateCommandInput,

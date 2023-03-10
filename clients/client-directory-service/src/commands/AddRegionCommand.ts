@@ -47,6 +47,39 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * @see {@link AddRegionCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Client authentication is not available in this region at this time.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryAlreadyInRegionException} (client fault)
+ *  <p>The Region you specified is the same Region where the Managed Microsoft AD directory
+ *       was created. Specify a different Region and try again.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link RegionLimitExceededException} (client fault)
+ *  <p>You have reached the limit for maximum number of simultaneous Region replications per
+ *       directory.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ *
  */
 export class AddRegionCommand extends $Command<
   AddRegionCommandInput,

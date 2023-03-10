@@ -49,6 +49,7 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  * @see {@link ConstantAndVariableQueryStringCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class ConstantAndVariableQueryStringCommand extends $Command<
   ConstantAndVariableQueryStringCommandInput,

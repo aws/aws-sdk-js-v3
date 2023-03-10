@@ -50,6 +50,14 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @see {@link StartPipelineExecutionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceLimitExceeded} (client fault)
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
+ *             training jobs created. </p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ *
  */
 export class StartPipelineExecutionCommand extends $Command<
   StartPipelineExecutionCommandInput,

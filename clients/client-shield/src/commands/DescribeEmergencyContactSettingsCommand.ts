@@ -52,6 +52,13 @@ export interface DescribeEmergencyContactSettingsCommandOutput
  * @see {@link DescribeEmergencyContactSettingsCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Exception indicating the specified resource does not exist. If available, this exception includes details in additional properties. </p>
+ *
+ *
  */
 export class DescribeEmergencyContactSettingsCommand extends $Command<
   DescribeEmergencyContactSettingsCommandInput,

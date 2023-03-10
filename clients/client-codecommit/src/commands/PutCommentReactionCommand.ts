@@ -46,6 +46,29 @@ export interface PutCommentReactionCommandOutput extends __MetadataBearer {}
  * @see {@link PutCommentReactionCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link CommentDeletedException} (client fault)
+ *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * @throws {@link CommentDoesNotExistException} (client fault)
+ *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
+ *             then try again.</p>
+ *
+ * @throws {@link CommentIdRequiredException} (client fault)
+ *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * @throws {@link InvalidCommentIdException} (client fault)
+ *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
+ * @throws {@link InvalidReactionValueException} (client fault)
+ *  <p>The value of the reaction is not valid. For more information, see the <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit User Guide</a>.</p>
+ *
+ * @throws {@link ReactionLimitExceededException} (client fault)
+ *  <p>The number of reactions has been exceeded. Reactions are limited to one reaction per user for each individual comment ID.</p>
+ *
+ * @throws {@link ReactionValueRequiredException} (client fault)
+ *  <p>A reaction value is required. </p>
+ *
+ *
  */
 export class PutCommentReactionCommand extends $Command<
   PutCommentReactionCommandInput,

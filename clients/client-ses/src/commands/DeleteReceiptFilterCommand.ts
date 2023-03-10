@@ -53,6 +53,7 @@ export interface DeleteReceiptFilterCommandOutput extends DeleteReceiptFilterRes
  * @see {@link DeleteReceiptFilterCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example DeleteReceiptFilter
  * ```javascript
  * // The following example deletes an IP address filter:

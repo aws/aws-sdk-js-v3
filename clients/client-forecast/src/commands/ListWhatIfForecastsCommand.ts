@@ -50,6 +50,14 @@ export interface ListWhatIfForecastsCommandOutput extends ListWhatIfForecastsRes
  * @see {@link ListWhatIfForecastsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>We can't process the request because it includes an invalid value or a value that exceeds
+ *       the valid range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ *
  */
 export class ListWhatIfForecastsCommand extends $Command<
   ListWhatIfForecastsCommandInput,

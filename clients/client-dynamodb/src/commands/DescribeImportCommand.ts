@@ -50,6 +50,12 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * @see {@link DescribeImportCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link ImportNotFoundException} (client fault)
+ *  <p>
+ *             The specified import was not found.
+ *             </p>
+ *
+ *
  */
 export class DescribeImportCommand extends $Command<
   DescribeImportCommandInput,

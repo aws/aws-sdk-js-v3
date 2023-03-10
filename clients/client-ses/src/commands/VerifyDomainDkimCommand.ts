@@ -88,6 +88,7 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * @see {@link VerifyDomainDkimCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example VerifyDomainDkim
  * ```javascript
  * // The following example generates DKIM tokens for a domain that has been verified with Amazon SES:

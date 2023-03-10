@@ -59,6 +59,14 @@ export interface DescribeHsmClientCertificatesCommandOutput extends HsmClientCer
  * @see {@link DescribeHsmClientCertificatesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM client certificate with the specified
+ *             identifier.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ *
  */
 export class DescribeHsmClientCertificatesCommand extends $Command<
   DescribeHsmClientCertificatesCommandInput,

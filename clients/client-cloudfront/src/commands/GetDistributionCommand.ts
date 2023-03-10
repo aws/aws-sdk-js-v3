@@ -50,6 +50,13 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * @see {@link GetDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ *
  */
 export class GetDistributionCommand extends $Command<
   GetDistributionCommandInput,

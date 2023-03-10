@@ -62,6 +62,38 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * @see {@link ShareDirectoryCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Client authentication is not available in this region at this time.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryAlreadySharedException} (client fault)
+ *  <p>The specified directory has already been shared with this Amazon Web Services account.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link InvalidTargetException} (client fault)
+ *  <p>The specified shared target is not valid.</p>
+ *
+ * @throws {@link OrganizationsException} (client fault)
+ *  <p>Exception encountered while trying to access your Amazon Web Services organization.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link ShareLimitExceededException} (client fault)
+ *  <p>The maximum number of Amazon Web Services accounts that you can share with this directory has been
+ *             reached.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ *
  */
 export class ShareDirectoryCommand extends $Command<
   ShareDirectoryCommandInput,

@@ -50,6 +50,16 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * @see {@link CreateLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Operating denied due to a file permission or access check error.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
+ *
  */
 export class CreateLaunchConfigurationTemplateCommand extends $Command<
   CreateLaunchConfigurationTemplateCommandInput,

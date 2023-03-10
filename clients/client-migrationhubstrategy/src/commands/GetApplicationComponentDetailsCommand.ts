@@ -56,6 +56,16 @@ export interface GetApplicationComponentDetailsCommandOutput
  * @see {@link GetApplicationComponentDetailsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ID in the request is not found. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ *
  */
 export class GetApplicationComponentDetailsCommand extends $Command<
   GetApplicationComponentDetailsCommandInput,

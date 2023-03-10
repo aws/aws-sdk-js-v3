@@ -54,6 +54,14 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * @see {@link AttachInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ServiceLinkedRoleFailure} (server fault)
+ *  <p>The service-linked role is not yet ready for use.</p>
+ *
+ *
  * @example To attach an instance to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified instance to the specified Auto Scaling group.

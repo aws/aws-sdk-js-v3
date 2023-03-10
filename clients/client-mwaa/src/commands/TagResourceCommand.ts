@@ -50,6 +50,16 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>InternalServerException: An internal error has occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>ResourceNotFoundException: The resource is not available.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>ValidationException: The provided input is not valid.</p>
+ *
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

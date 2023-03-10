@@ -47,6 +47,22 @@ export interface ModifyScheduledActionCommandOutput extends ScheduledAction, __M
  * @see {@link ModifyScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidScheduledActionFault} (client fault)
+ *  <p>The scheduled action is not valid. </p>
+ *
+ * @throws {@link InvalidScheduleFault} (client fault)
+ *  <p>The schedule you submitted isn't valid.</p>
+ *
+ * @throws {@link ScheduledActionNotFoundFault} (client fault)
+ *  <p>The scheduled action cannot be found. </p>
+ *
+ * @throws {@link ScheduledActionTypeUnsupportedFault} (client fault)
+ *  <p>The action type specified for a scheduled action is not supported. </p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ *
  */
 export class ModifyScheduledActionCommand extends $Command<
   ModifyScheduledActionCommandInput,

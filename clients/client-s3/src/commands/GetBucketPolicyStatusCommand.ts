@@ -78,6 +78,7 @@ export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatu
  * @see {@link GetBucketPolicyStatusCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  */
 export class GetBucketPolicyStatusCommand extends $Command<
   GetBucketPolicyStatusCommandInput,

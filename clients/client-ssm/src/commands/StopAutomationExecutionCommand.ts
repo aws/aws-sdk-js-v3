@@ -50,6 +50,17 @@ export interface StopAutomationExecutionCommandOutput extends StopAutomationExec
  * @see {@link StopAutomationExecutionCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link AutomationExecutionNotFoundException} (client fault)
+ *  <p>There is no automation execution information for the requested automation execution
+ *    ID.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidAutomationStatusUpdateException} (client fault)
+ *  <p>The specified update status operation isn't valid.</p>
+ *
+ *
  */
 export class StopAutomationExecutionCommand extends $Command<
   StopAutomationExecutionCommandInput,

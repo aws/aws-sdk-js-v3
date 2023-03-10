@@ -50,6 +50,10 @@ export interface ListApplicationsCommandOutput extends ListApplicationsOutput, _
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ *
  */
 export class ListApplicationsCommand extends $Command<
   ListApplicationsCommandInput,

@@ -54,6 +54,34 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link KMSAccessDeniedFault} (client fault)
+ *  <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
+ *
+ * @throws {@link KMSDisabledFault} (client fault)
+ *  <p>The specified KMS key isn't enabled.</p>
+ *
+ * @throws {@link KMSInvalidStateFault} (client fault)
+ *  <p>The state of the specified KMS resource isn't valid for this request.</p>
+ *
+ * @throws {@link KMSNotFoundFault} (client fault)
+ *  <p>The specified KMS entity or resource can't be found.</p>
+ *
+ * @throws {@link KMSThrottlingFault} (client fault)
+ *  <p>This request triggered KMS request throttling.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ResourceQuotaExceededFault} (client fault)
+ *  <p>The quota for this resource quota has been exceeded.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>The SNS topic is invalid.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You are not authorized for the SNS subscription.</p>
+ *
+ *
  */
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,

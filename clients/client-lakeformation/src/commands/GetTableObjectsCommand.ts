@@ -50,6 +50,28 @@ export interface GetTableObjectsCommandOutput extends GetTableObjectsResponse, _
  * @see {@link GetTableObjectsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link ResourceNotReadyException} (client fault)
+ *  <p>Contains details about an error related to a resource which is not ready for a transaction.</p>
+ *
+ * @throws {@link TransactionCanceledException} (client fault)
+ *  <p>Contains details about an error related to a transaction that was cancelled.</p>
+ *
+ * @throws {@link TransactionCommittedException} (client fault)
+ *  <p>Contains details about an error where the specified transaction has already been committed and cannot be used for <code>UpdateTableObjects</code>.</p>
+ *
+ *
  */
 export class GetTableObjectsCommand extends $Command<
   GetTableObjectsCommandInput,

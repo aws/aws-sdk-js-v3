@@ -113,6 +113,73 @@ export interface CreateHostedZoneCommandOutput extends CreateHostedZoneResponse,
  * @see {@link CreateHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConflictingDomainExists} (client fault)
+ *  <p>The cause of this error depends on the operation that you're performing:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Create a public hosted zone:</b> Two hosted zones
+ * 					that have the same name or that have a parent/child relationship (example.com
+ * 					and test.example.com) can't have any common name servers. You tried to create a
+ * 					hosted zone that has the same name as an existing hosted zone or that's the
+ * 					parent or child of an existing hosted zone, and you specified a delegation set
+ * 					that shares one or more name servers with the existing hosted zone. For more
+ * 					information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateReusableDelegationSet.html">CreateReusableDelegationSet</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Create a private hosted zone:</b> A hosted zone
+ * 					with the specified name already exists and is already associated with the Amazon
+ * 					VPC that you specified.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Associate VPCs with a private hosted zone:</b>
+ * 					The VPC that you specified is already associated with another hosted zone that
+ * 					has the same name.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link DelegationSetNotAvailable} (client fault)
+ *  <p>You can create a hosted zone that has the same name as an existing hosted zone
+ * 			(example.com is common), but there is a limit to the number of hosted zones that have
+ * 			the same name. If you get this error, Amazon Route 53 has reached that limit. If you own
+ * 			the domain name and Route 53 generates this error, contact Customer Support.</p>
+ *
+ * @throws {@link DelegationSetNotReusable} (client fault)
+ *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * @throws {@link HostedZoneAlreadyExists} (client fault)
+ *  <p>The hosted zone you're trying to create already exists. Amazon Route 53 returns this
+ * 			error when a hosted zone has already been created with the specified
+ * 				<code>CallerReference</code>.</p>
+ *
+ * @throws {@link InvalidDomainName} (client fault)
+ *  <p>The specified domain name is not valid.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidVPCId} (client fault)
+ *  <p>The VPC ID that you specified either isn't a valid ID or the current account is not
+ * 			authorized to access this VPC.</p>
+ *
+ * @throws {@link NoSuchDelegationSet} (client fault)
+ *  <p>A reusable delegation set with the specified ID does not exist.</p>
+ *
+ * @throws {@link TooManyHostedZones} (client fault)
+ *  <p>This operation can't be completed either because the current account has reached the
+ * 			limit on the number of hosted zones or because you've reached the limit on the number of
+ * 			hosted zones that can be associated with a reusable delegation set.</p>
+ *          <p>For information about default limits, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html">Limits</a> in the
+ * 				<i>Amazon Route 53 Developer Guide</i>.</p>
+ *          <p>To get the current limit on hosted zones that can be created by an account, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetAccountLimit.html">GetAccountLimit</a>.</p>
+ *          <p>To get the current limit on hosted zones that can be associated with a reusable
+ * 			delegation set, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSetLimit.html">GetReusableDelegationSetLimit</a>.</p>
+ *          <p>To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a
+ * 				case</a> with the Amazon Web Services Support Center.</p>
+ *
+ *
  */
 export class CreateHostedZoneCommand extends $Command<
   CreateHostedZoneCommandInput,

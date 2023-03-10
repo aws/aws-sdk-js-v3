@@ -50,6 +50,7 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * @see {@link ListEdgeDeploymentPlansCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListEdgeDeploymentPlansCommand extends $Command<
   ListEdgeDeploymentPlansCommandInput,

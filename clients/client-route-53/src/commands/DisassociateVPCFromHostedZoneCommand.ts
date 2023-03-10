@@ -101,6 +101,25 @@ export interface DisassociateVPCFromHostedZoneCommandOutput
  * @see {@link DisassociateVPCFromHostedZoneCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidVPCId} (client fault)
+ *  <p>The VPC ID that you specified either isn't a valid ID or the current account is not
+ * 			authorized to access this VPC.</p>
+ *
+ * @throws {@link LastVPCAssociation} (client fault)
+ *  <p>The VPC that you're trying to disassociate from the private hosted zone is the last
+ * 			VPC that is associated with the hosted zone. Amazon Route 53 doesn't support
+ * 			disassociating the last VPC from a hosted zone.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link VPCAssociationNotFound} (client fault)
+ *  <p>The specified VPC and hosted zone are not currently associated.</p>
+ *
+ *
  */
 export class DisassociateVPCFromHostedZoneCommand extends $Command<
   DisassociateVPCFromHostedZoneCommandInput,

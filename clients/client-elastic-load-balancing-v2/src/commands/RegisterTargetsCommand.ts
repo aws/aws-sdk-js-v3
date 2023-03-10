@@ -63,6 +63,21 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsOutput, __M
  * @see {@link RegisterTargetsCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link InvalidTargetException} (client fault)
+ *  <p>The specified target does not exist, is not in the same VPC as the target group, or has an
+ *       unsupported instance type.</p>
+ *
+ * @throws {@link TargetGroupNotFoundException} (client fault)
+ *  <p>The specified target group does not exist.</p>
+ *
+ * @throws {@link TooManyRegistrationsForTargetIdException} (client fault)
+ *  <p>You've reached the limit on the number of times a target can be registered with a load
+ *       balancer.</p>
+ *
+ * @throws {@link TooManyTargetsException} (client fault)
+ *  <p>You've reached the limit on the number of targets.</p>
+ *
+ *
  * @example To register targets with a target group
  * ```javascript
  * // This example registers the specified instances with the specified target group.

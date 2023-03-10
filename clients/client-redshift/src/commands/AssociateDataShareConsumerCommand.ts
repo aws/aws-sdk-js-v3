@@ -52,6 +52,13 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  * @see {@link AssociateDataShareConsumerCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidDataShareFault} (client fault)
+ *  <p>There is an error with the datashare.</p>
+ *
+ * @throws {@link InvalidNamespaceFault} (client fault)
+ *  <p>The namespace isn't valid because the namespace doesn't exist. Provide a valid namespace.</p>
+ *
+ *
  */
 export class AssociateDataShareConsumerCommand extends $Command<
   AssociateDataShareConsumerCommandInput,

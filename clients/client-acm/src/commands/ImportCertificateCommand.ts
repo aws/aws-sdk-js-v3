@@ -117,6 +117,30 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * @see {@link ImportCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An input parameter was invalid.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *  <p>One or both of the values that make up the key-value pair is not valid. For example, you
+ *       cannot specify a tag value that begins with <code>aws:</code>.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An ACM quota has been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account
+ *       cannot be found.</p>
+ *
+ * @throws {@link TagPolicyException} (client fault)
+ *  <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
+ *
+ *
  */
 export class ImportCertificateCommand extends $Command<
   ImportCertificateCommandInput,

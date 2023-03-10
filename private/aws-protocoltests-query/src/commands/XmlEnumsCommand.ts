@@ -41,6 +41,7 @@ export interface XmlEnumsCommandOutput extends XmlEnumsOutput, __MetadataBearer 
  * @see {@link XmlEnumsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ *
  */
 export class XmlEnumsCommand extends $Command<
   XmlEnumsCommandInput,

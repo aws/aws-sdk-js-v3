@@ -50,6 +50,16 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * @see {@link GetLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service failed in an unexpected way.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because a limit was exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource was not found.</p>
+ *
+ *
  */
 export class GetLifecyclePolicyCommand extends $Command<
   GetLifecyclePolicyCommandInput,

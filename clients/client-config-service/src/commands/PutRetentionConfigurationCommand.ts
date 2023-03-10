@@ -60,6 +60,14 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * @see {@link PutRetentionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are invalid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ * @throws {@link MaxNumberOfRetentionConfigurationsExceededException} (client fault)
+ *  <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
+ *
+ *
  */
 export class PutRetentionConfigurationCommand extends $Command<
   PutRetentionConfigurationCommandInput,

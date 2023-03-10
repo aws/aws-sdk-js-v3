@@ -55,6 +55,25 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * @see {@link DescribeHomeRegionControlsCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubConfigClientResolvedConfig | config} for MigrationHubConfigClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Exception raised when an internal, configuration, or dependency error is
+ *       encountered.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Exception raised when the provided input violates a policy constraint or is entered in the
+ *       wrong format or data type.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Exception raised when a request fails due to temporary unavailability of the
+ *       service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ *
  */
 export class DescribeHomeRegionControlsCommand extends $Command<
   DescribeHomeRegionControlsCommandInput,

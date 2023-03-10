@@ -50,6 +50,13 @@ export interface DescribeSavingsPlansCommandOutput extends DescribeSavingsPlansR
  * @see {@link DescribeSavingsPlansCommandOutput} for command's `response` shape.
  * @see {@link SavingsplansClientResolvedConfig | config} for SavingsplansClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unexpected error occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One of the input parameters is not valid.</p>
+ *
+ *
  */
 export class DescribeSavingsPlansCommand extends $Command<
   DescribeSavingsPlansCommandInput,

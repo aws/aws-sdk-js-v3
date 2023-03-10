@@ -53,6 +53,11 @@ export interface GetTemplateCommandOutput extends GetTemplateOutput, __MetadataB
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link ChangeSetNotFoundException} (client fault)
+ *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
+ *          use the <code>ListChangeSets</code> operation.</p>
+ *
+ *
  */
 export class GetTemplateCommand extends $Command<
   GetTemplateCommandInput,

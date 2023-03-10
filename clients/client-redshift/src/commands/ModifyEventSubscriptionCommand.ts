@@ -50,6 +50,42 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  * @see {@link ModifyEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidSubscriptionStateFault} (client fault)
+ *  <p>The subscription request is invalid because it is a duplicate request. This
+ *             subscription request is already in progress.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
+ *             topic.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
+ *
+ * @throws {@link SNSTopicArnNotFoundFault} (client fault)
+ *  <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
+ *             exist.</p>
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The specified Amazon Redshift event source could not be found.</p>
+ *
+ * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
+ *  <p>The value specified for the event category was not one of the allowed values, or it
+ *             specified a category that does not apply to the specified source type. The allowed
+ *             values are Configuration, Management, Monitoring, and Security.</p>
+ *
+ * @throws {@link SubscriptionEventIdNotFoundFault} (client fault)
+ *  <p>An Amazon Redshift event with the specified event ID does not exist.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>An Amazon Redshift event notification subscription with the specified name does not
+ *             exist.</p>
+ *
+ * @throws {@link SubscriptionSeverityNotFoundFault} (client fault)
+ *  <p>The value specified for the event severity was not one of the allowed values, or it
+ *             specified a severity that does not apply to the specified source type. The allowed
+ *             values are ERROR and INFO.</p>
+ *
+ *
  */
 export class ModifyEventSubscriptionCommand extends $Command<
   ModifyEventSubscriptionCommandInput,

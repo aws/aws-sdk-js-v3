@@ -49,6 +49,32 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * @see {@link ContinueDeploymentCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link DeploymentAlreadyCompletedException} (client fault)
+ *  <p>The deployment is already complete.</p>
+ *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link DeploymentIsNotInReadyStateException} (client fault)
+ *  <p>The deployment does not have a status of Ready and can't continue yet.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentStatusException} (client fault)
+ *  <p>The specified deployment status doesn't exist or cannot be determined.</p>
+ *
+ * @throws {@link InvalidDeploymentWaitTypeException} (client fault)
+ *  <p> The wait type is invalid. </p>
+ *
+ * @throws {@link UnsupportedActionForDeploymentTypeException} (client fault)
+ *  <p>A call was submitted that is not supported for the specified deployment type.</p>
+ *
+ *
  */
 export class ContinueDeploymentCommand extends $Command<
   ContinueDeploymentCommandInput,

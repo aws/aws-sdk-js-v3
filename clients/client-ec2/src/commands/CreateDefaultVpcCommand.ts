@@ -64,6 +64,7 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * @see {@link CreateDefaultVpcCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateDefaultVpcCommand extends $Command<
   CreateDefaultVpcCommandInput,

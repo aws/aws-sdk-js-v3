@@ -47,6 +47,10 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @see {@link GetDeviceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class GetDeviceCommand extends $Command<
   GetDeviceCommandInput,

@@ -50,6 +50,7 @@ export interface DescribeLiveSourceCommandOutput extends DescribeLiveSourceRespo
  * @see {@link DescribeLiveSourceCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class DescribeLiveSourceCommand extends $Command<
   DescribeLiveSourceCommandInput,

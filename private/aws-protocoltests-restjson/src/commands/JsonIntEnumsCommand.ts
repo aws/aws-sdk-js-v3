@@ -44,6 +44,7 @@ export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __Me
  * @see {@link JsonIntEnumsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class JsonIntEnumsCommand extends $Command<
   JsonIntEnumsCommandInput,

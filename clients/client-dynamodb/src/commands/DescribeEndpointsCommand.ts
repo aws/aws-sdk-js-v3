@@ -52,6 +52,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ *
  */
 export class DescribeEndpointsCommand extends $Command<
   DescribeEndpointsCommandInput,

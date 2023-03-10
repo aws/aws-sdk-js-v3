@@ -51,6 +51,16 @@ export interface GetV2LoggingOptionsCommandOutput extends GetV2LoggingOptionsRes
  * @see {@link GetV2LoggingOptionsCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link NotConfiguredException} (client fault)
+ *  <p>The resource is not configured.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ *
  */
 export class GetV2LoggingOptionsCommand extends $Command<
   GetV2LoggingOptionsCommandInput,

@@ -64,6 +64,13 @@ export interface DeleteMessageCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteMessageCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link InvalidIdFormat} (client fault)
+ *  <p>The specified receipt handle isn't valid for the current version.</p>
+ *
+ * @throws {@link ReceiptHandleIsInvalid} (client fault)
+ *  <p>The specified receipt handle isn't valid.</p>
+ *
+ *
  */
 export class DeleteMessageCommand extends $Command<
   DeleteMessageCommandInput,

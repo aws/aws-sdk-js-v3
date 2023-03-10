@@ -52,6 +52,7 @@ export interface ListInferenceRecommendationsJobsCommandOutput
  * @see {@link ListInferenceRecommendationsJobsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListInferenceRecommendationsJobsCommand extends $Command<
   ListInferenceRecommendationsJobsCommandInput,

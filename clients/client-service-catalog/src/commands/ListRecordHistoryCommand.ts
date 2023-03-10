@@ -50,6 +50,10 @@ export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput,
  * @see {@link ListRecordHistoryCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ *
  */
 export class ListRecordHistoryCommand extends $Command<
   ListRecordHistoryCommandInput,

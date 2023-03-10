@@ -71,6 +71,7 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  * @see {@link PutObjectLockConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  */
 export class PutObjectLockConfigurationCommand extends $Command<
   PutObjectLockConfigurationCommandInput,

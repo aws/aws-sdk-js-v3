@@ -53,6 +53,16 @@ export interface DeleteDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @see {@link DeleteDBClusterEndpointCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBClusterEndpointNotFoundFault} (client fault)
+ *  <p>The specified custom endpoint doesn't exist.</p>
+ *
+ * @throws {@link InvalidDBClusterEndpointStateFault} (client fault)
+ *  <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ *
  */
 export class DeleteDBClusterEndpointCommand extends $Command<
   DeleteDBClusterEndpointCommandInput,

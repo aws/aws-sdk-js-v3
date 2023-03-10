@@ -50,6 +50,7 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * @see {@link ListPlaybackConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class ListPlaybackConfigurationsCommand extends $Command<
   ListPlaybackConfigurationsCommandInput,

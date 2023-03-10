@@ -48,6 +48,25 @@ export interface RegisterApplicationRevisionCommandOutput extends __MetadataBear
  * @see {@link RegisterApplicationRevisionCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link ApplicationDoesNotExistException} (client fault)
+ *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link DescriptionTooLongException} (client fault)
+ *  <p>The description is too long.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidRevisionException} (client fault)
+ *  <p>The revision was specified in an invalid format.</p>
+ *
+ * @throws {@link RevisionRequiredException} (client fault)
+ *  <p>The revision ID was not specified.</p>
+ *
+ *
  */
 export class RegisterApplicationRevisionCommand extends $Command<
   RegisterApplicationRevisionCommandInput,

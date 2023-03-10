@@ -53,6 +53,7 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  * @see {@link DeprovisionByoipCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeprovisionByoipCidrCommand extends $Command<
   DeprovisionByoipCidrCommandInput,

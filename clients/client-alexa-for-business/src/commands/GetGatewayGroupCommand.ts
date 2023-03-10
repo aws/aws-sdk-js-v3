@@ -50,6 +50,10 @@ export interface GetGatewayGroupCommandOutput extends GetGatewayGroupResponse, _
  * @see {@link GetGatewayGroupCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class GetGatewayGroupCommand extends $Command<
   GetGatewayGroupCommandInput,

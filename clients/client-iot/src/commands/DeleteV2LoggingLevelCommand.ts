@@ -46,6 +46,16 @@ export interface DeleteV2LoggingLevelCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteV2LoggingLevelCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ *
  */
 export class DeleteV2LoggingLevelCommand extends $Command<
   DeleteV2LoggingLevelCommandInput,

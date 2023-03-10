@@ -50,6 +50,16 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  * @see {@link GetDirectoryLimitsCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link EntityDoesNotExistException} (client fault)
+ *  <p>The specified entity could not be found.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ *
  */
 export class GetDirectoryLimitsCommand extends $Command<
   GetDirectoryLimitsCommandInput,

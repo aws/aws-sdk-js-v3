@@ -50,6 +50,7 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * @see {@link GetIpamDiscoveredAccountsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class GetIpamDiscoveredAccountsCommand extends $Command<
   GetIpamDiscoveredAccountsCommandInput,

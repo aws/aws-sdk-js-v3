@@ -54,6 +54,16 @@ export interface GetSnapshotCommandOutput extends GetSnapshotResponse, __Metadat
  * @see {@link GetSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input failed to satisfy the constraints specified by an AWS service.</p>
+ *
+ *
  */
 export class GetSnapshotCommand extends $Command<
   GetSnapshotCommandInput,

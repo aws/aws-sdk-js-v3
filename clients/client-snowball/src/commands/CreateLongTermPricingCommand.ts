@@ -52,6 +52,11 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  * @see {@link CreateLongTermPricingCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ *
  */
 export class CreateLongTermPricingCommand extends $Command<
   CreateLongTermPricingCommandInput,

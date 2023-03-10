@@ -53,6 +53,15 @@ export interface CreateReceiptRuleSetCommandOutput extends CreateReceiptRuleSetR
  * @see {@link CreateReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>Indicates that a resource could not be created because of a naming conflict.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Indicates that a resource could not be created because of service limits. For a list
+ *             of Amazon SES limits, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon SES Developer
+ *             Guide</a>.</p>
+ *
+ *
  * @example CreateReceiptRuleSet
  * ```javascript
  * // The following example creates an empty receipt rule set:

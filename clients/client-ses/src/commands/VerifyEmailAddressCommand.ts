@@ -46,6 +46,7 @@ export interface VerifyEmailAddressCommandOutput extends __MetadataBearer {}
  * @see {@link VerifyEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ *
  * @example VerifyEmailAddress
  * ```javascript
  * // The following example starts the email address verification process with Amazon SES:

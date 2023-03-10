@@ -50,6 +50,24 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @see {@link CreateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>An invalid subnet identifier was specified.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link SubnetGroupAlreadyExistsFault} (client fault)
+ *  <p>The specified subnet group already exists.</p>
+ *
+ * @throws {@link SubnetGroupQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of
+ *             subnets in a subnet group.</p>
+ *
+ * @throws {@link SubnetQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of
+ *             subnets in a subnet group.</p>
+ *
+ *
  */
 export class CreateSubnetGroupCommand extends $Command<
   CreateSubnetGroupCommandInput,

@@ -53,6 +53,19 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectRe
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreDataClientResolvedConfig | config} for MediaStoreDataClient's `config` shape.
  *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The specified container was not found for the specified account.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link ObjectNotFoundException} (client fault)
+ *  <p>Could not perform an operation on an object that does not exist.</p>
+ *
+ * @throws {@link RequestedRangeNotSatisfiableException} (client fault)
+ *  <p>The requested content range is not valid.</p>
+ *
+ *
  */
 export class GetObjectCommand extends $Command<
   GetObjectCommandInput,

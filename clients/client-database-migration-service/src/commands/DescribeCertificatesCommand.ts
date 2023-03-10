@@ -54,6 +54,10 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * @see {@link DescribeCertificatesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  * @example Describe certificates
  * ```javascript
  * // Provides a description of the certificate.

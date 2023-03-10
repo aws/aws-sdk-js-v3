@@ -50,6 +50,13 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * @see {@link DescribeJobsCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
+ *
  */
 export class DescribeJobsCommand extends $Command<
   DescribeJobsCommandInput,

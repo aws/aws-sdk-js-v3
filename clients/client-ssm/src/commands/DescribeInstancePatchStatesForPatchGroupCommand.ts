@@ -54,6 +54,16 @@ export interface DescribeInstancePatchStatesForPatchGroupCommandOutput
  * @see {@link DescribeInstancePatchStatesForPatchGroupCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidFilter} (client fault)
+ *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ *
  */
 export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
   DescribeInstancePatchStatesForPatchGroupCommandInput,

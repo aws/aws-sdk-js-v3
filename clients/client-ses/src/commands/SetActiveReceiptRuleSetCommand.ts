@@ -56,6 +56,10 @@ export interface SetActiveReceiptRuleSetCommandOutput extends SetActiveReceiptRu
  * @see {@link SetActiveReceiptRuleSetCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link RuleSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ *
  * @example SetActiveReceiptRuleSet
  * ```javascript
  * // The following example sets the active receipt rule set:

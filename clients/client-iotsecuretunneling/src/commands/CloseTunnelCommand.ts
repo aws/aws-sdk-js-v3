@@ -57,6 +57,10 @@ export interface CloseTunnelCommandOutput extends CloseTunnelResponse, __Metadat
  * @see {@link CloseTunnelCommandOutput} for command's `response` shape.
  * @see {@link IoTSecureTunnelingClientResolvedConfig | config} for IoTSecureTunnelingClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Thrown when an operation is attempted on a resource that does not exist.</p>
+ *
+ *
  */
 export class CloseTunnelCommand extends $Command<
   CloseTunnelCommandInput,

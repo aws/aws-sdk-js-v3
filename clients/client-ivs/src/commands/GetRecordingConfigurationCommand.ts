@@ -50,6 +50,19 @@ export interface GetRecordingConfigurationCommandOutput extends GetRecordingConf
  * @see {@link GetRecordingConfigurationCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class GetRecordingConfigurationCommand extends $Command<
   GetRecordingConfigurationCommandInput,

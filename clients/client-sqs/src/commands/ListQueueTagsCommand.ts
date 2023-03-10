@@ -56,6 +56,7 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  * @see {@link ListQueueTagsCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ *
  */
 export class ListQueueTagsCommand extends $Command<
   ListQueueTagsCommandInput,

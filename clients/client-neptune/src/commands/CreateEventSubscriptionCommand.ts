@@ -64,6 +64,28 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the number of events you can subscribe to.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>The SNS topic is invalid.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>There is no SNS authorization.</p>
+ *
+ * @throws {@link SNSTopicArnNotFoundFault} (client fault)
+ *  <p>The ARN of the SNS topic could not be found.</p>
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The source could not be found.</p>
+ *
+ * @throws {@link SubscriptionAlreadyExistFault} (client fault)
+ *  <p>This subscription already exists.</p>
+ *
+ * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
+ *  <p>The designated subscription category could not be found.</p>
+ *
+ *
  */
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,

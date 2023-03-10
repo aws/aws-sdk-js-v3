@@ -57,6 +57,11 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @see {@link DescribeDBClustersCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ *
  * @example To list DB clusters
  * ```javascript
  * // This example lists settings for the specified DB cluster.

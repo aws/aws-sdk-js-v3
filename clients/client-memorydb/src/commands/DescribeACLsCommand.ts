@@ -50,6 +50,13 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  * @see {@link DescribeACLsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ACLNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DescribeACLsCommand extends $Command<
   DescribeACLsCommandInput,

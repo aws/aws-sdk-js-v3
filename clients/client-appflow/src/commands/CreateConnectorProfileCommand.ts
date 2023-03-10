@@ -54,6 +54,25 @@ export interface CreateConnectorProfileCommandOutput extends CreateConnectorProf
  * @see {@link CreateConnectorProfileCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> There was a conflict when processing the request (for example, a flow with the given name
+ *       already exists within the account. Check for conflicting resource names and try again. </p>
+ *
+ * @throws {@link ConnectorAuthenticationException} (client fault)
+ *  <p> An error occurred when authenticating with the connector endpoint. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *       later. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> The request would cause a service quota (such as the number of flows) to be exceeded.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
+ *
  */
 export class CreateConnectorProfileCommand extends $Command<
   CreateConnectorProfileCommandInput,

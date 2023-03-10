@@ -50,6 +50,16 @@ export interface DeleteApiDestinationCommandOutput extends DeleteApiDestinationR
  * @see {@link DeleteApiDestinationCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is concurrent modification on a rule, target, archive, or replay.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ *
  */
 export class DeleteApiDestinationCommand extends $Command<
   DeleteApiDestinationCommandInput,

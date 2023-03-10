@@ -70,6 +70,21 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * @see {@link JoinStorageSessionCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoWebRTCStorageClientResolvedConfig | config} for KinesisVideoWebRTCStorageClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to perform this operation.</p>
+ *
+ * @throws {@link ClientLimitExceededException} (client fault)
+ *  <p>
+ *       Kinesis Video Streams has throttled the request because you have exceeded the limit of allowed client calls. Try making the call later.
+ *     </p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The value for this input parameter is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource is not found.</p>
+ *
+ *
  */
 export class JoinStorageSessionCommand extends $Command<
   JoinStorageSessionCommandInput,

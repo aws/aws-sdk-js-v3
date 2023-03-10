@@ -48,6 +48,56 @@ export interface UpdatePullRequestApprovalStateCommandOutput extends __MetadataB
  * @see {@link UpdatePullRequestApprovalStateCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link ApprovalStateRequiredException} (client fault)
+ *  <p>An approval state is required, but was not specified.</p>
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidApprovalStateException} (client fault)
+ *  <p>The state for the approval is not valid. Valid values include APPROVE and REVOKE. </p>
+ *
+ * @throws {@link InvalidPullRequestIdException} (client fault)
+ *  <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ *
+ * @throws {@link InvalidRevisionIdException} (client fault)
+ *  <p>The revision ID is not valid. Use GetPullRequest to determine the value.</p>
+ *
+ * @throws {@link MaximumNumberOfApprovalsExceededException} (client fault)
+ *  <p>The number of approvals required for the approval rule exceeds the maximum number allowed.</p>
+ *
+ * @throws {@link PullRequestAlreadyClosedException} (client fault)
+ *  <p>The pull request status cannot be updated because it is already closed.</p>
+ *
+ * @throws {@link PullRequestCannotBeApprovedByAuthorException} (client fault)
+ *  <p>The approval cannot be applied because the user approving the pull request matches the user who created the pull request. You cannot approve a pull
+ *         request that you created.</p>
+ *
+ * @throws {@link PullRequestDoesNotExistException} (client fault)
+ *  <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ *
+ * @throws {@link PullRequestIdRequiredException} (client fault)
+ *  <p>A pull request ID is required, but none was provided.</p>
+ *
+ * @throws {@link RevisionIdRequiredException} (client fault)
+ *  <p>A revision ID is required, but was not provided.</p>
+ *
+ * @throws {@link RevisionNotCurrentException} (client fault)
+ *  <p>The revision ID provided in the request does not match the current revision ID. Use GetPullRequest to retrieve the current revision ID.</p>
+ *
+ *
  */
 export class UpdatePullRequestApprovalStateCommand extends $Command<
   UpdatePullRequestApprovalStateCommandInput,

@@ -52,6 +52,13 @@ export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __Met
  * @see {@link ListSuiteRunsCommandOutput} for command's `response` shape.
  * @see {@link IotDeviceAdvisorClientResolvedConfig | config} for IotDeviceAdvisorClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Sends an Internal Failure exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Sends a validation exception.</p>
+ *
+ *
  */
 export class ListSuiteRunsCommand extends $Command<
   ListSuiteRunsCommandInput,

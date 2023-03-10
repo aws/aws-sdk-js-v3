@@ -74,6 +74,12 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  * @see {@link ModifyCertificatesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link CertificateNotFoundFault} (client fault)
+ *  <p>
+ *             <code>CertificateIdentifier</code> doesn't refer to an
+ *         existing certificate.</p>
+ *
+ *
  */
 export class ModifyCertificatesCommand extends $Command<
   ModifyCertificatesCommandInput,

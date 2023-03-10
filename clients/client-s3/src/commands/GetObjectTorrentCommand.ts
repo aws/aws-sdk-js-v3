@@ -71,6 +71,7 @@ export interface GetObjectTorrentCommandOutput
  * @see {@link GetObjectTorrentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  * @example To retrieve torrent files for an object
  * ```javascript
  * // The following example retrieves torrent files of an object.

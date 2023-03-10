@@ -61,6 +61,16 @@ export interface DescribeContinuousBackupsCommandOutput extends DescribeContinuo
  * @see {@link DescribeContinuousBackupsCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ * @throws {@link TableNotFoundException} (client fault)
+ *  <p>A source table with the name <code>TableName</code> does not currently exist within
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
+ *
+ *
  */
 export class DescribeContinuousBackupsCommand extends $Command<
   DescribeContinuousBackupsCommandInput,

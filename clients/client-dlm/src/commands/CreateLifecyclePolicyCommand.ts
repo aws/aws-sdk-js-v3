@@ -51,6 +51,17 @@ export interface CreateLifecyclePolicyCommandOutput extends CreateLifecyclePolic
  * @see {@link CreateLifecyclePolicyCommandOutput} for command's `response` shape.
  * @see {@link DLMClientResolvedConfig | config} for DLMClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The service failed in an unexpected way.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>Bad request. The request is missing required parameters or has invalid
+ * 			parameters.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request failed because a limit was exceeded.</p>
+ *
+ *
  */
 export class CreateLifecyclePolicyCommand extends $Command<
   CreateLifecyclePolicyCommandInput,

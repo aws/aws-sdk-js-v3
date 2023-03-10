@@ -56,6 +56,37 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * @see {@link UploadLayerPartCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
+ * @throws {@link InvalidLayerPartException} (client fault)
+ *  <p>The layer part size isn't valid, or the first byte specified isn't consecutive to the
+ *          last byte of a previous layer part upload.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *          request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The operation didn't succeed because it would have exceeded a service limit for your
+ *          account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR Service Quotas</a> in the
+ *          Amazon Elastic Container Registry User Guide.</p>
+ *
+ * @throws {@link RegistryNotFoundException} (client fault)
+ *  <p>The registry doesn't exist.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository can't be found. Check the spelling of the specified repository
+ *          and ensure that you're performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
+ * @throws {@link UploadNotFoundException} (client fault)
+ *  <p>The upload can't be found, or the specified upload ID isn't valid for this
+ *          repository.</p>
+ *
+ *
  */
 export class UploadLayerPartCommand extends $Command<
   UploadLayerPartCommandInput,

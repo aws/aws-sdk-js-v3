@@ -49,6 +49,11 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * @see {@link GetTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link TemplateDoesNotExistException} (client fault)
+ *  <p>Indicates that the Template object you specified does not exist in your Amazon SES
+ *             account.</p>
+ *
+ *
  */
 export class GetTemplateCommand extends $Command<
   GetTemplateCommandInput,

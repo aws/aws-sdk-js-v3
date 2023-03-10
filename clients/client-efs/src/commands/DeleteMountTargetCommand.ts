@@ -75,6 +75,22 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link DependencyTimeout} (server fault)
+ *  <p>The service timed out trying to fulfill the request, and the client should try the
+ *             call again.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link MountTargetNotFound} (client fault)
+ *  <p>Returned if there is no mount target with the specified ID found in the
+ *             caller's Amazon Web Services account.</p>
+ *
+ *
  * @example To delete a mount target
  * ```javascript
  * // This operation deletes a mount target.

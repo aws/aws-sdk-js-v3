@@ -61,6 +61,17 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @see {@link StartSavingsPlansPurchaseRecommendationGenerationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link GenerationExistsException} (client fault)
+ *  <p>A request to generate a recommendation is already in progress.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> You've reached the limit on the number of resources you can create, or exceeded the
+ *             size of an individual resource. </p>
+ *
+ *
  */
 export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $Command<
   StartSavingsPlansPurchaseRecommendationGenerationCommandInput,

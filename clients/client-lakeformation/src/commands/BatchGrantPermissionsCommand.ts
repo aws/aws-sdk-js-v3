@@ -50,6 +50,13 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * @see {@link BatchGrantPermissionsCommandOutput} for command's `response` shape.
  * @see {@link LakeFormationClientResolvedConfig | config} for LakeFormationClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class BatchGrantPermissionsCommand extends $Command<
   BatchGrantPermissionsCommandInput,

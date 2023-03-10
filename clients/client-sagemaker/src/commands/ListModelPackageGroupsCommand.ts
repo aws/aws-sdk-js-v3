@@ -50,6 +50,7 @@ export interface ListModelPackageGroupsCommandOutput extends ListModelPackageGro
  * @see {@link ListModelPackageGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListModelPackageGroupsCommand extends $Command<
   ListModelPackageGroupsCommandInput,

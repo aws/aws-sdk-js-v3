@@ -62,6 +62,20 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @see {@link CreateGlobalClusterCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
+ *  <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+ *
+ * @throws {@link GlobalClusterQuotaExceededFault} (client fault)
+ *  <p>The number of global database clusters for this account is already at the maximum allowed.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The requested operation can't be performed while the cluster is in this state.</p>
+ *
+ *
  */
 export class CreateGlobalClusterCommand extends $Command<
   CreateGlobalClusterCommandInput,

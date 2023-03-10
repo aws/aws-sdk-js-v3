@@ -73,6 +73,17 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  * @see {@link CreateConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link TooManyBucketsException} (client fault)
+ *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ * @throws {@link TooManyConfigurationTemplatesException} (client fault)
+ *  <p>The specified account has reached its limit of configuration templates.</p>
+ *
+ *
  * @example To create a configuration template
  * ```javascript
  * // The following operation creates a configuration template named my-app-v1 from the settings applied to an environment with the id e-rpqsewtp2j:

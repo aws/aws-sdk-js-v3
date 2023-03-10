@@ -50,6 +50,19 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  * @see {@link GetIntrospectionSchemaCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
+ * @throws {@link GraphQLSchemaException} (client fault)
+ *  <p>The GraphQL schema is not valid.</p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>An internal AppSync error occurred. Try your request again.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You aren't authorized to perform this operation.</p>
+ *
+ *
  */
 export class GetIntrospectionSchemaCommand extends $Command<
   GetIntrospectionSchemaCommandInput,

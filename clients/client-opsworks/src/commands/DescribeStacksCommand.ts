@@ -55,6 +55,13 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ *
  */
 export class DescribeStacksCommand extends $Command<
   DescribeStacksCommandInput,

@@ -53,6 +53,10 @@ export interface DescribeConfigurationOptionsCommandOutput extends Configuration
  * @see {@link DescribeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link TooManyBucketsException} (client fault)
+ *  <p>The specified account has reached its limit of Amazon S3 buckets.</p>
+ *
+ *
  * @example To view configuration options for an environment
  * ```javascript
  * // The following operation retrieves descriptions of all available configuration options for an environment named my-env:

@@ -50,6 +50,16 @@ export interface GetNetworkResourceCommandOutput extends GetNetworkResourceRespo
  * @see {@link GetNetworkResourceCommandOutput} for command's `response` shape.
  * @see {@link PrivateNetworksClientResolvedConfig | config} for PrivateNetworksClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Information about an internal error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed validation.</p>
+ *
+ *
  */
 export class GetNetworkResourceCommand extends $Command<
   GetNetworkResourceCommandInput,

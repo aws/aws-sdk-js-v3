@@ -54,6 +54,10 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  * @see {@link ListDatasetGroupsCommandOutput} for command's `response` shape.
  * @see {@link ForecastClientResolvedConfig | config} for ForecastClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid. Tokens expire after 24 hours.</p>
+ *
+ *
  */
 export class ListDatasetGroupsCommand extends $Command<
   ListDatasetGroupsCommandInput,

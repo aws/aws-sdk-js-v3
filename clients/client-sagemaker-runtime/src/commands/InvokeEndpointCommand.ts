@@ -69,6 +69,29 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointOutput, __Met
  * @see {@link InvokeEndpointCommandOutput} for command's `response` shape.
  * @see {@link SageMakerRuntimeClientResolvedConfig | config} for SageMakerRuntimeClient's `config` shape.
  *
+ * @throws {@link InternalDependencyException} (server fault)
+ *  <p>Your request caused an exception with an internal dependency. Contact customer
+ *             support. </p>
+ *
+ * @throws {@link InternalFailure} (server fault)
+ *  <p> An internal failure occurred. </p>
+ *
+ * @throws {@link ModelError} (client fault)
+ *  <p> Model (owned by the customer in the container) returned 4xx or 5xx error code.
+ *         </p>
+ *
+ * @throws {@link ModelNotReadyException} (client fault)
+ *  <p>Either a serverless endpoint variant's resources are still being provisioned, or a
+ *             multi-model endpoint is still downloading or loading the target model. Wait and try your
+ *             request again.</p>
+ *
+ * @throws {@link ServiceUnavailable} (server fault)
+ *  <p> The service is unavailable. Try your call again. </p>
+ *
+ * @throws {@link ValidationError} (client fault)
+ *  <p> Inspect your request and try again. </p>
+ *
+ *
  */
 export class InvokeEndpointCommand extends $Command<
   InvokeEndpointCommandInput,

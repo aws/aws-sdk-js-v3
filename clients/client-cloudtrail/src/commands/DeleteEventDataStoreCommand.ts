@@ -59,6 +59,52 @@ export interface DeleteEventDataStoreCommandOutput extends DeleteEventDataStoreR
  * @see {@link DeleteEventDataStoreCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link ChannelExistsForEDSException} (client fault)
+ *  <p>This exception is thrown when the specified event data store cannot yet be deleted because it
+ *          is in use by a channel.</p>
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreHasOngoingImportException} (client fault)
+ *  <p> This exception is thrown when you try to update or delete an event data store that
+ *          currently has an import in progress. </p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link EventDataStoreTerminationProtectedException} (client fault)
+ *  <p>The event data store cannot be deleted because termination protection is enabled for
+ *          it.</p>
+ *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
+ * @throws {@link InsufficientDependencyServiceAccessPermissionException} (client fault)
+ *  <p>This exception is thrown when the IAM user or role that is used to create
+ *          the organization resource lacks one or more required permissions for creating an
+ *          organization resource in a required service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link NotOrganizationMasterAccountException} (client fault)
+ *  <p>This exception is thrown when the Amazon Web Services account making the request to
+ *          create or update an organization trail or event data store is not the management account
+ *          for an organization in Organizations. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> or <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-event-data-store.html">Create an event data store</a>.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class DeleteEventDataStoreCommand extends $Command<
   DeleteEventDataStoreCommandInput,

@@ -89,6 +89,14 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  * @see {@link ListHostedZonesByVPCCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The value that you specified to get the second or subsequent page of results is
+ * 			invalid.</p>
+ *
+ *
  */
 export class ListHostedZonesByVPCCommand extends $Command<
   ListHostedZonesByVPCCommandInput,

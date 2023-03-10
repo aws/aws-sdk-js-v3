@@ -54,6 +54,13 @@ export interface TestEventPatternCommandOutput extends TestEventPatternResponse,
  * @see {@link TestEventPatternCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link InvalidEventPatternException} (client fault)
+ *  <p>The event pattern is not valid.</p>
+ *
+ *
  */
 export class TestEventPatternCommand extends $Command<
   TestEventPatternCommandInput,

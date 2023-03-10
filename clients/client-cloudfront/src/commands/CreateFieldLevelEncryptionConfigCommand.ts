@@ -52,6 +52,35 @@ export interface CreateFieldLevelEncryptionConfigCommandOutput
  * @see {@link CreateFieldLevelEncryptionConfigCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link FieldLevelEncryptionConfigAlreadyExists} (client fault)
+ *  <p>The specified configuration for field-level encryption already exists.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchFieldLevelEncryptionProfile} (client fault)
+ *  <p>The specified profile for field-level encryption doesn't exist.</p>
+ *
+ * @throws {@link QueryArgProfileEmpty} (client fault)
+ *  <p>No profile specified for the field-level encryption query argument.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionConfigs} (client fault)
+ *  <p>The maximum number of configurations for field-level encryption have been
+ * 			created.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionContentTypeProfiles} (client fault)
+ *  <p>The maximum number of content type profiles for field-level encryption have been
+ * 			created.</p>
+ *
+ * @throws {@link TooManyFieldLevelEncryptionQueryArgProfiles} (client fault)
+ *  <p>The maximum number of query arg profiles for field-level encryption have been
+ * 			created.</p>
+ *
+ *
  */
 export class CreateFieldLevelEncryptionConfigCommand extends $Command<
   CreateFieldLevelEncryptionConfigCommandInput,

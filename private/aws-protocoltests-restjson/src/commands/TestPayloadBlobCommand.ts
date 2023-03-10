@@ -51,6 +51,7 @@ export interface TestPayloadBlobCommandOutput extends TestPayloadBlobInputOutput
  * @see {@link TestPayloadBlobCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class TestPayloadBlobCommand extends $Command<
   TestPayloadBlobCommandInput,

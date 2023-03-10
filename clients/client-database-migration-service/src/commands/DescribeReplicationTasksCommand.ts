@@ -55,6 +55,10 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  * @see {@link DescribeReplicationTasksCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  * @example Describe replication tasks
  * ```javascript
  * // Returns information about replication tasks for your account in the current region.

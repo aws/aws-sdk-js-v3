@@ -58,6 +58,16 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * @see {@link DescribeSecretCommandOutput} for command's `response` shape.
  * @see {@link SecretsManagerClientResolvedConfig | config} for SecretsManagerClient's `config` shape.
  *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The parameter name or value is invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Secrets Manager can't find the resource that you asked for.</p>
+ *
+ *
  * @example To retrieve the details of a secret
  * ```javascript
  * // The following example shows how to get the details about a secret.

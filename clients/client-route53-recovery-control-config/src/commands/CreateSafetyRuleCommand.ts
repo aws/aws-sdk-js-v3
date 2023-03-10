@@ -54,6 +54,13 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  * @see {@link CreateSafetyRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53RecoveryControlConfigClientResolvedConfig | config} for Route53RecoveryControlConfigClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>500 response - InternalServiceError. Temporary service error. Retry the request.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>400 response - Multiple causes. For example, you might have a malformed query string and input parameter might be out of range, or you might have used parameters together incorrectly.</p>
+ *
+ *
  */
 export class CreateSafetyRuleCommand extends $Command<
   CreateSafetyRuleCommandInput,

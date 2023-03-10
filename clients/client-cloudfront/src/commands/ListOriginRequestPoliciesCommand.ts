@@ -57,6 +57,16 @@ export interface ListOriginRequestPoliciesCommandOutput extends ListOriginReques
  * @see {@link ListOriginRequestPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchOriginRequestPolicy} (client fault)
+ *  <p>The origin request policy does not exist.</p>
+ *
+ *
  */
 export class ListOriginRequestPoliciesCommand extends $Command<
   ListOriginRequestPoliciesCommandInput,

@@ -66,6 +66,51 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  * @see {@link CreateEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link EventSubscriptionQuotaExceededFault} (client fault)
+ *  <p>The request would exceed the allowed number of event subscriptions for this
+ *             account.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link SNSInvalidTopicFault} (client fault)
+ *  <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS
+ *             topic.</p>
+ *
+ * @throws {@link SNSNoAuthorizationFault} (client fault)
+ *  <p>You do not have permission to publish to the specified Amazon SNS topic.</p>
+ *
+ * @throws {@link SNSTopicArnNotFoundFault} (client fault)
+ *  <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
+ *             exist.</p>
+ *
+ * @throws {@link SourceNotFoundFault} (client fault)
+ *  <p>The specified Amazon Redshift event source could not be found.</p>
+ *
+ * @throws {@link SubscriptionAlreadyExistFault} (client fault)
+ *  <p>There is already an existing event notification subscription with the specified
+ *             name.</p>
+ *
+ * @throws {@link SubscriptionCategoryNotFoundFault} (client fault)
+ *  <p>The value specified for the event category was not one of the allowed values, or it
+ *             specified a category that does not apply to the specified source type. The allowed
+ *             values are Configuration, Management, Monitoring, and Security.</p>
+ *
+ * @throws {@link SubscriptionEventIdNotFoundFault} (client fault)
+ *  <p>An Amazon Redshift event with the specified event ID does not exist.</p>
+ *
+ * @throws {@link SubscriptionSeverityNotFoundFault} (client fault)
+ *  <p>The value specified for the event severity was not one of the allowed values, or it
+ *             specified a severity that does not apply to the specified source type. The allowed
+ *             values are ERROR and INFO.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ *
  */
 export class CreateEventSubscriptionCommand extends $Command<
   CreateEventSubscriptionCommandInput,

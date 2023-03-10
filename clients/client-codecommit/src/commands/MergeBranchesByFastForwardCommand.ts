@@ -50,6 +50,72 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * @see {@link MergeBranchesByFastForwardCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link BranchDoesNotExistException} (client fault)
+ *  <p>The specified branch does not exist.</p>
+ *
+ * @throws {@link BranchNameIsTagNameException} (client fault)
+ *  <p>The specified branch name is not valid because it is a tag name. Enter the name of a
+ *             branch in the repository. For a list of valid branch names, use <a>ListBranches</a>.</p>
+ *
+ * @throws {@link BranchNameRequiredException} (client fault)
+ *  <p>A branch name is required, but was not specified.</p>
+ *
+ * @throws {@link CommitDoesNotExistException} (client fault)
+ *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * @throws {@link CommitRequiredException} (client fault)
+ *  <p>A commit was not specified.</p>
+ *
+ * @throws {@link ConcurrentReferenceUpdateException} (client fault)
+ *  <p>The merge cannot be completed because the target branch has been modified. Another user might have modified the target branch while the merge was in progress. Wait a few minutes, and then try again.</p>
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidBranchNameException} (client fault)
+ *  <p>The specified reference name is not valid.</p>
+ *
+ * @throws {@link InvalidCommitException} (client fault)
+ *  <p>The specified commit is not valid.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link InvalidTargetBranchException} (client fault)
+ *  <p>The specified target branch is not valid.</p>
+ *
+ * @throws {@link ManualMergeRequiredException} (client fault)
+ *  <p>The pull request cannot be merged automatically into the destination branch. You must manually merge the branches and resolve any conflicts.</p>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
+ * @throws {@link TipsDivergenceExceededException} (client fault)
+ *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
+ *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+ *
+ *
  */
 export class MergeBranchesByFastForwardCommand extends $Command<
   MergeBranchesByFastForwardCommandInput,

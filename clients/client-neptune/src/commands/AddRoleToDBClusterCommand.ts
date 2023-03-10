@@ -46,6 +46,20 @@ export interface AddRoleToDBClusterCommandOutput extends __MetadataBearer {}
  * @see {@link AddRoleToDBClusterCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBClusterRoleAlreadyExistsFault} (client fault)
+ *  <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>
+ *
+ * @throws {@link DBClusterRoleQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
+ *
+ *
  */
 export class AddRoleToDBClusterCommand extends $Command<
   AddRoleToDBClusterCommandInput,

@@ -78,6 +78,13 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  * @see {@link ChangeMessageVisibilityCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link MessageNotInflight} (client fault)
+ *  <p>The specified message isn't in flight.</p>
+ *
+ * @throws {@link ReceiptHandleIsInvalid} (client fault)
+ *  <p>The specified receipt handle isn't valid.</p>
+ *
+ *
  */
 export class ChangeMessageVisibilityCommand extends $Command<
   ChangeMessageVisibilityCommandInput,

@@ -50,6 +50,10 @@ export interface UpdateMyUserProfileCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateMyUserProfileCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a request was not valid.</p>
+ *
+ *
  */
 export class UpdateMyUserProfileCommand extends $Command<
   UpdateMyUserProfileCommandInput,

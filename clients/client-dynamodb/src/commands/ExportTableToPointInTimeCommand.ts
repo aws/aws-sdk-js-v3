@@ -52,6 +52,37 @@ export interface ExportTableToPointInTimeCommandOutput extends ExportTableToPoin
  * @see {@link ExportTableToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link ExportConflictException} (client fault)
+ *  <p>There was a conflict when writing to the specified S3 bucket.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidExportTimeException} (client fault)
+ *  <p>The specified <code>ExportTime</code> is outside of the point in time recovery
+ *             window.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
+ *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
+ *             include <code>CreateTable</code>, <code>UpdateTable</code>,
+ *                 <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
+ *                 <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
+ *          <p>When you are creating a table with one or more secondary
+ *             indexes, you can have up to 250 such requests running at a time. However, if the table or
+ *             index specifications are complex, then DynamoDB might temporarily reduce the number
+ *             of concurrent operations.</p>
+ *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
+ *          <p>There is a soft account quota of 2,500 tables.</p>
+ *
+ * @throws {@link PointInTimeRecoveryUnavailableException} (client fault)
+ *  <p>Point in time recovery has not yet been enabled for this source table.</p>
+ *
+ * @throws {@link TableNotFoundException} (client fault)
+ *  <p>A source table with the name <code>TableName</code> does not currently exist within
+ *             the subscriber's account or the subscriber is operating in the wrong Amazon Web Services Region.</p>
+ *
+ *
  */
 export class ExportTableToPointInTimeCommand extends $Command<
   ExportTableToPointInTimeCommandInput,

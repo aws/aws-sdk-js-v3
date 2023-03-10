@@ -54,6 +54,16 @@ export interface DescribeEndpointGroupCommandOutput extends DescribeEndpointGrou
  * @see {@link DescribeEndpointGroupCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link EndpointGroupNotFoundException} (client fault)
+ *  <p>The endpoint group that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ *
  */
 export class DescribeEndpointGroupCommand extends $Command<
   DescribeEndpointGroupCommandInput,

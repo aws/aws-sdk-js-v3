@@ -58,6 +58,38 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  * @see {@link CompleteLayerUploadCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @throws {@link EmptyUploadException} (client fault)
+ *  <p>The specified layer upload does not contain any layer parts.</p>
+ *
+ * @throws {@link InvalidLayerException} (client fault)
+ *  <p>The layer digest calculation performed by Amazon ECR upon receipt of the image layer does
+ *             not match the digest specified.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link KmsException} (client fault)
+ *  <p>The operation failed due to a KMS exception.</p>
+ *
+ * @throws {@link LayerAlreadyExistsException} (client fault)
+ *  <p>The image layer already exists in the associated repository.</p>
+ *
+ * @throws {@link LayerPartTooSmallException} (client fault)
+ *  <p>Layer parts must be at least 5 MiB in size.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UploadNotFoundException} (client fault)
+ *  <p>The upload could not be found, or the specified upload ID is not valid for this
+ *             repository.</p>
+ *
+ *
  */
 export class CompleteLayerUploadCommand extends $Command<
   CompleteLayerUploadCommandInput,

@@ -55,6 +55,7 @@ export interface GetSerialConsoleAccessStatusCommandOutput
  * @see {@link GetSerialConsoleAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class GetSerialConsoleAccessStatusCommand extends $Command<
   GetSerialConsoleAccessStatusCommandInput,

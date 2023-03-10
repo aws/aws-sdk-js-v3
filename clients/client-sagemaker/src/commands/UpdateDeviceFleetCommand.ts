@@ -45,6 +45,10 @@ export interface UpdateDeviceFleetCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateDeviceFleetCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ *
  */
 export class UpdateDeviceFleetCommand extends $Command<
   UpdateDeviceFleetCommandInput,

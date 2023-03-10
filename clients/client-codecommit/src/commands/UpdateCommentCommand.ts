@@ -50,6 +50,29 @@ export interface UpdateCommentCommandOutput extends UpdateCommentOutput, __Metad
  * @see {@link UpdateCommentCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link CommentContentRequiredException} (client fault)
+ *  <p>The comment is empty. You must provide some content for a comment. The content cannot be null.</p>
+ *
+ * @throws {@link CommentContentSizeLimitExceededException} (client fault)
+ *  <p>The comment is too large. Comments are limited to 1,000 characters.</p>
+ *
+ * @throws {@link CommentDeletedException} (client fault)
+ *  <p>This comment has already been deleted. You cannot edit or delete a deleted comment.</p>
+ *
+ * @throws {@link CommentDoesNotExistException} (client fault)
+ *  <p>No comment exists with the provided ID. Verify that you have used the correct ID, and
+ *             then try again.</p>
+ *
+ * @throws {@link CommentIdRequiredException} (client fault)
+ *  <p>The comment ID is missing or null. A comment ID is required.</p>
+ *
+ * @throws {@link CommentNotCreatedByCallerException} (client fault)
+ *  <p>You cannot modify or delete this comment. Only comment authors can modify or delete their comments.</p>
+ *
+ * @throws {@link InvalidCommentIdException} (client fault)
+ *  <p>The comment ID is not in a valid format. Make sure that you have provided the full comment ID.</p>
+ *
+ *
  */
 export class UpdateCommentCommand extends $Command<
   UpdateCommentCommandInput,

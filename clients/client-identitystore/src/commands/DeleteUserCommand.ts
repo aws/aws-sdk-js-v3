@@ -50,6 +50,33 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link IdentitystoreClientResolvedConfig | config} for IdentitystoreClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This request cannot be completed for one of the following reasons:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Performing the requested operation would violate an existing uniqueness claim in the identity store. Resolve the conflict before retrying this request.</p>
+ *             </li>
+ *             <li>
+ *                <p>The requested resource was being concurrently modified by another request.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Indicates that a requested resource is not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request failed because it contains a syntax error.</p>
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure with an internal server.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Indicates that the principal has crossed the throttling limits of the API operations.</p>
+ *
+ *
  */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,

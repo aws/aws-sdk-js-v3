@@ -50,6 +50,10 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * @see {@link DescribeTagsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  */
 export class DescribeTagsCommand extends $Command<
   DescribeTagsCommandInput,

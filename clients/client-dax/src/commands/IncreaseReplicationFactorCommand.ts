@@ -50,6 +50,38 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  * @see {@link IncreaseReplicationFactorCommandOutput} for command's `response` shape.
  * @see {@link DAXClientResolvedConfig | config} for DAXClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
+ *
+ * @throws {@link InsufficientClusterCapacityFault} (client fault)
+ *  <p>There are not enough system resources to create the cluster you requested (or to
+ *             resize an already-existing cluster). </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The requested DAX cluster is not in the <i>available</i>
+ *             state.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The VPC network is in an invalid state.</p>
+ *
+ * @throws {@link NodeQuotaForClusterExceededFault} (client fault)
+ *  <p>You have attempted to exceed the maximum number of nodes for a DAX
+ *             cluster.</p>
+ *
+ * @throws {@link NodeQuotaForCustomerExceededFault} (client fault)
+ *  <p>You have attempted to exceed the maximum number of nodes for your AWS
+ *             account.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ *
  */
 export class IncreaseReplicationFactorCommand extends $Command<
   IncreaseReplicationFactorCommandInput,

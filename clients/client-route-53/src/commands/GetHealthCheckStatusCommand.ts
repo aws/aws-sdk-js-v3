@@ -55,6 +55,13 @@ export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusR
  * @see {@link GetHealthCheckStatusCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHealthCheck} (client fault)
+ *  <p>No health check exists with the specified ID.</p>
+ *
+ *
  */
 export class GetHealthCheckStatusCommand extends $Command<
   GetHealthCheckStatusCommandInput,

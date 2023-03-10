@@ -64,6 +64,63 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  * @see {@link PublishCommandOutput} for command's `response` shape.
  * @see {@link SNSClientResolvedConfig | config} for SNSClient's `config` shape.
  *
+ * @throws {@link AuthorizationErrorException} (client fault)
+ *  <p>Indicates that the user has been denied access to the requested resource.</p>
+ *
+ * @throws {@link EndpointDisabledException} (client fault)
+ *  <p>Exception error indicating endpoint disabled.</p>
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Indicates an internal service error.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated
+ *             constraints.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that a request parameter does not comply with the associated constraints.</p>
+ *
+ * @throws {@link InvalidSecurityException} (client fault)
+ *  <p>The credential signature isn't valid. You must use an HTTPS endpoint and sign your
+ *             request using Signature Version 4.</p>
+ *
+ * @throws {@link KMSAccessDeniedException} (client fault)
+ *  <p>The ciphertext references a key that doesn't exist or that you don't have access
+ *             to.</p>
+ *
+ * @throws {@link KMSDisabledException} (client fault)
+ *  <p>The request was rejected because the specified customer master key (CMK) isn't
+ *             enabled.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (client fault)
+ *  <p>The request was rejected because the state of the specified resource isn't valid for
+ *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
+ *                 Customer Master Key</a> in the <i>Key Management Service Developer
+ *                 Guide</i>.</p>
+ *
+ * @throws {@link KMSNotFoundException} (client fault)
+ *  <p>The request was rejected because the specified entity or resource can't be
+ *             found.</p>
+ *
+ * @throws {@link KMSOptInRequired} (client fault)
+ *  <p>The Amazon Web Services access key ID needs a subscription for the service.</p>
+ *
+ * @throws {@link KMSThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. For more information about
+ *             throttling, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second">Limits</a> in
+ *             the <i>Key Management Service Developer Guide.</i>
+ *          </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>Indicates that the requested resource does not exist.</p>
+ *
+ * @throws {@link PlatformApplicationDisabledException} (client fault)
+ *  <p>Exception error indicating platform application disabled.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that a parameter in the request is invalid.</p>
+ *
+ *
  */
 export class PublishCommand extends $Command<PublishCommandInput, PublishCommandOutput, SNSClientResolvedConfig> {
   // Start section: command_properties

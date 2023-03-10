@@ -50,6 +50,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __M
  * @see {@link DescribeProjectCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class DescribeProjectCommand extends $Command<
   DescribeProjectCommandInput,

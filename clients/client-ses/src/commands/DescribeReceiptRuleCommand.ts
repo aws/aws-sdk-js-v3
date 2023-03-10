@@ -53,6 +53,13 @@ export interface DescribeReceiptRuleCommandOutput extends DescribeReceiptRuleRes
  * @see {@link DescribeReceiptRuleCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link RuleDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule does not exist.</p>
+ *
+ * @throws {@link RuleSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ *
  * @example DescribeReceiptRule
  * ```javascript
  * // The following example returns the details of a receipt rule:

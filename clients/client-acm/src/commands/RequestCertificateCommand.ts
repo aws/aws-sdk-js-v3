@@ -65,6 +65,30 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * @see {@link RequestCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link InvalidDomainValidationOptionsException} (client fault)
+ *  <p>One or more values in the <a>DomainValidationOption</a> structure is
+ *       incorrect.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An input parameter was invalid.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *  <p>One or both of the values that make up the key-value pair is not valid. For example, you
+ *       cannot specify a tag value that begins with <code>aws:</code>.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An ACM quota has been exceeded.</p>
+ *
+ * @throws {@link TagPolicyException} (client fault)
+ *  <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The request contains too many tags. Try the request again with fewer tags.</p>
+ *
+ *
  */
 export class RequestCertificateCommand extends $Command<
   RequestCertificateCommandInput,

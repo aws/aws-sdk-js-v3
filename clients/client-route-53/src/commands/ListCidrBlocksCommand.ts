@@ -50,6 +50,16 @@ export interface ListCidrBlocksCommandOutput extends ListCidrBlocksResponse, __M
  * @see {@link ListCidrBlocksCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchCidrCollectionException} (client fault)
+ *  <p>The CIDR collection you specified, doesn't exist.</p>
+ *
+ * @throws {@link NoSuchCidrLocationException} (client fault)
+ *  <p>The CIDR collection location doesn't match any locations in your account.</p>
+ *
+ *
  */
 export class ListCidrBlocksCommand extends $Command<
   ListCidrBlocksCommandInput,

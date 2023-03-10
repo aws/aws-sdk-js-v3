@@ -55,6 +55,22 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @see {@link GetSessionCommandOutput} for command's `response` shape.
  * @see {@link LexRuntimeServiceClientResolvedConfig | config} for LexRuntimeServiceClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> Request validation failed, there is no usable message in the context,
+ *       or the bot build failed, is still in progress, or contains unbuilt
+ *       changes. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>Internal service error. Retry the call.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Exceeded a limit.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource (such as the Amazon Lex bot or an alias) that is referred
+ *       to is not found.</p>
+ *
+ *
  */
 export class GetSessionCommand extends $Command<
   GetSessionCommandInput,

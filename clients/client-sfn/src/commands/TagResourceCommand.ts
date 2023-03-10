@@ -55,6 +55,18 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Could not find the referenced resource. Only state machine and activity ARNs are
+ *       supported.</p>
+ *
+ * @throws {@link TooManyTags} (client fault)
+ *  <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
+ *       Step Functions Developer Guide.</p>
+ *
+ *
  */
 export class TagResourceCommand extends $Command<
   TagResourceCommandInput,

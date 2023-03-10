@@ -57,6 +57,10 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteAlarmsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>The named resource does not exist.</p>
+ *
+ *
  */
 export class DeleteAlarmsCommand extends $Command<
   DeleteAlarmsCommandInput,

@@ -50,6 +50,16 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * @see {@link DeleteDeviceCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link InvalidCertificateAuthorityException} (client fault)
+ *  <p>The Certificate Authority can't issue or revoke a certificate.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class DeleteDeviceCommand extends $Command<
   DeleteDeviceCommandInput,

@@ -51,6 +51,18 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  * @see {@link GetUsageForecastCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link DataUnavailableException} (client fault)
+ *  <p>The requested data is unavailable.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link UnresolvableUsageUnitException} (client fault)
+ *  <p>Cost Explorer was unable to identify the usage unit. Provide
+ *                 <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units,
+ *             for example: <code>hours</code>.</p>
+ *
+ *
  */
 export class GetUsageForecastCommand extends $Command<
   GetUsageForecastCommandInput,

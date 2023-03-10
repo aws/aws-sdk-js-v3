@@ -48,6 +48,13 @@ export interface DeleteCacheSubnetGroupCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheSubnetGroupInUse} (client fault)
+ *  <p>The requested cache subnet group is currently in use.</p>
+ *
+ * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
+ *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ *
+ *
  * @example DeleteCacheSubnetGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache subnet group my-subnet-group.

@@ -50,6 +50,10 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
  * @see {@link DescribeTrialCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ *
  */
 export class DescribeTrialCommand extends $Command<
   DescribeTrialCommandInput,

@@ -50,6 +50,16 @@ export interface CompleteMigrationCommandOutput extends CompleteMigrationRespons
  * @see {@link CompleteMigrationCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link ReplicationGroupNotUnderMigrationFault} (client fault)
+ *  <p>The designated replication group is not available for data migration.</p>
+ *
+ *
  */
 export class CompleteMigrationCommand extends $Command<
   CompleteMigrationCommandInput,

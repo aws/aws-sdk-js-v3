@@ -57,6 +57,17 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * @see {@link DescribeApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsV2ClientResolvedConfig | config} for KinesisAnalyticsV2Client's `config` shape.
  *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter value is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this
+ *       operation. </p>
+ *
+ *
  */
 export class DescribeApplicationVersionCommand extends $Command<
   DescribeApplicationVersionCommandInput,

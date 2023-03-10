@@ -53,6 +53,7 @@ export interface DescribeTransitGatewayPeeringAttachmentsCommandOutput
  * @see {@link DescribeTransitGatewayPeeringAttachmentsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeTransitGatewayPeeringAttachmentsCommand extends $Command<
   DescribeTransitGatewayPeeringAttachmentsCommandInput,

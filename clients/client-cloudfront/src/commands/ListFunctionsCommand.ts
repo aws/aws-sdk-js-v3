@@ -57,6 +57,13 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResult, __Metad
  * @see {@link ListFunctionsCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
+ *
+ *
  */
 export class ListFunctionsCommand extends $Command<
   ListFunctionsCommandInput,

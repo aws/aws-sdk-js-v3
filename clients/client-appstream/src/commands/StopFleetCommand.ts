@@ -47,6 +47,13 @@ export interface StopFleetCommandOutput extends StopFleetResult, __MetadataBeare
  * @see {@link StopFleetCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>An API error occurred. Wait a few minutes and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class StopFleetCommand extends $Command<
   StopFleetCommandInput,

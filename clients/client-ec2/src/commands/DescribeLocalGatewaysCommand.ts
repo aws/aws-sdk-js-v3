@@ -51,6 +51,7 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
  * @see {@link DescribeLocalGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeLocalGatewaysCommand extends $Command<
   DescribeLocalGatewaysCommandInput,

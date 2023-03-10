@@ -52,6 +52,14 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * @see {@link ListWebhooksCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format. Make sure that the next token
+ *             you provide is the token returned by a previous call.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class ListWebhooksCommand extends $Command<
   ListWebhooksCommandInput,

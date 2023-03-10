@@ -52,6 +52,12 @@ export interface DescribeAcceleratorTypesCommandOutput extends DescribeAccelerat
  * @see {@link DescribeAcceleratorTypesCommandOutput} for command's `response` shape.
  * @see {@link ElasticInferenceClientResolvedConfig | config} for ElasticInferenceClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>
+ *             Raised when an unexpected error occurred during request processing.
+ *         </p>
+ *
+ *
  */
 export class DescribeAcceleratorTypesCommand extends $Command<
   DescribeAcceleratorTypesCommandInput,

@@ -53,6 +53,13 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * @see {@link ListRecommendersCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid.</p>
+ *
+ *
  */
 export class ListRecommendersCommand extends $Command<
   ListRecommendersCommandInput,

@@ -50,6 +50,7 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * @see {@link ListAlertsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class ListAlertsCommand extends $Command<
   ListAlertsCommandInput,

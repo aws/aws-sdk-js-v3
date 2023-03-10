@@ -50,6 +50,32 @@ export interface DeregisterCertificateCommandOutput extends DeregisterCertificat
  * @see {@link DeregisterCertificateCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
+ * @throws {@link CertificateDoesNotExistException} (client fault)
+ *  <p>The certificate is not present in the system for describe or deregister activities.</p>
+ *
+ * @throws {@link CertificateInUseException} (client fault)
+ *  <p>The certificate is being used for the LDAP security connection and cannot be removed
+ *       without disabling LDAP security.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ *
  */
 export class DeregisterCertificateCommand extends $Command<
   DeregisterCertificateCommandInput,

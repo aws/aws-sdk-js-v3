@@ -54,6 +54,13 @@ export interface ListProjectsCommandOutput extends ListProjectsResponse, __Metad
  * @see {@link ListProjectsCommandOutput} for command's `response` shape.
  * @see {@link IoT1ClickProjectsClientResolvedConfig | config} for IoT1ClickProjectsClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class ListProjectsCommand extends $Command<
   ListProjectsCommandInput,

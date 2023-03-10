@@ -52,6 +52,35 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link MobileClientResolvedConfig | config} for MobileClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>
+ *             The service has encountered an unexpected error condition which prevents it from
+ *             servicing the request.
+ *         </p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>
+ *             No entity can be found with the specified identifier.
+ *         </p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>
+ *             The service is temporarily unavailable. The request should be retried after some
+ *             time delay.
+ *         </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>
+ *             Too many requests have been received for this AWS account in too short a time. The
+ *             request should be retried after some time delay.
+ *         </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>
+ *             Credentials of the caller are insufficient to authorize the request.
+ *         </p>
+ *
+ *
  */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,

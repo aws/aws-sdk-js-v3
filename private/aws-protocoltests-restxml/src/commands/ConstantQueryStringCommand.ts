@@ -47,6 +47,7 @@ export interface ConstantQueryStringCommandOutput extends __MetadataBearer {}
  * @see {@link ConstantQueryStringCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class ConstantQueryStringCommand extends $Command<
   ConstantQueryStringCommandInput,

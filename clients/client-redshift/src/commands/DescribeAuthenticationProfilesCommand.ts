@@ -52,6 +52,14 @@ export interface DescribeAuthenticationProfilesCommandOutput
  * @see {@link DescribeAuthenticationProfilesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link AuthenticationProfileNotFoundFault} (client fault)
+ *  <p>The authentication profile can't be found.</p>
+ *
+ * @throws {@link InvalidAuthenticationProfileRequestFault} (client fault)
+ *  <p>The authentication profile request is not valid. The profile name can't be null or empty.
+ *             The authentication profile API operation must be available in the Amazon Web Services Region.</p>
+ *
+ *
  */
 export class DescribeAuthenticationProfilesCommand extends $Command<
   DescribeAuthenticationProfilesCommandInput,

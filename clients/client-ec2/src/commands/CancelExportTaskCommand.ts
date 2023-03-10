@@ -47,6 +47,7 @@ export interface CancelExportTaskCommandOutput extends __MetadataBearer {}
  * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CancelExportTaskCommand extends $Command<
   CancelExportTaskCommandInput,

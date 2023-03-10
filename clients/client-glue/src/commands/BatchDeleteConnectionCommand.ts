@@ -50,6 +50,13 @@ export interface BatchDeleteConnectionCommandOutput extends BatchDeleteConnectio
  * @see {@link BatchDeleteConnectionCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class BatchDeleteConnectionCommand extends $Command<
   BatchDeleteConnectionCommandInput,

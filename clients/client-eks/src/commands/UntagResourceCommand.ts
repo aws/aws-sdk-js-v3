@@ -50,6 +50,15 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning
+ *             will depend on the API, and will be documented in the error message.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>A service resource associated with the request could not be found. Clients should not
+ *             retry such requests.</p>
+ *
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

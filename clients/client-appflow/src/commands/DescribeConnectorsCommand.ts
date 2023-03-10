@@ -53,6 +53,14 @@ export interface DescribeConnectorsCommandOutput extends DescribeConnectorsRespo
  * @see {@link DescribeConnectorsCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal service error occurred during the processing of your request. Try again
+ *       later. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request has invalid or missing parameters. </p>
+ *
+ *
  */
 export class DescribeConnectorsCommand extends $Command<
   DescribeConnectorsCommandInput,

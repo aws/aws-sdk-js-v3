@@ -64,6 +64,27 @@ export interface UpdateTagsForResourceCommandOutput extends __MetadataBearer {}
  * @see {@link UpdateTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Unable to perform the specified operation because another operation that effects an
+ *       element in this activity is already in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>
+ *
+ * @throws {@link ResourceTypeNotSupportedException} (client fault)
+ *  <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The number of tags in the resource would exceed the number of tags that each resource
+ *       can have.</p>
+ *          <p>To calculate this, the operation considers both the number of tags the resource already has
+ *       and the tags this operation would add if it succeeded.</p>
+ *
+ *
  */
 export class UpdateTagsForResourceCommand extends $Command<
   UpdateTagsForResourceCommandInput,

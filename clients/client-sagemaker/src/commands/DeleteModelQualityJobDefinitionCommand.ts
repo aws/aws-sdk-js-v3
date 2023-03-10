@@ -48,6 +48,10 @@ export interface DeleteModelQualityJobDefinitionCommandOutput extends __Metadata
  * @see {@link DeleteModelQualityJobDefinitionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ *
  */
 export class DeleteModelQualityJobDefinitionCommand extends $Command<
   DeleteModelQualityJobDefinitionCommandInput,

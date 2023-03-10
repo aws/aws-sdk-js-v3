@@ -55,6 +55,31 @@ export interface AuthorizeSnapshotAccessCommandOutput extends AuthorizeSnapshotA
  * @see {@link AuthorizeSnapshotAccessCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link AuthorizationAlreadyExistsFault} (client fault)
+ *  <p>The specified CIDR block or EC2 security group is already authorized for the
+ *             specified cluster security group.</p>
+ *
+ * @throws {@link AuthorizationQuotaExceededFault} (client fault)
+ *  <p>The authorization quota for the cluster security group has been reached.</p>
+ *
+ * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
+ *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
+ *  <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
+ *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
+ *             accounts are authorized to access the snapshot. </p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class AuthorizeSnapshotAccessCommand extends $Command<
   AuthorizeSnapshotAccessCommandInput,

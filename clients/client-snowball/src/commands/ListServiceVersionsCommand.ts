@@ -51,6 +51,16 @@ export interface ListServiceVersionsCommandOutput extends ListServiceVersionsRes
  * @see {@link ListServiceVersionsCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> string was altered unexpectedly, and the operation has
+ *       stopped. Run the operation without changing the <code>NextToken</code> string, and try
+ *       again.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ *
  */
 export class ListServiceVersionsCommand extends $Command<
   ListServiceVersionsCommandInput,

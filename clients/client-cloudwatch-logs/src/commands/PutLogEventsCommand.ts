@@ -95,6 +95,41 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * @see {@link PutLogEventsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
+ * @throws {@link DataAlreadyAcceptedException} (client fault)
+ *  <p>The event was already logged.</p>
+ *          <important>
+ *             <p>
+ *                <code>PutLogEvents</code>
+ *       actions are now always accepted and never return
+ *       <code>DataAlreadyAcceptedException</code> regardless of whether a given batch of log events
+ *       has already been accepted. </p>
+ *          </important>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link InvalidSequenceTokenException} (client fault)
+ *  <p>The sequence token is not valid. You can get the correct sequence token in
+ *       the <code>expectedSequenceToken</code> field in the <code>InvalidSequenceTokenException</code>
+ *     message. </p>
+ *          <important>
+ *             <p>
+ *                <code>PutLogEvents</code>
+ *       actions are now always accepted and never return
+ *       <code>InvalidSequenceTokenException</code> regardless of receiving an invalid sequence token. </p>
+ *          </important>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ * @throws {@link UnrecognizedClientException} (client fault)
+ *  <p>The most likely cause is an Amazon Web Services access key ID or secret key that's not
+ *       valid.</p>
+ *
+ *
  */
 export class PutLogEventsCommand extends $Command<
   PutLogEventsCommandInput,

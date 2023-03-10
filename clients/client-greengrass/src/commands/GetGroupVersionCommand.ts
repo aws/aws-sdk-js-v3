@@ -50,6 +50,10 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  * @see {@link GetGroupVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ *
  */
 export class GetGroupVersionCommand extends $Command<
   GetGroupVersionCommandInput,

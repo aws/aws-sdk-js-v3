@@ -55,6 +55,7 @@ export interface AssociateInstanceEventWindowCommandOutput
  * @see {@link AssociateInstanceEventWindowCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class AssociateInstanceEventWindowCommand extends $Command<
   AssociateInstanceEventWindowCommandInput,

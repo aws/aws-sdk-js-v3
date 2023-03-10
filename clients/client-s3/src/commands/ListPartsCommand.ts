@@ -97,6 +97,7 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  * @see {@link ListPartsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  * @example To list parts of a multipart upload.
  * ```javascript
  * // The following example lists parts uploaded for a specific multipart upload.

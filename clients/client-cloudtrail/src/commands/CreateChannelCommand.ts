@@ -52,6 +52,51 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @see {@link CreateChannelCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link ChannelAlreadyExistsException} (client fault)
+ *  <p>
+ *          This exception is thrown when the provided channel already exists.
+ *       </p>
+ *
+ * @throws {@link ChannelMaxLimitExceededException} (client fault)
+ *  <p>
+ *          This exception is thrown when the maximum number of channels limit is exceeded.
+ *       </p>
+ *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
+ * @throws {@link InvalidEventDataStoreCategoryException} (client fault)
+ *  <p>This exception is thrown when event categories of specified event data stores are not
+ *          valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link InvalidSourceException} (client fault)
+ *  <p>This exception is thrown when the specified value of <code>Source</code> is not valid.</p>
+ *
+ * @throws {@link InvalidTagParameterException} (client fault)
+ *  <p>This exception is thrown when the specified tag key or values are not valid. It can also
+ *          occur if there are duplicate tags or too many tags on the resource.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link TagsLimitExceededException} (client fault)
+ *  <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
+ *          50.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class CreateChannelCommand extends $Command<
   CreateChannelCommandInput,

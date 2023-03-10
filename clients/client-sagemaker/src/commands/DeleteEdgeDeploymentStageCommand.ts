@@ -48,6 +48,10 @@ export interface DeleteEdgeDeploymentStageCommandOutput extends __MetadataBearer
  * @see {@link DeleteEdgeDeploymentStageCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ *
  */
 export class DeleteEdgeDeploymentStageCommand extends $Command<
   DeleteEdgeDeploymentStageCommandInput,

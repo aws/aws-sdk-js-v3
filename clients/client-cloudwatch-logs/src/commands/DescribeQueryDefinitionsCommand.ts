@@ -52,6 +52,13 @@ export interface DescribeQueryDefinitionsCommandOutput extends DescribeQueryDefi
  * @see {@link DescribeQueryDefinitionsCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ *
  */
 export class DescribeQueryDefinitionsCommand extends $Command<
   DescribeQueryDefinitionsCommandInput,

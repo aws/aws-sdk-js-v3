@@ -48,6 +48,7 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  * @see {@link ModifyIpamCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ModifyIpamCommand extends $Command<
   ModifyIpamCommandInput,

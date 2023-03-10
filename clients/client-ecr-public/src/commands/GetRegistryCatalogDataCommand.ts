@@ -50,6 +50,13 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
  * @see {@link GetRegistryCatalogDataCommandOutput} for command's `response` shape.
  * @see {@link ECRPUBLICClientResolvedConfig | config} for ECRPUBLICClient's `config` shape.
  *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnsupportedCommandException} (client fault)
+ *  <p>The action isn't supported in this Region.</p>
+ *
+ *
  */
 export class GetRegistryCatalogDataCommand extends $Command<
   GetRegistryCatalogDataCommandInput,

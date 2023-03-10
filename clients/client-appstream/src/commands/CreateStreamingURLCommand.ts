@@ -50,6 +50,19 @@ export interface CreateStreamingURLCommandOutput extends CreateStreamingURLResul
  * @see {@link CreateStreamingURLCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ * @throws {@link ResourceNotAvailableException} (client fault)
+ *  <p>The specified resource exists and is not in use, but isn't available.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class CreateStreamingURLCommand extends $Command<
   CreateStreamingURLCommandInput,

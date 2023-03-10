@@ -56,6 +56,10 @@ export interface RegisterPublisherCommandOutput extends RegisterPublisherOutput,
  * @see {@link RegisterPublisherCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ *
  */
 export class RegisterPublisherCommand extends $Command<
   RegisterPublisherCommandInput,

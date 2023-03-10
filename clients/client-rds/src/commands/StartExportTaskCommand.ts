@@ -57,6 +57,41 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * @see {@link StartExportTaskCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+ *
+ * @throws {@link DBSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * @throws {@link ExportTaskAlreadyExistsFault} (client fault)
+ *  <p>You can't start an export task that's already running.</p>
+ *
+ * @throws {@link IamRoleMissingPermissionsFault} (client fault)
+ *  <p>The IAM role requires additional permissions to export to an Amazon S3 bucket.</p>
+ *
+ * @throws {@link IamRoleNotFoundFault} (client fault)
+ *  <p>The IAM role is missing for exporting to an Amazon S3 bucket.</p>
+ *
+ * @throws {@link InvalidExportOnlyFault} (client fault)
+ *  <p>The export is invalid for exporting to an Amazon S3 bucket.</p>
+ *
+ * @throws {@link InvalidExportSourceStateFault} (client fault)
+ *  <p>The state of the export snapshot is invalid for exporting to an Amazon S3 bucket.</p>
+ *
+ * @throws {@link InvalidS3BucketFault} (client fault)
+ *  <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't
+ *             authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ *
  */
 export class StartExportTaskCommand extends $Command<
   StartExportTaskCommandInput,

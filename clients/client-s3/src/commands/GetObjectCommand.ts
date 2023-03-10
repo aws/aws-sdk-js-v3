@@ -213,6 +213,13 @@ export interface GetObjectCommandOutput extends __WithSdkStreamMixin<GetObjectOu
  * @see {@link GetObjectCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link InvalidObjectState} (client fault)
+ *  <p>Object is archived and inaccessible until restored.</p>
+ *
+ * @throws {@link NoSuchKey} (client fault)
+ *  <p>The specified key does not exist.</p>
+ *
+ *
  * @example To retrieve a byte range of an object
  * ```javascript
  * // The following example retrieves an object for an S3 bucket. The request specifies the range header to retrieve a specific byte range.

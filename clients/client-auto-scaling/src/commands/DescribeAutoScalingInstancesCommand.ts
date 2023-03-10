@@ -50,6 +50,14 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * @see {@link DescribeAutoScalingInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
  * @example To describe one or more Auto Scaling instances
  * ```javascript
  * // This example describes the specified Auto Scaling instance.

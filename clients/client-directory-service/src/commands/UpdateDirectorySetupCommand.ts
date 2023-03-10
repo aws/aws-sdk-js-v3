@@ -52,6 +52,38 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  * @see {@link UpdateDirectorySetupCommandOutput} for command's `response` shape.
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Client authentication is not available in this region at this time.</p>
+ *
+ * @throws {@link ClientException} (client fault)
+ *  <p>A client exception has occurred.</p>
+ *
+ * @throws {@link DirectoryDoesNotExistException} (client fault)
+ *  <p>The specified directory does not exist in the system.</p>
+ *
+ * @throws {@link DirectoryInDesiredStateException} (client fault)
+ *  <p>
+ *       The directory is already updated to desired update type settings.
+ *     </p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The specified directory is unavailable or could not be found.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>An exception has occurred in Directory Service.</p>
+ *
+ * @throws {@link SnapshotLimitExceededException} (client fault)
+ *  <p>The maximum number of manual snapshots for the directory has been reached. You can
+ *             use the <a>GetSnapshotLimits</a> operation to determine the snapshot limits
+ *             for a directory.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ *
  */
 export class UpdateDirectorySetupCommand extends $Command<
   UpdateDirectorySetupCommandInput,

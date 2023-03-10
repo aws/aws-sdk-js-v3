@@ -52,6 +52,20 @@ export interface DescribeSigningJobCommandOutput extends DescribeSigningJobRespo
  * @see {@link DescribeSigningJobCommandOutput} for command's `response` shape.
  * @see {@link SignerClientResolvedConfig | config} for SignerClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A specified resource could not be found.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The allowed number of job-signing requests has been exceeded.</p>
+ * 		       <p>This error supersedes the error <code>ThrottlingException</code>.</p>
+ *
+ *
  */
 export class DescribeSigningJobCommand extends $Command<
   DescribeSigningJobCommandInput,

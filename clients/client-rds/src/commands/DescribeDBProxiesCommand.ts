@@ -50,6 +50,10 @@ export interface DescribeDBProxiesCommandOutput extends DescribeDBProxiesRespons
  * @see {@link DescribeDBProxiesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBProxyNotFoundFault} (client fault)
+ *  <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+ *
+ *
  */
 export class DescribeDBProxiesCommand extends $Command<
   DescribeDBProxiesCommandInput,

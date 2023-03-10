@@ -45,6 +45,14 @@ export interface DeleteHsmConfigurationCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteHsmConfigurationCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link HsmConfigurationNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * @throws {@link InvalidHsmConfigurationStateFault} (client fault)
+ *  <p>The specified HSM configuration is not in the <code>available</code> state, or it
+ *             is still in use by one or more Amazon Redshift clusters.</p>
+ *
+ *
  */
 export class DeleteHsmConfigurationCommand extends $Command<
   DeleteHsmConfigurationCommandInput,

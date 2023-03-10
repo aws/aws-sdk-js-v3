@@ -50,6 +50,21 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * @see {@link ListLanguagesCommandOutput} for command's `response` shape.
  * @see {@link TranslateClientResolvedConfig | config} for TranslateClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of the parameter is not valid. Review the value of the parameter you are using
+ *       to correct it, and then retry your operation.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again.</p>
+ *
+ * @throws {@link UnsupportedDisplayLanguageCodeException} (client fault)
+ *  <p>Requested display language code is not supported.</p>
+ *
+ *
  */
 export class ListLanguagesCommand extends $Command<
   ListLanguagesCommandInput,

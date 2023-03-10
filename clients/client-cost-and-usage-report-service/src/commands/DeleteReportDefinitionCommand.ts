@@ -54,6 +54,13 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @see {@link DeleteReportDefinitionCommandOutput} for command's `response` shape.
  * @see {@link CostAndUsageReportServiceClientResolvedConfig | config} for CostAndUsageReportServiceClient's `config` shape.
  *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ *
  * @example To delete the AWS Cost and Usage report named ExampleReport.
  * ```javascript
  * // The following example deletes the AWS Cost and Usage report named ExampleReport.

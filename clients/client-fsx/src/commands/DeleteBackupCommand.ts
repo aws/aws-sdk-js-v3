@@ -57,6 +57,32 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @see {@link DeleteBackupCommandOutput} for command's `response` shape.
  * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
  *
+ * @throws {@link BackupBeingCopied} (client fault)
+ *  <p>You can't delete a backup while it's being copied.</p>
+ *
+ * @throws {@link BackupInProgress} (client fault)
+ *  <p>Another backup is already under way. Wait for completion before initiating
+ *             additional backups of this file system.</p>
+ *
+ * @throws {@link BackupNotFound} (client fault)
+ *  <p>No Amazon FSx backups were found based upon the supplied parameters.</p>
+ *
+ * @throws {@link BackupRestoring} (client fault)
+ *  <p>You can't delete a backup while it's being used to restore a file
+ *             system.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link IncompatibleParameterError} (client fault)
+ *  <p>The error returned when a second request is received with the same client request
+ *             token but different parameters settings. A client request token should always uniquely
+ *             identify a single request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ *
  * @example To delete a backup
  * ```javascript
  * // This operation deletes an Amazon FSx file system backup.

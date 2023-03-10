@@ -95,6 +95,7 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @see {@link ListMultipartUploadsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  * @example To list in-progress multipart uploads on a bucket
  * ```javascript
  * // The following example lists in-progress multipart uploads on a specific bucket.

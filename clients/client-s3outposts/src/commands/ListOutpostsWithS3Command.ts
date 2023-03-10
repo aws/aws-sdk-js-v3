@@ -52,6 +52,19 @@ export interface ListOutpostsWithS3CommandOutput extends ListOutpostsWithS3Resul
  * @see {@link ListOutpostsWithS3CommandOutput} for command's `response` shape.
  * @see {@link S3OutpostsClientResolvedConfig | config} for S3OutpostsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access was denied for this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an exception with the internal server.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>There was an exception validating this data.</p>
+ *
+ *
  */
 export class ListOutpostsWithS3Command extends $Command<
   ListOutpostsWithS3CommandInput,

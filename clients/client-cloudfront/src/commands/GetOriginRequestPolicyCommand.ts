@@ -64,6 +64,13 @@ export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPol
  * @see {@link GetOriginRequestPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchOriginRequestPolicy} (client fault)
+ *  <p>The origin request policy does not exist.</p>
+ *
+ *
  */
 export class GetOriginRequestPolicyCommand extends $Command<
   GetOriginRequestPolicyCommandInput,

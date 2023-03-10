@@ -50,6 +50,7 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * @see {@link DescribeNetworkInterfacesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe a network interface
  * ```javascript
  * //

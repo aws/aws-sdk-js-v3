@@ -51,6 +51,16 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  * @see {@link GetAnomalyMonitorsCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The pagination token is invalid. Try again without a pagination token.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You made too many calls in a short period of time. Try again later.</p>
+ *
+ * @throws {@link UnknownMonitorException} (client fault)
+ *  <p>The cost anomaly monitor does not exist for the account. </p>
+ *
+ *
  */
 export class GetAnomalyMonitorsCommand extends $Command<
   GetAnomalyMonitorsCommandInput,

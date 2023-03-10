@@ -61,6 +61,15 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * @see {@link TerminateInstanceInAutoScalingGroupCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ * @throws {@link ScalingActivityInProgressFault} (client fault)
+ *  <p>The operation can't be performed because there are scaling activities in
+ *             progress.</p>
+ *
+ *
  * @example To terminate an instance in an Auto Scaling group
  * ```javascript
  * // This example terminates the specified instance from the specified Auto Scaling group without updating the size of the group. Auto Scaling launches a replacement instance after the specified instance terminates.

@@ -50,6 +50,10 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
  * @see {@link ListPublicKeysCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ *
  */
 export class ListPublicKeysCommand extends $Command<
   ListPublicKeysCommandInput,

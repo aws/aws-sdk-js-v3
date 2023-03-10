@@ -73,6 +73,15 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * @see {@link ShutdownGatewayCommandOutput} for command's `response` shape.
  * @see {@link StorageGatewayClientResolvedConfig | config} for StorageGatewayClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error has occurred during the request. For more information, see the
+ *          error and message fields.</p>
+ *
+ * @throws {@link InvalidGatewayRequestException} (client fault)
+ *  <p>An exception occurred because an invalid gateway request was issued to the service. For
+ *          more information, see the error and message fields.</p>
+ *
+ *
  * @example To shut down a gateway service
  * ```javascript
  * // This operation shuts down the gateway service component running in the storage gateway's virtual machine (VM) and not the VM.

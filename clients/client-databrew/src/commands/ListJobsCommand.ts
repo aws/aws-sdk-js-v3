@@ -50,6 +50,10 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
+ *
  */
 export class ListJobsCommand extends $Command<
   ListJobsCommandInput,

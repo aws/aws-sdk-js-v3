@@ -66,6 +66,35 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @see {@link CreateApplicationVersionCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link CodeBuildNotInServiceRegionException} (client fault)
+ *  <p>AWS CodeBuild is not available in the specified region.</p>
+ *
+ * @throws {@link InsufficientPrivilegesException} (client fault)
+ *  <p>The specified account does not have sufficient privileges for one or more AWS
+ *       services.</p>
+ *
+ * @throws {@link S3LocationNotInServiceRegionException} (client fault)
+ *  <p>The specified S3 bucket does not belong to the S3 region in which the service is
+ *       running. The following regions are supported:</p>
+ *          <ul>
+ *             <li>
+ *                <p>IAD/us-east-1</p>
+ *             </li>
+ *             <li>
+ *                <p>PDX/us-west-2</p>
+ *             </li>
+ *             <li>
+ *                <p>DUB/eu-west-1</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link TooManyApplicationsException} (client fault)
+ *  <p>The specified account has reached its limit of applications.</p>
+ *
+ * @throws {@link TooManyApplicationVersionsException} (client fault)
+ *  <p>The specified account has reached its limit of application versions.</p>
+ *
+ *
  * @example To create a new application
  * ```javascript
  * // The following operation creates a new version (v1) of an application named my-app:

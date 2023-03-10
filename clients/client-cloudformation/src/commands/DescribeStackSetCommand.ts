@@ -50,6 +50,10 @@ export interface DescribeStackSetCommandOutput extends DescribeStackSetOutput, _
  * @see {@link DescribeStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
+ *
  */
 export class DescribeStackSetCommand extends $Command<
   DescribeStackSetCommandInput,

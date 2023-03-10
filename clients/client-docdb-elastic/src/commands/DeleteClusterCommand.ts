@@ -50,6 +50,25 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  * @see {@link DeleteClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was an access conflict.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal server error.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be located.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A structure defining a validation exception.</p>
+ *
+ *
  */
 export class DeleteClusterCommand extends $Command<
   DeleteClusterCommandInput,

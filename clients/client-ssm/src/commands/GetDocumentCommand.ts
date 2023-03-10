@@ -50,6 +50,16 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * @see {@link GetDocumentCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidDocumentVersion} (client fault)
+ *  <p>The document version isn't valid or doesn't exist.</p>
+ *
+ *
  */
 export class GetDocumentCommand extends $Command<
   GetDocumentCommandInput,

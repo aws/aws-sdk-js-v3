@@ -55,6 +55,7 @@ export interface DescribeWorkforceCommandOutput extends DescribeWorkforceRespons
  * @see {@link DescribeWorkforceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class DescribeWorkforceCommand extends $Command<
   DescribeWorkforceCommandInput,

@@ -52,6 +52,13 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * @see {@link DescribeWorkspacesCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>The specified resource is not available.</p>
+ *
+ *
  */
 export class DescribeWorkspacesCommand extends $Command<
   DescribeWorkspacesCommandInput,

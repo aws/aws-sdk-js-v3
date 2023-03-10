@@ -52,6 +52,16 @@ export interface CreateUsageReportSubscriptionCommandOutput
  * @see {@link CreateUsageReportSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link InvalidAccountStatusException} (client fault)
+ *  <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
+ *
+ * @throws {@link InvalidRoleException} (client fault)
+ *  <p>The specified role is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested limit exceeds the permitted limit for an account.</p>
+ *
+ *
  */
 export class CreateUsageReportSubscriptionCommand extends $Command<
   CreateUsageReportSubscriptionCommandInput,

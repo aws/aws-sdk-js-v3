@@ -50,6 +50,13 @@ export interface DescribeDatasetExportJobCommandOutput extends DescribeDatasetEx
  * @see {@link DescribeDatasetExportJobCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Could not find the specified resource.</p>
+ *
+ *
  */
 export class DescribeDatasetExportJobCommand extends $Command<
   DescribeDatasetExportJobCommandInput,

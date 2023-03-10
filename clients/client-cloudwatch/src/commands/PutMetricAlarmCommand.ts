@@ -96,6 +96,10 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * @see {@link PutMetricAlarmCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The quota for alarms for this customer has already been reached.</p>
+ *
+ *
  */
 export class PutMetricAlarmCommand extends $Command<
   PutMetricAlarmCommandInput,

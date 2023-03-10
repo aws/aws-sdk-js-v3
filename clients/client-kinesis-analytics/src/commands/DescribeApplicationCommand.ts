@@ -59,6 +59,13 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @see {@link DescribeApplicationCommandOutput} for command's `response` shape.
  * @see {@link KinesisAnalyticsClientResolvedConfig | config} for KinesisAnalyticsClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Specified application can't be found.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
+ *
+ *
  */
 export class DescribeApplicationCommand extends $Command<
   DescribeApplicationCommandInput,

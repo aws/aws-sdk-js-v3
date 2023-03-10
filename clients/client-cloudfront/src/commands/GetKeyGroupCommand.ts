@@ -56,6 +56,10 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * @see {@link GetKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link NoSuchResource} (client fault)
+ *  <p>A resource that was specified is not valid.</p>
+ *
+ *
  */
 export class GetKeyGroupCommand extends $Command<
   GetKeyGroupCommandInput,

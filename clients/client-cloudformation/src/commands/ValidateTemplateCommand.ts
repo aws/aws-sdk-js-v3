@@ -52,6 +52,7 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * @see {@link ValidateTemplateCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class ValidateTemplateCommand extends $Command<
   ValidateTemplateCommandInput,

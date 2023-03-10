@@ -56,6 +56,18 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  * @see {@link GetOpsItemCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsItemAccessDeniedException} (client fault)
+ *  <p>You don't have permission to view OpsItems in the specified account. Verify that your account
+ *    is configured either as a Systems Manager delegated administrator or that you are logged into the Organizations
+ *    management account.</p>
+ *
+ * @throws {@link OpsItemNotFoundException} (client fault)
+ *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ *
+ *
  */
 export class GetOpsItemCommand extends $Command<
   GetOpsItemCommandInput,

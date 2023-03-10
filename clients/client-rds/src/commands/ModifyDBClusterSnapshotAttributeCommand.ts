@@ -70,6 +70,17 @@ export interface ModifyDBClusterSnapshotAttributeCommandOutput
  * @see {@link ModifyDBClusterSnapshotAttributeCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
+ *
+ * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
+ *  <p>The supplied value isn't a valid DB cluster snapshot state.</p>
+ *
+ * @throws {@link SharedSnapshotQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>
+ *
+ *
  * @example To add or remove access to a manual DB cluster snapshot
  * ```javascript
  * // The following example gives two AWS accounts access to a manual DB cluster snapshot and ensures that the DB cluster snapshot is private by removing the value "all".

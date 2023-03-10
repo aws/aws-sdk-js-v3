@@ -53,6 +53,20 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  * @see {@link PutRecordCommandOutput} for command's `response` shape.
  * @see {@link SageMakerFeatureStoreRuntimeClientResolvedConfig | config} for SageMakerFeatureStoreRuntimeClient's `config` shape.
  *
+ * @throws {@link AccessForbidden} (client fault)
+ *  <p>You do not have permission to perform an action.</p>
+ *
+ * @throws {@link InternalFailure} (server fault)
+ *  <p>An internal failure occurred. Try your request again. If the problem
+ *          persists, contact Amazon Web Services customer support.</p>
+ *
+ * @throws {@link ServiceUnavailable} (server fault)
+ *  <p>The service is currently unavailable.</p>
+ *
+ * @throws {@link ValidationError} (client fault)
+ *  <p>There was an error validating your request.</p>
+ *
+ *
  */
 export class PutRecordCommand extends $Command<
   PutRecordCommandInput,

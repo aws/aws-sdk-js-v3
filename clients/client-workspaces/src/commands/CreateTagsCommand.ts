@@ -50,6 +50,16 @@ export interface CreateTagsCommandOutput extends CreateTagsResult, __MetadataBea
  * @see {@link CreateTagsCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>Your resource limits have been exceeded.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  */
 export class CreateTagsCommand extends $Command<
   CreateTagsCommandInput,

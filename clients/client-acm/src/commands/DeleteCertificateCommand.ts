@@ -52,6 +52,28 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteCertificateCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have access required to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You are trying to update a resource or configuration that is already being created or
+ *       updated. Wait for the previous operation to finish and try again.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The certificate is in use by another Amazon Web Services service in the caller's account. Remove the
+ *       association and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account
+ *       cannot be found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied because it exceeded a quota.</p>
+ *
+ *
  */
 export class DeleteCertificateCommand extends $Command<
   DeleteCertificateCommandInput,

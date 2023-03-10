@@ -65,6 +65,10 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * @see {@link DescribeReplicationTaskAssessmentRunsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  */
 export class DescribeReplicationTaskAssessmentRunsCommand extends $Command<
   DescribeReplicationTaskAssessmentRunsCommandInput,

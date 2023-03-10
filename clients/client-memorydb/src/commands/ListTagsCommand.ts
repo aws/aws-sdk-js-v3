@@ -51,6 +51,34 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ACLNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidARNFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ParameterGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class ListTagsCommand extends $Command<
   ListTagsCommandInput,

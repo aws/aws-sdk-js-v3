@@ -52,6 +52,25 @@ export interface CreateScheduledActionCommandOutput extends ScheduledAction, __M
  * @see {@link CreateScheduledActionCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidScheduledActionFault} (client fault)
+ *  <p>The scheduled action is not valid. </p>
+ *
+ * @throws {@link InvalidScheduleFault} (client fault)
+ *  <p>The schedule you submitted isn't valid.</p>
+ *
+ * @throws {@link ScheduledActionAlreadyExistsFault} (client fault)
+ *  <p>The scheduled action already exists. </p>
+ *
+ * @throws {@link ScheduledActionQuotaExceededFault} (client fault)
+ *  <p>The quota for scheduled actions exceeded. </p>
+ *
+ * @throws {@link ScheduledActionTypeUnsupportedFault} (client fault)
+ *  <p>The action type specified for a scheduled action is not supported. </p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ *
  */
 export class CreateScheduledActionCommand extends $Command<
   CreateScheduledActionCommandInput,

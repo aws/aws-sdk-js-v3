@@ -50,6 +50,13 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  * @see {@link BatchDisassociateUserStackCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ *
  */
 export class BatchDisassociateUserStackCommand extends $Command<
   BatchDisassociateUserStackCommandInput,

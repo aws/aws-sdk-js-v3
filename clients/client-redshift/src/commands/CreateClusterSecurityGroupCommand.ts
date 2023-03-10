@@ -55,6 +55,23 @@ export interface CreateClusterSecurityGroupCommandOutput extends CreateClusterSe
  * @see {@link CreateClusterSecurityGroupCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterSecurityGroupAlreadyExistsFault} (client fault)
+ *  <p>A cluster security group with the same name already exists.</p>
+ *
+ * @throws {@link ClusterSecurityGroupQuotaExceededFault} (client fault)
+ *  <p>The request would result in the user exceeding the allowed number of cluster
+ *             security groups.
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ *
  */
 export class CreateClusterSecurityGroupCommand extends $Command<
   CreateClusterSecurityGroupCommandInput,

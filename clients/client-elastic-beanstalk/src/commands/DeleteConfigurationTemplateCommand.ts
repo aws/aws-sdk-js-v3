@@ -53,6 +53,11 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  * @see {@link DeleteConfigurationTemplateCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Unable to perform the specified operation because another operation that effects an
+ *       element in this activity is already in progress.</p>
+ *
+ *
  * @example To delete a configuration template
  * ```javascript
  * // The following operation deletes a configuration template named my-template for an application named my-app:

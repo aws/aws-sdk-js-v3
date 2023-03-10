@@ -73,6 +73,7 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteBucketCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class DeleteBucketCommand extends $Command<
   DeleteBucketCommandInput,

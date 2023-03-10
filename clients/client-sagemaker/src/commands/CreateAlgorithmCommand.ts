@@ -50,6 +50,7 @@ export interface CreateAlgorithmCommandOutput extends CreateAlgorithmOutput, __M
  * @see {@link CreateAlgorithmCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class CreateAlgorithmCommand extends $Command<
   CreateAlgorithmCommandInput,

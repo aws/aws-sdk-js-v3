@@ -62,6 +62,15 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  * @see {@link SubmitJobCommandOutput} for command's `response` shape.
  * @see {@link BatchClientResolvedConfig | config} for BatchClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. One example cause is using an action or resource on behalf
+ *    of a user that doesn't have permissions to use the action or resource. Another cause is specifying an identifier
+ *    that's not valid.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ *
  * @example To submit a job to a queue
  * ```javascript
  * // This example submits a simple container job called example to the HighPriority job queue.

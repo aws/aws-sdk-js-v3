@@ -54,6 +54,10 @@ export interface GetResourceEvaluationSummaryCommandOutput
  * @see {@link GetResourceEvaluationSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>You have specified a resource that does not exist.</p>
+ *
+ *
  */
 export class GetResourceEvaluationSummaryCommand extends $Command<
   GetResourceEvaluationSummaryCommandInput,

@@ -58,6 +58,20 @@ export interface DeleteTrafficPolicyInstanceCommandOutput
  * @see {@link DeleteTrafficPolicyInstanceCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchTrafficPolicyInstance} (client fault)
+ *  <p>No traffic policy instance exists with the specified ID.</p>
+ *
+ * @throws {@link PriorRequestNotComplete} (client fault)
+ *  <p>If Amazon Route 53 can't process a request before the next request arrives, it will
+ * 			reject subsequent requests for the same hosted zone and return an <code>HTTP 400
+ * 				error</code> (<code>Bad request</code>). If Route 53 returns this error repeatedly
+ * 			for the same request, we recommend that you wait, in intervals of increasing duration,
+ * 			before you try the request again.</p>
+ *
+ *
  */
 export class DeleteTrafficPolicyInstanceCommand extends $Command<
   DeleteTrafficPolicyInstanceCommandInput,

@@ -48,6 +48,7 @@ export interface DescribeOperatingSystemsCommandOutput extends DescribeOperating
  * @see {@link DescribeOperatingSystemsCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksClientResolvedConfig | config} for OpsWorksClient's `config` shape.
  *
+ *
  */
 export class DescribeOperatingSystemsCommand extends $Command<
   DescribeOperatingSystemsCommandInput,

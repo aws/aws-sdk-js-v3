@@ -49,6 +49,11 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * @see {@link DeleteAggregationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are invalid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ *
  */
 export class DeleteAggregationAuthorizationCommand extends $Command<
   DeleteAggregationAuthorizationCommandInput,

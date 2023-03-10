@@ -50,6 +50,13 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  * @see {@link ListTrailsCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class ListTrailsCommand extends $Command<
   ListTrailsCommandInput,

@@ -51,6 +51,35 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * @see {@link GetAssessmentReportCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have required permissions to access the requested resource.</p>
+ *
+ * @throws {@link AssessmentRunInProgressException} (client fault)
+ *  <p>You cannot perform a specified action if an assessment run is currently in
+ *          progress.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced an entity that does not exist. The
+ *          error code describes the entity.</p>
+ *
+ * @throws {@link ServiceTemporarilyUnavailableException} (server fault)
+ *  <p>The serice is temporary unavailable.</p>
+ *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>Used by the <a>GetAssessmentReport</a> API. The request was rejected
+ *          because you tried to generate a report for an assessment run that existed before reporting
+ *          was supported in Amazon Inspector. You can only generate reports for assessment runs that
+ *          took place or will take place after generating reports in Amazon Inspector became
+ *          available.</p>
+ *
+ *
  */
 export class GetAssessmentReportCommand extends $Command<
   GetAssessmentReportCommandInput,

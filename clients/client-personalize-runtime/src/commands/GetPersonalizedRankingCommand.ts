@@ -59,6 +59,13 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  * @see {@link GetPersonalizedRankingCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeRuntimeClientResolvedConfig | config} for PersonalizeRuntimeClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ *
  */
 export class GetPersonalizedRankingCommand extends $Command<
   GetPersonalizedRankingCommandInput,

@@ -50,6 +50,13 @@ export interface DescribeUsersCommandOutput extends DescribeUsersResponse, __Met
  * @see {@link DescribeUsersCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DescribeUsersCommand extends $Command<
   DescribeUsersCommandInput,

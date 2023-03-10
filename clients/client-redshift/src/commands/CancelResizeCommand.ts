@@ -47,6 +47,20 @@ export interface CancelResizeCommandOutput extends ResizeProgressMessage, __Meta
  * @see {@link CancelResizeCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link ResizeNotFoundFault} (client fault)
+ *  <p>A resize operation for the specified cluster is not found.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class CancelResizeCommand extends $Command<
   CancelResizeCommandInput,

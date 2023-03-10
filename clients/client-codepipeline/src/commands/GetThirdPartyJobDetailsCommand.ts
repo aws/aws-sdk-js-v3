@@ -57,6 +57,19 @@ export interface GetThirdPartyJobDetailsCommandOutput extends GetThirdPartyJobDe
  * @see {@link GetThirdPartyJobDetailsCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link InvalidClientTokenException} (client fault)
+ *  <p>The client token was specified in an invalid format</p>
+ *
+ * @throws {@link InvalidJobException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The job was specified in an invalid format or cannot be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class GetThirdPartyJobDetailsCommand extends $Command<
   GetThirdPartyJobDetailsCommandInput,

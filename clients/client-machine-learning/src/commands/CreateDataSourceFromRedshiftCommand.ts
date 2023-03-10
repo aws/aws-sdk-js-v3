@@ -84,6 +84,16 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * @see {@link CreateDataSourceFromRedshiftCommandOutput} for command's `response` shape.
  * @see {@link MachineLearningClientResolvedConfig | config} for MachineLearningClient's `config` shape.
  *
+ * @throws {@link IdempotentParameterMismatchException} (client fault)
+ *  <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An error on the server occurred when trying to process a request.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>
+ *
+ *
  */
 export class CreateDataSourceFromRedshiftCommand extends $Command<
   CreateDataSourceFromRedshiftCommandInput,

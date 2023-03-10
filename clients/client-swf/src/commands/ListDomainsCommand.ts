@@ -81,6 +81,10 @@ export interface ListDomainsCommandOutput extends DomainInfos, __MetadataBearer 
  * @see {@link ListDomainsCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ *
  */
 export class ListDomainsCommand extends $Command<
   ListDomainsCommandInput,

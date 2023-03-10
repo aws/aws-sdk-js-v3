@@ -53,6 +53,13 @@ export interface SetReceiptRulePositionCommandOutput extends SetReceiptRulePosit
  * @see {@link SetReceiptRulePositionCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link RuleDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule does not exist.</p>
+ *
+ * @throws {@link RuleSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the provided receipt rule set does not exist.</p>
+ *
+ *
  * @example SetReceiptRulePosition
  * ```javascript
  * // The following example sets the position of a receipt rule in a receipt rule set:

@@ -51,6 +51,21 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  * @see {@link ListOpsItemEventsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsItemInvalidParameterException} (client fault)
+ *  <p>A specified parameter argument isn't valid. Verify the available arguments and try
+ *    again.</p>
+ *
+ * @throws {@link OpsItemLimitExceededException} (client fault)
+ *  <p>The request caused OpsItems to exceed one or more quotas. For information about OpsItem
+ *    quotas, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-learn-more.html#OpsCenter-learn-more-limits">What are the resource limits for OpsCenter?</a>.</p>
+ *
+ * @throws {@link OpsItemNotFoundException} (client fault)
+ *  <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
+ *
+ *
  */
 export class ListOpsItemEventsCommand extends $Command<
   ListOpsItemEventsCommandInput,

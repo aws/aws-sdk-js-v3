@@ -47,6 +47,28 @@ export interface CreateACLCommandOutput extends CreateACLResponse, __MetadataBea
  * @see {@link CreateACLCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ACLAlreadyExistsFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ACLQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link DefaultUserRequired} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link DuplicateUserNameFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class CreateACLCommand extends $Command<
   CreateACLCommandInput,

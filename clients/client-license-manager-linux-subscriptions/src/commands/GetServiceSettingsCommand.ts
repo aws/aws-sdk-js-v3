@@ -54,6 +54,16 @@ export interface GetServiceSettingsCommandOutput extends GetServiceSettingsRespo
  * @see {@link GetServiceSettingsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerLinuxSubscriptionsClientResolvedConfig | config} for LicenseManagerLinuxSubscriptionsClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An exception occurred with the service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The provided input is not valid. Try your request again.</p>
+ *
+ *
  */
 export class GetServiceSettingsCommand extends $Command<
   GetServiceSettingsCommandInput,

@@ -52,6 +52,20 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  * @see {@link ListMonitoredResourcesCommandOutput} for command's `response` shape.
  * @see {@link DevOpsGuruClientResolvedConfig | config} for DevOpsGuruClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal failure in an Amazon service occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A requested resource could not be found</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to a request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> Contains information about data passed in to a field during a request that is not
+ * 			valid. </p>
+ *
+ *
  */
 export class ListMonitoredResourcesCommand extends $Command<
   ListMonitoredResourcesCommandInput,

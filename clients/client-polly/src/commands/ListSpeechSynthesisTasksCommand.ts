@@ -52,6 +52,14 @@ export interface ListSpeechSynthesisTasksCommandOutput extends ListSpeechSynthes
  * @see {@link ListSpeechSynthesisTasksCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The NextToken is invalid. Verify that it's spelled correctly, and
+ *       then try again.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>An unknown condition has caused a service failure.</p>
+ *
+ *
  */
 export class ListSpeechSynthesisTasksCommand extends $Command<
   ListSpeechSynthesisTasksCommandInput,

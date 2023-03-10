@@ -137,6 +137,28 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  * @see {@link CopySnapshotCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidSnapshotStateFault} (client fault)
+ *  <p>The current state of the snapshot does not allow the requested operation to occur.</p>
+ *
+ * @throws {@link SnapshotAlreadyExistsFault} (client fault)
+ *  <p>You already have a snapshot with the given name.</p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ * @throws {@link SnapshotQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ *
  * @example CopySnapshot
  * ```javascript
  * // Copies a snapshot to a specified name.

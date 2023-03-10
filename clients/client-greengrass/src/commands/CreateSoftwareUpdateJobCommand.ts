@@ -50,6 +50,13 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  * @see {@link CreateSoftwareUpdateJobCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  General error information.
+ *
+ *
  */
 export class CreateSoftwareUpdateJobCommand extends $Command<
   CreateSoftwareUpdateJobCommandInput,

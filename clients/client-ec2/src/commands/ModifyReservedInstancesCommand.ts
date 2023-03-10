@@ -57,6 +57,7 @@ export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInst
  * @see {@link ModifyReservedInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class ModifyReservedInstancesCommand extends $Command<
   ModifyReservedInstancesCommandInput,

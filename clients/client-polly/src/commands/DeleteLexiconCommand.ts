@@ -53,6 +53,17 @@ export interface DeleteLexiconCommandOutput extends DeleteLexiconOutput, __Metad
  * @see {@link DeleteLexiconCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ * @throws {@link LexiconNotFoundException} (client fault)
+ *  <p>Amazon Polly can't find the specified lexicon. This could be caused by a
+ *       lexicon that is missing, its name is misspelled or specifying a lexicon
+ *       that is in a different region.</p>
+ *          <p>Verify that the lexicon exists, is in the region (see <a>ListLexicons</a>) and that you spelled its name is spelled
+ *       correctly. Then try again.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>An unknown condition has caused a service failure.</p>
+ *
+ *
  * @example To delete a lexicon
  * ```javascript
  * // Deletes a specified pronunciation lexicon stored in an AWS Region.

@@ -44,6 +44,7 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  * @see {@link SimpleInputParamsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ *
  */
 export class SimpleInputParamsCommand extends $Command<
   SimpleInputParamsCommandInput,

@@ -51,6 +51,13 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  * @see {@link ListThemesCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred. Please retry your request.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ *
  */
 export class ListThemesCommand extends $Command<
   ListThemesCommandInput,

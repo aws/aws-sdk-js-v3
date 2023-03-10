@@ -50,6 +50,29 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @see {@link CreateJobCommandOutput} for command's `response` shape.
  * @see {@link BraketClientResolvedConfig | config} for BraketClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>An error occurred due to a conflict.</p>
+ *
+ * @throws {@link DeviceRetiredException} (client fault)
+ *  <p>The specified device has been retired.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception, or
+ *          failure.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request failed because a service quota is exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling rate limit is met.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
+ *
  */
 export class CreateJobCommand extends $Command<
   CreateJobCommandInput,

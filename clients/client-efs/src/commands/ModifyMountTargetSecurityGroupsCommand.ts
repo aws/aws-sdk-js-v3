@@ -67,6 +67,30 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  * @see {@link ModifyMountTargetSecurityGroupsCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link IncorrectMountTargetState} (client fault)
+ *  <p>Returned if the mount target is not in the correct state for the
+ *             operation.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link MountTargetNotFound} (client fault)
+ *  <p>Returned if there is no mount target with the specified ID found in the
+ *             caller's Amazon Web Services account.</p>
+ *
+ * @throws {@link SecurityGroupLimitExceeded} (client fault)
+ *  <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
+ *             greater than five.</p>
+ *
+ * @throws {@link SecurityGroupNotFound} (client fault)
+ *  <p>Returned if one of the specified security groups doesn't exist in the subnet's
+ *             virtual private cloud (VPC).</p>
+ *
+ *
  * @example To modify the security groups associated with a mount target for a file system
  * ```javascript
  * // This operation modifies the security groups associated with a mount target for a file system.

@@ -54,6 +54,7 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  * @see {@link DescribeEventsCommandOutput} for command's `response` shape.
  * @see {@link ElasticBeanstalkClientResolvedConfig | config} for ElasticBeanstalkClient's `config` shape.
  *
+ *
  * @example To view events for an environment
  * ```javascript
  * // The following operation retrieves events for an environment named my-env:

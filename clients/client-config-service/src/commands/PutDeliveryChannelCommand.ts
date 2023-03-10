@@ -61,6 +61,35 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @see {@link PutDeliveryChannelCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link InsufficientDeliveryPolicyException} (client fault)
+ *  <p>Your Amazon S3 bucket policy does not permit Config to
+ * 			write to it.</p>
+ *
+ * @throws {@link InvalidDeliveryChannelNameException} (client fault)
+ *  <p>The specified delivery channel name is invalid.</p>
+ *
+ * @throws {@link InvalidS3KeyPrefixException} (client fault)
+ *  <p>The specified Amazon S3 key prefix is invalid.</p>
+ *
+ * @throws {@link InvalidS3KmsKeyArnException} (client fault)
+ *  <p>The specified Amazon KMS Key ARN is invalid.</p>
+ *
+ * @throws {@link InvalidSNSTopicARNException} (client fault)
+ *  <p>The specified Amazon SNS topic does not exist.</p>
+ *
+ * @throws {@link MaxNumberOfDeliveryChannelsExceededException} (client fault)
+ *  <p>You have reached the limit of the number of delivery channels
+ * 			you can create.</p>
+ *
+ * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
+ *  <p>There are no configuration recorders available to provide the
+ * 			role needed to describe your resources. Create a configuration
+ * 			recorder.</p>
+ *
+ * @throws {@link NoSuchBucketException} (client fault)
+ *  <p>The specified Amazon S3 bucket does not exist.</p>
+ *
+ *
  */
 export class PutDeliveryChannelCommand extends $Command<
   PutDeliveryChannelCommandInput,

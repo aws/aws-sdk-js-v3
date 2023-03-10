@@ -50,6 +50,10 @@ export interface GetClassifiersCommandOutput extends GetClassifiersResponse, __M
  * @see {@link GetClassifiersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class GetClassifiersCommand extends $Command<
   GetClassifiersCommandInput,

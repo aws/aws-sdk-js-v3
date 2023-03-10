@@ -56,6 +56,18 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput
  * @see {@link DescribeCertificateAuthorityAuditReportCommandOutput} for command's `response` shape.
  * @see {@link ACMPCAClientResolvedConfig | config} for ACMPCAClient's `config` shape.
  *
+ * @throws {@link InvalidArgsException} (client fault)
+ *  <p>One or more of the specified arguments was not valid.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing
+ * 			resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
+ * 			cannot be found.</p>
+ *
+ *
  */
 export class DescribeCertificateAuthorityAuditReportCommand extends $Command<
   DescribeCertificateAuthorityAuditReportCommandInput,

@@ -60,6 +60,11 @@ export interface PutIdentityPolicyCommandOutput extends PutIdentityPolicyRespons
  * @see {@link PutIdentityPolicyCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link InvalidPolicyException} (client fault)
+ *  <p>Indicates that the provided policy is invalid. Check the error stack for more
+ *             information about what caused the error.</p>
+ *
+ *
  * @example PutIdentityPolicy
  * ```javascript
  * // The following example adds a sending authorization policy to an identity:

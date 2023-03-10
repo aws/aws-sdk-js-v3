@@ -50,6 +50,20 @@ export interface DeleteContainerPolicyCommandOutput extends DeleteContainerPolic
  * @see {@link DeleteContainerPolicyCommandOutput} for command's `response` shape.
  * @see {@link MediaStoreClientResolvedConfig | config} for MediaStoreClient's `config` shape.
  *
+ * @throws {@link ContainerInUseException} (client fault)
+ *  <p>The container that you specified in the request already exists or is being
+ *          updated.</p>
+ *
+ * @throws {@link ContainerNotFoundException} (client fault)
+ *  <p>The container that you specified in the request does not exist.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link PolicyNotFoundException} (client fault)
+ *  <p>The policy that you specified in the request does not exist.</p>
+ *
+ *
  */
 export class DeleteContainerPolicyCommand extends $Command<
   DeleteContainerPolicyCommandInput,

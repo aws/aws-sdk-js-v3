@@ -50,6 +50,13 @@ export interface UpdateLedgerCommandOutput extends UpdateLedgerResponse, __Metad
  * @see {@link UpdateLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ *
  */
 export class UpdateLedgerCommand extends $Command<
   UpdateLedgerCommandInput,

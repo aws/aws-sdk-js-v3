@@ -51,6 +51,13 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
  * @see {@link PublishMetricsCommandOutput} for command's `response` shape.
  * @see {@link MWAAClientResolvedConfig | config} for MWAAClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>InternalServerException: An internal error has occurred.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>ValidationException: The provided input is not valid.</p>
+ *
+ *
  */
 export class PublishMetricsCommand extends $Command<
   PublishMetricsCommandInput,

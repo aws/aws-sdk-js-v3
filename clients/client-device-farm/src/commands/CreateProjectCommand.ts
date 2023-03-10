@@ -50,6 +50,22 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * @see {@link CreateProjectCommandOutput} for command's `response` shape.
  * @see {@link DeviceFarmClientResolvedConfig | config} for DeviceFarmClient's `config` shape.
  *
+ * @throws {@link ArgumentException} (client fault)
+ *  <p>An invalid argument was specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit was exceeded.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The specified entity was not found.</p>
+ *
+ * @throws {@link ServiceAccountException} (client fault)
+ *  <p>There was a problem with the service account.</p>
+ *
+ * @throws {@link TagOperationException} (client fault)
+ *  <p>The operation was not successful. Try again.</p>
+ *
+ *
  * @example To create a new project
  * ```javascript
  * // The following example creates a new project named MyProject.

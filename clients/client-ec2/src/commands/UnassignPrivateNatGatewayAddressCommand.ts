@@ -60,6 +60,7 @@ export interface UnassignPrivateNatGatewayAddressCommandOutput
  * @see {@link UnassignPrivateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class UnassignPrivateNatGatewayAddressCommand extends $Command<
   UnassignPrivateNatGatewayAddressCommandInput,

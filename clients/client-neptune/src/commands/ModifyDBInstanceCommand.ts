@@ -52,6 +52,65 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @see {@link ModifyDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link AuthorizationNotFoundFault} (client fault)
+ *  <p>Specified CIDRIP or EC2 security group is not authorized for the specified DB security group.</p>
+ *          <p>Neptune may not also be authorized via IAM to perform necessary actions on your behalf.</p>
+ *
+ * @throws {@link CertificateNotFoundFault} (client fault)
+ *  <p>
+ *             <i>CertificateIdentifier</i> does not refer to an existing certificate.</p>
+ *
+ * @throws {@link DBInstanceAlreadyExistsFault} (client fault)
+ *  <p>User already has a DB instance with the given identifier.</p>
+ *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.</p>
+ *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBParameterGroupName</i> does not refer to an
+ *       existing DB parameter group.</p>
+ *
+ * @throws {@link DBSecurityGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBSecurityGroupName</i> does not refer
+ *       to an existing DB security group.</p>
+ *
+ * @throws {@link DBUpgradeDependencyFailureFault} (client fault)
+ *  <p>The DB upgrade failed because a resource the DB depends on could not be modified.</p>
+ *
+ * @throws {@link DomainNotFoundFault} (client fault)
+ *  <p>
+ *             <i>Domain</i> does not refer to an existing Active Directory Domain.</p>
+ *
+ * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
+ *  <p>Specified DB instance class is not available in the specified Availability Zone.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The specified DB instance is not in the <i>available</i> state.</p>
+ *
+ * @throws {@link InvalidDBSecurityGroupStateFault} (client fault)
+ *  <p>The state of the DB security group does not allow deletion.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>DB subnet group does not cover all Availability Zones after it is created
+ *       because users' change.</p>
+ *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The designated option group could not be found.</p>
+ *
+ * @throws {@link ProvisionedIopsNotAvailableInAZFault} (client fault)
+ *  <p>Provisioned IOPS not available in the specified Availability Zone.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ * @throws {@link StorageTypeNotSupportedFault} (client fault)
+ *  <p>
+ *             <i>StorageType</i> specified cannot be associated with the DB Instance.</p>
+ *
+ *
  */
 export class ModifyDBInstanceCommand extends $Command<
   ModifyDBInstanceCommandInput,

@@ -60,6 +60,23 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * @see {@link ExecuteChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link ChangeSetNotFoundException} (client fault)
+ *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack,
+ *          use the <code>ListChangeSets</code> operation.</p>
+ *
+ * @throws {@link InsufficientCapabilitiesException} (client fault)
+ *  <p>The template contains resources with capabilities that weren't specified in the
+ *          Capabilities parameter.</p>
+ *
+ * @throws {@link InvalidChangeSetStatusException} (client fault)
+ *  <p>The specified change set can't be used to update the stack. For example, the change set
+ *          status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be
+ *             <code>UPDATE_IN_PROGRESS</code>.</p>
+ *
+ * @throws {@link TokenAlreadyExistsException} (client fault)
+ *  <p>A client request token already exists.</p>
+ *
+ *
  */
 export class ExecuteChangeSetCommand extends $Command<
   ExecuteChangeSetCommandInput,

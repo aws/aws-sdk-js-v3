@@ -66,6 +66,22 @@ export interface CreateGlobalReplicationGroupCommandOutput
  * @see {@link CreateGlobalReplicationGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link GlobalReplicationGroupAlreadyExistsFault} (client fault)
+ *  <p>The Global datastore name already exists.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ *
  */
 export class CreateGlobalReplicationGroupCommand extends $Command<
   CreateGlobalReplicationGroupCommandInput,

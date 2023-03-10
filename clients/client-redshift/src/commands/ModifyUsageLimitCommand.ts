@@ -47,6 +47,16 @@ export interface ModifyUsageLimitCommandOutput extends UsageLimit, __MetadataBea
  * @see {@link ModifyUsageLimitCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidUsageLimitFault} (client fault)
+ *  <p>The usage limit is not valid.</p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ * @throws {@link UsageLimitNotFoundFault} (client fault)
+ *  <p>The usage limit identifier can't be found.</p>
+ *
+ *
  */
 export class ModifyUsageLimitCommand extends $Command<
   ModifyUsageLimitCommandInput,

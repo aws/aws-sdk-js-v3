@@ -52,6 +52,7 @@ export interface DescribeTransitGatewayConnectPeersCommandOutput
  * @see {@link DescribeTransitGatewayConnectPeersCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeTransitGatewayConnectPeersCommand extends $Command<
   DescribeTransitGatewayConnectPeersCommandInput,

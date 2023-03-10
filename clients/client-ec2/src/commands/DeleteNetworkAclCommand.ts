@@ -45,6 +45,7 @@ export interface DeleteNetworkAclCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteNetworkAclCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To delete a network ACL
  * ```javascript
  * // This example deletes the specified network ACL.

@@ -52,6 +52,14 @@ export interface UpdateStackCommandOutput extends UpdateStackOutput, __MetadataB
  * @see {@link UpdateStackCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link InsufficientCapabilitiesException} (client fault)
+ *  <p>The template contains resources with capabilities that weren't specified in the
+ *          Capabilities parameter.</p>
+ *
+ * @throws {@link TokenAlreadyExistsException} (client fault)
+ *  <p>A client request token already exists.</p>
+ *
+ *
  */
 export class UpdateStackCommand extends $Command<
   UpdateStackCommandInput,

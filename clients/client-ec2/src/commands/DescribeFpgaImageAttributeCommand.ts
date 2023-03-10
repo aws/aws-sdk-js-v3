@@ -50,6 +50,7 @@ export interface DescribeFpgaImageAttributeCommandOutput extends DescribeFpgaIma
  * @see {@link DescribeFpgaImageAttributeCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeFpgaImageAttributeCommand extends $Command<
   DescribeFpgaImageAttributeCommandInput,

@@ -53,6 +53,10 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  * @see {@link GetServiceRoleForAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ *
  */
 export class GetServiceRoleForAccountCommand extends $Command<
   GetServiceRoleForAccountCommandInput,

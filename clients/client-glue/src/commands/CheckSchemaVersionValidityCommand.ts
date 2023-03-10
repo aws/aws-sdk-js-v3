@@ -50,6 +50,16 @@ export interface CheckSchemaVersionValidityCommandOutput extends CheckSchemaVers
  * @see {@link CheckSchemaVersionValidityCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>An internal service error occurred.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ *
  */
 export class CheckSchemaVersionValidityCommand extends $Command<
   CheckSchemaVersionValidityCommandInput,

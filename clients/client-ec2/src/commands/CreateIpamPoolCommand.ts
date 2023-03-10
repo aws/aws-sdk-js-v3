@@ -49,6 +49,7 @@ export interface CreateIpamPoolCommandOutput extends CreateIpamPoolResult, __Met
  * @see {@link CreateIpamPoolCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateIpamPoolCommand extends $Command<
   CreateIpamPoolCommandInput,

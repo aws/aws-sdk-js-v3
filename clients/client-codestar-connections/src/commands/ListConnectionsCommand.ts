@@ -54,6 +54,7 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  * @see {@link ListConnectionsCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
+ *
  */
 export class ListConnectionsCommand extends $Command<
   ListConnectionsCommandInput,

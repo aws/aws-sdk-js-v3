@@ -63,6 +63,17 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * @see {@link ModifyDBParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBParameterGroupName</code> doesn't refer to an
+ *         existing DB parameter group.</p>
+ *
+ * @throws {@link InvalidDBParameterGroupStateFault} (client fault)
+ *  <p>The DB parameter group is in use or is in an invalid state. If you are attempting
+ *             to delete the parameter group, you can't delete it when the parameter group is in
+ *             this state.</p>
+ *
+ *
  * @example To change DB parameter group settings
  * ```javascript
  * // This example immediately changes the specified setting for the specified DB parameter group.

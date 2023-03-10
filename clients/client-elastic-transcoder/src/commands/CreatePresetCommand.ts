@@ -67,6 +67,22 @@ export interface CreatePresetCommandOutput extends CreatePresetResponse, __Metad
  * @see {@link CreatePresetCommandOutput} for command's `response` shape.
  * @see {@link ElasticTranscoderClientResolvedConfig | config} for ElasticTranscoderClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>General authentication failure. The request was not signed correctly.</p>
+ *
+ * @throws {@link IncompatibleVersionException} (client fault)
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Too many operations for a given AWS account. For example, the number of pipelines
+ *             exceeds the maximum allowed.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more required parameter values were not provided in the request.</p>
+ *
+ *
  */
 export class CreatePresetCommand extends $Command<
   CreatePresetCommandInput,

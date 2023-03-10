@@ -56,6 +56,59 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link DocDBClientResolvedConfig | config} for DocDBClient's `config` shape.
  *
+ * @throws {@link DBClusterAlreadyExistsFault} (client fault)
+ *  <p>You already have a cluster with the given identifier.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterIdentifier</code> doesn't refer to an existing cluster. </p>
+ *
+ * @throws {@link DBClusterQuotaExceededFault} (client fault)
+ *  <p>The cluster can't be created because you have reached the maximum allowed quota of clusters.</p>
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing cluster snapshot. </p>
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBSubnetGroupName</code> doesn't refer to an existing subnet group. </p>
+ *
+ * @throws {@link InsufficientDBClusterCapacityFault} (client fault)
+ *  <p>The cluster doesn't have enough capacity for the current operation.</p>
+ *
+ * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
+ *  <p>There is not enough storage available for the current action. You might be able to resolve this error by updating your subnet group to use different Availability Zones that have more storage available. </p>
+ *
+ * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
+ *  <p>The provided value isn't a valid cluster snapshot state.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The cluster isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidDBSnapshotStateFault} (client fault)
+ *  <p>The state of the snapshot doesn't allow deletion.</p>
+ *
+ * @throws {@link InvalidRestoreFault} (client fault)
+ *  <p>You cannot restore from a virtual private cloud (VPC) backup to a non-VPC DB
+ *             instance.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or multiple subnets were requested that are not all
+ *             in a common virtual private cloud (VPC).</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The subnet group doesn't cover all Availability Zones after it is created
+ *             because of changes that were made.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred when accessing an KMS key.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>The request would cause you to exceed the allowed amount of storage available across
+ *             all instances.</p>
+ *
+ *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,

@@ -55,6 +55,22 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * @see {@link CreateLoadBalancerPolicyCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link DuplicatePolicyNameException} (client fault)
+ *  <p>A policy with the specified name already exists for this load balancer.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration change is not valid.</p>
+ *
+ * @throws {@link PolicyTypeNotFoundException} (client fault)
+ *  <p>One or more of the specified policy types do not exist.</p>
+ *
+ * @throws {@link TooManyPoliciesException} (client fault)
+ *  <p>The quota for the number of policies for this load balancer has been reached.</p>
+ *
+ *
  * @example To create a policy that enables Proxy Protocol on a load balancer
  * ```javascript
  * // This example creates a policy that enables Proxy Protocol on the specified load balancer.

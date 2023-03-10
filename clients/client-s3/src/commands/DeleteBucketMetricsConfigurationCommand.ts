@@ -81,6 +81,7 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
  * @see {@link DeleteBucketMetricsConfigurationCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  */
 export class DeleteBucketMetricsConfigurationCommand extends $Command<
   DeleteBucketMetricsConfigurationCommandInput,

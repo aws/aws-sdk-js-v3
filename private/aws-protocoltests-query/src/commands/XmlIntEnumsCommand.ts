@@ -41,6 +41,7 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsOutput, __MetadataB
  * @see {@link XmlIntEnumsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
  *
+ *
  */
 export class XmlIntEnumsCommand extends $Command<
   XmlIntEnumsCommandInput,

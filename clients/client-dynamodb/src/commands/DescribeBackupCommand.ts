@@ -52,6 +52,15 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  * @see {@link DescribeBackupCommandOutput} for command's `response` shape.
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
+ * @throws {@link BackupNotFoundException} (client fault)
+ *  <p>Backup not found for the given BackupARN. </p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidEndpointException} (client fault)
+ *
+ *
  */
 export class DescribeBackupCommand extends $Command<
   DescribeBackupCommandInput,

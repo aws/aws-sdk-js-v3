@@ -57,6 +57,16 @@ export interface ListCachePoliciesCommandOutput extends ListCachePoliciesResult,
  * @see {@link ListCachePoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchCachePolicy} (client fault)
+ *  <p>The cache policy does not exist.</p>
+ *
+ *
  */
 export class ListCachePoliciesCommand extends $Command<
   ListCachePoliciesCommandInput,

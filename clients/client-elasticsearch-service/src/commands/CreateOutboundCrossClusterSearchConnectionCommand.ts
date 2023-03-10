@@ -57,6 +57,19 @@ export interface CreateOutboundCrossClusterSearchConnectionCommandOutput
  * @see {@link CreateOutboundCrossClusterSearchConnectionCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>An exception for creating a resource that already exists. Gives http status code of 400.</p>
+ *
+ *
  */
 export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<
   CreateOutboundCrossClusterSearchConnectionCommandInput,

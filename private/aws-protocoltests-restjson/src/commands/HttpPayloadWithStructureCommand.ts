@@ -50,6 +50,7 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * @see {@link HttpPayloadWithStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class HttpPayloadWithStructureCommand extends $Command<
   HttpPayloadWithStructureCommandInput,

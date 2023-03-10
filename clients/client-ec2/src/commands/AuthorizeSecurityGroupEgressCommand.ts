@@ -62,6 +62,7 @@ export interface AuthorizeSecurityGroupEgressCommandOutput
  * @see {@link AuthorizeSecurityGroupEgressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To add a rule that allows outbound traffic to a specific address range
  * ```javascript
  * // This example adds a rule that grants access to the specified address ranges on TCP port 80.

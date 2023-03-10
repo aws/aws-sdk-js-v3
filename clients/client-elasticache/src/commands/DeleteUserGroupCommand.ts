@@ -50,6 +50,19 @@ export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @see {@link DeleteUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidUserGroupStateFault} (client fault)
+ *  <p>The user group is not in an active state.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link UserGroupNotFoundFault} (client fault)
+ *  <p>The user group was not found or does not exist</p>
+ *
+ *
  */
 export class DeleteUserGroupCommand extends $Command<
   DeleteUserGroupCommandInput,

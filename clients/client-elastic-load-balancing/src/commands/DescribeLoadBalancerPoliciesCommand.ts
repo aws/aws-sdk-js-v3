@@ -60,6 +60,13 @@ export interface DescribeLoadBalancerPoliciesCommandOutput
  * @see {@link DescribeLoadBalancerPoliciesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link PolicyNotFoundException} (client fault)
+ *  <p>One or more of the specified policies do not exist.</p>
+ *
+ *
  * @example To describe a policy associated with a load balancer
  * ```javascript
  * // This example describes the specified policy associated with the specified load balancer.

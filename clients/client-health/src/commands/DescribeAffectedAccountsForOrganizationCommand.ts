@@ -61,6 +61,10 @@ export interface DescribeAffectedAccountsForOrganizationCommandOutput
  * @see {@link DescribeAffectedAccountsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ *
  */
 export class DescribeAffectedAccountsForOrganizationCommand extends $Command<
   DescribeAffectedAccountsForOrganizationCommandInput,

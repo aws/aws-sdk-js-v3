@@ -56,6 +56,45 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * @see {@link ListQueriesCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link EventDataStoreARNInvalidException} (client fault)
+ *  <p>The specified event data store ARN is not valid or does not map to an event data store
+ *          in your account.</p>
+ *
+ * @throws {@link EventDataStoreNotFoundException} (client fault)
+ *  <p>The specified event data store was not found.</p>
+ *
+ * @throws {@link InactiveEventDataStoreException} (client fault)
+ *  <p>The event data store is inactive.</p>
+ *
+ * @throws {@link InvalidDateRangeException} (client fault)
+ *  <p>A date range for the query was specified that is not valid. Be sure that the start time
+ *          is chronologically before the end time. For more information about writing a query, see
+ *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User Guide</i>.</p>
+ *
+ * @throws {@link InvalidMaxResultsException} (client fault)
+ *  <p>This exception is thrown if the limit specified is not valid.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>A token that is not valid, or a token that was previously used in a request with
+ *          different parameters. This exception is thrown if the token is not valid.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
+ * @throws {@link InvalidQueryStatusException} (client fault)
+ *  <p>The query status is not valid for the operation.</p>
+ *
+ * @throws {@link NoManagementAccountSLRExistsException} (client fault)
+ *  <p> This exception is thrown when the management account does not have a service-linked
+ *          role. </p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not permitted.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>This exception is thrown when the requested operation is not supported.</p>
+ *
+ *
  */
 export class ListQueriesCommand extends $Command<
   ListQueriesCommandInput,

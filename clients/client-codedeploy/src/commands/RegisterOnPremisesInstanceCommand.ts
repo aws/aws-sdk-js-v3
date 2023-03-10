@@ -48,6 +48,40 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  * @see {@link RegisterOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link IamArnRequiredException} (client fault)
+ *  <p>No IAM ARN was included in the request. You must use an IAM session ARN or IAM user ARN in the request.</p>
+ *
+ * @throws {@link IamSessionArnAlreadyRegisteredException} (client fault)
+ *  <p>The request included an IAM session ARN that has already been used to
+ *             register a different instance.</p>
+ *
+ * @throws {@link IamUserArnAlreadyRegisteredException} (client fault)
+ *  <p>The specified IAM user ARN is already registered with an on-premises
+ *             instance.</p>
+ *
+ * @throws {@link IamUserArnRequiredException} (client fault)
+ *  <p>An IAM user ARN was not specified.</p>
+ *
+ * @throws {@link InstanceNameAlreadyRegisteredException} (client fault)
+ *  <p>The specified on-premises instance name is already registered.</p>
+ *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InvalidIamSessionArnException} (client fault)
+ *  <p>The IAM session ARN was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidIamUserArnException} (client fault)
+ *  <p>The IAM user ARN was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * @throws {@link MultipleIamArnsProvidedException} (client fault)
+ *  <p>Both an IAM user ARN and an IAM session ARN were
+ *             included in the request. Use only one ARN type.</p>
+ *
+ *
  */
 export class RegisterOnPremisesInstanceCommand extends $Command<
   RegisterOnPremisesInstanceCommandInput,

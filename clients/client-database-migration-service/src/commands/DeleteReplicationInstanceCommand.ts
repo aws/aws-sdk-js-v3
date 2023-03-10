@@ -59,6 +59,13 @@ export interface DeleteReplicationInstanceCommandOutput extends DeleteReplicatio
  * @see {@link DeleteReplicationInstanceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  * @example Delete Replication Instance
  * ```javascript
  * // Deletes the specified replication instance. You must delete any migration tasks that are associated with the replication instance before you can delete it.

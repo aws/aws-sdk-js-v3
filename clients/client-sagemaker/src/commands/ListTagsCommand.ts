@@ -47,6 +47,7 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * @see {@link ListTagsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListTagsCommand extends $Command<
   ListTagsCommandInput,

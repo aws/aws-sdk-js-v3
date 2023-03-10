@@ -73,6 +73,33 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @see {@link SendEmailCommandOutput} for command's `response` shape.
  * @see {@link SESv2ClientResolvedConfig | config} for SESv2Client's `config` shape.
  *
+ * @throws {@link AccountSuspendedException} (client fault)
+ *  <p>The message can't be sent because the account's ability to send email has been
+ *             permanently restricted.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input you provided is invalid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>There are too many instances of the specified resource type.</p>
+ *
+ * @throws {@link MailFromDomainNotVerifiedException} (client fault)
+ *  <p>The message can't be sent because the sending domain isn't verified.</p>
+ *
+ * @throws {@link MessageRejected} (client fault)
+ *  <p>The message can't be sent because it contains invalid content.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource you attempted to access doesn't exist.</p>
+ *
+ * @throws {@link SendingPausedException} (client fault)
+ *  <p>The message can't be sent because the account's ability to send email is currently
+ *             paused.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>Too many requests have been made to the operation.</p>
+ *
+ *
  */
 export class SendEmailCommand extends $Command<
   SendEmailCommandInput,

@@ -50,6 +50,19 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  * @see {@link StartMigrationCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link ReplicationGroupAlreadyUnderMigrationFault} (client fault)
+ *  <p>The targeted replication group is not available. </p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ *
  */
 export class StartMigrationCommand extends $Command<
   StartMigrationCommandInput,

@@ -55,6 +55,16 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * @see {@link GetExecutionHistoryCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
+ * @throws {@link ExecutionDoesNotExist} (client fault)
+ *  <p>The specified execution does not exist.</p>
+ *
+ * @throws {@link InvalidArn} (client fault)
+ *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
+ *
+ * @throws {@link InvalidToken} (client fault)
+ *  <p>The provided token is not valid.</p>
+ *
+ *
  */
 export class GetExecutionHistoryCommand extends $Command<
   GetExecutionHistoryCommandInput,

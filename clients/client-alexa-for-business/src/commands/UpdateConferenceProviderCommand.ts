@@ -50,6 +50,10 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  * @see {@link UpdateConferenceProviderCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class UpdateConferenceProviderCommand extends $Command<
   UpdateConferenceProviderCommandInput,

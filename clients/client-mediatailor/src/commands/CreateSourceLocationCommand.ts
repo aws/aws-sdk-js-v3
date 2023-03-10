@@ -50,6 +50,7 @@ export interface CreateSourceLocationCommandOutput extends CreateSourceLocationR
  * @see {@link CreateSourceLocationCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class CreateSourceLocationCommand extends $Command<
   CreateSourceLocationCommandInput,

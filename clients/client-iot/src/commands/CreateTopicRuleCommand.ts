@@ -47,6 +47,26 @@ export interface CreateTopicRuleCommandOutput extends __MetadataBearer {}
  * @see {@link CreateTopicRuleCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
+ * @throws {@link ConflictingResourceUpdateException} (client fault)
+ *  <p>A conflicting resource update exception. This exception is thrown when two pending
+ *          updates cause a conflict.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>An unexpected error has occurred.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is temporarily unavailable.</p>
+ *
+ * @throws {@link SqlParseException} (client fault)
+ *  <p>The Rule-SQL expression can't be parsed correctly.</p>
+ *
+ *
  */
 export class CreateTopicRuleCommand extends $Command<
   CreateTopicRuleCommandInput,

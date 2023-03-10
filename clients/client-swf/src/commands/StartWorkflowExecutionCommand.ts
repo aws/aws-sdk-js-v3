@@ -115,6 +115,36 @@ export interface StartWorkflowExecutionCommandOutput extends Run, __MetadataBear
  * @see {@link StartWorkflowExecutionCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
+ * @throws {@link DefaultUndefinedFault} (client fault)
+ *  <p>The <code>StartWorkflowExecution</code> API action was called without the required
+ *       parameters set.</p>
+ *          <p>Some workflow execution parameters, such as the decision <code>taskList</code>, must be
+ *       set to start the execution. However, these parameters might have been set as defaults when the
+ *       workflow type was registered. In this case, you can omit these parameters from the
+ *         <code>StartWorkflowExecution</code> call and Amazon SWF uses the values defined in the workflow
+ *       type.</p>
+ *          <note>
+ *             <p>If these parameters aren't set and no default parameters were defined in the workflow
+ *         type, this error is displayed.</p>
+ *          </note>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link TypeDeprecatedFault} (client fault)
+ *  <p>Returned when the specified activity or workflow type was already deprecated.</p>
+ *
+ * @throws {@link UnknownResourceFault} (client fault)
+ *  <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
+ *
+ * @throws {@link WorkflowExecutionAlreadyStartedFault} (client fault)
+ *  <p>Returned by <a>StartWorkflowExecution</a> when an open execution with the same workflowId is already running in
+ *       the specified domain.</p>
+ *
+ *
  */
 export class StartWorkflowExecutionCommand extends $Command<
   StartWorkflowExecutionCommandInput,

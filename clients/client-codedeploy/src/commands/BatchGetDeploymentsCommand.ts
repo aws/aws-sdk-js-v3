@@ -51,6 +51,16 @@ export interface BatchGetDeploymentsCommandOutput extends BatchGetDeploymentsOut
  * @see {@link BatchGetDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link BatchLimitExceededException} (client fault)
+ *  <p>The maximum number of names or IDs allowed for this request (100) was exceeded.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ *
  */
 export class BatchGetDeploymentsCommand extends $Command<
   BatchGetDeploymentsCommandInput,

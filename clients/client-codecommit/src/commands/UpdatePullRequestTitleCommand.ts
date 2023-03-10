@@ -50,6 +50,25 @@ export interface UpdatePullRequestTitleCommandOutput extends UpdatePullRequestTi
  * @see {@link UpdatePullRequestTitleCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link InvalidPullRequestIdException} (client fault)
+ *  <p>The pull request ID is not valid. Make sure that you have provided the full ID and that the pull request is in the specified repository, and then try again.</p>
+ *
+ * @throws {@link InvalidTitleException} (client fault)
+ *  <p>The title of the pull request is not valid. Pull request titles cannot exceed 100 characters in length.</p>
+ *
+ * @throws {@link PullRequestAlreadyClosedException} (client fault)
+ *  <p>The pull request status cannot be updated because it is already closed.</p>
+ *
+ * @throws {@link PullRequestDoesNotExistException} (client fault)
+ *  <p>The pull request ID could not be found. Make sure that you have specified the correct repository name and pull request ID, and then try again.</p>
+ *
+ * @throws {@link PullRequestIdRequiredException} (client fault)
+ *  <p>A pull request ID is required, but none was provided.</p>
+ *
+ * @throws {@link TitleRequiredException} (client fault)
+ *  <p>A pull request title is required. It cannot be empty or null.</p>
+ *
+ *
  */
 export class UpdatePullRequestTitleCommand extends $Command<
   UpdatePullRequestTitleCommandInput,

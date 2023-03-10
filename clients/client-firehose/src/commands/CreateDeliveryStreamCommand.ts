@@ -119,6 +119,23 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  * @see {@link CreateDeliveryStreamCommandOutput} for command's `response` shape.
  * @see {@link FirehoseClientResolvedConfig | config} for FirehoseClient's `config` shape.
  *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The specified input parameter has a value that is not valid.</p>
+ *
+ * @throws {@link InvalidKMSResourceException} (client fault)
+ *  <p>Kinesis Data Firehose throws this exception when an attempt to put records or to start
+ *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
+ *          the following exception types: <code>AccessDeniedException</code>,
+ *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
+ *             <code>NotFoundException</code>.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have already reached the limit for a requested resource.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The resource is already in use and not available for this operation.</p>
+ *
+ *
  */
 export class CreateDeliveryStreamCommand extends $Command<
   CreateDeliveryStreamCommandInput,

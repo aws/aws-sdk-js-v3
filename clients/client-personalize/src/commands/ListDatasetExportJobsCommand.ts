@@ -55,6 +55,13 @@ export interface ListDatasetExportJobsCommandOutput extends ListDatasetExportJob
  * @see {@link ListDatasetExportJobsCommandOutput} for command's `response` shape.
  * @see {@link PersonalizeClientResolvedConfig | config} for PersonalizeClient's `config` shape.
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>Provide a valid value for the field or parameter.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The token is not valid.</p>
+ *
+ *
  */
 export class ListDatasetExportJobsCommand extends $Command<
   ListDatasetExportJobsCommandInput,

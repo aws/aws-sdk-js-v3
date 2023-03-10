@@ -68,6 +68,19 @@ export interface RegisterDomainCommandOutput extends __MetadataBearer {}
  * @see {@link RegisterDomainCommandOutput} for command's `response` shape.
  * @see {@link SWFClientResolvedConfig | config} for SWFClient's `config` shape.
  *
+ * @throws {@link DomainAlreadyExistsFault} (client fault)
+ *  <p>Returned if the domain already exists. You may get this fault if you are registering a domain that is either already registered or deprecated, or if you undeprecate a domain that is currently registered.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
+ *
+ * @throws {@link OperationNotPermittedFault} (client fault)
+ *  <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
+ *
+ * @throws {@link TooManyTagsFault} (client fault)
+ *  <p>You've exceeded the number of tags allowed for a domain.</p>
+ *
+ *
  */
 export class RegisterDomainCommand extends $Command<
   RegisterDomainCommandInput,

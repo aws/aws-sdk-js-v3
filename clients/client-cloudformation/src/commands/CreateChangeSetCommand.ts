@@ -70,6 +70,19 @@ export interface CreateChangeSetCommandOutput extends CreateChangeSetOutput, __M
  * @see {@link CreateChangeSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource with the name requested already exists.</p>
+ *
+ * @throws {@link InsufficientCapabilitiesException} (client fault)
+ *  <p>The template contains resources with capabilities that weren't specified in the
+ *          Capabilities parameter.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The quota for the resource has already been reached.</p>
+ *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
+ *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+ *
+ *
  */
 export class CreateChangeSetCommand extends $Command<
   CreateChangeSetCommandInput,

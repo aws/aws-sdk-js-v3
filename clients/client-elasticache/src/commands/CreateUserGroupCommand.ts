@@ -51,6 +51,31 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @see {@link CreateUserGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link DefaultUserRequired} (client fault)
+ *  <p>You must add default user to a user group.</p>
+ *
+ * @throws {@link DuplicateUserNameFault} (client fault)
+ *  <p>A user with this username already exists.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ * @throws {@link UserGroupAlreadyExistsFault} (client fault)
+ *  <p>The user group with this ID already exists.</p>
+ *
+ * @throws {@link UserGroupQuotaExceededFault} (client fault)
+ *  <p>The number of users exceeds the user group limit.</p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p>The user does not exist or could not be found.</p>
+ *
+ *
  */
 export class CreateUserGroupCommand extends $Command<
   CreateUserGroupCommandInput,

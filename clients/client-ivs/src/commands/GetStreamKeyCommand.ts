@@ -50,6 +50,16 @@ export interface GetStreamKeyCommandOutput extends GetStreamKeyResponse, __Metad
  * @see {@link GetStreamKeyCommandOutput} for command's `response` shape.
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p/>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p/>
+ *
+ *
  */
 export class GetStreamKeyCommand extends $Command<
   GetStreamKeyCommandInput,

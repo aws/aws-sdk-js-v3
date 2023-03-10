@@ -51,6 +51,7 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * @see {@link BundleInstanceCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class BundleInstanceCommand extends $Command<
   BundleInstanceCommandInput,

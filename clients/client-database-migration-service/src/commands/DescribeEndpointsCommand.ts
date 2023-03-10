@@ -54,6 +54,10 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @see {@link DescribeEndpointsCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  * @example Describe endpoints
  * ```javascript
  * // Returns information about the endpoints for your account in the current region.

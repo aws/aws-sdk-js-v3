@@ -67,6 +67,29 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * @see {@link UpdateKeyGroupCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link InvalidIfMatchVersion} (client fault)
+ *  <p>The <code>If-Match</code> version is missing or not valid.</p>
+ *
+ * @throws {@link KeyGroupAlreadyExists} (client fault)
+ *  <p>A key group with this name already exists. You must provide a unique name. To modify
+ * 			an existing key group, use <code>UpdateKeyGroup</code>.</p>
+ *
+ * @throws {@link NoSuchResource} (client fault)
+ *  <p>A resource that was specified is not valid.</p>
+ *
+ * @throws {@link PreconditionFailed} (client fault)
+ *  <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ *
+ * @throws {@link TooManyPublicKeysInKeyGroup} (client fault)
+ *  <p>The number of public keys in this key group is more than the maximum allowed. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *
+ *
  */
 export class UpdateKeyGroupCommand extends $Command<
   UpdateKeyGroupCommandInput,

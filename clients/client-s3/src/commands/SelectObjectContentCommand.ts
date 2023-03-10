@@ -166,6 +166,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * @see {@link SelectObjectContentCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  */
 export class SelectObjectContentCommand extends $Command<
   SelectObjectContentCommandInput,

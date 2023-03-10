@@ -50,6 +50,16 @@ export interface TerminateTargetInstancesCommandOutput extends TerminateTargetIn
  * @see {@link TerminateTargetInstancesCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the target resource.</p>
+ *
+ * @throws {@link UninitializedAccountException} (client fault)
+ *  <p>Uninitialized account exception.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Validate exception.</p>
+ *
+ *
  */
 export class TerminateTargetInstancesCommand extends $Command<
   TerminateTargetInstancesCommandInput,

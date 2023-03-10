@@ -50,6 +50,14 @@ export interface StartNotebookExecutionCommandOutput extends StartNotebookExecut
  * @see {@link StartNotebookExecutionCommandOutput} for command's `response` shape.
  * @see {@link EMRClientResolvedConfig | config} for EMRClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Amazon EMR
+ *          service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception occurs when there is something wrong with user input.</p>
+ *
+ *
  */
 export class StartNotebookExecutionCommand extends $Command<
   StartNotebookExecutionCommandInput,

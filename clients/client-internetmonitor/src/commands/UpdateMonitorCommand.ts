@@ -51,6 +51,25 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  * @see {@link UpdateMonitorCommandOutput} for command's `response` shape.
  * @see {@link InternetMonitorClientResolvedConfig | config} for InternetMonitorClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have sufficient permission to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request exceeded a service quota.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request specifies a resource that doesn't exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Invalid request.</p>
+ *
+ *
  */
 export class UpdateMonitorCommand extends $Command<
   UpdateMonitorCommandInput,

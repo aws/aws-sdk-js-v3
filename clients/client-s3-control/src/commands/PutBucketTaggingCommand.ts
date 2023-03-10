@@ -129,6 +129,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * @see {@link PutBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class PutBucketTaggingCommand extends $Command<
   PutBucketTaggingCommandInput,

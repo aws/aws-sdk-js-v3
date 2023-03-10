@@ -53,6 +53,28 @@ export interface CreateParameterGroupCommandOutput extends CreateParameterGroupR
  * @see {@link CreateParameterGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterGroupStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ParameterGroupAlreadyExistsFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ParameterGroupQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class CreateParameterGroupCommand extends $Command<
   CreateParameterGroupCommandInput,

@@ -50,6 +50,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @see {@link ListChannelsCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class ListChannelsCommand extends $Command<
   ListChannelsCommandInput,

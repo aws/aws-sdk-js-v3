@@ -73,6 +73,19 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * @see {@link CreateVaultCommandOutput} for command's `response` shape.
  * @see {@link GlacierClientResolvedConfig | config} for GlacierClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Returned if a parameter of the request is incorrectly specified.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Returned if the request results in a vault or account limit being exceeded.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Returned if a required header or parameter is missing from the request.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Returned if the service cannot complete the request.</p>
+ *
+ *
  * @example To create a new vault
  * ```javascript
  * // The following example creates a new vault named my-vault.

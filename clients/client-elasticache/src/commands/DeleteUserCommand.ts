@@ -47,6 +47,22 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  * @see {@link DeleteUserCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link DefaultUserAssociatedToUserGroupFault} (client fault)
+ *  <p>The default user assigned to the user group.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link InvalidUserStateFault} (client fault)
+ *  <p>The user is not in active state.</p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p>The specified service linked role (SLR) was not found.</p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p>The user does not exist or could not be found.</p>
+ *
+ *
  */
 export class DeleteUserCommand extends $Command<
   DeleteUserCommandInput,

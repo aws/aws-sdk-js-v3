@@ -55,6 +55,25 @@ export interface PurchaseReservedCacheNodesOfferingCommandOutput
  * @see {@link PurchaseReservedCacheNodesOfferingCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link ReservedCacheNodeAlreadyExistsFault} (client fault)
+ *  <p>You already have a reservation with the given identifier.</p>
+ *
+ * @throws {@link ReservedCacheNodeQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the user's cache node quota.</p>
+ *
+ * @throws {@link ReservedCacheNodesOfferingNotFoundFault} (client fault)
+ *  <p>The requested cache node offering does not exist.</p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>
+ *
+ *
  * @example PurchaseReservedCacheNodesOfferings
  * ```javascript
  * // Allows you to purchase a reserved cache node offering.

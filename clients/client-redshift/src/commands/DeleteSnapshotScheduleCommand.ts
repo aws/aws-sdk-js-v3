@@ -45,6 +45,13 @@ export interface DeleteSnapshotScheduleCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteSnapshotScheduleCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidClusterSnapshotScheduleStateFault} (client fault)
+ *  <p>The cluster snapshot schedule state is not valid.</p>
+ *
+ * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
+ *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ *
  */
 export class DeleteSnapshotScheduleCommand extends $Command<
   DeleteSnapshotScheduleCommandInput,

@@ -50,6 +50,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * @see {@link CreateFleetCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class CreateFleetCommand extends $Command<
   CreateFleetCommandInput,

@@ -52,6 +52,13 @@ export interface GetFieldLevelEncryptionProfileCommandOutput
  * @see {@link GetFieldLevelEncryptionProfileCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchFieldLevelEncryptionProfile} (client fault)
+ *  <p>The specified profile for field-level encryption doesn't exist.</p>
+ *
+ *
  */
 export class GetFieldLevelEncryptionProfileCommand extends $Command<
   GetFieldLevelEncryptionProfileCommandInput,

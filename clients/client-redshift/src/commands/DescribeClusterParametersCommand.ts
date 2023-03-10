@@ -61,6 +61,10 @@ export interface DescribeClusterParametersCommandOutput extends ClusterParameter
  * @see {@link DescribeClusterParametersCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ *
  */
 export class DescribeClusterParametersCommand extends $Command<
   DescribeClusterParametersCommandInput,

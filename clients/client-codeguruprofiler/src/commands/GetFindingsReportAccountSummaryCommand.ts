@@ -58,6 +58,16 @@ export interface GetFindingsReportAccountSummaryCommandOutput
  * @see {@link GetFindingsReportAccountSummaryCommandOutput} for command's `response` shape.
  * @see {@link CodeGuruProfilerClientResolvedConfig | config} for CodeGuruProfilerClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The server encountered an internal error and is unable to complete the request.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The parameter is not valid.</p>
+ *
+ *
  */
 export class GetFindingsReportAccountSummaryCommand extends $Command<
   GetFindingsReportAccountSummaryCommandInput,

@@ -53,6 +53,13 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * @see {@link GetAWSOrganizationsAccessStatusCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>The operation is not supported.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class GetAWSOrganizationsAccessStatusCommand extends $Command<
   GetAWSOrganizationsAccessStatusCommandInput,

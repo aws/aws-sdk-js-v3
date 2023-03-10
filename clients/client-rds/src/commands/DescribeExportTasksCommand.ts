@@ -51,6 +51,10 @@ export interface DescribeExportTasksCommandOutput extends ExportTasksMessage, __
  * @see {@link DescribeExportTasksCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link ExportTaskNotFoundFault} (client fault)
+ *  <p>The export task doesn't exist.</p>
+ *
+ *
  */
 export class DescribeExportTasksCommand extends $Command<
   DescribeExportTasksCommandInput,

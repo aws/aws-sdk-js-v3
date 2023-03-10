@@ -54,6 +54,13 @@ export interface DescribeInstanceHealthCommandOutput extends DescribeEndPointSta
  * @see {@link DescribeInstanceHealthCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingClientResolvedConfig | config} for ElasticLoadBalancingClient's `config` shape.
  *
+ * @throws {@link AccessPointNotFoundException} (client fault)
+ *  <p>The specified load balancer does not exist.</p>
+ *
+ * @throws {@link InvalidEndPointException} (client fault)
+ *  <p>The specified endpoint is not valid.</p>
+ *
+ *
  * @example To describe the health of the instances for a load balancer
  * ```javascript
  * // This example describes the health of the instances for the specified load balancer.

@@ -51,6 +51,16 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  * @see {@link SendProjectSessionActionCommandOutput} for command's `response` shape.
  * @see {@link DataBrewClientResolvedConfig | config} for DataBrewClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One or more resources can't be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input parameters for this request failed validation.</p>
+ *
+ *
  */
 export class SendProjectSessionActionCommand extends $Command<
   SendProjectSessionActionCommandInput,

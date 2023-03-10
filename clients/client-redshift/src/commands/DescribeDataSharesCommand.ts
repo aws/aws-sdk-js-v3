@@ -51,6 +51,10 @@ export interface DescribeDataSharesCommandOutput extends DescribeDataSharesResul
  * @see {@link DescribeDataSharesCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link InvalidDataShareFault} (client fault)
+ *  <p>There is an error with the datashare.</p>
+ *
+ *
  */
 export class DescribeDataSharesCommand extends $Command<
   DescribeDataSharesCommandInput,

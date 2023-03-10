@@ -48,6 +48,7 @@ export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteVpnGatewayCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeleteVpnGatewayCommand extends $Command<
   DeleteVpnGatewayCommandInput,

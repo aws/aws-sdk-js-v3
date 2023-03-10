@@ -67,6 +67,27 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  * @see {@link ResolveCustomerCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceMeteringClientResolvedConfig | config} for MarketplaceMeteringClient's `config` shape.
  *
+ * @throws {@link DisabledApiException} (client fault)
+ *  <p>The API is disabled in the Region.</p>
+ *
+ * @throws {@link ExpiredTokenException} (client fault)
+ *  <p>The submitted registration token has expired. This can happen if the buyer's browser
+ *             takes too long to redirect to your page, the buyer has resubmitted the registration
+ *             token, or your application has held on to the registration token for too long. Your SaaS
+ *             registration website should redeem this token as soon as it is submitted by the buyer's
+ *             browser.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
+ *             message with details on the AWS forums.</p>
+ *
+ * @throws {@link InvalidTokenException} (client fault)
+ *  <p>Registration token is invalid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The calls to the API are throttled.</p>
+ *
+ *
  */
 export class ResolveCustomerCommand extends $Command<
   ResolveCustomerCommandInput,

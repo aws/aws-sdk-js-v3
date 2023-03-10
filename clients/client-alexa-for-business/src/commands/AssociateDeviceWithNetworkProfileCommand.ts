@@ -52,6 +52,16 @@ export interface AssociateDeviceWithNetworkProfileCommandOutput
  * @see {@link AssociateDeviceWithNetworkProfileCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link DeviceNotRegisteredException} (client fault)
+ *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class AssociateDeviceWithNetworkProfileCommand extends $Command<
   AssociateDeviceWithNetworkProfileCommandInput,

@@ -51,6 +51,7 @@ export interface EstimateTemplateCostCommandOutput extends EstimateTemplateCostO
  * @see {@link EstimateTemplateCostCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class EstimateTemplateCostCommand extends $Command<
   EstimateTemplateCostCommandInput,

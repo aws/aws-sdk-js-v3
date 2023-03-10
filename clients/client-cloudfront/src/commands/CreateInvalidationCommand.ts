@@ -50,6 +50,31 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  * @see {@link CreateInvalidationCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link BatchTooLarge} (client fault)
+ *  <p>Invalidation batch specified is too large.</p>
+ *
+ * @throws {@link InconsistentQuantities} (client fault)
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
+ * 			match.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link MissingBody} (client fault)
+ *  <p>This operation requires a body. Ensure that the body is present and the
+ * 				<code>Content-Type</code> header is set.</p>
+ *
+ * @throws {@link NoSuchDistribution} (client fault)
+ *  <p>The specified distribution does not exist.</p>
+ *
+ * @throws {@link TooManyInvalidationsInProgress} (client fault)
+ *  <p>You have exceeded the maximum number of allowable InProgress invalidation batch
+ * 			requests, or invalidation objects.</p>
+ *
+ *
  */
 export class CreateInvalidationCommand extends $Command<
   CreateInvalidationCommandInput,

@@ -51,6 +51,11 @@ export interface DescribeDBLogFilesCommandOutput extends DescribeDBLogFilesRespo
  * @see {@link DescribeDBLogFilesCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ *
  * @example To list DB log file names
  * ```javascript
  * // This example lists matching log file names for the specified DB instance, file name pattern, last write date in POSIX time with milleseconds, and minimum file size.

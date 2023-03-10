@@ -44,6 +44,7 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  * @see {@link AllQueryStringTypesCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class AllQueryStringTypesCommand extends $Command<
   AllQueryStringTypesCommandInput,

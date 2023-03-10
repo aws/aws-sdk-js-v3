@@ -76,6 +76,38 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * @see {@link BatchGetDeploymentTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link DeploymentNotStartedException} (client fault)
+ *  <p>The specified deployment has not started.</p>
+ *
+ * @throws {@link DeploymentTargetDoesNotExistException} (client fault)
+ *  <p> The provided target ID does not belong to the attempted deployment. </p>
+ *
+ * @throws {@link DeploymentTargetIdRequiredException} (client fault)
+ *  <p> A deployment target ID was not provided. </p>
+ *
+ * @throws {@link DeploymentTargetListSizeExceededException} (client fault)
+ *  <p> The maximum number of targets that can be associated with an Amazon ECS or
+ *                 Lambda deployment was exceeded. The target list of both types of
+ *             deployments must have exactly one item. This exception does not apply to EC2/On-premises
+ *             deployments. </p>
+ *
+ * @throws {@link InstanceDoesNotExistException} (client fault)
+ *  <p>The specified instance does not exist in the deployment group.</p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentTargetIdException} (client fault)
+ *  <p> The target ID provided was not valid. </p>
+ *
+ *
  */
 export class BatchGetDeploymentTargetsCommand extends $Command<
   BatchGetDeploymentTargetsCommandInput,

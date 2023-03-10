@@ -50,6 +50,32 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
  * @see {@link GetDeploymentTargetCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link DeploymentDoesNotExistException} (client fault)
+ *  <p>The deployment with the IAM user or Amazon Web Services account does not
+ *             exist.</p>
+ *
+ * @throws {@link DeploymentIdRequiredException} (client fault)
+ *  <p>At least one deployment ID must be specified.</p>
+ *
+ * @throws {@link DeploymentNotStartedException} (client fault)
+ *  <p>The specified deployment has not started.</p>
+ *
+ * @throws {@link DeploymentTargetDoesNotExistException} (client fault)
+ *  <p> The provided target ID does not belong to the attempted deployment. </p>
+ *
+ * @throws {@link DeploymentTargetIdRequiredException} (client fault)
+ *  <p> A deployment target ID was not provided. </p>
+ *
+ * @throws {@link InvalidDeploymentIdException} (client fault)
+ *  <p>At least one of the deployment IDs was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentTargetIdException} (client fault)
+ *  <p> The target ID provided was not valid. </p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ *
  */
 export class GetDeploymentTargetCommand extends $Command<
   GetDeploymentTargetCommandInput,

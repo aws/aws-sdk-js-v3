@@ -56,6 +56,21 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  * @see {@link DescribeScalableTargetsCommandOutput} for command's `response` shape.
  * @see {@link ApplicationAutoScalingClientResolvedConfig | config} for ApplicationAutoScalingClient's `config` shape.
  *
+ * @throws {@link ConcurrentUpdateException} (server fault)
+ *  <p>Concurrent updates caused an exception, for example, if you request an update to an
+ *          Application Auto Scaling resource that already has a pending update.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token supplied was invalid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception was thrown for a validation issue. Review the available parameters for the
+ *          API request.</p>
+ *
+ *
  * @example To describe scalable targets
  * ```javascript
  * // This example describes the scalable targets for the ECS service namespace.

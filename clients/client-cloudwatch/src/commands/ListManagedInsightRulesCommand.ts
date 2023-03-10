@@ -56,6 +56,16 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * @see {@link ListManagedInsightRulesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The next token specified is invalid.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value of an input parameter is bad or out-of-range.</p>
+ *
+ * @throws {@link MissingRequiredParameterException} (client fault)
+ *  <p>An input parameter that is required is missing.</p>
+ *
+ *
  */
 export class ListManagedInsightRulesCommand extends $Command<
   ListManagedInsightRulesCommandInput,

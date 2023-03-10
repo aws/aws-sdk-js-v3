@@ -54,6 +54,45 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  * @see {@link PutResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link InsufficientPermissionsException} (client fault)
+ *  <p>Indicates one of the following errors:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
+ *             </li>
+ *             <li>
+ *                <p>For PutConfigRule, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>For PutOrganizationConfigRule, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
+ *             </li>
+ *             <li>
+ *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
+ * 				           <ul>
+ *                   <li>
+ *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
+ *                   </li>
+ *                </ul>
+ * 			         </li>
+ *          </ul>
+ *
+ * @throws {@link MaxActiveResourcesExceededException} (client fault)
+ *  <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000.
+ * 			Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a>
+ *             <code></code>.</p>
+ *
+ * @throws {@link NoRunningConfigurationRecorderException} (client fault)
+ *  <p>There is no configuration recorder running.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is invalid.</p>
+ * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
+ *
  */
 export class PutResourceConfigCommand extends $Command<
   PutResourceConfigCommandInput,

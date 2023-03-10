@@ -45,6 +45,13 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * @see {@link PutMetadataFlagCommandOutput} for command's `response` shape.
  * @see {@link AmplifyUIBuilderClientResolvedConfig | config} for AmplifyUIBuilderClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>An invalid or out-of-range value was supplied for the input parameter.</p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>You don't have permission to perform this operation.</p>
+ *
+ *
  */
 export class PutMetadataFlagCommand extends $Command<
   PutMetadataFlagCommandInput,

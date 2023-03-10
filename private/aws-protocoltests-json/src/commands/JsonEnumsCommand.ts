@@ -41,6 +41,7 @@ export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __Metadata
  * @see {@link JsonEnumsCommandOutput} for command's `response` shape.
  * @see {@link JsonProtocolClientResolvedConfig | config} for JsonProtocolClient's `config` shape.
  *
+ *
  */
 export class JsonEnumsCommand extends $Command<
   JsonEnumsCommandInput,

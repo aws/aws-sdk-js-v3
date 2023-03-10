@@ -75,6 +75,15 @@ export interface GetGeoLocationCommandOutput extends GetGeoLocationResponse, __M
  * @see {@link GetGeoLocationCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchGeoLocation} (client fault)
+ *  <p>Amazon Route 53 doesn't support the specified geographic location. For a list of
+ * 			supported geolocation codes, see the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GeoLocation.html">GeoLocation</a> data
+ * 			type.</p>
+ *
+ *
  */
 export class GetGeoLocationCommand extends $Command<
   GetGeoLocationCommandInput,

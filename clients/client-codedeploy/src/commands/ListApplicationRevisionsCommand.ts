@@ -50,6 +50,38 @@ export interface ListApplicationRevisionsCommandOutput extends ListApplicationRe
  * @see {@link ListApplicationRevisionsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link ApplicationDoesNotExistException} (client fault)
+ *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link BucketNameFilterRequiredException} (client fault)
+ *  <p>A bucket name is required, but was not provided.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidBucketNameFilterException} (client fault)
+ *  <p>The bucket name either doesn't exist or was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeployedStateFilterException} (client fault)
+ *  <p>The deployed state filter was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidKeyPrefixFilterException} (client fault)
+ *  <p>The specified key prefix filter was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The next token was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidSortByException} (client fault)
+ *  <p>The column name to sort by is either not present or was specified in an invalid
+ *             format.</p>
+ *
+ * @throws {@link InvalidSortOrderException} (client fault)
+ *  <p>The sort order was specified in an invalid format.</p>
+ *
+ *
  */
 export class ListApplicationRevisionsCommand extends $Command<
   ListApplicationRevisionsCommandInput,

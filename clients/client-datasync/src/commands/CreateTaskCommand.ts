@@ -54,6 +54,13 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * @see {@link CreateTaskCommandOutput} for command's `response` shape.
  * @see {@link DataSyncClientResolvedConfig | config} for DataSyncClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the DataSync service.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>This exception is thrown when the client submits a malformed request.</p>
+ *
+ *
  */
 export class CreateTaskCommand extends $Command<
   CreateTaskCommandInput,

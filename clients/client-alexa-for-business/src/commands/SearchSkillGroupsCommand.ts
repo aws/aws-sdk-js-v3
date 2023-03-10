@@ -51,6 +51,7 @@ export interface SearchSkillGroupsCommandOutput extends SearchSkillGroupsRespons
  * @see {@link SearchSkillGroupsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ *
  */
 export class SearchSkillGroupsCommand extends $Command<
   SearchSkillGroupsCommandInput,

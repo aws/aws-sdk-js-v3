@@ -49,6 +49,31 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  * @see {@link UpdateJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link ClusterLimitExceededException} (client fault)
+ *  <p>Job creation failed. Currently, clusters support five nodes. If you have fewer than
+ *       five nodes for your cluster and you have more nodes to create for this cluster, try again and
+ *       create jobs until your cluster has exactly five nodes.</p>
+ *
+ * @throws {@link Ec2RequestFailedException} (client fault)
+ *  <p>Your IAM user lacks the necessary Amazon EC2 permissions to perform the attempted
+ *       action.</p>
+ *
+ * @throws {@link InvalidInputCombinationException} (client fault)
+ *  <p>Job or cluster creation failed. One or more inputs were invalid. Confirm that the <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
+ *
+ * @throws {@link InvalidJobStateException} (client fault)
+ *  <p>The action can't be performed because the job's current state doesn't allow that action
+ *       to be performed.</p>
+ *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ * @throws {@link KMSRequestFailedException} (client fault)
+ *  <p>The provided Key Management Service key lacks the permissions to perform the specified
+ *         <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
+ *
+ *
  * @example To update a job
  * ```javascript
  * // This action allows you to update certain parameters for a job. Once the job changes to a different job state, usually within 60 minutes of the job being created, this action is no longer available.

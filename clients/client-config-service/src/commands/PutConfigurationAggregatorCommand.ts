@@ -65,6 +65,49 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * @see {@link PutConfigurationAggregatorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One or more of the specified parameters are invalid. Verify
+ * 			that your parameters are valid and try again.</p>
+ *
+ * @throws {@link InvalidRoleException} (client fault)
+ *  <p>You have provided a null or empty role ARN.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>For <code>StartConfigRulesEvaluation</code> API, this exception
+ * 			is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per
+ * 			minute.</p>
+ * 		       <p>For <code>PutConfigurationAggregator</code> API, this exception
+ * 			is thrown if the number of accounts and aggregators exceeds the
+ * 			limit.</p>
+ *
+ * @throws {@link NoAvailableOrganizationException} (client fault)
+ *  <p>Organization is no longer available.</p>
+ *
+ * @throws {@link OrganizationAccessDeniedException} (client fault)
+ *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
+ * 		       <ul>
+ *             <li>
+ *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
+ *             </li>
+ *             <li>
+ *                <p>The configuration aggregator cannot be updated because your Amazon Web Services Organization management account or the delegated administrator role changed.
+ * 				Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>The configuration aggregator is associated with a previous Amazon Web Services Organization and Config cannot aggregate data with current Amazon Web Services Organization.
+ * 				Delete this aggregator and create a new one with the current Amazon Web Services Organization.</p>
+ *             </li>
+ *             <li>
+ *                <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API.
+ * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
+ *             </li>
+ *          </ul>
+ * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *
+ * @throws {@link OrganizationAllFeaturesNotEnabledException} (client fault)
+ *  <p>Config resource cannot be created because your organization does not have all features enabled.</p>
+ *
+ *
  */
 export class PutConfigurationAggregatorCommand extends $Command<
   PutConfigurationAggregatorCommandInput,

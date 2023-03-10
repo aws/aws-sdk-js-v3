@@ -55,6 +55,10 @@ export interface ListCrawlersCommandOutput extends ListCrawlersResponse, __Metad
  * @see {@link ListCrawlersCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ *
  */
 export class ListCrawlersCommand extends $Command<
   ListCrawlersCommandInput,

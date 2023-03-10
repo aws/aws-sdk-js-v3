@@ -75,6 +75,7 @@ export interface ListBucketIntelligentTieringConfigurationsCommandOutput
  * @see {@link ListBucketIntelligentTieringConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  */
 export class ListBucketIntelligentTieringConfigurationsCommand extends $Command<
   ListBucketIntelligentTieringConfigurationsCommandInput,

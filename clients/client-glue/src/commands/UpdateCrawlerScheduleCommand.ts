@@ -50,6 +50,22 @@ export interface UpdateCrawlerScheduleCommandOutput extends UpdateCrawlerSchedul
  * @see {@link UpdateCrawlerScheduleCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link OperationTimeoutException} (client fault)
+ *  <p>The operation timed out.</p>
+ *
+ * @throws {@link SchedulerTransitioningException} (client fault)
+ *  <p>The specified scheduler is transitioning.</p>
+ *
+ * @throws {@link VersionMismatchException} (client fault)
+ *  <p>There was a version conflict.</p>
+ *
+ *
  */
 export class UpdateCrawlerScheduleCommand extends $Command<
   UpdateCrawlerScheduleCommandInput,

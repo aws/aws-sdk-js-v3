@@ -52,6 +52,7 @@ export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataB
  * @see {@link ListImportsCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ *
  */
 export class ListImportsCommand extends $Command<
   ListImportsCommandInput,

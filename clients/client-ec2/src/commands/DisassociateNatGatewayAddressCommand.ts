@@ -58,6 +58,7 @@ export interface DisassociateNatGatewayAddressCommandOutput
  * @see {@link DisassociateNatGatewayAddressCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DisassociateNatGatewayAddressCommand extends $Command<
   DisassociateNatGatewayAddressCommandInput,

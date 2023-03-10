@@ -45,6 +45,10 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * @see {@link ListDomainNamesCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchClientResolvedConfig | config} for CloudSearchClient's `config` shape.
  *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ *
  */
 export class ListDomainNamesCommand extends $Command<
   ListDomainNamesCommandInput,

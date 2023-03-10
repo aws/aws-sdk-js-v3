@@ -52,6 +52,10 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @see {@link DescribePendingMaintenanceActionsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The specified resource ID was not found.</p>
+ *
+ *
  * @example To list information about pending maintenance actions
  * ```javascript
  * // This example lists information for all pending maintenance actions for the specified DB instance.

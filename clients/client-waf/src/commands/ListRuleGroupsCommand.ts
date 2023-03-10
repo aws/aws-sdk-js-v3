@@ -58,6 +58,10 @@ export interface ListRuleGroupsCommandOutput extends ListRuleGroupsResponse, __M
  * @see {@link ListRuleGroupsCommandOutput} for command's `response` shape.
  * @see {@link WAFClientResolvedConfig | config} for WAFClient's `config` shape.
  *
+ * @throws {@link WAFInternalErrorException} (server fault)
+ *  <p>The operation failed because of a system problem, even though the request was valid. Retry your request.</p>
+ *
+ *
  */
 export class ListRuleGroupsCommand extends $Command<
   ListRuleGroupsCommandInput,

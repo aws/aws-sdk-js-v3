@@ -51,6 +51,24 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * @see {@link CancelLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>Indicates that something is wrong with a parameter's value. For example, the value is
+ *          out of range.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>Backup is already performing an action on this recovery point. It can't
+ *          perform the action you requested until the first action finishes. Try again later.</p>
+ *
+ * @throws {@link MissingParameterValueException} (client fault)
+ *  <p>Indicates that a required parameter is missing.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ *
  */
 export class CancelLegalHoldCommand extends $Command<
   CancelLegalHoldCommandInput,

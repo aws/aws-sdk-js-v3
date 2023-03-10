@@ -54,6 +54,21 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  * @see {@link StartAssessmentCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The AWS user account does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this account.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p> The AWS account has reached its quota of imports. Contact AWS Support to increase the
+ *       quota for this account. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ *
  */
 export class StartAssessmentCommand extends $Command<
   StartAssessmentCommandInput,

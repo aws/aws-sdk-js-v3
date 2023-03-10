@@ -50,6 +50,7 @@ export interface DescribeScheduledInstancesCommandOutput extends DescribeSchedul
  * @see {@link DescribeScheduledInstancesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe your Scheduled Instances
  * ```javascript
  * // This example describes the specified Scheduled Instance.

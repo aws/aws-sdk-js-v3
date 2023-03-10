@@ -83,6 +83,7 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningRes
  * @see {@link GetBucketVersioningCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ *
  */
 export class GetBucketVersioningCommand extends $Command<
   GetBucketVersioningCommandInput,

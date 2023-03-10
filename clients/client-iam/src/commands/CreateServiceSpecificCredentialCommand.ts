@@ -62,6 +62,18 @@ export interface CreateServiceSpecificCredentialCommandOutput
  * @see {@link CreateServiceSpecificCredentialCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
+ *       account limits. The error message describes the limit exceeded.</p>
+ *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceNotSupportedException} (client fault)
+ *  <p>The specified service does not support service-specific credentials.</p>
+ *
+ *
  */
 export class CreateServiceSpecificCredentialCommand extends $Command<
   CreateServiceSpecificCredentialCommandInput,

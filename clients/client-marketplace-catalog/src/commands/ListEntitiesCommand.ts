@@ -54,6 +54,22 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * @see {@link ListEntitiesCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access is denied.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>There was an internal service exception.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource wasn't found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Too many requests.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An error occurred during validation.</p>
+ *
+ *
  */
 export class ListEntitiesCommand extends $Command<
   ListEntitiesCommandInput,

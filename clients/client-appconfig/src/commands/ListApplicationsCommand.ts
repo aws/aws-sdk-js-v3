@@ -50,6 +50,13 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  * @see {@link ListApplicationsCommandOutput} for command's `response` shape.
  * @see {@link AppConfigClientResolvedConfig | config} for AppConfigClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There was an internal failure in the AppConfig service.</p>
+ *
+ *
  * @example To list the available applications
  * ```javascript
  * // The following list-applications example lists the available applications in your AWS account.

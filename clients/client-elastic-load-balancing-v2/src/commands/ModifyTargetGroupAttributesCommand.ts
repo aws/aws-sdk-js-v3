@@ -54,6 +54,13 @@ export interface ModifyTargetGroupAttributesCommandOutput extends ModifyTargetGr
  * @see {@link ModifyTargetGroupAttributesCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link TargetGroupNotFoundException} (client fault)
+ *  <p>The specified target group does not exist.</p>
+ *
+ *
  * @example To modify the deregistration delay timeout
  * ```javascript
  * // This example sets the deregistration delay timeout to the specified value for the specified target group.

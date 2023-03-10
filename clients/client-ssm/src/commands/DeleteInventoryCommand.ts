@@ -51,6 +51,23 @@ export interface DeleteInventoryCommandOutput extends DeleteInventoryResult, __M
  * @see {@link DeleteInventoryCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDeleteInventoryParametersException} (client fault)
+ *  <p>One or more of the parameters specified for the delete operation isn't valid. Verify all
+ *    parameters and try again.</p>
+ *
+ * @throws {@link InvalidInventoryRequestException} (client fault)
+ *  <p>The request isn't valid.</p>
+ *
+ * @throws {@link InvalidOptionException} (client fault)
+ *  <p>The delete inventory option specified isn't valid. Verify the option and try again.</p>
+ *
+ * @throws {@link InvalidTypeNameException} (client fault)
+ *  <p>The parameter type name isn't valid.</p>
+ *
+ *
  */
 export class DeleteInventoryCommand extends $Command<
   DeleteInventoryCommandInput,

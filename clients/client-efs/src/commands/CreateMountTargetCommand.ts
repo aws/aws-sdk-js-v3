@@ -189,6 +189,61 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * @see {@link CreateMountTargetCommandOutput} for command's `response` shape.
  * @see {@link EFSClientResolvedConfig | config} for EFSClient's `config` shape.
  *
+ * @throws {@link AvailabilityZonesMismatch} (client fault)
+ *  <p>Returned if the Availability Zone that was specified for a mount target is
+ *             different from the Availability Zone that was specified for One Zone storage.
+ *             For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html">Regional and One Zone storage redundancy</a>.</p>
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>Returned if the request is malformed or contains an error such as an invalid
+ *             parameter value or a missing required parameter.</p>
+ *
+ * @throws {@link FileSystemNotFound} (client fault)
+ *  <p>Returned if the specified <code>FileSystemId</code> value doesn't exist in the
+ *             requester's Amazon Web Services account.</p>
+ *
+ * @throws {@link IncorrectFileSystemLifeCycleState} (client fault)
+ *  <p>Returned if the file system's lifecycle state is not "available".</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>Returned if an error occurred on the server side.</p>
+ *
+ * @throws {@link IpAddressInUse} (client fault)
+ *  <p>Returned if the request specified an <code>IpAddress</code> that is already in use
+ *             in the subnet.</p>
+ *
+ * @throws {@link MountTargetConflict} (client fault)
+ *  <p>Returned if the mount target would violate one of the specified restrictions based
+ *             on the file system's existing mount targets.</p>
+ *
+ * @throws {@link NetworkInterfaceLimitExceeded} (client fault)
+ *  <p>The calling account has reached the limit for elastic network interfaces for the
+ *             specific Amazon Web Services Region. Either delete some network interfaces or request
+ *             that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Quotas</a>
+ *             in the <i>Amazon VPC User Guide</i> (see the <b>Network
+ *                 interfaces per Region</b> entry in the <b>Network
+ *                 interfaces</b> table). </p>
+ *
+ * @throws {@link NoFreeAddressesInSubnet} (client fault)
+ *  <p>Returned if <code>IpAddress</code> was not specified in the request and there are
+ *             no free IP addresses in the subnet.</p>
+ *
+ * @throws {@link SecurityGroupLimitExceeded} (client fault)
+ *  <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
+ *             greater than five.</p>
+ *
+ * @throws {@link SecurityGroupNotFound} (client fault)
+ *  <p>Returned if one of the specified security groups doesn't exist in the subnet's
+ *             virtual private cloud (VPC).</p>
+ *
+ * @throws {@link SubnetNotFound} (client fault)
+ *  <p>Returned if there is no subnet with ID <code>SubnetId</code> provided in the
+ *             request.</p>
+ *
+ * @throws {@link UnsupportedAvailabilityZone} (client fault)
+ *  <p>Returned if the requested Amazon EFS functionality is not available in the specified Availability Zone.</p>
+ *
+ *
  * @example To create a new mount target
  * ```javascript
  * // This operation creates a new mount target for an EFS file system.

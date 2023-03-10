@@ -50,6 +50,19 @@ export interface CreateLedgerCommandOutput extends CreateLedgerResponse, __Metad
  * @see {@link CreateLedgerCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You have reached the limit on the maximum number of resources allowed.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource can't be modified at this time.</p>
+ *
+ *
  */
 export class CreateLedgerCommand extends $Command<
   CreateLedgerCommandInput,

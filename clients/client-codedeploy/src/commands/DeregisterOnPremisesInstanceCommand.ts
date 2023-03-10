@@ -48,6 +48,13 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  * @see {@link DeregisterOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ *
  */
 export class DeregisterOnPremisesInstanceCommand extends $Command<
   DeregisterOnPremisesInstanceCommandInput,

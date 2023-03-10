@@ -53,6 +53,10 @@ export interface CreateBusinessReportScheduleCommandOutput
  * @see {@link CreateBusinessReportScheduleCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>The resource being created already exists.</p>
+ *
+ *
  */
 export class CreateBusinessReportScheduleCommand extends $Command<
   CreateBusinessReportScheduleCommandInput,

@@ -59,6 +59,7 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  * @see {@link CreateLaunchTemplateCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To create a launch template
  * ```javascript
  * // This example creates a launch template that specifies the subnet in which to launch the instance, assigns a public IP address and an IPv6 address to the instance, and creates a tag for the instance.

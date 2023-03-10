@@ -110,6 +110,34 @@ export interface CreateReusableDelegationSetCommandOutput
  * @see {@link CreateReusableDelegationSetCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link DelegationSetAlreadyCreated} (client fault)
+ *  <p>A delegation set with the same owner and caller reference combination has already been
+ * 			created.</p>
+ *
+ * @throws {@link DelegationSetAlreadyReusable} (client fault)
+ *  <p>The specified delegation set has already been marked as reusable.</p>
+ *
+ * @throws {@link DelegationSetNotAvailable} (client fault)
+ *  <p>You can create a hosted zone that has the same name as an existing hosted zone
+ * 			(example.com is common), but there is a limit to the number of hosted zones that have
+ * 			the same name. If you get this error, Amazon Route 53 has reached that limit. If you own
+ * 			the domain name and Route 53 generates this error, contact Customer Support.</p>
+ *
+ * @throws {@link HostedZoneNotFound} (client fault)
+ *  <p>The specified HostedZone can't be found.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>Parameter name is not valid.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link LimitsExceeded} (client fault)
+ *  <p>This operation can't be completed because the current account has reached the
+ * 			limit on the resource you are trying to create. To request a higher limit, <a href="http://aws.amazon.com/route53-request">create a case</a> with the Amazon Web Services Support
+ * 			Center.</p>
+ *
+ *
  */
 export class CreateReusableDelegationSetCommand extends $Command<
   CreateReusableDelegationSetCommandInput,

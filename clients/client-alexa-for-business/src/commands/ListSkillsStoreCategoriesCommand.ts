@@ -50,6 +50,7 @@ export interface ListSkillsStoreCategoriesCommandOutput extends ListSkillsStoreC
  * @see {@link ListSkillsStoreCategoriesCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ *
  */
 export class ListSkillsStoreCategoriesCommand extends $Command<
   ListSkillsStoreCategoriesCommandInput,

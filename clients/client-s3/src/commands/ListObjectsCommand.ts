@@ -85,6 +85,10 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * @see {@link ListObjectsCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ * @throws {@link NoSuchBucket} (client fault)
+ *  <p>The specified bucket does not exist.</p>
+ *
+ *
  * @example To list objects in a bucket
  * ```javascript
  * // The following example list two objects in a bucket.

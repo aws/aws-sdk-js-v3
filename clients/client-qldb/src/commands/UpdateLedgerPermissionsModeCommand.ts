@@ -58,6 +58,13 @@ export interface UpdateLedgerPermissionsModeCommandOutput
  * @see {@link UpdateLedgerPermissionsModeCommandOutput} for command's `response` shape.
  * @see {@link QLDBClientResolvedConfig | config} for QLDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters in the request aren't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource doesn't exist.</p>
+ *
+ *
  */
 export class UpdateLedgerPermissionsModeCommand extends $Command<
   UpdateLedgerPermissionsModeCommandInput,

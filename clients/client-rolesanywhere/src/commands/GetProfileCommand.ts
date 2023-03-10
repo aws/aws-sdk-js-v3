@@ -54,6 +54,13 @@ export interface GetProfileCommandOutput extends ProfileDetailResponse, __Metada
  * @see {@link GetProfileCommandOutput} for command's `response` shape.
  * @see {@link RolesAnywhereClientResolvedConfig | config} for RolesAnywhereClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  */
 export class GetProfileCommand extends $Command<
   GetProfileCommandInput,

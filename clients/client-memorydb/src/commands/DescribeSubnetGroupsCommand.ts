@@ -50,6 +50,13 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  * @see {@link DescribeSubnetGroupsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DescribeSubnetGroupsCommand extends $Command<
   DescribeSubnetGroupsCommandInput,

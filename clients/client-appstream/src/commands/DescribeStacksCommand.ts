@@ -50,6 +50,10 @@ export interface DescribeStacksCommandOutput extends DescribeStacksResult, __Met
  * @see {@link DescribeStacksCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DescribeStacksCommand extends $Command<
   DescribeStacksCommandInput,

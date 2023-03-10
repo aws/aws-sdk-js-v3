@@ -47,6 +47,7 @@ export interface ReplaceRouteCommandOutput extends __MetadataBearer {}
  * @see {@link ReplaceRouteCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To replace a route
  * ```javascript
  * // This example replaces the specified route in the specified table table. The new route matches the specified CIDR and sends the traffic to the specified virtual private gateway.

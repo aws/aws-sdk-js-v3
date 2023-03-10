@@ -44,6 +44,7 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * @see {@link JsonMapsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class JsonMapsCommand extends $Command<
   JsonMapsCommandInput,

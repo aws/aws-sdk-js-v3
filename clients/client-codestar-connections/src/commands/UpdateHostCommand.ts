@@ -54,6 +54,19 @@ export interface UpdateHostCommandOutput extends UpdateHostOutput, __MetadataBea
  * @see {@link UpdateHostCommandOutput} for command's `response` shape.
  * @see {@link CodeStarConnectionsClientResolvedConfig | config} for CodeStarConnectionsClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Two conflicting operations have been made on the same resource.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Resource not found. Verify the connection resource ARN and try again.</p>
+ *
+ * @throws {@link ResourceUnavailableException} (client fault)
+ *  <p>Resource not found. Verify the ARN for the host resource and try again.</p>
+ *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>The operation is not supported. Check the connection status and try again.</p>
+ *
+ *
  */
 export class UpdateHostCommand extends $Command<
   UpdateHostCommandInput,

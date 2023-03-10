@@ -50,6 +50,7 @@ export interface ListModelsCommandOutput extends ListModelsOutput, __MetadataBea
  * @see {@link ListModelsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListModelsCommand extends $Command<
   ListModelsCommandInput,

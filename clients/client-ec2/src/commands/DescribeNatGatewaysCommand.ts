@@ -50,6 +50,7 @@ export interface DescribeNatGatewaysCommandOutput extends DescribeNatGatewaysRes
  * @see {@link DescribeNatGatewaysCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe a NAT gateway
  * ```javascript
  * // This example describes the NAT gateway for the specified VPC.

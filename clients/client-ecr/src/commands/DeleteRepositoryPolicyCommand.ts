@@ -50,6 +50,22 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @see {@link DeleteRepositoryPolicyCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link RepositoryPolicyNotFoundException} (client fault)
+ *  <p>The specified repository and registry combination does not have an associated
+ *             repository policy.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ *
  * @example To delete the policy associated with a repository
  * ```javascript
  * // This example deletes the policy associated with the repository named ubuntu in the current account.

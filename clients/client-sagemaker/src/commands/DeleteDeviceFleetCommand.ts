@@ -45,6 +45,10 @@ export interface DeleteDeviceFleetCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDeviceFleetCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Resource being accessed is in use.</p>
+ *
+ *
  */
 export class DeleteDeviceFleetCommand extends $Command<
   DeleteDeviceFleetCommandInput,

@@ -54,6 +54,22 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * @see {@link UpdateListenerCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link InvalidPortRangeException} (client fault)
+ *  <p>The port numbers that you specified are not valid numbers or are not unique for this accelerator.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Processing your request would cause you to exceed an Global Accelerator limit.</p>
+ *
+ * @throws {@link ListenerNotFoundException} (client fault)
+ *  <p>The listener that you specified doesn't exist.</p>
+ *
+ *
  */
 export class UpdateListenerCommand extends $Command<
   UpdateListenerCommandInput,

@@ -68,6 +68,17 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  * @see {@link BatchGetResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
+ *  <p>There are no configuration recorders available to provide the
+ * 			role needed to describe your resources. Create a configuration
+ * 			recorder.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested action is invalid.</p>
+ * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *
+ *
  */
 export class BatchGetResourceConfigCommand extends $Command<
   BatchGetResourceConfigCommandInput,

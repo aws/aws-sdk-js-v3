@@ -64,6 +64,69 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @see {@link RestoreDBClusterToPointInTimeCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link DBClusterAlreadyExistsFault} (client fault)
+ *  <p>User already has a DB cluster with the given identifier.</p>
+ *
+ * @throws {@link DBClusterNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterIdentifier</i> does not refer to an existing DB cluster.</p>
+ *
+ * @throws {@link DBClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterParameterGroupName</i> does not refer to an
+ *       existing DB Cluster parameter group.</p>
+ *
+ * @throws {@link DBClusterQuotaExceededFault} (client fault)
+ *  <p>User attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+ *
+ * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBClusterSnapshotIdentifier</i> does not refer to an existing
+ *       DB cluster snapshot.</p>
+ *
+ * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
+ *  <p>
+ *             <i>DBSubnetGroupName</i> does not refer to an
+ *       existing DB subnet group.</p>
+ *
+ * @throws {@link InsufficientDBClusterCapacityFault} (client fault)
+ *  <p>The DB cluster does not have enough capacity for the current operation.</p>
+ *
+ * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
+ *  <p>There is insufficient storage available for the current action. You may
+ *        be able to resolve this error by updating your subnet group to use different
+ *        Availability Zones that have more storage available.</p>
+ *
+ * @throws {@link InvalidDBClusterSnapshotStateFault} (client fault)
+ *  <p>The supplied value is not a valid DB cluster snapshot state.</p>
+ *
+ * @throws {@link InvalidDBClusterStateFault} (client fault)
+ *  <p>The DB cluster is not in a valid state.</p>
+ *
+ * @throws {@link InvalidDBSnapshotStateFault} (client fault)
+ *  <p>The state of the DB snapshot does not allow deletion.</p>
+ *
+ * @throws {@link InvalidRestoreFault} (client fault)
+ *  <p>Cannot restore from vpc backup to non-vpc DB instance.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is invalid, or multiple subnets were requested that are
+ *       not all in a common VPC.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>DB subnet group does not cover all Availability Zones after it is created
+ *       because users' change.</p>
+ *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>Error accessing KMS key.</p>
+ *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The designated option group could not be found.</p>
+ *
+ * @throws {@link StorageQuotaExceededFault} (client fault)
+ *  <p>Request would result in user exceeding the allowed amount of storage available across all DB instances.</p>
+ *
+ *
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command<
   RestoreDBClusterToPointInTimeCommandInput,

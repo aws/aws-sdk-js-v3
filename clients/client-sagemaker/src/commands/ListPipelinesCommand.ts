@@ -50,6 +50,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @see {@link ListPipelinesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListPipelinesCommand extends $Command<
   ListPipelinesCommandInput,

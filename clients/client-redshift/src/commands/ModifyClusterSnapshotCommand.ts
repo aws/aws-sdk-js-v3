@@ -51,6 +51,18 @@ export interface ModifyClusterSnapshotCommandOutput extends ModifyClusterSnapsho
  * @see {@link ModifyClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
+ *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
+ *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
+ *             accounts are authorized to access the snapshot. </p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ *
  */
 export class ModifyClusterSnapshotCommand extends $Command<
   ModifyClusterSnapshotCommandInput,

@@ -78,6 +78,7 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * @see {@link DescribeInstanceStatusCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  * @example To describe the status of an instance
  * ```javascript
  * // This example describes the current status of the specified instance.

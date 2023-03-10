@@ -52,6 +52,10 @@ export interface CreateSubscriptionDefinitionVersionCommandOutput
  * @see {@link CreateSubscriptionDefinitionVersionCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ *
  */
 export class CreateSubscriptionDefinitionVersionCommand extends $Command<
   CreateSubscriptionDefinitionVersionCommandInput,

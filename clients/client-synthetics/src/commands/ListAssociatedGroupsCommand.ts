@@ -51,6 +51,16 @@ export interface ListAssociatedGroupsCommandOutput extends ListAssociatedGroupsR
  * @see {@link ListAssociatedGroupsCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An unknown internal error occurred.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>One of the specified resources was not found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>A parameter could not be validated.</p>
+ *
+ *
  */
 export class ListAssociatedGroupsCommand extends $Command<
   ListAssociatedGroupsCommandInput,

@@ -74,6 +74,16 @@ export interface ListJobsCommandOutput extends ListJobsResult, __MetadataBearer 
  * @see {@link ListJobsCommandOutput} for command's `response` shape.
  * @see {@link S3ControlClientResolvedConfig | config} for S3ControlClient's `config` shape.
  *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class ListJobsCommand extends $Command<
   ListJobsCommandInput,

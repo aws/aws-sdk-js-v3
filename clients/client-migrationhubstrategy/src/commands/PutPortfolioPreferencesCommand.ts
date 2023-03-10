@@ -54,6 +54,24 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  * @see {@link PutPortfolioPreferencesCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p> The AWS user account does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this account.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p> Exception to indicate that there is an ongoing task when a new task is created. Return
+ *       when once the existing tasks are complete. </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> The server experienced an internal error. Try again. </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p> The request was denied due to request throttling. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p> The request body isn't valid. </p>
+ *
+ *
  */
 export class PutPortfolioPreferencesCommand extends $Command<
   PutPortfolioPreferencesCommandInput,

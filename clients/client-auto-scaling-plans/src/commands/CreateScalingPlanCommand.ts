@@ -50,6 +50,21 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * @see {@link CreateScalingPlanCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingPlansClientResolvedConfig | config} for AutoScalingPlansClient's `config` shape.
  *
+ * @throws {@link ConcurrentUpdateException} (server fault)
+ *  <p>Concurrent updates caused an exception, for example, if you request an update to a
+ *          scaling plan that already has a pending update.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>The service encountered an internal error.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Your account exceeded a limit. This exception is thrown when a per-account resource
+ *          limit is exceeded.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
+ *
+ *
  */
 export class CreateScalingPlanCommand extends $Command<
   CreateScalingPlanCommandInput,

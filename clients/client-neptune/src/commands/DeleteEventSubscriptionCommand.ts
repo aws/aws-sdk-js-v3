@@ -50,6 +50,13 @@ export interface DeleteEventSubscriptionCommandOutput extends DeleteEventSubscri
  * @see {@link DeleteEventSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link NeptuneClientResolvedConfig | config} for NeptuneClient's `config` shape.
  *
+ * @throws {@link InvalidEventSubscriptionStateFault} (client fault)
+ *  <p>The event subscription is in an invalid state.</p>
+ *
+ * @throws {@link SubscriptionNotFoundFault} (client fault)
+ *  <p>The designated subscription could not be found.</p>
+ *
+ *
  */
 export class DeleteEventSubscriptionCommand extends $Command<
   DeleteEventSubscriptionCommandInput,

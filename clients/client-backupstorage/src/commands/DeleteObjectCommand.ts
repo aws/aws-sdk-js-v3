@@ -45,6 +45,28 @@ export interface DeleteObjectCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteObjectCommandOutput} for command's `response` shape.
  * @see {@link BackupStorageClientResolvedConfig | config} for BackupStorageClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *
+ * @throws {@link IllegalArgumentException} (client fault)
+ *  Non-retryable exception, indicates client error (wrong argument passed to API).
+ *     See exception message for details.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Non-retryable exception. Attempted to make an operation on non-existing or expired resource.
+ *
+ * @throws {@link RetryableException} (server fault)
+ *  Retryable exception. In general indicates internal failure that can be fixed by retry.
+ *
+ * @throws {@link ServiceInternalException} (server fault)
+ *  Deprecated. To be removed from the model.
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  Retryable exception, indicates internal server error.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Increased rate over throttling limits. Can be retried with exponential backoff.
+ *
+ *
  */
 export class DeleteObjectCommand extends $Command<
   DeleteObjectCommandInput,

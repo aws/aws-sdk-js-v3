@@ -49,6 +49,19 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  * @see {@link DeleteDeploymentConfigCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link DeploymentConfigInUseException} (client fault)
+ *  <p>The deployment configuration is still in use.</p>
+ *
+ * @throws {@link DeploymentConfigNameRequiredException} (client fault)
+ *  <p>The deployment configuration name was not specified.</p>
+ *
+ * @throws {@link InvalidDeploymentConfigNameException} (client fault)
+ *  <p>The deployment configuration name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>An invalid operation was detected.</p>
+ *
+ *
  */
 export class DeleteDeploymentConfigCommand extends $Command<
   DeleteDeploymentConfigCommandInput,

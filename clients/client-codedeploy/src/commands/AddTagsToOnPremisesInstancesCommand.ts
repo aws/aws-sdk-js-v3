@@ -48,6 +48,29 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  * @see {@link AddTagsToOnPremisesInstancesCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link InstanceLimitExceededException} (client fault)
+ *  <p>The maximum number of allowed on-premises instances in a single call was
+ *             exceeded.</p>
+ *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InstanceNotRegisteredException} (client fault)
+ *  <p>The specified on-premises instance is not registered.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidTagException} (client fault)
+ *  <p>The tag was specified in an invalid format.</p>
+ *
+ * @throws {@link TagLimitExceededException} (client fault)
+ *  <p>The maximum allowed number of tags was exceeded.</p>
+ *
+ * @throws {@link TagRequiredException} (client fault)
+ *  <p>A tag was not specified.</p>
+ *
+ *
  */
 export class AddTagsToOnPremisesInstancesCommand extends $Command<
   AddTagsToOnPremisesInstancesCommandInput,

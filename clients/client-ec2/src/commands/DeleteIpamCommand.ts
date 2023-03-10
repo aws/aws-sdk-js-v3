@@ -49,6 +49,7 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  * @see {@link DeleteIpamCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeleteIpamCommand extends $Command<
   DeleteIpamCommandInput,

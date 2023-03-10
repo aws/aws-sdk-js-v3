@@ -63,6 +63,13 @@ export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __Met
  * @see {@link GetCachePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link NoSuchCachePolicy} (client fault)
+ *  <p>The cache policy does not exist.</p>
+ *
+ *
  */
 export class GetCachePolicyCommand extends $Command<
   GetCachePolicyCommandInput,

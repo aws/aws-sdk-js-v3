@@ -52,6 +52,33 @@ export interface DescribeTableDataImportJobCommandOutput extends DescribeTableDa
  * @see {@link DescribeTableDataImportJobCommandOutput} for command's `response` shape.
  * @see {@link HoneycodeClientResolvedConfig | config} for HoneycodeClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>
+ *             You do not have sufficient access to perform this action. Check that the workbook is owned by you and your
+ *             IAM policy allows access to the resource in the request.
+ *         </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>There were unexpected errors from the server.</p>
+ *
+ * @throws {@link RequestTimeoutException} (server fault)
+ *  <p>The request timed out.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A Workbook, Table, App, Screen or Screen Automation was not found with the given ID.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Remote service is unreachable.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Tps(transactions per second) rate reached.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>
+ *             Request is invalid. The message in the response contains details on why the request is invalid.
+ *         </p>
+ *
+ *
  */
 export class DescribeTableDataImportJobCommand extends $Command<
   DescribeTableDataImportJobCommandInput,

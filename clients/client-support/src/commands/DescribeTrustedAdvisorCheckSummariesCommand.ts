@@ -73,6 +73,10 @@ export interface DescribeTrustedAdvisorCheckSummariesCommandOutput
  * @see {@link DescribeTrustedAdvisorCheckSummariesCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ *
  */
 export class DescribeTrustedAdvisorCheckSummariesCommand extends $Command<
   DescribeTrustedAdvisorCheckSummariesCommandInput,

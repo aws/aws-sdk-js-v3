@@ -50,6 +50,7 @@ export interface DescribeNotebookInstanceCommandOutput extends DescribeNotebookI
  * @see {@link DescribeNotebookInstanceCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class DescribeNotebookInstanceCommand extends $Command<
   DescribeNotebookInstanceCommandInput,

@@ -50,6 +50,7 @@ export interface ListUserProfilesCommandOutput extends ListUserProfilesResponse,
  * @see {@link ListUserProfilesCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListUserProfilesCommand extends $Command<
   ListUserProfilesCommandInput,

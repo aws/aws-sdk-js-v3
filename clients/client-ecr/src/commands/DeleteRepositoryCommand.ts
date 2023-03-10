@@ -52,6 +52,25 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * @see {@link DeleteRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link KmsException} (client fault)
+ *  <p>The operation failed due to a KMS exception.</p>
+ *
+ * @throws {@link RepositoryNotEmptyException} (client fault)
+ *  <p>The specified repository contains images. To delete a repository that contains images,
+ *             you must force the deletion with the <code>force</code> parameter.</p>
+ *
+ * @throws {@link RepositoryNotFoundException} (client fault)
+ *  <p>The specified repository could not be found. Check the spelling of the specified
+ *             repository and ensure that you are performing operations on the correct registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ *
  * @example To force delete a repository
  * ```javascript
  * // This example force deletes a repository named ubuntu in the default registry for an account. The force parameter is required if the repository contains images.

@@ -67,6 +67,25 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  * @see {@link AddAttachmentsToSetCommandOutput} for command's `response` shape.
  * @see {@link SupportClientResolvedConfig | config} for SupportClient's `config` shape.
  *
+ * @throws {@link AttachmentLimitExceeded} (client fault)
+ *  <p>The limit for the number of attachment sets created in a short period of time has been
+ *             exceeded.</p>
+ *
+ * @throws {@link AttachmentSetExpired} (client fault)
+ *  <p>The expiration time of the attachment set has passed. The set expires 1 hour after it
+ *             is created.</p>
+ *
+ * @throws {@link AttachmentSetIdNotFound} (client fault)
+ *  <p>An attachment set with the specified ID could not be found.</p>
+ *
+ * @throws {@link AttachmentSetSizeLimitExceeded} (client fault)
+ *  <p>A limit for the size of an attachment set has been exceeded. The limits are three
+ *             attachments and 5 MB per attachment.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An internal server error occurred.</p>
+ *
+ *
  */
 export class AddAttachmentsToSetCommand extends $Command<
   AddAttachmentsToSetCommandInput,

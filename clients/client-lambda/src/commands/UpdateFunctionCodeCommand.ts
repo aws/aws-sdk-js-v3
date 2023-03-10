@@ -65,6 +65,40 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  * @see {@link UpdateFunctionCodeCommandOutput} for command's `response` shape.
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
+ * @throws {@link CodeSigningConfigNotFoundException} (client fault)
+ *  <p>The specified code signing configuration does not exist.</p>
+ *
+ * @throws {@link CodeStorageExceededException} (client fault)
+ *  <p>Your Amazon Web Services account has exceeded its maximum total code size. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
+ *
+ * @throws {@link CodeVerificationFailedException} (client fault)
+ *  <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code
+ *       signing policy is set to ENFORCE. Lambda blocks the deployment.</p>
+ *
+ * @throws {@link InvalidCodeSignatureException} (client fault)
+ *  <p>The code signature failed the integrity check. If the integrity check fails, then Lambda blocks
+ *       deployment, even if the code signing policy is set to WARN.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
+ *       API operation to retrieve the latest RevisionId for your resource.</p>
+ *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>The resource already exists, or another operation is in progress.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource specified in the request does not exist.</p>
+ *
+ * @throws {@link ServiceException} (server fault)
+ *  <p>The Lambda service encountered an internal error.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request throughput limit was exceeded. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html#api-requests">Lambda quotas</a>.</p>
+ *
+ *
  */
 export class UpdateFunctionCodeCommand extends $Command<
   UpdateFunctionCodeCommandInput,

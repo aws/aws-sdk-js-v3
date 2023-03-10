@@ -50,6 +50,22 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>Unable to modify the tag due to a simultaneous update request.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>The specified resource ARN is invalid.</p>
+ *
+ * @throws {@link InvalidTagsException} (client fault)
+ *  <p>The specified resource tags are invalid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource was specified in an invalid format.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The validation was specified in an invalid format.</p>
+ *
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

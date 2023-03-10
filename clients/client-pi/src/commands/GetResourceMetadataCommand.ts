@@ -52,6 +52,16 @@ export interface GetResourceMetadataCommandOutput extends GetResourceMetadataRes
  * @see {@link GetResourceMetadataCommandOutput} for command's `response` shape.
  * @see {@link PIClientResolvedConfig | config} for PIClient's `config` shape.
  *
+ * @throws {@link InternalServiceError} (server fault)
+ *  <p>The request failed due to an unknown error.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>One of the arguments provided is invalid for this request.</p>
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  <p>The user is not authorized to perform this request.</p>
+ *
+ *
  */
 export class GetResourceMetadataCommand extends $Command<
   GetResourceMetadataCommandInput,

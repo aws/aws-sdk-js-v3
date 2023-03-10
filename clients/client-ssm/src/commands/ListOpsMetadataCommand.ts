@@ -51,6 +51,13 @@ export interface ListOpsMetadataCommandOutput extends ListOpsMetadataResult, __M
  * @see {@link ListOpsMetadataCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link OpsMetadataInvalidArgumentException} (client fault)
+ *  <p>One of the arguments passed is invalid. </p>
+ *
+ *
  */
 export class ListOpsMetadataCommand extends $Command<
   ListOpsMetadataCommandInput,

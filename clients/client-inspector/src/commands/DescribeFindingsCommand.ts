@@ -50,6 +50,14 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  * @see {@link DescribeFindingsCommandOutput} for command's `response` shape.
  * @see {@link InspectorClientResolvedConfig | config} for InspectorClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>Internal server error.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The request was rejected because an invalid or out-of-range value was supplied for an
+ *          input parameter.</p>
+ *
+ *
  * @example Describe findings
  * ```javascript
  * // Describes the findings that are specified by the ARNs of the findings.

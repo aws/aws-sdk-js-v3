@@ -50,6 +50,10 @@ export interface DescribeMaintenanceWindowsCommandOutput extends DescribeMainten
  * @see {@link DescribeMaintenanceWindowsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ *
  */
 export class DescribeMaintenanceWindowsCommand extends $Command<
   DescribeMaintenanceWindowsCommandInput,

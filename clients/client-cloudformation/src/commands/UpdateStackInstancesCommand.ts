@@ -63,6 +63,27 @@ export interface UpdateStackInstancesCommandOutput extends UpdateStackInstancesO
  * @see {@link UpdateStackInstancesCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The specified operation isn't valid.</p>
+ *
+ * @throws {@link OperationIdAlreadyExistsException} (client fault)
+ *  <p>The specified operation ID already exists.</p>
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Another operation is currently in progress for this stack set. Only one operation can be
+ *          performed for a stack set at a given time.</p>
+ *
+ * @throws {@link StackInstanceNotFoundException} (client fault)
+ *  <p>The specified stack instance doesn't exist.</p>
+ *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
+ * @throws {@link StaleRequestException} (client fault)
+ *  <p>Another operation has been performed on this stack set since the specified operation was
+ *          performed.</p>
+ *
+ *
  */
 export class UpdateStackInstancesCommand extends $Command<
   UpdateStackInstancesCommandInput,

@@ -50,6 +50,7 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
  * @see {@link ListSkillsCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ *
  */
 export class ListSkillsCommand extends $Command<
   ListSkillsCommandInput,

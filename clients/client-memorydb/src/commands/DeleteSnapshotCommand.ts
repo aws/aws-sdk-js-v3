@@ -50,6 +50,22 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * @see {@link DeleteSnapshotCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidSnapshotStateFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DeleteSnapshotCommand extends $Command<
   DeleteSnapshotCommandInput,

@@ -54,6 +54,16 @@ export interface ListVpcEndpointsCommandOutput extends ListVpcEndpointsResponse,
  * @see {@link ListVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link ElasticsearchServiceClientResolvedConfig | config} for ElasticsearchServiceClient's `config` shape.
  *
+ * @throws {@link BaseException} (client fault)
+ *  <p>An error occurred while processing the request.</p>
+ *
+ * @throws {@link DisabledOperationException} (client fault)
+ *  <p>An error occured because the client wanted to access a not supported operation. Gives http status code of 409.</p>
+ *
+ * @throws {@link InternalException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.</p>
+ *
+ *
  */
 export class ListVpcEndpointsCommand extends $Command<
   ListVpcEndpointsCommandInput,

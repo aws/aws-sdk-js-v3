@@ -52,6 +52,10 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput
  * @see {@link DescribeWorkspacesConnectionStatusCommandOutput} for command's `response` shape.
  * @see {@link WorkSpacesClientResolvedConfig | config} for WorkSpacesClient's `config` shape.
  *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ *
  */
 export class DescribeWorkspacesConnectionStatusCommand extends $Command<
   DescribeWorkspacesConnectionStatusCommandInput,

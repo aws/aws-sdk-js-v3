@@ -49,6 +49,7 @@ export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersOutput,
  * @see {@link HttpPrefixHeadersCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class HttpPrefixHeadersCommand extends $Command<
   HttpPrefixHeadersCommandInput,

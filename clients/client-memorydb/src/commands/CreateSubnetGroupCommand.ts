@@ -53,6 +53,28 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  * @see {@link CreateSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupAlreadyExistsFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetGroupQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetNotAllowedFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link SubnetQuotaExceededFault} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link TagQuotaPerResourceExceeded} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class CreateSubnetGroupCommand extends $Command<
   CreateSubnetGroupCommandInput,

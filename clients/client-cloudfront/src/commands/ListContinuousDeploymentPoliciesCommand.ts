@@ -57,6 +57,16 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * @see {@link ListContinuousDeploymentPoliciesCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
+ *
+ * @throws {@link NoSuchContinuousDeploymentPolicy} (client fault)
+ *  <p>The continuous deployment policy doesn't exist.</p>
+ *
+ *
  */
 export class ListContinuousDeploymentPoliciesCommand extends $Command<
   ListContinuousDeploymentPoliciesCommandInput,

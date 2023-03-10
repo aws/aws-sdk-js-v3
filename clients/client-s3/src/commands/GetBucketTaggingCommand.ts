@@ -79,6 +79,7 @@ export interface GetBucketTaggingCommandOutput extends GetBucketTaggingOutput, _
  * @see {@link GetBucketTaggingCommandOutput} for command's `response` shape.
  * @see {@link S3ClientResolvedConfig | config} for S3Client's `config` shape.
  *
+ *
  * @example To get tag set associated with a bucket
  * ```javascript
  * // The following example returns tag set associated with a bucket

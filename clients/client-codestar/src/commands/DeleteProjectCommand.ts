@@ -51,6 +51,17 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResult, __Metad
  * @see {@link DeleteProjectCommandOutput} for command's `response` shape.
  * @see {@link CodeStarClientResolvedConfig | config} for CodeStarClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (server fault)
+ *  <p>Another modification is being made. That modification must complete before you can make
+ *       your change.</p>
+ *
+ * @throws {@link InvalidServiceRoleException} (client fault)
+ *  <p>The service role is not valid.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The specified input is either not valid, or it could not be validated.</p>
+ *
+ *
  */
 export class DeleteProjectCommand extends $Command<
   DeleteProjectCommandInput,

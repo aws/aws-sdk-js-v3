@@ -52,6 +52,7 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput
  * @see {@link DeprovisionPublicIpv4PoolCidrCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DeprovisionPublicIpv4PoolCidrCommand extends $Command<
   DeprovisionPublicIpv4PoolCidrCommandInput,

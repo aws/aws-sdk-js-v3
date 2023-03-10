@@ -50,6 +50,10 @@ export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateR
  * @see {@link GetSubscriptionStateCommandOutput} for command's `response` shape.
  * @see {@link ShieldClientResolvedConfig | config} for ShieldClient's `config` shape.
  *
+ * @throws {@link InternalErrorException} (server fault)
+ *  <p>Exception that indicates that a problem occurred with the service infrastructure. You can retry the request.</p>
+ *
+ *
  */
 export class GetSubscriptionStateCommand extends $Command<
   GetSubscriptionStateCommandInput,

@@ -68,6 +68,7 @@ export interface GetAccessKeyInfoCommandOutput extends GetAccessKeyInfoResponse,
  * @see {@link GetAccessKeyInfoCommandOutput} for command's `response` shape.
  * @see {@link STSClientResolvedConfig | config} for STSClient's `config` shape.
  *
+ *
  */
 export class GetAccessKeyInfoCommand extends $Command<
   GetAccessKeyInfoCommandInput,

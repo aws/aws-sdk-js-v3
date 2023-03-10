@@ -50,6 +50,16 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  * @see {@link GetOnPremisesInstanceCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link InstanceNameRequiredException} (client fault)
+ *  <p>An on-premises instance name was not specified.</p>
+ *
+ * @throws {@link InstanceNotRegisteredException} (client fault)
+ *  <p>The specified on-premises instance is not registered.</p>
+ *
+ * @throws {@link InvalidInstanceNameException} (client fault)
+ *  <p>The on-premises instance name was specified in an invalid format.</p>
+ *
+ *
  */
 export class GetOnPremisesInstanceCommand extends $Command<
   GetOnPremisesInstanceCommandInput,

@@ -77,6 +77,23 @@ export interface CreateServerCommandOutput extends CreateServerResponse, __Metad
  * @see {@link CreateServerCommandOutput} for command's `response` shape.
  * @see {@link OpsWorksCMClientResolvedConfig | config} for OpsWorksCMClient's `config` shape.
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The limit of servers or backups has been reached.
+ *     </p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The requested resource cannot be created because it already exists.
+ *     </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource does not exist, or access was denied.
+ *     </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more of the provided request parameters are not valid.
+ *     </p>
+ *
+ *
  */
 export class CreateServerCommand extends $Command<
   CreateServerCommandInput,

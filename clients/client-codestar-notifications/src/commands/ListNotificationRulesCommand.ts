@@ -54,6 +54,13 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  * @see {@link ListNotificationRulesCommandOutput} for command's `response` shape.
  * @see {@link CodestarNotificationsClientResolvedConfig | config} for CodestarNotificationsClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The value for the enumeration token used in the request to return the next batch of the results is not valid. </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ *
  */
 export class ListNotificationRulesCommand extends $Command<
   ListNotificationRulesCommandInput,

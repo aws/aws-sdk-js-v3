@@ -51,6 +51,13 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * @see {@link ListArchivesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchEventsClientResolvedConfig | config} for CloudWatchEventsClient's `config` shape.
  *
+ * @throws {@link InternalException} (server fault)
+ *  <p>This exception occurs due to unexpected causes.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ *
  */
 export class ListArchivesCommand extends $Command<
   ListArchivesCommandInput,

@@ -54,6 +54,7 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput
  * @see {@link GetSagemakerServicecatalogPortfolioStatusCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command<
   GetSagemakerServicecatalogPortfolioStatusCommandInput,

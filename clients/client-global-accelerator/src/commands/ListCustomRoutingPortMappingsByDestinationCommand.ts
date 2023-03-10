@@ -60,6 +60,19 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput
  * @see {@link ListCustomRoutingPortMappingsByDestinationCommandOutput} for command's `response` shape.
  * @see {@link GlobalAcceleratorClientResolvedConfig | config} for GlobalAcceleratorClient's `config` shape.
  *
+ * @throws {@link EndpointNotFoundException} (client fault)
+ *  <p>The endpoint that you specified doesn't exist.</p>
+ *
+ * @throws {@link InternalServiceErrorException} (server fault)
+ *  <p>There was an internal error for Global Accelerator.</p>
+ *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>An argument that you specified is invalid.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>There isn't another item to return.</p>
+ *
+ *
  */
 export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
   ListCustomRoutingPortMappingsByDestinationCommandInput,

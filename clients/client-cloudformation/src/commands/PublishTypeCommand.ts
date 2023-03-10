@@ -50,6 +50,13 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * @see {@link PublishTypeCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link CFNRegistryException} (client fault)
+ *  <p>An error occurred during a CloudFormation registry operation.</p>
+ *
+ * @throws {@link TypeNotFoundException} (client fault)
+ *  <p>The specified extension doesn't exist in the CloudFormation registry.</p>
+ *
+ *
  */
 export class PublishTypeCommand extends $Command<
   PublishTypeCommandInput,

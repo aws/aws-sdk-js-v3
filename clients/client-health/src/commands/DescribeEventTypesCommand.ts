@@ -57,6 +57,13 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
  * @see {@link DescribeEventTypesCommandOutput} for command's `response` shape.
  * @see {@link HealthClientResolvedConfig | config} for HealthClient's `config` shape.
  *
+ * @throws {@link InvalidPaginationToken} (client fault)
+ *  <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
+ *
+ * @throws {@link UnsupportedLocale} (client fault)
+ *  <p>The specified locale is not supported.</p>
+ *
+ *
  */
 export class DescribeEventTypesCommand extends $Command<
   DescribeEventTypesCommandInput,

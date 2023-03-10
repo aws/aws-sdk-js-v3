@@ -51,6 +51,11 @@ export interface DescribeJobCommandOutput extends DescribeJobResult, __MetadataB
  * @see {@link DescribeJobCommandOutput} for command's `response` shape.
  * @see {@link SnowballClientResolvedConfig | config} for SnowballClient's `config` shape.
  *
+ * @throws {@link InvalidResourceException} (client fault)
+ *  <p>The specified resource can't be found. Check the information you provided in your last
+ *       request, and try again.</p>
+ *
+ *
  * @example To describe a job you've created for AWS Snowball
  * ```javascript
  * // This operation describes a job you've created for AWS Snowball.

@@ -63,6 +63,28 @@ export interface CreateVPCAssociationAuthorizationCommandOutput
  * @see {@link CreateVPCAssociationAuthorizationCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidVPCId} (client fault)
+ *  <p>The VPC ID that you specified either isn't a valid ID or the current account is not
+ * 			authorized to access this VPC.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ * @throws {@link TooManyVPCAssociationAuthorizations} (client fault)
+ *  <p>You've created the maximum number of authorizations that can be created for the
+ * 			specified hosted zone. To authorize another VPC to be associated with the hosted zone,
+ * 			submit a <code>DeleteVPCAssociationAuthorization</code> request to remove an existing
+ * 			authorization. To get a list of existing authorizations, submit a
+ * 				<code>ListVPCAssociationAuthorizations</code> request.</p>
+ *
+ *
  */
 export class CreateVPCAssociationAuthorizationCommand extends $Command<
   CreateVPCAssociationAuthorizationCommandInput,

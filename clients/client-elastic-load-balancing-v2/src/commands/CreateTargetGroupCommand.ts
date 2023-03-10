@@ -77,6 +77,20 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupOutput,
  * @see {@link CreateTargetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link DuplicateTargetGroupNameException} (client fault)
+ *  <p>A target group with the specified name already exists.</p>
+ *
+ * @throws {@link InvalidConfigurationRequestException} (client fault)
+ *  <p>The requested configuration is not valid.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *
+ * @throws {@link TooManyTargetGroupsException} (client fault)
+ *  <p>You've reached the limit on the number of target groups for your Amazon Web Services
+ *       account.</p>
+ *
+ *
  * @example To create a target group
  * ```javascript
  * // This example creates a target group that you can use to route traffic to targets using HTTP on port 80. This target group uses the default health check configuration.

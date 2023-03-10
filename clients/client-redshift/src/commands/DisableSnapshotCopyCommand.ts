@@ -54,6 +54,20 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  * @see {@link DisableSnapshotCopyCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link InvalidClusterStateFault} (client fault)
+ *  <p>The specified cluster is not in the <code>available</code> state. </p>
+ *
+ * @throws {@link SnapshotCopyAlreadyDisabledFault} (client fault)
+ *  <p>The cluster already has cross-region snapshot copy disabled.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ *
  */
 export class DisableSnapshotCopyCommand extends $Command<
   DisableSnapshotCopyCommandInput,

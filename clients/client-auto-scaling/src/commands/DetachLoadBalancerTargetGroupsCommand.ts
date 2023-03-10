@@ -61,6 +61,11 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
  * @see {@link DetachLoadBalancerTargetGroupsCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
  * @example To detach a target group from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified target group from the specified Auto Scaling group

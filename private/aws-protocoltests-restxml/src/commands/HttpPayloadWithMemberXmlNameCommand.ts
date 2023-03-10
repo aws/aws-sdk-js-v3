@@ -50,6 +50,7 @@ export interface HttpPayloadWithMemberXmlNameCommandOutput
  * @see {@link HttpPayloadWithMemberXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
  *
+ *
  */
 export class HttpPayloadWithMemberXmlNameCommand extends $Command<
   HttpPayloadWithMemberXmlNameCommandInput,

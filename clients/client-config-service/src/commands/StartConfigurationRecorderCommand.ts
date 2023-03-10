@@ -51,6 +51,15 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  * @see {@link StartConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link NoAvailableDeliveryChannelException} (client fault)
+ *  <p>There is no delivery channel available to record
+ * 			configurations.</p>
+ *
+ * @throws {@link NoSuchConfigurationRecorderException} (client fault)
+ *  <p>You have specified a configuration recorder that does not
+ * 			exist.</p>
+ *
+ *
  */
 export class StartConfigurationRecorderCommand extends $Command<
   StartConfigurationRecorderCommandInput,

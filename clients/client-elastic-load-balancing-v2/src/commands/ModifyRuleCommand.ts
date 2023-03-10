@@ -55,6 +55,43 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * @see {@link ModifyRuleCommandOutput} for command's `response` shape.
  * @see {@link ElasticLoadBalancingV2ClientResolvedConfig | config} for ElasticLoadBalancingV2Client's `config` shape.
  *
+ * @throws {@link IncompatibleProtocolsException} (client fault)
+ *  <p>The specified configuration is not valid with this protocol.</p>
+ *
+ * @throws {@link InvalidLoadBalancerActionException} (client fault)
+ *  <p>The requested action is not valid.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>This operation is not allowed.</p>
+ *
+ * @throws {@link RuleNotFoundException} (client fault)
+ *  <p>The specified rule does not exist.</p>
+ *
+ * @throws {@link TargetGroupAssociationLimitException} (client fault)
+ *  <p>You've reached the limit on the number of load balancers per target group.</p>
+ *
+ * @throws {@link TargetGroupNotFoundException} (client fault)
+ *  <p>The specified target group does not exist.</p>
+ *
+ * @throws {@link TooManyActionsException} (client fault)
+ *  <p>You've reached the limit on the number of actions per rule.</p>
+ *
+ * @throws {@link TooManyRegistrationsForTargetIdException} (client fault)
+ *  <p>You've reached the limit on the number of times a target can be registered with a load
+ *       balancer.</p>
+ *
+ * @throws {@link TooManyTargetsException} (client fault)
+ *  <p>You've reached the limit on the number of targets.</p>
+ *
+ * @throws {@link TooManyUniqueTargetGroupsPerLoadBalancerException} (client fault)
+ *  <p>You've reached the limit on the number of unique target groups per load balancer across
+ *       all listeners. If a target group is used by multiple actions for a load balancer, it is
+ *       counted as only one use.</p>
+ *
+ * @throws {@link UnsupportedProtocolException} (client fault)
+ *  <p>The specified protocol is not supported.</p>
+ *
+ *
  * @example To modify a rule
  * ```javascript
  * // This example modifies the condition for the specified rule.

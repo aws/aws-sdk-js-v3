@@ -56,6 +56,88 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @see {@link CreateClusterCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link ClusterAlreadyExistsFault} (client fault)
+ *  <p>The account already has a cluster with the given identifier.</p>
+ *
+ * @throws {@link ClusterParameterGroupNotFoundFault} (client fault)
+ *  <p>The parameter group name does not refer to an existing parameter group.</p>
+ *
+ * @throws {@link ClusterQuotaExceededFault} (client fault)
+ *  <p>The request would exceed the allowed number of cluster instances for this account.
+ *
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link ClusterSecurityGroupNotFoundFault} (client fault)
+ *  <p>The cluster security group name does not refer to an existing cluster security
+ *             group.</p>
+ *
+ * @throws {@link ClusterSubnetGroupNotFoundFault} (client fault)
+ *  <p>The cluster subnet group name does not refer to an existing cluster subnet
+ *             group.</p>
+ *
+ * @throws {@link DependentServiceRequestThrottlingFault} (client fault)
+ *  <p>The request cannot be completed because a dependent service is throttling requests
+ *             made by Amazon Redshift on your behalf. Wait and retry the request.</p>
+ *
+ * @throws {@link HsmClientCertificateNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM client certificate with the specified
+ *             identifier.</p>
+ *
+ * @throws {@link HsmConfigurationNotFoundFault} (client fault)
+ *  <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>
+ *
+ * @throws {@link InsufficientClusterCapacityFault} (client fault)
+ *  <p>The number of nodes specified exceeds the allotted capacity of the
+ *             cluster.</p>
+ *
+ * @throws {@link InvalidClusterSubnetGroupStateFault} (client fault)
+ *  <p>The cluster subnet group cannot be deleted because it is in use.</p>
+ *
+ * @throws {@link InvalidClusterTrackFault} (client fault)
+ *  <p>The provided cluster track name is not valid.</p>
+ *
+ * @throws {@link InvalidElasticIpFault} (client fault)
+ *  <p>The Elastic IP (EIP) is invalid or cannot be found.</p>
+ *
+ * @throws {@link InvalidRetentionPeriodFault} (client fault)
+ *  <p>The retention period specified is either in the past or is not a valid value.</p>
+ *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>The requested subnet is not valid, or not all of the subnets are in the same
+ *             VPC.</p>
+ *
+ * @throws {@link InvalidTagFault} (client fault)
+ *  <p>The tag is invalid.</p>
+ *
+ * @throws {@link InvalidVPCNetworkStateFault} (client fault)
+ *  <p>The cluster subnet group does not cover all Availability Zones.</p>
+ *
+ * @throws {@link LimitExceededFault} (client fault)
+ *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
+ *
+ * @throws {@link NumberOfNodesPerClusterLimitExceededFault} (client fault)
+ *  <p>The operation would exceed the number of nodes allowed for a cluster.</p>
+ *
+ * @throws {@link NumberOfNodesQuotaExceededFault} (client fault)
+ *  <p>The operation would exceed the number of nodes allotted to the account.
+ *
+ * For information about increasing your quota, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html">Limits in Amazon Redshift</a>
+ * in the <i>Amazon Redshift Cluster Management Guide</i>.
+ * </p>
+ *
+ * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
+ *  <p>We could not find the specified snapshot schedule. </p>
+ *
+ * @throws {@link TagLimitExceededFault} (client fault)
+ *  <p>You have exceeded the number of tags allowed.</p>
+ *
+ * @throws {@link UnauthorizedOperation} (client fault)
+ *  <p>Your account is not authorized to perform the requested operation.</p>
+ *
+ *
  */
 export class CreateClusterCommand extends $Command<
   CreateClusterCommandInput,

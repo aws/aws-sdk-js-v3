@@ -52,6 +52,16 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  * @see {@link DescribeQueriesCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>A parameter is specified incorrectly.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service cannot complete the request.</p>
+ *
+ *
  */
 export class DescribeQueriesCommand extends $Command<
   DescribeQueriesCommandInput,

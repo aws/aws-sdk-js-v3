@@ -52,6 +52,7 @@ export interface ListLineageGroupsCommandOutput extends ListLineageGroupsRespons
  * @see {@link ListLineageGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListLineageGroupsCommand extends $Command<
   ListLineageGroupsCommandInput,

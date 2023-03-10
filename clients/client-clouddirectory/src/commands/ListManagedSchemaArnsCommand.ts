@@ -50,6 +50,26 @@ export interface ListManagedSchemaArnsCommandOutput extends ListManagedSchemaArn
  * @see {@link ListManagedSchemaArnsCommandOutput} for command's `response` shape.
  * @see {@link CloudDirectoryClientResolvedConfig | config} for CloudDirectoryClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access denied or directory not found. Either you don't have permissions for this directory or the directory does not exist. Try calling <a>ListDirectories</a> and check your permissions.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
+ *
+ * @throws {@link InvalidArnException} (client fault)
+ *  <p>Indicates that the provided ARN value is not valid.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>Indicates that the <code>NextToken</code> value is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Indicates that your request is malformed in some manner. See the exception
+ *       message.</p>
+ *
+ *
  */
 export class ListManagedSchemaArnsCommand extends $Command<
   ListManagedSchemaArnsCommandInput,

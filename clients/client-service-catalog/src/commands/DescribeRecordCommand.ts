@@ -58,6 +58,10 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  * @see {@link DescribeRecordCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DescribeRecordCommand extends $Command<
   DescribeRecordCommandInput,

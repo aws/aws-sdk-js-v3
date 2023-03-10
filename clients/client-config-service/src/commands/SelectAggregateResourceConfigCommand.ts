@@ -65,6 +65,21 @@ export interface SelectAggregateResourceConfigCommandOutput
  * @see {@link SelectAggregateResourceConfigCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
+ * @throws {@link InvalidExpressionException} (client fault)
+ *  <p>The syntax of the query is incorrect.</p>
+ *
+ * @throws {@link InvalidLimitException} (client fault)
+ *  <p>The specified limit is outside the allowable range.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The specified next token is invalid. Specify the
+ * 				<code>nextToken</code> string that was returned in the previous
+ * 			response to get the next page of results.</p>
+ *
+ * @throws {@link NoSuchConfigurationAggregatorException} (client fault)
+ *  <p>You have specified a configuration aggregator that does not exist.</p>
+ *
+ *
  */
 export class SelectAggregateResourceConfigCommand extends $Command<
   SelectAggregateResourceConfigCommandInput,

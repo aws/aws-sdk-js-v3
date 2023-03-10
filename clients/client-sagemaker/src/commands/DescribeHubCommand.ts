@@ -53,6 +53,10 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * @see {@link DescribeHubCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ResourceNotFound} (client fault)
+ *  <p>Resource being access is not found.</p>
+ *
+ *
  */
 export class DescribeHubCommand extends $Command<
   DescribeHubCommandInput,

@@ -49,6 +49,16 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  * @see {@link GetDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>Parameter name is not valid.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ *
  */
 export class GetDNSSECCommand extends $Command<
   GetDNSSECCommandInput,

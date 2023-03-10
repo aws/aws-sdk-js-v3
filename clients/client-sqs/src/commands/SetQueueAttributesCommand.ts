@@ -61,6 +61,10 @@ export interface SetQueueAttributesCommandOutput extends __MetadataBearer {}
  * @see {@link SetQueueAttributesCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link InvalidAttributeName} (client fault)
+ *  <p>The specified attribute doesn't exist.</p>
+ *
+ *
  */
 export class SetQueueAttributesCommand extends $Command<
   SetQueueAttributesCommandInput,

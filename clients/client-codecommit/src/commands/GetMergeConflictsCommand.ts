@@ -50,6 +50,80 @@ export interface GetMergeConflictsCommandOutput extends GetMergeConflictsOutput,
  * @see {@link GetMergeConflictsCommandOutput} for command's `response` shape.
  * @see {@link CodeCommitClientResolvedConfig | config} for CodeCommitClient's `config` shape.
  *
+ * @throws {@link CommitDoesNotExistException} (client fault)
+ *  <p>The specified commit does not exist or no commit was specified, and the specified repository has no default branch.</p>
+ *
+ * @throws {@link CommitRequiredException} (client fault)
+ *  <p>A commit was not specified.</p>
+ *
+ * @throws {@link EncryptionIntegrityChecksFailedException} (server fault)
+ *  <p>An encryption integrity check failed.</p>
+ *
+ * @throws {@link EncryptionKeyAccessDeniedException} (client fault)
+ *  <p>An encryption key could not be accessed.</p>
+ *
+ * @throws {@link EncryptionKeyDisabledException} (client fault)
+ *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyNotFoundException} (client fault)
+ *  <p>No encryption key was found.</p>
+ *
+ * @throws {@link EncryptionKeyUnavailableException} (client fault)
+ *  <p>The encryption key is not available.</p>
+ *
+ * @throws {@link InvalidCommitException} (client fault)
+ *  <p>The specified commit is not valid.</p>
+ *
+ * @throws {@link InvalidConflictDetailLevelException} (client fault)
+ *  <p>The specified conflict detail level is not valid.</p>
+ *
+ * @throws {@link InvalidConflictResolutionStrategyException} (client fault)
+ *  <p>The specified conflict resolution strategy is not valid.</p>
+ *
+ * @throws {@link InvalidContinuationTokenException} (client fault)
+ *  <p>The specified continuation token is not valid.</p>
+ *
+ * @throws {@link InvalidDestinationCommitSpecifierException} (client fault)
+ *  <p>The destination commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID. </p>
+ *
+ * @throws {@link InvalidMaxConflictFilesException} (client fault)
+ *  <p>The specified value for the number of conflict files to return is not valid.</p>
+ *
+ * @throws {@link InvalidMergeOptionException} (client fault)
+ *  <p>The specified merge option is not valid for this operation. Not all merge strategies are supported for all operations.</p>
+ *
+ * @throws {@link InvalidRepositoryNameException} (client fault)
+ *  <p>A specified repository name is not valid.</p>
+ *
+ *         <note>
+ *             <p>This exception occurs only when a specified repository name is not valid. Other
+ *                 exceptions occur when a required repository parameter is missing, or when a
+ *                 specified repository does not exist.</p>
+ *          </note>
+ *
+ * @throws {@link InvalidSourceCommitSpecifierException} (client fault)
+ *  <p>The source commit specifier is not valid. You must provide a valid branch name, tag, or full commit ID.</p>
+ *
+ * @throws {@link MaximumFileContentToLoadExceededException} (client fault)
+ *  <p>The number of files to load exceeds the allowed limit.</p>
+ *
+ * @throws {@link MaximumItemsToCompareExceededException} (client fault)
+ *  <p>The number of items to compare between the source or destination branches and the merge base has exceeded the maximum allowed.</p>
+ *
+ * @throws {@link MergeOptionRequiredException} (client fault)
+ *  <p>A merge option or stategy is required, and none was provided.</p>
+ *
+ * @throws {@link RepositoryDoesNotExistException} (client fault)
+ *  <p>The specified repository does not exist.</p>
+ *
+ * @throws {@link RepositoryNameRequiredException} (client fault)
+ *  <p>A repository name is required, but was not specified.</p>
+ *
+ * @throws {@link TipsDivergenceExceededException} (client fault)
+ *  <p>The divergence between the tips of the provided commit specifiers is too great to determine whether there might be
+ *             any merge conflicts. Locally compare the specifiers using <code>git diff</code> or a diff tool.</p>
+ *
+ *
  */
 export class GetMergeConflictsCommand extends $Command<
   GetMergeConflictsCommandInput,

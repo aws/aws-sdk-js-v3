@@ -56,6 +56,14 @@ export interface AssociateServiceRoleToAccountCommandOutput
  * @see {@link AssociateServiceRoleToAccountCommandOutput} for command's `response` shape.
  * @see {@link GreengrassV2ClientResolvedConfig | config} for GreengrassV2Client's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>IoT Greengrass can't process your request right now. Try again later.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
+ *       unsupported characters.</p>
+ *
+ *
  */
 export class AssociateServiceRoleToAccountCommand extends $Command<
   AssociateServiceRoleToAccountCommandInput,

@@ -56,6 +56,10 @@ export interface ResolveRoomCommandOutput extends ResolveRoomResponse, __Metadat
  * @see {@link ResolveRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The resource is not found.</p>
+ *
+ *
  */
 export class ResolveRoomCommand extends $Command<
   ResolveRoomCommandInput,

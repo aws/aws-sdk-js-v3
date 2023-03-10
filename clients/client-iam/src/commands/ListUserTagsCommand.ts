@@ -48,6 +48,15 @@ export interface ListUserTagsCommandOutput extends ListUserTagsResponse, __Metad
  * @see {@link ListUserTagsCommandOutput} for command's `response` shape.
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
+ * @throws {@link NoSuchEntityException} (client fault)
+ *  <p>The request was rejected because it referenced a resource entity that does not exist. The
+ *       error message describes the resource.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>The request processing has failed because of an unknown error, exception or
+ *       failure.</p>
+ *
+ *
  * @example To list the tags attached to an IAM user
  * ```javascript
  * // The following example shows how to list the tags attached to a user.

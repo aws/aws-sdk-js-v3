@@ -47,6 +47,7 @@ export interface OmitsNullSerializesEmptyStringCommandOutput extends __MetadataB
  * @see {@link OmitsNullSerializesEmptyStringCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class OmitsNullSerializesEmptyStringCommand extends $Command<
   OmitsNullSerializesEmptyStringCommandInput,

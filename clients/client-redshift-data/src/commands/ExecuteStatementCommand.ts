@@ -67,6 +67,16 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @see {@link ExecuteStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
  *
+ * @throws {@link ActiveStatementsExceededException} (client fault)
+ *  <p>The number of active statements exceeds the limit.</p>
+ *
+ * @throws {@link ExecuteStatementException} (server fault)
+ *  <p>The SQL statement encountered an environmental error while running.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
+ *
+ *
  */
 export class ExecuteStatementCommand extends $Command<
   ExecuteStatementCommandInput,

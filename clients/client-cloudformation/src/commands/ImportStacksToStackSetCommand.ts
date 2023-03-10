@@ -58,6 +58,33 @@ export interface ImportStacksToStackSetCommandOutput extends ImportStacksToStack
  * @see {@link ImportStacksToStackSetCommandOutput} for command's `response` shape.
  * @see {@link CloudFormationClientResolvedConfig | config} for CloudFormationClient's `config` shape.
  *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The specified operation isn't valid.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The quota for the resource has already been reached.</p>
+ *          <p>For information about resource and stack limitations, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html">CloudFormation
+ *             quotas</a> in the <i>CloudFormation User Guide</i>.</p>
+ *
+ * @throws {@link OperationIdAlreadyExistsException} (client fault)
+ *  <p>The specified operation ID already exists.</p>
+ *
+ * @throws {@link OperationInProgressException} (client fault)
+ *  <p>Another operation is currently in progress for this stack set. Only one operation can be
+ *          performed for a stack set at a given time.</p>
+ *
+ * @throws {@link StackNotFoundException} (client fault)
+ *  <p>The specified stack ARN doesn't exist or stack doesn't exist corresponding to the ARN in
+ *          input.</p>
+ *
+ * @throws {@link StackSetNotFoundException} (client fault)
+ *  <p>The specified stack set doesn't exist.</p>
+ *
+ * @throws {@link StaleRequestException} (client fault)
+ *  <p>Another operation has been performed on this stack set since the specified operation was
+ *          performed.</p>
+ *
+ *
  */
 export class ImportStacksToStackSetCommand extends $Command<
   ImportStacksToStackSetCommandInput,

@@ -66,6 +66,10 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  * @see {@link UploadDocumentsCommandOutput} for command's `response` shape.
  * @see {@link CloudSearchDomainClientResolvedConfig | config} for CloudSearchDomainClient's `config` shape.
  *
+ * @throws {@link DocumentServiceException} (client fault)
+ *  <p>Information about any problems encountered while processing an upload request.</p>
+ *
+ *
  */
 export class UploadDocumentsCommand extends $Command<
   UploadDocumentsCommandInput,

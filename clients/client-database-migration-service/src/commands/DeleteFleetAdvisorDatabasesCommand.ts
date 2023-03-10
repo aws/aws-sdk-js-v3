@@ -56,6 +56,13 @@ export interface DeleteFleetAdvisorDatabasesCommandOutput
  * @see {@link DeleteFleetAdvisorDatabasesCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link InvalidOperationFault} (client fault)
+ *  <p>The action or operation requested isn't valid.</p>
+ *
+ * @throws {@link ResourceNotFoundFault} (client fault)
+ *  <p>The resource could not be found.</p>
+ *
+ *
  */
 export class DeleteFleetAdvisorDatabasesCommand extends $Command<
   DeleteFleetAdvisorDatabasesCommandInput,

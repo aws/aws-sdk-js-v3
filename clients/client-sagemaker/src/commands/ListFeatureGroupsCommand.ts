@@ -50,6 +50,7 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * @see {@link ListFeatureGroupsCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ *
  */
 export class ListFeatureGroupsCommand extends $Command<
   ListFeatureGroupsCommandInput,

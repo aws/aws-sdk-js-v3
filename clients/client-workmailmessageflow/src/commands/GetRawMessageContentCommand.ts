@@ -59,6 +59,10 @@ export interface GetRawMessageContentCommandOutput
  * @see {@link GetRawMessageContentCommandOutput} for command's `response` shape.
  * @see {@link WorkMailMessageFlowClientResolvedConfig | config} for WorkMailMessageFlowClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested email message is not found.</p>
+ *
+ *
  */
 export class GetRawMessageContentCommand extends $Command<
   GetRawMessageContentCommandInput,

@@ -51,6 +51,33 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResponse,
  * @see {@link CreateRepositoryCommandOutput} for command's `response` shape.
  * @see {@link ECRClientResolvedConfig | config} for ECRClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter is invalid. Review the available parameters for the API
+ *             request.</p>
+ *
+ * @throws {@link InvalidTagParameterException} (client fault)
+ *  <p>An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have
+ *             a maximum length of 256 characters.</p>
+ *
+ * @throws {@link KmsException} (client fault)
+ *  <p>The operation failed due to a KMS exception.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The operation did not succeed because it would have exceeded a service limit for your
+ *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
+ *             the Amazon Elastic Container Registry User Guide.</p>
+ *
+ * @throws {@link RepositoryAlreadyExistsException} (client fault)
+ *  <p>The specified repository already exists in the specified registry.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>The list of tags on the repository is over the limit. The maximum number of tags that
+ *             can be applied to a repository is 50.</p>
+ *
+ *
  * @example To create a new repository
  * ```javascript
  * // This example creates a repository called nginx-web-app inside the project-a namespace in the default registry for an account.

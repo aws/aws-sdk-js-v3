@@ -53,6 +53,7 @@ export interface DescribeIpamResourceDiscoveryAssociationsCommandOutput
  * @see {@link DescribeIpamResourceDiscoveryAssociationsCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeIpamResourceDiscoveryAssociationsCommand extends $Command<
   DescribeIpamResourceDiscoveryAssociationsCommandInput,

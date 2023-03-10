@@ -52,6 +52,16 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
  * @see {@link AssociateDeviceWithRoomCommandOutput} for command's `response` shape.
  * @see {@link AlexaForBusinessClientResolvedConfig | config} for AlexaForBusinessClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>There is a concurrent modification of resources.</p>
+ *
+ * @throws {@link DeviceNotRegisteredException} (client fault)
+ *  <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
+ *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>You are performing an action that would put you beyond your account's limits.</p>
+ *
+ *
  */
 export class AssociateDeviceWithRoomCommand extends $Command<
   AssociateDeviceWithRoomCommandInput,

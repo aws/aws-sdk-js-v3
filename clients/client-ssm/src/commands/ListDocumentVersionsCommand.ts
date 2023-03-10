@@ -50,6 +50,16 @@ export interface ListDocumentVersionsCommandOutput extends ListDocumentVersionsR
  * @see {@link ListDocumentVersionsCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>An error occurred on the server side.</p>
+ *
+ * @throws {@link InvalidDocument} (client fault)
+ *  <p>The specified SSM document doesn't exist.</p>
+ *
+ * @throws {@link InvalidNextToken} (client fault)
+ *  <p>The specified token isn't valid.</p>
+ *
+ *
  */
 export class ListDocumentVersionsCommand extends $Command<
   ListDocumentVersionsCommandInput,

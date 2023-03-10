@@ -65,6 +65,32 @@ export interface PutClusterCapacityProvidersCommandOutput
  * @see {@link PutClusterCapacityProvidersCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
+ * @throws {@link ClientException} (client fault)
+ *  <p>These errors are usually caused by a client action. This client action might be using
+ * 			an action or resource on behalf of a user that doesn't have permissions to use the
+ * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ *
+ * @throws {@link ClusterNotFoundException} (client fault)
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API
+ * 			request.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in-use and can't be removed.</p>
+ *
+ * @throws {@link ServerException} (server fault)
+ *  <p>These errors are usually caused by a server issue.</p>
+ *
+ * @throws {@link UpdateInProgressException} (client fault)
+ *  <p>There's already a current Amazon ECS container agent update in progress on the container
+ * 			instance that's specified. If the container agent becomes disconnected while it's in a
+ * 			transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the update
+ * 			process can get stuck in that state. However, when the agent reconnects, it resumes
+ * 			where it stopped previously.</p>
+ *
+ *
  */
 export class PutClusterCapacityProvidersCommand extends $Command<
   PutClusterCapacityProvidersCommandInput,

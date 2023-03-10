@@ -56,6 +56,19 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsListMes
  * @see {@link DescribeSnapshotsCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more incompatible parameters were specified.</p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p>The value for a parameter is invalid.</p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ *
  * @example DescribeSnapshots
  * ```javascript
  * // Returns information about the snapshot mysnapshot. By default.

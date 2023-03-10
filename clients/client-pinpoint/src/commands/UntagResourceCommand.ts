@@ -45,6 +45,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link PinpointClientResolvedConfig | config} for PinpointClient's `config` shape.
  *
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,

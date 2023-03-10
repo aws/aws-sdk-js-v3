@@ -50,6 +50,16 @@ export interface DescribeEngineVersionsCommandOutput extends DescribeEngineVersi
  * @see {@link DescribeEngineVersionsCommandOutput} for command's `response` shape.
  * @see {@link MemoryDBClientResolvedConfig | config} for MemoryDBClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DescribeEngineVersionsCommand extends $Command<
   DescribeEngineVersionsCommandInput,

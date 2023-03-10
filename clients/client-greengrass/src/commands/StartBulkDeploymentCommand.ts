@@ -50,6 +50,10 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * @see {@link StartBulkDeploymentCommandOutput} for command's `response` shape.
  * @see {@link GreengrassClientResolvedConfig | config} for GreengrassClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  General error information.
+ *
+ *
  */
 export class StartBulkDeploymentCommand extends $Command<
   StartBulkDeploymentCommandInput,

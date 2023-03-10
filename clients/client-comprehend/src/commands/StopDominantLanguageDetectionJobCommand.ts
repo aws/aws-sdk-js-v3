@@ -61,6 +61,16 @@ export interface StopDominantLanguageDetectionJobCommandOutput
  * @see {@link StopDominantLanguageDetectionJobCommandOutput} for command's `response` shape.
  * @see {@link ComprehendClientResolvedConfig | config} for ComprehendClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry your request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is invalid.</p>
+ *
+ * @throws {@link JobNotFoundException} (client fault)
+ *  <p>The specified job was not found. Check the job ID and try again.</p>
+ *
+ *
  */
 export class StopDominantLanguageDetectionJobCommand extends $Command<
   StopDominantLanguageDetectionJobCommandInput,

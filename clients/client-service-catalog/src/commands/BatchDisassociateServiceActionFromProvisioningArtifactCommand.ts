@@ -53,6 +53,10 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  * @see {@link BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
+ *
  */
 export class BatchDisassociateServiceActionFromProvisioningArtifactCommand extends $Command<
   BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,

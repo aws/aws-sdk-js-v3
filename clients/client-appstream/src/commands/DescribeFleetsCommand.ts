@@ -50,6 +50,10 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * @see {@link DescribeFleetsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DescribeFleetsCommand extends $Command<
   DescribeFleetsCommandInput,

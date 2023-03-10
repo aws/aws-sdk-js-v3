@@ -65,6 +65,14 @@ export interface DescribeVoicesCommandOutput extends DescribeVoicesOutput, __Met
  * @see {@link DescribeVoicesCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The NextToken is invalid. Verify that it's spelled correctly, and
+ *       then try again.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>An unknown condition has caused a service failure.</p>
+ *
+ *
  * @example To describe available voices
  * ```javascript
  * // Returns the list of voices that are available for use when requesting speech synthesis. Displayed languages are those within the specified language code. If no language code is specified, voices for all available languages are displayed.

@@ -50,6 +50,7 @@ export interface DeleteProgramCommandOutput extends DeleteProgramResponse, __Met
  * @see {@link DeleteProgramCommandOutput} for command's `response` shape.
  * @see {@link MediaTailorClientResolvedConfig | config} for MediaTailorClient's `config` shape.
  *
+ *
  */
 export class DeleteProgramCommand extends $Command<
   DeleteProgramCommandInput,

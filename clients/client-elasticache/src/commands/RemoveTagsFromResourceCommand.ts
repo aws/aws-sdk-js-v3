@@ -53,6 +53,43 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheClusterNotFoundFault} (client fault)
+ *  <p>The requested cluster ID does not refer to an existing cluster.</p>
+ *
+ * @throws {@link CacheParameterGroupNotFoundFault} (client fault)
+ *  <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>
+ *
+ * @throws {@link CacheSecurityGroupNotFoundFault} (client fault)
+ *  <p>The requested cache security group name does not refer to an existing cache security group.</p>
+ *
+ * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
+ *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ *
+ * @throws {@link InvalidARNFault} (client fault)
+ *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
+ *
+ * @throws {@link InvalidReplicationGroupStateFault} (client fault)
+ *  <p>The requested replication group is not in the <code>available</code> state.</p>
+ *
+ * @throws {@link ReplicationGroupNotFoundFault} (client fault)
+ *  <p>The specified replication group does not exist.</p>
+ *
+ * @throws {@link ReservedCacheNodeNotFoundFault} (client fault)
+ *  <p>The requested reserved cache node was not found.</p>
+ *
+ * @throws {@link SnapshotNotFoundFault} (client fault)
+ *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
+ *
+ * @throws {@link TagNotFoundFault} (client fault)
+ *  <p>The requested tag was not found on this resource.</p>
+ *
+ * @throws {@link UserGroupNotFoundFault} (client fault)
+ *  <p>The user group was not found or does not exist</p>
+ *
+ * @throws {@link UserNotFoundFault} (client fault)
+ *  <p>The user does not exist or could not be found.</p>
+ *
+ *
  * @example RemoveTagsFromResource
  * ```javascript
  * // Removes tags identified by a list of tag keys from the list of tags on the specified resource.

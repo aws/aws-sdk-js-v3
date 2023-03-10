@@ -53,6 +53,25 @@ export interface DescribeNodeConfigurationOptionsCommandOutput
  * @see {@link DescribeNodeConfigurationOptionsCommandOutput} for command's `response` shape.
  * @see {@link RedshiftClientResolvedConfig | config} for RedshiftClient's `config` shape.
  *
+ * @throws {@link AccessToSnapshotDeniedFault} (client fault)
+ *  <p>The owner of the specified snapshot has not authorized your account to access the
+ *             snapshot.</p>
+ *
+ * @throws {@link ClusterNotFoundFault} (client fault)
+ *  <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.
+ *         </p>
+ *
+ * @throws {@link ClusterSnapshotNotFoundFault} (client fault)
+ *  <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>
+ *
+ * @throws {@link InvalidClusterSnapshotStateFault} (client fault)
+ *  <p>The specified cluster snapshot is not in the <code>available</code> state, or other
+ *             accounts are authorized to access the snapshot. </p>
+ *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
+ *
  */
 export class DescribeNodeConfigurationOptionsCommand extends $Command<
   DescribeNodeConfigurationOptionsCommandInput,

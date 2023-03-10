@@ -50,6 +50,24 @@ export interface DeleteDeploymentGroupCommandOutput extends DeleteDeploymentGrou
  * @see {@link DeleteDeploymentGroupCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link ApplicationNameRequiredException} (client fault)
+ *  <p>The minimum number of required application names was not specified.</p>
+ *
+ * @throws {@link DeploymentGroupNameRequiredException} (client fault)
+ *  <p>The deployment group name was not specified.</p>
+ *
+ * @throws {@link InvalidApplicationNameException} (client fault)
+ *  <p>The application name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidDeploymentGroupNameException} (client fault)
+ *  <p>The deployment group name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidRoleException} (client fault)
+ *  <p>The service role ARN was specified in an invalid format. Or, if an Auto Scaling
+ *             group was specified, the specified service role does not grant the appropriate
+ *             permissions to Amazon EC2 Auto Scaling.</p>
+ *
+ *
  */
 export class DeleteDeploymentGroupCommand extends $Command<
   DeleteDeploymentGroupCommandInput,

@@ -60,6 +60,7 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  * @see {@link RemovePermissionCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ *
  */
 export class RemovePermissionCommand extends $Command<
   RemovePermissionCommandInput,

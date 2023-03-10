@@ -50,6 +50,13 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  * @see {@link DeleteImagePermissionsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link ResourceNotAvailableException} (client fault)
+ *  <p>The specified resource exists and is not in use, but isn't available.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ *
  */
 export class DeleteImagePermissionsCommand extends $Command<
   DeleteImagePermissionsCommandInput,

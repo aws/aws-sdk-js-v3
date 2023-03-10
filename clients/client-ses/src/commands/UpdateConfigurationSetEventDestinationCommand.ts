@@ -64,6 +64,25 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput
  * @see {@link UpdateConfigurationSetEventDestinationCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link ConfigurationSetDoesNotExistException} (client fault)
+ *  <p>Indicates that the configuration set does not exist.</p>
+ *
+ * @throws {@link EventDestinationDoesNotExistException} (client fault)
+ *  <p>Indicates that the event destination does not exist.</p>
+ *
+ * @throws {@link InvalidCloudWatchDestinationException} (client fault)
+ *  <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for
+ *             details.</p>
+ *
+ * @throws {@link InvalidFirehoseDestinationException} (client fault)
+ *  <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error
+ *             message for details.</p>
+ *
+ * @throws {@link InvalidSNSDestinationException} (client fault)
+ *  <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is
+ *             invalid. See the error message for details.</p>
+ *
+ *
  */
 export class UpdateConfigurationSetEventDestinationCommand extends $Command<
   UpdateConfigurationSetEventDestinationCommandInput,

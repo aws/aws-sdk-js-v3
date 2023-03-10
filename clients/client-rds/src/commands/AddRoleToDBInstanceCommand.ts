@@ -49,6 +49,20 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * @see {@link AddRoleToDBInstanceCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
+ * @throws {@link DBInstanceNotFoundFault} (client fault)
+ *  <p>
+ *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
+ *
+ * @throws {@link DBInstanceRoleAlreadyExistsFault} (client fault)
+ *  <p>The specified <code>RoleArn</code> or <code>FeatureName</code> value is already associated with the DB instance.</p>
+ *
+ * @throws {@link DBInstanceRoleQuotaExceededFault} (client fault)
+ *  <p>You can't associate any more Amazon Web Services Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.</p>
+ *
+ * @throws {@link InvalidDBInstanceStateFault} (client fault)
+ *  <p>The DB instance isn't in a valid state.</p>
+ *
+ *
  */
 export class AddRoleToDBInstanceCommand extends $Command<
   AddRoleToDBInstanceCommandInput,

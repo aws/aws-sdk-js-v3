@@ -52,6 +52,18 @@ export interface UpdateCustomVerificationEmailTemplateCommandOutput extends __Me
  * @see {@link UpdateCustomVerificationEmailTemplateCommandOutput} for command's `response` shape.
  * @see {@link SESClientResolvedConfig | config} for SESClient's `config` shape.
  *
+ * @throws {@link CustomVerificationEmailInvalidContentException} (client fault)
+ *  <p>Indicates that custom verification email template provided content is invalid.</p>
+ *
+ * @throws {@link CustomVerificationEmailTemplateDoesNotExistException} (client fault)
+ *  <p>Indicates that a custom verification email template with the name you specified does
+ *             not exist.</p>
+ *
+ * @throws {@link FromEmailAddressNotVerifiedException} (client fault)
+ *  <p>Indicates that the sender address specified for a custom verification email is not
+ *             verified, and is therefore not eligible to send the custom verification email. </p>
+ *
+ *
  */
 export class UpdateCustomVerificationEmailTemplateCommand extends $Command<
   UpdateCustomVerificationEmailTemplateCommandInput,

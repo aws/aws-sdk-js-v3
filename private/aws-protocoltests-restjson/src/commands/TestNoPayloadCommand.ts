@@ -49,6 +49,7 @@ export interface TestNoPayloadCommandOutput extends TestNoPayloadInputOutput, __
  * @see {@link TestNoPayloadCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
  *
+ *
  */
 export class TestNoPayloadCommand extends $Command<
   TestNoPayloadCommandInput,

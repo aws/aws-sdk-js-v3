@@ -53,6 +53,35 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * @see {@link StartSnapshotCommandOutput} for command's `response` shape.
  * @see {@link EBSClientResolvedConfig | config} for EBSClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConcurrentLimitExceededException} (client fault)
+ *  <p>You have reached the limit for concurrent API requests. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-accessing-snapshot.html#ebsapi-performance">Optimizing performance of the EBS direct APIs</a> in the <i>Amazon Elastic Compute Cloud
+ *                 User Guide</i>.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request uses the same client token as a previous, but non-identical
+ *             request.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal error has occurred.</p>
+ *
+ * @throws {@link RequestThrottledException} (client fault)
+ *  <p>The number of API requests has exceed the maximum allowed API request throttling
+ *             limit.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Your current service quotas do not allow you to perform this action.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
+ *
+ *
  */
 export class StartSnapshotCommand extends $Command<
   StartSnapshotCommandInput,

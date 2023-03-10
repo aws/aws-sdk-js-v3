@@ -56,6 +56,23 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @see {@link ExecuteSqlCommandOutput} for command's `response` shape.
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>There is an error in the call or in a SQL statement.</p>
+ *
+ * @throws {@link ForbiddenException} (client fault)
+ *  <p>There are insufficient privileges to make the call.</p>
+ *
+ * @throws {@link InternalServerErrorException} (server fault)
+ *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link ServiceUnavailableError} (server fault)
+ *  <p>The service specified by the <code>resourceArn</code> parameter is not
+ *             available.</p>
+ *
+ *
  */
 export class ExecuteSqlCommand extends $Command<
   ExecuteSqlCommandInput,

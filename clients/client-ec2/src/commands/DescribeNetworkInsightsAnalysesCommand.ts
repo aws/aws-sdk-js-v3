@@ -52,6 +52,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * @see {@link DescribeNetworkInsightsAnalysesCommandOutput} for command's `response` shape.
  * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
  *
+ *
  */
 export class DescribeNetworkInsightsAnalysesCommand extends $Command<
   DescribeNetworkInsightsAnalysesCommandInput,

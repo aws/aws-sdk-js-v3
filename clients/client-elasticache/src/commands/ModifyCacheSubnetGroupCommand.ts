@@ -50,6 +50,23 @@ export interface ModifyCacheSubnetGroupCommandOutput extends ModifyCacheSubnetGr
  * @see {@link ModifyCacheSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link ElastiCacheClientResolvedConfig | config} for ElastiCacheClient's `config` shape.
  *
+ * @throws {@link CacheSubnetGroupNotFoundFault} (client fault)
+ *  <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>
+ *
+ * @throws {@link CacheSubnetQuotaExceededFault} (client fault)
+ *  <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>
+ *
+ * @throws {@link InvalidSubnet} (client fault)
+ *  <p>An invalid subnet identifier was specified.</p>
+ *
+ * @throws {@link SubnetInUse} (client fault)
+ *  <p>The requested subnet is being used by another cache subnet group.</p>
+ *
+ * @throws {@link SubnetNotAllowedFault} (client fault)
+ *  <p>At least one subnet ID does not match the other subnet IDs. This mismatch typically occurs when a
+ *             user sets one subnet ID to a regional Availability Zone and a different one to an outpost. Or when a user sets the subnet ID to an Outpost when not subscribed on this service.</p>
+ *
+ *
  * @example ModifyCacheSubnetGroup
  * ```javascript
  * // Modifies an existing ElastiCache subnet group.

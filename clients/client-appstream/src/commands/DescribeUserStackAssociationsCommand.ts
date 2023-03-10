@@ -60,6 +60,13 @@ export interface DescribeUserStackAssociationsCommandOutput
  * @see {@link DescribeUserStackAssociationsCommandOutput} for command's `response` shape.
  * @see {@link AppStreamClientResolvedConfig | config} for AppStreamClient's `config` shape.
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
+ *
+ * @throws {@link OperationNotPermittedException} (client fault)
+ *  <p>The attempted operation is not permitted.</p>
+ *
+ *
  */
 export class DescribeUserStackAssociationsCommand extends $Command<
   DescribeUserStackAssociationsCommandInput,

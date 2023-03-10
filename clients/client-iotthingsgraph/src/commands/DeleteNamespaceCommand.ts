@@ -53,6 +53,13 @@ export interface DeleteNamespaceCommandOutput extends DeleteNamespaceResponse, _
  * @see {@link DeleteNamespaceCommandOutput} for command's `response` shape.
  * @see {@link IoTThingsGraphClientResolvedConfig | config} for IoTThingsGraphClient's `config` shape.
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p></p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p></p>
+ *
+ *
  */
 export class DeleteNamespaceCommand extends $Command<
   DeleteNamespaceCommandInput,

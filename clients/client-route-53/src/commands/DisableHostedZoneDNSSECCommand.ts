@@ -52,6 +52,34 @@ export interface DisableHostedZoneDNSSECCommandOutput extends DisableHostedZoneD
  * @see {@link DisableHostedZoneDNSSECCommandOutput} for command's `response` shape.
  * @see {@link Route53ClientResolvedConfig | config} for Route53Client's `config` shape.
  *
+ * @throws {@link ConcurrentModification} (client fault)
+ *  <p>Another user submitted a request to create, update, or delete the object at the same
+ * 			time that you did. Retry the request. </p>
+ *
+ * @throws {@link DNSSECNotFound} (client fault)
+ *  <p>The hosted zone doesn't have any DNSSEC resources.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>Parameter name is not valid.</p>
+ *
+ * @throws {@link InvalidInput} (client fault)
+ *  <p>The input is not valid.</p>
+ *
+ * @throws {@link InvalidKeySigningKeyStatus} (client fault)
+ *  <p>The key-signing key (KSK) status isn't valid or another KSK has the status
+ * 				<code>INTERNAL_FAILURE</code>.</p>
+ *
+ * @throws {@link InvalidKMSArn} (client fault)
+ *  <p>The KeyManagementServiceArn that you specified isn't valid to use with DNSSEC
+ * 			signing.</p>
+ *
+ * @throws {@link KeySigningKeyInParentDSRecord} (client fault)
+ *  <p>The key-signing key (KSK) is specified in a parent DS record.</p>
+ *
+ * @throws {@link NoSuchHostedZone} (client fault)
+ *  <p>No hosted zone exists with the ID that you specified.</p>
+ *
+ *
  */
 export class DisableHostedZoneDNSSECCommand extends $Command<
   DisableHostedZoneDNSSECCommandInput,

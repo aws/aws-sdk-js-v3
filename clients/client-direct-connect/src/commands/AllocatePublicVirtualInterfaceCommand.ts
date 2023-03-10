@@ -55,6 +55,19 @@ export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInte
  * @see {@link AllocatePublicVirtualInterfaceCommandOutput} for command's `response` shape.
  * @see {@link DirectConnectClientResolvedConfig | config} for DirectConnectClient's `config` shape.
  *
+ * @throws {@link DirectConnectClientException} (client fault)
+ *  <p>One or more parameters are not valid.</p>
+ *
+ * @throws {@link DirectConnectServerException} (server fault)
+ *  <p>A server-side error occurred.</p>
+ *
+ * @throws {@link DuplicateTagKeysException} (client fault)
+ *  <p>A tag key was specified more than once.</p>
+ *
+ * @throws {@link TooManyTagsException} (client fault)
+ *  <p>You have reached the limit on the number of tags that can be assigned.</p>
+ *
+ *
  */
 export class AllocatePublicVirtualInterfaceCommand extends $Command<
   AllocatePublicVirtualInterfaceCommandInput,

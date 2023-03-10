@@ -59,6 +59,31 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * @see {@link DetectEntitiesCommandOutput} for command's `response` shape.
  * @see {@link ComprehendMedicalClientResolvedConfig | config} for ComprehendMedicalClient's `config` shape.
  *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p> An internal server error occurred. Retry your request. </p>
+ *
+ * @throws {@link InvalidEncodingException} (client fault)
+ *  <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your
+ *       request.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p> The request that you made is invalid. Check your request to determine why it's invalid
+ *       and then retry the request.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p> The Comprehend Medical; service is temporarily unavailable. Please wait and then retry your request.
+ *     </p>
+ *
+ * @throws {@link TextSizeLimitExceededException} (client fault)
+ *  <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or
+ *       use a smaller document and then retry your request. </p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p> You have made too many requests within a short period of time. Wait for a short time and
+ *       then try your request again. Contact customer support for more information about a service
+ *       limit increase. </p>
+ *
+ *
  */
 export class DetectEntitiesCommand extends $Command<
   DetectEntitiesCommandInput,

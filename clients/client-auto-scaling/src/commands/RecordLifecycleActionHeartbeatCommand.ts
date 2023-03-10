@@ -88,6 +88,11 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
  * @see {@link RecordLifecycleActionHeartbeatCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link ResourceContentionFault} (server fault)
+ *  <p>You already have a pending update to an Amazon EC2 Auto Scaling resource (for example, an Auto Scaling group,
+ *             instance, or load balancer).</p>
+ *
+ *
  * @example To record a lifecycle action heartbeat
  * ```javascript
  * // This example records a lifecycle action heartbeat to keep the instance in a pending state.

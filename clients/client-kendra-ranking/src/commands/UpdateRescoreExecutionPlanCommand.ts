@@ -53,6 +53,44 @@ export interface UpdateRescoreExecutionPlanCommandOutput extends __MetadataBeare
  * @see {@link UpdateRescoreExecutionPlanCommandOutput} for command's `response` shape.
  * @see {@link KendraRankingClientResolvedConfig | config} for KendraRankingClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don’t have sufficient access to perform this action.
+ *             Please ensure you have the required permission policies
+ *             and user accounts and try again.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>A conflict occurred with the request. Please fix any
+ *             inconsistencies with your resources and try again.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An issue occurred with the internal server used for
+ *             your Amazon Kendra Intelligent Ranking service.
+ *             Please wait a few minutes and try again, or contact
+ *             <a href="http://aws.amazon.com/contact-us/">Support</a>
+ *             for help.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource you want to use doesn't exist. Please
+ *             check you have provided the correct resource and try
+ *             again.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded the set limits for your
+ *             Amazon Kendra Intelligent Ranking service. Please
+ *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas</a>
+ *             for more information, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> to inquire about
+ *             an increase of limits.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.
+ *             Please reduce the number of requests and try again.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints set by
+ *             the Amazon Kendra Intelligent Ranking service.
+ *             Please provide the correct input and try again.</p>
+ *
+ *
  */
 export class UpdateRescoreExecutionPlanCommand extends $Command<
   UpdateRescoreExecutionPlanCommandInput,

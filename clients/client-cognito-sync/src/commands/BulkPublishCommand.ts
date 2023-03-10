@@ -50,6 +50,29 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  * @see {@link BulkPublishCommandOutput} for command's `response` shape.
  * @see {@link CognitoSyncClientResolvedConfig | config} for CognitoSyncClient's `config` shape.
  *
+ * @throws {@link AlreadyStreamedException} (client fault)
+ *  An exception thrown when a bulk publish operation is requested less than 24 hours after a previous bulk publish operation completed successfully.
+ *
+ * @throws {@link DuplicateRequestException} (client fault)
+ *  An exception thrown when there is an IN_PROGRESS bulk publish operation for the given identity pool.
+ *
+ * @throws {@link InternalErrorException} (server fault)
+ *  Indicates an internal service
+ *       error.
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  Thrown when a request parameter does not comply
+ *       with the associated constraints.
+ *
+ * @throws {@link NotAuthorizedException} (client fault)
+ *  Thrown when a user is not authorized to access the
+ *       requested resource.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  Thrown if the resource doesn't
+ *       exist.
+ *
+ *
  */
 export class BulkPublishCommand extends $Command<
   BulkPublishCommandInput,

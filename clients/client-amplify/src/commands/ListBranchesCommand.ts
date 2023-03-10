@@ -50,6 +50,16 @@ export interface ListBranchesCommandOutput extends ListBranchesResult, __Metadat
  * @see {@link ListBranchesCommandOutput} for command's `response` shape.
  * @see {@link AmplifyClientResolvedConfig | config} for AmplifyClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p> A request contains unexpected data. </p>
+ *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p> The service failed to perform an operation due to an internal issue. </p>
+ *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p> An operation failed due to a lack of access. </p>
+ *
+ *
  */
 export class ListBranchesCommand extends $Command<
   ListBranchesCommandInput,

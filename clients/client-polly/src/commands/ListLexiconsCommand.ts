@@ -50,6 +50,14 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  * @see {@link ListLexiconsCommandOutput} for command's `response` shape.
  * @see {@link PollyClientResolvedConfig | config} for PollyClient's `config` shape.
  *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The NextToken is invalid. Verify that it's spelled correctly, and
+ *       then try again.</p>
+ *
+ * @throws {@link ServiceFailureException} (server fault)
+ *  <p>An unknown condition has caused a service failure.</p>
+ *
+ *
  * @example To list all lexicons in a region
  * ```javascript
  * // Returns a list of pronunciation lexicons stored in an AWS Region.
