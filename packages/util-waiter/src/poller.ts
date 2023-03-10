@@ -2,6 +2,8 @@ import { sleep } from "./utils/sleep";
 import { WaiterOptions, WaiterResult, WaiterState } from "./waiter";
 
 /**
+ * @internal
+ *
  * Reference: https://smithy.io/2.0/additional-specs/waiters.html#waiter-retries
  */
 const exponentialBackoffWithJitter = (minDelay: number, maxDelay: number, attemptCeiling: number, attempt: number) => {
