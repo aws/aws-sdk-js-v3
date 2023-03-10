@@ -1,6 +1,9 @@
 import { constructStack } from "@aws-sdk/middleware-stack";
 import { Client as IClient, Command, MetadataBearer, MiddlewareStack, RequestHandler } from "@aws-sdk/types";
 
+/**
+ * @public
+ */
 export interface SmithyConfiguration<HandlerOptions> {
   requestHandler: RequestHandler<any, any, HandlerOptions>;
   /**
@@ -11,8 +14,14 @@ export interface SmithyConfiguration<HandlerOptions> {
   readonly apiVersion: string;
 }
 
+/**
+ * @public
+ */
 export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<HandlerOptions>;
 
+/**
+ * @public
+ */
 export class Client<
   HandlerOptions,
   ClientInput extends object,

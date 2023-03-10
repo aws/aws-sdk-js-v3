@@ -1,6 +1,9 @@
 import { constructStack } from "@aws-sdk/middleware-stack";
 import { Command as ICommand, Handler, MetadataBearer, MiddlewareStack as IMiddlewareStack } from "@aws-sdk/types";
 
+/**
+ * @public
+ */
 export abstract class Command<
   Input extends ClientInput,
   Output extends ClientOutput,

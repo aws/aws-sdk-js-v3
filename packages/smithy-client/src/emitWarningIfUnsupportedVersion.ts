@@ -2,6 +2,8 @@
 let warningEmitted = false;
 
 /**
+ * @public
+ *
  * Emits warning if the provided Node.js version string is pending deprecation.
  *
  * @param {string} version - The Node.js version string.

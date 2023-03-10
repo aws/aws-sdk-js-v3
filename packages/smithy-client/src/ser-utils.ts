@@ -1,4 +1,6 @@
 /**
+ * @public
+ *
  * Serializes a number, turning non-numeric values into strings.
  *
  * @param value The number to serialize.
