@@ -1457,6 +1457,9 @@ const deserializeAws_restJson1UpdateLoggingConfigurationCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ivschat#AccessDeniedException":
       throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ivschat#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
     case "PendingVerification":
     case "com.amazonaws.ivschat#PendingVerification":
       throw await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context);
