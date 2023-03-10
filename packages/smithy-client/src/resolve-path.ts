@@ -1,7 +1,7 @@
 import { extendedEncodeURIComponent } from "./extended-encode-uri-component";
 
 /**
- * @public
+ * @internal
  */
 export const resolvedPath = (
   resolvedPath: string,

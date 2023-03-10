@@ -30,7 +30,7 @@ export const loadConfigsForDefaultMode = (mode: ResolvedDefaultsMode): DefaultsM
 };
 
 /**
- * @public
+ * @internal
  *
  * Option determining how certain default configuration options are resolved in the SDK. It can be one of the value listed below:
  * * `"standard"`: <p>The STANDARD mode provides the latest recommended default values that should be safe to run in most scenarios</p><p>Note that the default values vended from this mode might change as best practices may evolve. As a result, it is encouraged to perform tests when upgrading the SDK</p>

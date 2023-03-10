@@ -2,7 +2,7 @@
 let warningEmitted = false;
 
 /**
- * @public
+ * @internal
  *
  * Emits warning if the provided Node.js version string is pending deprecation.
  *

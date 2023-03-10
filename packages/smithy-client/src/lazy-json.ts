@@ -12,7 +12,7 @@ interface StringWrapper {
  * So here we create StringWrapper that duplicate everything from String
  * class including its prototype chain. So we can extend from here.
  *
- * @public
+ * @internal
  */
 // @ts-ignore StringWrapper implementation is not a simple constructor
 export const StringWrapper: StringWrapper = function () {
@@ -35,7 +35,7 @@ StringWrapper.prototype = Object.create(String.prototype, {
 Object.setPrototypeOf(StringWrapper, String);
 
 /**
- * @public
+ * @internal
  */
 export class LazyJsonString extends StringWrapper {
   deserializeJSON(): any {

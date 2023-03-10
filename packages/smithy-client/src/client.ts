@@ -2,7 +2,7 @@ import { constructStack } from "@aws-sdk/middleware-stack";
 import { Client as IClient, Command, MetadataBearer, MiddlewareStack, RequestHandler } from "@aws-sdk/types";
 
 /**
- * @public
+ * @internal
  */
 export interface SmithyConfiguration<HandlerOptions> {
   requestHandler: RequestHandler<any, any, HandlerOptions>;
@@ -15,12 +15,12 @@ export interface SmithyConfiguration<HandlerOptions> {
 }
 
 /**
- * @public
+ * @internal
  */
 export type SmithyResolvedConfiguration<HandlerOptions> = SmithyConfiguration<HandlerOptions>;
 
 /**
- * @public
+ * @internal
  */
 export class Client<
   HandlerOptions,

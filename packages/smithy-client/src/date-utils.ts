@@ -8,7 +8,7 @@ const DAYS: Array<String> = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const MONTHS: Array<String> = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 /**
- * @public
+ * @internal
  *
  * Builds a proper UTC HttpDate timestamp from a Date object
  * since not all environments will have this as the expected
@@ -42,7 +42,7 @@ export function dateToUtcString(date: Date): string {
 const RFC3339 = new RegExp(/^(\d{4})-(\d{2})-(\d{2})[tT](\d{2}):(\d{2}):(\d{2})(?:\.(\d+))?[zZ]$/);
 
 /**
- * @public
+ * @internal
  *
  * Parses a value into a Date. Returns undefined if the input is null or
  * undefined, throws an error if the input is not a string that can be parsed
@@ -82,7 +82,7 @@ const RFC3339_WITH_OFFSET = new RegExp(
 );
 
 /**
- * @public
+ * @internal
  *
  * Parses a value into a Date. Returns undefined if the input is null or
  * undefined, throws an error if the input is not a string that can be parsed
@@ -134,7 +134,7 @@ const ASC_TIME = new RegExp(
 );
 
 /**
- * @public
+ * @internal
  *
  * Parses a value into a Date. Returns undefined if the input is null or
  * undefined, throws an error if the input is not a string that can be parsed
@@ -197,7 +197,7 @@ export const parseRfc7231DateTime = (value: unknown): Date | undefined => {
 };
 
 /**
- * @public
+ * @internal
  *
  * Parses a value into a Date. Returns undefined if the input is null or
  * undefined, throws an error if the input is not a number or a parseable string.

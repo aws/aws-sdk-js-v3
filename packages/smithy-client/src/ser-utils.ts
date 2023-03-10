@@ -1,5 +1,5 @@
 /**
- * @public
+ * @internal
  *
  * Serializes a number, turning non-numeric values into strings.
  *

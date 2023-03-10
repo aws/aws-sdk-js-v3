@@ -1,7 +1,7 @@
 import { Logger } from "@aws-sdk/types";
 
 /**
- * @public
+ * @internal
  */
 export class NoOpLogger implements Logger {
   public trace() {}
