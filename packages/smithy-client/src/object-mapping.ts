@@ -204,7 +204,6 @@ export function map(arg0: any, arg1?: any, arg2?: any): any {
  * filter.
  *
  * @internal
- * @internal
  */
 export const convertMap = (target: any): Record<string, any> => {
   const output: Record<string, any> = {};
@@ -221,7 +220,6 @@ export const convertMap = (target: any): Record<string, any> => {
  * @param filter - uniform filter function to apply to all values
  * @param instructions - map of keys and values/suppliers (will be evaluated)
  *
- * @private
  * @internal
  */
 const mapWithFilter = (
