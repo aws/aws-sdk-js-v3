@@ -1,5 +1,5 @@
 /**
- * @public
+ * @internal
  *
  * A set of instructions for multiple keys.
  * The aim is to provide a concise yet readable way to map and filter values
@@ -47,7 +47,7 @@
 export type ObjectMappingInstructions = Record<string, ObjectMappingInstruction>;
 
 /**
- * @public
+ * @internal
  *
  * An instruction set for assigning a value to a target object.
  */
@@ -59,30 +59,30 @@ export type ObjectMappingInstruction =
   | UnfilteredValue;
 
 /**
- * @public
+ * @internal
  *
  * non-array
  */
 export type UnfilteredValue = any;
 /**
- * @public
+ * @internal
  */
 export type LazyValueInstruction = [FilterStatus, ValueSupplier];
 /**
- * @public
+ * @internal
  */
 export type ConditionalLazyValueInstruction = [FilterStatusSupplier, ValueSupplier];
 /**
- * @public
+ * @internal
  */
 export type SimpleValueInstruction = [FilterStatus, Value];
 /**
- * @public
+ * @internal
  */
 export type ConditionalValueInstruction = [ValueFilteringFunction, Value];
 
 /**
- * @public
+ * @internal
  *
  * Filter is considered passed if
  * 1. It is a boolean true.
@@ -92,34 +92,35 @@ export type ConditionalValueInstruction = [ValueFilteringFunction, Value];
 export type FilterStatus = boolean | unknown | void;
 
 /**
- * @public
+ * @internal
  *
  * Supplies the filter check but not against any value as input.
  */
 export type FilterStatusSupplier = () => boolean;
 
 /**
- * @public
+ * @internal
  *
  * Filter check with the given value.
  */
 export type ValueFilteringFunction = (value: any) => boolean;
 
 /**
- * @public
+ * @internal
  *
  * Supplies the value for lazy evaluation.
  */
 export type ValueSupplier = () => any;
 
 /**
- * @public
+ * @internal
  *
  * A non-function value.
  */
 export type Value = any;
 
 /**
+ * @internal
  * Internal/Private, for codegen use only.
  *
  * Transfer a set of keys from [instructions] to [target].
@@ -129,8 +130,6 @@ export type Value = any;
  * The target assigned value will be supplied by the instructions as an evaluable function or non-function value.
  *
  * @see ObjectMappingInstructions for an example.
- * @internal
- * @internal
  */
 export function map(
   target: any,
@@ -138,15 +137,15 @@ export function map(
   instructions: Record<string, ValueSupplier | Value>
 ): typeof target;
 /**
- * @public
+ * @internal
  */
 export function map(instructions: Record<string, ObjectMappingInstruction>): any;
 /**
- * @public
+ * @internal
  */
 export function map(target: any, instructions: Record<string, ObjectMappingInstruction>): typeof target;
 /**
- * @public
+ * @internal
  */
 export function map(arg0: any, arg1?: any, arg2?: any): any {
   let target: any;
