@@ -1,13 +1,16 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { HttpAuthLocation, MiddlewareStack } from "@aws-sdk/types";
 
-import { apiKeyMiddleware, getApiKeyPlugin } from "./index";
+import { apiKeyMiddleware, getApiKeyPlugin } from "./middleware";
 
-describe("getApiKeyPlugin", () => {
+describe(getApiKeyPlugin.name, () => {
   it("should apply the middleware to the stack", () => {
     const plugin = getApiKeyPlugin(
       {
         apiKey: () => Promise.resolve("example-api-key"),
+        identity: () => Promise.resolve({
+          token: "example-api-key"
+        }),
       },
       {
         in: HttpAuthLocation.QUERY,
@@ -48,7 +51,10 @@ describe(apiKeyMiddleware.name, () => {
     it("should set the query parameter if the location is `query`", async () => {
       const middleware = apiKeyMiddleware(
         {
-          apiKey: () => Promise.resolve("example-api-key"),
+          apiKey: undefined,
+          identity: () => Promise.resolve({
+            token: "example-api-key"
+          }),
         },
         {
           in: HttpAuthLocation.QUERY,
@@ -69,7 +75,10 @@ describe(apiKeyMiddleware.name, () => {
 
     it("should skip if the api key has not been set", async () => {
       const middleware = apiKeyMiddleware(
-        {},
+        {
+          apiKey: undefined,
+          identity: undefined,
+        },
         {
           in: HttpAuthLocation.HEADER,
           name: "auth",
@@ -89,7 +98,10 @@ describe(apiKeyMiddleware.name, () => {
 
     it("should skip if the request is not an HttpRequest", async () => {
       const middleware = apiKeyMiddleware(
-        {},
+        {
+          apiKey: undefined,
+          identity: undefined,
+        },
         {
           in: HttpAuthLocation.HEADER,
           name: "Authorization",
@@ -106,10 +118,38 @@ describe(apiKeyMiddleware.name, () => {
       expect(mockNextHandler.mock.calls.length).toEqual(1);
     });
 
+    it("should skip if the identity is not a token identity", async () => {
+      const middleware = apiKeyMiddleware(
+        {
+          apiKey: undefined,
+          identity: async () => ({
+            not: "a token identity"
+          }),
+        } as any,
+        {
+          in: HttpAuthLocation.HEADER,
+          name: "auth",
+          scheme: "scheme",
+        }
+      );
+
+      const handler = middleware(mockNextHandler, {});
+
+      await handler({
+        input: {},
+        request: new HttpRequest({}),
+      });
+
+      expect(mockNextHandler.mock.calls.length).toEqual(1);
+    });
+
     it("should set the API key in the lower-cased named header", async () => {
       const middleware = apiKeyMiddleware(
         {
-          apiKey: () => Promise.resolve("example-api-key"),
+          apiKey: undefined,
+          identity: () => Promise.resolve({
+            token: "example-api-key"
+          }),
         },
         {
           in: HttpAuthLocation.HEADER,
@@ -131,7 +171,10 @@ describe(apiKeyMiddleware.name, () => {
     it("should set the API key in the named header with the provided scheme", async () => {
       const middleware = apiKeyMiddleware(
         {
-          apiKey: () => Promise.resolve("example-api-key"),
+          apiKey: undefined,
+          identity: () => Promise.resolve({
+            token: "example-api-key"
+          }),
         },
         {
           in: HttpAuthLocation.HEADER,

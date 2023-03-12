@@ -9,10 +9,12 @@ import {
   Pluggable,
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
+import { isTokenIdentity } from "@aws-sdk/util-auth";
 
 import { ApiKeyResolvedConfig } from "./configurations";
 
 /**
+ * @internal
  * Middleware to inject the API key into the HTTP request.
  *
  * The middleware will inject the client's configured API key into the
@@ -34,30 +36,37 @@ export const apiKeyMiddleware =
     async function (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> {
       if (!HttpRequest.isInstance(args.request) || context.currentAuthConfig) return next(args);
 
-      const apiKey = pluginConfig.apiKey && (await pluginConfig.apiKey());
-
       // This middleware will not be injected if the operation has the @optionalAuth trait.
       // We don't know if we're the only auth middleware, so let the service deal with the
       // absence of the API key (or let other middleware do its job).
-      if (!apiKey) {
+      if (pluginConfig.identity === undefined) {
         context.currentAuthConfig = undefined;
         return next(args);
       }
+      const identity = await pluginConfig.identity();
+      if (!isTokenIdentity(identity)) {
+        context.currentAuthConfig = undefined;
+        return next(args);
+      }
+
       context.currentAuthConfig = middlewareConfig;
 
       if (middlewareConfig.in === "header") {
         // Set the header, even if it's already been set.
         args.request.headers[middlewareConfig.name.toLowerCase()] = middlewareConfig.scheme
-          ? `${middlewareConfig.scheme} ${apiKey}`
-          : apiKey;
+          ? `${middlewareConfig.scheme} ${identity.token}`
+          : identity.token;
       } else if (middlewareConfig.in === "query") {
         // Set the query parameter, even if it's already been set.
-        args.request.query[middlewareConfig.name] = apiKey;
+        args.request.query[middlewareConfig.name] = identity.token;
       }
 
       return next(args);
     };
 
+/**
+ * @internal
+ */
 export const apiKeyMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "apiKeyMiddleware",
   tags: ["APIKEY", "AUTH"],
@@ -66,6 +75,9 @@ export const apiKeyMiddlewareOptions: RelativeMiddlewareOptions = {
   override: true,
 };
 
+/**
+ * @internal
+ */
 export const getApiKeyPlugin = (
   pluginConfig: ApiKeyResolvedConfig,
   middlewareConfig: HttpAuthDefinition
