@@ -1,6 +1,7 @@
 import { isClockSkewed } from "./isClockSkewed";
 
 /**
+ * @internal
  * If clock is skewed, it returns the difference between serverTime and current time.
  * If clock is not skewed, it returns currentSystemClockOffset.
  *
