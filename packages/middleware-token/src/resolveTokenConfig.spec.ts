@@ -1,8 +1,10 @@
-import { normalizeTokenProvider } from "./normalizeTokenProvider";
+import { TokenIdentity } from "@aws-sdk/types";
+import { normalizeIdentityProvider } from "@aws-sdk/util-auth";
+
 import { resolveTokenConfig } from "./resolveTokenConfig";
 import { tokenDefaultProvider } from "./tokenDefaultProvider";
 
-jest.mock("./normalizeTokenProvider");
+jest.mock("@aws-sdk/util-auth");
 jest.mock("./tokenDefaultProvider");
 
 const ONE_HOUR_IN_MS = 3600 * 1000;
@@ -19,9 +21,9 @@ describe(resolveTokenConfig.name, () => {
     jest.clearAllMocks();
   });
 
-  describe("sets token from normalizeTokenProvider if token is provided", () => {
+  describe("sets identity if token is provided", () => {
     beforeEach(() => {
-      (normalizeTokenProvider as jest.Mock).mockReturnValue(mockOutputToken);
+      (normalizeIdentityProvider as jest.Mock).mockReturnValue(mockOutputToken);
       (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
     });
 
@@ -30,8 +32,12 @@ describe(resolveTokenConfig.name, () => {
     });
 
     const testTokenProviderWithToken = (token) => {
-      expect(resolveTokenConfig({ ...mockInput, token })).toEqual({ ...mockInput, token: mockOutputToken });
-      expect(normalizeTokenProvider).toHaveBeenCalledWith(token);
+      expect(resolveTokenConfig({ ...mockInput, token })).toEqual({
+        ...mockInput,
+        token: mockOutputToken,
+        identity: mockOutputToken,
+      });
+      expect(normalizeIdentityProvider).toHaveBeenCalledWith(token);
     };
 
     it("when token is a function", () => {
@@ -46,10 +52,58 @@ describe(resolveTokenConfig.name, () => {
     });
   });
 
-  it("sets token from tokenDefaultProvider if token is not provided", () => {
+  describe("sets identity if identity is provided", () => {
+    beforeEach(() => {
+      (normalizeIdentityProvider as jest.Mock).mockReturnValue(mockOutputToken);
+      (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
+    });
+
+    afterEach(() => {
+      expect(tokenDefaultProvider).not.toHaveBeenCalled();
+    });
+
+    const testTokenProviderWithIdentity = (identity) => {
+      expect(resolveTokenConfig({ ...mockInput, identity })).toEqual({
+        ...mockInput,
+        identity: mockOutputToken,
+        token: mockOutputToken,
+      });
+      expect(normalizeIdentityProvider).toHaveBeenCalledWith(identity);
+    };
+
+    it("when identity is a function", () => {
+      testTokenProviderWithIdentity(jest.fn());
+    });
+
+    it("when identity is an object", () => {
+      testTokenProviderWithIdentity({
+        token: "mockAccessToken",
+        expiration: new Date(Date.now() + ONE_HOUR_IN_MS),
+      });
+    });
+  });
+
+  it("sets identity from token over identity if both are provided", () => {
     (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
-    expect(resolveTokenConfig(mockInput)).toEqual({ ...mockInput, token: mockOutputToken });
+    expect(resolveTokenConfig({
+      ...mockInput,
+      token: mockOutputToken,
+      identity: {
+        token: "IDENTITY",
+      } as TokenIdentity,
+    })).toEqual({ ...mockInput, token: mockOutputToken, identity: mockOutputToken });
+    expect(normalizeIdentityProvider).toHaveBeenCalledWith(mockOutputToken);
+    expect(tokenDefaultProvider).not.toHaveBeenCalled();
+  });
+
+  it("sets identity from tokenDefaultProvider if not provided", () => {
+    (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
+    expect(resolveTokenConfig(mockInput)).toEqual({
+      ...mockInput,
+      token: mockOutputToken,
+      identity: mockOutputToken,
+    });
     expect(tokenDefaultProvider).toHaveBeenCalledWith(mockInput);
-    expect(normalizeTokenProvider).not.toHaveBeenCalled();
+    expect(normalizeIdentityProvider).not.toHaveBeenCalled();
   });
 });

@@ -15,6 +15,7 @@ describe(tokenMiddleware.name, () => {
 
   const mockOptions = {
     token: mockTokenProvider,
+    identity: mockTokenProvider,
   };
 
   const mockNext = jest.fn();
@@ -30,7 +31,7 @@ describe(tokenMiddleware.name, () => {
     (isInstance as unknown as jest.Mock).mockReturnValue(false);
     await tokenMiddleware(mockOptions)(mockNext, mockContext)(mockArgs as any);
     expect(mockNext).toHaveBeenCalledWith(mockArgs);
-    expect(mockOptions.token).not.toHaveBeenCalled();
+    expect(mockOptions.identity).not.toHaveBeenCalled();
   });
 
   describe("HttpRequest", () => {
@@ -40,22 +41,22 @@ describe(tokenMiddleware.name, () => {
     });
 
     it("continues if token is not provided", async () => {
-      mockOptions.token.mockReturnValueOnce(null);
+      mockOptions.identity.mockReturnValueOnce(null);
       await tokenMiddleware(mockOptions)(mockNext, mockContext)(mockArgs as any);
       expect(mockNext).toHaveBeenCalledWith(mockArgs);
-      expect(mockOptions.token).toHaveBeenCalledTimes(1);
+      expect(mockOptions.identity).toHaveBeenCalledTimes(1);
     });
 
     it("re-throws error if token provider fails", async () => {
       const mockError = new Error("mockError");
-      mockOptions.token.mockRejectedValueOnce(mockError);
+      mockOptions.identity.mockRejectedValueOnce(mockError);
       try {
         await tokenMiddleware(mockOptions)(mockNext, mockContext)(mockArgs as any);
         fail(`Expected ${mockError}`);
       } catch (error) {
         expect(error).toStrictEqual(mockError);
       }
-      expect(mockOptions.token).toHaveBeenCalledTimes(1);
+      expect(mockOptions.identity).toHaveBeenCalledTimes(1);
       expect(mockNext).not.toHaveBeenCalled();
     });
 
@@ -65,7 +66,7 @@ describe(tokenMiddleware.name, () => {
         ...mockArgs,
         request: { ...mockArgs.request, headers: { authorization: `Bearer ${mockToken.token}` } },
       });
-      expect(mockOptions.token).toHaveBeenCalledTimes(1);
+      expect(mockOptions.identity).toHaveBeenCalledTimes(1);
     });
   });
 });

@@ -9,9 +9,13 @@ import {
   HttpAuthLocation,
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
+import { isTokenIdentity } from "@aws-sdk/util-auth";
 
 import { TokenResolvedConfig } from "./configurations";
 
+/**
+ * @internal
+ */
 export const tokenMiddlewareOptions: RelativeMiddlewareOptions = {
   name: "tokenMiddleware",
   tags: ["TOKEN", "AUTH"],
@@ -20,6 +24,9 @@ export const tokenMiddlewareOptions: RelativeMiddlewareOptions = {
   override: true,
 };
 
+/**
+ * @internal
+ */
 export const tokenMiddleware =
   <Input extends object, Output extends object>(
     options: TokenResolvedConfig
@@ -28,15 +35,15 @@ export const tokenMiddleware =
   async (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request) || context.currentAuthConfig) return next(args);
 
-    const token = options.token && (await options.token());
-    if (token?.token) {
+    const identity = await options.identity();
+    if (isTokenIdentity(identity)) {
       const authConfig: HttpAuthDefinition = {
         in: HttpAuthLocation.HEADER,
         name: "authorization",
         scheme: "Bearer",
       };
       context.currentAuthConfig = authConfig;
-      args.request.headers[authConfig.name] = `${authConfig.scheme} ${token.token}`;
+      args.request.headers[authConfig.name] = `${authConfig.scheme} ${identity.token}`;
     } else {
       context.currentAuthConfig = undefined;
     }
