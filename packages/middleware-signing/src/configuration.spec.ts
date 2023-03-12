@@ -62,6 +62,47 @@ describe("AuthConfig", () => {
       }
       expect(input.credentials).toBeCalledTimes(2);
     });
+
+    it("should use identity if credentials are not set", async () => {
+      const input = {
+        ...inputParams,
+        identity: jest
+          .fn()
+          .mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
+      };
+      // @ts-ignore
+      delete input["credentials"];
+      const { signer: signerProvider } = resolveAwsAuthConfig(input);
+      const signer = await signerProvider(authScheme);
+      const request = new HttpRequest({});
+      await signer.sign(request);
+      expect(input.identity).toBeCalledTimes(1);
+    });
+
+    it("should use credentials if credentials and identity are set", async () => {
+      const input = {
+        ...inputParams,
+        identity: jest.fn(),
+      };
+      const { signer: signerProvider } = resolveAwsAuthConfig(input);
+      const signer = await signerProvider(authScheme);
+      const request = new HttpRequest({});
+      await signer.sign(request);
+      expect(input.credentials).toBeCalledTimes(1);
+    });
+
+    it("should use default credential provider if credentials and identity are not set", async () => {
+      const input = {
+        ...inputParams,
+      };
+      // @ts-ignore
+      delete input["credentials"];
+      delete input["identity"];
+      const { signer: signerProvider } = resolveAwsAuthConfig(input);
+      const signer = await signerProvider(authScheme);
+      const request = new HttpRequest({});
+      await signer.sign(request);
+    });
   });
 
   describe("resolveSigV4AuthConfig", () => {
@@ -112,6 +153,47 @@ describe("AuthConfig", () => {
         await signer.sign(request);
       }
       expect(input.credentials).toBeCalledTimes(2);
+    });
+
+    it("should use identity if credentials are not set", async () => {
+      const input = {
+        ...inputParams,
+        identity: jest
+          .fn()
+          .mockResolvedValue({ accessKeyId: "key", secretAccessKey: "secret" }),
+      };
+      // @ts-ignore
+      delete input["credentials"];
+      const { signer: signerProvider } = resolveSigV4AuthConfig(input);
+      const signer = await signerProvider(authScheme);
+      const request = new HttpRequest({});
+      await signer.sign(request);
+      expect(input.identity).toBeCalledTimes(1);
+    });
+
+    it("should use credentials if credentials and identity are set", async () => {
+      const input = {
+        ...inputParams,
+        identity: jest.fn(),
+      };
+      const { signer: signerProvider } = resolveSigV4AuthConfig(input);
+      const signer = await signerProvider(authScheme);
+      const request = new HttpRequest({});
+      await signer.sign(request);
+      expect(input.credentials).toBeCalledTimes(1);
+    });
+
+    it("should use default credential provider if credentials and identity are not set", async () => {
+      const input = {
+        ...inputParams,
+      };
+      // @ts-ignore
+      delete input["credentials"];
+      delete input["identity"];
+      const { signer: signerProvider } = resolveSigV4AuthConfig(input);
+      const signer = await signerProvider(authScheme);
+      const request = new HttpRequest({});
+      await signer.sign(request);
     });
   });
 });

@@ -1,8 +1,8 @@
-import { memoize } from "@aws-sdk/property-provider";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
 import {
   AuthScheme,
   AwsCredentialIdentity,
+  AwsCredentialIdentityProvider,
   ChecksumConstructor,
   HashConstructor,
   Logger,
@@ -12,20 +12,27 @@ import {
   RegionInfoProvider,
   RequestSigner,
 } from "@aws-sdk/types";
+import { normalizeIdentityProvider } from "@aws-sdk/util-auth";
 import { normalizeProvider } from "@aws-sdk/util-middleware";
-
-// 5 minutes buffer time the refresh the credential before it really expires
-const CREDENTIAL_EXPIRE_WINDOW = 300000;
 
 // AwsAuth v/s SigV4Auth
 // AwsAuth: specific to SigV4 auth for AWS services
 // SigV4Auth: SigV4 auth for non-AWS services
 
+/**
+ * @internal
+ */
 export interface AwsAuthInputConfig {
   /**
+   * @deprecated Use {@link identity}
    * The credentials used to sign requests.
    */
   credentials?: AwsCredentialIdentity | Provider<AwsCredentialIdentity>;
+
+  /**
+   * A representation of who is using the SDK client.
+   */
+  identity?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
 
   /**
    * The signer to use when signing requests.
@@ -56,11 +63,20 @@ export interface AwsAuthInputConfig {
   signerConstructor?: new (options: SignatureV4Init & SignatureV4CryptoInit) => RequestSigner;
 }
 
+/**
+ * @internal
+ */
 export interface SigV4AuthInputConfig {
   /**
+   * @deprecated Use {@link identity}
    * The credentials used to sign requests.
    */
   credentials?: AwsCredentialIdentity | Provider<AwsCredentialIdentity>;
+
+  /**
+   * A representation of who is using the SDK client.
+   */
+  identity?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
 
   /**
    * The signer to use when signing requests.
@@ -78,6 +94,9 @@ export interface SigV4AuthInputConfig {
   systemClockOffset?: number;
 }
 
+/**
+ * @internal
+ */
 interface PreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
@@ -90,6 +109,9 @@ interface PreviouslyResolved {
   useDualstackEndpoint: Provider<boolean>;
 }
 
+/**
+ * @internal
+ */
 interface SigV4PreviouslyResolved {
   credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
@@ -98,13 +120,20 @@ interface SigV4PreviouslyResolved {
   logger?: Logger;
 }
 
+/**
+ * @internal
+ */
 export interface AwsAuthResolvedConfig {
   /**
-   * Resolved value for input config {@link AwsAuthInputConfig.credentials}
+   * Resolved value for input config {@link AwsAuthInputConfig.identity}
    * This provider MAY memoize the loaded credentials for certain period.
    * See {@link MemoizedProvider} for more information.
    */
-  credentials: MemoizedProvider<AwsCredentialIdentity>;
+  identity: AwsCredentialIdentityProvider;
+  /**
+   * @deprecated Use {@link identity}
+   */
+  credentials: AwsCredentialIdentityProvider;
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.signer}
    */
@@ -119,14 +148,31 @@ export interface AwsAuthResolvedConfig {
   systemClockOffset: number;
 }
 
-export interface SigV4AuthResolvedConfig extends AwsAuthResolvedConfig {}
+/**
+ * @internal
+ */
+export interface SigV4AuthResolvedConfig extends AwsAuthResolvedConfig { }
 
+/**
+ * @internal
+ */
 export const resolveAwsAuthConfig = <T>(
   input: T & AwsAuthInputConfig & PreviouslyResolved
 ): T & AwsAuthResolvedConfig => {
-  const normalizedCreds = input.credentials
-    ? normalizeCredentialProvider(input.credentials)
-    : input.credentialDefaultProvider(input as any);
+  let identity: AwsCredentialIdentityProvider | undefined = undefined;
+  // Load from credentials for backwards compatibility
+  if (input.credentials !== undefined) {
+    identity = normalizeIdentityProvider(input.credentials);
+  }
+  // Load from identity if available and if credentials is not loaded
+  if (identity === undefined && input.identity !== undefined) {
+    // Will be checked in middleware to see if identity resolves to AwsCredentialIdentity
+    identity = normalizeIdentityProvider(input.identity);
+  }
+  // Use default credential provider if credentials is not loaded
+  if (identity === undefined) {
+    identity = input.credentialDefaultProvider(input as any);
+  }
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
   if (input.signer) {
@@ -158,7 +204,7 @@ export const resolveAwsAuthConfig = <T>(
 
           const params: SignatureV4Init & SignatureV4CryptoInit = {
             ...input,
-            credentials: normalizedCreds,
+            credentials: identity as Provider<AwsCredentialIdentity>,
             region: input.signingRegion,
             service: input.signingName,
             sha256,
@@ -194,7 +240,7 @@ export const resolveAwsAuthConfig = <T>(
 
       const params: SignatureV4Init & SignatureV4CryptoInit = {
         ...input,
-        credentials: normalizedCreds,
+        credentials: identity as Provider<AwsCredentialIdentity>,
         region: input.signingRegion,
         service: input.signingName,
         sha256,
@@ -210,18 +256,33 @@ export const resolveAwsAuthConfig = <T>(
     ...input,
     systemClockOffset,
     signingEscapePath,
-    credentials: normalizedCreds,
+    identity,
+    credentials: identity,
     signer,
   };
 };
 
 // TODO: reduce code duplication
+/**
+ * @internal
+ */
 export const resolveSigV4AuthConfig = <T>(
   input: T & SigV4AuthInputConfig & SigV4PreviouslyResolved
 ): T & SigV4AuthResolvedConfig => {
-  const normalizedCreds = input.credentials
-    ? normalizeCredentialProvider(input.credentials)
-    : input.credentialDefaultProvider(input as any);
+  let identity: AwsCredentialIdentityProvider | undefined = undefined;
+  // Load from credentials for backwards compatibility
+  if (input.credentials !== undefined) {
+    identity = normalizeIdentityProvider(input.credentials);
+  }
+  // Load from identity if available and if credentials is not loaded
+  if (identity === undefined && input.identity !== undefined) {
+    // Will be checked in middleware to see if identity resolves to AwsCredentialIdentity
+    identity = normalizeIdentityProvider(input.identity);
+  }
+  // Use default credential provider if credentials is not loaded
+  if (identity === undefined) {
+    identity = input.credentialDefaultProvider(input as any);
+  }
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: Provider<RequestSigner>;
   if (input.signer) {
@@ -230,7 +291,7 @@ export const resolveSigV4AuthConfig = <T>(
   } else {
     signer = normalizeProvider(
       new SignatureV4({
-        credentials: normalizedCreds,
+        credentials: identity,
         region: input.region,
         service: input.signingName,
         sha256,
@@ -242,22 +303,8 @@ export const resolveSigV4AuthConfig = <T>(
     ...input,
     systemClockOffset,
     signingEscapePath,
-    credentials: normalizedCreds,
+    identity,
+    credentials: identity,
     signer,
   };
-};
-
-const normalizeCredentialProvider = (
-  credentials: AwsCredentialIdentity | Provider<AwsCredentialIdentity>
-): MemoizedProvider<AwsCredentialIdentity> => {
-  if (typeof credentials === "function") {
-    return memoize(
-      credentials,
-      (credentials) =>
-        credentials.expiration !== undefined &&
-        credentials.expiration.getTime() - Date.now() < CREDENTIAL_EXPIRE_WINDOW,
-      (credentials) => credentials.expiration !== undefined
-    );
-  }
-  return normalizeProvider(credentials);
 };
