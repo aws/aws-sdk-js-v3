@@ -1,4 +1,4 @@
-import { toEndpointV1 } from "@aws-sdk/middleware-endpoint";
+import { getEndpointFromInstructions, toEndpointV1 } from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
@@ -40,17 +40,38 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
     ): InitializeHandler<any, Output> =>
     async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
       const { input } = args;
-      if (!input.PresignedUrl) {
-        const region = await options.region();
-        const resolvedEndpoint =
-          typeof options.endpoint === "function" ? await options.endpoint() : toEndpointV1(context.endpointV2!);
 
-        if (typeof options.regionInfoProvider === "function") {
-          const regionInfo = await options.regionInfoProvider(input.SourceRegion);
-          resolvedEndpoint.hostname = regionInfo?.hostname || `ec2.${input.SourceRegion}.amazonaws.com`;
-        } else {
-          resolvedEndpoint.hostname = `ec2.${input.SourceRegion}.amazonaws.com`;
-        }
+      if (!input.PresignedUrl) {
+        const destinationRegion = await options.region();
+
+        // using the source region as an override,
+        // use the V2 endpoint resolution to get the source region's endpoint.
+        const endpoint = await getEndpointFromInstructions(
+          input,
+          {
+            /**
+             * Replication of {@link CopySnapshotCommand} in EC2.
+             * Not imported due to circular dependency.
+             */
+            getEndpointParameterInstructions() {
+              return {
+                UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+                Endpoint: { type: "builtInParams", name: "endpoint" },
+                Region: { type: "builtInParams", name: "region" },
+                UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+              };
+            },
+          },
+          {
+            ...options,
+            region: input.SourceRegion,
+          }
+        );
+
+        // TODO: it doesn't make sense to accept any custom endpoint,
+        // TODO: because it would override both the source endpoint and the target endpoint.
+        const resolvedEndpoint =
+          typeof options.endpoint === "function" ? await options.endpoint() : toEndpointV1(endpoint);
 
         const request = new HttpRequest({
           ...resolvedEndpoint,
@@ -63,7 +84,7 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
             Version: version,
             SourceRegion: input.SourceRegion,
             SourceSnapshotId: input.SourceSnapshotId,
-            DestinationRegion: region,
+            DestinationRegion: destinationRegion,
           },
         });
         const signer = new SignatureV4({
@@ -81,7 +102,7 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
           ...args,
           input: {
             ...args.input,
-            DestinationRegion: region,
+            DestinationRegion: destinationRegion,
             PresignedUrl: formatUrl(presignedRequest),
           },
         };

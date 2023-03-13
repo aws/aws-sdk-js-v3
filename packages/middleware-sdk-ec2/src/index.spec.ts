@@ -1,16 +1,20 @@
-import { credentials, endpoint, MockSha256, region } from "./fixture";
+import { EndpointV2 } from "@aws-sdk/types";
+
+import { credentials, MockSha256, region } from "./fixture";
 import { copySnapshotPresignedUrlMiddleware } from "./index";
 
 const nextHandler = jest.fn();
 const handler = copySnapshotPresignedUrlMiddleware({
   credentials,
-  endpoint,
   region,
   sha256: MockSha256,
   signingEscapePath: true,
-  regionInfoProvider: async (...args) => ({
-    hostname: "ec2.src-region.test-host.com",
-  }),
+  endpointProvider: async (...args) =>
+    ({
+      url: {
+        hostname: "ec2.src-region.test-host.com",
+      },
+    } as EndpointV2),
 } as any)(nextHandler, {} as any);
 
 describe("middleware-sdk-ec2", () => {
