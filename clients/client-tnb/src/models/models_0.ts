@@ -25,7 +25,7 @@ export class AccessDeniedException extends __BaseException {
 
 export interface CancelSolNetworkOperationInput {
   /**
-   * <p>The ID of a network operation occurrence.</p>
+   * <p>The identifier of the network operation.</p>
    */
   nsLcmOpOccId: string | undefined;
 }
@@ -657,7 +657,7 @@ export interface GetSolNetworkInstanceInput {
  */
 export interface LcmOperationInfo {
   /**
-   * <p>The identifier of the latest network lifecycle management operation occurrence.</p>
+   * <p>The identifier of the network operation.</p>
    */
   nsLcmOpOccId: string | undefined;
 }
@@ -745,7 +745,7 @@ export interface GetSolNetworkInstanceOutput {
 
 export interface GetSolNetworkOperationInput {
   /**
-   * <p>The identifier of the operation occurrence.</p>
+   * <p>The identifier of the network operation.</p>
    */
   nsLcmOpOccId: string | undefined;
 }
@@ -772,7 +772,7 @@ export enum LcmOperationType {
 }
 
 /**
- * <p>Metadata related to a network operation occurence.</p>
+ * <p>Metadata related to a network operation occurrence.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  */
 export interface GetSolNetworkOperationMetadata {
@@ -868,7 +868,7 @@ export interface GetSolNetworkOperationOutput {
   lcmOperationType?: LcmOperationType | string;
 
   /**
-   * <p>Error related to this specific network operation occurence.</p>
+   * <p>Error related to this specific network operation occurrence.</p>
    */
   error?: ProblemDetails;
 
@@ -1045,13 +1045,23 @@ export interface InstantiateSolNetworkInstanceInput {
    * <p>Provides values for the configurable properties.</p>
    */
   additionalParamsForNs?: __DocumentType;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export interface InstantiateSolNetworkInstanceOutput {
   /**
-   * <p>The identifier of the network instance.</p>
+   * <p>The identifier of the network operation.</p>
    */
   nsLcmOpOccId: string | undefined;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1669,13 +1679,23 @@ export interface TerminateSolNetworkInstanceInput {
    * <p>ID of the network instance.</p>
    */
   nsInstanceId: string | undefined;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export interface TerminateSolNetworkInstanceOutput {
   /**
-   * <p>The identifier of the operation occurrence.</p>
+   * <p>The identifier of the network operation.</p>
    */
   nsLcmOpOccId?: string;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export interface UntagResourceInput {
@@ -1747,13 +1767,23 @@ export interface UpdateSolNetworkInstanceInput {
    * <p>Identifies the network function information parameters and/or the configurable properties of the network function to be modified.</p>
    */
   modifyVnfInfoData?: UpdateSolNetworkModify;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export interface UpdateSolNetworkInstanceOutput {
   /**
-   * <p>The identifier of the network instance operation occurrence.</p>
+   * <p>The identifier of the network operation.</p>
    */
   nsLcmOpOccId?: string;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export interface UpdateSolNetworkPackageInput {
@@ -2234,6 +2264,7 @@ export const GetSolNetworkPackageDescriptorOutputFilterSensitiveLog = (
  */
 export const InstantiateSolNetworkInstanceInputFilterSensitiveLog = (obj: InstantiateSolNetworkInstanceInput): any => ({
   ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -2243,6 +2274,7 @@ export const InstantiateSolNetworkInstanceOutputFilterSensitiveLog = (
   obj: InstantiateSolNetworkInstanceOutput
 ): any => ({
   ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -2466,6 +2498,7 @@ export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any
  */
 export const TerminateSolNetworkInstanceInputFilterSensitiveLog = (obj: TerminateSolNetworkInstanceInput): any => ({
   ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -2473,6 +2506,7 @@ export const TerminateSolNetworkInstanceInputFilterSensitiveLog = (obj: Terminat
  */
 export const TerminateSolNetworkInstanceOutputFilterSensitiveLog = (obj: TerminateSolNetworkInstanceOutput): any => ({
   ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -2515,6 +2549,7 @@ export const UpdateSolNetworkModifyFilterSensitiveLog = (obj: UpdateSolNetworkMo
  */
 export const UpdateSolNetworkInstanceInputFilterSensitiveLog = (obj: UpdateSolNetworkInstanceInput): any => ({
   ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**
@@ -2522,6 +2557,7 @@ export const UpdateSolNetworkInstanceInputFilterSensitiveLog = (obj: UpdateSolNe
  */
 export const UpdateSolNetworkInstanceOutputFilterSensitiveLog = (obj: UpdateSolNetworkInstanceOutput): any => ({
   ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
 /**

@@ -32,7 +32,7 @@ export interface DeleteSolNetworkInstanceCommandOutput extends __MetadataBearer 
 /**
  * <p>Deletes a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
- *          <p>To delete a network instance, the instance must be in a stopped or terminated state. To terminate a network instance, see <a href="https://docs.aws.amazon.com/TNB/latest/APIReference/API_TerminateSolNetworkInstance.html">TerminateSolNetworkInstance</a>.</p>
+ *          <p>To delete a network instance, the instance must be in a stopped or terminated state. To terminate a network instance, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_TerminateSolNetworkInstance.html">TerminateSolNetworkInstance</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

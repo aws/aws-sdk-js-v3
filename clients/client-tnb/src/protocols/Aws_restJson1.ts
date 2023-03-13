@@ -611,6 +611,7 @@ export const serializeAws_restJson1InstantiateSolNetworkInstanceCommand = async 
     ...(input.additionalParamsForNs != null && {
       additionalParamsForNs: serializeAws_restJson1Document(input.additionalParamsForNs, context),
     }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   return new __HttpRequest({
     protocol,
@@ -853,7 +854,9 @@ export const serializeAws_restJson1TerminateSolNetworkInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/sol/nslcm/v1/ns_instances/{nsInstanceId}/terminate";
@@ -866,6 +869,9 @@ export const serializeAws_restJson1TerminateSolNetworkInstanceCommand = async (
     false
   );
   let body: any;
+  body = JSON.stringify({
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -954,6 +960,7 @@ export const serializeAws_restJson1UpdateSolNetworkInstanceCommand = async (
     ...(input.modifyVnfInfoData != null && {
       modifyVnfInfoData: serializeAws_restJson1UpdateSolNetworkModify(input.modifyVnfInfoData, context),
     }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.updateType != null && { updateType: input.updateType }),
   });
   return new __HttpRequest({
@@ -2082,6 +2089,9 @@ export const deserializeAws_restJson1InstantiateSolNetworkInstanceCommand = asyn
   if (data.nsLcmOpOccId != null) {
     contents.nsLcmOpOccId = __expectString(data.nsLcmOpOccId);
   }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
   return contents;
 };
 
@@ -2651,6 +2661,9 @@ export const deserializeAws_restJson1TerminateSolNetworkInstanceCommand = async 
   if (data.nsLcmOpOccId != null) {
     contents.nsLcmOpOccId = __expectString(data.nsLcmOpOccId);
   }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
   return contents;
 };
 
@@ -2809,6 +2822,9 @@ export const deserializeAws_restJson1UpdateSolNetworkInstanceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.nsLcmOpOccId != null) {
     contents.nsLcmOpOccId = __expectString(data.nsLcmOpOccId);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
   }
   return contents;
 };
