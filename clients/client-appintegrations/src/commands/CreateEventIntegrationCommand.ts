@@ -36,8 +36,8 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
 
 /**
  * <p>Creates an EventIntegration, given a specified name, description, and a reference to an
- *       Amazon EventBridge bus in your account and a partner event source that pushes events to that bus. No
- *       objects are created in the your account, only metadata that is persisted on the
+ *         Amazon EventBridge bus in your account and a partner event source that pushes events to
+ *       that bus. No objects are created in the your account, only metadata that is persisted on the
  *       EventIntegration control plane.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

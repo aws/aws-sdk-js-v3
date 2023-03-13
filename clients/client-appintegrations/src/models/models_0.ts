@@ -25,11 +25,27 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * <p>The configuration for what files should be pulled from the source.</p>
+ */
+export interface FileConfiguration {
+  /**
+   * <p>Identifiers for the source folders to pull all files from recursively.</p>
+   */
+  Folders: string[] | undefined;
+
+  /**
+   * <p>Restrictions for what files should be pulled from the source.</p>
+   */
+  Filters?: Record<string, string[]>;
+}
+
+/**
  * <p>The name of the data and how often it should be pulled from the source.</p>
  */
 export interface ScheduleConfiguration {
   /**
-   * <p>The start date for objects to import in the first flow run.</p>
+   * <p>The start date for objects to import in the first flow run as an Unix/epoch timestamp in
+   *       milliseconds or in ISO-8601 format.</p>
    */
   FirstExecutionFrom?: string;
 
@@ -41,7 +57,7 @@ export interface ScheduleConfiguration {
   /**
    * <p>How often the data should be pulled from data source.</p>
    */
-  ScheduleExpression?: string;
+  ScheduleExpression: string | undefined;
 }
 
 export interface CreateDataIntegrationRequest {
@@ -58,28 +74,40 @@ export interface CreateDataIntegrationRequest {
   /**
    * <p>The KMS key for the DataIntegration.</p>
    */
-  KmsKey?: string;
+  KmsKey: string | undefined;
 
   /**
    * <p>The URI of the data source.</p>
    */
-  SourceURI?: string;
+  SourceURI: string | undefined;
 
   /**
    * <p>The name of the data and how often it should be pulled from the source.</p>
    */
-  ScheduleConfig?: ScheduleConfiguration;
+  ScheduleConfig: ScheduleConfiguration | undefined;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The configuration for what files should be pulled from the source.</p>
+   */
+  FileConfiguration?: FileConfiguration;
+
+  /**
+   * <p>The configuration for what data should be pulled from the source.</p>
+   */
+  ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
 
 export interface CreateDataIntegrationResponse {
@@ -119,15 +147,27 @@ export interface CreateDataIntegrationResponse {
   ScheduleConfiguration?: ScheduleConfiguration;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>The configuration for what files should be pulled from the source.</p>
+   */
+  FileConfiguration?: FileConfiguration;
+
+  /**
+   * <p>The configuration for what data should be pulled from the source.</p>
+   */
+  ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
 
 /**
@@ -268,12 +308,14 @@ export interface CreateEventIntegrationRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   ClientToken?: string;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -368,9 +410,19 @@ export interface GetDataIntegrationResponse {
   ScheduleConfiguration?: ScheduleConfiguration;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The configuration for what files should be pulled from the source.</p>
+   */
+  FileConfiguration?: FileConfiguration;
+
+  /**
+   * <p>The configuration for what data should be pulled from the source.</p>
+   */
+  ObjectConfiguration?: Record<string, Record<string, string[]>>;
 }
 
 export interface GetEventIntegrationRequest {
@@ -407,7 +459,7 @@ export interface GetEventIntegrationResponse {
   EventFilter?: EventFilter;
 
   /**
-   * <p>One or more tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -440,12 +492,12 @@ export interface DataIntegrationAssociationSummary {
   DataIntegrationAssociationArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN)of the DataIntegration.</p>
+   * <p>The Amazon Resource Name (ARN) of the DataIntegration.</p>
    */
   DataIntegrationArn?: string;
 
   /**
-   * <p>The identifier for teh client that is associated with the DataIntegration
+   * <p>The identifier for the client that is associated with the DataIntegration
    *       association.</p>
    */
   ClientId?: string;
@@ -616,7 +668,7 @@ export interface EventIntegration {
   EventBridgeBus?: string;
 
   /**
-   * <p>The tags.</p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
 }
@@ -654,7 +706,7 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>One or more tags. </p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -707,6 +759,13 @@ export interface UpdateEventIntegrationRequest {
 }
 
 export interface UpdateEventIntegrationResponse {}
+
+/**
+ * @internal
+ */
+export const FileConfigurationFilterSensitiveLog = (obj: FileConfiguration): any => ({
+  ...obj,
+});
 
 /**
  * @internal

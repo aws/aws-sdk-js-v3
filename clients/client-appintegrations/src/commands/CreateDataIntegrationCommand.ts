@@ -37,9 +37,9 @@ export interface CreateDataIntegrationCommandOutput extends CreateDataIntegratio
 /**
  * <p>Creates and persists a DataIntegration resource.</p>
  *          <note>
- *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
- *       Use a different DataIntegration, or recreate the DataIntegration using the
- *       <code>CreateDataIntegration</code> API.</p>
+ *             <p>You cannot create a DataIntegration association for a DataIntegration that has been
+ *         previously associated. Use a different DataIntegration, or recreate the DataIntegration
+ *         using the <code>CreateDataIntegration</code> API.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

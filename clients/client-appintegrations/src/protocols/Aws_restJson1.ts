@@ -77,6 +77,7 @@ import {
   EventFilter,
   EventIntegration,
   EventIntegrationAssociation,
+  FileConfiguration,
   InternalServiceError,
   InvalidRequestException,
   ResourceNotFoundException,
@@ -98,8 +99,14 @@ export const serializeAws_restJson1CreateDataIntegrationCommand = async (
   body = JSON.stringify({
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
     ...(input.Description != null && { Description: input.Description }),
+    ...(input.FileConfiguration != null && {
+      FileConfiguration: serializeAws_restJson1FileConfiguration(input.FileConfiguration, context),
+    }),
     ...(input.KmsKey != null && { KmsKey: input.KmsKey }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.ObjectConfiguration != null && {
+      ObjectConfiguration: serializeAws_restJson1ObjectConfiguration(input.ObjectConfiguration, context),
+    }),
     ...(input.ScheduleConfig != null && {
       ScheduleConfig: serializeAws_restJson1ScheduleConfiguration(input.ScheduleConfig, context),
     }),
@@ -499,6 +506,9 @@ export const deserializeAws_restJson1CreateDataIntegrationCommand = async (
   if (data.Description != null) {
     contents.Description = __expectString(data.Description);
   }
+  if (data.FileConfiguration != null) {
+    contents.FileConfiguration = deserializeAws_restJson1FileConfiguration(data.FileConfiguration, context);
+  }
   if (data.Id != null) {
     contents.Id = __expectString(data.Id);
   }
@@ -507,6 +517,9 @@ export const deserializeAws_restJson1CreateDataIntegrationCommand = async (
   }
   if (data.Name != null) {
     contents.Name = __expectString(data.Name);
+  }
+  if (data.ObjectConfiguration != null) {
+    contents.ObjectConfiguration = deserializeAws_restJson1ObjectConfiguration(data.ObjectConfiguration, context);
   }
   if (data.ScheduleConfiguration != null) {
     contents.ScheduleConfiguration = deserializeAws_restJson1ScheduleConfiguration(data.ScheduleConfiguration, context);
@@ -732,6 +745,9 @@ export const deserializeAws_restJson1GetDataIntegrationCommand = async (
   if (data.Description != null) {
     contents.Description = __expectString(data.Description);
   }
+  if (data.FileConfiguration != null) {
+    contents.FileConfiguration = deserializeAws_restJson1FileConfiguration(data.FileConfiguration, context);
+  }
   if (data.Id != null) {
     contents.Id = __expectString(data.Id);
   }
@@ -740,6 +756,9 @@ export const deserializeAws_restJson1GetDataIntegrationCommand = async (
   }
   if (data.Name != null) {
     contents.Name = __expectString(data.Name);
+  }
+  if (data.ObjectConfiguration != null) {
+    contents.ObjectConfiguration = deserializeAws_restJson1ObjectConfiguration(data.ObjectConfiguration, context);
   }
   if (data.ScheduleConfiguration != null) {
     contents.ScheduleConfiguration = deserializeAws_restJson1ScheduleConfiguration(data.ScheduleConfiguration, context);
@@ -1444,6 +1463,52 @@ const serializeAws_restJson1EventFilter = (input: EventFilter, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1FieldsList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1FieldsMap = (input: Record<string, string[]>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1FieldsList(value, context);
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1FileConfiguration = (input: FileConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_restJson1FieldsMap(input.Filters, context) }),
+    ...(input.Folders != null && { Folders: serializeAws_restJson1FolderList(input.Folders, context) }),
+  };
+};
+
+const serializeAws_restJson1FolderList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ObjectConfiguration = (
+  input: Record<string, Record<string, string[]>>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1FieldsMap(value, context);
+    return acc;
+  }, {});
+};
+
 const serializeAws_restJson1ScheduleConfiguration = (input: ScheduleConfiguration, context: __SerdeContext): any => {
   return {
     ...(input.FirstExecutionFrom != null && { FirstExecutionFrom: input.FirstExecutionFrom }),
@@ -1587,6 +1652,60 @@ const deserializeAws_restJson1EventIntegrationsList = (output: any, context: __S
       return deserializeAws_restJson1EventIntegration(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1FieldsList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1FieldsMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
+  return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1FieldsList(value, context);
+    return acc;
+  }, {});
+};
+
+const deserializeAws_restJson1FileConfiguration = (output: any, context: __SerdeContext): FileConfiguration => {
+  return {
+    Filters: output.Filters != null ? deserializeAws_restJson1FieldsMap(output.Filters, context) : undefined,
+    Folders: output.Folders != null ? deserializeAws_restJson1FolderList(output.Folders, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1FolderList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ObjectConfiguration = (
+  output: any,
+  context: __SerdeContext
+): Record<string, Record<string, string[]>> => {
+  return Object.entries(output).reduce((acc: Record<string, Record<string, string[]>>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1FieldsMap(value, context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1ScheduleConfiguration = (output: any, context: __SerdeContext): ScheduleConfiguration => {

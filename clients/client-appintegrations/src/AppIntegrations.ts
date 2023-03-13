@@ -77,17 +77,19 @@ import {
 /**
  * <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
  *       applications.</p>
- *          <p>For information about how you can use external applications with Amazon Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built
- *       integrations</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html">Deliver information to agents using Amazon Connect Wisdom</a>
- *        in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For information about how you can use external applications with Amazon Connect, see
+ *         <a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built
+ *         integrations</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html">Deliver information to agents
+ *         using Amazon Connect Wisdom</a> in the <i>Amazon Connect Administrator
+ *         Guide</i>.</p>
  */
 export class AppIntegrations extends AppIntegrationsClient {
   /**
    * <p>Creates and persists a DataIntegration resource.</p>
    *          <note>
-   *             <p>You cannot create a DataIntegration association for a DataIntegration that has been previously associated.
-   *       Use a different DataIntegration, or recreate the DataIntegration using the
-   *       <code>CreateDataIntegration</code> API.</p>
+   *             <p>You cannot create a DataIntegration association for a DataIntegration that has been
+   *         previously associated. Use a different DataIntegration, or recreate the DataIntegration
+   *         using the <code>CreateDataIntegration</code> API.</p>
    *          </note>
    */
   public createDataIntegration(
@@ -121,8 +123,8 @@ export class AppIntegrations extends AppIntegrationsClient {
 
   /**
    * <p>Creates an EventIntegration, given a specified name, description, and a reference to an
-   *       Amazon EventBridge bus in your account and a partner event source that pushes events to that bus. No
-   *       objects are created in the your account, only metadata that is persisted on the
+   *         Amazon EventBridge bus in your account and a partner event source that pushes events to
+   *       that bus. No objects are created in the your account, only metadata that is persisted on the
    *       EventIntegration control plane.</p>
    */
   public createEventIntegration(
