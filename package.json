@@ -13,7 +13,7 @@
     "build:clients:since:release": "yarn build:packages && lerna run build $(lerna changed | grep -e '@aws-sdk/[client|lib]-*' | sed 's/^/ --scope /' | tr '\n' ' ')",
     "build:crypto-dependencies": "lerna run --scope '@aws-sdk/{types,util-utf8,util-locate-window,hash-node}' --include-dependencies build",
     "build:docs": "yarn build:docs:clients && yarn build:docs:packages && rm -rf clientDocs/",
-    "build:docs:clients": "lerna run build:docs && mkdir -p clientDocs && find ./ -path './clients/*/docs' -exec cp -r --parents \\{\\} ./clientDocs/ \\;",
+    "build:docs:clients": "lerna run build:docs && mkdir -p clientDocs && find ./ -path './clients/*/docs' -exec cp -r --parents \\{\\} ./clientDocs/ \\; && node scripts/docs-custom-js/index.js",
     "build:docs:packages": "NODE_OPTIONS=\"--max-old-space-size=50000\" typedoc . && cp -r ./clientDocs/clients ./doc/",
     "build:e2e": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/{client-cloudformation,karma-credential-loader,client-s3-control,client-sts}' --include-dependencies build",
     "build:packages": "lerna run build --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' --ignore '@aws-sdk/lib-*' --include-dependencies",

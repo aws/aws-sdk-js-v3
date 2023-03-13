@@ -8,16 +8,16 @@ import {
   PageEvent,
   Reflection,
   ReflectionCategory,
-  ReflectionKind} from "typedoc";
+  ReflectionKind,
+} from "typedoc";
 
 class SdkThemeContext extends DefaultThemeRenderContext {
+  constructor(theme: DefaultTheme, options: Options) {
+    super(theme, options);
 
-  constructor (theme: DefaultTheme, options: Options) {
-    super(theme, options)
-
-    const oldToolbar = this.toolbar
-    const oldHeader = this.header
-    const oldFooter = this.footer
+    const oldToolbar = this.toolbar;
+    const oldHeader = this.header;
+    const oldFooter = this.footer;
 
     this.toolbar = (props) => {
       const script = `
@@ -92,8 +92,12 @@ class SdkThemeContext extends DefaultThemeRenderContext {
 
         searchField.addEventListener('keydown', debounce(handleResults))
       })();
-      `
+      `;
       const style = `
+        .tsd-tag.ts-flagProtected {
+          display: none;
+        }
+
         .skip-to-content-nav {
           position: absolute;
           height: 1px;
@@ -117,23 +121,21 @@ class SdkThemeContext extends DefaultThemeRenderContext {
           width: 1;
           height: 1;
         }
-      `
-      return <>
-        <style>
-            {style}
-        </style>
-        <a href="#jump-to-content" class="skip-to-content-nav">
-          Jump to Content
-        </a>
-        { oldToolbar(props) }
-        <div aria-live="polite" id="search-live-region">
-          
-        </div>
-        <script>
-          <JSX.Raw html={script} />
-        </script>
-      </>
-    }
+      `;
+      return (
+        <>
+          <style>{style}</style>
+          <a href="#jump-to-content" class="skip-to-content-nav">
+            Jump to Content
+          </a>
+          {oldToolbar(props)}
+          <div aria-live="polite" id="search-live-region"></div>
+          <script>
+            <JSX.Raw html={script} />
+          </script>
+        </>
+      );
+    };
 
     this.header = (props: PageEvent<Reflection>) => {
       const style = `
@@ -160,16 +162,16 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       footer {
 
       }
-    `
+    `;
 
-    return <>
-        <style>
-          { style }
-        </style>
-        { oldHeader(props) }
-        <div id="jump-to-content" tabIndex={-1} />
-      </>
-    }
+      return (
+        <>
+          <style>{style}</style>
+          {oldHeader(props)}
+          <div id="jump-to-content" tabIndex={-1} />
+        </>
+      );
+    };
 
     this.footer = () => {
       const script = `
@@ -178,25 +180,35 @@ class SdkThemeContext extends DefaultThemeRenderContext {
         document.querySelector('.tsd-widget.tsd-toolbar-icon.menu svg').setAttribute('alt', 'toggle menu')
         document.querySelector('.tsd-widget.tsd-toolbar-icon.search svg').setAttribute('alt', 'open search')
       })();
-      `
-      return <>
-        {oldFooter()}
-        <footer>
-          <div class="container" id="awsdocs-legal-zone-copyright" style="padding: 2rem;">
-            <a href="https://aws.amazon.com/privacy" target="_blank">Privacy</a> |
-            <a href="https://aws.amazon.com/terms/" target="_blank"> Site terms</a> |
-            <a id="awsdocs-cookie-preferences-link" href="#"> Cookie preferences</a> |
-            <span class="copyright">
-              © 2023, Amazon Web Services, Inc. or its affiliates. All rights reserved.
-            </span>
-          </div>
-        </footer>
-        <script>
-          <JSX.Raw html={script} />
-        </script>
-        <script type="text/javascript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js"></script>
-      </>
-    }
+      `;
+      return (
+        <>
+          {oldFooter()}
+          <footer>
+            <div class="container" id="awsdocs-legal-zone-copyright" style="padding: 2rem;">
+              <a href="https://aws.amazon.com/privacy" target="_blank">
+                Privacy
+              </a>{" "}
+              |
+              <a href="https://aws.amazon.com/terms/" target="_blank">
+                {" "}
+                Site terms
+              </a>{" "}
+              |
+              <a id="awsdocs-cookie-preferences-link" href="#">
+                {" "}
+                Cookie preferences
+              </a>{" "}
+              |<span class="copyright">© 2023, Amazon Web Services, Inc. or its affiliates. All rights reserved.</span>
+            </div>
+          </footer>
+          <script>
+            <JSX.Raw html={script} />
+          </script>
+          <script type="text/javascript" src="https://a0.awsstatic.com/s_code/js/3.0/awshome_s_code.js"></script>
+        </>
+      );
+    };
   }
 
   override primaryNavigation = (props: PageEvent<Reflection>) => {
@@ -230,10 +242,10 @@ class SdkThemeContext extends DefaultThemeRenderContext {
                   <div class="tsd-accordion-details">
                     <ul>
                       {category.children.map((reflection) => {
-                        if (reflection.name.includes('documentation-generator')) return ''
-                        let urlTo = this.urlTo(reflection)
-                        if (urlTo && !urlTo.includes('.html')) {
-                          urlTo += '/'
+                        if (reflection.name.includes("documentation-generator")) return "";
+                        let urlTo = this.urlTo(reflection);
+                        if (urlTo && !urlTo.includes(".html")) {
+                          urlTo += "/";
                         }
                         return (
                           <li class={selected ? "selected" : ""}>
@@ -255,9 +267,6 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       return;
     }
   };
-
-
-
 }
 
 export class SdkTheme extends DefaultTheme {
