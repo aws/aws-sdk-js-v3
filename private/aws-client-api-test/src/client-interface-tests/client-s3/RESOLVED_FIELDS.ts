@@ -38,7 +38,8 @@ export const RESOLVED_FIELDS: Record<FIELD_INIT_TYPE, (keyof S3ClientResolvedCon
     "tls",
     "isCustomEndpoint",
     "retryStrategy",
-    "credentials",
+    "credentials", // deprecated
+    "identity",
     "signer",
     "systemClockOffset",
     "forcePathStyle",
