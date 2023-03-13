@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
+
+
+### Features
+
+* **client-s3-control:** Added support for cross-account Multi-Region Access Points. Added support for S3 Replication for S3 on Outposts. ([0be873b](https://github.com/aws/aws-sdk-js-v3/commit/0be873b472e86664daa938754da262efd17e6198))
+
+
+
+
+
 # [3.289.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.288.0...v3.289.0) (2023-03-10)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control

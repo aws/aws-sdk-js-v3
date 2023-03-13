@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
+
+
+### Features
+
+* **client-wisdom:** This release extends Wisdom CreateKnowledgeBase API to support SharePoint connector type by removing the [@required](https://github.com/required) trait for objectField ([79c9f81](https://github.com/aws/aws-sdk-js-v3/commit/79c9f81f7c4d358982a93866ba40b0526b7bc925))
+
+
+
+
+
 # [3.289.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.288.0...v3.289.0) (2023-03-10)
 
 **Note:** Version bump only for package @aws-sdk/client-wisdom

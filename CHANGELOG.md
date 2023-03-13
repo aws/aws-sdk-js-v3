@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
+
+
+### Features
+
+* **client-appintegrations:** Adds FileConfiguration to Amazon AppIntegrations CreateDataIntegration supporting scheduled downloading of third party files into Amazon Connect from sources such as Microsoft SharePoint. ([6780524](https://github.com/aws/aws-sdk-js-v3/commit/67805240b345f69536ad34a1cb164c6a61774026))
+* **client-s3-control:** Added support for cross-account Multi-Region Access Points. Added support for S3 Replication for S3 on Outposts. ([0be873b](https://github.com/aws/aws-sdk-js-v3/commit/0be873b472e86664daa938754da262efd17e6198))
+* **client-tnb:** This release adds tagging support to the following Network Instance APIs : Instantiate, Update, Terminate. ([dfdcf0e](https://github.com/aws/aws-sdk-js-v3/commit/dfdcf0e13d86e8c7534d48e4a8415e575aad1398))
+* **client-wisdom:** This release extends Wisdom CreateKnowledgeBase API to support SharePoint connector type by removing the [@required](https://github.com/required) trait for objectField ([79c9f81](https://github.com/aws/aws-sdk-js-v3/commit/79c9f81f7c4d358982a93866ba40b0526b7bc925))
+* **clients:** update client endpoints as of 2023-03-13 ([7110e0a](https://github.com/aws/aws-sdk-js-v3/commit/7110e0aca5d4d65c4acfc34264a396ca4085eb3c))
+* **protocol-http:** implement SRA HttpRequest ([#4514](https://github.com/aws/aws-sdk-js-v3/issues/4514)) ([d9d24b0](https://github.com/aws/aws-sdk-js-v3/commit/d9d24b0a2561dfc739dfbbf5962f3c046bbc2f03))
+* **smithy-client:** update client defaults provider ([a092b53](https://github.com/aws/aws-sdk-js-v3/commit/a092b53771649755fbec9f999ef85cf020e7c51b))
+
+
+
+
+
 # [3.289.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.288.0...v3.289.0) (2023-03-10)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
+
+
+### Features
+
+* **client-appintegrations:** Adds FileConfiguration to Amazon AppIntegrations CreateDataIntegration supporting scheduled downloading of third party files into Amazon Connect from sources such as Microsoft SharePoint. ([6780524](https://github.com/aws/aws-sdk-js-v3/commit/67805240b345f69536ad34a1cb164c6a61774026))
+
+
+
+
+
 # [3.289.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.288.0...v3.289.0) (2023-03-10)
 
 **Note:** Version bump only for package @aws-sdk/client-appintegrations

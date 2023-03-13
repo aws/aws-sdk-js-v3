@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
+
+
+### Features
+
+* **client-tnb:** This release adds tagging support to the following Network Instance APIs : Instantiate, Update, Terminate. ([dfdcf0e](https://github.com/aws/aws-sdk-js-v3/commit/dfdcf0e13d86e8c7534d48e4a8415e575aad1398))
+
+
+
+
+
 # [3.289.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.288.0...v3.289.0) (2023-03-10)
 
 **Note:** Version bump only for package @aws-sdk/client-tnb
