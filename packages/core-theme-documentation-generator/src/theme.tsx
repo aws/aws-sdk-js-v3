@@ -21,6 +21,14 @@ class SdkThemeContext extends DefaultThemeRenderContext {
 
     this.toolbar = (props) => {
       const script = `
+      // REDIRECT BROKEN CLIENT INDEX PAGES
+      (() => {
+        console.log(window.location.href)
+        if (window.location.href.includes('client/client') && /clients\\\/client-\\\w+\\\//.test(window.location.href) === false) {
+          window.location.href = window.location.href + '/'
+        }
+      })();
+
       // MENU CONTROLS
       (() => {
         const menu = document.querySelector('.menu')
