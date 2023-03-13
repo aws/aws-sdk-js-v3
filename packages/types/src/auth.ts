@@ -1,3 +1,7 @@
+import { Identity, IdentityProvider } from "./identity";
+import { HttpSigner } from "./signature";
+import { Provider } from "./util";
+
 /**
  * @internal
  *
@@ -5,27 +9,71 @@
  */
 export interface AuthScheme {
   /**
-   * @example "sigv4a" or "sigv4"
+   * @example "aws.auth#sigv4a" or "aws.auth#sigv4"
    */
-  name: "sigv4" | "sigv4a" | string;
+  schemeId: string;
+  /**
+   * Resolves an identity provider compatible with the AuthScheme,
+   * e.g. resolving credential chains
+   * @returns an identity provider
+   */
+  identity: IdentityProvider<Identity>;
+  /**
+   * Resolves a signer compatible with the AuthScheme
+   */
+  signer: Provider<HttpSigner<Identity>>;
+  /**
+   * @example "sigv4a" or "sigv4"
+   * @deprecated use {@link schemeId} instead
+   */
+  name?: "sigv4" | "sigv4a" | string;
   /**
    * @example "s3"
+   * @deprecated use {@link IdentityInputConfig.signingProperties} instead
    */
-  signingName: string;
+  signingName?: string;
   /**
    * @example "us-east-1"
+   * @deprecated use {@link IdentityInputConfig.signingProperties} instead
    */
-  signingRegion: string;
+  signingRegion?: string;
   /**
    * @example ["*"]
    * @exammple ["us-west-2", "us-east-1"]
+   * @deprecated use {@link IdentityInputConfig.signingProperties} instead
    */
   signingRegionSet?: string[];
   /**
    * @deprecated this field was renamed to signingRegion.
+   * @deprecated use {@link IdentityInputConfig.signingProperties} instead
    */
   signingScope?: never;
-  properties: Record<string, unknown>;
+  /**
+   * @deprecated use {@link IdentityInputConfig.signingProperties} instead
+   */
+  properties?: Record<string, unknown>;
+}
+
+export interface HttpAuthOption {
+  /**
+   * @example "aws.auth#sigv4a" or "aws.auth#sigv4"
+   */
+  schemeId: string;
+  /**
+   * Properties used in an {@link IdentityProvider}
+   */
+  identityProperties: Record<string, any>;
+  /**
+   * Properties used in an {@link HttpSigner}
+   */
+  signerProperties: Record<string, any>;
+}
+
+export interface AuthOptionsProvider {
+  /**
+   * Resolves potential list of {@link HttpAuthOption} for authentication
+   */
+  <T>(authParameters?: T & Record<string, any>): Promise<Array<HttpAuthOption>>;
 }
 
 // As described in the Smithy documentation:

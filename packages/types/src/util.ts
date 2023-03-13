@@ -1,4 +1,5 @@
 import { Endpoint } from "./http";
+import { Identity, IdentityProvider } from "./identity";
 import {
   FinalizeHandler,
   FinalizeHandlerArguments,
@@ -66,6 +67,10 @@ export interface Provider<T> {
  */
 export interface MemoizedProvider<T> {
   (options?: { forceRefresh?: boolean }): Promise<T>;
+}
+
+export interface MemoizedIdentityProvider<IdentityT extends Identity> extends IdentityProvider<IdentityT> {
+  (options?: { forceRefresh?: boolean } & Record<string, any>): Promise<IdentityT>;
 }
 
 /**
