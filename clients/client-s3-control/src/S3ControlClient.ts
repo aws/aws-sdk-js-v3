@@ -88,6 +88,10 @@ import {
 } from "./commands/DeleteBucketLifecycleConfigurationCommand";
 import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand";
 import {
+  DeleteBucketReplicationCommandInput,
+  DeleteBucketReplicationCommandOutput,
+} from "./commands/DeleteBucketReplicationCommand";
+import {
   DeleteBucketTaggingCommandInput,
   DeleteBucketTaggingCommandOutput,
 } from "./commands/DeleteBucketTaggingCommand";
@@ -144,6 +148,10 @@ import {
   GetBucketLifecycleConfigurationCommandOutput,
 } from "./commands/GetBucketLifecycleConfigurationCommand";
 import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand";
+import {
+  GetBucketReplicationCommandInput,
+  GetBucketReplicationCommandOutput,
+} from "./commands/GetBucketReplicationCommand";
 import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand";
 import {
   GetBucketVersioningCommandInput,
@@ -213,6 +221,10 @@ import {
   PutBucketLifecycleConfigurationCommandOutput,
 } from "./commands/PutBucketLifecycleConfigurationCommand";
 import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand";
+import {
+  PutBucketReplicationCommandInput,
+  PutBucketReplicationCommandOutput,
+} from "./commands/PutBucketReplicationCommand";
 import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand";
 import {
   PutBucketVersioningCommandInput,
@@ -262,6 +274,7 @@ export type ServiceInputTypes =
   | DeleteBucketCommandInput
   | DeleteBucketLifecycleConfigurationCommandInput
   | DeleteBucketPolicyCommandInput
+  | DeleteBucketReplicationCommandInput
   | DeleteBucketTaggingCommandInput
   | DeleteJobTaggingCommandInput
   | DeleteMultiRegionAccessPointCommandInput
@@ -280,6 +293,7 @@ export type ServiceInputTypes =
   | GetBucketCommandInput
   | GetBucketLifecycleConfigurationCommandInput
   | GetBucketPolicyCommandInput
+  | GetBucketReplicationCommandInput
   | GetBucketTaggingCommandInput
   | GetBucketVersioningCommandInput
   | GetJobTaggingCommandInput
@@ -301,6 +315,7 @@ export type ServiceInputTypes =
   | PutAccessPointPolicyForObjectLambdaCommandInput
   | PutBucketLifecycleConfigurationCommandInput
   | PutBucketPolicyCommandInput
+  | PutBucketReplicationCommandInput
   | PutBucketTaggingCommandInput
   | PutBucketVersioningCommandInput
   | PutJobTaggingCommandInput
@@ -325,6 +340,7 @@ export type ServiceOutputTypes =
   | DeleteBucketCommandOutput
   | DeleteBucketLifecycleConfigurationCommandOutput
   | DeleteBucketPolicyCommandOutput
+  | DeleteBucketReplicationCommandOutput
   | DeleteBucketTaggingCommandOutput
   | DeleteJobTaggingCommandOutput
   | DeleteMultiRegionAccessPointCommandOutput
@@ -343,6 +359,7 @@ export type ServiceOutputTypes =
   | GetBucketCommandOutput
   | GetBucketLifecycleConfigurationCommandOutput
   | GetBucketPolicyCommandOutput
+  | GetBucketReplicationCommandOutput
   | GetBucketTaggingCommandOutput
   | GetBucketVersioningCommandOutput
   | GetJobTaggingCommandOutput
@@ -364,6 +381,7 @@ export type ServiceOutputTypes =
   | PutAccessPointPolicyForObjectLambdaCommandOutput
   | PutBucketLifecycleConfigurationCommandOutput
   | PutBucketPolicyCommandOutput
+  | PutBucketReplicationCommandOutput
   | PutBucketTaggingCommandOutput
   | PutBucketVersioningCommandOutput
   | PutJobTaggingCommandOutput

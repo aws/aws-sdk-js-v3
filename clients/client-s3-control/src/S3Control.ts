@@ -58,6 +58,11 @@ import {
   DeleteBucketPolicyCommandOutput,
 } from "./commands/DeleteBucketPolicyCommand";
 import {
+  DeleteBucketReplicationCommand,
+  DeleteBucketReplicationCommandInput,
+  DeleteBucketReplicationCommandOutput,
+} from "./commands/DeleteBucketReplicationCommand";
+import {
   DeleteBucketTaggingCommand,
   DeleteBucketTaggingCommandInput,
   DeleteBucketTaggingCommandOutput,
@@ -139,6 +144,11 @@ import {
   GetBucketPolicyCommandInput,
   GetBucketPolicyCommandOutput,
 } from "./commands/GetBucketPolicyCommand";
+import {
+  GetBucketReplicationCommand,
+  GetBucketReplicationCommandInput,
+  GetBucketReplicationCommandOutput,
+} from "./commands/GetBucketReplicationCommand";
 import {
   GetBucketTaggingCommand,
   GetBucketTaggingCommandInput,
@@ -240,6 +250,11 @@ import {
   PutBucketPolicyCommandInput,
   PutBucketPolicyCommandOutput,
 } from "./commands/PutBucketPolicyCommand";
+import {
+  PutBucketReplicationCommand,
+  PutBucketReplicationCommandInput,
+  PutBucketReplicationCommandOutput,
+} from "./commands/PutBucketReplicationCommand";
 import {
   PutBucketTaggingCommand,
   PutBucketTaggingCommandInput,
@@ -996,6 +1011,72 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
+   *             <p>This operation deletes an Amazon S3 on Outposts bucket's replication configuration. To
+   *             delete an S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketReplication.html">DeleteBucketReplication</a> in the <i>Amazon S3 API Reference</i>. </p>
+   *          </note>
+   *          <p>Deletes the replication configuration from the specified S3 on Outposts bucket.</p>
+   *          <p>To use this operation, you must have permissions to perform the
+   *             <code>s3-outposts:PutReplicationConfiguration</code> action. The Outposts bucket owner
+   *          has this permission by default and can grant it to others. For more information about
+   *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsIAM.html">Setting up IAM with
+   *             S3 on Outposts</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsBucketPolicy.html">Managing access to
+   *             S3 on Outposts buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests for
+   *             a replication configuration to all S3 on Outposts systems. Therefore, the replication
+   *             configuration that's returned by a <code>GET</code> request soon after a
+   *                <code>PUT</code> or <code>DELETE</code> request might return a more recent result
+   *             than what's on the Outpost. If an Outpost is offline, the delay in updating the
+   *             replication configuration on that Outpost can be significant.</p>
+   *          </note>
+   *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html#API_control_DeleteBucketReplication_Examples">Examples</a> section.</p>
+   *          <p>For information about S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for Amazon Web Services Outposts</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
+   *          <p>The following operations are related to <code>DeleteBucketReplication</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketReplication.html">PutBucketReplication</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketReplication.html">GetBucketReplication</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public deleteBucketReplication(
+    args: DeleteBucketReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBucketReplicationCommandOutput>;
+  public deleteBucketReplication(
+    args: DeleteBucketReplicationCommandInput,
+    cb: (err: any, data?: DeleteBucketReplicationCommandOutput) => void
+  ): void;
+  public deleteBucketReplication(
+    args: DeleteBucketReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBucketReplicationCommandOutput) => void
+  ): void;
+  public deleteBucketReplication(
+    args: DeleteBucketReplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBucketReplicationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBucketReplicationCommandOutput) => void
+  ): Promise<DeleteBucketReplicationCommandOutput> | void {
+    const command = new DeleteBucketReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
    *             <p>This action deletes an Amazon S3 on Outposts bucket's tags. To delete an S3 bucket tags,
    *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html">DeleteBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
@@ -1049,9 +1130,10 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use this operation,
-   *          you must have permission to perform the <code>s3:DeleteJobTagging</code> action. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+   * <p>Removes the entire tag set from the specified S3 Batch Operations job. To use
+   *          the
+   *             <code>DeleteJobTagging</code> operation, you must have permission to
+   *          perform the <code>s3:DeleteJobTagging</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
    *             access and labeling jobs using tags</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    *          <p></p>
@@ -1917,6 +1999,79 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
+   *             <p>This operation gets an Amazon S3 on Outposts bucket's replication configuration. To get an
+   *             S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketReplication.html">GetBucketReplication</a>
+   *             in the <i>Amazon S3 API Reference</i>. </p>
+   *          </note>
+   *          <p>Returns the replication configuration of an S3 on Outposts bucket. For more information
+   *          about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
+   *             <i>Amazon S3 User Guide</i>. For information about S3 replication on Outposts
+   *          configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for Amazon Web Services
+   *             Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests for
+   *             a replication configuration to all S3 on Outposts systems. Therefore, the replication
+   *             configuration that's returned by a <code>GET</code> request soon after a
+   *                <code>PUT</code> or <code>DELETE</code> request might return a more recent result
+   *             than what's on the Outpost. If an Outpost is offline, the delay in updating the
+   *             replication configuration on that Outpost can be significant.</p>
+   *          </note>
+   *          <p>This action requires permissions for the
+   *             <code>s3-outposts:GetReplicationConfiguration</code> action. The Outposts bucket owner
+   *          has this permission by default and can grant it to others. For more information about
+   *          permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsIAM.html">Setting up IAM with
+   *             S3 on Outposts</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsBucketPolicy.html">Managing access to
+   *             S3 on Outposts bucket</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketReplication.html#API_control_GetBucketReplication_Examples">Examples</a> section.</p>
+   *          <p>If you include the <code>Filter</code> element in a replication configuration, you must
+   *          also include the <code>DeleteMarkerReplication</code>, <code>Status</code>, and
+   *             <code>Priority</code> elements. The response also returns those elements.</p>
+   *          <p>For information about S3 on Outposts replication failure reasons, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/outposts-replication-eventbridge.html#outposts-replication-failure-codes">Replication failure reasons</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>The following operations are related to <code>GetBucketReplication</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketReplication.html">PutBucketReplication</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html">DeleteBucketReplication</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public getBucketReplication(
+    args: GetBucketReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBucketReplicationCommandOutput>;
+  public getBucketReplication(
+    args: GetBucketReplicationCommandInput,
+    cb: (err: any, data?: GetBucketReplicationCommandOutput) => void
+  ): void;
+  public getBucketReplication(
+    args: GetBucketReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBucketReplicationCommandOutput) => void
+  ): void;
+  public getBucketReplication(
+    args: GetBucketReplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBucketReplicationCommandOutput) => void),
+    cb?: (err: any, data?: GetBucketReplicationCommandOutput) => void
+  ): Promise<GetBucketReplicationCommandOutput> | void {
+    const command = new GetBucketReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
    *             <p>This action gets an Amazon S3 on Outposts bucket's tags. To get an S3 bucket tags, see
    *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketTagging.html">GetBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
@@ -1985,13 +2140,18 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This operation returns the versioning state only for S3 on Outposts buckets. To return
-   *             the versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> in
-   *             the <i>Amazon S3 API Reference</i>. </p>
+   *             <p>This operation returns the versioning state
+   *             for
+   *             S3 on Outposts
+   *             buckets
+   *             only. To return the versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Returns the versioning state for an S3 on Outposts bucket. With versioning, you can save
-   *          multiple distinct copies of your data and recover from unintended user actions and
-   *          application failures.</p>
+   *          <p>Returns the versioning state for an S3 on Outposts bucket. With
+   *          S3
+   *          Versioning,
+   *          you can save multiple distinct copies of your
+   *          objects
+   *          and recover from unintended user actions and application failures.</p>
    *          <p>If you've never set versioning on your bucket, it has no versioning state. In that case,
    *          the <code>GetBucketVersioning</code> request does not return a versioning state
    *          value.</p>
@@ -2048,9 +2208,10 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Returns the tags on an S3 Batch Operations job. To use this operation, you must have
-   *          permission to perform the <code>s3:GetJobTagging</code> action. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
+   * <p>Returns the tags on an S3 Batch Operations job. To use
+   *          the
+   *             <code>GetJobTagging</code> operation, you must have permission to
+   *          perform the <code>s3:GetJobTagging</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
    *             access and labeling jobs using tags</a> in the
    *          <i>Amazon S3 User Guide</i>.</p>
    *          <p></p>
@@ -2376,7 +2537,7 @@ export class S3Control extends S3ControlClient {
   /**
    * <p>Gets the Amazon S3 Storage Lens configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Assessing your storage
    *             activity and usage with Amazon S3 Storage Lens </a> in the
-   *          <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>To use this action, you must have permission to perform the
    *                <code>s3:GetStorageLensConfiguration</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the
@@ -2454,10 +2615,14 @@ export class S3Control extends S3ControlClient {
   }
 
   /**
-   * <p>Returns a list of the access points owned by the current account associated with the specified bucket. You can
-   *          retrieve up to 1000 access points per call. If the specified bucket has more than 1,000 access points (or
-   *          the number specified in <code>maxResults</code>, whichever is less), the response will
-   *          include a continuation token that you can use to list the additional access points.</p>
+   * <p>Returns a list of the access points
+   *          that are
+   *          owned by the current account
+   *          that's
+   *          associated with the specified bucket. You can retrieve up to 1000 access points
+   *          per call. If the specified bucket has more than 1,000 access points (or the number specified in
+   *             <code>maxResults</code>, whichever is less), the response will include a continuation
+   *          token that you can use to list the additional access points.</p>
    *          <p></p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetAccessPoint.html#API_control_GetAccessPoint_Examples">Examples</a> section.</p>
    *          <p>The following actions are related to <code>ListAccessPoints</code>:</p>
@@ -3013,6 +3178,116 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
+   *             <p>This action creates an Amazon S3 on Outposts bucket's replication configuration. To create
+   *             an S3 bucket's replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketReplication.html">PutBucketReplication</a>
+   *             in the <i>Amazon S3 API Reference</i>. </p>
+   *          </note>
+   *          <p>Creates a replication configuration or replaces an existing one. For information about
+   *          S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for Amazon Web Services Outposts</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests for
+   *             a replication configuration to all S3 on Outposts systems. Therefore, the replication
+   *             configuration that's returned by a <code>GET</code> request soon after a
+   *                <code>PUT</code> or <code>DELETE</code> request might return a more recent result
+   *             than what's on the Outpost. If an Outpost is offline, the delay in updating the
+   *             replication configuration on that Outpost can be significant.</p>
+   *          </note>
+   *          <p>Specify the replication configuration in the request body. In the replication
+   *          configuration, you provide the following information:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The name of the destination bucket or buckets where you want S3 on Outposts to
+   *                replicate objects</p>
+   *             </li>
+   *             <li>
+   *                <p>The Identity and Access Management (IAM) role that S3 on Outposts can assume to replicate objects on
+   *                your behalf</p>
+   *             </li>
+   *             <li>
+   *                <p>Other relevant information, such as replication rules</p>
+   *             </li>
+   *          </ul>
+   *          <p>A replication configuration must include at least one rule and can contain a maximum of
+   *          100. Each rule identifies a subset of objects to replicate by filtering the objects in
+   *          the source Outposts bucket. To choose additional subsets of objects to replicate, add a
+   *          rule for each subset.</p>
+   *          <p>To specify a subset of the objects in the source Outposts bucket to apply a replication
+   *          rule to, add the <code>Filter</code> element as a child of the <code>Rule</code> element.
+   *          You can filter objects based on an object key prefix, one or more object tags, or both.
+   *          When you add the <code>Filter</code> element in the configuration, you must also add the
+   *          following elements: <code>DeleteMarkerReplication</code>, <code>Status</code>, and
+   *             <code>Priority</code>.</p>
+   *          <p>Using <code>PutBucketReplication</code> on Outposts requires that both the source and
+   *          destination buckets must have versioning enabled. For information about enabling versioning
+   *          on a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsManagingVersioning.html">Managing S3 Versioning
+   *             for your S3 on Outposts bucket</a>.</p>
+   *          <p>For information about S3 on Outposts replication failure reasons, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/outposts-replication-eventbridge.html#outposts-replication-failure-codes">Replication failure reasons</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <p>
+   *             <b>Handling Replication of Encrypted Objects</b>
+   *          </p>
+   *          <p>Outposts buckets are encrypted at all times. All the objects in the source Outposts
+   *          bucket are encrypted and can be replicated. Also, all the replicas in the destination
+   *          Outposts bucket are encrypted with the same encryption key as the objects in the source
+   *          Outposts bucket.</p>
+   *          <p>
+   *             <b>Permissions</b>
+   *          </p>
+   *          <p>To create a <code>PutBucketReplication</code> request, you must have
+   *             <code>s3-outposts:PutReplicationConfiguration</code> permissions for the bucket. The
+   *          Outposts bucket owner has this permission by default and can grant it to others. For more
+   *          information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsIAM.html">Setting up IAM with
+   *             S3 on Outposts</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsBucketPolicy.html">Managing access to
+   *             S3 on Outposts buckets</a>. </p>
+   *          <note>
+   *             <p>To perform this operation, the user or role must also have the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> permission.</p>
+   *          </note>
+   *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
+   *          <p>The following operations are related to <code>PutBucketReplication</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketReplication.html">GetBucketReplication</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html">DeleteBucketReplication</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  public putBucketReplication(
+    args: PutBucketReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBucketReplicationCommandOutput>;
+  public putBucketReplication(
+    args: PutBucketReplicationCommandInput,
+    cb: (err: any, data?: PutBucketReplicationCommandOutput) => void
+  ): void;
+  public putBucketReplication(
+    args: PutBucketReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutBucketReplicationCommandOutput) => void
+  ): void;
+  public putBucketReplication(
+    args: PutBucketReplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBucketReplicationCommandOutput) => void),
+    cb?: (err: any, data?: PutBucketReplicationCommandOutput) => void
+  ): Promise<PutBucketReplicationCommandOutput> | void {
+    const command = new PutBucketReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <note>
    *             <p>This action puts tags on an Amazon S3 on Outposts bucket. To put tags on an S3 bucket, see
    *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html">PutBucketTagging</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
@@ -3127,13 +3402,18 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <note>
-   *             <p>This operation sets the versioning state only for S3 on Outposts buckets. To set the
-   *             versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a> in
-   *             the <i>Amazon S3 API Reference</i>. </p>
+   *             <p>This operation sets the versioning state
+   *             for
+   *             S3 on Outposts
+   *             buckets
+   *             only. To set the versioning state for an S3 bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a> in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
-   *          <p>Sets the versioning state for an S3 on Outposts bucket. With versioning, you can save
-   *          multiple distinct copies of your data and recover from unintended user actions and
-   *          application failures.</p>
+   *          <p>Sets the versioning state for an S3 on Outposts bucket. With
+   *          S3
+   *          Versioning,
+   *          you can save multiple distinct copies of your
+   *          objects
+   *          and recover from unintended user actions and application failures.</p>
    *          <p>You can set the versioning state to one of the following:</p>
    *          <ul>
    *             <li>
@@ -3160,9 +3440,10 @@ export class S3Control extends S3ControlClient {
    *          <p>If you have an object expiration lifecycle policy in your non-versioned bucket and you
    *          want to maintain the same permanent delete behavior when you enable versioning, you must
    *          add a noncurrent expiration policy. The noncurrent expiration lifecycle policy will manage
-   *          the deletes of the noncurrent object versions in the version-enabled bucket. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3
-   *             User Guide</i>.</p>
+   *          the
+   *          deletions
+   *          of the noncurrent object versions in the version-enabled bucket. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html#API_control_PutBucketVersioning_Examples">Examples</a> section.</p>
    *          <p>The following operations are related to <code>PutBucketVersioning</code> for
    *          S3 on Outposts.</p>
@@ -3259,8 +3540,10 @@ export class S3Control extends S3ControlClient {
    *             </ul>
    *          </note>
    *          <p></p>
-   *          <p>To use this action, you must have permission to perform the
-   *             <code>s3:PutJobTagging</code> action.</p>
+   *          <p>To use the
+   *             <code>PutJobTagging</code>
+   *          operation,
+   *          you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>
    *          <p>Related actions include:</p>
    *          <ul>
    *             <li>
@@ -3410,7 +3693,7 @@ export class S3Control extends S3ControlClient {
 
   /**
    * <p>Puts an Amazon S3 Storage Lens configuration. For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens.html">Working with
-   *          Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             Amazon S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>To use this action, you must have permission to perform the
    *                <code>s3:PutStorageLensConfiguration</code> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage_lens_iam_permissions.html">Setting permissions to use Amazon S3 Storage Lens</a> in the

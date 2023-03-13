@@ -14,6 +14,23 @@ export interface AbortIncompleteMultipartUpload {
   DaysAfterInitiation?: number;
 }
 
+export enum OwnerOverride {
+  Destination = "Destination",
+}
+
+/**
+ * <p>A container for information about access control for replicas.</p>
+ *          <note>
+ *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+ *          </note>
+ */
+export interface AccessControlTranslation {
+  /**
+   * <p>Specifies the replica ownership.</p>
+   */
+  Owner: OwnerOverride | string | undefined;
+}
+
 export enum NetworkOrigin {
   Internet = "Internet",
   VPC = "VPC",
@@ -80,9 +97,9 @@ export interface AccessPoint {
 }
 
 /**
- * <p>The container element for Amazon S3 Storage Lens activity metrics. Activity metrics show details about
- *          how your storage is requested, such as requests (for example, All requests, Get requests,
- *          Put requests), bytes uploaded or downloaded, and errors.</p>
+ * <p>The container element for Amazon S3 Storage Lens activity metrics. Activity metrics show details
+ *          about how your storage is requested, such as requests (for example, All requests, Get
+ *          requests, Put requests), bytes uploaded or downloaded, and errors.</p>
  *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface ActivityMetrics {
@@ -343,6 +360,12 @@ export interface Region {
    * <p>The name of the associated bucket for the Region.</p>
    */
   Bucket: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket that's associated with this
+   *          Multi-Region Access Point.</p>
+   */
+  BucketAccountId?: string;
 }
 
 /**
@@ -520,7 +543,7 @@ export interface CreateAccessPointRequest {
   /**
    * <p>The name of the bucket that you want to associate this access point with.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 
@@ -841,7 +864,7 @@ export interface CreateBucketResult {
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   BucketArn?: string;
 }
@@ -874,9 +897,10 @@ export interface JobManifestLocation {
   /**
    * <p>The Amazon Resource Name (ARN) for a manifest object.</p>
    *          <important>
-   *             <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using
-   *          XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
-   *             XML related object key constraints</a>.</p>
+   *             <p>When you're using XML requests, you must
+   * replace special characters (such as carriage returns) in object keys with their equivalent XML entity codes.
+   * For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
+   *             XML-related object key constraints</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </important>
    */
   ObjectArn: string | undefined;
@@ -1117,8 +1141,14 @@ export interface LambdaInvokeOperation {
 }
 
 /**
- * <p>Contains no configuration parameters because the DELETE Object tagging API only accepts
- *          the bucket name and key name as parameters, which are defined in the job's manifest.</p>
+ * <p>Contains no configuration parameters because the DELETE Object tagging
+ *             (<code>DeleteObjectTagging</code>)
+ *          API
+ *          operation
+ *          accepts
+ *          only
+ *          the bucket name and key name as parameters, which are defined in the
+ *          job's manifest.</p>
  */
 export interface S3DeleteObjectTaggingOperation {}
 
@@ -1128,9 +1158,14 @@ export enum S3GlacierJobTier {
 }
 
 /**
- * <p>Contains the configuration parameters for an S3 Initiate Restore Object job.
- *          S3 Batch Operations passes every object to the underlying POST Object restore API. For more
- *          information about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html#RESTObjectPOSTrestore-restore-request">RestoreObject</a>.</p>
+ * <p>Contains the configuration parameters for
+ *          a
+ *          POST Object restore job. S3 Batch Operations passes every object to the
+ *          underlying
+ *             <code>RestoreObject</code>
+ *          API
+ *          operation. For more information about the parameters for this operation,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOSTrestore.html#RESTObjectPOSTrestore-restore-request">RestoreObject</a>.</p>
  */
 export interface S3InitiateRestoreObjectOperation {
   /**
@@ -1261,11 +1296,13 @@ export interface S3AccessControlPolicy {
 }
 
 /**
- * <p>Contains the configuration parameters for a Set Object ACL operation. S3 Batch Operations
- *          passes every object to the underlying <code>PutObjectAcl</code> API. For more information
- *          about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">
- *                <code>PutObjectAcl</code>
- *             </a>.</p>
+ * <p>Contains the configuration parameters for a
+ *          PUT
+ *          Object ACL operation. S3 Batch Operations passes every object to the underlying
+ *             <code>PutObjectAcl</code>
+ *          API
+ *          operation. For more information about the parameters for this operation,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">PutObjectAcl</a>.</p>
  */
 export interface S3SetObjectAclOperation {
   /**
@@ -1387,16 +1424,22 @@ export enum S3StorageClass {
 }
 
 /**
- * <p>Contains the configuration parameters for a PUT Copy object operation. S3 Batch Operations
- *          passes every object to the underlying PUT Copy object API. For more information about the
- *          parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html">PUT Object - Copy</a>.</p>
+ * <p>Contains
+ *          the configuration parameters for a PUT Copy object operation. S3 Batch Operations passes every
+ *          object to the underlying
+ *             <code>CopyObject</code>
+ *          API
+ *          operation. For more information about the parameters for this operation,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectCOPY.html">CopyObject</a>.</p>
  */
 export interface S3CopyObjectOperation {
   /**
-   * <p>Specifies the destination bucket ARN for the batch copy operation. For example, to copy
-   *          objects to a bucket named <code>destinationBucket</code>, set the
-   *             <code>TargetResource</code> property to
-   *          <code>arn:aws:s3:::destinationBucket</code>.</p>
+   * <p>Specifies the destination bucket
+   *          Amazon Resource Name
+   *          (ARN)
+   *          for the batch copy operation. For example, to copy objects to a bucket named
+   *             <code>destinationBucket</code>, set the <code>TargetResource</code> property to
+   *             <code>arn:aws:s3:::destinationBucket</code>.</p>
    */
   TargetResource?: string;
 
@@ -1460,9 +1503,17 @@ export interface S3CopyObjectOperation {
   SSEAwsKmsKeyId?: string;
 
   /**
-   * <p>Specifies the folder prefix into which you would like the objects to be copied. For
-   *          example, to copy objects into a folder named <code>Folder1</code> in the destination
-   *          bucket, set the TargetKeyPrefix to <code>Folder1</code>.</p>
+   * <p>Specifies the folder prefix
+   *          that
+   *          you
+   *          want
+   *          the objects to be
+   *          copied
+   *          into. For example, to copy objects into a folder named
+   *             <code>Folder1</code> in the destination bucket, set the
+   *             <code>TargetKeyPrefix</code>
+   *          property
+   *          to <code>Folder1</code>.</p>
    */
   TargetKeyPrefix?: string;
 
@@ -1492,9 +1543,11 @@ export interface S3CopyObjectOperation {
   BucketKeyEnabled?: boolean;
 
   /**
-   * <p>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more
-   *          information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml"> Checking object
-   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Indicates the algorithm
+   *          that
+   *          you want Amazon S3 to use to create the checksum. For more
+   *          information,
+   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   ChecksumAlgorithm?: S3ChecksumAlgorithm | string;
 }
@@ -1513,8 +1566,12 @@ export interface S3ObjectLockLegalHold {
 
 /**
  * <p>Contains the configuration for an S3 Object Lock legal hold operation that an
- *          S3 Batch Operations job passes every object to the underlying <code>PutObjectLegalHold</code>
- *          API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
+ *          S3 Batch Operations job passes
+ *          to
+ *          every object to the underlying
+ *             <code>PutObjectLegalHold</code>
+ *          API
+ *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
  *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface S3SetObjectLegalHoldOperation {
@@ -1554,9 +1611,10 @@ export interface S3Retention {
 /**
  * <p>Contains the configuration parameters for the Object Lock retention action for an
  *          S3 Batch Operations job. Batch Operations passes every object to the underlying
- *             <code>PutObjectRetention</code> API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using
- *             S3 Object Lock retention with S3 Batch Operations</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ *             <code>PutObjectRetention</code>
+ *          API
+ *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using S3 Object Lock retention
+ *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface S3SetObjectRetentionOperation {
   /**
@@ -1574,9 +1632,13 @@ export interface S3SetObjectRetentionOperation {
 }
 
 /**
- * <p>Contains the configuration parameters for a Set Object Tagging operation. S3 Batch Operations
- *          passes every object to the underlying PUT Object tagging API. For more information about
- *          the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTtagging.html">PUT Object tagging</a>.</p>
+ * <p>Contains the configuration parameters for a
+ *          PUT
+ *          Object Tagging operation. S3 Batch Operations passes every object to the underlying
+ *             <code>PutObjectTagging</code>
+ *          API
+ *          operation. For more information about the parameters for this operation,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTtagging.html">PutObjectTagging</a>.</p>
  */
 export interface S3SetObjectTaggingOperation {
   /**
@@ -1635,8 +1697,12 @@ export interface JobOperation {
 
   /**
    * <p>Contains the configuration for an S3 Object Lock legal hold operation that an
-   *          S3 Batch Operations job passes every object to the underlying <code>PutObjectLegalHold</code>
-   *          API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
+   *          S3 Batch Operations job passes
+   *          to
+   *          every object to the underlying
+   *             <code>PutObjectLegalHold</code>
+   *          API
+   *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
    *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   S3PutObjectLegalHold?: S3SetObjectLegalHoldOperation;
@@ -1644,9 +1710,10 @@ export interface JobOperation {
   /**
    * <p>Contains the configuration parameters for the Object Lock retention action for an
    *          S3 Batch Operations job. Batch Operations passes every object to the underlying
-   *             <code>PutObjectRetention</code> API. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using
-   *             S3 Object Lock retention with S3 Batch Operations</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *             <code>PutObjectRetention</code>
+   *          API
+   *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using S3 Object Lock retention
+   *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   S3PutObjectRetention?: S3SetObjectRetentionOperation;
 
@@ -1872,7 +1939,7 @@ export interface DeleteAccessPointRequest {
   /**
    * <p>The name of the access point you want to delete.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 }
@@ -1898,7 +1965,7 @@ export interface DeleteAccessPointPolicyRequest {
   /**
    * <p>The name of the access point whose policy you want to delete.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 }
@@ -1924,7 +1991,7 @@ export interface DeleteBucketRequest {
   /**
    * <p>Specifies the bucket being deleted.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -1938,7 +2005,7 @@ export interface DeleteBucketLifecycleConfigurationRequest {
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -1952,7 +2019,22 @@ export interface DeleteBucketPolicyRequest {
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   */
+  Bucket: string | undefined;
+}
+
+export interface DeleteBucketReplicationRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the Outposts bucket to delete the replication configuration
+   *          for.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Specifies the S3 on Outposts bucket to delete the replication configuration for.</p>
+   *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -1966,7 +2048,7 @@ export interface DeleteBucketTaggingRequest {
   /**
    * <p>The bucket ARN that has the tag set to be removed.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -2313,7 +2395,7 @@ export interface GetAccessPointRequest {
   /**
    * <p>The name of the access point whose configuration information you want to retrieve.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 }
@@ -2441,7 +2523,7 @@ export interface GetAccessPointPolicyRequest {
   /**
    * <p>The name of the access point whose policy you want to retrieve.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 }
@@ -2531,7 +2613,7 @@ export interface GetBucketRequest {
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -2562,7 +2644,7 @@ export interface GetBucketLifecycleConfigurationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -2624,9 +2706,10 @@ export interface LifecycleRuleFilter {
   /**
    * <p>Prefix identifying one or more objects to which the rule applies.</p>
    *          <important>
-   *             <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using
-   *          XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
-   *             XML related object key constraints</a>.</p>
+   *             <p>When you're using XML requests, you must
+   * replace special characters (such as carriage returns) in object keys with their equivalent XML entity codes.
+   * For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
+   *             XML-related object key constraints</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          </important>
    */
   Prefix?: string;
@@ -2665,9 +2748,9 @@ export interface NoncurrentVersionExpiration {
   NoncurrentDays?: number;
 
   /**
-   * <p>Specifies how many noncurrent versions S3 on Outposts will retain. If there are this many more
-   *          recent noncurrent versions, S3 on Outposts will take the associated action. For more information
-   *          about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
+   * <p>Specifies how many noncurrent versions S3 on Outposts will retain. If there are this many
+   *          more recent noncurrent versions, S3 on Outposts will take the associated action. For more
+   *          information about noncurrent versions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html">Lifecycle configuration
    *             elements</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   NewerNoncurrentVersions?: number;
@@ -2805,7 +2888,7 @@ export interface GetBucketPolicyRequest {
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -2817,6 +2900,487 @@ export interface GetBucketPolicyResult {
   Policy?: string;
 }
 
+export interface GetBucketReplicationRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Specifies the bucket to get the replication information for.</p>
+   *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   */
+  Bucket: string | undefined;
+}
+
+export enum DeleteMarkerReplicationStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>Specifies whether S3 on Outposts replicates delete markers. If you specify a
+ *             <code>Filter</code> element in your replication configuration, you must also include a
+ *             <code>DeleteMarkerReplication</code> element. If your <code>Filter</code> includes a
+ *             <code>Tag</code> element, the <code>DeleteMarkerReplication</code> element's
+ *             <code>Status</code> child element must be set to <code>Disabled</code>, because
+ *          S3 on Outposts does not support replicating delete markers for tag-based rules.</p>
+ *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the <i>Amazon S3 User Guide</i>. </p>
+ */
+export interface DeleteMarkerReplication {
+  /**
+   * <p>Indicates whether to replicate delete markers.</p>
+   */
+  Status: DeleteMarkerReplicationStatus | string | undefined;
+}
+
+/**
+ * <p>Specifies encryption-related information for an Amazon S3 bucket that is a destination for
+ *          replicated objects.</p>
+ *          <note>
+ *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+ *          </note>
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>Specifies the ID of the customer managed KMS key that's stored in Key Management Service (KMS)
+   *          for the destination bucket. This ID is either the Amazon Resource Name (ARN) for the
+   *          KMS key or the alias ARN for the KMS key. Amazon S3 uses this KMS key to encrypt
+   *          replica objects. Amazon S3 supports only symmetric encryption KMS keys. For more information,
+   *          see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks">Symmetric encryption
+   *             KMS keys</a> in the <i>Amazon Web Services Key Management Service Developer
+   *             Guide</i>.</p>
+   */
+  ReplicaKmsKeyID?: string;
+}
+
+/**
+ * <p>A container that specifies the time value for S3 Replication Time Control (S3 RTC). This value is also used for
+ *          the replication metrics <code>EventThreshold</code> element. </p>
+ *          <note>
+ *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+ *          </note>
+ */
+export interface ReplicationTimeValue {
+  /**
+   * <p>Contains an integer that specifies the time period in minutes. </p>
+   *          <p>Valid value: 15</p>
+   */
+  Minutes?: number;
+}
+
+export enum MetricsStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>A container that specifies replication metrics-related settings.</p>
+ */
+export interface Metrics {
+  /**
+   * <p>Specifies whether replication metrics are enabled. </p>
+   */
+  Status: MetricsStatus | string | undefined;
+
+  /**
+   * <p>A container that specifies the time threshold for emitting the
+   *             <code>s3:Replication:OperationMissedThreshold</code> event. </p>
+   *          <note>
+   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+   *          </note>
+   */
+  EventThreshold?: ReplicationTimeValue;
+}
+
+export enum ReplicationTimeStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>A container that specifies S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC
+ *          is enabled and the time when all objects and operations on objects must be
+ *          replicated.</p>
+ *          <note>
+ *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+ *          </note>
+ */
+export interface ReplicationTime {
+  /**
+   * <p>Specifies whether S3 Replication Time Control (S3 RTC) is enabled. </p>
+   */
+  Status: ReplicationTimeStatus | string | undefined;
+
+  /**
+   * <p>A container that specifies the time by which replication should be complete for all
+   *          objects and operations on objects. </p>
+   */
+  Time: ReplicationTimeValue | undefined;
+}
+
+export enum ReplicationStorageClass {
+  DEEP_ARCHIVE = "DEEP_ARCHIVE",
+  GLACIER = "GLACIER",
+  GLACIER_IR = "GLACIER_IR",
+  INTELLIGENT_TIERING = "INTELLIGENT_TIERING",
+  ONEZONE_IA = "ONEZONE_IA",
+  OUTPOSTS = "OUTPOSTS",
+  REDUCED_REDUNDANCY = "REDUCED_REDUNDANCY",
+  STANDARD = "STANDARD",
+  STANDARD_IA = "STANDARD_IA",
+}
+
+/**
+ * <p>Specifies information about the replication destination bucket and its settings for an
+ *          S3 on Outposts replication configuration.</p>
+ */
+export interface Destination {
+  /**
+   * <p>The destination bucket owner's account ID. </p>
+   */
+  Account?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the access point for the destination bucket where you want
+   *          S3 on Outposts to store the replication results.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>A container that specifies S3 Replication Time Control (S3 RTC) settings, including whether S3 RTC is enabled
+   *          and the time when all objects and operations on objects must be replicated. Must be
+   *          specified together with a <code>Metrics</code> block. </p>
+   *          <note>
+   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+   *          </note>
+   */
+  ReplicationTime?: ReplicationTime;
+
+  /**
+   * <p>Specify this property only in a cross-account scenario (where the source and destination
+   *          bucket owners are not the same), and you want to change replica ownership to the
+   *          Amazon Web Services account that owns the destination bucket. If this property is not specified in the
+   *          replication configuration, the replicas are owned by same Amazon Web Services account that owns the
+   *          source object.</p>
+   *          <note>
+   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+   *          </note>
+   */
+  AccessControlTranslation?: AccessControlTranslation;
+
+  /**
+   * <p>A container that provides information about encryption. If
+   *             <code>SourceSelectionCriteria</code> is specified, you must specify this element.</p>
+   *          <note>
+   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+   *          </note>
+   */
+  EncryptionConfiguration?: EncryptionConfiguration;
+
+  /**
+   * <p> A container that specifies replication metrics-related settings. </p>
+   */
+  Metrics?: Metrics;
+
+  /**
+   * <p> The storage class to use when replicating objects. All objects stored on S3 on Outposts
+   *          are stored in the <code>OUTPOSTS</code> storage class. S3 on Outposts uses the
+   *             <code>OUTPOSTS</code> storage class to create the object replicas. </p>
+   *          <note>
+   *             <p>Values other than <code>OUTPOSTS</code> are not supported by Amazon S3 on Outposts. </p>
+   *          </note>
+   */
+  StorageClass?: ReplicationStorageClass | string;
+}
+
+export enum ExistingObjectReplicationStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>An optional configuration to replicate existing source bucket objects. </p>
+ *          <note>
+ *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+ *          </note>
+ */
+export interface ExistingObjectReplication {
+  /**
+   * <p>Specifies whether Amazon S3 replicates existing source bucket objects. </p>
+   */
+  Status: ExistingObjectReplicationStatus | string | undefined;
+}
+
+/**
+ * <p>A container for specifying rule filters. The filters determine the subset of objects to
+ *          which the rule applies. This element is required only if you specify more than one filter. </p>
+ *          <p>For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>If you specify both a <code>Prefix</code> and a <code>Tag</code> filter, wrap
+ *                these filters in an <code>And</code> element. </p>
+ *             </li>
+ *             <li>
+ *                <p>If you specify a filter based on multiple tags, wrap the <code>Tag</code> elements
+ *                in an <code>And</code> element.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface ReplicationRuleAndOperator {
+  /**
+   * <p>An object key name prefix that identifies the subset of objects that the rule applies
+   *          to.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>An array of tags that contain key and value pairs.</p>
+   */
+  Tags?: S3Tag[];
+}
+
+/**
+ * <p>A filter that identifies the subset of objects to which the replication rule applies. A
+ *             <code>Filter</code> element must specify exactly one <code>Prefix</code>,
+ *             <code>Tag</code>, or <code>And</code> child element.</p>
+ */
+export interface ReplicationRuleFilter {
+  /**
+   * <p>An object key name prefix that identifies the subset of objects that the rule applies
+   *          to.</p>
+   *          <important>
+   *             <p>When you're using XML requests, you must
+   * replace special characters (such as carriage returns) in object keys with their equivalent XML entity codes.
+   * For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
+   *             XML-related object key constraints</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          </important>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>A container for a key-value name pair.</p>
+   */
+  Tag?: S3Tag;
+
+  /**
+   * <p>A container for specifying rule filters. The filters determine the subset of objects
+   *          that the rule applies to. This element is required only if you specify more than one
+   *          filter. For example: </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify both a <code>Prefix</code> and a <code>Tag</code> filter, wrap
+   *                these filters in an <code>And</code> element.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify a filter based on multiple tags, wrap the <code>Tag</code> elements
+   *                in an <code>And</code> element.</p>
+   *             </li>
+   *          </ul>
+   */
+  And?: ReplicationRuleAndOperator;
+}
+
+export enum ReplicaModificationsStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>A filter that you can use to specify whether replica modification sync is enabled.
+ *          S3 on Outposts replica modification sync can help you keep object metadata synchronized
+ *          between replicas and source objects. By default, S3 on Outposts replicates metadata from the
+ *          source objects to the replicas only. When replica modification sync is enabled,
+ *          S3 on Outposts replicates metadata changes made to the replica copies back to the source
+ *          object, making the replication bidirectional.</p>
+ *          <p>To replicate object metadata modifications on replicas, you can specify this element and
+ *          set the <code>Status</code> of this element to <code>Enabled</code>.</p>
+ *          <note>
+ *             <p>You must enable replica modification sync on the source and destination buckets to
+ *             replicate replica metadata changes between the source and the replicas.</p>
+ *          </note>
+ */
+export interface ReplicaModifications {
+  /**
+   * <p>Specifies whether S3 on Outposts replicates modifications to object metadata on
+   *          replicas.</p>
+   */
+  Status: ReplicaModificationsStatus | string | undefined;
+}
+
+export enum SseKmsEncryptedObjectsStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>A container for filter information that you can use to select S3 objects that are
+ *          encrypted with Key Management Service (KMS).</p>
+ *          <note>
+ *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+ *          </note>
+ */
+export interface SseKmsEncryptedObjects {
+  /**
+   * <p>Specifies whether Amazon S3 replicates objects that are created with server-side encryption
+   *          by using an KMS key stored in Key Management Service.</p>
+   */
+  Status: SseKmsEncryptedObjectsStatus | string | undefined;
+}
+
+/**
+ * <p>A container that describes additional filters for identifying the source objects that
+ *          you want to replicate. You can choose to enable or disable the replication of these
+ *          objects.</p>
+ */
+export interface SourceSelectionCriteria {
+  /**
+   * <p>A filter that you can use to select Amazon S3 objects that are encrypted with server-side
+   *          encryption by using Key Management Service (KMS) keys. If you include
+   *             <code>SourceSelectionCriteria</code> in the replication configuration, this element is
+   *          required. </p>
+   *          <note>
+   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+   *          </note>
+   */
+  SseKmsEncryptedObjects?: SseKmsEncryptedObjects;
+
+  /**
+   * <p>A filter that you can use to specify whether replica modification sync is enabled.
+   *          S3 on Outposts replica modification sync can help you keep object metadata synchronized
+   *          between replicas and source objects. By default, S3 on Outposts replicates metadata from the
+   *          source objects to the replicas only. When replica modification sync is enabled,
+   *          S3 on Outposts replicates metadata changes made to the replica copies back to the source
+   *          object, making the replication bidirectional.</p>
+   *          <p>To replicate object metadata modifications on replicas, you can specify this element and
+   *          set the <code>Status</code> of this element to <code>Enabled</code>.</p>
+   *          <note>
+   *             <p>You must enable replica modification sync on the source and destination buckets to
+   *             replicate replica metadata changes between the source and the replicas.</p>
+   *          </note>
+   */
+  ReplicaModifications?: ReplicaModifications;
+}
+
+export enum ReplicationRuleStatus {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
+
+/**
+ * <p>Specifies which S3 on Outposts objects to replicate and where to store the replicas.</p>
+ */
+export interface ReplicationRule {
+  /**
+   * <p>A unique identifier for the rule. The maximum value is 255 characters.</p>
+   */
+  ID?: string;
+
+  /**
+   * <p>The priority indicates which rule has precedence whenever two or more replication rules
+   *          conflict. S3 on Outposts attempts to replicate objects according to all replication rules.
+   *          However, if there are two or more rules with the same destination Outposts bucket, then objects will
+   *          be replicated according to the rule with the highest priority. The higher the number, the
+   *          higher the priority. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-between-outposts.html">Creating replication rules between Outposts</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
+   */
+  Priority?: number;
+
+  /**
+   * @deprecated
+   *
+   * <p>An object key name prefix that identifies the object or objects to which the rule
+   *          applies. The maximum prefix length is 1,024 characters. To include all objects in an
+   *          Outposts bucket, specify an empty string.</p>
+   *          <important>
+   *             <p>When you're using XML requests, you must
+   * replace special characters (such as carriage returns) in object keys with their equivalent XML entity codes.
+   * For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">
+   *             XML-related object key constraints</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          </important>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>A filter that identifies the subset of objects to which the replication rule applies. A
+   *             <code>Filter</code> element must specify exactly one <code>Prefix</code>,
+   *             <code>Tag</code>, or <code>And</code> child element.</p>
+   */
+  Filter?: ReplicationRuleFilter;
+
+  /**
+   * <p>Specifies whether the rule is enabled.</p>
+   */
+  Status: ReplicationRuleStatus | string | undefined;
+
+  /**
+   * <p>A container that describes additional filters for identifying the source Outposts objects that
+   *          you want to replicate. You can choose to enable or disable the replication of these
+   *          objects.</p>
+   */
+  SourceSelectionCriteria?: SourceSelectionCriteria;
+
+  /**
+   * <p>An optional configuration to replicate existing source bucket objects. </p>
+   *          <note>
+   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
+   *          </note>
+   */
+  ExistingObjectReplication?: ExistingObjectReplication;
+
+  /**
+   * <p>A container for information about the replication destination and its configurations.</p>
+   */
+  Destination: Destination | undefined;
+
+  /**
+   * <p>Specifies whether S3 on Outposts replicates delete markers. If you specify a
+   *             <code>Filter</code> element in your replication configuration, you must also include a
+   *             <code>DeleteMarkerReplication</code> element. If your <code>Filter</code> includes a
+   *             <code>Tag</code> element, the <code>DeleteMarkerReplication</code> element's
+   *             <code>Status</code> child element must be set to <code>Disabled</code>, because
+   *          S3 on Outposts doesn't support replicating delete markers for tag-based rules.</p>
+   *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the <i>Amazon S3 User Guide</i>. </p>
+   */
+  DeleteMarkerReplication?: DeleteMarkerReplication;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the access point for the source Outposts bucket that you want
+   *          S3 on Outposts to replicate the objects from.</p>
+   */
+  Bucket: string | undefined;
+}
+
+/**
+ * <p>A container for one or more replication rules. A replication configuration must have at least one rule and you can add up to 100 rules. The maximum size of a
+ *          replication configuration is 128 KB.</p>
+ */
+export interface ReplicationConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that S3 on Outposts assumes
+   *          when replicating objects. For information about S3 replication on Outposts configuration,
+   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/outposts-replication-how-setup.html">Setting up
+   *             replication</a> in the <i>Amazon S3 User Guide</i>.</p>
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>A container for one or more replication rules. A replication configuration must have at
+   *          least one rule and can contain an array of 100 rules at the most. </p>
+   */
+  Rules: ReplicationRule[] | undefined;
+}
+
+export interface GetBucketReplicationResult {
+  /**
+   * <p>A container for one or more replication rules. A replication configuration must have at least one rule and you can add up to 100 rules. The maximum size of a
+   *          replication configuration is 128 KB.</p>
+   */
+  ReplicationConfiguration?: ReplicationConfiguration;
+}
+
 export interface GetBucketTaggingRequest {
   /**
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
@@ -2826,7 +3390,7 @@ export interface GetBucketTaggingRequest {
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 }
@@ -2921,6 +3485,12 @@ export interface RegionReport {
    * <p>The name of the Region.</p>
    */
   Region?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the Amazon S3 bucket that's associated with this
+   *          Multi-Region Access Point.</p>
+   */
+  BucketAccountId?: string;
 }
 
 export enum MultiRegionAccessPointStatus {
@@ -3113,16 +3683,14 @@ export interface MultiRegionAccessPointRoute {
   /**
    * <p>The traffic state for the specified bucket or Amazon Web Services Region. </p>
    *          <p>A value of <code>0</code> indicates a passive state, which means that no new traffic
-   *          will be routed to the
-   *          Region. </p>
+   *          will be routed to the Region. </p>
    *          <p>A value of <code>100</code> indicates an active state, which means that traffic will be
    *          routed to the specified Region. </p>
-   *          <p>When
-   *          the routing configuration for a Region is changed from active to passive, any in-progress
-   *          operations (uploads, copies, deletes, and so on) to the formerly active Region will
-   *          continue to run to until a final success or failure status is reached.</p>
+   *          <p>When the routing configuration for a Region is changed from active to passive, any
+   *          in-progress operations (uploads, copies, deletes, and so on) to the formerly active Region
+   *          will continue to run to until a final success or failure status is reached.</p>
    *          <p>If all Regions in the routing configuration are designated as passive, you'll receive an
-   *             <code>InvalidRequest</code> error. </p>
+   *             <code>InvalidRequest</code> error.</p>
    */
   TrafficDialPercentage: number | undefined;
 }
@@ -3455,7 +4023,7 @@ export interface ListAccessPointsRequest {
   /**
    * <p>The name of the bucket whose associated access points you want to list.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket?: string;
 
@@ -3871,7 +4439,7 @@ export interface PutAccessPointPolicyRequest {
   /**
    * <p>The name of the access point that you want to associate with the specified policy.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
    */
   Name: string | undefined;
 
@@ -3936,7 +4504,7 @@ export interface PutBucketPolicyRequest {
   /**
    * <p>Specifies the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 
@@ -3953,6 +4521,25 @@ export interface PutBucketPolicyRequest {
    * <p>The bucket policy as a JSON document.</p>
    */
   Policy: string | undefined;
+}
+
+export interface PutBucketReplicationRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Specifies the S3 on Outposts bucket to set the configuration for.</p>
+   *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p></p>
+   */
+  ReplicationConfiguration: ReplicationConfiguration | undefined;
 }
 
 /**
@@ -3974,7 +4561,7 @@ export interface PutBucketTaggingRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
    *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
+   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
    */
   Bucket: string | undefined;
 
@@ -4275,6 +4862,13 @@ export interface UpdateJobStatusResult {
  * @internal
  */
 export const AbortIncompleteMultipartUploadFilterSensitiveLog = (obj: AbortIncompleteMultipartUpload): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AccessControlTranslationFilterSensitiveLog = (obj: AccessControlTranslation): any => ({
   ...obj,
 });
 
@@ -4832,6 +5426,13 @@ export const DeleteBucketPolicyRequestFilterSensitiveLog = (obj: DeleteBucketPol
 /**
  * @internal
  */
+export const DeleteBucketReplicationRequestFilterSensitiveLog = (obj: DeleteBucketReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteBucketTaggingRequestFilterSensitiveLog = (obj: DeleteBucketTaggingRequest): any => ({
   ...obj,
 });
@@ -5183,6 +5784,118 @@ export const GetBucketPolicyRequestFilterSensitiveLog = (obj: GetBucketPolicyReq
  * @internal
  */
 export const GetBucketPolicyResultFilterSensitiveLog = (obj: GetBucketPolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketReplicationRequestFilterSensitiveLog = (obj: GetBucketReplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteMarkerReplicationFilterSensitiveLog = (obj: DeleteMarkerReplication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationTimeValueFilterSensitiveLog = (obj: ReplicationTimeValue): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetricsFilterSensitiveLog = (obj: Metrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationTimeFilterSensitiveLog = (obj: ReplicationTime): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExistingObjectReplicationFilterSensitiveLog = (obj: ExistingObjectReplication): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationRuleAndOperatorFilterSensitiveLog = (obj: ReplicationRuleAndOperator): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationRuleFilterFilterSensitiveLog = (obj: ReplicationRuleFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicaModificationsFilterSensitiveLog = (obj: ReplicaModifications): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SseKmsEncryptedObjectsFilterSensitiveLog = (obj: SseKmsEncryptedObjects): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceSelectionCriteriaFilterSensitiveLog = (obj: SourceSelectionCriteria): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationRuleFilterSensitiveLog = (obj: ReplicationRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReplicationConfigurationFilterSensitiveLog = (obj: ReplicationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetBucketReplicationResultFilterSensitiveLog = (obj: GetBucketReplicationResult): any => ({
   ...obj,
 });
 
@@ -5633,6 +6346,13 @@ export const PutBucketLifecycleConfigurationRequestFilterSensitiveLog = (
  * @internal
  */
 export const PutBucketPolicyRequestFilterSensitiveLog = (obj: PutBucketPolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutBucketReplicationRequestFilterSensitiveLog = (obj: PutBucketReplicationRequest): any => ({
   ...obj,
 });
 

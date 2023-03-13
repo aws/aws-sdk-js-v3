@@ -81,8 +81,10 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  *             </ul>
  *          </note>
  *          <p></p>
- *          <p>To use this action, you must have permission to perform the
- *             <code>s3:PutJobTagging</code> action.</p>
+ *          <p>To use the
+ *             <code>PutJobTagging</code>
+ *          operation,
+ *          you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>
  *          <p>Related actions include:</p>
  *          <ul>
  *             <li>
