@@ -28,11 +28,38 @@ export class AccessDeniedException extends __BaseException {
 export interface AppIntegrationsConfiguration {
   /**
    * <p>The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.</p>
+   *          <ul>
+   *             <li>
+   *                <p> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm"> Salesforce</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration if
+   *           objectFields is not provided, including at least <code>Id</code>,
+   *             <code>ArticleNumber</code>, <code>VersionNumber</code>, <code>Title</code>,
+   *             <code>PublishStatus</code>, and <code>IsDeleted</code> as source fields. </p>
+   *             </li>
+   *             <li>
+   *                <p> For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api"> ServiceNow</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration if
+   *           objectFields is not provided, including at least <code>number</code>,
+   *             <code>short_description</code>, <code>sys_mod_count</code>, <code>workflow_state</code>,
+   *           and <code>active</code> as source fields. </p>
+   *             </li>
+   *             <li>
+   *                <p> For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/">
+   *             Zendesk</a>, your AppIntegrations DataIntegration must have an ObjectConfiguration if
+   *             <code>objectFields</code> is not provided, including at least <code>id</code>,
+   *             <code>title</code>, <code>updated_at</code>, and <code>draft</code> as source fields.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p> For <a href="https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index"> SharePoint</a>, your AppIntegrations DataIntegration must have a FileConfiguration,
+   *           including only file extensions that are among <code>docx</code>, <code>pdf</code>,
+   *             <code>html</code>, <code>htm</code>, and <code>txt</code>. </p>
+   *             </li>
+   *          </ul>
    */
   appIntegrationArn: string | undefined;
 
   /**
-   * <p>The fields from the source that are made available to your agents in Wisdom. </p>
+   * <p>The fields from the source that are made available to your agents in Wisdom. Optional if
+   *       ObjectConfiguration is included in the provided DataIntegration. </p>
    *          <ul>
    *             <li>
    *                <p> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm"> Salesforce</a>, you must include at least <code>Id</code>,
@@ -44,11 +71,16 @@ export interface AppIntegrationsConfiguration {
    *             <code>short_description</code>, <code>sys_mod_count</code>, <code>workflow_state</code>,
    *           and <code>active</code>. </p>
    *             </li>
+   *             <li>
+   *                <p>For <a href="https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/">
+   *             Zendesk</a>, you must include at least <code>id</code>, <code>title</code>,
+   *             <code>updated_at</code>, and <code>draft</code>. </p>
+   *             </li>
    *          </ul>
    *          <p>Make sure to include additional fields. These fields are indexed and used to source
    *       recommendations. </p>
    */
-  objectFields: string[] | undefined;
+  objectFields?: string[];
 }
 
 /**
@@ -127,7 +159,9 @@ export interface CreateAssistantAssociationRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   clientToken?: string;
 
@@ -404,7 +438,8 @@ export interface ListAssistantAssociationsResponse {
  */
 export interface ServerSideEncryptionConfiguration {
   /**
-   * <p>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers (KeyId)</a>.</p>
+   * <p>The KMS key. For information about valid ID values, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key identifiers
+   *         (KeyId)</a>.</p>
    */
   kmsKeyId?: string;
 }
@@ -416,7 +451,9 @@ export enum AssistantType {
 export interface CreateAssistantRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   clientToken?: string;
 
@@ -724,8 +761,9 @@ export enum RecommendationTriggerType {
 }
 
 /**
- * <p>A recommendation trigger provides context on the event that produced the referenced recommendations.
- *       Recommendations are only referenced in <code>recommendationIds</code> by a single RecommendationTrigger.</p>
+ * <p>A recommendation trigger provides context on the event that produced the referenced
+ *       recommendations. Recommendations are only referenced in <code>recommendationIds</code> by a
+ *       single RecommendationTrigger.</p>
  */
 export interface RecommendationTrigger {
   /**
@@ -742,12 +780,12 @@ export interface RecommendationTrigger {
    * <p>The source of the recommendation trigger.</p>
    *          <ul>
    *             <li>
-   *                <p>ISSUE_DETECTION: The corresponding recommendations were triggered
-   *           by a Contact Lens issue.</p>
+   *                <p>ISSUE_DETECTION: The corresponding recommendations were triggered by a Contact Lens
+   *           issue.</p>
    *             </li>
    *             <li>
-   *                <p>RULE_EVALUATION: The corresponding recommendations were triggered
-   *           by a Contact Lens rule.</p>
+   *                <p>RULE_EVALUATION: The corresponding recommendations were triggered by a Contact Lens
+   *           rule.</p>
    *             </li>
    *          </ul>
    */
@@ -1046,7 +1084,9 @@ export interface SearchSessionsResponse {
 export interface CreateSessionRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   clientToken?: string;
 
@@ -1164,7 +1204,9 @@ export interface CreateContentRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   clientToken?: string;
 
@@ -1499,8 +1541,8 @@ export enum KnowledgeBaseType {
 export interface RenderingConfiguration {
   /**
    * <p>A URI template containing exactly one variable in <code>${variableName} </code>format.
-   *       This can only be set for <code>EXTERNAL</code> knowledge bases. For Salesforce and ServiceNow,
-   *       the variable must be one of the following:</p>
+   *       This can only be set for <code>EXTERNAL</code> knowledge bases. For Salesforce, ServiceNow,
+   *       and Zendesk, the variable must be one of the following:</p>
    *          <ul>
    *             <li>
    *                <p>Salesforce: <code>Id</code>, <code>ArticleNumber</code>, <code>VersionNumber</code>,
@@ -1512,8 +1554,12 @@ export interface RenderingConfiguration {
    *             <code>sys_mod_count</code>, <code>workflow_state</code>, or <code>active</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>Zendesk: <code>id</code>, <code>title</code>, <code>updated_at</code>, or
+   *             <code>draft</code>
+   *                </p>
+   *             </li>
    *          </ul>
-   *
    *          <p>The variable is replaced with the actual value for a piece of content when calling <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetContent.html">GetContent</a>. </p>
    */
   templateUri?: string;
@@ -1552,7 +1598,9 @@ export namespace SourceConfiguration {
 export interface CreateKnowledgeBaseRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    */
   clientToken?: string;
 

@@ -147,9 +147,10 @@ import {
 import { WisdomClient } from "./WisdomClient";
 
 /**
- * <p>Amazon Connect Wisdom delivers agents the information they need to solve customer issues as they're actively
- *         speaking with customers. Agents can search across connected repositories from within their agent desktop
- *         to find answers quickly. Use the Amazon Connect Wisdom APIs to create an assistant and a knowledge base, for example, or manage content by uploading custom files.</p>
+ * <p>Amazon Connect Wisdom delivers agents the information they need to solve customer issues as they're
+ *       actively speaking with customers. Agents can search across connected repositories from within
+ *       their agent desktop to find answers quickly. Use Amazon Connect Wisdom to create an assistant and a
+ *       knowledge base, for example, or manage content by uploading custom files.</p>
  */
 export class Wisdom extends WisdomClient {
   /**
@@ -257,7 +258,6 @@ export class Wisdom extends WisdomClient {
    *             <p>When using this API, you cannot reuse <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a>
    *         DataIntegrations with external knowledge bases such as Salesforce and ServiceNow. If you do,
    *         you'll get an <code>InvalidRequestException</code> error. </p>
-   *
    *             <p>For example, you're programmatically managing your external knowledge base, and you want
    *         to add or remove one of the fields that is being ingested from Salesforce. Do the
    *         following:</p>
@@ -309,8 +309,8 @@ export class Wisdom extends WisdomClient {
 
   /**
    * <p>Creates a session. A session is a contextual container used for generating
-   *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which Wisdom is
-   *       enabled.</p>
+   *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which
+   *       Wisdom is enabled.</p>
    */
   public createSession(
     args: CreateSessionCommandInput,
@@ -441,9 +441,10 @@ export class Wisdom extends WisdomClient {
    * <p>Deletes the knowledge base.</p>
    *          <note>
    *             <p>When you use this API to delete an external knowledge base such as Salesforce or
-   *         ServiceNow, you must also delete the <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a> DataIntegration.
-   *         This is because you can't reuse the DataIntegration after it's been associated with an
-   *         external knowledge base. However, you can delete and recreate it. See <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html">DeleteDataIntegration</a> and <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">CreateDataIntegration</a> in the <i>Amazon AppIntegrations API
+   *         ServiceNow, you must also delete the <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/Welcome.html">Amazon AppIntegrations</a>
+   *         DataIntegration. This is because you can't reuse the DataIntegration after it's been
+   *         associated with an external knowledge base. However, you can delete and recreate it. See
+   *           <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_DeleteDataIntegration.html">DeleteDataIntegration</a> and <a href="https://docs.aws.amazon.com/appintegrations/latest/APIReference/API_CreateDataIntegration.html">CreateDataIntegration</a> in the <i>Amazon AppIntegrations API
    *         Reference</i>.</p>
    *          </note>
    */

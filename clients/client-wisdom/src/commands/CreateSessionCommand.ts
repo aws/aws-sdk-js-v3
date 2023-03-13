@@ -36,8 +36,8 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
 
 /**
  * <p>Creates a session. A session is a contextual container used for generating
- *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which Wisdom is
- *       enabled.</p>
+ *       recommendations. Amazon Connect creates a new Wisdom session for each contact on which
+ *       Wisdom is enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
