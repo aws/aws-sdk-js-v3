@@ -30,8 +30,6 @@ export const loadConfigsForDefaultMode = (mode: ResolvedDefaultsMode): DefaultsM
 };
 
 /**
- * @internal
- *
  * Option determining how certain default configuration options are resolved in the SDK. It can be one of the value listed below:
  * * `"standard"`: <p>The STANDARD mode provides the latest recommended default values that should be safe to run in most scenarios</p><p>Note that the default values vended from this mode might change as best practices may evolve. As a result, it is encouraged to perform tests when upgrading the SDK</p>
  * * `"in-region"`: <p>The IN_REGION mode builds on the standard mode and includes optimization tailored for applications which call AWS services from within the same AWS region</p><p>Note that the default values vended from this mode might change as best practices may evolve. As a result, it is encouraged to perform tests when upgrading the SDK</p>
