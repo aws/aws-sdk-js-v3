@@ -2,9 +2,9 @@ name: commit-message-lint
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, feat/sra-identity-auth ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, feat/sra-identity-auth ]
 
 jobs:
   commitlint:
@@ -15,4 +15,3 @@ jobs:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v4
             
-
