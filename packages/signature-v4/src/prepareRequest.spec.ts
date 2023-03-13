@@ -35,4 +35,26 @@ describe("prepareRequest", () => {
     expect(headers[AMZ_DATE_HEADER]).toBeUndefined();
     expect(headers[DATE_HEADER]).toBeUndefined();
   });
+
+  it("should decode paths encoded by URL", () => {
+    const unencodedPath = "/ሴ";
+    const { path } = prepareRequest(
+      new HttpRequest({
+        ...minimalRequest,
+        path: unencodedPath,
+      })
+    );
+    expect(path).toEqual(unencodedPath);
+  });
+
+  it("should not decode paths that were not encoded by URL", () => {
+    const alreadyEncodedPath = "/foo%2Fbar";
+    const { path } = prepareRequest(
+      new HttpRequest({
+        ...minimalRequest,
+        path: alreadyEncodedPath,
+      })
+    );
+    expect(path).toEqual(alreadyEncodedPath);
+  });
 });
