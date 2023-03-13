@@ -835,6 +835,9 @@ export interface DataCellsFilter {
    */
   ColumnWildcard?: ColumnWildcard;
 
+  /**
+   * <p>The ID of the data cells filter version.</p>
+   */
   VersionId?: string;
 }
 
@@ -2343,7 +2346,7 @@ export interface RevokePermissionsRequest {
   Resource: Resource | undefined;
 
   /**
-   * <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href="https://docs-aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
+   * <p>The permissions revoked to the principal on the resource. For information about permissions, see <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html">Security
    *       and Access Control to Metadata and Data</a>.</p>
    */
   Permissions: (Permission | string)[] | undefined;
