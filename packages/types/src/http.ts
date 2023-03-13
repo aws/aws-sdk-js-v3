@@ -99,6 +99,8 @@ export interface HttpRequest extends HttpMessage, Endpoint {
  *
  * Represents an HTTP message as received in reply to a request. Contains a
  * numeric status code in addition to standard message properties.
+ *
+ * @deprecated Replaced by implementation HttpResponse in @aws-sdk/protocol-http.
  */
 export interface HttpResponse extends HttpMessage {
   statusCode: number;
