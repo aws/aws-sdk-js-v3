@@ -258,7 +258,8 @@ export interface KeyspacesClientResolvedConfig extends KeyspacesClientResolvedCo
  *         run, and scale Cassandra workloads in the Amazon Web Services Cloud. With just a few clicks on the Amazon Web Services Management Console or a few lines of code,
  *         you can create keyspaces and tables in Amazon Keyspaces, without deploying any infrastructure or installing software. </p>
  *          <p>In addition to supporting Cassandra Query Language (CQL) requests via open-source Cassandra drivers,
- *         Amazon Keyspaces supports data definition language (DDL) operations to manage keyspaces and tables using the Amazon Web Services SDK and CLI. This API reference describes
+ *            Amazon Keyspaces supports data definition language (DDL) operations to manage keyspaces and tables using the Amazon Web Services SDK and CLI, as well as
+ *            infrastructure as code (IaC) services and tools such as CloudFormation and Terraform. This API reference describes
  *         the supported DDL operations in detail.</p>
  *          <p>For the list of all supported CQL APIs, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html">Supported Cassandra APIs, operations, and data types
  *         in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer

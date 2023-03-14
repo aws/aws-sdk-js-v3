@@ -38,6 +38,7 @@ import {
   AccessDeniedException,
   CapacitySpecification,
   CapacitySpecificationSummary,
+  ClientSideTimestamps,
   ClusteringKey,
   ColumnDefinition,
   Comment,
@@ -1046,6 +1047,12 @@ const serializeAws_json1_0CapacitySpecification = (input: CapacitySpecification,
   };
 };
 
+const serializeAws_json1_0ClientSideTimestamps = (input: ClientSideTimestamps, context: __SerdeContext): any => {
+  return {
+    ...(input.status != null && { status: input.status }),
+  };
+};
+
 const serializeAws_json1_0ClusteringKey = (input: ClusteringKey, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
@@ -1093,6 +1100,9 @@ const serializeAws_json1_0CreateTableRequest = (input: CreateTableRequest, conte
   return {
     ...(input.capacitySpecification != null && {
       capacitySpecification: serializeAws_json1_0CapacitySpecification(input.capacitySpecification, context),
+    }),
+    ...(input.clientSideTimestamps != null && {
+      clientSideTimestamps: serializeAws_json1_0ClientSideTimestamps(input.clientSideTimestamps, context),
     }),
     ...(input.comment != null && { comment: serializeAws_json1_0Comment(input.comment, context) }),
     ...(input.defaultTimeToLive != null && { defaultTimeToLive: input.defaultTimeToLive }),
@@ -1291,6 +1301,9 @@ const serializeAws_json1_0UpdateTableRequest = (input: UpdateTableRequest, conte
     ...(input.capacitySpecification != null && {
       capacitySpecification: serializeAws_json1_0CapacitySpecification(input.capacitySpecification, context),
     }),
+    ...(input.clientSideTimestamps != null && {
+      clientSideTimestamps: serializeAws_json1_0ClientSideTimestamps(input.clientSideTimestamps, context),
+    }),
     ...(input.defaultTimeToLive != null && { defaultTimeToLive: input.defaultTimeToLive }),
     ...(input.encryptionSpecification != null && {
       encryptionSpecification: serializeAws_json1_0EncryptionSpecification(input.encryptionSpecification, context),
@@ -1322,6 +1335,12 @@ const deserializeAws_json1_0CapacitySpecificationSummary = (
     readCapacityUnits: __expectLong(output.readCapacityUnits),
     throughputMode: __expectString(output.throughputMode),
     writeCapacityUnits: __expectLong(output.writeCapacityUnits),
+  } as any;
+};
+
+const deserializeAws_json1_0ClientSideTimestamps = (output: any, context: __SerdeContext): ClientSideTimestamps => {
+  return {
+    status: __expectString(output.status),
   } as any;
 };
 
@@ -1417,6 +1436,10 @@ const deserializeAws_json1_0GetTableResponse = (output: any, context: __SerdeCon
     capacitySpecification:
       output.capacitySpecification != null
         ? deserializeAws_json1_0CapacitySpecificationSummary(output.capacitySpecification, context)
+        : undefined,
+    clientSideTimestamps:
+      output.clientSideTimestamps != null
+        ? deserializeAws_json1_0ClientSideTimestamps(output.clientSideTimestamps, context)
         : undefined,
     comment: output.comment != null ? deserializeAws_json1_0Comment(output.comment, context) : undefined,
     creationTimestamp:
