@@ -1,105 +1,141 @@
+import { readdir } from "fs";
 import { isAbsolute, join, relative, resolve, sep } from "path";
-import { BindOption, ProjectReflection, Reflection } from "typedoc";
-import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
-import { PageEvent } from "typedoc/dist/lib/output/events";
-import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
+import {
+  BindOption,
+  Context,
+  Converter,
+  DeclarationReflection,
+  Logger,
+  Options,
+  PageEvent,
+  ProjectReflection,
+  Reflection,
+  ReflectionCategory,
+  ReflectionGroup,
+  ReflectionKind,
+  Renderer,
+} from "typedoc";
 
-const isClientModel = (model: Reflection | undefined) => model?.sources[0]?.fileName.startsWith(`clients${sep}`);
+const isClientModel = (model: Reflection | undefined) =>
+  model?.sources?.[0]?.fullFileName.includes(`${sep}clients${sep}`);
 
-const PROJECT_ROOT = join(__dirname, "..", "..", "..", "..");
-@Component({ name: "SdkIndexLinkClientPlugin" })
-export class SdkIndexLinkClientPlugin extends RendererComponent {
+export class SdkIndexLinkClientPlugin {
   @BindOption("out")
-  readonly out!: string;
+  readonly outputDirectory: string;
+
   /**
    * The path pattern denotes the location of individual service client doc.
    * "{{CLIENT}}" will be replaced with the client name.
-   * For example: `path/{{CLIENT}}/docs` will target s3 docs at `path/client-s3/docs`
+   * For example: `path/{{CLIENT}}/docs` will target service docs at `path/service/docs`
    */
   @BindOption("clientDocs")
-  readonly clientDocs!: string;
+  readonly clientDocs: string;
 
-  initialize() {
-    this.listenTo(this.owner, {
-      [PageEvent.BEGIN]: this.onPageBegin,
-    });
+  @BindOption("defaultGroup")
+  readonly defaultGroup: string;
+
+  constructor(public readonly options: Options, public readonly logger: Logger, private readonly renderer: Renderer) {
+    this.renderer.application.converter.on(Converter.EVENT_END, this.onConverterEnd);
+    this.renderer.on(Renderer.EVENT_BEGIN_PAGE, this.onPageBegin);
   }
 
-  onPageBegin(page: PageEvent) {
-    const out = isAbsolute(this.out) ? this.out : resolve(PROJECT_ROOT, this.out);
-    const clientDocs = isAbsolute(this.clientDocs) ? this.clientDocs : resolve(PROJECT_ROOT, this.clientDocs);
-    // Get relative path from core packages doc to clients' doc.
-    const clientDocsPattern = relative(out, clientDocs);
+  private onConverterEnd = async (context: Context): Promise<void> => {
+    const project = context.project;
 
-    if (page.model === page.project) {
-      page.navigation = this.groupNavigation(page.navigation);
-
-      page.navigation.children.filter(this.isClient).forEach((child) => {
-        // "clients/client-s3" => "client-s3"
-        const clientName = child.reflection.sources[0].fileName.split(sep)[1];
-        const clientDocDir = clientDocsPattern.replace(/{{CLIENT}}/g, clientName);
-        child.url = join(clientDocDir, "index.html");
-        // @ts-ignore attach temporary flag.
-        child.reflection._skipRendering = true;
-      });
+    if (!project.groups) {
+      project.groups = [];
     }
 
+    let group = project.groups.find((value) => value.title === this.defaultGroup);
+
+    if (!group) {
+      group = new ReflectionGroup(this.defaultGroup);
+      project.groups.push(group);
+    }
+
+    const modules = project.getChildrenByKind(ReflectionKind.SomeModule);
+
+    await this.registerClients(project, modules);
+
+    group.categories = this.defineCategories(group, modules);
+  };
+
+  private onPageBegin = (page: PageEvent<Reflection>) => {
     // Skip rendering empty landing page for each client.
-    if (page.model._skipRendering) {
+    if (page.model.flags.includes("SkipRendering")) {
       page.preventDefault();
     }
 
-    // Update the client doc link int globals.html
-    if (page.filename.endsWith("globals.html")) {
-      (page.model as ProjectReflection).children.filter(isClientModel).forEach((clientModel) => {
-        const clientName = clientModel.sources[0].fileName.split(sep)[1];
-        const clientDocDir = clientDocsPattern.replace(/{{CLIENT}}/g, clientName);
-        clientModel.url = join(clientDocDir, "index.html");
-      });
+    if (page.model.isProject()) {
+      const group = page.model.groups.find((value) => value.title === this.defaultGroup);
+      const clientsCategory = group.categories.find((value) => value.title === "Clients");
+
+      for (const child of clientsCategory.children || []) {
+        child.url = `/clients/${child.originalName}/`;
+        child.name = `@aws-sdk/${child.originalName.replace("client-", "")}`;
+      }
     }
+  };
+
+  private async registerClients(project: ProjectReflection, modules: DeclarationReflection[]): Promise<void> {
+    return new Promise((resolvePromise, rejectPromise) => {
+      const clientPath = resolve("./clientDocs/clients");
+      readdir(clientPath, (err, clientFiles) => {
+        if (err) rejectPromise(err);
+
+        clientFiles.forEach((clientName) => {
+          if (clientName.includes("client") && !clientName.includes("documentation")) {
+            const clientDeclaration = new DeclarationReflection(clientName, ReflectionKind.Module, project);
+            project.registerReflection(clientDeclaration);
+            modules.push(clientDeclaration);
+          }
+        });
+        resolvePromise();
+      });
+    });
   }
 
   /**
-   * Group navigation in Client, Packages and Libraries sections. It will update the
-   * supplied navigation object;
+   * Define navigation categories in Client, Packages and Libraries sections. It will update the
+   * supplied categories array.
+   *
+   * @param group   The parent group where the categories will be placed under.
+   * @param reflections   The reflections that should be categorized.
    */
-  private groupNavigation(navigation: NavigationItem): NavigationItem {
-    if (this.isGrouped(navigation)) return navigation;
+  private defineCategories(group: ReflectionGroup, reflections: DeclarationReflection[]): ReflectionCategory[] {
+    const categories = group.categories || [];
+    if (this.isCategorized(categories)) return group.categories;
 
-    const modules = navigation.children.filter((child) => child?.reflection?.sources[0].fileName);
-    const clients: NavigationItem[] = [];
-    const packages: NavigationItem[] = [];
-    const libs: NavigationItem[] = [];
-    const isLib = (item: NavigationItem) => item?.reflection?.sources[0].fileName.startsWith(`lib${sep}`);
-    modules.forEach((item) => {
-      if (this.isClient(item)) {
-        clients.push(item);
-      } else if (isLib(item)) {
-        libs.push(item);
+    const clients = new ReflectionCategory("Clients");
+    const packages = new ReflectionCategory("Packages");
+    const libs = new ReflectionCategory("Libraries");
+    reflections.forEach((reflection: DeclarationReflection) => {
+      if (this.isClient(reflection)) {
+        clients.children.push(reflection);
+        reflection.flags.includes("SkipRendering");
+      } else if (this.isLib(reflection)) {
+        libs.children.push(reflection);
       } else {
-        packages.push(item);
+        packages.children.push(reflection);
       }
     });
 
-    navigation.children = [
-      new NavigationItem("Clients"),
-      ...clients,
-      new NavigationItem("Libraries"),
-      ...libs,
-      new NavigationItem("Packages"),
-      ...packages,
-    ];
-    return navigation;
+    categories.push(...[clients, libs, packages]);
+    return categories;
   }
 
-  private isGrouped(navigation: NavigationItem): boolean {
-    const childrenNames = navigation.children.map((child) => child.title);
+  private isCategorized(categories: ReflectionCategory[]): boolean {
+    const childrenNames = categories.map((child) => child.title);
     return (
       childrenNames.includes("Clients") && childrenNames.includes("Packages") && childrenNames.includes("Libraries")
     );
   }
 
-  private isClient(item: NavigationItem): boolean {
-    return isClientModel(item?.reflection);
+  private isClient(item: DeclarationReflection): boolean {
+    return isClientModel(item) || item.name.includes("client-");
+  }
+
+  private isLib(item: DeclarationReflection): boolean {
+    return item?.sources?.[0].fileName.startsWith(`lib${sep}`);
   }
 }

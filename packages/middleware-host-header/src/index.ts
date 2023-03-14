@@ -32,8 +32,8 @@ export const hostHeaderMiddleware =
       //non-H2 request and 'host' header is not set, set the 'host' header to request's hostname.
     } else if (!request.headers["host"]) {
       let host = request.hostname;
-      if (request.port != null) host += `:${request.port}`
-      request.headers["host"] = host
+      if (request.port != null) host += `:${request.port}`;
+      request.headers["host"] = host;
     }
     return next(args);
   };

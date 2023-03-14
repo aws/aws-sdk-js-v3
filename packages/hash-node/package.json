@@ -26,7 +26,7 @@
     "downlevel-dts": "0.10.1",
     "hash-test-vectors": "^1.3.2",
     "rimraf": "3.0.2",
-    "typedoc": "0.19.2",
+    "typedoc": "0.23.23",
     "typescript": "~4.6.2"
   },
   "dependencies": {
@@ -53,5 +53,8 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/hash-node"
+  },
+  "typedoc": {
+    "entryPoint": "src/index.ts"
   }
 }

@@ -47,7 +47,7 @@ const mergeManifest = (fromContent = {}, toContent = {}) => {
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           rimraf: "3.0.2",
-          typedoc: "0.19.2",
+          typedoc: "0.23.23",
           typescript: "~4.6.2",
         };
         fromContent[name] = Object.keys(fromContent[name])
@@ -139,6 +139,11 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
         // no need for the default prepack script
         delete mergedManifest.scripts.prepack;
 
+        if (mergedManifest.private) {
+          // don't generate documentation for private packages
+          delete mergedManifest.scripts["build:docs"];
+        }
+
         const serviceName = clientName.replace("client-", "");
         const modelFile = join(__dirname, "..", "..", "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
 
@@ -151,7 +156,10 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (packageSub === "typedoc.json") {
         const typedocJson = {
-          extends: "../../typedoc.client.json",
+          extends: ["../../typedoc.client.json"],
+          entryPoints: ["src/index.ts"],
+          out: "docs",
+          readme: "README.md",
         };
         writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
@@ -202,6 +210,10 @@ const copyServerTests = async (sourceDir, destinationDir) => {
         };
         if (!mergedManifest.scripts.test) {
           mergedManifest.scripts.test = "jest --coverage --passWithNoTests";
+        }
+        if (mergedManifest.private) {
+          // don't generate documentation for private packages
+          delete mergedManifest.scripts["build:docs"];
         }
         writeFileSync(destSubPath, JSON.stringify(mergedManifest, null, 2).concat(`\n`));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {

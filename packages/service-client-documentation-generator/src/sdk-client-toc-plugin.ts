@@ -1,70 +1,71 @@
 import { dirname } from "path";
-import { ReferenceType } from "typedoc/dist/lib/models";
 import {
+  BindOption,
+  ContainerReflection,
+  Context,
+  Converter,
   DeclarationReflection,
+  Logger,
+  Options,
   ProjectReflection,
-  Reflection,
+  ReferenceType,
+  ReflectionCategory,
+  ReflectionFlag,
+  ReflectionGroup,
   ReflectionKind,
-} from "typedoc/dist/lib/models/reflections";
-import { Component, RendererComponent } from "typedoc/dist/lib/output/components";
-import { PageEvent } from "typedoc/dist/lib/output/events";
-import { NavigationItem } from "typedoc/dist/lib/output/models/NavigationItem";
+  Renderer,
+} from "typedoc";
 
-import { getCurrentClientDirectory } from "./utils";
+import { isClientModel } from "./utils";
 
 /**
  * Group the ToC for easier observability.
  */
-@Component({ name: "SdkClientTocPlugin" })
-export class SdkClientTocPlugin extends RendererComponent {
-  private commandsNavigationItem?: NavigationItem;
-  private clientsNavigationItem?: NavigationItem;
-  private paginatorsNavigationItem?: NavigationItem;
-  private waitersNavigationItem?: NavigationItem;
+export class SdkClientTocPlugin {
   private clientDir?: string;
 
-  initialize() {
-    // disable existing toc plugin
-    const tocPlugin = <any>this.owner.application.renderer.getComponent("toc");
-    this.owner.off(PageEvent.BEGIN, tocPlugin.onRendererBeginPage);
+  @BindOption("defaultGroup")
+  readonly defaultGroup: string;
 
-    this.listenTo(this.owner, {
-      [PageEvent.BEGIN]: this.onRendererBeginPage,
-    });
+  @BindOption("defaultCategory")
+  readonly defaultCategory: string;
+
+  constructor(public readonly options: Options, public readonly logger: Logger, private readonly renderer: Renderer) {
+    this.renderer.application.converter.on(Converter.EVENT_RESOLVE_END, this.onEndResolve);
   }
 
-  /**
-   * Generates a table of contents for a page.
-   * @param page Contains project details and contextual data about the page being rendered.
-   */
-  private onRendererBeginPage(page: PageEvent) {
-    let model = page.model;
-    if (!model.constructor.name.endsWith("Reflection")) {
-      return;
+  private onEndResolve = (context: Context) => {
+    if (!this.clientDir) this.clientDir = this.loadClientDir(context.project);
+    for (const model of Object.values(context.project.reflections)) {
+      const isEffectiveParent = (model instanceof ContainerReflection && model.children?.length) || model.isProject();
+      if (!isEffectiveParent || model.kindOf(ReflectionKind.SomeModule)) {
+        return;
+      }
+
+      if (!model.groups) {
+        model.groups = [];
+      }
+
+      let group = model.groups.find((value) => value.title === this.defaultGroup);
+
+      if (!group) {
+        group = new ReflectionGroup(this.defaultGroup);
+        model.groups.push(group);
+      }
+
+      group.categories = this.defineCategories(group, model.children);
+
+      const modulesIndex = model.groups.findIndex((value) => value.title === "Modules");
+      // Removing `Modules` group from array
+      if (modulesIndex >= 0) {
+        model.groups.splice(modulesIndex, 1);
+      }
     }
-
-    const trail: Reflection[] = [];
-    while (model.constructor.name !== "ProjectReflection" && !model.kindOf(ReflectionKind.SomeModule)) {
-      trail.unshift(model);
-      model = model.parent;
-    }
-
-    const tocRestriction = this.owner.toc;
-    page.toc = new NavigationItem(model.name);
-
-    if (!model.parent && !trail.length) {
-      this.clientsNavigationItem = new NavigationItem("Clients", void 0, page.toc);
-      this.commandsNavigationItem = new NavigationItem("Commands", void 0, page.toc);
-      this.paginatorsNavigationItem = new NavigationItem("Paginators", void 0, page.toc);
-      this.waitersNavigationItem = new NavigationItem("Waiters", void 0, page.toc);
-    }
-
-    this.buildToc(model, trail, page.toc, tocRestriction);
-  }
+  };
 
   // Confirm declaration comes from the same folder as the client class
   private belongsToClientPackage(model: DeclarationReflection): boolean {
-    return this.clientDir && model.sources?.[0].file?.fullFileName.indexOf(this.clientDir) === 0;
+    return this.clientDir && model.sources?.[0].fullFileName.indexOf(this.clientDir) === 0;
   }
 
   private isClient(model: DeclarationReflection): boolean {
@@ -107,68 +108,64 @@ export class SdkClientTocPlugin extends RendererComponent {
       model.name.startsWith("waitFor") && model.kindOf(ReflectionKind.Function) && this.belongsToClientPackage(model)
     );
   }
-
   /**
-   * Create a toc navigation item structure.
+   * Define navigation categories in Client, Commands, Paginators and Waiters sections. It will update the
+   * supplied categories array.
    *
-   * @param model   The models whose children should be written to the toc.
-   * @param trail   Defines the active trail of expanded toc entries.
-   * @param parent  The parent [[NavigationItem]] the toc should be appended to.
-   * @param restriction  The restricted table of contents.
+   * @param group   The parent group where the categories will be placed under.
+   * @param reflections   The reflections that should be categorized.
    */
-  buildToc(model: Reflection, trail: Reflection[], parent: NavigationItem, restriction?: string[]) {
-    const index = trail.indexOf(model);
-    const children = model["children"] || [];
-    if (!this.clientDir) this.clientDir = this.loadClientDir(model);
+  private defineCategories(group: ReflectionGroup, reflections: DeclarationReflection[]): ReflectionCategory[] {
+    const categories = group.categories || [];
+    if (this.isCategorized(categories)) return group.categories;
 
-    if (index < trail.length - 1 && children.length > 40) {
-      const child = trail[index + 1];
-      const item = NavigationItem.create(child, parent, true);
-      item.isInPath = true;
-      item.isCurrent = false;
-      this.buildToc(child, trail, item);
-    } else {
-      children.forEach((child: DeclarationReflection) => {
-        if (restriction && restriction.length > 0 && !restriction.includes(child.name)) {
-          return;
-        }
+    const clients = new ReflectionCategory("Clients");
+    const commands = new ReflectionCategory("Commands");
+    const paginators = new ReflectionCategory("Paginators");
+    const waiters = new ReflectionCategory("Waiters");
+    reflections.forEach((reflection: DeclarationReflection) => {
+      if (reflection.kindOf(ReflectionKind.SomeModule)) {
+        return;
+      }
 
-        if (child.kindOf(ReflectionKind.SomeModule)) {
-          return;
-        }
+      if (this.isClient(reflection)) {
+        clients.children.push(reflection);
+        reflection.flags.setFlag(ReflectionFlag.Public, false);
+      } else if (this.isCommand(reflection)) {
+        commands.children.push(reflection);
+        reflection.flags.setFlag(ReflectionFlag.Protected, true);
+      } else if (this.isPaginator(reflection)) {
+        paginators.children.push(reflection);
+        reflection.flags.setFlag(ReflectionFlag.Protected, true);
+      } else if (this.isInputOrOutput(reflection)) {
+        commands.children.push(reflection);
+        reflection.flags.setFlag(ReflectionFlag.Protected, true);
+      } else if (this.isWaiter(reflection)) {
+        waiters.children.push(reflection);
+        reflection.flags.setFlag(ReflectionFlag.Protected, true);
+      }
+    });
+    // Group commands and input/output interface of each command.
+    commands.children.sort((childA, childB) => childA.name.localeCompare(childB.name));
 
-        if (this.isClient(child)) {
-          NavigationItem.create(child, this.clientsNavigationItem, true);
-        } else if (this.isCommand(child)) {
-          NavigationItem.create(child, this.commandsNavigationItem, true);
-        } else if (this.isPaginator(child)) {
-          NavigationItem.create(child, this.paginatorsNavigationItem, true);
-        } else if (this.isInputOrOutput(child)) {
-          NavigationItem.create(child, this.commandsNavigationItem, true);
-        } else if (this.isWaiter(child)) {
-          NavigationItem.create(child, this.waitersNavigationItem, true);
-        } else {
-          const item = NavigationItem.create(child, parent, true);
-          if (trail.includes(child)) {
-            item.isInPath = true;
-            item.isCurrent = trail[trail.length - 1] === child;
-            this.buildToc(child, trail, item);
-          }
-        }
-      });
-      // Group commands and input/output interface of each command.
-      this.commandsNavigationItem?.children.sort((childA, childB) => childA.title.localeCompare(childB.title));
-    }
+    categories.push(...[clients, commands, paginators, waiters]);
+    return categories;
   }
 
-  private loadClientDir(model: Reflection) {
-    let projectModel = model as any as ProjectReflection;
-    while (projectModel.constructor.name !== "ProjectReflection" && !projectModel.kindOf(ReflectionKind.SomeModule)) {
-      projectModel = projectModel.parent as ProjectReflection;
-    }
-    const clientsDirectory = getCurrentClientDirectory({ project: projectModel as ProjectReflection });
-    return dirname(
-      dirname(clientsDirectory?.directories.src.files.find((file) => file.name.endsWith("Client.ts")).fullFileName)
+  private isCategorized(categories: ReflectionCategory[]): boolean {
+    const childrenNames = categories.map((child) => child.title);
+    return (
+      childrenNames.includes("Clients") &&
+      childrenNames.includes("Commands") &&
+      childrenNames.includes("Paginators") &&
+      childrenNames.includes("Waiters")
     );
+  }
+
+  private loadClientDir(project: ProjectReflection) {
+    const children = Object.values(project.reflections).filter(isClientModel);
+    const fullFileName = children.find((child) => child.sources[0].fileName.endsWith("Client.ts")).sources[0]
+      .fullFileName;
+    return dirname(dirname(fullFileName));
   }
 }

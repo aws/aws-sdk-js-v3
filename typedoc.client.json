@@ -1,14 +1,13 @@
 {
-  "exclude": ["**/node_modules/**", "**/protocols/*.ts", "**/endpoints.ts", "**/ruleset.ts"],
-  "excludeNotExported": true,
+  "entryPointStrategy": "resolve",
+  "basePath": "./",
+  "exclude": ["**/node_modules/**", "**/protocols/*.ts", "**/endpoints.ts", "**/*.spec.ts", "**/ruleset.ts"],
   "excludePrivate": true,
   "hideGenerator": true,
-  "ignoreCompilerErrors": true,
-  "includeDeclarations": true,
-  "stripInternal": true,
-  "readme": "README.md",
-  "mode": "file",
-  "out": "docs",
-  "theme": "minimal",
-  "plugin": ["@aws-sdk/service-client-documentation-generator"]
+  "skipErrorChecking": true,
+  "excludeInternal": true,
+  "plugin": ["@aws-sdk/core-theme-documentation-generator", "@aws-sdk/service-client-documentation-generator"],
+  "theme": "sdk",
+  "categorizeByGroup": true,
+  "categoryOrder": ["Clients", "Commands", "Paginators", "Waiters"]
 }
