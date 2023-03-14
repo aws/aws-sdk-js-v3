@@ -39,17 +39,17 @@ export interface SerializeHandlerArguments<Input extends object> extends Initial
 /**
  * @public
  */
-export interface SerializeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> {}
+export interface SerializeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> { }
 
 /**
  * @public
  */
-export interface BuildHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> {}
+export interface BuildHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> { }
 
 /**
  * @public
  */
-export interface BuildHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> {}
+export interface BuildHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> { }
 
 /**
  * @public
@@ -64,12 +64,12 @@ export interface FinalizeHandlerArguments<Input extends object> extends Serializ
 /**
  * @public
  */
-export interface FinalizeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> {}
+export interface FinalizeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> { }
 
 /**
  * @public
  */
-export interface DeserializeHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> {}
+export interface DeserializeHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> { }
 
 /**
  * @public
@@ -94,7 +94,7 @@ export interface InitializeHandler<Input extends object, Output extends object> 
   /**
    * Asynchronously converts an input object into an output object.
    *
-   * @param args  An object containing a input to the command as well as any
+   * @param args - An object containing a input to the command as well as any
    *              associated or previously generated execution artifacts.
    */
   (args: InitializeHandlerArguments<Input>): Promise<InitializeHandlerOutput<Output>>;
@@ -112,7 +112,7 @@ export interface SerializeHandler<Input extends object, Output extends object> {
   /**
    * Asynchronously converts an input object into an output object.
    *
-   * @param args  An object containing a input to the command as well as any
+   * @param args - An object containing a input to the command as well as any
    *              associated or previously generated execution artifacts.
    */
   (args: SerializeHandlerArguments<Input>): Promise<SerializeHandlerOutput<Output>>;
@@ -125,7 +125,7 @@ export interface FinalizeHandler<Input extends object, Output extends object> {
   /**
    * Asynchronously converts an input object into an output object.
    *
-   * @param args  An object containing a input to the command as well as any
+   * @param args - An object containing a input to the command as well as any
    *              associated or previously generated execution artifacts.
    */
   (args: FinalizeHandlerArguments<Input>): Promise<FinalizeHandlerOutput<Output>>;
@@ -148,15 +148,15 @@ export interface DeserializeHandler<Input extends object, Output extends object>
 /**
  * @public
  *
- * A factory function that creates functions implementing the {Handler}
+ * A factory function that creates functions implementing the `Handler`
  * interface.
  */
 export interface InitializeMiddleware<Input extends object, Output extends object> {
   /**
-   * @param next The handler to invoke after this middleware has operated on
+   * @param next - The handler to invoke after this middleware has operated on
    * the user input and before this middleware operates on the output.
    *
-   * @param context Invariant data and functions for use by the handler.
+   * @param context - Invariant data and functions for use by the handler.
    */
   (next: InitializeHandler<Input, Output>, context: HandlerExecutionContext): InitializeHandler<Input, Output>;
 }
@@ -164,15 +164,15 @@ export interface InitializeMiddleware<Input extends object, Output extends objec
 /**
  * @public
  *
- * A factory function that creates functions implementing the {BuildHandler}
+ * A factory function that creates functions implementing the `BuildHandler`
  * interface.
  */
 export interface SerializeMiddleware<Input extends object, Output extends object> {
   /**
-   * @param next The handler to invoke after this middleware has operated on
+   * @param next - The handler to invoke after this middleware has operated on
    * the user input and before this middleware operates on the output.
    *
-   * @param context Invariant data and functions for use by the handler.
+   * @param context - Invariant data and functions for use by the handler.
    */
   (next: SerializeHandler<Input, Output>, context: HandlerExecutionContext): SerializeHandler<Input, Output>;
 }
@@ -180,15 +180,15 @@ export interface SerializeMiddleware<Input extends object, Output extends object
 /**
  * @public
  *
- * A factory function that creates functions implementing the {FinalizeHandler}
+ * A factory function that creates functions implementing the `FinalizeHandler`
  * interface.
  */
 export interface FinalizeRequestMiddleware<Input extends object, Output extends object> {
   /**
-   * @param next The handler to invoke after this middleware has operated on
+   * @param next - The handler to invoke after this middleware has operated on
    * the user input and before this middleware operates on the output.
    *
-   * @param context Invariant data and functions for use by the handler.
+   * @param context - Invariant data and functions for use by the handler.
    */
   (next: FinalizeHandler<Input, Output>, context: HandlerExecutionContext): FinalizeHandler<Input, Output>;
 }
@@ -268,7 +268,7 @@ export interface HandlerOptions {
    *      per operation execution, finalization and deserialize handlers will be
    *      executed foreach HTTP request sent.
    *
-   * @default 'initialize'
+   * @defaultValue 'initialize'
    */
   step?: Step;
 
@@ -298,7 +298,7 @@ export interface AbsoluteLocation {
    * By default middleware will be added to individual step in un-guaranteed order.
    * In the case that
    *
-   * @default 'normal'
+   * @defaultValue 'normal'
    */
   priority?: Priority;
 }
@@ -502,7 +502,7 @@ export interface HandlerExecutionContext {
   userAgent?: UserAgent;
 
   /**
-   * Resolved by the endpointMiddleware function of @aws-sdk/middleware-endpoint
+   * Resolved by the endpointMiddleware function of `@aws-sdk/middleware-endpoint`
    * in the serialization stage.
    */
   endpointV2?: EndpointV2;

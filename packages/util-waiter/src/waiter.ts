@@ -3,7 +3,7 @@ import { WaiterConfiguration as WaiterConfiguration__ } from "@aws-sdk/types";
 /**
  * @internal
  */
-export interface WaiterConfiguration<T> extends WaiterConfiguration__<T> {}
+export interface WaiterConfiguration<T> extends WaiterConfiguration__<T> { }
 
 /**
  * @internal
@@ -46,7 +46,7 @@ export type WaiterResult = {
  * @internal
  *
  * Handles and throws exceptions resulting from the waiterResult
- * @param result WaiterResult
+ * @param result - WaiterResult
  */
 export const checkExceptions = (result: WaiterResult): WaiterResult => {
   if (result.state === WaiterState.ABORTED) {

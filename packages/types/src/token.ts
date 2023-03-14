@@ -6,13 +6,13 @@ import { Provider } from "./util";
  *
  * An object representing temporary or permanent AWS token.
  *
- * @deprecated Use {@TokenIdentity}
+ * @deprecated Use {@link TokenIdentity}
  */
-export interface Token extends TokenIdentity {}
+export interface Token extends TokenIdentity { }
 
 /**
  * @public
  *
- * @deprecated Use {@TokenIdentityProvider}
+ * @deprecated Use {@link TokenIdentityProvider}
  */
 export type TokenProvider = Provider<Token>;

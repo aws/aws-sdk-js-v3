@@ -41,7 +41,7 @@ export interface AbortSignal {
 export interface AbortController {
   /**
    * An object that reports whether the action associated with this
-   * {AbortController} has been cancelled.
+   * `AbortController` has been cancelled.
    */
   readonly signal: AbortSignal;
 

@@ -200,7 +200,7 @@ export function map(arg0: any, arg1?: any, arg2?: any): any {
 }
 
 /**
- * Convert a regular object { k: v } to { k: [, v] } mapping instruction set with default
+ * Convert a regular object `{ k: v }` to `{ k: [, v] }` mapping instruction set with default
  * filter.
  *
  * @internal
