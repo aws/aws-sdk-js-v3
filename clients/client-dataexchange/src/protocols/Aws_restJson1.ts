@@ -101,6 +101,7 @@ import {
   InternalServerException,
   JobEntry,
   JobError,
+  KmsKeyToGrant,
   LakeFormationDataPermissionAsset,
   LakeFormationDataPermissionDetails,
   LFPermission,
@@ -3039,6 +3040,12 @@ const serializeAws_restJson1ImportAssetsFromS3RequestDetails = (
   };
 };
 
+const serializeAws_restJson1KmsKeyToGrant = (input: KmsKeyToGrant, context: __SerdeContext): any => {
+  return {
+    ...(input.KmsKeyArn != null && { KmsKeyArn: input.KmsKeyArn }),
+  };
+};
+
 const serializeAws_restJson1LFTag = (input: LFTag, context: __SerdeContext): any => {
   return {
     ...(input.TagKey != null && { TagKey: input.TagKey }),
@@ -3081,6 +3088,14 @@ const serializeAws_restJson1ListOfDatabaseLFTagPolicyPermissions = (
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
+    });
+};
+
+const serializeAws_restJson1ListOfKmsKeysToGrant = (input: KmsKeyToGrant[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1KmsKeyToGrant(entry, context);
     });
 };
 
@@ -3228,6 +3243,9 @@ const serializeAws_restJson1S3DataAccessAssetSourceEntry = (
     ...(input.Bucket != null && { Bucket: input.Bucket }),
     ...(input.KeyPrefixes != null && { KeyPrefixes: serializeAws_restJson1ListOf__string(input.KeyPrefixes, context) }),
     ...(input.Keys != null && { Keys: serializeAws_restJson1ListOf__string(input.Keys, context) }),
+    ...(input.KmsKeysToGrant != null && {
+      KmsKeysToGrant: serializeAws_restJson1ListOfKmsKeysToGrant(input.KmsKeysToGrant, context),
+    }),
   };
 };
 
@@ -3627,6 +3645,12 @@ const deserializeAws_restJson1JobError = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1KmsKeyToGrant = (output: any, context: __SerdeContext): KmsKeyToGrant => {
+  return {
+    KmsKeyArn: __expectString(output.KmsKeyArn),
+  } as any;
+};
+
 const deserializeAws_restJson1LakeFormationDataPermissionAsset = (
   output: any,
   context: __SerdeContext
@@ -3790,6 +3814,18 @@ const deserializeAws_restJson1ListOfJobError = (output: any, context: __SerdeCon
         return null as any;
       }
       return deserializeAws_restJson1JobError(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ListOfKmsKeysToGrant = (output: any, context: __SerdeContext): KmsKeyToGrant[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1KmsKeyToGrant(entry, context);
     });
   return retVal;
 };
@@ -4019,6 +4055,10 @@ const deserializeAws_restJson1S3DataAccessAsset = (output: any, context: __Serde
     KeyPrefixes:
       output.KeyPrefixes != null ? deserializeAws_restJson1ListOf__string(output.KeyPrefixes, context) : undefined,
     Keys: output.Keys != null ? deserializeAws_restJson1ListOf__string(output.Keys, context) : undefined,
+    KmsKeysToGrant:
+      output.KmsKeysToGrant != null
+        ? deserializeAws_restJson1ListOfKmsKeysToGrant(output.KmsKeysToGrant, context)
+        : undefined,
     S3AccessPointAlias: __expectString(output.S3AccessPointAlias),
     S3AccessPointArn: __expectString(output.S3AccessPointArn),
   } as any;
@@ -4033,6 +4073,10 @@ const deserializeAws_restJson1S3DataAccessAssetSourceEntry = (
     KeyPrefixes:
       output.KeyPrefixes != null ? deserializeAws_restJson1ListOf__string(output.KeyPrefixes, context) : undefined,
     Keys: output.Keys != null ? deserializeAws_restJson1ListOf__string(output.Keys, context) : undefined,
+    KmsKeysToGrant:
+      output.KmsKeysToGrant != null
+        ? deserializeAws_restJson1ListOfKmsKeysToGrant(output.KmsKeysToGrant, context)
+        : undefined,
   } as any;
 };
 

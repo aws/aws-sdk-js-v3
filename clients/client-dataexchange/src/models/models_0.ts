@@ -291,6 +291,20 @@ export interface RedshiftDataShareAsset {
 }
 
 /**
+ * <p>The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the shared S3
+ *          objects.</p>
+ */
+export interface KmsKeyToGrant {
+  /**
+   * <p>The AWS KMS CMK (Key Management System Customer Managed Key) used to encrypt S3 objects
+   *          in the shared S3 Bucket. AWS Data exchange will create a KMS grant for each subscriber to
+   *          allow them to access and decrypt their entitled data that is encrypted using this KMS key
+   *          specified.</p>
+   */
+  KmsKeyArn: string | undefined;
+}
+
+/**
  * <p>The Amazon S3 data access that is the asset.</p>
  */
 export interface S3DataAccessAsset {
@@ -318,6 +332,13 @@ export interface S3DataAccessAsset {
    * <p>The ARN for your Amazon S3 Access Point. Customers can also access their entitled data using the S3 Access Point ARN.</p>
    */
   S3AccessPointArn?: string;
+
+  /**
+   * <p> List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to
+   *          encrypt S3 objects being shared in this S3 Data Access asset. Providers must include all
+   *          AWS KMS keys used to encrypt these shared S3 objects.</p>
+   */
+  KmsKeysToGrant?: KmsKeyToGrant[];
 }
 
 /**
@@ -874,6 +895,12 @@ export interface S3DataAccessAssetSourceEntry {
    * <p>The keys used to create the Amazon S3 data access.</p>
    */
   Keys?: string[];
+
+  /**
+   * <p>List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to
+   *          encrypt S3 objects being shared in this S3 Data Access asset.</p>
+   */
+  KmsKeysToGrant?: KmsKeyToGrant[];
 }
 
 /**
@@ -3027,6 +3054,13 @@ export const LakeFormationDataPermissionAssetFilterSensitiveLog = (obj: LakeForm
  * @internal
  */
 export const RedshiftDataShareAssetFilterSensitiveLog = (obj: RedshiftDataShareAsset): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const KmsKeyToGrantFilterSensitiveLog = (obj: KmsKeyToGrant): any => ({
   ...obj,
 });
 
