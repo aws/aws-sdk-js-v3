@@ -30,6 +30,11 @@ export type PartitionsInfo = {
 let selectedPartitionsInfo: PartitionsInfo = partitionsInfo;
 
 /**
+ * @internal
+ */
+let selectedUserAgentPrefix = "";
+
+/**
  * Evaluates a single string argument value as a region, and matches the
  * string value to an AWS partition.
  * The matcher MUST always return a successful object describing the partition
@@ -79,8 +84,9 @@ export const partition = (value: string): EndpointPartition => {
  * Set custom partitions.json data.
  * @internal
  */
-export const setPartitionInfo = (partitionsInfo: PartitionsInfo) => {
+export const setPartitionInfo = (partitionsInfo: PartitionsInfo, userAgentPrefix = "") => {
   selectedPartitionsInfo = partitionsInfo;
+  selectedUserAgentPrefix = userAgentPrefix;
 };
 
 /**
@@ -88,11 +94,10 @@ export const setPartitionInfo = (partitionsInfo: PartitionsInfo) => {
  * @internal
  */
 export const useDefaultPartitionInfo = () => {
-  setPartitionInfo(partitionsInfo);
+  setPartitionInfo(partitionsInfo, "");
 };
 
 /**
  * @internal
- * @returns whether the default partitions data are selected.
  */
-export const isUsingDefaultPartitionInfo = () => selectedPartitionsInfo === partitionsInfo;
+export const getUserAgentPrefix = () => selectedUserAgentPrefix;

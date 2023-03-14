@@ -10,7 +10,7 @@ import {
   Pluggable,
   UserAgentPair,
 } from "@aws-sdk/types";
-import { isUsingDefaultPartitionInfo } from "@aws-sdk/util-endpoints";
+import { getUserAgentPrefix } from "@aws-sdk/util-endpoints";
 
 import { UserAgentResolvedConfig } from "./configurations";
 import { SPACE, UA_ESCAPE_REGEX, USER_AGENT, X_AMZ_USER_AGENT } from "./constants";
@@ -40,10 +40,13 @@ export const userAgentMiddleware =
     const userAgent = context?.userAgent?.map(escapeUserAgent) || [];
     const defaultUserAgent = (await options.defaultUserAgentProvider()).map(escapeUserAgent);
     const customUserAgent = options?.customUserAgent?.map(escapeUserAgent) || [];
-    const internalUserMetadata = !isUsingDefaultPartitionInfo() ? "md/internal" : "";
+    const prefix = getUserAgentPrefix();
 
     // Set value to AWS-specific user agent header
-    const sdkUserAgentValue = [internalUserMetadata, ...defaultUserAgent, ...userAgent, ...customUserAgent].join(SPACE);
+    const sdkUserAgentValue = (prefix ? [prefix] : [])
+      .concat([...defaultUserAgent, ...userAgent, ...customUserAgent])
+      .join(SPACE);
+
     // Get value to be sent with non-AWS-specific user agent header.
     const normalUAValue = [
       ...defaultUserAgent.filter((section) => section.startsWith("aws-sdk-")),

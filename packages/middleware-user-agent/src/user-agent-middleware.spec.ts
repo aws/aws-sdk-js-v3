@@ -78,18 +78,18 @@ describe("userAgentMiddleware", () => {
             );
           });
 
-          it(`should include internal metadata, user agent ${ua} to md/internal ${expected}`, async () => {
+          it(`should include internal metadata, user agent ${ua} customization: ${expected}`, async () => {
             const middleware = userAgentMiddleware({
               defaultUserAgentProvider: async () => [ua],
               runtime,
             });
 
             // internal variant
-            setPartitionInfo({} as any);
+            setPartitionInfo({} as any, "a-test-prefix");
             const handler = middleware(mockInternalNextHandler, {});
             await handler({ input: {}, request: new HttpRequest({ headers: {} }) });
             expect(mockInternalNextHandler.mock.calls[0][0].request.headers[sdkUserAgentKey]).toEqual(
-              expect.stringContaining("md/internal " + expected)
+              expect.stringContaining("a-test-prefix " + expected)
             );
           });
         }

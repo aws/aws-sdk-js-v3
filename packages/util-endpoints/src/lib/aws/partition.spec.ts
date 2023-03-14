@@ -1,4 +1,4 @@
-import { partition, setPartitionInfo, useDefaultPartitionInfo } from "./partition";
+import { getUserAgentPrefix, partition, setPartitionInfo, useDefaultPartitionInfo } from "./partition";
 import partitions from "./partitions.json";
 
 const MOCK_DEFAULT_PARTITION = {
@@ -115,5 +115,10 @@ describe("partition", () => {
       supportsDualStack: true,
       supportsFIPS: true,
     });
+  });
+
+  it("should optionally set a user agent prefix", async () => {
+    setPartitionInfo(null as any, "a-string-prefix");
+    expect(getUserAgentPrefix()).toBe("a-string-prefix");
   });
 });
