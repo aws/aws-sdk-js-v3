@@ -820,7 +820,6 @@ export class DirectConnect extends DirectConnectClient {
 
   /**
    * <p>Accepts ownership of a transit virtual interface created by another Amazon Web Services account.</p>
-   *
    *          <p> After the owner of the transit virtual interface makes this call, the specified transit virtual interface is created and made available to handle traffic.</p>
    */
   public confirmTransitVirtualInterface(
@@ -854,11 +853,20 @@ export class DirectConnect extends DirectConnectClient {
 
   /**
    * <p>Creates a BGP peer on the specified virtual interface.</p>
-   *          <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access Amazon Web Services resources that also use that address family.</p>
+   *          <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to
+   *       access Amazon Web Services resources that also use that address family.</p>
    *          <p>If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot
    *       be in the same address family as an existing BGP peer on the virtual interface.</p>
    *          <p>When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from
    *       the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>
+   *          <important>
+   *             <p>If you let Amazon Web Services auto-assign IPv4 addresses, a /30 CIDR will be allocated
+   *       from 169.254.0.0/16. Amazon Web Services does not recommend this option if you intend to use
+   *       the customer router peer IP address as the source and destination for traffic. Instead you
+   *       should use RFC 1918 or other addressing, and specify the address yourself. For more
+   *       information about RFC 1918 see <a href="https://datatracker.ietf.org/doc/html/rfc1918">
+   *         Address Allocation for Private Internets</a>.</p>
+   *          </important>
    *          <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already on the allow list for the virtual interface.</p>
    */
   public createBGPPeer(
@@ -892,7 +900,6 @@ export class DirectConnect extends DirectConnectClient {
 
   /**
    * <p>Creates a connection between a customer network and a specific Direct Connect location.</p>
-   *
    *          <p>A connection links your internal network to an Direct Connect location over a standard Ethernet fiber-optic
    *       cable. One end of the cable is connected to your router, the other to an Direct Connect router.</p>
    *          <p>To find the locations for your Region, use <a>DescribeLocations</a>.</p>
@@ -1090,7 +1097,7 @@ export class DirectConnect extends DirectConnectClient {
    *       A LAG is a logical interface that uses the Link Aggregation Control Protocol
    *       (LACP) to aggregate multiple interfaces, enabling you to treat them as a single
    *       interface.</p>
-   *         <p>All connections in a LAG must use the same bandwidth (either 1Gbps or 10Gbps) and must terminate at the same Direct Connect endpoint.</p>
+   *          <p>All connections in a LAG must use the same bandwidth (either 1Gbps or 10Gbps) and must terminate at the same Direct Connect endpoint.</p>
    *          <p>You can have up to 10 dedicated connections per LAG. Regardless of this limit, if you
    *       request more connections for the LAG than Direct Connect can allocate on a single endpoint, no LAG is
    *       created.</p>
@@ -1209,12 +1216,12 @@ export class DirectConnect extends DirectConnectClient {
    *          <important>
    *             <p>If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both your the transit gateway and Direct Connect gateway, the association request fails.</p>
    *          </important>
-   *          <p>Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to
-   *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
-   *       the connection disrupts network connectivity for all virtual interfaces associated with
-   *       the connection for up to 30 seconds. To check whether your connection supports jumbo
-   *       frames, call <a>DescribeConnections</a>. To check whether your virtual
-   *       interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>
+   *          <p>A jumbo MTU value must be either 1500 or 8500. No other values will be accepted. Setting
+   *       the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to the underlying
+   *       physical connection if it wasn't updated to support jumbo frames. Updating the connection
+   *       disrupts network connectivity for all virtual interfaces associated with the connection for up
+   *       to 30 seconds. To check whether your connection supports jumbo frames, call <a>DescribeConnections</a>. To check whether your virtual interface supports jumbo
+   *       frames, call <a>DescribeVirtualInterfaces</a>.</p>
    */
   public createTransitVirtualInterface(
     args: CreateTransitVirtualInterfaceCommandInput,

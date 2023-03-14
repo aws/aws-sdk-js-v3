@@ -36,7 +36,6 @@ export interface CreateConnectionCommandOutput extends Connection, __MetadataBea
 
 /**
  * <p>Creates a connection between a customer network and a specific Direct Connect location.</p>
- *
  *          <p>A connection links your internal network to an Direct Connect location over a standard Ethernet fiber-optic
  *       cable. One end of the cable is connected to your router, the other to an Direct Connect router.</p>
  *          <p>To find the locations for your Region, use <a>DescribeLocations</a>.</p>

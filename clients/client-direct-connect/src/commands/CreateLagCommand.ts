@@ -32,7 +32,7 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  *       A LAG is a logical interface that uses the Link Aggregation Control Protocol
  *       (LACP) to aggregate multiple interfaces, enabling you to treat them as a single
  *       interface.</p>
- *         <p>All connections in a LAG must use the same bandwidth (either 1Gbps or 10Gbps) and must terminate at the same Direct Connect endpoint.</p>
+ *          <p>All connections in a LAG must use the same bandwidth (either 1Gbps or 10Gbps) and must terminate at the same Direct Connect endpoint.</p>
  *          <p>You can have up to 10 dedicated connections per LAG. Regardless of this limit, if you
  *       request more connections for the LAG than Direct Connect can allocate on a single endpoint, no LAG is
  *       created.</p>

@@ -67,12 +67,13 @@ export interface AssociatedGateway {
   region?: string;
 }
 
-export type DirectConnectGatewayAssociationState =
-  | "associated"
-  | "associating"
-  | "disassociated"
-  | "disassociating"
-  | "updating";
+export enum DirectConnectGatewayAssociationState {
+  associated = "associated",
+  associating = "associating",
+  disassociated = "disassociated",
+  disassociating = "disassociating",
+  updating = "updating",
+}
 
 /**
  * <p>Information about an association between a Direct Connect gateway and a virtual private gateway or transit gateway.</p>
@@ -106,6 +107,11 @@ export interface DirectConnectGatewayAssociation {
    *             <li>
    *                <p>
    *                   <code>disassociated</code>: The virtual private gateway or transit gateway is disassociated from the Direct Connect gateway. Traffic flow between the Direct Connect gateway and virtual private gateway or transit gateway is stopped.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>updating</code>: The CIDR blocks for the virtual private gateway or transit gateway are currently being updated. This could
+   *           be new CIDR blocks added or current CIDR blocks removed.</p>
    *             </li>
    *          </ul>
    */
@@ -245,16 +251,17 @@ export interface AllocateConnectionOnInterconnectRequest {
   vlan: number | undefined;
 }
 
-export type ConnectionState =
-  | "available"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "ordering"
-  | "pending"
-  | "rejected"
-  | "requested"
-  | "unknown";
+export enum ConnectionState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  down = "down",
+  ordering = "ordering",
+  pending = "pending",
+  rejected = "rejected",
+  requested = "requested",
+  unknown = "unknown",
+}
 
 export enum HasLogicalRedundancy {
   No = "no",
@@ -724,16 +731,17 @@ export interface BGPPeer {
   awsLogicalDeviceId?: string;
 }
 
-export type VirtualInterfaceState =
-  | "available"
-  | "confirming"
-  | "deleted"
-  | "deleting"
-  | "down"
-  | "pending"
-  | "rejected"
-  | "unknown"
-  | "verifying";
+export enum VirtualInterfaceState {
+  available = "available",
+  confirming = "confirming",
+  deleted = "deleted",
+  deleting = "deleting",
+  down = "down",
+  pending = "pending",
+  rejected = "rejected",
+  unknown = "unknown",
+  verifying = "verifying",
+}
 
 /**
  * <p>Information about a virtual interface.</p>
@@ -807,7 +815,7 @@ export interface VirtualInterface {
 
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
@@ -1224,7 +1232,7 @@ export interface ConfirmPrivateVirtualInterfaceRequest {
 export interface ConfirmPrivateVirtualInterfaceResponse {
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
@@ -1276,7 +1284,7 @@ export interface ConfirmPublicVirtualInterfaceRequest {
 export interface ConfirmPublicVirtualInterfaceResponse {
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
@@ -1333,7 +1341,7 @@ export interface ConfirmTransitVirtualInterfaceRequest {
 export interface ConfirmTransitVirtualInterfaceResponse {
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
@@ -1483,7 +1491,12 @@ export interface CreateDirectConnectGatewayRequest {
   amazonSideAsn?: number;
 }
 
-export type DirectConnectGatewayState = "available" | "deleted" | "deleting" | "pending";
+export enum DirectConnectGatewayState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+}
 
 /**
  * <p>Information about a Direct Connect gateway, which enables you to connect virtual interfaces and virtual private gateway or transit gateways.</p>
@@ -1511,7 +1524,7 @@ export interface DirectConnectGateway {
 
   /**
    * <p>The state of the Direct Connect gateway. The following are the possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>pending</code>: The initial state after calling <a>CreateDirectConnectGateway</a>.</p>
@@ -1603,7 +1616,11 @@ export interface CreateDirectConnectGatewayAssociationProposalRequest {
   removeAllowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[];
 }
 
-export type DirectConnectGatewayAssociationProposalState = "accepted" | "deleted" | "requested";
+export enum DirectConnectGatewayAssociationProposalState {
+  accepted = "accepted",
+  deleted = "deleted",
+  requested = "requested",
+}
 
 /**
  * <p>Information about the  proposal request to attach a virtual private gateway to a Direct Connect gateway. </p>
@@ -1698,7 +1715,15 @@ export interface CreateInterconnectRequest {
   providerName?: string;
 }
 
-export type InterconnectState = "available" | "deleted" | "deleting" | "down" | "pending" | "requested" | "unknown";
+export enum InterconnectState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  down = "down",
+  pending = "pending",
+  requested = "requested",
+  unknown = "unknown",
+}
 
 /**
  * <p>Information about an interconnect.</p>
@@ -1866,7 +1891,15 @@ export interface CreateLagRequest {
   requestMACSec?: boolean;
 }
 
-export type LagState = "available" | "deleted" | "deleting" | "down" | "pending" | "requested" | "unknown";
+export enum LagState {
+  available = "available",
+  deleted = "deleted",
+  deleting = "deleting",
+  down = "down",
+  pending = "pending",
+  requested = "requested",
+  unknown = "unknown",
+}
 
 /**
  * <p>Information about a link aggregation group (LAG).</p>
@@ -1900,7 +1933,7 @@ export interface Lag {
 
   /**
    * <p>The state of the LAG. The following are the possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>requested</code>: The initial state of a LAG. The LAG stays in the
@@ -2385,7 +2418,7 @@ export interface DeleteVirtualInterfaceRequest {
 export interface DeleteVirtualInterfaceResponse {
   /**
    * <p>The state of the virtual interface. The following are the possible values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>confirming</code>: The creation of the virtual interface is pending confirmation from the virtual interface owner. If the owner of the virtual interface is different from the owner of the connection on which it is provisioned, then the virtual interface will remain in this state until it is confirmed by the virtual interface owner.</p>
@@ -2533,7 +2566,7 @@ export interface DescribeDirectConnectGatewayAssociationProposalsRequest {
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
    *       returned.</p>
    */
   maxResults?: number;
@@ -2575,7 +2608,7 @@ export interface DescribeDirectConnectGatewayAssociationsRequest {
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
    *       returned.</p>
    */
   maxResults?: number;
@@ -2617,7 +2650,7 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
    *       returned.</p>
    */
   maxResults?: number;
@@ -2628,9 +2661,17 @@ export interface DescribeDirectConnectGatewayAttachmentsRequest {
   nextToken?: string;
 }
 
-export type DirectConnectGatewayAttachmentState = "attached" | "attaching" | "detached" | "detaching";
+export enum DirectConnectGatewayAttachmentState {
+  attached = "attached",
+  attaching = "attaching",
+  detached = "detached",
+  detaching = "detaching",
+}
 
-export type DirectConnectGatewayAttachmentType = "PrivateVirtualInterface" | "TransitVirtualInterface";
+export enum DirectConnectGatewayAttachmentType {
+  PrivateVirtualInterface = "PrivateVirtualInterface",
+  TransitVirtualInterface = "TransitVirtualInterface",
+}
 
 /**
  * <p>Information about an attachment between a Direct Connect gateway and a virtual interface.</p>
@@ -2711,7 +2752,7 @@ export interface DescribeDirectConnectGatewaysRequest {
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
    *       returned.</p>
    */
   maxResults?: number;
@@ -3075,7 +3116,7 @@ export interface ListVirtualInterfaceTestHistoryRequest {
   /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * 	        <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
    *       returned.</p>
    */
   maxResults?: number;
@@ -3156,7 +3197,7 @@ export interface StartBgpFailoverTestRequest {
 
   /**
    * <p>The time in minutes that the virtual interface failover test will last.</p>
-   *          <p>Maximum value: 180 minutes (3 hours).</p>
+   *          <p>Maximum value: 4,320 minutes (72 hours).</p>
    *          <p>Default: 180 minutes (3 hours).</p>
    */
   testDurationInMinutes?: number;
