@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.291.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.290.0...v3.291.0) (2023-03-14)
+
+
+### Features
+
+* **client-dataexchange:** This release enables data providers to license direct access to S3 objects encrypted with Customer Managed Keys (CMK) in AWS KMS through AWS Data Exchange. Subscribers can use these keys to decrypt, then use the encrypted S3 objects shared with them, without creating or managing copies. ([39baae2](https://github.com/aws/aws-sdk-js-v3/commit/39baae2fd8b157aece40bf3be3ebaea57eb2e25a))
+
+
+
+
+
 # [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
 
 **Note:** Version bump only for package @aws-sdk/client-dataexchange

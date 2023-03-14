@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.291.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.290.0...v3.291.0) (2023-03-14)
+
+
+### Features
+
+* **client-application-auto-scaling:** Application Auto Scaling customers can now use mathematical functions to customize the metric used with Target Tracking policies within the policy configuration itself, saving the cost and effort of publishing the customizations as a separate metric. ([e92a768](https://github.com/aws/aws-sdk-js-v3/commit/e92a7689f36ebfb1a7360b5a108ef673ef312833))
+
+
+
+
+
 # [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
 
 **Note:** Version bump only for package @aws-sdk/client-application-auto-scaling

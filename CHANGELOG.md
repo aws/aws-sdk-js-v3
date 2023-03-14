@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.291.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.290.0...v3.291.0) (2023-03-14)
+
+
+### Bug Fixes
+
+* **middleware-sdk-ec2:** use endpoints v2 for source region endpoint ([#4521](https://github.com/aws/aws-sdk-js-v3/issues/4521)) ([44f4c38](https://github.com/aws/aws-sdk-js-v3/commit/44f4c3805d023984c572890252e1373a6c537015))
+
+
+### Features
+
+* **client-application-auto-scaling:** Application Auto Scaling customers can now use mathematical functions to customize the metric used with Target Tracking policies within the policy configuration itself, saving the cost and effort of publishing the customizations as a separate metric. ([e92a768](https://github.com/aws/aws-sdk-js-v3/commit/e92a7689f36ebfb1a7360b5a108ef673ef312833))
+* **client-dataexchange:** This release enables data providers to license direct access to S3 objects encrypted with Customer Managed Keys (CMK) in AWS KMS through AWS Data Exchange. Subscribers can use these keys to decrypt, then use the encrypted S3 objects shared with them, without creating or managing copies. ([39baae2](https://github.com/aws/aws-sdk-js-v3/commit/39baae2fd8b157aece40bf3be3ebaea57eb2e25a))
+* **client-ec2:** This release adds a new DnsOptions key (PrivateDnsOnlyForInboundResolverEndpoint) to CreateVpcEndpoint and ModifyVpcEndpoint APIs. ([8911e55](https://github.com/aws/aws-sdk-js-v3/commit/8911e55be1b00218d79eea86de3659559a88b0ad))
+* **client-keyspaces:** Adding support for client-side timestamps ([61626a5](https://github.com/aws/aws-sdk-js-v3/commit/61626a5a6f7d1b2c6a8695275b22a5c6c6079afd))
+* **clients:** update client endpoints as of 2023-03-14 ([ba6a91d](https://github.com/aws/aws-sdk-js-v3/commit/ba6a91db94cd21a7628557c51e91943231c698c6))
+
+
+
+
+
 # [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
 
 
