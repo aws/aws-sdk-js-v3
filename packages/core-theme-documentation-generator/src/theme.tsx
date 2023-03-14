@@ -23,8 +23,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       const script = `
       // REDIRECT BROKEN CLIENT INDEX PAGES
       (() => {
-        console.log(window.location.href)
-        if (window.location.href.includes('client/client') && /clients\\\/client-\\\w+\\\//.test(window.location.href) === false) {
+        if (window.location.href.includes('clients/client') && /clients\\\/client-\\\w+\\\//.test(window.location.href) === false) {
           window.location.href = window.location.href + '/'
         }
       })();
@@ -104,6 +103,11 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       const style = `
         .tsd-tag.ts-flagProtected {
           display: none;
+        }
+
+        details.tsd-index-content {
+          border-color: var(--color-accent);
+          border-width: 1px 0;
         }
 
         .skip-to-content-nav {
