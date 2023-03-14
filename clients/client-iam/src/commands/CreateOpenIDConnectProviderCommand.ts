@@ -57,6 +57,9 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *                     or applications allowed to authenticate using the OIDC provider</p>
  *             </li>
  *             <li>
+ *                <p>A list of tags that are attached to the specified IAM OIDC provider</p>
+ *             </li>
+ *             <li>
  *                <p>A list of thumbprints of one or more server certificates that the IdP
  *                     uses</p>
  *             </li>
@@ -103,8 +106,8 @@ export interface CreateOpenIDConnectProviderCommandOutput
  *       input parameter.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link ServiceFailureException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or

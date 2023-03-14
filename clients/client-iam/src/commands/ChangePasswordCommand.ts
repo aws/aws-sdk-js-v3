@@ -32,8 +32,8 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
 /**
  * <p>Changes the password of the IAM user who is calling this operation. This operation
  *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
- *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user
- *             password is not affected by this operation.</p>
+ *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user password is
+ *             not affected by this operation.</p>
  *          <p>Use <a>UpdateLoginProfile</a> to use the CLI, the Amazon Web Services API, or the
  *                 <b>Users</b> page in the IAM console to change the
  *             password for any IAM user. For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
@@ -63,8 +63,8 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  *       incorrect.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link NoSuchEntityException} (client fault)
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The

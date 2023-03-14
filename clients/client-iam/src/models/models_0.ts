@@ -42,7 +42,7 @@ export interface AccessDetail {
    * <p>The path of the Organizations entity (root, organizational unit, or account) from which an
    *          authenticated principal last attempted to access the service. Amazon Web Services does not report
    *          unauthenticated requests.</p>
-   *          <p>This field is null if no principals (IAM users, IAM roles, or root users) in the
+   *          <p>This field is null if no principals (IAM users, IAM roles, or root user) in the
    *          reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
    */
   EntityPath?: string;
@@ -57,7 +57,7 @@ export interface AccessDetail {
   LastAuthenticatedTime?: Date;
 
   /**
-   * <p>The number of accounts with authenticated principals (root users, IAM users, and IAM
+   * <p>The number of accounts with authenticated principals (root user, IAM users, and IAM
    *          roles) that attempted to access the service in the tracking period.</p>
    */
   TotalAuthenticatedEntities?: number;
@@ -233,8 +233,8 @@ export class InvalidInputException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ * <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  */
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
@@ -764,7 +764,7 @@ export interface CreateInstanceProfileRequest {
  *          date and time and the Region in which the role was last used. Activity is only reported for
  *          the trailing 400 days. This period can be shorter if your Region began supporting these
  *          features within the last year. The role might have been used more than 400 days ago. For
- *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User
+ *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM user
  *          Guide</i>.</p>
  *          <p>This data type is returned as a response element in the <a>GetRole</a> and
  *             <a>GetAccountAuthorizationDetails</a> operations.</p>
@@ -857,7 +857,7 @@ export interface Role {
    *          date and time and the Region in which the role was last used. Activity is only reported for
    *          the trailing 400 days. This period can be shorter if your Region began supporting these
    *          features within the last year. The role might have been used more than 400 days ago. For
-   *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User
+   *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM user
    *          Guide</i>.</p>
    */
   RoleLastUsed?: RoleLastUsed;
@@ -1044,7 +1044,7 @@ export interface CreateOpenIDConnectProviderRequest {
    *             used by <code>https://keys.server.example.com.</code>
    *          </p>
    *          <p>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining the
-   *                 thumbprint for an OpenID Connect provider</a> in the <i>IAM User
+   *                 thumbprint for an OpenID Connect provider</a> in the <i>IAM user
    *                 Guide</i>.</p>
    */
   ThumbprintList: string[] | undefined;
@@ -1383,6 +1383,8 @@ export interface CreateRoleRequest {
    *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
    *             not distinguished by case. For example, you cannot create resources named both
    *             "MyResource" and "myresource".</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */
   RoleName: string | undefined;
 
@@ -1813,7 +1815,7 @@ export interface CreateVirtualMFADeviceRequest {
   Path?: string;
 
   /**
-   * <p>The name of the virtual MFA device. Use with path to uniquely identify a virtual MFA
+   * <p>The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA
    *             device.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
@@ -2691,8 +2693,7 @@ export interface RoleDetail {
    *          date and time and the Region in which the role was last used. Activity is only reported for
    *          the trailing 400 days. This period can be shorter if your Region began supporting these
    *          features within the last year. The role might have been used more than 400 days ago. For
-   *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User
-   *          Guide</i>.</p>
+   *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>.</p>
    */
   RoleLastUsed?: RoleLastUsed;
 }

@@ -37,9 +37,8 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  *             based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
  *             used, then <code>UserName</code> is required. If a long-term key is assigned to the
  *             user, then <code>UserName</code> is not required. This operation works for access keys
- *             under the Amazon Web Services account. Consequently, you can use this operation to manage
- *             Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
- *             users.</p>
+ *             under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user
+ *             credentials even if the Amazon Web Services account has no associated users.</p>
  *          <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing keys and certificates</a>
  *             in the <i>IAM User Guide</i>.</p>
  * @example
@@ -57,8 +56,8 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link NoSuchEntityException} (client fault)
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The

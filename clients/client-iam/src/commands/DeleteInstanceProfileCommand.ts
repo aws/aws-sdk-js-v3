@@ -59,8 +59,8 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  *       subordinate entities. The error message describes these entities.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link NoSuchEntityException} (client fault)
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The

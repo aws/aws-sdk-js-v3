@@ -53,8 +53,8 @@ export interface CreateAccountAliasCommandOutput extends __MetadataBearer {}
  *       exists.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link ServiceFailureException} (server fault)
  *  <p>The request processing has failed because of an unknown error, exception or

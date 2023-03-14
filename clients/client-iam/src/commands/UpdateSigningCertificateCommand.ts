@@ -31,13 +31,13 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
 
 /**
  * <p>Changes the status of the specified user signing certificate from active to disabled,
- *             or vice versa. This operation can be used to disable an IAM user's signing certificate
- *             as part of a certificate rotation work flow.</p>
+ *             or vice versa. This operation can be used to disable an IAM user's signing
+ *             certificate as part of a certificate rotation work flow.</p>
  *          <p>If the <code>UserName</code> field is not specified, the user name is determined
  *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
  *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
- *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
- *             associated users.</p>
+ *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
+ *             users.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +53,8 @@ export interface UpdateSigningCertificateCommandOutput extends __MetadataBearer 
  * @see {@link IAMClientResolvedConfig | config} for IAMClient's `config` shape.
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link NoSuchEntityException} (client fault)
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The

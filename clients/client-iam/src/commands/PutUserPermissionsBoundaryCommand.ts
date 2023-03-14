@@ -33,11 +33,11 @@ export interface PutUserPermissionsBoundaryCommandInput extends PutUserPermissio
 export interface PutUserPermissionsBoundaryCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds or updates the policy that is specified as the IAM user's permissions boundary.
- *             You can use an Amazon Web Services managed policy or a customer managed policy to set the boundary for
- *             a user. Use the boundary to control the maximum permissions that the user can have.
- *             Setting a permissions boundary is an advanced feature that can affect the permissions
- *             for the user.</p>
+ * <p>Adds or updates the policy that is specified as the IAM user's permissions
+ *             boundary. You can use an Amazon Web Services managed policy or a customer managed policy to set the
+ *             boundary for a user. Use the boundary to control the maximum permissions that the user
+ *             can have. Setting a permissions boundary is an advanced feature that can affect the
+ *             permissions for the user.</p>
  *          <important>
  *             <p>Policies that are used as permissions boundaries do not provide permissions. You
  *                 must also attach a permissions policy to the user. To learn how the effective

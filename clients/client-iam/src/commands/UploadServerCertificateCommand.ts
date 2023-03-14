@@ -90,8 +90,8 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  *       match.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link MalformedCertificateException} (client fault)
  *  <p>The request was rejected because the certificate was malformed or expired. The error

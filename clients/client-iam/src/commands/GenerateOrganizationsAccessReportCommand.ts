@@ -41,12 +41,11 @@ export interface GenerateOrganizationsAccessReportCommandOutput
  *             report for any entities (organization root, organizational unit, or account) or policies
  *             in your organization.</p>
  *          <p>To call this operation, you must be signed in using your Organizations management account
- *             credentials. You can use your long-term IAM user or root user credentials, or
- *             temporary credentials from assuming an IAM role. SCPs must be enabled for your
- *             organization root. You must have the required IAM and Organizations permissions. For more
- *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using
- *                 service last accessed data</a> in the
- *             <i>IAM User Guide</i>.</p>
+ *             credentials. You can use your long-term IAM user or root user credentials, or temporary
+ *             credentials from assuming an IAM role. SCPs must be enabled for your organization
+ *             root. You must have the required IAM and Organizations permissions. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using service last accessed data</a> in the
+ *                 <i>IAM User Guide</i>.</p>
  *          <p>You can generate a service last accessed data report for entities by specifying only
  *             the entity's path. This data includes a list of services that are allowed by any service
  *             control policies (SCPs) that apply to the entity.</p>

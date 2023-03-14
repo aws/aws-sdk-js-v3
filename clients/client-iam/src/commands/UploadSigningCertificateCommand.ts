@@ -45,8 +45,8 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  *          <p>If the <code>UserName</code> is not specified, the IAM user name is determined
  *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
  *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
- *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
- *             associated users.</p>
+ *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
+ *             users.</p>
  *          <note>
  *             <p>Because the body of an X.509 certificate can be large, you should use POST rather
  *                 than GET when calling <code>UploadSigningCertificate</code>. For information about
@@ -81,8 +81,8 @@ export interface UploadSigningCertificateCommandOutput extends UploadSigningCert
  *  <p>The request was rejected because the certificate is invalid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link MalformedCertificateException} (client fault)
  *  <p>The request was rejected because the certificate was malformed or expired. The error

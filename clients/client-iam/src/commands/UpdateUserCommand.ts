@@ -29,8 +29,8 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
 /**
  * <p>Updates the name and/or the path of the specified IAM user.</p>
  *          <important>
- *             <p> You should understand the implications of changing an IAM user's path or name.
- *                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming an IAM
+ *             <p> You should understand the implications of changing an IAM user's path or
+ *                 name. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming an IAM
  *                     user</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html">Renaming an IAM
  *                     group</a> in the <i>IAM User Guide</i>.</p>
  *          </important>
@@ -69,8 +69,8 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  *       describes the entity.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link NoSuchEntityException} (client fault)
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The

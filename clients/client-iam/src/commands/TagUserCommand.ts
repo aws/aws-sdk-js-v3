@@ -42,7 +42,7 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Access control</b> - Include tags in IAM user-based
+ *                   <b>Access control</b> - Include tags in IAM identity-based
  *           and resource-based policies. You can use tags to restrict access to only an IAM
  *           requesting user that has a specified tag attached. You can also restrict access to only
  *           those resources that have a certain tag attached. For examples of policies that show how
@@ -94,8 +94,8 @@ export interface TagUserCommandOutput extends __MetadataBearer {}
  *       input parameter.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services
- *       account limits. The error message describes the limit exceeded.</p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current
+ *       Amazon Web Services account limits. The error message describes the limit exceeded.</p>
  *
  * @throws {@link NoSuchEntityException} (client fault)
  *  <p>The request was rejected because it referenced a resource entity that does not exist. The

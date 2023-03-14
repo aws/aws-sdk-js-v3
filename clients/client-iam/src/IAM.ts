@@ -951,8 +951,8 @@ export class IAM extends IAMClient {
   /**
    * <p>Changes the password of the IAM user who is calling this operation. This operation
    *             can be performed using the CLI, the Amazon Web Services API, or the <b>My
-   *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user
-   *             password is not affected by this operation.</p>
+   *                 Security Credentials</b> page in the Amazon Web Services Management Console. The Amazon Web Services account root user password is
+   *             not affected by this operation.</p>
    *          <p>Use <a>UpdateLoginProfile</a> to use the CLI, the Amazon Web Services API, or the
    *                 <b>Users</b> page in the IAM console to change the
    *             password for any IAM user. For more information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
@@ -1187,6 +1187,9 @@ export class IAM extends IAMClient {
    *             <li>
    *                <p>A list of client IDs (also known as audiences) that identify the application
    *                     or applications allowed to authenticate using the OIDC provider</p>
+   *             </li>
+   *             <li>
+   *                <p>A list of tags that are attached to the specified IAM OIDC provider</p>
    *             </li>
    *             <li>
    *                <p>A list of thumbprints of one or more server certificates that the IdP
@@ -2671,12 +2674,11 @@ export class IAM extends IAMClient {
    *             report for any entities (organization root, organizational unit, or account) or policies
    *             in your organization.</p>
    *          <p>To call this operation, you must be signed in using your Organizations management account
-   *             credentials. You can use your long-term IAM user or root user credentials, or
-   *             temporary credentials from assuming an IAM role. SCPs must be enabled for your
-   *             organization root. You must have the required IAM and Organizations permissions. For more
-   *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using
-   *                 service last accessed data</a> in the
-   *             <i>IAM User Guide</i>.</p>
+   *             credentials. You can use your long-term IAM user or root user credentials, or temporary
+   *             credentials from assuming an IAM role. SCPs must be enabled for your organization
+   *             root. You must have the required IAM and Organizations permissions. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using service last accessed data</a> in the
+   *                 <i>IAM User Guide</i>.</p>
    *          <p>You can generate a service last accessed data report for entities by specifying only
    *             the entity's path. This data includes a list of services that are allowed by any service
    *             control policies (SCPs) that apply to the entity.</p>
@@ -3379,11 +3381,11 @@ export class IAM extends IAMClient {
    *             to perform this operation. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using
    *                 service last accessed data</a> in the
    *             <i>IAM User Guide</i>.</p>
-   *          <p>For each service that principals in an account (root users, IAM users, or IAM
-   *             roles) could access using SCPs, the operation returns details about the most recent
-   *             access attempt. If there was no attempt, the service is listed without details about the
-   *             most recent attempt to access the service. If the operation fails, it returns the reason
-   *             that it failed.</p>
+   *          <p>For each service that principals in an account (root user, IAM users, or IAM roles)
+   *             could access using SCPs, the operation returns details about the most recent access
+   *             attempt. If there was no attempt, the service is listed without details about the most
+   *             recent attempt to access the service. If the operation fails, it returns the reason that
+   *             it failed.</p>
    *          <p>By default, the list is sorted by service namespace.</p>
    */
   public getOrganizationsAccessReport(
@@ -3950,9 +3952,8 @@ export class IAM extends IAMClient {
    *             based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
    *             used, then <code>UserName</code> is required. If a long-term key is assigned to the
    *             user, then <code>UserName</code> is not required. This operation works for access keys
-   *             under the Amazon Web Services account. Consequently, you can use this operation to manage
-   *             Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
-   *             users.</p>
+   *             under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user
+   *             credentials even if the Amazon Web Services account has no associated users.</p>
    *          <note>
    *             <p>To ensure the security of your Amazon Web Services account, the secret access key is accessible
    *                 only during key and user creation.</p>
@@ -5033,8 +5034,8 @@ export class IAM extends IAMClient {
    *          <p>If the <code>UserName</code> field is not specified, the user name is determined
    *             implicitly based on the Amazon Web Services access key ID used to sign the request for this operation.
    *             This operation works for access keys under the Amazon Web Services account. Consequently, you can use
-   *             this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account
-   *             has no associated users.</p>
+   *             this operation to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
+   *             associated users.</p>
    */
   public listSigningCertificates(
     args: ListSigningCertificatesCommandInput,
@@ -5389,11 +5390,11 @@ export class IAM extends IAMClient {
   }
 
   /**
-   * <p>Adds or updates the policy that is specified as the IAM user's permissions boundary.
-   *             You can use an Amazon Web Services managed policy or a customer managed policy to set the boundary for
-   *             a user. Use the boundary to control the maximum permissions that the user can have.
-   *             Setting a permissions boundary is an advanced feature that can affect the permissions
-   *             for the user.</p>
+   * <p>Adds or updates the policy that is specified as the IAM user's permissions
+   *             boundary. You can use an Amazon Web Services managed policy or a customer managed policy to set the
+   *             boundary for a user. Use the boundary to control the maximum permissions that the user
+   *             can have. Setting a permissions boundary is an advanced feature that can affect the
+   *             permissions for the user.</p>
    *          <important>
    *             <p>Policies that are used as permissions boundaries do not provide permissions. You
    *                 must also attach a permissions policy to the user. To learn how the effective
@@ -6013,7 +6014,7 @@ export class IAM extends IAMClient {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Access control</b> - Include tags in IAM user-based
+   *                   <b>Access control</b> - Include tags in IAM identity-based
    *           and resource-based policies. You can use tags to restrict access to only an OIDC provider
    *           that has a specified tag attached. For examples of policies that show how to use tags to
    *           control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control access using IAM tags</a> in the
@@ -6359,7 +6360,7 @@ export class IAM extends IAMClient {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Access control</b> - Include tags in IAM user-based
+   *                   <b>Access control</b> - Include tags in IAM identity-based
    *           and resource-based policies. You can use tags to restrict access to only an IAM
    *           requesting user that has a specified tag attached. You can also restrict access to only
    *           those resources that have a certain tag attached. For examples of policies that show how
@@ -6679,9 +6680,8 @@ export class IAM extends IAMClient {
    *             based on the Amazon Web Services access key ID used to sign the request. If a temporary access key is
    *             used, then <code>UserName</code> is required. If a long-term key is assigned to the
    *             user, then <code>UserName</code> is not required. This operation works for access keys
-   *             under the Amazon Web Services account. Consequently, you can use this operation to manage
-   *             Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
-   *             users.</p>
+   *             under the Amazon Web Services account. Consequently, you can use this operation to manage Amazon Web Services account root user
+   *             credentials even if the Amazon Web Services account has no associated users.</p>
    *          <p>For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing keys and certificates</a>
    *             in the <i>IAM User Guide</i>.</p>
    */
@@ -7108,13 +7108,13 @@ export class IAM extends IAMClient {
 
   /**
    * <p>Changes the status of the specified user signing certificate from active to disabled,
-   *             or vice versa. This operation can be used to disable an IAM user's signing certificate
-   *             as part of a certificate rotation work flow.</p>
+   *             or vice versa. This operation can be used to disable an IAM user's signing
+   *             certificate as part of a certificate rotation work flow.</p>
    *          <p>If the <code>UserName</code> field is not specified, the user name is determined
    *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
    *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
-   *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
-   *             associated users.</p>
+   *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
+   *             users.</p>
    */
   public updateSigningCertificate(
     args: UpdateSigningCertificateCommandInput,
@@ -7186,8 +7186,8 @@ export class IAM extends IAMClient {
   /**
    * <p>Updates the name and/or the path of the specified IAM user.</p>
    *          <important>
-   *             <p> You should understand the implications of changing an IAM user's path or name.
-   *                 For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming an IAM
+   *             <p> You should understand the implications of changing an IAM user's path or
+   *                 name. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage.html#id_users_renaming">Renaming an IAM
    *                     user</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_rename.html">Renaming an IAM
    *                     group</a> in the <i>IAM User Guide</i>.</p>
    *          </important>
@@ -7287,8 +7287,8 @@ export class IAM extends IAMClient {
    *          <p>If the <code>UserName</code> is not specified, the IAM user name is determined
    *             implicitly based on the Amazon Web Services access key ID used to sign the request. This operation
    *             works for access keys under the Amazon Web Services account. Consequently, you can use this operation
-   *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no
-   *             associated users.</p>
+   *             to manage Amazon Web Services account root user credentials even if the Amazon Web Services account has no associated
+   *             users.</p>
    *          <note>
    *             <p>Because the body of an X.509 certificate can be large, you should use POST rather
    *                 than GET when calling <code>UploadSigningCertificate</code>. For information about

@@ -50,11 +50,11 @@ export interface GetOrganizationsAccessReportCommandOutput
  *             to perform this operation. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html">Refining permissions using
  *                 service last accessed data</a> in the
  *             <i>IAM User Guide</i>.</p>
- *          <p>For each service that principals in an account (root users, IAM users, or IAM
- *             roles) could access using SCPs, the operation returns details about the most recent
- *             access attempt. If there was no attempt, the service is listed without details about the
- *             most recent attempt to access the service. If the operation fails, it returns the reason
- *             that it failed.</p>
+ *          <p>For each service that principals in an account (root user, IAM users, or IAM roles)
+ *             could access using SCPs, the operation returns details about the most recent access
+ *             attempt. If there was no attempt, the service is listed without details about the most
+ *             recent attempt to access the service. If the operation fails, it returns the reason that
+ *             it failed.</p>
  *          <p>By default, the list is sorted by service namespace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
