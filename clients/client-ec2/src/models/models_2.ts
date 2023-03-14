@@ -3541,6 +3541,14 @@ export interface DnsOptionsSpecification {
    * <p>The DNS records created for the endpoint.</p>
    */
   DnsRecordIpType?: DnsRecordIpType | string;
+
+  /**
+   * <p>Indicates whether to enable private DNS only for inbound endpoints. This option is
+   *           available only for services that support both gateway and interface endpoints. It routes
+   *           traffic that originates from the VPC to the gateway endpoint and traffic that originates
+   *           from on-premises to the interface endpoint.</p>
+   */
+  PrivateDnsOnlyForInboundResolverEndpoint?: boolean;
 }
 
 export enum IpAddressType {
@@ -3667,6 +3675,11 @@ export interface DnsOptions {
    * <p>The DNS records created for the endpoint.</p>
    */
   DnsRecordIpType?: DnsRecordIpType | string;
+
+  /**
+   * <p>Indicates whether to enable private DNS only for inbound endpoints.</p>
+   */
+  PrivateDnsOnlyForInboundResolverEndpoint?: boolean;
 }
 
 /**

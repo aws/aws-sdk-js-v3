@@ -46050,6 +46050,9 @@ const serializeAws_ec2DnsOptionsSpecification = (input: DnsOptionsSpecification,
   if (input.DnsRecordIpType != null) {
     entries["DnsRecordIpType"] = input.DnsRecordIpType;
   }
+  if (input.PrivateDnsOnlyForInboundResolverEndpoint != null) {
+    entries["PrivateDnsOnlyForInboundResolverEndpoint"] = input.PrivateDnsOnlyForInboundResolverEndpoint;
+  }
   return entries;
 };
 
@@ -68881,9 +68884,15 @@ const deserializeAws_ec2DnsEntrySet = (output: any, context: __SerdeContext): Dn
 const deserializeAws_ec2DnsOptions = (output: any, context: __SerdeContext): DnsOptions => {
   const contents: any = {
     DnsRecordIpType: undefined,
+    PrivateDnsOnlyForInboundResolverEndpoint: undefined,
   };
   if (output["dnsRecordIpType"] !== undefined) {
     contents.DnsRecordIpType = __expectString(output["dnsRecordIpType"]);
+  }
+  if (output["privateDnsOnlyForInboundResolverEndpoint"] !== undefined) {
+    contents.PrivateDnsOnlyForInboundResolverEndpoint = __parseBoolean(
+      output["privateDnsOnlyForInboundResolverEndpoint"]
+    );
   }
   return contents;
 };
