@@ -108,6 +108,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
         details.tsd-index-content {
           border-color: var(--color-accent);
           border-width: 1px 0;
+          border-style: solid;
         }
 
         .skip-to-content-nav {
