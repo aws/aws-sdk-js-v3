@@ -1065,8 +1065,8 @@ export interface ScalableTarget {
   CreationTime: Date | undefined;
 
   /**
-   * <p>Specifies whether the scaling activities for a scalable target are in a suspended state.
-   *       </p>
+   * <p>Specifies whether the scaling activities for a scalable target are in a suspended
+   *          state.</p>
    */
   SuspendedState?: SuspendedState;
 }
@@ -1960,6 +1960,134 @@ export interface MetricDimension {
   Value: string | undefined;
 }
 
+/**
+ * <p>Describes the dimension of a metric.</p>
+ */
+export interface TargetTrackingMetricDimension {
+  /**
+   * <p>The name of the dimension.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The value of the dimension.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Represents a specific metric.</p>
+ *          <p>Metric is a property of the <a>TargetTrackingMetricStat</a> object.</p>
+ */
+export interface TargetTrackingMetric {
+  /**
+   * <p>The dimensions for the metric. For the list of available dimensions, see the Amazon Web Services
+   *          documentation available from the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
+   *             services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User
+   *             Guide</i>. </p>
+   *          <p>Conditional: If you published your metric with dimensions, you must specify the same
+   *          dimensions in your scaling policy.</p>
+   */
+  Dimensions?: TargetTrackingMetricDimension[];
+
+  /**
+   * <p>The name of the metric.</p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>The namespace of the metric. For more information, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html">Amazon Web Services
+   *             services that publish CloudWatch metrics </a> in the <i>Amazon CloudWatch User
+   *             Guide</i>.</p>
+   */
+  Namespace?: string;
+}
+
+/**
+ * <p>This structure defines the CloudWatch metric to return, along with the statistic, period, and
+ *          unit.</p>
+ *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
+ *             concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ */
+export interface TargetTrackingMetricStat {
+  /**
+   * <p>The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get
+   *          the exact metric name, namespace, and dimensions, inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is
+   *          returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
+   */
+  Metric: TargetTrackingMetric | undefined;
+
+  /**
+   * <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a
+   *          list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+   *          <p>The most commonly used metrics for scaling is <code>Average</code>
+   *          </p>
+   */
+  Stat: string | undefined;
+
+  /**
+   * <p>The unit to use for the returned data points. For a complete list of the units that CloudWatch
+   *          supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a> data
+   *          type in the <i>Amazon CloudWatch API Reference</i>.</p>
+   */
+  Unit?: string;
+}
+
+/**
+ * <p>The metric data to return. Also defines whether this call is returning data for one
+ *          metric only, or whether it is performing a math expression on the values of returned metric
+ *          statistics to create a new time series. A time series is a series of data points, each of
+ *          which is associated with a timestamp.</p>
+ *          <p>For more information and examples, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking-metric-math.html">Create a target tracking scaling policy for Application Auto Scaling using metric math</a> in the
+ *          <i>Application Auto Scaling User Guide</i>.</p>
+ */
+export interface TargetTrackingMetricDataQuery {
+  /**
+   * <p>The math expression to perform on the returned data, if this object is performing a math
+   *          expression. This expression can use the <code>Id</code> of the other metrics to refer to
+   *          those metrics, and can also use the <code>Id</code> of other expressions to use the result
+   *          of those expressions. </p>
+   *          <p>Conditional: Within each <code>TargetTrackingMetricDataQuery</code> object, you must
+   *          specify either <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   */
+  Expression?: string;
+
+  /**
+   * <p>A short name that identifies the object's results in the response. This name must be
+   *          unique among all <code>MetricDataQuery</code> objects specified for a single scaling
+   *          policy. If you are performing math expressions on this set of data, this name represents
+   *          that data and can serve as a variable in the mathematical expression. The valid characters
+   *          are letters, numbers, and underscores. The first character must be a lowercase letter.
+   *       </p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>A human-readable label for this metric or expression. This is especially useful if this
+   *          is a math expression, so that you know what the value represents.</p>
+   */
+  Label?: string;
+
+  /**
+   * <p>Information about the metric data to return.</p>
+   *          <p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either
+   *             <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   */
+  MetricStat?: TargetTrackingMetricStat;
+
+  /**
+   * <p>Indicates whether to return the timestamps and raw data values of this metric. </p>
+   *          <p>If you use any math expressions, specify <code>true</code> for this value for only the
+   *          final math expression that the metric specification is based on. You must specify
+   *             <code>false</code> for <code>ReturnData</code> for all the other metrics and expressions
+   *          used in the metric specification.</p>
+   *          <p>If you are only retrieving metrics and not performing any math expressions, do not
+   *          specify anything for <code>ReturnData</code>. This sets it to its default
+   *             (<code>true</code>).</p>
+   */
+  ReturnData?: boolean;
+}
+
 export enum MetricStatistic {
   Average = "Average",
   Maximum = "Maximum",
@@ -1989,10 +2117,6 @@ export enum MetricStatistic {
  *                increase when capacity decreases. </p>
  *             </li>
  *          </ul>
- *          <p>For an example of how creating new metrics can be useful, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html">Scaling
- *             based on Amazon SQS</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. This topic
- *          mentions Auto Scaling groups, but the same scenario for Amazon SQS can apply to the target tracking
- *          scaling policies that you create for a Spot Fleet by using the Application Auto Scaling API.</p>
  *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
  *             concepts</a> in the <i>Amazon CloudWatch User Guide</i>. </p>
  */
@@ -2001,12 +2125,12 @@ export interface CustomizedMetricSpecification {
    * <p>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect
    *          the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
    */
-  MetricName: string | undefined;
+  MetricName?: string;
 
   /**
    * <p>The namespace of the metric.</p>
    */
-  Namespace: string | undefined;
+  Namespace?: string;
 
   /**
    * <p>The dimensions of the metric. </p>
@@ -2018,7 +2142,7 @@ export interface CustomizedMetricSpecification {
   /**
    * <p>The statistic of the metric.</p>
    */
-  Statistic: MetricStatistic | string | undefined;
+  Statistic?: MetricStatistic | string;
 
   /**
    * <p>The unit of the metric. For a complete list of the units that CloudWatch supports, see the
@@ -2026,6 +2150,12 @@ export interface CustomizedMetricSpecification {
    *          type in the <i>Amazon CloudWatch API Reference</i>.</p>
    */
   Unit?: string;
+
+  /**
+   * <p>The metrics to include in the target tracking scaling policy, as a metric data query.
+   *          This can include both raw metric and metric math expressions.</p>
+   */
+  Metrics?: TargetTrackingMetricDataQuery[];
 }
 
 export enum MetricType {
@@ -3803,6 +3933,34 @@ export const StepScalingPolicyConfigurationFilterSensitiveLog = (obj: StepScalin
  * @internal
  */
 export const MetricDimensionFilterSensitiveLog = (obj: MetricDimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetTrackingMetricDimensionFilterSensitiveLog = (obj: TargetTrackingMetricDimension): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetTrackingMetricFilterSensitiveLog = (obj: TargetTrackingMetric): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetTrackingMetricStatFilterSensitiveLog = (obj: TargetTrackingMetricStat): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetTrackingMetricDataQueryFilterSensitiveLog = (obj: TargetTrackingMetricDataQuery): any => ({
   ...obj,
 });
 

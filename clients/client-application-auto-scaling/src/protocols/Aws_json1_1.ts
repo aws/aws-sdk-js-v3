@@ -94,6 +94,10 @@ import {
   StepAdjustment,
   StepScalingPolicyConfiguration,
   SuspendedState,
+  TargetTrackingMetric,
+  TargetTrackingMetricDataQuery,
+  TargetTrackingMetricDimension,
+  TargetTrackingMetricStat,
   TargetTrackingScalingPolicyConfiguration,
   ValidationException,
 } from "../models/models_0";
@@ -838,6 +842,9 @@ const serializeAws_json1_1CustomizedMetricSpecification = (
   return {
     ...(input.Dimensions != null && { Dimensions: serializeAws_json1_1MetricDimensions(input.Dimensions, context) }),
     ...(input.MetricName != null && { MetricName: input.MetricName }),
+    ...(input.Metrics != null && {
+      Metrics: serializeAws_json1_1TargetTrackingMetricDataQueries(input.Metrics, context),
+    }),
     ...(input.Namespace != null && { Namespace: input.Namespace }),
     ...(input.Statistic != null && { Statistic: input.Statistic }),
     ...(input.Unit != null && { Unit: input.Unit }),
@@ -1081,6 +1088,74 @@ const serializeAws_json1_1SuspendedState = (input: SuspendedState, context: __Se
   };
 };
 
+const serializeAws_json1_1TargetTrackingMetric = (input: TargetTrackingMetric, context: __SerdeContext): any => {
+  return {
+    ...(input.Dimensions != null && {
+      Dimensions: serializeAws_json1_1TargetTrackingMetricDimensions(input.Dimensions, context),
+    }),
+    ...(input.MetricName != null && { MetricName: input.MetricName }),
+    ...(input.Namespace != null && { Namespace: input.Namespace }),
+  };
+};
+
+const serializeAws_json1_1TargetTrackingMetricDataQueries = (
+  input: TargetTrackingMetricDataQuery[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1TargetTrackingMetricDataQuery(entry, context);
+    });
+};
+
+const serializeAws_json1_1TargetTrackingMetricDataQuery = (
+  input: TargetTrackingMetricDataQuery,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Expression != null && { Expression: input.Expression }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Label != null && { Label: input.Label }),
+    ...(input.MetricStat != null && {
+      MetricStat: serializeAws_json1_1TargetTrackingMetricStat(input.MetricStat, context),
+    }),
+    ...(input.ReturnData != null && { ReturnData: input.ReturnData }),
+  };
+};
+
+const serializeAws_json1_1TargetTrackingMetricDimension = (
+  input: TargetTrackingMetricDimension,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_json1_1TargetTrackingMetricDimensions = (
+  input: TargetTrackingMetricDimension[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1TargetTrackingMetricDimension(entry, context);
+    });
+};
+
+const serializeAws_json1_1TargetTrackingMetricStat = (
+  input: TargetTrackingMetricStat,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Metric != null && { Metric: serializeAws_json1_1TargetTrackingMetric(input.Metric, context) }),
+    ...(input.Stat != null && { Stat: input.Stat }),
+    ...(input.Unit != null && { Unit: input.Unit }),
+  };
+};
+
 const serializeAws_json1_1TargetTrackingScalingPolicyConfiguration = (
   input: TargetTrackingScalingPolicyConfiguration,
   context: __SerdeContext
@@ -1141,6 +1216,10 @@ const deserializeAws_json1_1CustomizedMetricSpecification = (
     Dimensions:
       output.Dimensions != null ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context) : undefined,
     MetricName: __expectString(output.MetricName),
+    Metrics:
+      output.Metrics != null
+        ? deserializeAws_json1_1TargetTrackingMetricDataQueries(output.Metrics, context)
+        : undefined,
     Namespace: __expectString(output.Namespace),
     Statistic: __expectString(output.Statistic),
     Unit: __expectString(output.Unit),
@@ -1522,6 +1601,84 @@ const deserializeAws_json1_1SuspendedState = (output: any, context: __SerdeConte
     DynamicScalingInSuspended: __expectBoolean(output.DynamicScalingInSuspended),
     DynamicScalingOutSuspended: __expectBoolean(output.DynamicScalingOutSuspended),
     ScheduledScalingSuspended: __expectBoolean(output.ScheduledScalingSuspended),
+  } as any;
+};
+
+const deserializeAws_json1_1TargetTrackingMetric = (output: any, context: __SerdeContext): TargetTrackingMetric => {
+  return {
+    Dimensions:
+      output.Dimensions != null
+        ? deserializeAws_json1_1TargetTrackingMetricDimensions(output.Dimensions, context)
+        : undefined,
+    MetricName: __expectString(output.MetricName),
+    Namespace: __expectString(output.Namespace),
+  } as any;
+};
+
+const deserializeAws_json1_1TargetTrackingMetricDataQueries = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingMetricDataQuery[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TargetTrackingMetricDataQuery(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1TargetTrackingMetricDataQuery = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingMetricDataQuery => {
+  return {
+    Expression: __expectString(output.Expression),
+    Id: __expectString(output.Id),
+    Label: __expectString(output.Label),
+    MetricStat:
+      output.MetricStat != null
+        ? deserializeAws_json1_1TargetTrackingMetricStat(output.MetricStat, context)
+        : undefined,
+    ReturnData: __expectBoolean(output.ReturnData),
+  } as any;
+};
+
+const deserializeAws_json1_1TargetTrackingMetricDimension = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingMetricDimension => {
+  return {
+    Name: __expectString(output.Name),
+    Value: __expectString(output.Value),
+  } as any;
+};
+
+const deserializeAws_json1_1TargetTrackingMetricDimensions = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingMetricDimension[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TargetTrackingMetricDimension(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1TargetTrackingMetricStat = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingMetricStat => {
+  return {
+    Metric: output.Metric != null ? deserializeAws_json1_1TargetTrackingMetric(output.Metric, context) : undefined,
+    Stat: __expectString(output.Stat),
+    Unit: __expectString(output.Unit),
   } as any;
 };
 

@@ -311,6 +311,8 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *                <p>Custom resources provided by your own applications or services</p>
  *             </li>
  *          </ul>
+ *          <p>To learn more about Application Auto Scaling, see the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application Auto Scaling User
+ *       Guide</a>.</p>
  *          <p>
  *             <b>API Summary</b>
  *          </p>
@@ -334,9 +336,6 @@ export interface ApplicationAutoScalingClientResolvedConfig extends ApplicationA
  *           and scheduled scaling.</p>
  *             </li>
  *          </ul>
- *          <p>To learn more about Application Auto Scaling, including information about granting IAM users required
- *       permissions for Application Auto Scaling actions, see the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application Auto Scaling User
- *         Guide</a>.</p>
  */
 export class ApplicationAutoScalingClient extends __Client<
   __HttpHandlerOptions,
