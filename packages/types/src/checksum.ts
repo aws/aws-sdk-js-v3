@@ -36,7 +36,7 @@ export interface Checksum {
    * Allows marking a checksum for checksums that support the ability
    * to mark and reset.
    *
-   * @param {number} readLimit - The maximum limit of bytes that can be read
+   * @param readLimit - The maximum limit of bytes that can be read
    *   before the mark position becomes invalid.
    */
   mark?(readLimit: number): void;
@@ -53,7 +53,7 @@ export interface Checksum {
    * Implementations may override this method which passes second param
    * which makes Checksum object stateless.
    *
-   * @param {Uint8Array} chunk - The buffer to update checksum with.
+   * @param chunk - The buffer to update checksum with.
    */
   update(chunk: Uint8Array): void;
 }
@@ -66,5 +66,5 @@ export interface Checksum {
  * lexical scope of the constructor.
  */
 export interface ChecksumConstructor {
-  new (secret?: SourceData): Checksum;
+  new(secret?: SourceData): Checksum;
 }

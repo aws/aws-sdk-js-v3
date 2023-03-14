@@ -68,21 +68,21 @@ export interface HostResolver {
    * of the multiple addresses that get returned.
    * Implementations don't have to explictly call getaddrinfo(), they can use
    * high level abstractions provided in their language runtimes/libraries.
-   * @param args arguments with host name query addresses for
+   * @param args - arguments with host name query addresses for
    * @returns promise with a list of {@link HostAddress}
    */
   resolveAddress(args: HostResolverArguments): Promise<HostAddress[]>;
   /**
    * Reports a failure on a {@link HostAddress} so that the cache (if implemented)
    * can accomodate the failure and likely not return the address until it recovers.
-   * @param addr host address to report a failure on
+   * @param addr - host address to report a failure on
    */
   reportFailureOnAddress(addr: HostAddress): void;
   /**
    * Empties the cache (if implemented) for a {@link HostResolverArguments.hostName}.
    * If {@link HostResolverArguments.hostName} is not provided, the cache (if
    * implemented) is emptied for all host names.
-   * @param args optional arguments to empty the cache for
+   * @param args - optional arguments to empty the cache for
    */
   purgeCache(args?: HostResolverArguments): void;
 }

@@ -18,7 +18,7 @@ export interface AuthScheme {
   signingRegion: string;
   /**
    * @example ["*"]
-   * @exammple ["us-west-2", "us-east-1"]
+   * @example ["us-west-2", "us-east-1"]
    */
   signingRegionSet?: string[];
   /**

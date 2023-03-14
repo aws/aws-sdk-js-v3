@@ -63,8 +63,7 @@ export interface SmithyException {
 /**
  * @public
  *
- * @deprecated
- * @see https://aws.amazon.com/blogs/developer/service-error-handling-modular-aws-sdk-js/
+ * @deprecated See {@link https://aws.amazon.com/blogs/developer/service-error-handling-modular-aws-sdk-js/}
  *
  * This type should not be used in your application.
  * Users of the AWS SDK for JavaScript v3 service clients should prefer to

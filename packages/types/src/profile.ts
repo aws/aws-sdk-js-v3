@@ -6,9 +6,9 @@ export type IniSection = Record<string, string | undefined>;
 /**
  * @public
  *
- * @deprecated: Please use IniSection
+ * @deprecated Please use {@link IniSection}
  */
-export interface Profile extends IniSection {}
+export interface Profile extends IniSection { }
 
 /**
  * @public

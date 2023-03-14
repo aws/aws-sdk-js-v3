@@ -61,7 +61,7 @@ export interface RetryBackoffStrategy {
 export interface StandardRetryBackoffStrategy extends RetryBackoffStrategy {
   /**
    * Sets the delayBase used to compute backoff delays.
-   * @param delayBase
+   * @param delayBase -
    */
   setDelayBase(delayBase: number): void;
 }
@@ -112,7 +112,7 @@ export interface StandardRetryToken extends RetryToken {
   /**
    * Releases a number of tokens.
    *
-   * @param amount of tokens to release.
+   * @param amount - of tokens to release.
    */
   releaseRetryTokens(amount?: number): void;
 }

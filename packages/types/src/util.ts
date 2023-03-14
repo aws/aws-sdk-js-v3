@@ -3,7 +3,6 @@ import {
   FinalizeHandler,
   FinalizeHandlerArguments,
   FinalizeHandlerOutput,
-  HandlerExecutionContext,
 } from "./middleware";
 import { MetadataBearer } from "./response";
 
@@ -14,8 +13,8 @@ import { MetadataBearer } from "./response";
  * representation thereof.
  *
  * @example An encoder function that converts bytes to hexadecimal
- * representation would return `'deadbeef'` when given `new
- * Uint8Array([0xde, 0xad, 0xbe, 0xef])`.
+ * representation would return `'deadbeef'` when given
+ * `new Uint8Array([0xde, 0xad, 0xbe, 0xef])`.
  */
 export interface Encoder {
   (input: Uint8Array): string;
@@ -134,12 +133,12 @@ export interface RegionInfo {
 export interface RegionInfoProviderOptions {
   /**
    * Enables IPv6/IPv4 dualstack endpoint.
-   * @default false
+   * @defaultValue false
    */
   useDualstackEndpoint: boolean;
   /**
    * Enables FIPS compatible endpoints.
-   * @default false
+   * @defaultValue false
    */
   useFipsEndpoint: boolean;
 }

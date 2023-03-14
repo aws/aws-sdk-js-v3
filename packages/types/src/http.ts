@@ -9,8 +9,8 @@ export interface Headers extends Map<string, string> {
    * Returns a new instance of Headers with the specified header set to the
    * provided value. Does not modify the original Headers instance.
    *
-   * @param headerName    The name of the header to add or overwrite
-   * @param headerValue   The value to which the header should be set
+   * @param headerName - The name of the header to add or overwrite
+   * @param headerValue - The value to which the header should be set
    */
   withHeader(headerName: string, headerValue: string): Headers;
 
@@ -18,7 +18,7 @@ export interface Headers extends Map<string, string> {
    * Returns a new instance of Headers without the specified header. Does not
    * modify the original Headers instance.
    *
-   * @param headerName    The name of the header to remove
+   * @param headerName - The name of the header to remove
    */
   withoutHeader(headerName: string): Headers;
 }
@@ -34,10 +34,12 @@ export interface Headers extends Map<string, string> {
  * particular implementation. For example, given the following HeaderBag, where
  * keys differ only in case:
  *
+ * ```json
  *    {
  *        'x-amz-date': '2000-01-01T00:00:00Z',
  *        'X-Amz-Date': '2001-01-01T00:00:00Z'
  *    }
+ * ```
  *
  * The SDK may at any point during processing remove one of the object
  * properties in favor of the other. The headers may or may not be combined, and
@@ -72,7 +74,7 @@ export type QueryParameterBag = Record<string, string | Array<string> | null>;
 /**
  * @public
  *
- * @deprecated use EndpointV2 from @aws-sdk/types.
+ * @deprecated use {@link EndpointV2} from `@aws-sdk/types`.
  */
 export interface Endpoint {
   protocol: string;

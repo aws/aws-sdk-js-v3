@@ -5,7 +5,7 @@
  * order of increasing severity. Each log level includes itself and all
  * the levels behind itself.
  *
- * @example new Logger({logLevel: 'warn'}) will print all the warn and error
+ * @example `new Logger({logLevel: 'warn'})` will print all the warn and error
  * message.
  */
 export type LogLevel = "all" | "trace" | "debug" | "log" | "info" | "warn" | "error" | "off";

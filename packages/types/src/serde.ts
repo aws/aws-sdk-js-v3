@@ -21,7 +21,7 @@ export interface StreamCollector {
   /**
    * A function that converts a stream into an array of bytes.
    *
-   * @param stream  The low-level native stream from browser or Nodejs runtime
+   * @param stream - The low-level native stream from browser or Nodejs runtime
    */
   (stream: any): Promise<Uint8Array>;
 }
@@ -48,9 +48,9 @@ export interface RequestSerializer<Request, Context extends EndpointBearer = any
   /**
    * Converts the provided `input` into a request object
    *
-   * @param input     The user input to serialize.
+   * @param input - The user input to serialize.
    *
-   * @param context    Context containing runtime-specific util functions.
+   * @param context - Context containing runtime-specific util functions.
    */
   (input: any, context: Context): Promise<Request>;
 }
@@ -62,9 +62,9 @@ export interface ResponseDeserializer<OutputType, ResponseType = any, Context = 
   /**
    * Converts the output of an operation into JavaScript types.
    *
-   * @param output     The HTTP response received from the service
+   * @param output - The HTTP response received from the service
    *
-   * @param context    context containing runtime-specific util functions.
+   * @param context - context containing runtime-specific util functions.
    */
   (output: ResponseType, context: Context): Promise<OutputType>;
 }
@@ -77,18 +77,18 @@ export interface ResponseDeserializer<OutputType, ResponseType = any, Context = 
  * be merged correctly.
  *
  * This is also required for any clients with streaming interfaces where the corresponding
- * types are also referred. The type is only declared here once since this @aws-sdk/types
- * is depended by all @aws-sdk packages.
+ * types are also referred. The type is only declared here once since this `@aws-sdk/types`
+ * is depended by all `@aws-sdk` packages.
  */
 declare global {
   /**
    * @public
    */
-  export interface ReadableStream {}
+  export interface ReadableStream { }
   /**
    * @public
    */
-  export interface Blob {}
+  export interface Blob { }
 }
 
 /**

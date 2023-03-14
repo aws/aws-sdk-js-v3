@@ -3,7 +3,7 @@ import { HttpResponse, ResponseMetadata } from "@aws-sdk/types";
 import { decorateServiceException } from "./exceptions";
 
 /**
- * Always throws an error with the given {@param exceptionCtor} and other arguments.
+ * Always throws an error with the given `exceptionCtor` and other arguments.
  * This is only called from an error handling code path.
  *
  * @internal

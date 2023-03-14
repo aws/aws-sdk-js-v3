@@ -3,8 +3,8 @@ import { HttpRequest } from "./http";
 /**
  * @public
  *
- * A {Date} object, a unix (epoch) timestamp in seconds, or a string that can be
- * understood by the JavaScript {Date} constructor.
+ * A `Date` object, a unix (epoch) timestamp in seconds, or a string that can be
+ * understood by the JavaScript `Date` constructor.
  */
 export type DateInput = number | string | Date;
 
@@ -93,8 +93,8 @@ export interface RequestPresigner {
    * The request will be valid until either the provided `expiration` time has
    * passed or the underlying credentials have expired.
    *
-   * @param requestToSign The request that should be signed.
-   * @param options       Additional signing options.
+   * @param requestToSign - The request that should be signed.
+   * @param options - Additional signing options.
    */
   presign(requestToSign: HttpRequest, options?: RequestPresigningArguments): Promise<HttpRequest>;
 }
