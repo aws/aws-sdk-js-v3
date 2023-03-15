@@ -39,7 +39,8 @@ export interface CreateSubscriptionNotificationConfigurationCommandOutput
 
 /**
  * <p>Notifies the subscriber when new data is written to the data lake for the sources that
- *          the subscriber consumes in Security Lake.</p>
+ *          the subscriber consumes in Security Lake. You can create only one subscriber notification per
+ *          subscriber.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

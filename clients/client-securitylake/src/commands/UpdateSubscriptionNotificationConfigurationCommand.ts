@@ -38,8 +38,8 @@ export interface UpdateSubscriptionNotificationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new subscription notification or adds the existing subscription notification
- *          setting for the specified subscription ID.</p>
+ * <p>Updates an existing notification method for the subscription (SQS or HTTPs endpoint) or
+ *          switches the notification subscription endpoint for a subscriber.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -122,6 +122,7 @@ import {
   InvalidInputException,
   LakeConfigurationRequest,
   LakeConfigurationResponse,
+  LastUpdateFailure,
   LogsStatus,
   ProtocolAndNotificationEndpoint,
   Region,
@@ -132,6 +133,7 @@ import {
   SourceType,
   SubscriberResource,
   ThrottlingException,
+  UpdateStatus,
   ValidationException,
   ValidationExceptionField,
 } from "../models/models_0";
@@ -1284,6 +1286,12 @@ export const deserializeAws_restJson1CreateSubscriberCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.resourceShareArn != null) {
+    contents.resourceShareArn = __expectString(data.resourceShareArn);
+  }
+  if (data.resourceShareName != null) {
+    contents.resourceShareName = __expectString(data.resourceShareName);
+  }
   if (data.roleArn != null) {
     contents.roleArn = __expectString(data.roleArn);
   }
@@ -2585,6 +2593,9 @@ const deserializeAws_restJson1AccessDeniedExceptionResponse = async (
 ): Promise<AccessDeniedException> => {
   const contents: any = map({});
   const data: any = parsedOutput.body;
+  if (data.errorCode != null) {
+    contents.errorCode = __expectString(data.errorCode);
+  }
   if (data.message != null) {
     contents.message = __expectString(data.message);
   }
@@ -3188,6 +3199,8 @@ const deserializeAws_restJson1LakeConfigurationResponse = (
     s3BucketArn: __expectString(output.s3BucketArn),
     status: __expectString(output.status),
     tagsMap: output.tagsMap != null ? deserializeAws_restJson1TagsMap(output.tagsMap, context) : undefined,
+    updateStatus:
+      output.updateStatus != null ? deserializeAws_restJson1UpdateStatus(output.updateStatus, context) : undefined,
   } as any;
 };
 
@@ -3205,6 +3218,13 @@ const deserializeAws_restJson1LakeConfigurationResponseMap = (
     },
     {}
   );
+};
+
+const deserializeAws_restJson1LastUpdateFailure = (output: any, context: __SerdeContext): LastUpdateFailure => {
+  return {
+    code: __expectString(output.code),
+    reason: __expectString(output.reason),
+  } as any;
 };
 
 const deserializeAws_restJson1LogsStatus = (output: any, context: __SerdeContext): LogsStatus => {
@@ -3324,6 +3344,8 @@ const deserializeAws_restJson1SubscriberResource = (output: any, context: __Serd
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.createdAt)) : undefined,
     externalId: __expectString(output.externalId),
+    resourceShareArn: __expectString(output.resourceShareArn),
+    resourceShareName: __expectString(output.resourceShareName),
     roleArn: __expectString(output.roleArn),
     s3BucketArn: __expectString(output.s3BucketArn),
     snsArn: __expectString(output.snsArn),
@@ -3358,6 +3380,17 @@ const deserializeAws_restJson1TwoDimensionsMap = (output: any, context: __SerdeC
     acc[key] = deserializeAws_restJson1ValueSet(value, context);
     return acc;
   }, {});
+};
+
+const deserializeAws_restJson1UpdateStatus = (output: any, context: __SerdeContext): UpdateStatus => {
+  return {
+    lastUpdateFailure:
+      output.lastUpdateFailure != null
+        ? deserializeAws_restJson1LastUpdateFailure(output.lastUpdateFailure, context)
+        : undefined,
+    lastUpdateRequestId: __expectString(output.lastUpdateRequestId),
+    lastUpdateStatus: __expectString(output.lastUpdateStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1ValidationExceptionField = (

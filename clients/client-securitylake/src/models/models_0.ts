@@ -13,6 +13,11 @@ export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
   /**
+   * <p>A coded string to provide more information about the access denied exception. You can use the error code to check the exception type.</p>
+   */
+  errorCode?: string;
+
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
@@ -22,6 +27,7 @@ export class AccessDeniedException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.errorCode = opts.errorCode;
   }
 }
 
@@ -839,8 +845,8 @@ export interface CreateSubscriberResponse {
 
   /**
    * <p>The Amazon Resource Name (ARN) created by you to provide to the subscriber. For more
-   *          information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM identifiers in
-   *             the Identity and Access Management (IAM) User Guide</a>. .</p>
+   *          information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/subscriber-management.html">Amazon Security Lake User
+   *             Guide</a>.</p>
    */
   roleArn?: string;
 
@@ -853,6 +859,16 @@ export interface CreateSubscriberResponse {
    * <p>The ARN for the Amazon S3 bucket. </p>
    */
   s3BucketArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.</p>
+   */
+  resourceShareArn?: string;
+
+  /**
+   * <p>The name of the resource share.</p>
+   */
+  resourceShareName?: string;
 }
 
 /**
@@ -882,7 +898,7 @@ export enum HttpsMethod {
 
 export interface CreateSubscriptionNotificationConfigurationRequest {
   /**
-   * <p>The subscription ID for the notification subscription/</p>
+   * <p>The subscription ID for the notification subscription.</p>
    */
   subscriptionId: string | undefined;
 
@@ -914,7 +930,8 @@ export interface CreateSubscriptionNotificationConfigurationRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you
-   *          created.</p>
+   *          created. For more information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com//security-lake/latest/userguide/subscriber-data-access.html">Managing data access</a> and <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/security-iam-awsmanpol.html">Amazon Web Services
+   *             Managed Policies</a> in the Amazon Security Lake User Guide.</p>
    */
   roleArn?: string;
 }
@@ -983,8 +1000,8 @@ export interface DeleteDatalakeResponse {}
 
 export interface DeleteDatalakeAutoEnableRequest {
   /**
-   * <p>Delete Amazon Security Lake with the specified configuration settings to stop ingesting
-   *          security data for new accounts in Security Lake. </p>
+   * <p>Remove automatic enablement of configuration settings for new member accounts in
+   *          Security Lake. </p>
    */
   removeFromConfigurationForNewAccounts: AutoEnableNewRegionConfiguration[] | undefined;
 }
@@ -1097,6 +1114,49 @@ export enum SettingsStatus {
 }
 
 /**
+ * <p>The details of the last <code>UpdateDatalake</code> or <code>DeleteDatalake</code>
+ *          API request which failed.</p>
+ */
+export interface LastUpdateFailure {
+  /**
+   * <p>The reason for the failure of the last <code>UpdateDatalake</code>or
+   *             <code>DeleteDatalake</code> API request.</p>
+   */
+  reason?: string;
+
+  /**
+   * <p>The reason code for the failure of the last <code>UpdateDatalake</code> or
+   *             <code>DeleteDatalake</code> API request.</p>
+   */
+  code?: string;
+}
+
+/**
+ * <p>The status of the last <code>UpdateDatalake</code> or <code>DeleteDatalake</code> API
+ *          request. This is set to Completed after the configuration is updated, or removed if
+ *          deletion of the data lake is successful.</p>
+ */
+export interface UpdateStatus {
+  /**
+   * <p>The unique ID for the <code>UpdateDatalake</code> or <code>DeleteDatalake</code> API
+   *          request.</p>
+   */
+  lastUpdateRequestId?: string;
+
+  /**
+   * <p>The status of the last <code>UpdateDatalake</code> or <code>DeleteDatalake</code> API
+   *          request that was requested.</p>
+   */
+  lastUpdateStatus?: SettingsStatus | string;
+
+  /**
+   * <p>The details of the last <code>UpdateDatalake</code>or <code>DeleteDatalake</code> API
+   *          request which failed.</p>
+   */
+  lastUpdateFailure?: LastUpdateFailure;
+}
+
+/**
  * <p>Provides details of Amazon Security Lake lake configuration object.</p>
  */
 export interface LakeConfigurationResponse {
@@ -1144,6 +1204,12 @@ export interface LakeConfigurationResponse {
    * <p>Retrieves the status of the configuration operation for an account in Amazon Security Lake. </p>
    */
   status?: SettingsStatus | string;
+
+  /**
+   * <p>The status of the last <code>UpdateDatalake </code>or <code>DeleteDatalake</code> API
+   *          request. </p>
+   */
+  updateStatus?: UpdateStatus;
 }
 
 export interface GetDatalakeResponse {
@@ -1339,6 +1405,19 @@ export interface SubscriberResource {
    * <p>The date and time when the subscription was created. </p>
    */
   updatedAt?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before
+   *          accepting the RAM resource share invitation, you can view details related to the RAM
+   *          resource share.</p>
+   *          <p>This field is available only for Lake Formation subscribers created after March 8, 2023.</p>
+   */
+  resourceShareArn?: string;
+
+  /**
+   * <p>The name of the resource share.</p>
+   */
+  resourceShareName?: string;
 }
 
 export interface GetSubscriberResponse {
@@ -1559,7 +1638,8 @@ export interface UpdateSubscriptionNotificationConfigurationRequest {
   createSqs?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) specifying the role of the subscriber. </p>
+   * <p>The Amazon Resource Name (ARN) specifying the role of the subscriber. For more information about ARNs and how to use them in policies, see, see the <a href="https://docs.aws.amazon.com//security-lake/latest/userguide/subscriber-data-access.html">Managing data access</a> and <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/security-iam-awsmanpol.html">Amazon Web Services Managed Policies</a>in the Amazon Security Lake User
+   *          Guide.</p>
    */
   roleArn?: string;
 }
@@ -1889,6 +1969,20 @@ export const FailuresResponseFilterSensitiveLog = (obj: FailuresResponse): any =
  * @internal
  */
 export const GetDatalakeRequestFilterSensitiveLog = (obj: GetDatalakeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LastUpdateFailureFilterSensitiveLog = (obj: LastUpdateFailure): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateStatusFilterSensitiveLog = (obj: UpdateStatus): any => ({
   ...obj,
 });
 
