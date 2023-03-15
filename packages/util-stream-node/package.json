@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-stream-node",
-  "version": "3.290.0",
+  "version": "3.292.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",

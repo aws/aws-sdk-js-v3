@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
+
+
+### Bug Fixes
+
+* **docs:** add plugin-eslint-tsdoc ([#4525](https://github.com/aws/aws-sdk-js-v3/issues/4525)) ([35f60e3](https://github.com/aws/aws-sdk-js-v3/commit/35f60e349dbc0632156473e9414b8b1bef2e472d))
+
+
+
+
+
 # [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
 
 **Note:** Version bump only for package @aws-sdk/util-waiter

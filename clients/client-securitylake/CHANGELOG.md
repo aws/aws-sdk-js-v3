@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
+
+
+### Features
+
+* **client-securitylake:** Make Create/Get/ListSubscribers APIs return resource share ARN and name so they can be used to validate the RAM resource share to accept. GetDatalake can be used to track status of UpdateDatalake and DeleteDatalake requests. ([934e9e6](https://github.com/aws/aws-sdk-js-v3/commit/934e9e67561e6f9a1771e5142e3422cad1b7bceb))
+
+
+
+
+
 # [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
 
 **Note:** Version bump only for package @aws-sdk/client-securitylake

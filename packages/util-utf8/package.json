@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-utf8",
-  "version": "3.254.0",
+  "version": "3.292.0",
   "description": "A UTF-8 string <-> UInt8Array converter",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

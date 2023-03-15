@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
+
+
+### Bug Fixes
+
+* **docs:** add plugin-eslint-tsdoc ([#4525](https://github.com/aws/aws-sdk-js-v3/issues/4525)) ([35f60e3](https://github.com/aws/aws-sdk-js-v3/commit/35f60e349dbc0632156473e9414b8b1bef2e472d))
+
+
+### Features
+
+* **smithy-client:** update client defaults provider ([0d0cac0](https://github.com/aws/aws-sdk-js-v3/commit/0d0cac03acfb24d5a73a721e27c094950a44e973))
+
+
+
+
+
 # [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
 
 

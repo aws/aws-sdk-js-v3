@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
+
+
+### Bug Fixes
+
+* **protocol-http:** revert SRA HttpRequest ([#4529](https://github.com/aws/aws-sdk-js-v3/issues/4529)) ([0b3327b](https://github.com/aws/aws-sdk-js-v3/commit/0b3327b9923edba479501b0843e7ebe0c277d94c))
+
+
+
+
+
 # [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
 
 

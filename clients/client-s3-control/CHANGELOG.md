@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
+
+
+### Features
+
+* **client-s3-control:** Added support for S3 Object Lambda aliases. ([f841638](https://github.com/aws/aws-sdk-js-v3/commit/f8416388b17e262efe81ba86ad9939db1def38f9))
+
+
+
+
+
 # [3.290.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.289.0...v3.290.0) (2023-03-13)
 
 

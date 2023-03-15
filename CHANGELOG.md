@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
+
+
+### Bug Fixes
+
+* **docs:** add plugin-eslint-tsdoc ([#4525](https://github.com/aws/aws-sdk-js-v3/issues/4525)) ([35f60e3](https://github.com/aws/aws-sdk-js-v3/commit/35f60e349dbc0632156473e9414b8b1bef2e472d))
+* **protocol-http:** revert SRA HttpRequest ([#4529](https://github.com/aws/aws-sdk-js-v3/issues/4529)) ([0b3327b](https://github.com/aws/aws-sdk-js-v3/commit/0b3327b9923edba479501b0843e7ebe0c277d94c))
+
+
+### Features
+
+* **client-migrationhubstrategy:** This release adds the binary analysis that analyzes IIS application DLLs on Windows and Java applications on Linux to provide anti-pattern report without configuring access to the source code. ([dec133b](https://github.com/aws/aws-sdk-js-v3/commit/dec133b684ce5438680559ec60e7611e02c4fb08))
+* **client-s3-control:** Added support for S3 Object Lambda aliases. ([f841638](https://github.com/aws/aws-sdk-js-v3/commit/f8416388b17e262efe81ba86ad9939db1def38f9))
+* **client-securitylake:** Make Create/Get/ListSubscribers APIs return resource share ARN and name so they can be used to validate the RAM resource share to accept. GetDatalake can be used to track status of UpdateDatalake and DeleteDatalake requests. ([934e9e6](https://github.com/aws/aws-sdk-js-v3/commit/934e9e67561e6f9a1771e5142e3422cad1b7bceb))
+* **clients:** update client endpoints as of 2023-03-15 ([a254cf6](https://github.com/aws/aws-sdk-js-v3/commit/a254cf6254970448ba558d07ca1456809f73e8d5))
+* **smithy-client:** update client defaults provider ([0d0cac0](https://github.com/aws/aws-sdk-js-v3/commit/0d0cac03acfb24d5a73a721e27c094950a44e973))
+
+
+
+
+
 # [3.291.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.290.0...v3.291.0) (2023-03-14)
 
 
