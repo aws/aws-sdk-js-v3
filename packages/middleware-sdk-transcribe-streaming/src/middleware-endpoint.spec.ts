@@ -45,7 +45,7 @@ describe("websocketURLMiddleware", () => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
       const processed = args.request as HttpRequest;
       expect(processed.protocol).toEqual("wss:");
-      expect(processed.port).toEqual(8443);
+      expect(processed.hostname).toEqual("transcribestreaming.us-east-1.amazonaws.com:8443");
       expect(processed.path).toEqual("/stream-transcription-websocket");
       expect(processed.method).toEqual("GET");
       done();

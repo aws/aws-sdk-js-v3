@@ -1,4 +1,4 @@
-import { Field, FieldOptions } from "./Field";
+import { Field } from "./Field";
 import { FieldPosition } from "./FieldPosition";
 
 export type FieldsOptions = { fields?: Field[]; encoding?: string };
@@ -55,31 +55,5 @@ export class Fields {
    */
   public getByType(kind: FieldPosition): Field[] {
     return Object.values(this.entries).filter((field) => field.kind === kind);
-  }
-
-  /**
-   * Retrieves all the {@link Field}s in the collection.
-   * Includes headers and trailers.
-   *
-   * @returns All fields in the collection.
-   */
-  public getAll(): Field[] {
-    return Object.values(this.entries);
-  }
-
-  /**
-   * Utility for creating {@link Fields} without having to
-   * construct each {@link Field} individually.
-   *
-   * @param fieldsToCreate List of arguments used to create each
-   *  {@link Field}.
-   * @param encoding Optional encoding of resultant {@link Fields}.
-   * @returns The {@link Fields} instance.
-   */
-  public static from(fieldsToCreate: FieldOptions[], encoding?: string): Fields {
-    return fieldsToCreate.reduce((fields, fieldArgs) => {
-      fields.setField(new Field(fieldArgs));
-      return fields;
-    }, new Fields({ encoding }));
   }
 }

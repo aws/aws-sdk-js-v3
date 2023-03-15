@@ -58,13 +58,13 @@ export class Field {
   }
 
   /**
-   * Get comma-delimited string to be sent over the wire.
+   * Get comma-delimited string.
    *
    * @returns String representation of {@link Field}.
    */
   public toString(): string {
-    // Values with commas MUST be double-quoted
-    return this.values.map((v) => (v.includes(",") ? `"${v}"` : v)).join(", ");
+    // Values with spaces or commas MUST be double-quoted
+    return this.values.map((v) => (v.includes(",") || v.includes(" ") ? `"${v}"` : v)).join(", ");
   }
 
   /**
