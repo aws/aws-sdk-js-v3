@@ -1,6 +1,6 @@
 {
   "entryPointStrategy": "resolve",
-  "basePath": "./",
+  "basePath": "https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest",
   "exclude": ["**/node_modules/**", "**/protocols/*.ts", "**/endpoints.ts", "**/*.spec.ts", "**/ruleset.ts"],
   "excludePrivate": true,
   "hideGenerator": true,

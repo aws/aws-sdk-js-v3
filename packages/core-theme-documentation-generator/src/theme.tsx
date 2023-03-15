@@ -257,7 +257,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
                       {category.children.map((reflection) => {
                         if (reflection.name.includes("documentation-generator")) return "";
                         let urlTo = this.urlTo(reflection);
-                        if (urlTo && !urlTo.includes(".html")) {
+                        if (urlTo && !urlTo.includes(".html") && !urlTo.endsWith("/")) {
                           urlTo += "/";
                         }
                         return (
