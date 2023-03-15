@@ -51,7 +51,7 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  *             replication configuration on that Outpost can be significant.</p>
  *          </note>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html#API_control_DeleteBucketReplication_Examples">Examples</a> section.</p>
- *          <p>For information about S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for Amazon Web Services Outposts</a> in the
+ *          <p>For information about S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>.</p>
  *          <p>The following operations are related to <code>DeleteBucketReplication</code>:</p>
  *          <ul>

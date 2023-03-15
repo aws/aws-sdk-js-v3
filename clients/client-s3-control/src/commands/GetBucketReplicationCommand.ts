@@ -44,8 +44,7 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationR
  *          <p>Returns the replication configuration of an S3 on Outposts bucket. For more information
  *          about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
  *             <i>Amazon S3 User Guide</i>. For information about S3 replication on Outposts
- *          configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for Amazon Web Services
- *             Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests for
  *             a replication configuration to all S3 on Outposts systems. Therefore, the replication

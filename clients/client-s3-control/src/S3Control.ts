@@ -1030,7 +1030,7 @@ export class S3Control extends S3ControlClient {
    *             replication configuration on that Outpost can be significant.</p>
    *          </note>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteBucketReplication.html#API_control_DeleteBucketReplication_Examples">Examples</a> section.</p>
-   *          <p>For information about S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for Amazon Web Services Outposts</a> in the
+   *          <p>For information about S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for S3 on Outposts</a> in the
    *             <i>Amazon S3 User Guide</i>.</p>
    *          <p>The following operations are related to <code>DeleteBucketReplication</code>:</p>
    *          <ul>
@@ -2006,8 +2006,7 @@ export class S3Control extends S3ControlClient {
    *          <p>Returns the replication configuration of an S3 on Outposts bucket. For more information
    *          about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">Using Amazon S3 on Outposts</a> in the
    *             <i>Amazon S3 User Guide</i>. For information about S3 replication on Outposts
-   *          configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for Amazon Web Services
-   *             Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests for
    *             a replication configuration to all S3 on Outposts systems. Therefore, the replication
@@ -3183,7 +3182,7 @@ export class S3Control extends S3ControlClient {
    *             in the <i>Amazon S3 API Reference</i>. </p>
    *          </note>
    *          <p>Creates a replication configuration or replaces an existing one. For information about
-   *          S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for Amazon Web Services Outposts</a> in the
+   *          S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for S3 on Outposts</a> in the
    *             <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests for
@@ -3240,9 +3239,11 @@ export class S3Control extends S3ControlClient {
    *             S3 on Outposts</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsBucketPolicy.html">Managing access to
    *             S3 on Outposts buckets</a>. </p>
    *          <note>
-   *             <p>To perform this operation, the user or role must also have the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> permission.</p>
+   *             <p>To perform this operation, the user or role must also have the <code>iam:CreateRole</code> and <code>iam:PassRole</code> permissions.
+   *             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a user
+   *                permissions to pass a role to an Amazon Web Services service</a>.</p>
    *          </note>
-   *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetBucketLifecycleConfiguration.html#API_control_GetBucketLifecycleConfiguration_Examples">Examples</a> section.</p>
+   *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketReplication.html#API_control_PutBucketReplication_Examples">Examples</a> section.</p>
    *          <p>The following operations are related to <code>PutBucketReplication</code>:</p>
    *          <ul>
    *             <li>
@@ -3437,13 +3438,12 @@ export class S3Control extends S3ControlClient {
    *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsLifecycleManaging.html"> Creating and managing
    *             a lifecycle configuration for your S3 on Outposts bucket</a> in the <i>Amazon S3
    *             User Guide</i>.</p>
-   *          <p>If you have an object expiration lifecycle policy in your non-versioned bucket and you
+   *          <p>If you have an object expiration lifecycle configuration in your non-versioned bucket and you
    *          want to maintain the same permanent delete behavior when you enable versioning, you must
-   *          add a noncurrent expiration policy. The noncurrent expiration lifecycle policy will manage
-   *          the
-   *          deletions
-   *          of the noncurrent object versions in the version-enabled bucket. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          add a noncurrent expiration policy. The noncurrent expiration lifecycle configuration will manage
+   *          the deletes of the noncurrent object versions in the version-enabled bucket. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3
+   *             User Guide</i>.</p>
    *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html#API_control_PutBucketVersioning_Examples">Examples</a> section.</p>
    *          <p>The following operations are related to <code>PutBucketVersioning</code> for
    *          S3 on Outposts.</p>
@@ -3775,15 +3775,13 @@ export class S3Control extends S3ControlClient {
    *          A value of <code>0</code> indicates a passive status, which means that traffic won't be
    *          routed to the specified Region. A value of <code>100</code> indicates an active status,
    *          which means that traffic will be routed to the specified Region. At least one Region must be active at all times.</p>
-   *          <p>When
-   *          the routing configuration is changed, any in-progress operations (uploads, copies, deletes,
-   *          and so on) to formerly active Regions will continue to run to their
-   *          final completion state (success or failure). The routing configurations of any Regions that
+   *          <p>When the routing configuration is changed, any in-progress operations (uploads, copies,
+   *          deletes, and so on) to formerly active Regions will continue to run to their final
+   *          completion state (success or failure). The routing configurations of any Regions that
    *          aren’t specified remain unchanged.</p>
    *          <note>
-   *             <p>Updated routing configurations might not be immediately applied.
-   *             It
-   *             can take up to 2 minutes for your changes to take effect.</p>
+   *             <p>Updated routing configurations might not be immediately applied. It can take up to 2
+   *             minutes for your changes to take effect.</p>
    *          </note>
    *          <p>To submit routing control changes and failover requests, use the Amazon S3 failover control
    *          infrastructure endpoints in these five Amazon Web Services Regions:</p>

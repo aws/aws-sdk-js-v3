@@ -293,6 +293,7 @@ import {
   NoSuchPublicAccessBlockConfiguration,
   NotFoundException,
   ObjectLambdaAccessPoint,
+  ObjectLambdaAccessPointAlias,
   ObjectLambdaAllowedFeature,
   ObjectLambdaConfiguration,
   ObjectLambdaContentTransformation,
@@ -2930,6 +2931,9 @@ export const deserializeAws_restXmlCreateAccessPointForObjectLambdaCommand = asy
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["Alias"] !== undefined) {
+    contents.Alias = deserializeAws_restXmlObjectLambdaAccessPointAlias(data["Alias"], context);
+  }
   if (data["ObjectLambdaAccessPointArn"] !== undefined) {
     contents.ObjectLambdaAccessPointArn = __expectString(data["ObjectLambdaAccessPointArn"]);
   }
@@ -3745,6 +3749,9 @@ export const deserializeAws_restXmlGetAccessPointForObjectLambdaCommand = async 
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["Alias"] !== undefined) {
+    contents.Alias = deserializeAws_restXmlObjectLambdaAccessPointAlias(data["Alias"], context);
+  }
   if (data["CreationDate"] !== undefined) {
     contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["CreationDate"]));
   }
@@ -8614,12 +8621,33 @@ const deserializeAws_restXmlObjectLambdaAccessPoint = (
   const contents: any = {
     Name: undefined,
     ObjectLambdaAccessPointArn: undefined,
+    Alias: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
   if (output["ObjectLambdaAccessPointArn"] !== undefined) {
     contents.ObjectLambdaAccessPointArn = __expectString(output["ObjectLambdaAccessPointArn"]);
+  }
+  if (output["Alias"] !== undefined) {
+    contents.Alias = deserializeAws_restXmlObjectLambdaAccessPointAlias(output["Alias"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlObjectLambdaAccessPointAlias = (
+  output: any,
+  context: __SerdeContext
+): ObjectLambdaAccessPointAlias => {
+  const contents: any = {
+    Value: undefined,
+    Status: undefined,
+  };
+  if (output["Value"] !== undefined) {
+    contents.Value = __expectString(output["Value"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
   }
   return contents;
 };

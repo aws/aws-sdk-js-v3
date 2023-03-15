@@ -690,11 +690,38 @@ export interface CreateAccessPointForObjectLambdaRequest {
   Configuration: ObjectLambdaConfiguration | undefined;
 }
 
+export enum ObjectLambdaAccessPointAliasStatus {
+  PROVISIONING = "PROVISIONING",
+  READY = "READY",
+}
+
+/**
+ * <p>The alias of an Object Lambda Access Point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias">How to use a bucket-style alias for your S3 bucket
+ *          Object Lambda Access Point</a>.</p>
+ */
+export interface ObjectLambdaAccessPointAlias {
+  /**
+   * <p>The alias value of the Object Lambda Access Point.</p>
+   */
+  Value?: string;
+
+  /**
+   * <p>The status of the Object Lambda Access Point alias. If the status is <code>PROVISIONING</code>, the Object Lambda Access Point is provisioning the alias and the alias is not ready for use yet. If
+   *          the status is <code>READY</code>, the Object Lambda Access Point alias is successfully provisioned and ready for use.</p>
+   */
+  Status?: ObjectLambdaAccessPointAliasStatus | string;
+}
+
 export interface CreateAccessPointForObjectLambdaResult {
   /**
    * <p>Specifies the ARN for the Object Lambda Access Point.</p>
    */
   ObjectLambdaAccessPointArn?: string;
+
+  /**
+   * <p>The alias of the Object Lambda Access Point.</p>
+   */
+  Alias?: ObjectLambdaAccessPointAlias;
 }
 
 /**
@@ -2512,6 +2539,11 @@ export interface GetAccessPointForObjectLambdaResult {
    * <p>The date and time when the specified Object Lambda Access Point was created.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>The alias of the Object Lambda Access Point.</p>
+   */
+  Alias?: ObjectLambdaAccessPointAlias;
 }
 
 export interface GetAccessPointPolicyRequest {
@@ -2866,7 +2898,7 @@ export interface LifecycleRule {
   /**
    * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3
    *          waits before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
-   *             Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Policy</a> in the
+   *             Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a> in the
    *             <i>Amazon S3 User Guide</i>.</p>
    */
   AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
@@ -3283,7 +3315,7 @@ export interface ReplicationRule {
    *          However, if there are two or more rules with the same destination Outposts bucket, then objects will
    *          be replicated according to the rule with the highest priority. The higher the number, the
    *          higher the priority. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-between-outposts.html">Creating replication rules between Outposts</a> in the
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-between-outposts.html">Creating replication rules on Outposts</a> in the
    *             <i>Amazon S3 User Guide</i>.</p>
    */
   Priority?: number;
@@ -4094,6 +4126,11 @@ export interface ObjectLambdaAccessPoint {
    * <p>Specifies the ARN for the Object Lambda Access Point.</p>
    */
   ObjectLambdaAccessPointArn?: string;
+
+  /**
+   * <p>The alias of the Object Lambda Access Point.</p>
+   */
+  Alias?: ObjectLambdaAccessPointAlias;
 }
 
 export interface ListAccessPointsForObjectLambdaResult {
@@ -5093,6 +5130,13 @@ export const CreateAccessPointForObjectLambdaRequestFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Configuration && { Configuration: ObjectLambdaConfigurationFilterSensitiveLog(obj.Configuration) }),
+});
+
+/**
+ * @internal
+ */
+export const ObjectLambdaAccessPointAliasFilterSensitiveLog = (obj: ObjectLambdaAccessPointAlias): any => ({
+  ...obj,
 });
 
 /**

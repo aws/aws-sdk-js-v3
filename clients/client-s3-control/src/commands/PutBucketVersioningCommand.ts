@@ -68,13 +68,12 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsLifecycleManaging.html"> Creating and managing
  *             a lifecycle configuration for your S3 on Outposts bucket</a> in the <i>Amazon S3
  *             User Guide</i>.</p>
- *          <p>If you have an object expiration lifecycle policy in your non-versioned bucket and you
+ *          <p>If you have an object expiration lifecycle configuration in your non-versioned bucket and you
  *          want to maintain the same permanent delete behavior when you enable versioning, you must
- *          add a noncurrent expiration policy. The noncurrent expiration lifecycle policy will manage
- *          the
- *          deletions
- *          of the noncurrent object versions in the version-enabled bucket. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          add a noncurrent expiration policy. The noncurrent expiration lifecycle configuration will manage
+ *          the deletes of the noncurrent object versions in the version-enabled bucket. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html">Versioning</a> in the <i>Amazon S3
+ *             User Guide</i>.</p>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html#API_control_PutBucketVersioning_Examples">Examples</a> section.</p>
  *          <p>The following operations are related to <code>PutBucketVersioning</code> for
  *          S3 on Outposts.</p>
