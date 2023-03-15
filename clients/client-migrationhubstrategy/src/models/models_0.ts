@@ -4,8 +4,8 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { MigrationHubStrategyServiceException as __BaseException } from "./MigrationHubStrategyServiceException";
 
 /**
- * <p> The AWS user account does not have permission to perform the action. Check the
- *       AWS Identity and Access Management (IAM) policy associated with this account.</p>
+ * <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -23,10 +23,203 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+export enum RuntimeAnalysisStatus {
+  ANALYSIS_FAILED = "ANALYSIS_FAILED",
+  ANALYSIS_STARTED = "ANALYSIS_STARTED",
+  ANALYSIS_SUCCESS = "ANALYSIS_SUCCESS",
+  ANALYSIS_TO_BE_SCHEDULED = "ANALYSIS_TO_BE_SCHEDULED",
+}
+
+export enum SrcCodeOrDbAnalysisStatus {
+  ANALYSIS_FAILED = "ANALYSIS_FAILED",
+  ANALYSIS_PARTIAL_SUCCESS = "ANALYSIS_PARTIAL_SUCCESS",
+  ANALYSIS_STARTED = "ANALYSIS_STARTED",
+  ANALYSIS_SUCCESS = "ANALYSIS_SUCCESS",
+  ANALYSIS_TO_BE_SCHEDULED = "ANALYSIS_TO_BE_SCHEDULED",
+  CONFIGURED = "CONFIGURED",
+  UNCONFIGURED = "UNCONFIGURED",
+}
+
+/**
+ * <p>A combination of existing analysis statuses.</p>
+ */
+export type AnalysisStatusUnion =
+  | AnalysisStatusUnion.RuntimeAnalysisStatusMember
+  | AnalysisStatusUnion.SrcCodeOrDbAnalysisStatusMember
+  | AnalysisStatusUnion.$UnknownMember;
+
+export namespace AnalysisStatusUnion {
+  /**
+   * <p>The status of the analysis.</p>
+   */
+  export interface RuntimeAnalysisStatusMember {
+    runtimeAnalysisStatus: RuntimeAnalysisStatus | string;
+    srcCodeOrDbAnalysisStatus?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The status of the source code or database analysis.</p>
+   */
+  export interface SrcCodeOrDbAnalysisStatusMember {
+    runtimeAnalysisStatus?: never;
+    srcCodeOrDbAnalysisStatus: SrcCodeOrDbAnalysisStatus | string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    runtimeAnalysisStatus?: never;
+    srcCodeOrDbAnalysisStatus?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    runtimeAnalysisStatus: (value: RuntimeAnalysisStatus | string) => T;
+    srcCodeOrDbAnalysisStatus: (value: SrcCodeOrDbAnalysisStatus | string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AnalysisStatusUnion, visitor: Visitor<T>): T => {
+    if (value.runtimeAnalysisStatus !== undefined) return visitor.runtimeAnalysisStatus(value.runtimeAnalysisStatus);
+    if (value.srcCodeOrDbAnalysisStatus !== undefined)
+      return visitor.srcCodeOrDbAnalysisStatus(value.srcCodeOrDbAnalysisStatus);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export enum AnalysisType {
+  BINARY_ANALYSIS = "BINARY_ANALYSIS",
+  DATABASE_ANALYSIS = "DATABASE_ANALYSIS",
+  RUNTIME_ANALYSIS = "RUNTIME_ANALYSIS",
+  SOURCE_CODE_ANALYSIS = "SOURCE_CODE_ANALYSIS",
+}
+
+export enum BinaryAnalyzerName {
+  BYTECODE_ANALYZER = "BYTECODE_ANALYZER",
+  DLL_ANALYZER = "DLL_ANALYZER",
+}
+
+export enum RunTimeAnalyzerName {
+  A2C_ANALYZER = "A2C_ANALYZER",
+  DATABASE_ANALYZER = "DATABASE_ANALYZER",
+  EMP_PA_ANALYZER = "EMP_PA_ANALYZER",
+  REHOST_ANALYZER = "REHOST_ANALYZER",
+  SCT_ANALYZER = "SCT_ANALYZER",
+}
+
+export enum SourceCodeAnalyzerName {
+  BYTECODE_ANALYZER = "BYTECODE_ANALYZER",
+  CSHARP_ANALYZER = "CSHARP_ANALYZER",
+  JAVA_ANALYZER = "JAVA_ANALYZER",
+  PORTING_ASSISTANT = "PORTING_ASSISTANT",
+}
+
+/**
+ * <p>The combination of the existing analyzers.</p>
+ */
+export type AnalyzerNameUnion =
+  | AnalyzerNameUnion.BinaryAnalyzerNameMember
+  | AnalyzerNameUnion.RunTimeAnalyzerNameMember
+  | AnalyzerNameUnion.SourceCodeAnalyzerNameMember
+  | AnalyzerNameUnion.$UnknownMember;
+
+export namespace AnalyzerNameUnion {
+  /**
+   * <p>The binary analyzer names.</p>
+   */
+  export interface BinaryAnalyzerNameMember {
+    binaryAnalyzerName: BinaryAnalyzerName | string;
+    runTimeAnalyzerName?: never;
+    sourceCodeAnalyzerName?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The assessment analyzer names.</p>
+   */
+  export interface RunTimeAnalyzerNameMember {
+    binaryAnalyzerName?: never;
+    runTimeAnalyzerName: RunTimeAnalyzerName | string;
+    sourceCodeAnalyzerName?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The source code analyzer names.</p>
+   */
+  export interface SourceCodeAnalyzerNameMember {
+    binaryAnalyzerName?: never;
+    runTimeAnalyzerName?: never;
+    sourceCodeAnalyzerName: SourceCodeAnalyzerName | string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    binaryAnalyzerName?: never;
+    runTimeAnalyzerName?: never;
+    sourceCodeAnalyzerName?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    binaryAnalyzerName: (value: BinaryAnalyzerName | string) => T;
+    runTimeAnalyzerName: (value: RunTimeAnalyzerName | string) => T;
+    sourceCodeAnalyzerName: (value: SourceCodeAnalyzerName | string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AnalyzerNameUnion, visitor: Visitor<T>): T => {
+    if (value.binaryAnalyzerName !== undefined) return visitor.binaryAnalyzerName(value.binaryAnalyzerName);
+    if (value.runTimeAnalyzerName !== undefined) return visitor.runTimeAnalyzerName(value.runTimeAnalyzerName);
+    if (value.sourceCodeAnalyzerName !== undefined) return visitor.sourceCodeAnalyzerName(value.sourceCodeAnalyzerName);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p> Contains the S3 bucket name and the Amazon S3 key name. </p>
+ */
+export interface S3Object {
+  /**
+   * <p> The S3 bucket name. </p>
+   */
+  s3Bucket?: string;
+
+  /**
+   * <p> The Amazon S3 key name. </p>
+   */
+  s3key?: string;
+}
+
 export enum AntipatternReportStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
   SUCCESS = "SUCCESS",
+}
+
+/**
+ * <p>The anti-pattern report result.</p>
+ */
+export interface AntipatternReportResult {
+  /**
+   * <p>The analyzer name.</p>
+   */
+  analyzerName?: AnalyzerNameUnion;
+
+  /**
+   * <p> Contains the S3 bucket name and the Amazon S3 key name. </p>
+   */
+  antiPatternReportS3Object?: S3Object;
+
+  /**
+   * <p>The status of the anti-pattern report generation.</p>
+   */
+  antipatternReportStatus?: AntipatternReportStatus | string;
+
+  /**
+   * <p>The status message for the anti-pattern.</p>
+   */
+  antipatternReportStatusMessage?: string;
 }
 
 export enum Severity {
@@ -59,31 +252,6 @@ export enum ApplicationComponentCriteria {
   NOT_DEFINED = "NOT_DEFINED",
   SERVER_ID = "SERVER_ID",
   STRATEGY = "STRATEGY",
-}
-
-export enum SrcCodeOrDbAnalysisStatus {
-  ANALYSIS_FAILED = "ANALYSIS_FAILED",
-  ANALYSIS_PARTIAL_SUCCESS = "ANALYSIS_PARTIAL_SUCCESS",
-  ANALYSIS_STARTED = "ANALYSIS_STARTED",
-  ANALYSIS_SUCCESS = "ANALYSIS_SUCCESS",
-  ANALYSIS_TO_BE_SCHEDULED = "ANALYSIS_TO_BE_SCHEDULED",
-  CONFIGURED = "CONFIGURED",
-  UNCONFIGURED = "UNCONFIGURED",
-}
-
-/**
- * <p> Contains the S3 bucket name and the Amazon S3 key name. </p>
- */
-export interface S3Object {
-  /**
-   * <p> The S3 bucket name. </p>
-   */
-  s3Bucket?: string;
-
-  /**
-   * <p> The Amazon S3 key name. </p>
-   */
-  s3key?: string;
 }
 
 export enum AppType {
@@ -232,11 +400,29 @@ export enum ResourceSubType {
   PROCESS = "Process",
 }
 
-export enum RuntimeAnalysisStatus {
-  ANALYSIS_FAILED = "ANALYSIS_FAILED",
-  ANALYSIS_STARTED = "ANALYSIS_STARTED",
-  ANALYSIS_SUCCESS = "ANALYSIS_SUCCESS",
-  ANALYSIS_TO_BE_SCHEDULED = "ANALYSIS_TO_BE_SCHEDULED",
+/**
+ * <p>The error in server analysis.</p>
+ */
+export interface Result {
+  /**
+   * <p>The error in server analysis.</p>
+   */
+  analysisType?: AnalysisType | string;
+
+  /**
+   * <p>The error in server analysis.</p>
+   */
+  analysisStatus?: AnalysisStatusUnion;
+
+  /**
+   * <p>The error in server analysis.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The error in server analysis.</p>
+   */
+  antipatternReportResultList?: AntipatternReportResult[];
 }
 
 /**
@@ -381,6 +567,11 @@ export interface ApplicationComponentDetail {
    * <p>The error in the analysis of the source code or database.</p>
    */
   appUnitError?: AppUnitError;
+
+  /**
+   * <p>A list of the analysis results.</p>
+   */
+  resultList?: Result[];
 }
 
 /**
@@ -2289,14 +2480,41 @@ export interface UpdateServerConfigResponse {}
 /**
  * @internal
  */
-export const AntipatternSeveritySummaryFilterSensitiveLog = (obj: AntipatternSeveritySummary): any => ({
+export const AnalysisStatusUnionFilterSensitiveLog = (obj: AnalysisStatusUnion): any => {
+  if (obj.runtimeAnalysisStatus !== undefined) return { runtimeAnalysisStatus: obj.runtimeAnalysisStatus };
+  if (obj.srcCodeOrDbAnalysisStatus !== undefined) return { srcCodeOrDbAnalysisStatus: obj.srcCodeOrDbAnalysisStatus };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AnalyzerNameUnionFilterSensitiveLog = (obj: AnalyzerNameUnion): any => {
+  if (obj.binaryAnalyzerName !== undefined) return { binaryAnalyzerName: obj.binaryAnalyzerName };
+  if (obj.runTimeAnalyzerName !== undefined) return { runTimeAnalyzerName: obj.runTimeAnalyzerName };
+  if (obj.sourceCodeAnalyzerName !== undefined) return { sourceCodeAnalyzerName: obj.sourceCodeAnalyzerName };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
   ...obj,
 });
 
 /**
  * @internal
  */
-export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
+export const AntipatternReportResultFilterSensitiveLog = (obj: AntipatternReportResult): any => ({
+  ...obj,
+  ...(obj.analyzerName && { analyzerName: AnalyzerNameUnionFilterSensitiveLog(obj.analyzerName) }),
+});
+
+/**
+ * @internal
+ */
+export const AntipatternSeveritySummaryFilterSensitiveLog = (obj: AntipatternSeveritySummary): any => ({
   ...obj,
 });
 
@@ -2331,6 +2549,19 @@ export const RecommendationSetFilterSensitiveLog = (obj: RecommendationSet): any
 /**
  * @internal
  */
+export const ResultFilterSensitiveLog = (obj: Result): any => ({
+  ...obj,
+  ...(obj.analysisStatus && { analysisStatus: AnalysisStatusUnionFilterSensitiveLog(obj.analysisStatus) }),
+  ...(obj.antipatternReportResultList && {
+    antipatternReportResultList: obj.antipatternReportResultList.map((item) =>
+      AntipatternReportResultFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const SourceCodeRepositoryFilterSensitiveLog = (obj: SourceCodeRepository): any => ({
   ...obj,
 });
@@ -2340,6 +2571,7 @@ export const SourceCodeRepositoryFilterSensitiveLog = (obj: SourceCodeRepository
  */
 export const ApplicationComponentDetailFilterSensitiveLog = (obj: ApplicationComponentDetail): any => ({
   ...obj,
+  ...(obj.resultList && { resultList: obj.resultList.map((item) => ResultFilterSensitiveLog(item)) }),
 });
 
 /**

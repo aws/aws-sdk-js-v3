@@ -81,6 +81,9 @@ import { UpdateServerConfigCommandInput, UpdateServerConfigCommandOutput } from 
 import { MigrationHubStrategyServiceException as __BaseException } from "../models/MigrationHubStrategyServiceException";
 import {
   AccessDeniedException,
+  AnalysisStatusUnion,
+  AnalyzerNameUnion,
+  AntipatternReportResult,
   AntipatternSeveritySummary,
   ApplicationComponentDetail,
   ApplicationComponentStatusSummary,
@@ -122,6 +125,7 @@ import {
   RecommendationSet,
   RemoteSourceCodeAnalysisServerInfo,
   ResourceNotFoundException,
+  Result,
   S3Object,
   SelfManageResources,
   SelfManageTargetDestination,
@@ -2243,6 +2247,62 @@ const serializeAws_restJson1TargetDatabaseEngines = (
     });
 };
 
+const deserializeAws_restJson1AnalysisStatusUnion = (output: any, context: __SerdeContext): AnalysisStatusUnion => {
+  if (__expectString(output.runtimeAnalysisStatus) !== undefined) {
+    return { runtimeAnalysisStatus: __expectString(output.runtimeAnalysisStatus) as any };
+  }
+  if (__expectString(output.srcCodeOrDbAnalysisStatus) !== undefined) {
+    return { srcCodeOrDbAnalysisStatus: __expectString(output.srcCodeOrDbAnalysisStatus) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1AnalyzerNameUnion = (output: any, context: __SerdeContext): AnalyzerNameUnion => {
+  if (__expectString(output.binaryAnalyzerName) !== undefined) {
+    return { binaryAnalyzerName: __expectString(output.binaryAnalyzerName) as any };
+  }
+  if (__expectString(output.runTimeAnalyzerName) !== undefined) {
+    return { runTimeAnalyzerName: __expectString(output.runTimeAnalyzerName) as any };
+  }
+  if (__expectString(output.sourceCodeAnalyzerName) !== undefined) {
+    return { sourceCodeAnalyzerName: __expectString(output.sourceCodeAnalyzerName) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1AntipatternReportResult = (
+  output: any,
+  context: __SerdeContext
+): AntipatternReportResult => {
+  return {
+    analyzerName:
+      output.analyzerName != null
+        ? deserializeAws_restJson1AnalyzerNameUnion(__expectUnion(output.analyzerName), context)
+        : undefined,
+    antiPatternReportS3Object:
+      output.antiPatternReportS3Object != null
+        ? deserializeAws_restJson1S3Object(output.antiPatternReportS3Object, context)
+        : undefined,
+    antipatternReportStatus: __expectString(output.antipatternReportStatus),
+    antipatternReportStatusMessage: __expectString(output.antipatternReportStatusMessage),
+  } as any;
+};
+
+const deserializeAws_restJson1AntipatternReportResultList = (
+  output: any,
+  context: __SerdeContext
+): AntipatternReportResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1AntipatternReportResult(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1AntipatternSeveritySummary = (
   output: any,
   context: __SerdeContext
@@ -2292,6 +2352,7 @@ const deserializeAws_restJson1ApplicationComponentDetail = (
         ? deserializeAws_restJson1RecommendationSet(output.recommendationSet, context)
         : undefined,
     resourceSubType: __expectString(output.resourceSubType),
+    resultList: output.resultList != null ? deserializeAws_restJson1ResultList(output.resultList, context) : undefined,
     runtimeStatus: __expectString(output.runtimeStatus),
     runtimeStatusMessage: __expectString(output.runtimeStatusMessage),
     sourceCodeRepositories:
@@ -2991,6 +3052,33 @@ const deserializeAws_restJson1RemoteSourceCodeAnalysisServerInfo = (
       output.remoteSourceCodeAnalysisServerConfigurationTimestamp
     ),
   } as any;
+};
+
+const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): Result => {
+  return {
+    analysisStatus:
+      output.analysisStatus != null
+        ? deserializeAws_restJson1AnalysisStatusUnion(__expectUnion(output.analysisStatus), context)
+        : undefined,
+    analysisType: __expectString(output.analysisType),
+    antipatternReportResultList:
+      output.antipatternReportResultList != null
+        ? deserializeAws_restJson1AntipatternReportResultList(output.antipatternReportResultList, context)
+        : undefined,
+    statusMessage: __expectString(output.statusMessage),
+  } as any;
+};
+
+const deserializeAws_restJson1ResultList = (output: any, context: __SerdeContext): Result[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Result(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1S3Keys = (output: any, context: __SerdeContext): string[] => {

@@ -57,8 +57,8 @@ export interface StartRecommendationReportGenerationCommandOutput
  * @see {@link MigrationHubStrategyClientResolvedConfig | config} for MigrationHubStrategyClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> The AWS user account does not have permission to perform the action. Check the
- *       AWS Identity and Access Management (IAM) policy associated with this account.</p>
+ *  <p> The user does not have permission to perform the action. Check the
+ *       AWS Identity and Access Management (IAM) policy associated with this user.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p> Exception to indicate that there is an ongoing task when a new task is created. Return
