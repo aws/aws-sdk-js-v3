@@ -38,7 +38,7 @@ export const loadConfigsForDefaultMode = (mode: ResolvedDefaultsMode): DefaultsM
  * * `"auto"`: <p>The AUTO mode is an experimental mode that builds on the standard mode. The SDK will attempt to discover the execution environment to determine the appropriate settings automatically.</p><p>Note that the auto detection is heuristics-based and does not guarantee 100% accuracy. STANDARD mode will be used if the execution environment cannot be determined. The auto detection might query <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">EC2 Instance Metadata service</a>, which might introduce latency. Therefore we recommend choosing an explicit defaults_mode instead if startup latency is critical to your application</p>
  * * `"legacy"`: <p>The LEGACY mode provides default settings that vary per SDK and were used prior to establishment of defaults_mode</p>
  *
- * @defaultValue "legacy"
+ * @default "legacy"
  */
 export type DefaultsMode = "standard" | "in-region" | "cross-region" | "mobile" | "auto" | "legacy";
 
