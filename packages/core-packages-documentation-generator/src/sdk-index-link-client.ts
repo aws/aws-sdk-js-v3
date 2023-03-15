@@ -71,7 +71,7 @@ export class SdkIndexLinkClientPlugin {
       const clientsCategory = group.categories.find((value) => value.title === "Clients");
 
       for (const child of clientsCategory.children || []) {
-        child.url = `/clients/${child.originalName}/`;
+        child.url = `https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/${child.originalName}/`;
         child.name = `@aws-sdk/${child.originalName.replace("client-", "")}`;
       }
     }
