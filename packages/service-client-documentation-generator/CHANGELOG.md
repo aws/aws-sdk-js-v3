@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.293.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.292.1...v3.293.0) (2023-03-16)
+
+
+### Bug Fixes
+
+* **docs:** lowercase urls for clients ([#4531](https://github.com/aws/aws-sdk-js-v3/issues/4531)) ([3da01de](https://github.com/aws/aws-sdk-js-v3/commit/3da01dede9ff7d618d1b7f5dd9ec68f103c3e0c3))
+
+
+
+
+
 # [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
 
 **Note:** Version bump only for package @aws-sdk/service-client-documentation-generator

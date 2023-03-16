@@ -223,6 +223,31 @@ export interface DataSourcesFreeTrial {
   MalwareProtection?: MalwareProtectionDataSourceFreeTrial;
 }
 
+export enum FreeTrialFeatureResult {
+  CLOUD_TRAIL = "CLOUD_TRAIL",
+  DNS_LOGS = "DNS_LOGS",
+  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
+  FLOW_LOGS = "FLOW_LOGS",
+  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS = "S3_DATA_EVENTS",
+}
+
+/**
+ * <p>Contains information about the free trial period for a feature.</p>
+ */
+export interface FreeTrialFeatureConfigurationResult {
+  /**
+   * <p>The name of the feature for which the free trial is configured.</p>
+   */
+  Name?: FreeTrialFeatureResult | string;
+
+  /**
+   * <p>The number of the remaining free trial days for the feature.</p>
+   */
+  FreeTrialDaysRemaining?: number;
+}
+
 /**
  * <p>Provides details of the GuardDuty member account that uses a free trial service.</p>
  */
@@ -233,9 +258,16 @@ export interface AccountFreeTrialInfo {
   AccountId?: string;
 
   /**
+   * @deprecated
+   *
    * <p>Describes the data source enabled for the GuardDuty member account.</p>
    */
   DataSources?: DataSourcesFreeTrial;
+
+  /**
+   * <p>A list of features enabled for the GuardDuty account.</p>
+   */
+  Features?: FreeTrialFeatureConfigurationResult[];
 }
 
 /**
@@ -622,6 +654,49 @@ export interface PortProbeAction {
 }
 
 /**
+ * <p>Information about the login attempts.</p>
+ */
+export interface LoginAttribute {
+  /**
+   * <p>Indicates the user name which attempted to log in.</p>
+   */
+  User?: string;
+
+  /**
+   * <p>Indicates the application name used to attempt log in.</p>
+   */
+  Application?: string;
+
+  /**
+   * <p>Represents the sum of failed (unsuccessful) login attempts made to establish a connection
+   *       to the database instance.</p>
+   */
+  FailedLoginAttempts?: number;
+
+  /**
+   * <p>Represents the sum of successful connections (a correct combination of login attributes)
+   *     made to the database instance by the actor.</p>
+   */
+  SuccessfulLoginAttempts?: number;
+}
+
+/**
+ * <p>Indicates that a login attempt was made to the potentially compromised database from
+ *     a remote IP address.</p>
+ */
+export interface RdsLoginAttemptAction {
+  /**
+   * <p>Contains information about the remote IP address of the connection.</p>
+   */
+  RemoteIpDetails?: RemoteIpDetails;
+
+  /**
+   * <p>Indicates the login attributes used in the login attempt.</p>
+   */
+  LoginAttributes?: LoginAttribute[];
+}
+
+/**
  * <p>Contains information about actions.</p>
  */
 export interface Action {
@@ -654,6 +729,11 @@ export interface Action {
    * <p>Information about the Kubernetes API call action described in this finding.</p>
    */
   KubernetesApiCallAction?: KubernetesApiCallAction;
+
+  /**
+   * <p>Information about <code>RDS_LOGIN_ATTEMPT</code> action described in this finding.</p>
+   */
+  RdsLoginAttemptAction?: RdsLoginAttemptAction;
 }
 
 export enum AdminStatus {
@@ -996,6 +1076,33 @@ export interface DataSourceConfigurations {
   MalwareProtection?: MalwareProtectionConfiguration;
 }
 
+export enum DetectorFeature {
+  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
+  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS = "S3_DATA_EVENTS",
+}
+
+export enum FeatureStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Contains information about a GuardDuty feature.</p>
+ */
+export interface DetectorFeatureConfiguration {
+  /**
+   * <p>The name of the feature.</p>
+   */
+  Name?: DetectorFeature | string;
+
+  /**
+   * <p>The status of the feature.</p>
+   */
+  Status?: FeatureStatus | string;
+}
+
 export enum FindingPublishingFrequency {
   FIFTEEN_MINUTES = "FIFTEEN_MINUTES",
   ONE_HOUR = "ONE_HOUR",
@@ -1019,6 +1126,8 @@ export interface CreateDetectorRequest {
   FindingPublishingFrequency?: FindingPublishingFrequency | string;
 
   /**
+   * @deprecated
+   *
    * <p>Describes which data sources will be enabled for the detector.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
@@ -1030,6 +1139,11 @@ export interface CreateDetectorRequest {
    * <p>The tags to be added to a new detector resource.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>A list of features that will be configured for the detector.</p>
+   */
+  Features?: DetectorFeatureConfiguration[];
 }
 
 /**
@@ -1126,9 +1240,8 @@ export interface CreateFilterRequest {
 
   /**
    * <p>The description of the filter. Valid characters include alphanumeric characters, and special
-   *       characters such as <code>-</code>, <code>.</code>, <code>:</code>, <code>{ }</code>, <code>[ ]</code>,
-   *       <code>( )</code>, <code>/</code>, <code>\t</code>, <code>\n</code>, <code>\x0B</code>, <code>\f</code>,
-   *       <code>\r</code>, <code>_</code>, and whitespace.</p>
+   *       characters such as hyphen, period, colon, underscore, parentheses (<code>{ }</code>, <code>[ ]</code>, and
+   *       <code>( )</code>), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.</p>
    */
   Description?: string;
 
@@ -2080,6 +2193,20 @@ export interface DescribeOrganizationConfigurationRequest {
    *       from.</p>
    */
   DetectorId: string | undefined;
+
+  /**
+   * <p>You can use this parameter to indicate the maximum number of items
+   *       that you want in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to null on your
+   *       first call to the list action. For subsequent calls to the action, fill <code>nextToken</code>
+   *       in the request with the
+   *       value of <code>NextToken</code> from the previous response to continue listing data.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -2165,6 +2292,39 @@ export interface OrganizationDataSourceConfigurationsResult {
   MalwareProtection?: OrganizationMalwareProtectionConfigurationResult;
 }
 
+export enum OrgFeatureStatus {
+  NEW = "NEW",
+  NONE = "NONE",
+}
+
+export enum OrgFeature {
+  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
+  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS = "S3_DATA_EVENTS",
+}
+
+/**
+ * <p>A list of features which will be configured for the organization.</p>
+ */
+export interface OrganizationFeatureConfigurationResult {
+  /**
+   * <p>The name of the feature that is configured for the member accounts within the
+   *       organization.</p>
+   */
+  Name?: OrgFeature | string;
+
+  /**
+   * <p>Describes how The status of the feature that are configured for the member accounts within the
+   *       organization.</p>
+   *          <p>If you set <code>AutoEnable</code> to <code>NEW</code>, a feature will be configured for
+   *     only the new accounts when they join the organization.</p>
+   *          <p>If you set <code>AutoEnable</code> to <code>NONE</code>, no feature will be configured for
+   *       the accounts when they join the organization.</p>
+   */
+  AutoEnable?: OrgFeatureStatus | string;
+}
+
 export interface DescribeOrganizationConfigurationResponse {
   /**
    * <p>Indicates whether GuardDuty is automatically enabled for accounts added to the
@@ -2179,10 +2339,22 @@ export interface DescribeOrganizationConfigurationResponse {
   MemberAccountLimitReached: boolean | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>Describes which data sources are enabled automatically for member
    *       accounts.</p>
    */
   DataSources?: OrganizationDataSourceConfigurationsResult;
+
+  /**
+   * <p>A list of features that are configured for this organization.</p>
+   */
+  Features?: OrganizationFeatureConfigurationResult[];
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
+   */
+  NextToken?: string;
 }
 
 export interface DescribePublishingDestinationRequest {
@@ -2255,6 +2427,36 @@ export interface Destination {
    * <p>The status of the publishing destination.</p>
    */
   Status: PublishingStatus | string | undefined;
+}
+
+export enum DetectorFeatureResult {
+  CLOUD_TRAIL = "CLOUD_TRAIL",
+  DNS_LOGS = "DNS_LOGS",
+  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
+  FLOW_LOGS = "FLOW_LOGS",
+  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS = "S3_DATA_EVENTS",
+}
+
+/**
+ * <p>Contains information about a GuardDuty feature.</p>
+ */
+export interface DetectorFeatureConfigurationResult {
+  /**
+   * <p>Indicates the name of the feature that can be enabled for the detector.</p>
+   */
+  Name?: DetectorFeatureResult | string;
+
+  /**
+   * <p>Indicates the status of the feature that is enabled for the detector.</p>
+   */
+  Status?: FeatureStatus | string;
+
+  /**
+   * <p>The timestamp at which the feature object was updated.</p>
+   */
+  UpdatedAt?: Date;
 }
 
 export enum DetectorStatus {
@@ -2996,6 +3198,74 @@ export interface KubernetesDetails {
 }
 
 /**
+ * <p>Contains information about the resource type <code>RDSDBInstance</code> involved in a GuardDuty
+ *     finding.</p>
+ */
+export interface RdsDbInstanceDetails {
+  /**
+   * <p>The identifier associated to the database instance that was involved in the finding.</p>
+   */
+  DbInstanceIdentifier?: string;
+
+  /**
+   * <p>The database engine of the database instance involved in the finding.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>The version of the database engine that was involved in the finding.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The identifier of the database cluster that contains the database instance ID involved in the
+   *     finding.</p>
+   */
+  DbClusterIdentifier?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the database instance involved in the finding.</p>
+   */
+  DbInstanceArn?: string;
+
+  /**
+   * <p>Instance tag key-value pairs associated with the database instance ID.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * <p>Contains information about the user and authentication details for a database instance
+ *     involved in the finding.</p>
+ */
+export interface RdsDbUserDetails {
+  /**
+   * <p>The user name used in the anomalous login attempt.</p>
+   */
+  User?: string;
+
+  /**
+   * <p>The application name used in the anomalous login attempt.</p>
+   */
+  Application?: string;
+
+  /**
+   * <p>The name of the database instance involved in the anomalous login attempt.</p>
+   */
+  Database?: string;
+
+  /**
+   * <p>The version of the Secure Socket Layer (SSL) used for the network.</p>
+   */
+  Ssl?: string;
+
+  /**
+   * <p>The authentication method used by the user involved in the finding.</p>
+   */
+  AuthMethod?: string;
+}
+
+/**
  * <p>Contains information on the owner of the bucket.</p>
  */
 export interface Owner {
@@ -3135,6 +3405,16 @@ export interface Resource {
    * <p>Details of a container.</p>
    */
   ContainerDetails?: Container;
+
+  /**
+   * <p>Contains information about the database instance to which an anomalous login attempt was made.</p>
+   */
+  RdsDbInstanceDetails?: RdsDbInstanceDetails;
+
+  /**
+   * <p>Contains information about the user details through which anomalous login attempt was made.</p>
+   */
+  RdsDbUserDetails?: RdsDbUserDetails;
 }
 
 /**
@@ -3368,6 +3648,8 @@ export interface GetDetectorResponse {
   UpdatedAt?: string;
 
   /**
+   * @deprecated
+   *
    * <p>Describes which data sources are enabled for the detector.</p>
    */
   DataSources?: DataSourceConfigurationsResult;
@@ -3376,6 +3658,11 @@ export interface GetDetectorResponse {
    * <p>The tags of the detector resource.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>Describes the features that have been enabled for the detector.</p>
+   */
+  Features?: DetectorFeatureConfigurationResult[];
 }
 
 export interface GetFilterRequest {
@@ -3651,6 +3938,26 @@ export interface GetMemberDetectorsRequest {
 }
 
 /**
+ * <p>Contains information about the features for the member account.</p>
+ */
+export interface MemberFeaturesConfigurationResult {
+  /**
+   * <p>Indicates the name of the feature that is enabled for the detector.</p>
+   */
+  Name?: OrgFeature | string;
+
+  /**
+   * <p>Indicates the status of the feature that is enabled for the detector.</p>
+   */
+  Status?: FeatureStatus | string;
+
+  /**
+   * <p>The timestamp at which the feature object was updated.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+/**
  * <p>Contains information on which data sources are enabled for a member account.</p>
  */
 export interface MemberDataSourceConfiguration {
@@ -3660,9 +3967,16 @@ export interface MemberDataSourceConfiguration {
   AccountId: string | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>Contains information on the status of data sources for the account.</p>
    */
-  DataSources: DataSourceConfigurationsResult | undefined;
+  DataSources?: DataSourceConfigurationsResult;
+
+  /**
+   * <p>Contains information about the status of the features for the member account.</p>
+   */
+  Features?: MemberFeaturesConfigurationResult[];
 }
 
 export interface GetMemberDetectorsResponse {
@@ -3823,6 +4137,18 @@ export interface GetThreatIntelSetResponse {
   Tags?: Record<string, string>;
 }
 
+export enum UsageFeature {
+  CLOUD_TRAIL = "CLOUD_TRAIL",
+  DNS_LOGS = "DNS_LOGS",
+  EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION",
+  EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS",
+  EKS_RUNTIME_MONITORING = "EKS_RUNTIME_MONITORING",
+  FLOW_LOGS = "FLOW_LOGS",
+  LAMBDA_NETWORK_LOGS = "LAMBDA_NETWORK_LOGS",
+  RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS",
+  S3_DATA_EVENTS = "S3_DATA_EVENTS",
+}
+
 /**
  * <p>Contains information about the criteria used to query usage statistics.</p>
  */
@@ -3833,20 +4159,28 @@ export interface UsageCriteria {
   AccountIds?: string[];
 
   /**
+   * @deprecated
+   *
    * <p>The data sources to aggregate usage statistics from.</p>
    */
-  DataSources: (DataSource | string)[] | undefined;
+  DataSources?: (DataSource | string)[];
 
   /**
    * <p>The resources to aggregate usage statistics from. Only accepts exact resource
    *       names.</p>
    */
   Resources?: string[];
+
+  /**
+   * <p>The features to aggregate usage statistics from.</p>
+   */
+  Features?: (UsageFeature | string)[];
 }
 
 export enum UsageStatisticType {
   SUM_BY_ACCOUNT = "SUM_BY_ACCOUNT",
   SUM_BY_DATA_SOURCE = "SUM_BY_DATA_SOURCE",
+  SUM_BY_FEATURES = "SUM_BY_FEATURES",
   SUM_BY_RESOURCE = "SUM_BY_RESOURCE",
   TOP_RESOURCES = "TOP_RESOURCES",
 }
@@ -3934,6 +4268,21 @@ export interface UsageDataSourceResult {
 }
 
 /**
+ * <p>Contains information about the result of the total usage based on the feature.</p>
+ */
+export interface UsageFeatureResult {
+  /**
+   * <p>The feature that generated the usage cost.</p>
+   */
+  Feature?: UsageFeature | string;
+
+  /**
+   * <p>Contains the total usage with the corresponding currency unit for that value.</p>
+   */
+  Total?: Total;
+}
+
+/**
  * <p>Contains information on the sum of usage based on an Amazon Web Services resource.</p>
  */
 export interface UsageResourceResult {
@@ -3973,6 +4322,11 @@ export interface UsageStatistics {
    *       most to least expensive.</p>
    */
   TopResources?: UsageResourceResult[];
+
+  /**
+   * <p>The usage statistic sum organized by feature.</p>
+   */
+  SumByFeature?: UsageFeatureResult[];
 }
 
 export interface GetUsageStatisticsResponse {
@@ -4629,12 +4983,19 @@ export interface UpdateDetectorRequest {
   FindingPublishingFrequency?: FindingPublishingFrequency | string;
 
   /**
+   * @deprecated
+   *
    * <p>Describes which data sources will be updated.</p>
    *          <p>There might be regional differences because some data sources might not be
    *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
    *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
    */
   DataSources?: DataSourceConfigurations;
+
+  /**
+   * <p>Provides the features that will be updated for the detector.</p>
+   */
+  Features?: DetectorFeatureConfiguration[];
 }
 
 export interface UpdateDetectorResponse {}
@@ -4755,6 +5116,21 @@ export interface UpdateMalwareScanSettingsRequest {
 
 export interface UpdateMalwareScanSettingsResponse {}
 
+/**
+ * <p>Contains information about the features for the member account.</p>
+ */
+export interface MemberFeaturesConfiguration {
+  /**
+   * <p>The name of the feature.</p>
+   */
+  Name?: OrgFeature | string;
+
+  /**
+   * <p>The status of the feature.</p>
+   */
+  Status?: FeatureStatus | string;
+}
+
 export interface UpdateMemberDetectorsRequest {
   /**
    * <p>The detector ID of the administrator account.</p>
@@ -4767,9 +5143,16 @@ export interface UpdateMemberDetectorsRequest {
   AccountIds: string[] | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>Describes which data sources will be updated.</p>
    */
   DataSources?: DataSourceConfigurations;
+
+  /**
+   * <p>A list of features that will be updated for the specified member accounts.</p>
+   */
+  Features?: MemberFeaturesConfiguration[];
 }
 
 export interface UpdateMemberDetectorsResponse {
@@ -4865,6 +5248,21 @@ export interface OrganizationDataSourceConfigurations {
   MalwareProtection?: OrganizationMalwareProtectionConfiguration;
 }
 
+/**
+ * <p>A list of features which will be configured for the organization.</p>
+ */
+export interface OrganizationFeatureConfiguration {
+  /**
+   * <p>The name of the feature that will be configured for the organization.</p>
+   */
+  Name?: OrgFeature | string;
+
+  /**
+   * <p>The status of the feature that will be configured for the organization.</p>
+   */
+  AutoEnable?: OrgFeatureStatus | string;
+}
+
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * <p>The ID of the detector to update the delegated administrator for.</p>
@@ -4877,9 +5275,16 @@ export interface UpdateOrganizationConfigurationRequest {
   AutoEnable: boolean | undefined;
 
   /**
+   * @deprecated
+   *
    * <p>Describes which data sources will be updated.</p>
    */
   DataSources?: OrganizationDataSourceConfigurations;
+
+  /**
+   * <p>A list of features that will be configured for the organization.</p>
+   */
+  Features?: OrganizationFeatureConfiguration[];
 }
 
 export interface UpdateOrganizationConfigurationResponse {}
@@ -5021,6 +5426,15 @@ export const DataSourcesFreeTrialFilterSensitiveLog = (obj: DataSourcesFreeTrial
 /**
  * @internal
  */
+export const FreeTrialFeatureConfigurationResultFilterSensitiveLog = (
+  obj: FreeTrialFeatureConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AccountFreeTrialInfoFilterSensitiveLog = (obj: AccountFreeTrialInfo): any => ({
   ...obj,
 });
@@ -5154,6 +5568,20 @@ export const PortProbeActionFilterSensitiveLog = (obj: PortProbeAction): any => 
 /**
  * @internal
  */
+export const LoginAttributeFilterSensitiveLog = (obj: LoginAttribute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RdsLoginAttemptActionFilterSensitiveLog = (obj: RdsLoginAttemptAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ActionFilterSensitiveLog = (obj: Action): any => ({
   ...obj,
 });
@@ -5274,6 +5702,13 @@ export const S3LogsConfigurationFilterSensitiveLog = (obj: S3LogsConfiguration):
  * @internal
  */
 export const DataSourceConfigurationsFilterSensitiveLog = (obj: DataSourceConfigurations): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorFeatureConfigurationFilterSensitiveLog = (obj: DetectorFeatureConfiguration): any => ({
   ...obj,
 });
 
@@ -5743,6 +6178,15 @@ export const OrganizationDataSourceConfigurationsResultFilterSensitiveLog = (
 /**
  * @internal
  */
+export const OrganizationFeatureConfigurationResultFilterSensitiveLog = (
+  obj: OrganizationFeatureConfigurationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeOrganizationConfigurationResponseFilterSensitiveLog = (
   obj: DescribeOrganizationConfigurationResponse
 ): any => ({
@@ -5771,6 +6215,13 @@ export const DescribePublishingDestinationResponseFilterSensitiveLog = (
  * @internal
  */
 export const DestinationFilterSensitiveLog = (obj: Destination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectorFeatureConfigurationResultFilterSensitiveLog = (obj: DetectorFeatureConfigurationResult): any => ({
   ...obj,
 });
 
@@ -6045,6 +6496,20 @@ export const KubernetesDetailsFilterSensitiveLog = (obj: KubernetesDetails): any
 /**
  * @internal
  */
+export const RdsDbInstanceDetailsFilterSensitiveLog = (obj: RdsDbInstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RdsDbUserDetailsFilterSensitiveLog = (obj: RdsDbUserDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const OwnerFilterSensitiveLog = (obj: Owner): any => ({
   ...obj,
 });
@@ -6269,6 +6734,13 @@ export const GetMemberDetectorsRequestFilterSensitiveLog = (obj: GetMemberDetect
 /**
  * @internal
  */
+export const MemberFeaturesConfigurationResultFilterSensitiveLog = (obj: MemberFeaturesConfigurationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const MemberDataSourceConfigurationFilterSensitiveLog = (obj: MemberDataSourceConfiguration): any => ({
   ...obj,
 });
@@ -6361,6 +6833,13 @@ export const UsageAccountResultFilterSensitiveLog = (obj: UsageAccountResult): a
  * @internal
  */
 export const UsageDataSourceResultFilterSensitiveLog = (obj: UsageDataSourceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UsageFeatureResultFilterSensitiveLog = (obj: UsageFeatureResult): any => ({
   ...obj,
 });
 
@@ -6693,6 +7172,13 @@ export const UpdateMalwareScanSettingsResponseFilterSensitiveLog = (obj: UpdateM
 /**
  * @internal
  */
+export const MemberFeaturesConfigurationFilterSensitiveLog = (obj: MemberFeaturesConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UpdateMemberDetectorsRequestFilterSensitiveLog = (obj: UpdateMemberDetectorsRequest): any => ({
   ...obj,
 });
@@ -6760,6 +7246,13 @@ export const OrganizationS3LogsConfigurationFilterSensitiveLog = (obj: Organizat
 export const OrganizationDataSourceConfigurationsFilterSensitiveLog = (
   obj: OrganizationDataSourceConfigurations
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrganizationFeatureConfigurationFilterSensitiveLog = (obj: OrganizationFeatureConfiguration): any => ({
   ...obj,
 });
 

@@ -11,7 +11,7 @@ export interface AdaptiveRetryStrategyOptions extends StandardRetryStrategyOptio
 }
 
 /**
- * @deprected use AdaptiveRetryStrategy from @aws-sdk/util-retry
+ * @deprecated use AdaptiveRetryStrategy from @aws-sdk/util-retry
  */
 export class AdaptiveRetryStrategy extends StandardRetryStrategy {
   private rateLimiter: RateLimiter;

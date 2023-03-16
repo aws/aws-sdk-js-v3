@@ -322,12 +322,12 @@ export interface InvokeEndpointAsyncInput {
 
   /**
    * <p>Maximum age in seconds a request can be in the queue before it is marked as
-   *             expired.</p>
+   *             expired. The default is 6 hours, or 21,600 seconds.</p>
    */
   RequestTTLSeconds?: number;
 
   /**
-   * <p>Maximum amount of time in seconds a request can be processed before it is marked as expired.</p>
+   * <p>Maximum amount of time in seconds a request can be processed before it is marked as expired. The default is 15 minutes, or 900 seconds.</p>
    */
   InvocationTimeoutSeconds?: number;
 }

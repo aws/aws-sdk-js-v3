@@ -1,5 +1,7 @@
 export * from "./DescribeMalwareScansPaginator";
 
+export * from "./DescribeOrganizationConfigurationPaginator";
+
 export * from "./GetUsageStatisticsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";

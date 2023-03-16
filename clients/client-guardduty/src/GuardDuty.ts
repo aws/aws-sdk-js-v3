@@ -444,7 +444,8 @@ export class GuardDuty extends GuardDutyClient {
   }
 
   /**
-   * <p>Creates a filter using the specified finding criteria.</p>
+   * <p>Creates a filter using the specified finding criteria. The maximum number of saved filters
+   *       per Amazon Web Services account per Region is 100. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_limits.html">Quotas for GuardDuty</a>.</p>
    */
   public createFilter(
     args: CreateFilterCommandInput,

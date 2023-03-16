@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.293.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.292.1...v3.293.0) (2023-03-16)
+
+
+### Features
+
+* **client-guardduty:** Updated 9 APIs for feature enablement to reflect expansion of GuardDuty to features. Added new APIs and updated existing APIs to support RDS Protection GA. ([83f3ee8](https://github.com/aws/aws-sdk-js-v3/commit/83f3ee824947a8d459d26b8487917e6f36b1de43))
+
+
+
+
+
 # [3.292.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.291.0...v3.292.0) (2023-03-15)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

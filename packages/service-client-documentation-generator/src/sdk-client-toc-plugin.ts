@@ -32,7 +32,7 @@ export class SdkClientTocPlugin {
 
   constructor(public readonly options: Options, public readonly logger: Logger, private readonly renderer: Renderer) {
     this.renderer.application.converter.on(Converter.EVENT_END, this.changeLinksToLowerCase);
-    this.renderer.application.converter.on(Converter.EVENT_END, this.onEndResolve);
+    this.renderer.application.converter.on(Converter.EVENT_RESOLVE_END, this.onEndResolve);
   }
 
   private changeLinksToLowerCase = (context: Context) => {

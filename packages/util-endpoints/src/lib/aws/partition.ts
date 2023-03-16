@@ -2,8 +2,37 @@ import { EndpointPartition } from "@aws-sdk/types";
 
 import partitionsInfo from "./partitions.json";
 
-const { partitions } = partitionsInfo;
-const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws");
+export type PartitionsInfo = {
+  partitions: Array<{
+    id: string;
+    outputs: {
+      dnsSuffix: string;
+      dualStackDnsSuffix: string;
+      name: string;
+      supportsDualStack: boolean;
+      supportsFIPS: boolean;
+    };
+    regionRegex: string;
+    regions: Record<
+      string,
+      | {
+          description?: string;
+        }
+      | undefined
+    >;
+  }>;
+};
+
+/**
+ * The partitions.json data to be used in resolving endpoints.
+ * @internal
+ */
+let selectedPartitionsInfo: PartitionsInfo = partitionsInfo;
+
+/**
+ * @internal
+ */
+let selectedUserAgentPrefix = "";
 
 /**
  * Evaluates a single string argument value as a region, and matches the
@@ -12,6 +41,7 @@ const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws")
  * that the region has been determined to be a part of.
  */
 export const partition = (value: string): EndpointPartition => {
+  const { partitions } = selectedPartitionsInfo;
   // Check for explicit region listed in the regions array.
   for (const partition of partitions) {
     const { regions, outputs } = partition;
@@ -35,6 +65,8 @@ export const partition = (value: string): EndpointPartition => {
     }
   }
 
+  const DEFAULT_PARTITION = partitions.find((partition) => partition.id === "aws");
+
   if (!DEFAULT_PARTITION) {
     throw new Error(
       "Provided region was not found in the partition array or regex," +
@@ -47,3 +79,25 @@ export const partition = (value: string): EndpointPartition => {
     ...DEFAULT_PARTITION.outputs,
   };
 };
+
+/**
+ * Set custom partitions.json data.
+ * @internal
+ */
+export const setPartitionInfo = (partitionsInfo: PartitionsInfo, userAgentPrefix = "") => {
+  selectedPartitionsInfo = partitionsInfo;
+  selectedUserAgentPrefix = userAgentPrefix;
+};
+
+/**
+ * Reset to the default partitions.json data.
+ * @internal
+ */
+export const useDefaultPartitionInfo = () => {
+  setPartitionInfo(partitionsInfo, "");
+};
+
+/**
+ * @internal
+ */
+export const getUserAgentPrefix = () => selectedUserAgentPrefix;
