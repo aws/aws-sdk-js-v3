@@ -23,7 +23,7 @@ class SdkThemeContext extends DefaultThemeRenderContext {
       const script = `
       // REDIRECT BROKEN CLIENT INDEX PAGES
       (() => {
-        if (window.location.href.includes('clients/client') && /clients\\\/client-\\\w+\\\//.test(window.location.href) === false) {
+        if (window.location.href.includes('clients/client') && /clients\\\/client-[^\\\/]+\\\//.test(window.location.href) === false) {
           window.location.href = window.location.href + '/'
         }
       })();
