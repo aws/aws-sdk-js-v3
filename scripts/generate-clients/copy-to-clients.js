@@ -1,6 +1,7 @@
 // @ts-check
 const { join } = require("path");
 const { copySync, removeSync } = require("fs-extra");
+const prettier = require("prettier");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("fs");
 
 const getOverwritableDirectories = (subDirectories, packageName) => {
@@ -161,7 +162,7 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
           out: "docs",
           readme: "README.md",
         };
-        writeFileSync(destSubPath, JSON.stringify(typedocJson, null, 2).concat(`\n`));
+        writeFileSync(destSubPath, prettier.format(JSON.stringify(typedocJson), { parser: "json" }));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
