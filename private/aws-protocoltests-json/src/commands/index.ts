@@ -3,6 +3,7 @@ export * from "./DatetimeOffsetsCommand";
 export * from "./EmptyOperationCommand";
 export * from "./EndpointOperationCommand";
 export * from "./EndpointWithHostLabelOperationCommand";
+export * from "./FractionalSecondsCommand";
 export * from "./GreetingWithErrorsCommand";
 export * from "./HostWithPathOperationCommand";
 export * from "./JsonEnumsCommand";

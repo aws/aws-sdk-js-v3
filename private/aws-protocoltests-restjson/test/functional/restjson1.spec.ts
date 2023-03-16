@@ -14,6 +14,7 @@ import { DocumentTypeCommand } from "../../src/commands/DocumentTypeCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";
 import { EndpointOperationCommand } from "../../src/commands/EndpointOperationCommand";
 import { EndpointWithHostLabelOperationCommand } from "../../src/commands/EndpointWithHostLabelOperationCommand";
+import { FractionalSecondsCommand } from "../../src/commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
 import { HostWithPathOperationCommand } from "../../src/commands/HostWithPathOperationCommand";
 import { HttpChecksumRequiredCommand } from "../../src/commands/HttpChecksumRequiredCommand";
@@ -44,6 +45,7 @@ import { NoInputAndNoOutputCommand } from "../../src/commands/NoInputAndNoOutput
 import { NoInputAndOutputCommand } from "../../src/commands/NoInputAndOutputCommand";
 import { NullAndEmptyHeadersClientCommand } from "../../src/commands/NullAndEmptyHeadersClientCommand";
 import { OmitsNullSerializesEmptyStringCommand } from "../../src/commands/OmitsNullSerializesEmptyStringCommand";
+import { OmitsSerializingEmptyListsCommand } from "../../src/commands/OmitsSerializingEmptyListsCommand";
 import { PostPlayerActionCommand } from "../../src/commands/PostPlayerActionCommand";
 import { PostUnionWithJsonNameCommand } from "../../src/commands/PostUnionWithJsonNameCommand";
 import { QueryIdempotencyTokenAutoFillCommand } from "../../src/commands/QueryIdempotencyTokenAutoFillCommand";
@@ -1512,6 +1514,84 @@ it("RestJsonEndpointTraitWithHostLabel:Request", async () => {
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
+});
+
+/**
+ * Ensures that clients can correctly parse datetime timestamps with fractional seconds
+ */
+it("RestJsonDateTimeWithFractionalSeconds:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      undefined,
+      `      {
+                "datetime": "2000-01-02T20:34:56.123Z"
+            }
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new FractionalSecondsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      datetime: new Date(9.46845296123e8000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ensures that clients can correctly parse http-date timestamps with fractional seconds
+ */
+it("RestJsonHttpDateWithFractionalSeconds:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      undefined,
+      `      {
+                "httpdate": "Sun, 02 Jan 2000 20:34:56.456 GMT"
+            }
+      `
+    ),
+  });
+
+  const params: any = {};
+  const command = new FractionalSecondsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      httpdate: new Date(9.46845296456e8000),
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**
@@ -7090,6 +7170,47 @@ it("RestJsonSerializesEmptyQueryValue:Request", async () => {
 
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("Empty=");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Supports omitting empty lists.
+ */
+it("RestJsonOmitsEmptyListQueryValues:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OmitsSerializingEmptyListsCommand({
+    queryStringList: [],
+
+    queryIntegerList: [],
+
+    queryDoubleList: [],
+
+    queryBooleanList: [],
+
+    queryTimestampList: [],
+
+    queryEnumList: [],
+
+    queryIntegerEnumList: [],
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/OmitsSerializingEmptyLists");
 
     expect(r.body).toBeFalsy();
   }

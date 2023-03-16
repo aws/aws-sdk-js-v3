@@ -61,6 +61,11 @@ import {
   EndpointWithHostLabelOperationServerInput,
 } from "./operations/EndpointWithHostLabelOperation";
 import {
+  FractionalSeconds,
+  FractionalSecondsSerializer,
+  FractionalSecondsServerInput,
+} from "./operations/FractionalSeconds";
+import {
   GreetingWithErrors,
   GreetingWithErrorsSerializer,
   GreetingWithErrorsServerInput,
@@ -300,6 +305,11 @@ import {
   OmitsNullSerializesEmptyStringServerInput,
 } from "./operations/OmitsNullSerializesEmptyString";
 import {
+  OmitsSerializingEmptyLists,
+  OmitsSerializingEmptyListsSerializer,
+  OmitsSerializingEmptyListsServerInput,
+} from "./operations/OmitsSerializingEmptyLists";
+import {
   PostPlayerAction,
   PostPlayerActionSerializer,
   PostPlayerActionServerInput,
@@ -370,6 +380,7 @@ export type RestJsonServiceOperations =
   | "EmptyInputAndEmptyOutput"
   | "EndpointOperation"
   | "EndpointWithHostLabelOperation"
+  | "FractionalSeconds"
   | "GreetingWithErrors"
   | "HostWithPathOperation"
   | "HttpChecksumRequired"
@@ -433,6 +444,7 @@ export type RestJsonServiceOperations =
   | "NullAndEmptyHeadersClient"
   | "NullAndEmptyHeadersServer"
   | "OmitsNullSerializesEmptyString"
+  | "OmitsSerializingEmptyLists"
   | "PostPlayerAction"
   | "PostUnionWithJsonName"
   | "QueryIdempotencyTokenAutoFill"
@@ -459,6 +471,7 @@ export interface RestJsonService<Context> {
   EmptyInputAndEmptyOutput: EmptyInputAndEmptyOutput<Context>;
   EndpointOperation: EndpointOperation<Context>;
   EndpointWithHostLabelOperation: EndpointWithHostLabelOperation<Context>;
+  FractionalSeconds: FractionalSeconds<Context>;
   GreetingWithErrors: GreetingWithErrors<Context>;
   HostWithPathOperation: HostWithPathOperation<Context>;
   HttpChecksumRequired: HttpChecksumRequired<Context>;
@@ -522,6 +535,7 @@ export interface RestJsonService<Context> {
   NullAndEmptyHeadersClient: NullAndEmptyHeadersClient<Context>;
   NullAndEmptyHeadersServer: NullAndEmptyHeadersServer<Context>;
   OmitsNullSerializesEmptyString: OmitsNullSerializesEmptyString<Context>;
+  OmitsSerializingEmptyLists: OmitsSerializingEmptyLists<Context>;
   PostPlayerAction: PostPlayerAction<Context>;
   PostUnionWithJsonName: PostUnionWithJsonName<Context>;
   QueryIdempotencyTokenAutoFill: QueryIdempotencyTokenAutoFill<Context>;
@@ -734,6 +748,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.EndpointWithHostLabelOperation,
           this.serializeFrameworkException,
           EndpointWithHostLabelOperationServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "FractionalSeconds": {
+        return handle(
+          request,
+          context,
+          "FractionalSeconds",
+          this.serializerFactory("FractionalSeconds"),
+          this.service.FractionalSeconds,
+          this.serializeFrameworkException,
+          FractionalSecondsServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -1493,6 +1519,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.validationCustomizer
         );
       }
+      case "OmitsSerializingEmptyLists": {
+        return handle(
+          request,
+          context,
+          "OmitsSerializingEmptyLists",
+          this.serializerFactory("OmitsSerializingEmptyLists"),
+          this.service.OmitsSerializingEmptyLists,
+          this.serializeFrameworkException,
+          OmitsSerializingEmptyListsServerInput.validate,
+          this.validationCustomizer
+        );
+      }
       case "PostPlayerAction": {
         return handle(
           request,
@@ -1748,6 +1786,12 @@ export const getRestJsonServiceHandler = <Context>(
       [{ type: "path_literal", value: "EndpointWithHostLabelOperation" }],
       [],
       { service: "RestJson", operation: "EndpointWithHostLabelOperation" }
+    ),
+    new httpbinding.UriSpec<"RestJson", "FractionalSeconds">(
+      "POST",
+      [{ type: "path_literal", value: "FractionalSeconds" }],
+      [],
+      { service: "RestJson", operation: "FractionalSeconds" }
     ),
     new httpbinding.UriSpec<"RestJson", "GreetingWithErrors">(
       "PUT",
@@ -2138,6 +2182,12 @@ export const getRestJsonServiceHandler = <Context>(
       [],
       { service: "RestJson", operation: "OmitsNullSerializesEmptyString" }
     ),
+    new httpbinding.UriSpec<"RestJson", "OmitsSerializingEmptyLists">(
+      "POST",
+      [{ type: "path_literal", value: "OmitsSerializingEmptyLists" }],
+      [],
+      { service: "RestJson", operation: "OmitsSerializingEmptyLists" }
+    ),
     new httpbinding.UriSpec<"RestJson", "PostPlayerAction">(
       "POST",
       [{ type: "path_literal", value: "PostPlayerAction" }],
@@ -2253,6 +2303,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new EndpointOperationSerializer();
       case "EndpointWithHostLabelOperation":
         return new EndpointWithHostLabelOperationSerializer();
+      case "FractionalSeconds":
+        return new FractionalSecondsSerializer();
       case "GreetingWithErrors":
         return new GreetingWithErrorsSerializer();
       case "HostWithPathOperation":
@@ -2379,6 +2431,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new NullAndEmptyHeadersServerSerializer();
       case "OmitsNullSerializesEmptyString":
         return new OmitsNullSerializesEmptyStringSerializer();
+      case "OmitsSerializingEmptyLists":
+        return new OmitsSerializingEmptyListsSerializer();
       case "PostPlayerAction":
         return new PostPlayerActionSerializer();
       case "PostUnionWithJsonName":

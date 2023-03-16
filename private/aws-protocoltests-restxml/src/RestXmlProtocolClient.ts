@@ -84,6 +84,7 @@ import {
   FlattenedXmlMapWithXmlNamespaceCommandInput,
   FlattenedXmlMapWithXmlNamespaceCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
+import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "./commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
@@ -202,6 +203,7 @@ export type ServiceInputTypes =
   | FlattenedXmlMapCommandInput
   | FlattenedXmlMapWithXmlNameCommandInput
   | FlattenedXmlMapWithXmlNamespaceCommandInput
+  | FractionalSecondsCommandInput
   | GreetingWithErrorsCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
@@ -259,6 +261,7 @@ export type ServiceOutputTypes =
   | FlattenedXmlMapCommandOutput
   | FlattenedXmlMapWithXmlNameCommandOutput
   | FlattenedXmlMapWithXmlNamespaceCommandOutput
+  | FractionalSecondsCommandOutput
   | GreetingWithErrorsCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput

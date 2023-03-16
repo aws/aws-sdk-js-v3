@@ -62,6 +62,11 @@ import {
   FlattenedXmlMapWithXmlNamespaceCommandOutput,
 } from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import {
+  FractionalSecondsCommand,
+  FractionalSecondsCommandInput,
+  FractionalSecondsCommandOutput,
+} from "./commands/FractionalSecondsCommand";
+import {
   GreetingWithErrorsCommand,
   GreetingWithErrorsCommandInput,
   GreetingWithErrorsCommandOutput,
@@ -629,6 +634,35 @@ export class RestXmlProtocol extends RestXmlProtocolClient {
     cb?: (err: any, data?: FlattenedXmlMapWithXmlNamespaceCommandOutput) => void
   ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> | void {
     const command = new FlattenedXmlMapWithXmlNamespaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FractionalSecondsCommandOutput>;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    cb: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): void;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): void;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FractionalSecondsCommandOutput) => void),
+    cb?: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): Promise<FractionalSecondsCommandOutput> | void {
+    const command = new FractionalSecondsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -74,6 +74,7 @@ import {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelOperationCommand";
+import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "../commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
 import {
   HostWithPathOperationCommandInput,
@@ -242,6 +243,10 @@ import {
   OmitsNullSerializesEmptyStringCommandInput,
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "../commands/OmitsNullSerializesEmptyStringCommand";
+import {
+  OmitsSerializingEmptyListsCommandInput,
+  OmitsSerializingEmptyListsCommandOutput,
+} from "../commands/OmitsSerializingEmptyListsCommand";
 import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "../commands/PostPlayerActionCommand";
 import {
   PostUnionWithJsonNameCommandInput,
@@ -592,6 +597,28 @@ export const serializeAws_restJson1EndpointWithHostLabelOperationCommand = async
   return new __HttpRequest({
     protocol,
     hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1FractionalSecondsCommand = async (
+  input: FractionalSecondsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FractionalSeconds";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
     port,
     method: "POST",
     headers,
@@ -2452,6 +2479,56 @@ export const serializeAws_restJson1OmitsNullSerializesEmptyStringCommand = async
   });
 };
 
+export const serializeAws_restJson1OmitsSerializingEmptyListsCommand = async (
+  input: OmitsSerializingEmptyListsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/OmitsSerializingEmptyLists";
+  const query: any = map({
+    StringList: [
+      () => input.queryStringList !== void 0,
+      () => (input.queryStringList! || []).map((_entry) => _entry as any),
+    ],
+    IntegerList: [
+      () => input.queryIntegerList !== void 0,
+      () => (input.queryIntegerList! || []).map((_entry) => _entry.toString() as any),
+    ],
+    DoubleList: [
+      () => input.queryDoubleList !== void 0,
+      () =>
+        (input.queryDoubleList! || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString()) as any),
+    ],
+    BooleanList: [
+      () => input.queryBooleanList !== void 0,
+      () => (input.queryBooleanList! || []).map((_entry) => _entry.toString() as any),
+    ],
+    TimestampList: [
+      () => input.queryTimestampList !== void 0,
+      () =>
+        (input.queryTimestampList! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
+    ],
+    EnumList: [() => input.queryEnumList !== void 0, () => (input.queryEnumList! || []).map((_entry) => _entry as any)],
+    IntegerEnumList: [
+      () => input.queryIntegerEnumList !== void 0,
+      () => (input.queryIntegerEnumList! || []).map((_entry) => _entry.toString() as any),
+    ],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1PostPlayerActionCommand = async (
   input: PostPlayerActionCommandInput,
   context: __SerdeContext
@@ -3164,6 +3241,44 @@ const deserializeAws_restJson1EndpointWithHostLabelOperationCommandError = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restJson1FractionalSecondsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FractionalSecondsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1FractionalSecondsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.datetime != null) {
+    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data.datetime));
+  }
+  if (data.httpdate != null) {
+    contents.httpdate = __expectNonNull(__parseRfc7231DateTime(data.httpdate));
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1FractionalSecondsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FractionalSecondsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5427,6 +5542,38 @@ const deserializeAws_restJson1OmitsNullSerializesEmptyStringCommandError = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OmitsNullSerializesEmptyStringCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restJson1OmitsSerializingEmptyListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OmitsSerializingEmptyListsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1OmitsSerializingEmptyListsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1OmitsSerializingEmptyListsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OmitsSerializingEmptyListsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

@@ -223,6 +223,18 @@ export class FooError extends __BaseException {
   }
 }
 
+export interface FractionalSecondsOutput {
+  datetime?: Date;
+  httpdate?: Date;
+}
+
+/**
+ * @internal
+ */
+export const FractionalSecondsOutputFilterSensitiveLog = (obj: FractionalSecondsOutput): any => ({
+  ...obj,
+});
+
 export interface GreetingWithErrorsOutput {
   greeting?: string;
 }
@@ -1324,6 +1336,23 @@ export interface OmitsNullSerializesEmptyStringInput {
 export const OmitsNullSerializesEmptyStringInputFilterSensitiveLog = (
   obj: OmitsNullSerializesEmptyStringInput
 ): any => ({
+  ...obj,
+});
+
+export interface OmitsSerializingEmptyListsInput {
+  queryStringList?: string[];
+  queryIntegerList?: number[];
+  queryDoubleList?: number[];
+  queryBooleanList?: boolean[];
+  queryTimestampList?: Date[];
+  queryEnumList?: (FooEnum | string)[];
+  queryIntegerEnumList?: (IntegerEnum | number)[];
+}
+
+/**
+ * @internal
+ */
+export const OmitsSerializingEmptyListsInputFilterSensitiveLog = (obj: OmitsSerializingEmptyListsInput): any => ({
   ...obj,
 });
 

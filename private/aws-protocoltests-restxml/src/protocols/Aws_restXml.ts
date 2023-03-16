@@ -75,6 +75,7 @@ import {
   FlattenedXmlMapWithXmlNamespaceCommandInput,
   FlattenedXmlMapWithXmlNamespaceCommandOutput,
 } from "../commands/FlattenedXmlMapWithXmlNamespaceCommand";
+import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "../commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "../commands/HttpPayloadTraitsCommand";
 import {
@@ -578,6 +579,28 @@ export const serializeAws_restXmlFlattenedXmlMapWithXmlNamespaceCommand = async 
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FlattenedXmlMapWithXmlNamespace";
+  let body: any;
+  body = "";
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlFractionalSecondsCommand = async (
+  input: FractionalSecondsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FractionalSeconds";
   let body: any;
   body = "";
   return new __HttpRequest({
@@ -2674,6 +2697,44 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNamespaceCommandError = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restXmlFractionalSecondsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FractionalSecondsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlFractionalSecondsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["datetime"] !== undefined) {
+    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["datetime"]));
+  }
+  if (data["httpdate"] !== undefined) {
+    contents.httpdate = __expectNonNull(__parseRfc7231DateTime(data["httpdate"]));
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlFractionalSecondsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FractionalSecondsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),

@@ -62,6 +62,7 @@ import {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
+import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "./commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import {
   HostWithPathOperationCommandInput,
@@ -93,6 +94,7 @@ export type ServiceInputTypes =
   | EmptyOperationCommandInput
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
+  | FractionalSecondsCommandInput
   | GreetingWithErrorsCommandInput
   | HostWithPathOperationCommandInput
   | JsonEnumsCommandInput
@@ -108,6 +110,7 @@ export type ServiceOutputTypes =
   | EmptyOperationCommandOutput
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput
+  | FractionalSecondsCommandOutput
   | GreetingWithErrorsCommandOutput
   | HostWithPathOperationCommandOutput
   | JsonEnumsCommandOutput

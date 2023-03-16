@@ -78,6 +78,7 @@ import {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
+import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "./commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
 import {
   HostWithPathOperationCommandInput,
@@ -246,6 +247,10 @@ import {
   OmitsNullSerializesEmptyStringCommandInput,
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
+import {
+  OmitsSerializingEmptyListsCommandInput,
+  OmitsSerializingEmptyListsCommandOutput,
+} from "./commands/OmitsSerializingEmptyListsCommand";
 import { PostPlayerActionCommandInput, PostPlayerActionCommandOutput } from "./commands/PostPlayerActionCommand";
 import {
   PostUnionWithJsonNameCommandInput,
@@ -298,6 +303,7 @@ export type ServiceInputTypes =
   | EmptyInputAndEmptyOutputCommandInput
   | EndpointOperationCommandInput
   | EndpointWithHostLabelOperationCommandInput
+  | FractionalSecondsCommandInput
   | GreetingWithErrorsCommandInput
   | HostWithPathOperationCommandInput
   | HttpChecksumRequiredCommandInput
@@ -361,6 +367,7 @@ export type ServiceInputTypes =
   | NullAndEmptyHeadersClientCommandInput
   | NullAndEmptyHeadersServerCommandInput
   | OmitsNullSerializesEmptyStringCommandInput
+  | OmitsSerializingEmptyListsCommandInput
   | PostPlayerActionCommandInput
   | PostUnionWithJsonNameCommandInput
   | QueryIdempotencyTokenAutoFillCommandInput
@@ -388,6 +395,7 @@ export type ServiceOutputTypes =
   | EmptyInputAndEmptyOutputCommandOutput
   | EndpointOperationCommandOutput
   | EndpointWithHostLabelOperationCommandOutput
+  | FractionalSecondsCommandOutput
   | GreetingWithErrorsCommandOutput
   | HostWithPathOperationCommandOutput
   | HttpChecksumRequiredCommandOutput
@@ -451,6 +459,7 @@ export type ServiceOutputTypes =
   | NullAndEmptyHeadersClientCommandOutput
   | NullAndEmptyHeadersServerCommandOutput
   | OmitsNullSerializesEmptyStringCommandOutput
+  | OmitsSerializingEmptyListsCommandOutput
   | PostPlayerActionCommandOutput
   | PostUnionWithJsonNameCommandOutput
   | QueryIdempotencyTokenAutoFillCommandOutput

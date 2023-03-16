@@ -103,6 +103,18 @@ export const FlattenedXmlMapWithXmlNamespaceOutputFilterSensitiveLog = (
   ...obj,
 });
 
+export interface FractionalSecondsOutput {
+  datetime?: Date;
+  httpdate?: Date;
+}
+
+/**
+ * @internal
+ */
+export const FractionalSecondsOutputFilterSensitiveLog = (obj: FractionalSecondsOutput): any => ({
+  ...obj,
+});
+
 export interface ComplexNestedErrorData {
   Foo?: string;
 }

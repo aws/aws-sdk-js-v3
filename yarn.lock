@@ -134,13 +134,13 @@
   dependencies:
     tslib "^2.3.1"
 
-"@aws-smithy/server-common@1.0.0-alpha.7":
-  version "1.0.0-alpha.7"
-  resolved "https://registry.yarnpkg.com/@aws-smithy/server-common/-/server-common-1.0.0-alpha.7.tgz#5ab25b28927432f909c8ac1b903ab9b95334804b"
-  integrity sha512-tPzBBi81nky5qlByL6fvRWHKewLkQ2o5V3Yq2pK2KFlzCKuUtXAM4uNd4ys8+zUbDEdERNqdgs+vTMKedJiypQ==
+"@aws-smithy/server-common@1.0.0-alpha.9":
+  version "1.0.0-alpha.9"
+  resolved "https://registry.yarnpkg.com/@aws-smithy/server-common/-/server-common-1.0.0-alpha.9.tgz#1092801c74044bf21f74d8f1cbfe5efdbfc753ca"
+  integrity sha512-2iGSWDkqiNBowwJ3i6fnyqH1hG4IFevc97330UT9ZaflYCyw1zMGrjY/mI+evI8gv2O7TxiSHswGOcLwfoaDzg==
   dependencies:
-    "@aws-sdk/protocol-http" "^3.257.0"
-    "@aws-sdk/types" "^3.257.0"
+    "@aws-sdk/protocol-http" "^3.267.0"
+    "@aws-sdk/types" "^3.267.0"
     re2-wasm "^1.0.2"
     tslib "^1.8.0"
 

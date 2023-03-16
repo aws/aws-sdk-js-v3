@@ -219,14 +219,16 @@ export namespace AllQueryStringTypesInput {
           }
           case "queryEnum": {
             memberValidators["queryEnum"] = new __CompositeValidator<string>([
-              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"]),
+              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
             ]);
             break;
           }
           case "queryEnumList": {
             memberValidators["queryEnumList"] = new __CompositeCollectionValidator<string>(
               new __NoOpValidator(),
-              new __CompositeValidator<string>([new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"])])
+              new __CompositeValidator<string>([
+                new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
+              ])
             );
             break;
           }
@@ -653,7 +655,9 @@ export namespace EnumPayloadInput {
       if (memberValidators[member] === undefined) {
         switch (member) {
           case "payload": {
-            memberValidators["payload"] = new __CompositeValidator<string>([new __EnumValidator(["enumvalue"])]);
+            memberValidators["payload"] = new __CompositeValidator<string>([
+              new __EnumValidator(["enumvalue"], ["enumvalue"]),
+            ]);
             break;
           }
         }
@@ -679,6 +683,50 @@ export class FooError extends __BaseException {
     });
     Object.setPrototypeOf(this, FooError.prototype);
   }
+}
+
+export interface FractionalSecondsOutput {
+  datetime?: Date;
+  httpdate?: Date;
+}
+
+/**
+ * @internal
+ */
+export const FractionalSecondsOutputFilterSensitiveLog = (obj: FractionalSecondsOutput): any => ({
+  ...obj,
+});
+export namespace FractionalSecondsOutput {
+  const memberValidators: {
+    datetime?: __MultiConstraintValidator<Date>;
+    httpdate?: __MultiConstraintValidator<Date>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: FractionalSecondsOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<typeof memberValidators[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "datetime": {
+            memberValidators["datetime"] = new __NoOpValidator();
+            break;
+          }
+          case "httpdate": {
+            memberValidators["httpdate"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("datetime").validate(obj.datetime, `${path}/datetime`),
+      ...getMemberValidator("httpdate").validate(obj.httpdate, `${path}/httpdate`),
+    ];
+  };
 }
 
 export interface GreetingWithErrorsOutput {
@@ -1639,14 +1687,16 @@ export namespace InputAndOutputWithHeadersIO {
           }
           case "headerEnum": {
             memberValidators["headerEnum"] = new __CompositeValidator<string>([
-              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"]),
+              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
             ]);
             break;
           }
           case "headerEnumList": {
             memberValidators["headerEnumList"] = new __CompositeCollectionValidator<string>(
               new __NoOpValidator(),
-              new __CompositeValidator<string>([new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"])])
+              new __CompositeValidator<string>([
+                new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
+              ])
             );
             break;
           }
@@ -1763,33 +1813,37 @@ export namespace JsonEnumsInputOutput {
         switch (member) {
           case "fooEnum1": {
             memberValidators["fooEnum1"] = new __CompositeValidator<string>([
-              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"]),
+              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
             ]);
             break;
           }
           case "fooEnum2": {
             memberValidators["fooEnum2"] = new __CompositeValidator<string>([
-              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"]),
+              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
             ]);
             break;
           }
           case "fooEnum3": {
             memberValidators["fooEnum3"] = new __CompositeValidator<string>([
-              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"]),
+              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
             ]);
             break;
           }
           case "fooEnumList": {
             memberValidators["fooEnumList"] = new __CompositeCollectionValidator<string>(
               new __NoOpValidator(),
-              new __CompositeValidator<string>([new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"])])
+              new __CompositeValidator<string>([
+                new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
+              ])
             );
             break;
           }
           case "fooEnumSet": {
             memberValidators["fooEnumSet"] = new __CompositeCollectionValidator<string>(
               new __CompositeValidator<(FooEnum | string)[]>([new __UniqueItemsValidator()]),
-              new __CompositeValidator<string>([new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"])])
+              new __CompositeValidator<string>([
+                new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
+              ])
             );
             break;
           }
@@ -1797,7 +1851,9 @@ export namespace JsonEnumsInputOutput {
             memberValidators["fooEnumMap"] = new __CompositeMapValidator<FooEnum | string>(
               new __NoOpValidator(),
               new __NoOpValidator(),
-              new __CompositeValidator<string>([new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"])])
+              new __CompositeValidator<string>([
+                new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
+              ])
             );
             break;
           }
@@ -2038,7 +2094,9 @@ export namespace JsonListsInputOutput {
           case "enumList": {
             memberValidators["enumList"] = new __CompositeCollectionValidator<string>(
               new __NoOpValidator(),
-              new __CompositeValidator<string>([new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"])])
+              new __CompositeValidator<string>([
+                new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
+              ])
             );
             break;
           }
@@ -2587,7 +2645,7 @@ export namespace MyUnion {
           }
           case "enumValue": {
             memberValidators["enumValue"] = new __CompositeValidator<string>([
-              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"]),
+              new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
             ]);
             break;
           }
@@ -4186,6 +4244,108 @@ export namespace OmitsNullSerializesEmptyStringInput {
     return [
       ...getMemberValidator("nullValue").validate(obj.nullValue, `${path}/nullValue`),
       ...getMemberValidator("emptyString").validate(obj.emptyString, `${path}/emptyString`),
+    ];
+  };
+}
+
+export interface OmitsSerializingEmptyListsInput {
+  queryStringList?: string[];
+  queryIntegerList?: number[];
+  queryDoubleList?: number[];
+  queryBooleanList?: boolean[];
+  queryTimestampList?: Date[];
+  queryEnumList?: (FooEnum | string)[];
+  queryIntegerEnumList?: (IntegerEnum | number)[];
+}
+
+/**
+ * @internal
+ */
+export const OmitsSerializingEmptyListsInputFilterSensitiveLog = (obj: OmitsSerializingEmptyListsInput): any => ({
+  ...obj,
+});
+export namespace OmitsSerializingEmptyListsInput {
+  const memberValidators: {
+    queryStringList?: __MultiConstraintValidator<Iterable<string>>;
+    queryIntegerList?: __MultiConstraintValidator<Iterable<number>>;
+    queryDoubleList?: __MultiConstraintValidator<Iterable<number>>;
+    queryBooleanList?: __MultiConstraintValidator<Iterable<boolean>>;
+    queryTimestampList?: __MultiConstraintValidator<Iterable<Date>>;
+    queryEnumList?: __MultiConstraintValidator<Iterable<string>>;
+    queryIntegerEnumList?: __MultiConstraintValidator<Iterable<number>>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: OmitsSerializingEmptyListsInput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<typeof memberValidators[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "queryStringList": {
+            memberValidators["queryStringList"] = new __CompositeCollectionValidator<string>(
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "queryIntegerList": {
+            memberValidators["queryIntegerList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "queryDoubleList": {
+            memberValidators["queryDoubleList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "queryBooleanList": {
+            memberValidators["queryBooleanList"] = new __CompositeCollectionValidator<boolean>(
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "queryTimestampList": {
+            memberValidators["queryTimestampList"] = new __CompositeCollectionValidator<Date>(
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+          case "queryEnumList": {
+            memberValidators["queryEnumList"] = new __CompositeCollectionValidator<string>(
+              new __NoOpValidator(),
+              new __CompositeValidator<string>([
+                new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
+              ])
+            );
+            break;
+          }
+          case "queryIntegerEnumList": {
+            memberValidators["queryIntegerEnumList"] = new __CompositeCollectionValidator<number>(
+              new __NoOpValidator(),
+              new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [
+      ...getMemberValidator("queryStringList").validate(obj.queryStringList, `${path}/queryStringList`),
+      ...getMemberValidator("queryIntegerList").validate(obj.queryIntegerList, `${path}/queryIntegerList`),
+      ...getMemberValidator("queryDoubleList").validate(obj.queryDoubleList, `${path}/queryDoubleList`),
+      ...getMemberValidator("queryBooleanList").validate(obj.queryBooleanList, `${path}/queryBooleanList`),
+      ...getMemberValidator("queryTimestampList").validate(obj.queryTimestampList, `${path}/queryTimestampList`),
+      ...getMemberValidator("queryEnumList").validate(obj.queryEnumList, `${path}/queryEnumList`),
+      ...getMemberValidator("queryIntegerEnumList").validate(obj.queryIntegerEnumList, `${path}/queryIntegerEnumList`),
     ];
   };
 }
