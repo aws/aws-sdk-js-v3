@@ -209,6 +209,8 @@ import {
   DefaultServerSideEncryption,
   Destination,
   DestinationProperties,
+  DetectorFeatureConfiguration,
+  DetectorFeatureConfigurationResult,
   DNSLogsConfigurationResult,
   DnsRequestAction,
   DomainDetails,
@@ -227,6 +229,7 @@ import {
   FindingStatistics,
   FindingStatisticType,
   FlowLogsConfigurationResult,
+  FreeTrialFeatureConfigurationResult,
   GeoLocation,
   HighestSeverityThreatDetails,
   HostPath,
@@ -245,12 +248,15 @@ import {
   KubernetesWorkloadDetails,
   LocalIpDetails,
   LocalPortDetails,
+  LoginAttribute,
   MalwareProtectionConfiguration,
   MalwareProtectionConfigurationResult,
   MalwareProtectionDataSourceFreeTrial,
   Master,
   Member,
   MemberDataSourceConfiguration,
+  MemberFeaturesConfiguration,
+  MemberFeaturesConfigurationResult,
   NetworkConnectionAction,
   NetworkInterface,
   Organization,
@@ -258,6 +264,8 @@ import {
   OrganizationDataSourceConfigurationsResult,
   OrganizationEbsVolumes,
   OrganizationEbsVolumesResult,
+  OrganizationFeatureConfiguration,
+  OrganizationFeatureConfigurationResult,
   OrganizationKubernetesAuditLogsConfiguration,
   OrganizationKubernetesAuditLogsConfigurationResult,
   OrganizationKubernetesConfiguration,
@@ -275,6 +283,9 @@ import {
   PrivateIpAddressDetails,
   ProductCode,
   PublicAccess,
+  RdsDbInstanceDetails,
+  RdsDbUserDetails,
+  RdsLoginAttemptAction,
   RemoteAccountDetails,
   RemoteIpDetails,
   RemotePortDetails,
@@ -311,6 +322,8 @@ import {
   UsageAccountResult,
   UsageCriteria,
   UsageDataSourceResult,
+  UsageFeature,
+  UsageFeatureResult,
   UsageResourceResult,
   UsageStatistics,
   Volume,
@@ -414,6 +427,9 @@ export const serializeAws_restJson1CreateDetectorCommand = async (
       dataSources: serializeAws_restJson1DataSourceConfigurations(input.DataSources, context),
     }),
     ...(input.Enable != null && { enable: input.Enable }),
+    ...(input.Features != null && {
+      features: serializeAws_restJson1DetectorFeatureConfigurations(input.Features, context),
+    }),
     ...(input.FindingPublishingFrequency != null && { findingPublishingFrequency: input.FindingPublishingFrequency }),
     ...(input.Tags != null && { tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
@@ -852,6 +868,10 @@ export const serializeAws_restJson1DescribeOrganizationConfigurationCommand = as
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/detector/{DetectorId}/admin";
   resolvedPath = __resolvedPath(resolvedPath, input, "DetectorId", () => input.DetectorId!, "{DetectorId}", false);
+  const query: any = map({
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    nextToken: [, input.NextToken!],
+  });
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -860,6 +880,7 @@ export const serializeAws_restJson1DescribeOrganizationConfigurationCommand = as
     method: "GET",
     headers,
     path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1798,6 +1819,9 @@ export const serializeAws_restJson1UpdateDetectorCommand = async (
       dataSources: serializeAws_restJson1DataSourceConfigurations(input.DataSources, context),
     }),
     ...(input.Enable != null && { enable: input.Enable }),
+    ...(input.Features != null && {
+      features: serializeAws_restJson1DetectorFeatureConfigurations(input.Features, context),
+    }),
     ...(input.FindingPublishingFrequency != null && { findingPublishingFrequency: input.FindingPublishingFrequency }),
   });
   return new __HttpRequest({
@@ -1949,6 +1973,9 @@ export const serializeAws_restJson1UpdateMemberDetectorsCommand = async (
     ...(input.DataSources != null && {
       dataSources: serializeAws_restJson1DataSourceConfigurations(input.DataSources, context),
     }),
+    ...(input.Features != null && {
+      features: serializeAws_restJson1MemberFeaturesConfigurations(input.Features, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1977,6 +2004,9 @@ export const serializeAws_restJson1UpdateOrganizationConfigurationCommand = asyn
     ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
     ...(input.DataSources != null && {
       dataSources: serializeAws_restJson1OrganizationDataSourceConfigurations(input.DataSources, context),
+    }),
+    ...(input.Features != null && {
+      features: serializeAws_restJson1OrganizationFeaturesConfigurations(input.Features, context),
     }),
   });
   return new __HttpRequest({
@@ -2902,8 +2932,14 @@ export const deserializeAws_restJson1DescribeOrganizationConfigurationCommand = 
       context
     );
   }
+  if (data.features != null) {
+    contents.Features = deserializeAws_restJson1OrganizationFeaturesConfigurationsResults(data.features, context);
+  }
   if (data.memberAccountLimitReached != null) {
     contents.MemberAccountLimitReached = __expectBoolean(data.memberAccountLimitReached);
+  }
+  if (data.nextToken != null) {
+    contents.NextToken = __expectString(data.nextToken);
   }
   return contents;
 };
@@ -3259,6 +3295,9 @@ export const deserializeAws_restJson1GetDetectorCommand = async (
   }
   if (data.dataSources != null) {
     contents.DataSources = deserializeAws_restJson1DataSourceConfigurationsResult(data.dataSources, context);
+  }
+  if (data.features != null) {
+    contents.Features = deserializeAws_restJson1DetectorFeatureConfigurationsResults(data.features, context);
   }
   if (data.findingPublishingFrequency != null) {
     contents.FindingPublishingFrequency = __expectString(data.findingPublishingFrequency);
@@ -5106,6 +5145,27 @@ const serializeAws_restJson1DestinationProperties = (input: DestinationPropertie
   };
 };
 
+const serializeAws_restJson1DetectorFeatureConfiguration = (
+  input: DetectorFeatureConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.Status != null && { status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1DetectorFeatureConfigurations = (
+  input: DetectorFeatureConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DetectorFeatureConfiguration(entry, context);
+    });
+};
+
 const serializeAws_restJson1Eq = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5230,6 +5290,27 @@ const serializeAws_restJson1MapEquals = (input: ScanConditionPair[], context: __
     });
 };
 
+const serializeAws_restJson1MemberFeaturesConfiguration = (
+  input: MemberFeaturesConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Name != null && { name: input.Name }),
+    ...(input.Status != null && { status: input.Status }),
+  };
+};
+
+const serializeAws_restJson1MemberFeaturesConfigurations = (
+  input: MemberFeaturesConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1MemberFeaturesConfiguration(entry, context);
+    });
+};
+
 const serializeAws_restJson1Neq = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5270,6 +5351,27 @@ const serializeAws_restJson1OrganizationEbsVolumes = (input: OrganizationEbsVolu
   return {
     ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
   };
+};
+
+const serializeAws_restJson1OrganizationFeatureConfiguration = (
+  input: OrganizationFeatureConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AutoEnable != null && { autoEnable: input.AutoEnable }),
+    ...(input.Name != null && { name: input.Name }),
+  };
+};
+
+const serializeAws_restJson1OrganizationFeaturesConfigurations = (
+  input: OrganizationFeatureConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1OrganizationFeatureConfiguration(entry, context);
+    });
 };
 
 const serializeAws_restJson1OrganizationKubernetesAuditLogsConfiguration = (
@@ -5400,8 +5502,17 @@ const serializeAws_restJson1UsageCriteria = (input: UsageCriteria, context: __Se
   return {
     ...(input.AccountIds != null && { accountIds: serializeAws_restJson1AccountIds(input.AccountIds, context) }),
     ...(input.DataSources != null && { dataSources: serializeAws_restJson1DataSourceList(input.DataSources, context) }),
+    ...(input.Features != null && { features: serializeAws_restJson1UsageFeatureList(input.Features, context) }),
     ...(input.Resources != null && { resources: serializeAws_restJson1ResourceList(input.Resources, context) }),
   };
+};
+
+const serializeAws_restJson1UsageFeatureList = (input: (UsageFeature | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1AccessControlList = (output: any, context: __SerdeContext): AccessControlList => {
@@ -5426,6 +5537,10 @@ const deserializeAws_restJson1AccountFreeTrialInfo = (output: any, context: __Se
     DataSources:
       output.dataSources != null
         ? deserializeAws_restJson1DataSourcesFreeTrial(output.dataSources, context)
+        : undefined,
+    Features:
+      output.features != null
+        ? deserializeAws_restJson1FreeTrialFeatureConfigurationsResults(output.features, context)
         : undefined,
   } as any;
 };
@@ -5479,6 +5594,10 @@ const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): A
     PortProbeAction:
       output.portProbeAction != null
         ? deserializeAws_restJson1PortProbeAction(output.portProbeAction, context)
+        : undefined,
+    RdsLoginAttemptAction:
+      output.rdsLoginAttemptAction != null
+        ? deserializeAws_restJson1RdsLoginAttemptAction(output.rdsLoginAttemptAction, context)
         : undefined,
   } as any;
 };
@@ -5756,6 +5875,33 @@ const deserializeAws_restJson1Destinations = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_restJson1DetectorFeatureConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): DetectorFeatureConfigurationResult => {
+  return {
+    Name: __expectString(output.name),
+    Status: __expectString(output.status),
+    UpdatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DetectorFeatureConfigurationsResults = (
+  output: any,
+  context: __SerdeContext
+): DetectorFeatureConfigurationResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DetectorFeatureConfigurationResult(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1DetectorIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -5999,6 +6145,31 @@ const deserializeAws_restJson1FlowLogsConfigurationResult = (
   } as any;
 };
 
+const deserializeAws_restJson1FreeTrialFeatureConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): FreeTrialFeatureConfigurationResult => {
+  return {
+    FreeTrialDaysRemaining: __expectInt32(output.freeTrialDaysRemaining),
+    Name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1FreeTrialFeatureConfigurationsResults = (
+  output: any,
+  context: __SerdeContext
+): FreeTrialFeatureConfigurationResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FreeTrialFeatureConfigurationResult(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   return {
     Lat: __limitedParseDouble(output.lat),
@@ -6210,6 +6381,27 @@ const deserializeAws_restJson1LocalPortDetails = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1LoginAttribute = (output: any, context: __SerdeContext): LoginAttribute => {
+  return {
+    Application: __expectString(output.application),
+    FailedLoginAttempts: __expectInt32(output.failedLoginAttempts),
+    SuccessfulLoginAttempts: __expectInt32(output.successfulLoginAttempts),
+    User: __expectString(output.user),
+  } as any;
+};
+
+const deserializeAws_restJson1LoginAttributes = (output: any, context: __SerdeContext): LoginAttribute[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LoginAttribute(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1MalwareProtectionConfigurationResult = (
   output: any,
   context: __SerdeContext
@@ -6279,6 +6471,10 @@ const deserializeAws_restJson1MemberDataSourceConfiguration = (
       output.dataSources != null
         ? deserializeAws_restJson1DataSourceConfigurationsResult(output.dataSources, context)
         : undefined,
+    Features:
+      output.features != null
+        ? deserializeAws_restJson1MemberFeaturesConfigurationsResults(output.features, context)
+        : undefined,
   } as any;
 };
 
@@ -6293,6 +6489,33 @@ const deserializeAws_restJson1MemberDataSourceConfigurations = (
         return null as any;
       }
       return deserializeAws_restJson1MemberDataSourceConfiguration(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MemberFeaturesConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): MemberFeaturesConfigurationResult => {
+  return {
+    Name: __expectString(output.name),
+    Status: __expectString(output.status),
+    UpdatedAt:
+      output.updatedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updatedAt))) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MemberFeaturesConfigurationsResults = (
+  output: any,
+  context: __SerdeContext
+): MemberFeaturesConfigurationResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MemberFeaturesConfigurationResult(entry, context);
     });
   return retVal;
 };
@@ -6430,6 +6653,31 @@ const deserializeAws_restJson1OrganizationEbsVolumesResult = (
   return {
     AutoEnable: __expectBoolean(output.autoEnable),
   } as any;
+};
+
+const deserializeAws_restJson1OrganizationFeatureConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): OrganizationFeatureConfigurationResult => {
+  return {
+    AutoEnable: __expectString(output.autoEnable),
+    Name: __expectString(output.name),
+  } as any;
+};
+
+const deserializeAws_restJson1OrganizationFeaturesConfigurationsResults = (
+  output: any,
+  context: __SerdeContext
+): OrganizationFeatureConfigurationResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1OrganizationFeatureConfigurationResult(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1OrganizationKubernetesAuditLogsConfigurationResult = (
@@ -6604,6 +6852,40 @@ const deserializeAws_restJson1PublicAccess = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1RdsDbInstanceDetails = (output: any, context: __SerdeContext): RdsDbInstanceDetails => {
+  return {
+    DbClusterIdentifier: __expectString(output.dbClusterIdentifier),
+    DbInstanceArn: __expectString(output.dbInstanceArn),
+    DbInstanceIdentifier: __expectString(output.dbInstanceIdentifier),
+    Engine: __expectString(output.engine),
+    EngineVersion: __expectString(output.engineVersion),
+    Tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RdsDbUserDetails = (output: any, context: __SerdeContext): RdsDbUserDetails => {
+  return {
+    Application: __expectString(output.application),
+    AuthMethod: __expectString(output.authMethod),
+    Database: __expectString(output.database),
+    Ssl: __expectString(output.ssl),
+    User: __expectString(output.user),
+  } as any;
+};
+
+const deserializeAws_restJson1RdsLoginAttemptAction = (output: any, context: __SerdeContext): RdsLoginAttemptAction => {
+  return {
+    LoginAttributes:
+      output.LoginAttributes != null
+        ? deserializeAws_restJson1LoginAttributes(output.LoginAttributes, context)
+        : undefined,
+    RemoteIpDetails:
+      output.remoteIpDetails != null
+        ? deserializeAws_restJson1RemoteIpDetails(output.remoteIpDetails, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1RemoteAccountDetails = (output: any, context: __SerdeContext): RemoteAccountDetails => {
   return {
     AccountId: __expectString(output.accountId),
@@ -6657,6 +6939,14 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
     KubernetesDetails:
       output.kubernetesDetails != null
         ? deserializeAws_restJson1KubernetesDetails(output.kubernetesDetails, context)
+        : undefined,
+    RdsDbInstanceDetails:
+      output.rdsDbInstanceDetails != null
+        ? deserializeAws_restJson1RdsDbInstanceDetails(output.rdsDbInstanceDetails, context)
+        : undefined,
+    RdsDbUserDetails:
+      output.rdsDbUserDetails != null
+        ? deserializeAws_restJson1RdsDbUserDetails(output.rdsDbUserDetails, context)
         : undefined,
     ResourceType: __expectString(output.resourceType),
     S3BucketDetails:
@@ -7132,6 +7422,25 @@ const deserializeAws_restJson1UsageDataSourceResultList = (
   return retVal;
 };
 
+const deserializeAws_restJson1UsageFeatureResult = (output: any, context: __SerdeContext): UsageFeatureResult => {
+  return {
+    Feature: __expectString(output.feature),
+    Total: output.total != null ? deserializeAws_restJson1Total(output.total, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UsageFeatureResultList = (output: any, context: __SerdeContext): UsageFeatureResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UsageFeatureResult(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1UsageResourceResult = (output: any, context: __SerdeContext): UsageResourceResult => {
   return {
     Resource: __expectString(output.resource),
@@ -7163,6 +7472,10 @@ const deserializeAws_restJson1UsageStatistics = (output: any, context: __SerdeCo
     SumByDataSource:
       output.sumByDataSource != null
         ? deserializeAws_restJson1UsageDataSourceResultList(output.sumByDataSource, context)
+        : undefined,
+    SumByFeature:
+      output.sumByFeature != null
+        ? deserializeAws_restJson1UsageFeatureResultList(output.sumByFeature, context)
         : undefined,
     SumByResource:
       output.sumByResource != null
