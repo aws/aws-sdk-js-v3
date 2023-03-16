@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.293.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.292.1...v3.293.0) (2023-03-16)
+
+
+### Bug Fixes
+
+* **docs:** lowercase urls for clients ([#4531](https://github.com/aws/aws-sdk-js-v3/issues/4531)) ([3da01de](https://github.com/aws/aws-sdk-js-v3/commit/3da01dede9ff7d618d1b7f5dd9ec68f103c3e0c3))
+
+
+### Features
+
+* **client-guardduty:** Updated 9 APIs for feature enablement to reflect expansion of GuardDuty to features. Added new APIs and updated existing APIs to support RDS Protection GA. ([83f3ee8](https://github.com/aws/aws-sdk-js-v3/commit/83f3ee824947a8d459d26b8487917e6f36b1de43))
+* **clients:** update client endpoints as of 2023-03-16 ([bdc8fa5](https://github.com/aws/aws-sdk-js-v3/commit/bdc8fa5d697812c4a29bbc85b17b668a199a5f4f))
+
+
+
+
+
 ## [3.292.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.292.0...v3.292.1) (2023-03-16)
 
 
