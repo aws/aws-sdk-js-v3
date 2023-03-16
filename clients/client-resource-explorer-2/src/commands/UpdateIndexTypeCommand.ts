@@ -115,8 +115,9 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *             permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You tried to create a new view or index when one already exists, and you either didn't
- *             specify or specified a different idempotency token as the original request.</p>
+ *  <p>The request failed because either you specified parameters that didn’t match the
+ *             original request, or you attempted to create a view with a name that already exists in
+ *             this Amazon Web Services Region.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request failed because of internal service error. Try your request again
