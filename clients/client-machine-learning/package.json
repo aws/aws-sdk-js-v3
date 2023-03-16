@@ -54,7 +54,7 @@
     "@aws-sdk/util-user-agent-node": "*",
     "@aws-sdk/util-utf8": "*",
     "@aws-sdk/util-waiter": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@aws-sdk/service-client-documentation-generator": "*",

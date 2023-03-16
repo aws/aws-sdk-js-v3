@@ -32,7 +32,7 @@
     "@aws-sdk/property-provider": "*",
     "@aws-sdk/shared-ini-file-loader": "*",
     "@aws-sdk/types": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

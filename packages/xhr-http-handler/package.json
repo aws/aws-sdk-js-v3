@@ -22,7 +22,7 @@
     "@aws-sdk/querystring-builder": "*",
     "@aws-sdk/types": "*",
     "events": "3.3.0",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@aws-sdk/abort-controller": "*",

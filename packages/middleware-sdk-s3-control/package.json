@@ -24,7 +24,7 @@
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@aws-sdk/middleware-stack": "*",

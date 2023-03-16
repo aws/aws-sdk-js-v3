@@ -28,7 +28,7 @@
     "@aws-sdk/util-middleware": "*",
     "@aws-sdk/util-uri-escape": "*",
     "aws-crt": "^1.15.9",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@aws-crypto/sha256-js": "3.0.0",

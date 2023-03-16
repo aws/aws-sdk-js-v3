@@ -22,7 +22,7 @@
   "dependencies": {
     "@aws-sdk/querystring-parser": "*",
     "@aws-sdk/types": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "typesVersions": {
     "<4.0": {

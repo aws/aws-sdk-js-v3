@@ -18,7 +18,7 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-sdk/client-xray": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@tsconfig/node14": "1.0.3",

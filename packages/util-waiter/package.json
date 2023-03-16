@@ -5,7 +5,7 @@
   "dependencies": {
     "@aws-sdk/abort-controller": "*",
     "@aws-sdk/types": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",

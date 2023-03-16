@@ -27,7 +27,7 @@
     "@aws-sdk/util-buffer-from": "*",
     "@aws-sdk/util-hex-encoding": "*",
     "@aws-sdk/util-utf8": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.31",
