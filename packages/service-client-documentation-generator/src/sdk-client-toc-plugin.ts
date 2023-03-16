@@ -31,8 +31,17 @@ export class SdkClientTocPlugin {
   readonly defaultCategory: string;
 
   constructor(public readonly options: Options, public readonly logger: Logger, private readonly renderer: Renderer) {
+    this.renderer.application.converter.on(Converter.EVENT_END, this.changeLinksToLowerCase);
     this.renderer.application.converter.on(Converter.EVENT_RESOLVE_END, this.onEndResolve);
   }
+
+  private changeLinksToLowerCase = (context: Context) => {
+    Object.keys(context.project.reflections).forEach((reflectionName) => {
+      context.project.reflections[reflectionName]._alias = context.project.reflections[reflectionName]
+        .getAlias()
+        .toLowerCase();
+    });
+  };
 
   private onEndResolve = (context: Context) => {
     if (!this.clientDir) this.clientDir = this.loadClientDir(context.project);
