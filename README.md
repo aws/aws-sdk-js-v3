@@ -516,8 +516,11 @@ Our releases usually happen once per weekday. Each release increments the
 minor version, e.g. 3.200.0 -> 3.201.0.
 
 ## <a id="nodejs-versions"></a> Node.js versions
+
 v3.201.0 and higher requires Node.js >= 14.
+
 v3.46.0 to v3.200.0 requires Node.js >= 12.
+
 Earlier versions require Node.js >= 10.
 
 ## Stability of Modular Packages
