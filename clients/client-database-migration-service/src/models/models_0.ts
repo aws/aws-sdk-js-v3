@@ -856,6 +856,11 @@ export enum MessageFormatValue {
   JSON_UNFORMATTED = "json-unformatted",
 }
 
+export enum KafkaSaslMechanism {
+  PLAIN = "plain",
+  SCRAM_SHA_512 = "scram-sha-512",
+}
+
 export enum KafkaSecurityProtocol {
   PLAINTEXT = "plaintext",
   SASL_SSL = "sasl-ssl",
@@ -991,6 +996,14 @@ export interface KafkaSettings {
    *          type columns without adding the '0x' prefix.</p>
    */
   NoHexPrefix?: boolean;
+
+  /**
+   * <p>For SASL/SSL authentication, DMS supports the <code>SCRAM-SHA-512</code> mechanism by default. DMS versions
+   *          3.5.0 and later also support the <code>PLAIN</code> mechanism. To use the <code>PLAIN</code> mechanism, set this
+   *          parameter to <code>PLAIN.</code>
+   *          </p>
+   */
+  SaslMechanism?: KafkaSaslMechanism | string;
 }
 
 /**
@@ -1073,6 +1086,13 @@ export enum SafeguardPolicy {
   EXCLUSIVE_AUTOMATIC_TRUNCATION = "exclusive-automatic-truncation",
   RELY_ON_SQL_SERVER_REPLICATION_AGENT = "rely-on-sql-server-replication-agent",
   SHARED_AUTOMATIC_TRUNCATION = "shared-automatic-truncation",
+}
+
+export enum TlogAccessMode {
+  BackupOnly = "BackupOnly",
+  PreferBackup = "PreferBackup",
+  PreferTlog = "PreferTlog",
+  TlogOnly = "TlogOnly",
 }
 
 /**
@@ -1208,6 +1228,16 @@ export interface MicrosoftSQLServerSettings {
    *          on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>
    */
   TrimSpaceInChar?: boolean;
+
+  /**
+   * <p>Indicates the mode used to fetch CDC data.</p>
+   */
+  TlogAccessMode?: TlogAccessMode | string;
+
+  /**
+   * <p>Forces LOB lookup on inline LOB.</p>
+   */
+  ForceLobLookup?: boolean;
 }
 
 export enum AuthMechanismValue {
@@ -1907,6 +1937,11 @@ export interface OracleSettings {
    *          on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>
    */
   TrimSpaceInChar?: boolean;
+
+  /**
+   * <p>When true, converts timestamps with the <code>timezone</code> datatype to their UTC value.</p>
+   */
+  ConvertTimestampWithZoneToUTC?: boolean;
 }
 
 export enum PluginNameValue {
@@ -2075,6 +2110,12 @@ export interface PostgreSQLSettings {
    *          on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>
    */
   TrimSpaceInChar?: boolean;
+
+  /**
+   * <p>When true, lets PostgreSQL migrate the boolean type as boolean. By default, PostgreSQL migrates booleans as
+   *          <code>varchar(5)</code>.</p>
+   */
+  MapBooleanAsBoolean?: boolean;
 }
 
 export enum RedisAuthTypeValue {
@@ -2390,6 +2431,12 @@ export interface RedshiftSettings {
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the Amazon Redshift endpoint connection details.</p>
    */
   SecretsManagerSecretId?: string;
+
+  /**
+   * <p>When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as
+   *          <code>varchar(1)</code>.</p>
+   */
+  MapBooleanAsBoolean?: boolean;
 }
 
 export enum CannedAclForObjectsValue {
@@ -2999,6 +3046,12 @@ export interface S3Settings {
    *          ID of the bucket owner against the specified parameter.</p>
    */
   ExpectedBucketOwner?: string;
+
+  /**
+   * <p>When true, allows Glue to catalog your S3 bucket. Creating an Glue catalog
+   *          lets you use Athena to query your data.</p>
+   */
+  GlueCatalogGeneration?: boolean;
 }
 
 export enum DmsSslModeValue {
