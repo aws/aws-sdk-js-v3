@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetPhoneNumberRequest,
-  GetPhoneNumberRequestFilterSensitiveLog,
   GetPhoneNumberResponse,
   GetPhoneNumberResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -128,7 +127,7 @@ export class GetPhoneNumberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPhoneNumberRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: GetPhoneNumberResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

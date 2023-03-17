@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   RegenerateSecurityTokenRequest,
-  RegenerateSecurityTokenRequestFilterSensitiveLog,
   RegenerateSecurityTokenResponse,
   RegenerateSecurityTokenResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -128,7 +127,7 @@ export class RegenerateSecurityTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegenerateSecurityTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: RegenerateSecurityTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteProxySessionRequest, DeleteProxySessionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteProxySessionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteProxySessionCommand,
   serializeAws_restJson1DeleteProxySessionCommand,
@@ -123,7 +123,7 @@ export class DeleteProxySessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProxySessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

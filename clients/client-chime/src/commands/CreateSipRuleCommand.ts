@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  CreateSipRuleRequest,
-  CreateSipRuleRequestFilterSensitiveLog,
-  CreateSipRuleResponse,
-  CreateSipRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSipRuleRequest, CreateSipRuleResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSipRuleCommand,
   serializeAws_restJson1CreateSipRuleCommand,
@@ -133,8 +128,8 @@ export class CreateSipRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSipRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSipRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

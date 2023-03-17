@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   CreateAppInstanceAdminRequest,
-  CreateAppInstanceAdminRequestFilterSensitiveLog,
   CreateAppInstanceAdminResponse,
   CreateAppInstanceAdminResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -146,7 +145,7 @@ export class CreateAppInstanceAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppInstanceAdminRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: CreateAppInstanceAdminResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

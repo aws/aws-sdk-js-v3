@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  BatchCreateRoomMembershipRequest,
-  BatchCreateRoomMembershipRequestFilterSensitiveLog,
-  BatchCreateRoomMembershipResponse,
-  BatchCreateRoomMembershipResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchCreateRoomMembershipRequest, BatchCreateRoomMembershipResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchCreateRoomMembershipCommand,
   serializeAws_restJson1BatchCreateRoomMembershipCommand,
@@ -128,8 +123,8 @@ export class BatchCreateRoomMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateRoomMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateRoomMembershipResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

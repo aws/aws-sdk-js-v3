@@ -18,7 +18,6 @@ import {
   BatchUpdatePhoneNumberRequest,
   BatchUpdatePhoneNumberRequestFilterSensitiveLog,
   BatchUpdatePhoneNumberResponse,
-  BatchUpdatePhoneNumberResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUpdatePhoneNumberCommand,
@@ -131,7 +130,7 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchUpdatePhoneNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdatePhoneNumberResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

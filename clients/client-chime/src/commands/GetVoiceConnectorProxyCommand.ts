@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetVoiceConnectorProxyRequest,
-  GetVoiceConnectorProxyRequestFilterSensitiveLog,
   GetVoiceConnectorProxyResponse,
   GetVoiceConnectorProxyResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -128,7 +127,7 @@ export class GetVoiceConnectorProxyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorProxyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: GetVoiceConnectorProxyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

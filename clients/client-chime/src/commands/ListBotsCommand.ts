@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  ListBotsRequest,
-  ListBotsRequestFilterSensitiveLog,
-  ListBotsResponse,
-  ListBotsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListBotsRequest, ListBotsResponse, ListBotsResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1ListBotsCommand,
   serializeAws_restJson1ListBotsCommand,
@@ -122,7 +117,7 @@ export class ListBotsCommand extends $Command<ListBotsCommandInput, ListBotsComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBotsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: ListBotsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

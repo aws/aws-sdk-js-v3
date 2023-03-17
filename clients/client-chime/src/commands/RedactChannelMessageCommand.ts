@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  RedactChannelMessageRequest,
-  RedactChannelMessageRequestFilterSensitiveLog,
-  RedactChannelMessageResponse,
-  RedactChannelMessageResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { RedactChannelMessageRequest, RedactChannelMessageResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1RedactChannelMessageCommand,
   serializeAws_restJson1RedactChannelMessageCommand,
@@ -132,8 +127,8 @@ export class RedactChannelMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RedactChannelMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RedactChannelMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

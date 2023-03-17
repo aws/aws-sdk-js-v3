@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  GetAccountRequest,
-  GetAccountRequestFilterSensitiveLog,
-  GetAccountResponse,
-  GetAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountRequest, GetAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAccountCommand,
   serializeAws_restJson1GetAccountCommand,
@@ -127,8 +122,8 @@ export class GetAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

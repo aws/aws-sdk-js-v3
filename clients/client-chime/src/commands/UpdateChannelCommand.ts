@@ -18,7 +18,6 @@ import {
   UpdateChannelRequest,
   UpdateChannelRequestFilterSensitiveLog,
   UpdateChannelResponse,
-  UpdateChannelResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateChannelCommand,
@@ -135,7 +134,7 @@ export class UpdateChannelCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

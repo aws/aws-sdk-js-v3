@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetSipMediaApplicationRequest,
-  GetSipMediaApplicationRequestFilterSensitiveLog,
   GetSipMediaApplicationResponse,
   GetSipMediaApplicationResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -128,7 +127,7 @@ export class GetSipMediaApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSipMediaApplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: GetSipMediaApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

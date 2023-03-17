@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   DescribeChannelModeratedByAppInstanceUserRequest,
-  DescribeChannelModeratedByAppInstanceUserRequestFilterSensitiveLog,
   DescribeChannelModeratedByAppInstanceUserResponse,
   DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -141,7 +140,7 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelModeratedByAppInstanceUserRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -16,9 +16,7 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetVoiceConnectorTerminationHealthRequest,
-  GetVoiceConnectorTerminationHealthRequestFilterSensitiveLog,
   GetVoiceConnectorTerminationHealthResponse,
-  GetVoiceConnectorTerminationHealthResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1GetVoiceConnectorTerminationHealthCommand,
@@ -131,8 +129,8 @@ export class GetVoiceConnectorTerminationHealthCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorTerminationHealthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVoiceConnectorTerminationHealthResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

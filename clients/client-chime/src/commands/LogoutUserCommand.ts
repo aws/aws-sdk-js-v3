@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  LogoutUserRequest,
-  LogoutUserRequestFilterSensitiveLog,
-  LogoutUserResponse,
-  LogoutUserResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { LogoutUserRequest, LogoutUserResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1LogoutUserCommand,
   serializeAws_restJson1LogoutUserCommand,
@@ -126,8 +121,8 @@ export class LogoutUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LogoutUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LogoutUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

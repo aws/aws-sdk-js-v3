@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { DeleteVoiceConnectorRequest, DeleteVoiceConnectorRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteVoiceConnectorRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVoiceConnectorCommand,
   serializeAws_restJson1DeleteVoiceConnectorCommand,
@@ -129,7 +129,7 @@ export class DeleteVoiceConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVoiceConnectorRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;

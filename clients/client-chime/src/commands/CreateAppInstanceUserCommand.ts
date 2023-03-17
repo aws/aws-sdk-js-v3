@@ -18,7 +18,6 @@ import {
   CreateAppInstanceUserRequest,
   CreateAppInstanceUserRequestFilterSensitiveLog,
   CreateAppInstanceUserResponse,
-  CreateAppInstanceUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAppInstanceUserCommand,
@@ -134,7 +133,7 @@ export class CreateAppInstanceUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateAppInstanceUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppInstanceUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

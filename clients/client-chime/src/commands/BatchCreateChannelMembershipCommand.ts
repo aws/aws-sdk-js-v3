@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   BatchCreateChannelMembershipRequest,
-  BatchCreateChannelMembershipRequestFilterSensitiveLog,
   BatchCreateChannelMembershipResponse,
   BatchCreateChannelMembershipResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -127,7 +126,7 @@ export class BatchCreateChannelMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateChannelMembershipRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: BatchCreateChannelMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

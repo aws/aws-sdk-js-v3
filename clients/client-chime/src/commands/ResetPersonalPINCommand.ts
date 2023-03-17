@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   ResetPersonalPINRequest,
-  ResetPersonalPINRequestFilterSensitiveLog,
   ResetPersonalPINResponse,
   ResetPersonalPINResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -129,7 +128,7 @@ export class ResetPersonalPINCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetPersonalPINRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: ResetPersonalPINResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

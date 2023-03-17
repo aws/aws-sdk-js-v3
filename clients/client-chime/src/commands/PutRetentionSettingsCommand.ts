@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  PutRetentionSettingsRequest,
-  PutRetentionSettingsRequestFilterSensitiveLog,
-  PutRetentionSettingsResponse,
-  PutRetentionSettingsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { PutRetentionSettingsRequest, PutRetentionSettingsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1PutRetentionSettingsCommand,
   serializeAws_restJson1PutRetentionSettingsCommand,
@@ -144,8 +139,8 @@ export class PutRetentionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRetentionSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRetentionSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

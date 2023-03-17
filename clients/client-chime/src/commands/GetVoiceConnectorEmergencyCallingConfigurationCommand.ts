@@ -16,7 +16,6 @@ import {
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import {
   GetVoiceConnectorEmergencyCallingConfigurationRequest,
-  GetVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
   GetVoiceConnectorEmergencyCallingConfigurationResponse,
   GetVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -137,7 +136,7 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

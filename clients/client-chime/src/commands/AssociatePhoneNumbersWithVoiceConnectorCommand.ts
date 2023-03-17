@@ -18,7 +18,6 @@ import {
   AssociatePhoneNumbersWithVoiceConnectorRequest,
   AssociatePhoneNumbersWithVoiceConnectorRequestFilterSensitiveLog,
   AssociatePhoneNumbersWithVoiceConnectorResponse,
-  AssociatePhoneNumbersWithVoiceConnectorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorCommand,
@@ -141,7 +140,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

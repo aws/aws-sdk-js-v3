@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  GetAttendeeRequest,
-  GetAttendeeRequestFilterSensitiveLog,
-  GetAttendeeResponse,
-  GetAttendeeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAttendeeRequest, GetAttendeeResponse, GetAttendeeResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAttendeeCommand,
   serializeAws_restJson1GetAttendeeCommand,
@@ -132,7 +127,7 @@ export class GetAttendeeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAttendeeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
       outputFilterSensitiveLog: GetAttendeeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

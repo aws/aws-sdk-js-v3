@@ -18,7 +18,6 @@ import {
   CreateChannelRequest,
   CreateChannelRequestFilterSensitiveLog,
   CreateChannelResponse,
-  CreateChannelResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateChannelCommand,
@@ -141,7 +140,7 @@ export class CreateChannelCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateChannelResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

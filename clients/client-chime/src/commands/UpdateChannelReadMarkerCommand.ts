@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import {
-  UpdateChannelReadMarkerRequest,
-  UpdateChannelReadMarkerRequestFilterSensitiveLog,
-  UpdateChannelReadMarkerResponse,
-  UpdateChannelReadMarkerResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateChannelReadMarkerRequest, UpdateChannelReadMarkerResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateChannelReadMarkerCommand,
   serializeAws_restJson1UpdateChannelReadMarkerCommand,
@@ -135,8 +130,8 @@ export class UpdateChannelReadMarkerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateChannelReadMarkerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelReadMarkerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _ as any,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
