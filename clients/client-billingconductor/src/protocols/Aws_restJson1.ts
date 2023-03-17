@@ -110,6 +110,7 @@ import {
   AssociateResourceResponseElement,
   BillingGroupCostReportElement,
   BillingGroupListElement,
+  BillingGroupStatus,
   ComputationPreference,
   ConflictException,
   CreateFreeTierConfig,
@@ -3041,6 +3042,14 @@ const serializeAws_restJson1AccountGrouping = (input: AccountGrouping, context: 
   };
 };
 
+const serializeAws_restJson1AccountIdFilterList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1AccountIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -3050,6 +3059,17 @@ const serializeAws_restJson1AccountIdList = (input: string[], context: __SerdeCo
 };
 
 const serializeAws_restJson1BillingGroupArnList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1BillingGroupStatusList = (
+  input: (BillingGroupStatus | string)[],
+  context: __SerdeContext
+): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -3170,6 +3190,9 @@ const serializeAws_restJson1ListAccountAssociationsFilter = (
 ): any => {
   return {
     ...(input.AccountId != null && { AccountId: input.AccountId }),
+    ...(input.AccountIds != null && {
+      AccountIds: serializeAws_restJson1AccountIdFilterList(input.AccountIds, context),
+    }),
     ...(input.Association != null && { Association: input.Association }),
   };
 };
@@ -3192,6 +3215,7 @@ const serializeAws_restJson1ListBillingGroupsFilter = (
   return {
     ...(input.Arns != null && { Arns: serializeAws_restJson1BillingGroupArnList(input.Arns, context) }),
     ...(input.PricingPlan != null && { PricingPlan: input.PricingPlan }),
+    ...(input.Statuses != null && { Statuses: serializeAws_restJson1BillingGroupStatusList(input.Statuses, context) }),
   };
 };
 
@@ -3525,6 +3549,7 @@ const deserializeAws_restJson1CustomLineItemVersionListElement = (
   context: __SerdeContext
 ): CustomLineItemVersionListElement => {
   return {
+    Arn: __expectString(output.Arn),
     AssociationSize: __expectLong(output.AssociationSize),
     BillingGroupArn: __expectString(output.BillingGroupArn),
     ChargeDetails:
@@ -3539,6 +3564,7 @@ const deserializeAws_restJson1CustomLineItemVersionListElement = (
     Name: __expectString(output.Name),
     ProductCode: __expectString(output.ProductCode),
     StartBillingPeriod: __expectString(output.StartBillingPeriod),
+    StartTime: __expectLong(output.StartTime),
   } as any;
 };
 
@@ -3709,10 +3735,12 @@ const deserializeAws_restJson1PricingRuleListElement = (
     LastModifiedTime: __expectLong(output.LastModifiedTime),
     ModifierPercentage: __limitedParseDouble(output.ModifierPercentage),
     Name: __expectString(output.Name),
+    Operation: __expectString(output.Operation),
     Scope: __expectString(output.Scope),
     Service: __expectString(output.Service),
     Tiering: output.Tiering != null ? deserializeAws_restJson1Tiering(output.Tiering, context) : undefined,
     Type: __expectString(output.Type),
+    UsageType: __expectString(output.UsageType),
   } as any;
 };
 

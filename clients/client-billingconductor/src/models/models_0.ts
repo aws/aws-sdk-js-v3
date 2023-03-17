@@ -321,6 +321,7 @@ export enum ValidationExceptionReason {
   ILLEGAL_ENDED_BILLINGGROUP = "ILLEGAL_ENDED_BILLINGGROUP",
   ILLEGAL_EXPRESSION = "ILLEGAL_EXPRESSION",
   ILLEGAL_MODIFIER_PERCENTAGE = "ILLEGAL_MODIFIER_PERCENTAGE",
+  ILLEGAL_OPERATION = "ILLEGAL_OPERATION",
   ILLEGAL_PRIMARY_ACCOUNT = "ILLEGAL_PRIMARY_ACCOUNT",
   ILLEGAL_RESOURCE_ARNS = "ILLEGAL_RESOURCE_ARNS",
   ILLEGAL_SCOPE = "ILLEGAL_SCOPE",
@@ -328,11 +329,14 @@ export enum ValidationExceptionReason {
   ILLEGAL_TIERING_INPUT = "ILLEGAL_TIERING_INPUT",
   ILLEGAL_TYPE = "ILLEGAL_TYPE",
   ILLEGAL_UPDATE_CHARGE_DETAILS = "ILLEGAL_UPDATE_CHARGE_DETAILS",
+  ILLEGAL_USAGE_TYPE = "ILLEGAL_USAGE_TYPE",
   INVALID_ARN = "INVALID_ARN",
   INVALID_BILLINGVIEW_ARN = "INVALID_BILLINGVIEW_ARN",
   INVALID_BILLING_GROUP = "INVALID_BILLING_GROUP",
   INVALID_BILLING_GROUP_STATUS = "INVALID_BILLING_GROUP_STATUS",
   INVALID_BILLING_PERIOD_FOR_OPERATION = "INVALID_BILLING_PERIOD_FOR_OPERATION",
+  INVALID_FILTER = "INVALID_FILTER",
+  INVALID_SKU_COMBO = "INVALID_SKU_COMBO",
   INVALID_TIME_RANGE = "INVALID_TIME_RANGE",
   MISMATCHED_BILLINGGROUP_ARN = "MISMATCHED_BILLINGGROUP_ARN",
   MISMATCHED_BILLINGVIEW_ARN = "MISMATCHED_BILLINGVIEW_ARN",
@@ -563,6 +567,11 @@ export interface DisassociateAccountsOutput {
   Arn?: string;
 }
 
+export enum BillingGroupStatus {
+  ACTIVE = "ACTIVE",
+  PRIMARY_ACCOUNT_MISSING = "PRIMARY_ACCOUNT_MISSING",
+}
+
 /**
  * <p>The filter that specifies the billing groups and pricing plans to retrieve billing group information.
  *     </p>
@@ -577,6 +586,13 @@ export interface ListBillingGroupsFilter {
    * <p>The pricing plan Amazon Resource Names (ARNs) to retrieve information. </p>
    */
   PricingPlan?: string;
+
+  /**
+   * <p>
+   *       A list of billing groups to retrieve their current status for a specific time range
+   *     </p>
+   */
+  Statuses?: (BillingGroupStatus | string)[];
 }
 
 export interface ListBillingGroupsInput {
@@ -603,11 +619,6 @@ export interface ListBillingGroupsInput {
    *     </p>
    */
   Filters?: ListBillingGroupsFilter;
-}
-
-export enum BillingGroupStatus {
-  ACTIVE = "ACTIVE",
-  PRIMARY_ACCOUNT_MISSING = "PRIMARY_ACCOUNT_MISSING",
 }
 
 /**
@@ -1357,6 +1368,20 @@ export interface CustomLineItemVersionListElement {
    * <p>The end billing period of the custom line item version.</p>
    */
   EndBillingPeriod?: string;
+
+  /**
+   * <p>
+   *       A list of custom line item Amazon Resource Names (ARNs) to retrieve information.
+   *     </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>
+   *       The inclusive start time.
+   *     </p>
+   */
+  StartTime?: number;
 }
 
 export interface ListCustomLineItemVersionsOutput {
@@ -1639,6 +1664,13 @@ export interface ListAccountAssociationsFilter {
    *     </p>
    */
   AccountId?: string;
+
+  /**
+   * <p>
+   *       The list of Amazon Web Services IDs to retrieve their associated billing group for a given time range.
+   *     </p>
+   */
+  AccountIds?: string[];
 }
 
 export interface ListAccountAssociationsInput {
@@ -2080,6 +2112,7 @@ export enum PricingRuleScope {
   BILLING_ENTITY = "BILLING_ENTITY",
   GLOBAL = "GLOBAL",
   SERVICE = "SERVICE",
+  SKU = "SKU",
 }
 
 /**
@@ -2376,6 +2409,23 @@ export interface PricingRuleListElement {
    *     </p>
    */
   Tiering?: Tiering;
+
+  /**
+   * <p>
+   *       Usage type is the unit that each service uses to measure the usage of a specific type of resource.</p>
+   *          <p>If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates which usage type the <code>PricingRule</code> is modifying. For example, <code>USW2-BoxUsage:m2.2xlarge</code> describes an<code> M2 High Memory Double Extra Large</code> instance in the US West (Oregon) Region.
+   *
+   *     </p>
+   */
+  UsageType?: string;
+
+  /**
+   * <p>
+   *       Operation is the specific Amazon Web Services action covered by this line item. This describes the specific usage of the line item.</p>
+   *          <p>
+   *         If the <code>Scope</code> attribute is set to <code>SKU</code>, this attribute indicates which operation the <code>PricingRule</code> is modifying. For example, a value of <code>RunInstances:0202</code> indicates the operation of running an Amazon EC2 instance.</p>
+   */
+  Operation?: string;
 }
 
 export interface ListPricingRulesOutput {
