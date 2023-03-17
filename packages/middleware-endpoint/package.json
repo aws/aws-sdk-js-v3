@@ -27,7 +27,7 @@
     "@aws-sdk/url-parser": "*",
     "@aws-sdk/util-config-provider": "*",
     "@aws-sdk/util-middleware": "*",
-    "tslib": "^2.3.1"
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
@@ -35,7 +35,7 @@
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
     "typedoc": "0.23.23",
-    "typescript": "~4.6.2"
+    "typescript": "~4.9.5"
   },
   "engines": {
     "node": ">=14.0.0"
