@@ -42,46 +42,44 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * 				<code>StartConfigRulesEvaluation</code> does not re-record the
  * 			latest configuration state for your resources. It re-runs an
  * 			evaluation against the last known state of your resources. </p>
- * 		       <p>You can specify up to 25 Config rules per request. </p>
- *
- *
- * 		       <p>An existing <code>StartConfigRulesEvaluation</code> call for
+ *          <p>You can specify up to 25 Config rules per request. </p>
+ *          <p>An existing <code>StartConfigRulesEvaluation</code> call for
  * 			the specified rules must complete before you can call the API again.
  * 			If you chose to have Config stream to an Amazon SNS topic, you
  * 			will receive a <code>ConfigRuleEvaluationStarted</code> notification
  * 			when the evaluation starts.</p>
- * 		       <note>
- * 			         <p>You don't need to call the
+ *          <note>
+ *             <p>You don't need to call the
  * 					<code>StartConfigRulesEvaluation</code> API to run an
  * 				evaluation for a new rule. When you create a rule, Config
  * 				evaluates your resources against the rule automatically.
  * 			</p>
- * 		       </note>
- * 		       <p>The <code>StartConfigRulesEvaluation</code> API is useful if
+ *          </note>
+ *          <p>The <code>StartConfigRulesEvaluation</code> API is useful if
  * 			you want to run on-demand evaluations, such as the following
  * 			example:</p>
- * 		       <ol>
+ *          <ol>
  *             <li>
- * 				           <p>You have a custom rule that evaluates your IAM
+ *                <p>You have a custom rule that evaluates your IAM
  * 					resources every 24 hours.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>You update your Lambda function to add additional
+ *                <p>You update your Lambda function to add additional
  * 					conditions to your rule.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Instead of waiting for the next periodic evaluation,
+ *                <p>Instead of waiting for the next periodic evaluation,
  * 					you call the <code>StartConfigRulesEvaluation</code>
  * 					API.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Config invokes your Lambda function and evaluates
+ *                <p>Config invokes your Lambda function and evaluates
  * 					your IAM resources.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Your custom rule will still run periodic evaluations
+ *                <p>Your custom rule will still run periodic evaluations
  * 					every 24 hours.</p>
- * 			         </li>
+ *             </li>
  *          </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -98,23 +96,23 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>For <code>StartConfigRulesEvaluation</code> API, this exception
  * 			is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per
  * 			minute.</p>
- * 		       <p>For <code>PutConfigurationAggregator</code> API, this exception
+ *          <p>For <code>PutConfigurationAggregator</code> API, this exception
  * 			is thrown if the number of accounts and aggregators exceeds the
  * 			limit.</p>
  *
  * @throws {@link NoSuchConfigRuleException} (client fault)
- *  <p>The Config rule in the request is invalid. Verify that the rule is an Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>You see this exception in the following cases: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
  *             </li>

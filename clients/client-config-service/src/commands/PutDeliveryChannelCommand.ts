@@ -32,21 +32,19 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 /**
  * <p>Creates a delivery channel object to deliver configuration
  * 			information to an Amazon S3 bucket and Amazon SNS topic.</p>
- * 		       <p>Before you can create a delivery channel, you must create a
+ *          <p>Before you can create a delivery channel, you must create a
  * 			configuration recorder.</p>
- * 		       <p>You can use this action to change the Amazon S3 bucket or an
+ *          <p>You can use this action to change the Amazon S3 bucket or an
  * 			Amazon SNS topic of the existing delivery channel. To change the
  * 			Amazon S3 bucket or an Amazon SNS topic, call this action and
  * 			specify the changed values for the S3 bucket and the SNS topic. If
  * 			you specify a different value for either the S3 bucket or the SNS
  * 			topic, this action will keep the existing value for the parameter
  * 			that is not changed.</p>
- * 		       <note>
- * 			         <p>You can have only one delivery channel per region in your
+ *          <note>
+ *             <p>You can have only one delivery channel per region in your
  * 				account.</p>
- *
- *
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,13 +64,13 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * 			write to it.</p>
  *
  * @throws {@link InvalidDeliveryChannelNameException} (client fault)
- *  <p>The specified delivery channel name is invalid.</p>
+ *  <p>The specified delivery channel name is not valid.</p>
  *
  * @throws {@link InvalidS3KeyPrefixException} (client fault)
- *  <p>The specified Amazon S3 key prefix is invalid.</p>
+ *  <p>The specified Amazon S3 key prefix is not valid.</p>
  *
  * @throws {@link InvalidS3KmsKeyArnException} (client fault)
- *  <p>The specified Amazon KMS Key ARN is invalid.</p>
+ *  <p>The specified Amazon KMS Key ARN is not valid.</p>
  *
  * @throws {@link InvalidSNSTopicARNException} (client fault)
  *  <p>The specified Amazon SNS topic does not exist.</p>

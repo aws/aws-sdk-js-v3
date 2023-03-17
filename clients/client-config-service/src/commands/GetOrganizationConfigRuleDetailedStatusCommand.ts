@@ -57,16 +57,16 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
  * @throws {@link NoSuchOrganizationConfigRuleException} (client fault)
- *  <p>The Config rule in the request is invalid. Verify that the rule is an organization Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
  * @throws {@link OrganizationAccessDeniedException} (client fault)
  *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
  *             </li>
@@ -83,7 +83,7 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput
  * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
- * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
  *
  */

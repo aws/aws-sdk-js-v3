@@ -34,10 +34,10 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
 
 /**
  * <p>Deletes the specified organization Config rule and all of its evaluation results from all member accounts in that organization. </p>
- * 	        <p>Only a management account and a delegated administrator account can delete an organization Config rule.
+ *          <p>Only a management account and a delegated administrator account can delete an organization Config rule.
  * 		When calling this API with a delegated administrator, you must ensure Organizations
  * 			<code>ListDelegatedAdministrator</code> permissions are added.</p>
- * 		       <p>Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
+ *          <p>Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete.
  * 			You cannot update a rule while it is in this state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,11 +54,11 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link NoSuchOrganizationConfigRuleException} (client fault)
- *  <p>The Config rule in the request is invalid. Verify that the rule is an organization Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
  * @throws {@link OrganizationAccessDeniedException} (client fault)
  *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
  *             </li>
@@ -75,11 +75,11 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
- * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>You see this exception in the following cases: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
  *             </li>

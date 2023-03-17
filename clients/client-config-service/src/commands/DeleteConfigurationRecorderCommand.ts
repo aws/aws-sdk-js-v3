@@ -34,10 +34,10 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
 
 /**
  * <p>Deletes the configuration recorder.</p>
- * 		       <p>After the configuration recorder is deleted, Config will
+ *          <p>After the configuration recorder is deleted, Config will
  * 			not record resource configuration changes until you create a new
  * 			configuration recorder.</p>
- * 		       <p>This action does not delete the configuration information that
+ *          <p>This action does not delete the configuration information that
  * 			was previously recorded. You will be able to access the previously
  * 			recorded information by using the
  * 				<code>GetResourceConfigHistory</code> action, but you will not

@@ -31,7 +31,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates the specified tags to a resource with the specified resourceArn. If existing tags on a resource are not specified in the request parameters, they are not changed.
- * 			When a resource is deleted, the tags associated with that resource are deleted as well.</p>
+ * 			If existing tags are specified, however, then their values will be updated. When a resource is deleted, the tags associated with that resource are deleted as well.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,9 +56,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             </a> in the Config Developer Guide.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

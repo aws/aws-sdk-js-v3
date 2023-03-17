@@ -32,18 +32,18 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
 /**
  * <p>Creates a new configuration recorder to record the selected
  * 			resource configurations.</p>
- * 		       <p>You can use this action to change the role <code>roleARN</code>
+ *          <p>You can use this action to change the role <code>roleARN</code>
  * 			or the <code>recordingGroup</code> of an existing recorder. To
  * 			change the role, call the action on the existing configuration
  * 			recorder and specify a role.</p>
- * 		       <note>
- * 			         <p>Currently, you can specify only one configuration recorder
+ *          <note>
+ *             <p>Currently, you can specify only one configuration recorder
  * 				per region in your account.</p>
- * 			         <p>If <code>ConfigurationRecorder</code> does not have the
+ *             <p>If <code>ConfigurationRecorder</code> does not have the
  * 					<b>recordingGroup</b> parameter
  * 				specified, the default is to record all supported resource
  * 				types.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +63,7 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * 			valid.</p>
  *
  * @throws {@link InvalidRecordingGroupException} (client fault)
- *  <p>Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values might also be incorrectly formatted.</p>
+ *  <p>Config throws an exception if the recording group does not contain a valid list of resource types. Values that are not valid might also be incorrectly formatted.</p>
  *
  * @throws {@link InvalidRoleException} (client fault)
  *  <p>You have provided a null or empty role ARN.</p>

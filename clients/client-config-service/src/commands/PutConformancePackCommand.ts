@@ -40,9 +40,9 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the Config Developer Guide.</p>
- * 		       <p>This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
+ *          <p>This API creates a service-linked role <code>AWSServiceRoleForConfigConforms</code> in your account.
  * 		The service-linked role is created only when the role does not exist in your account. </p>
- * 		       <note>
+ *          <note>
  *             <p>You must specify only one of the follow parameters: <code>TemplateS3Uri</code>, <code>TemplateBody</code> or <code>TemplateSSMDocumentDetails</code>.</p>
  *          </note>
  * @example
@@ -60,11 +60,11 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link ConformancePackTemplateValidationException} (client fault)
- *  <p>You have specified a template that is invalid or supported.</p>
+ *  <p>You have specified a template that is not valid or supported.</p>
  *
  * @throws {@link InsufficientPermissionsException} (client fault)
  *  <p>Indicates one of the following errors:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
@@ -76,7 +76,7 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
@@ -84,11 +84,11 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
- * 			         </li>
+ *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link MaxNumberOfConformancePacksExceededException} (client fault)
@@ -98,7 +98,7 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>You see this exception in the following cases: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
  *             </li>

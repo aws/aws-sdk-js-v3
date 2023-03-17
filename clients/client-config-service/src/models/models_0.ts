@@ -59,14 +59,14 @@ export interface Compliance {
   /**
    * <p>Indicates whether an Amazon Web Services resource or Config rule is
    * 			compliant.</p>
-   * 		       <p>A resource is compliant if it complies with all of the Config rules that evaluate it. A resource is noncompliant if it does
+   *          <p>A resource is compliant if it complies with all of the Config rules that evaluate it. A resource is noncompliant if it does
    * 			not comply with one or more of these rules.</p>
-   * 		       <p>A rule is compliant if all of the resources that the rule
+   *          <p>A rule is compliant if all of the resources that the rule
    * 			evaluates comply with it. A rule is noncompliant if any of these
    * 			resources do not comply.</p>
-   * 		       <p>Config returns the <code>INSUFFICIENT_DATA</code> value
+   *          <p>Config returns the <code>INSUFFICIENT_DATA</code> value
    * 			when no evaluation results are available for the Amazon Web Services resource or Config rule.</p>
-   * 		       <p>For the <code>Compliance</code> data type, Config supports
+   *          <p>For the <code>Compliance</code> data type, Config supports
    * 			only <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and
    * 				<code>INSUFFICIENT_DATA</code> values. Config does not
    * 			support the <code>NOT_APPLICABLE</code> value for the
@@ -85,7 +85,7 @@ export interface Compliance {
 /**
  * <p>Indicates whether an Config rule is compliant based on
  * 			account ID, region, compliance, and rule name.</p>
- * 		       <p>A rule is compliant if all of the resources that the rule
+ *          <p>A rule is compliant if all of the resources that the rule
  * 			evaluated comply with it. It is noncompliant if any of these
  * 			resources do not comply.</p>
  */
@@ -122,8 +122,7 @@ export enum ConformancePackComplianceType {
 /**
  * <p>Provides the number of compliant and noncompliant rules within a conformance pack.
  * 			Also provides the compliance status of the conformance pack and the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
- *
- * 		       <p>A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant.
+ *          <p>A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant.
  * 			The compliance status of a conformance pack is INSUFFICIENT_DATA only if all rules within a conformance pack cannot be evaluated due to insufficient data.
  * 			If some of the rules in a conformance pack are compliant but the compliance status of other rules in that same conformance pack is INSUFFICIENT_DATA, the conformance pack shows compliant.</p>
  */
@@ -151,7 +150,7 @@ export interface AggregateConformancePackCompliance {
 
 /**
  * <p>Provides aggregate compliance of the conformance pack. Indicates whether a conformance pack is compliant based on the name of the conformance pack, account ID, and region.</p>
- * 		       <p>A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant.
+ *          <p>A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant.
  * 			The compliance status of a conformance pack is INSUFFICIENT_DATA only if all rules within a conformance pack cannot be evaluated due to insufficient data.
  * 			If some of the rules in a conformance pack are compliant but the compliance status of other rules in that same conformance pack is INSUFFICIENT_DATA, the conformance pack shows
  * 			compliant.</p>
@@ -330,19 +329,19 @@ export interface AggregatedSourceStatus {
 
   /**
    * <p>Filters the last updated status type.</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>Valid value FAILED indicates errors while moving
+   *                <p>Valid value FAILED indicates errors while moving
    * 					data.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>Valid value SUCCEEDED indicates the data was
+   *                <p>Valid value SUCCEEDED indicates the data was
    * 					successfully moved.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>Valid value OUTDATED indicates the data is not the most
+   *                <p>Valid value OUTDATED indicates the data is not the most
    * 					recent.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   LastUpdateStatus?: AggregatedSourceStatusType | string;
@@ -436,7 +435,7 @@ export interface AggregateEvaluationResult {
 
   /**
    * <p>The resource compliance status.</p>
-   * 		       <p>For the <code>AggregationEvaluationResult</code> data type, Config supports only the <code>COMPLIANT</code> and
+   *          <p>For the <code>AggregationEvaluationResult</code> data type, Config supports only the <code>COMPLIANT</code> and
    * 				<code>NON_COMPLIANT</code>. Config does not support the
    * 				<code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code>
    * 			value.</p>
@@ -476,8 +475,11 @@ export enum ResourceType {
   AccessAnalyzerAnalyzer = "AWS::AccessAnalyzer::Analyzer",
   AccountPublicAccessBlock = "AWS::S3::AccountPublicAccessBlock",
   Alarm = "AWS::CloudWatch::Alarm",
+  AmazonMQBroker = "AWS::AmazonMQ::Broker",
   Api = "AWS::ApiGatewayV2::Api",
   AppConfigApplication = "AWS::AppConfig::Application",
+  AppConfigConfigurationProfile = "AWS::AppConfig::ConfigurationProfile",
+  AppConfigEnvironment = "AWS::AppConfig::Environment",
   AppSyncGraphQLApi = "AWS::AppSync::GraphQLApi",
   Application = "AWS::ElasticBeanstalk::Application",
   ApplicationVersion = "AWS::ElasticBeanstalk::ApplicationVersion",
@@ -487,12 +489,15 @@ export enum ResourceType {
   AutoScalingGroup = "AWS::AutoScaling::AutoScalingGroup",
   BackupPlan = "AWS::Backup::BackupPlan",
   BackupRecoveryPoint = "AWS::Backup::RecoveryPoint",
+  BackupReportPlan = "AWS::Backup::ReportPlan",
   BackupSelection = "AWS::Backup::BackupSelection",
   BackupVault = "AWS::Backup::BackupVault",
   BatchComputeEnvironment = "AWS::Batch::ComputeEnvironment",
   BatchJobQueue = "AWS::Batch::JobQueue",
   Bucket = "AWS::S3::Bucket",
+  BudgetsBudgetsAction = "AWS::Budgets::BudgetsAction",
   Certificate = "AWS::ACM::Certificate",
+  Cloud9EnvironmentEC2 = "AWS::Cloud9::EnvironmentEC2",
   CloudFormationProduct = "AWS::ServiceCatalog::CloudFormationProduct",
   CloudFormationProvisionedProduct = "AWS::ServiceCatalog::CloudFormationProvisionedProduct",
   Cluster = "AWS::Redshift::Cluster",
@@ -503,6 +508,7 @@ export enum ResourceType {
   CodeDeployApplication = "AWS::CodeDeploy::Application",
   CodeDeployDeploymentConfig = "AWS::CodeDeploy::DeploymentConfig",
   CodeDeployDeploymentGroup = "AWS::CodeDeploy::DeploymentGroup",
+  CodeGuruReviewerRepositoryAssociation = "AWS::CodeGuruReviewer::RepositoryAssociation",
   ConformancePackCompliance = "AWS::Config::ConformancePackCompliance",
   CustomerGateway = "AWS::EC2::CustomerGateway",
   DBCluster = "AWS::RDS::DBCluster",
@@ -516,14 +522,21 @@ export enum ResourceType {
   DMSReplicationSubnetGroup = "AWS::DMS::ReplicationSubnetGroup",
   DataSyncLocationEFS = "AWS::DataSync::LocationEFS",
   DataSyncLocationFSxLustre = "AWS::DataSync::LocationFSxLustre",
+  DataSyncLocationFSxWindows = "AWS::DataSync::LocationFSxWindows",
+  DataSyncLocationHDFS = "AWS::DataSync::LocationHDFS",
   DataSyncLocationNFS = "AWS::DataSync::LocationNFS",
+  DataSyncLocationObjectStorage = "AWS::DataSync::LocationObjectStorage",
   DataSyncLocationS3 = "AWS::DataSync::LocationS3",
   DataSyncLocationSMB = "AWS::DataSync::LocationSMB",
   DataSyncTask = "AWS::DataSync::Task",
   DetectiveGraph = "AWS::Detective::Graph",
+  DeviceFarmTestGridProject = "AWS::DeviceFarm::TestGridProject",
   Distribution = "AWS::CloudFront::Distribution",
   Domain = "AWS::Elasticsearch::Domain",
+  EC2TrafficMirrorSession = "AWS::EC2::TrafficMirrorSession",
+  EC2TrafficMirrorTarget = "AWS::EC2::TrafficMirrorTarget",
   ECRPublicRepository = "AWS::ECR::PublicRepository",
+  ECRRegistryPolicy = "AWS::ECR::RegistryPolicy",
   ECRRepository = "AWS::ECR::Repository",
   ECSCluster = "AWS::ECS::Cluster",
   ECSService = "AWS::ECS::Service",
@@ -531,39 +544,97 @@ export enum ResourceType {
   EFSAccessPoint = "AWS::EFS::AccessPoint",
   EFSFileSystem = "AWS::EFS::FileSystem",
   EIP = "AWS::EC2::EIP",
+  EKSAddon = "AWS::EKS::Addon",
   EKSCluster = "AWS::EKS::Cluster",
   EKSFargateProfile = "AWS::EKS::FargateProfile",
+  EKSIdentityProviderConfig = "AWS::EKS::IdentityProviderConfig",
   EMRSecurityConfiguration = "AWS::EMR::SecurityConfiguration",
   EgressOnlyInternetGateway = "AWS::EC2::EgressOnlyInternetGateway",
   EncryptionConfig = "AWS::XRay::EncryptionConfig",
   Environment = "AWS::ElasticBeanstalk::Environment",
+  EventSchemasDiscoverer = "AWS::EventSchemas::Discoverer",
+  EventSchemasRegistry = "AWS::EventSchemas::Registry",
+  EventSchemasRegistryPolicy = "AWS::EventSchemas::RegistryPolicy",
+  EventSchemasSchema = "AWS::EventSchemas::Schema",
   EventSubscription = "AWS::RDS::EventSubscription",
+  EventsApiDestination = "AWS::Events::ApiDestination",
+  EventsArchive = "AWS::Events::Archive",
+  EventsConnection = "AWS::Events::Connection",
+  EventsEndpoint = "AWS::Events::Endpoint",
+  EventsEventBus = "AWS::Events::EventBus",
+  FISExperimentTemplate = "AWS::FIS::ExperimentTemplate",
   FileData = "AWS::SSM::FileData",
   FlowLog = "AWS::EC2::FlowLog",
+  FraudDetectorEntityType = "AWS::FraudDetector::EntityType",
+  FraudDetectorLabel = "AWS::FraudDetector::Label",
+  FraudDetectorOutcome = "AWS::FraudDetector::Outcome",
+  FraudDetectorVariable = "AWS::FraudDetector::Variable",
   Function = "AWS::Lambda::Function",
   GlobalAcceleratorAccelerator = "AWS::GlobalAccelerator::Accelerator",
   GlobalAcceleratorEndpointGroup = "AWS::GlobalAccelerator::EndpointGroup",
   GlobalAcceleratorListener = "AWS::GlobalAccelerator::Listener",
+  GlueClassifier = "AWS::Glue::Classifier",
   GlueJob = "AWS::Glue::Job",
+  GlueMLTransform = "AWS::Glue::MLTransform",
   Group = "AWS::IAM::Group",
   GuardDutyDetector = "AWS::GuardDuty::Detector",
+  GuardDutyFilter = "AWS::GuardDuty::Filter",
   GuardDutyIPSet = "AWS::GuardDuty::IPSet",
   GuardDutyThreatIntelSet = "AWS::GuardDuty::ThreatIntelSet",
   Host = "AWS::EC2::Host",
   IPSetV2 = "AWS::WAFv2::IPSet",
+  IVSChannel = "AWS::IVS::Channel",
+  IVSPlaybackKeyPair = "AWS::IVS::PlaybackKeyPair",
+  IVSRecordingConfiguration = "AWS::IVS::RecordingConfiguration",
+  ImageBuilderContainerRecipe = "AWS::ImageBuilder::ContainerRecipe",
+  ImageBuilderDistributionConfiguration = "AWS::ImageBuilder::DistributionConfiguration",
+  ImageBuilderInfrastructureConfiguration = "AWS::ImageBuilder::InfrastructureConfiguration",
   Instance = "AWS::EC2::Instance",
   InternetGateway = "AWS::EC2::InternetGateway",
+  IoTAccountAuditConfiguration = "AWS::IoT::AccountAuditConfiguration",
+  IoTAnalyticsChannel = "AWS::IoTAnalytics::Channel",
+  IoTAnalyticsDataset = "AWS::IoTAnalytics::Dataset",
+  IoTAnalyticsDatastore = "AWS::IoTAnalytics::Datastore",
+  IoTAnalyticsPipeline = "AWS::IoTAnalytics::Pipeline",
+  IoTAuthorizer = "AWS::IoT::Authorizer",
+  IoTCustomMetric = "AWS::IoT::CustomMetric",
+  IoTDimension = "AWS::IoT::Dimension",
+  IoTEventsAlarmModel = "AWS::IoTEvents::AlarmModel",
+  IoTEventsDetectorModel = "AWS::IoTEvents::DetectorModel",
+  IoTEventsInput = "AWS::IoTEvents::Input",
+  IoTMitigationAction = "AWS::IoT::MitigationAction",
+  IoTPolicy = "AWS::IoT::Policy",
+  IoTRoleAlias = "AWS::IoT::RoleAlias",
+  IoTScheduledAudit = "AWS::IoT::ScheduledAudit",
+  IoTSecurityProfile = "AWS::IoT::SecurityProfile",
+  IoTSiteWiseAssetModel = "AWS::IoTSiteWise::AssetModel",
+  IoTSiteWiseDashboard = "AWS::IoTSiteWise::Dashboard",
+  IoTSiteWiseGateway = "AWS::IoTSiteWise::Gateway",
+  IoTSiteWisePortal = "AWS::IoTSiteWise::Portal",
+  IoTSiteWiseProject = "AWS::IoTSiteWise::Project",
+  IoTTwinMakerEntity = "AWS::IoTTwinMaker::Entity",
+  IoTTwinMakerWorkspace = "AWS::IoTTwinMaker::Workspace",
   Key = "AWS::KMS::Key",
+  KinesisAnalyticsV2Application = "AWS::KinesisAnalyticsV2::Application",
   KinesisStream = "AWS::Kinesis::Stream",
   KinesisStreamConsumer = "AWS::Kinesis::StreamConsumer",
   LaunchConfiguration = "AWS::AutoScaling::LaunchConfiguration",
   LaunchTemplate = "AWS::EC2::LaunchTemplate",
+  LexBot = "AWS::Lex::Bot",
+  LexBotAlias = "AWS::Lex::BotAlias",
+  LightsailBucket = "AWS::Lightsail::Bucket",
+  LightsailCertificate = "AWS::Lightsail::Certificate",
+  LightsailDisk = "AWS::Lightsail::Disk",
+  LightsailStaticIp = "AWS::Lightsail::StaticIp",
   ListenerV2 = "AWS::ElasticLoadBalancingV2::Listener",
   LoadBalancer = "AWS::ElasticLoadBalancing::LoadBalancer",
   LoadBalancerV2 = "AWS::ElasticLoadBalancingV2::LoadBalancer",
+  LookoutMetricsAlert = "AWS::LookoutMetrics::Alert",
   MSKCluster = "AWS::MSK::Cluster",
   ManagedInstanceInventory = "AWS::SSM::ManagedInstanceInventory",
   ManagedRuleSetV2 = "AWS::WAFv2::ManagedRuleSet",
+  MediaPackagePackagingConfiguration = "AWS::MediaPackage::PackagingConfiguration",
+  MediaPackagePackagingGroup = "AWS::MediaPackage::PackagingGroup",
   NatGateway = "AWS::EC2::NatGateway",
   NetworkAcl = "AWS::EC2::NetworkAcl",
   NetworkFirewallFirewall = "AWS::NetworkFirewall::Firewall",
@@ -580,6 +651,8 @@ export enum ResourceType {
   Protection = "AWS::Shield::Protection",
   QLDBLedger = "AWS::QLDB::Ledger",
   Queue = "AWS::SQS::Queue",
+  RDSGlobalCluster = "AWS::RDS::GlobalCluster",
+  RUMAppMonitor = "AWS::RUM::AppMonitor",
   RateBasedRule = "AWS::WAF::RateBasedRule",
   RedshiftEventSubscription = "AWS::Redshift::EventSubscription",
   RegexPatternSetV2 = "AWS::WAFv2::RegexPatternSet",
@@ -589,10 +662,16 @@ export enum ResourceType {
   RegionalRuleGroup = "AWS::WAFRegional::RuleGroup",
   RegionalWebACL = "AWS::WAFRegional::WebACL",
   RegisteredHAInstance = "AWS::EC2::RegisteredHAInstance",
+  ResilienceHubResiliencyPolicy = "AWS::ResilienceHub::ResiliencyPolicy",
   ResourceCompliance = "AWS::Config::ResourceCompliance",
   RestApi = "AWS::ApiGateway::RestApi",
+  RoboMakerRobotApplicationVersion = "AWS::RoboMaker::RobotApplicationVersion",
   Role = "AWS::IAM::Role",
   Route53HostedZone = "AWS::Route53::HostedZone",
+  Route53RecoveryReadinessCell = "AWS::Route53RecoveryReadiness::Cell",
+  Route53RecoveryReadinessReadinessCheck = "AWS::Route53RecoveryReadiness::ReadinessCheck",
+  Route53RecoveryReadinessRecoveryGroup = "AWS::Route53RecoveryReadiness::RecoveryGroup",
+  Route53ResolverFirewallDomainList = "AWS::Route53Resolver::FirewallDomainList",
   Route53ResolverResolverEndpoint = "AWS::Route53Resolver::ResolverEndpoint",
   Route53ResolverResolverRule = "AWS::Route53Resolver::ResolverRule",
   Route53ResolverResolverRuleAssociation = "AWS::Route53Resolver::ResolverRuleAssociation",
@@ -600,8 +679,13 @@ export enum ResourceType {
   Rule = "AWS::WAF::Rule",
   RuleGroup = "AWS::WAF::RuleGroup",
   RuleGroupV2 = "AWS::WAFv2::RuleGroup",
+  S3MultiRegionAccessPoint = "AWS::S3::MultiRegionAccessPoint",
+  S3StorageLens = "AWS::S3::StorageLens",
   SESConfigurationSet = "AWS::SES::ConfigurationSet",
   SESContactList = "AWS::SES::ContactList",
+  SESReceiptFilter = "AWS::SES::ReceiptFilter",
+  SESReceiptRuleSet = "AWS::SES::ReceiptRuleSet",
+  SESTemplate = "AWS::SES::Template",
   SageMakerCodeRepository = "AWS::SageMaker::CodeRepository",
   SageMakerModel = "AWS::SageMaker::Model",
   SageMakerNotebookInstanceLifecycleConfig = "AWS::SageMaker::NotebookInstanceLifecycleConfig",
@@ -610,6 +694,7 @@ export enum ResourceType {
   ScheduledAction = "AWS::AutoScaling::ScheduledAction",
   Secret = "AWS::SecretsManager::Secret",
   SecurityGroup = "AWS::EC2::SecurityGroup",
+  ServiceDiscoveryHttpNamespace = "AWS::ServiceDiscovery::HttpNamespace",
   ServiceDiscoveryPublicDnsNamespace = "AWS::ServiceDiscovery::PublicDnsNamespace",
   ServiceDiscoveryService = "AWS::ServiceDiscovery::Service",
   Stack = "AWS::CloudFormation::Stack",
@@ -622,6 +707,7 @@ export enum ResourceType {
   Table = "AWS::DynamoDB::Table",
   Topic = "AWS::SNS::Topic",
   Trail = "AWS::CloudTrail::Trail",
+  TransferWorkflow = "AWS::Transfer::Workflow",
   TransitGateway = "AWS::EC2::TransitGateway",
   TransitGatewayAttachment = "AWS::EC2::TransitGatewayAttachment",
   TransitGatewayRouteTable = "AWS::EC2::TransitGatewayRouteTable",
@@ -727,8 +813,7 @@ export interface BaseConfigurationItem {
 
   /**
    * <p>The configuration item status. The valid values are:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>OK – The resource configuration has been updated</p>
    *             </li>
@@ -745,7 +830,7 @@ export interface BaseConfigurationItem {
    *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
    *             </li>
    *          </ul>
-   * 		       <note>
+   *          <note>
    *             <p>The CIs do not incur any cost.</p>
    *          </note>
    */
@@ -849,9 +934,9 @@ export class NoSuchConfigurationAggregatorException extends __BaseException {
 }
 
 /**
- * <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ * <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -1168,39 +1253,36 @@ export interface SourceDetail {
    * <p>The type of notification that triggers Config to run an
    * 			evaluation for a rule. You can specify the following notification
    * 			types:</p>
-   *
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
-   * 					             <code>ConfigurationItemChangeNotification</code> - Triggers
+   *                <p>
+   *                   <code>ConfigurationItemChangeNotification</code> - Triggers
    * 					an evaluation when Config delivers a configuration item
    * 					as a result of a resource change.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>OversizedConfigurationItemChangeNotification</code>
    * 					- Triggers an evaluation when Config delivers an
    * 					oversized configuration item. Config may generate this
    * 					notification type when a resource changes and the
    * 					notification exceeds the maximum size allowed by Amazon
    * 					SNS.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>ScheduledNotification</code> - Triggers a
    * 					periodic evaluation at the frequency specified for
    * 						<code>MaximumExecutionFrequency</code>.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>ConfigurationSnapshotDeliveryCompleted</code> -
    * 					Triggers a periodic evaluation when Config delivers a
    * 					configuration snapshot.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
-   *
-   * 		       <p>If you want your custom rule to be triggered by configuration
+   *          <p>If you want your custom rule to be triggered by configuration
    * 			changes, specify two SourceDetail objects, one for
    * 				<code>ConfigurationItemChangeNotification</code> and one for
    * 				<code>OversizedConfigurationItemChangeNotification</code>.</p>
@@ -1213,21 +1295,17 @@ export interface SourceDetail {
    * 			for <code>MaximumExecutionFrequency</code>, then
    * 				<code>MessageType</code> must use the
    * 				<code>ScheduledNotification</code> value.</p>
-   *
-   *
-   *
-   *
-   * 		       <note>
-   * 			         <p>By default, rules with a periodic trigger are evaluated
+   *          <note>
+   *             <p>By default, rules with a periodic trigger are evaluated
    * 				every 24 hours. To change the frequency, specify a valid value
    * 				for the <code>MaximumExecutionFrequency</code>
    * 				parameter.</p>
-   * 			         <p>Based on the valid value you choose, Config runs
+   *             <p>Based on the valid value you choose, Config runs
    * 				evaluations once for each valid value. For example, if you
    * 				choose <code>Three_Hours</code>, Config runs evaluations
    * 				once every three hours. In this case, <code>Three_Hours</code>
    * 				is the frequency of this rule. </p>
-   * 		       </note>
+   *          </note>
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
 }
@@ -1240,10 +1318,8 @@ export interface SourceDetail {
 export interface Source {
   /**
    * <p>Indicates whether Amazon Web Services or the customer owns and manages the Config rule.</p>
-   *
-   * 		       <p>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config Managed Rules</a> in the <i>Config developer guide</i>.</p>
-   *
-   * 		       <p>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>) or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config Custom Rules </a> in the <i>Config developer guide</i>.</p>
+   *          <p>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config Managed Rules</a> in the <i>Config developer guide</i>.</p>
+   *          <p>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>) or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config Custom Rules </a> in the <i>Config developer guide</i>.</p>
    */
   Owner: Owner | string | undefined;
 
@@ -1251,18 +1327,16 @@ export interface Source {
    * <p>For Config Managed rules, a predefined identifier from a
    * 			list. For example, <code>IAM_PASSWORD_POLICY</code> is a managed
    * 			rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List of Config Managed Rules</a>.</p>
-   * 		       <p>For Config Custom Lambda rules, the identifier is the Amazon Resource Name
+   *          <p>For Config Custom Lambda rules, the identifier is the Amazon Resource Name
    * 			(ARN) of the rule's Lambda function, such as
    * 			<code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</p>
-   *
-   * 		       <p>For Config Custom Policy rules, this field will be ignored.</p>
+   *          <p>For Config Custom Policy rules, this field will be ignored.</p>
    */
   SourceIdentifier?: string;
 
   /**
    * <p>Provides the source and the message types that cause Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
-   *
-   * 		       <p>If the owner is set to <code>CUSTOM_POLICY</code>, the only acceptable values for the Config rule trigger message type are <code>ConfigurationItemChangeNotification</code> and <code>OversizedConfigurationItemChangeNotification</code>.</p>
+   *          <p>If the owner is set to <code>CUSTOM_POLICY</code>, the only acceptable values for the Config rule trigger message type are <code>ConfigurationItemChangeNotification</code> and <code>OversizedConfigurationItemChangeNotification</code>.</p>
    */
   SourceDetails?: SourceDetail[];
 
@@ -1275,26 +1349,26 @@ export interface Source {
 /**
  * <p>Config rules evaluate the configuration settings of your Amazon Web Services resources. A rule can run when Config detects a configuration change to
  * 			an Amazon Web Services resource or at a periodic frequency that you choose (for
- * 			example, every 24 hours). There are two types of rules: Config Managed Rules and Config Custom Rules.
- * 			Managed rules are predefined, customizable rules created by Config. For a list of managed rules, see
+ * 			example, every 24 hours). There are two types of rules: <i>Config Managed Rules</i> and <i>Config Custom Rules</i>.</p>
+ *          <p>Config Managed Rules are predefined,
+ * 				customizable rules created by Config. For a list of managed rules, see
  * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List of Config
  * 					Managed Rules</a>.</p>
+ *          <p>Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions
+ * 				(<a href="https://docs.aws.amazon.com/config/latest/developerguide/gettingstarted-concepts.html#gettingstarted-concepts-function"> Lambda Developer Guide</a>) and with Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
+ * 						Repository</a>), a policy-as-code language.
  *
- * 		       <p>Custom rules are rules that you can create using either Guard or Lambda functions.
- * 			Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
- * 				Repository</a>) is a policy-as-code language that allows you to write policies that
- * 			are enforced by Config Custom Policy rules. Lambda uses custom code that you upload to
- * 			evaluate a custom rule. It is invoked by events that are published to it by an event source, which Config invokes when the custom rule is initiated.</p>
- *
- * 		       <p>For more information about developing and using Config
- * 			rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating Amazon Web Services resource Configurations with Config</a>
+ * 				Config custom rules created with Lambda
+ * 				are called <i>Config Custom Lambda Rules</i> and Config custom rules created with
+ * 				Guard are called <i>Config Custom Policy Rules</i>.</p>
+ *          <p>For more information about developing and using Config
+ * 			rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating Resource with Config Rules</a>
  * 			in the <i>Config Developer Guide</i>.</p>
- *
- * 		       <note>
- * 			         <p>You can use the Amazon Web Services CLI and Amazon Web Services SDKs if you want to create
+ *          <note>
+ *             <p>You can use the Amazon Web Services CLI and Amazon Web Services SDKs if you want to create
  * 				a rule that triggers evaluations for your resources when Config delivers the configuration snapshot. For more
  * 				information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
- * 		       </note>
+ *          </note>
  */
 export interface ConfigRule {
   /**
@@ -1328,7 +1402,7 @@ export interface ConfigRule {
    * 			trigger an evaluation for the rule. If you do not specify a scope,
    * 			evaluations are triggered when any resource in the recording group
    * 			changes.</p>
-   * 		       <note>
+   *          <note>
    *             <p>The scope can be empty. </p>
    *          </note>
    */
@@ -1351,25 +1425,22 @@ export interface ConfigRule {
    * <p>The maximum frequency with which Config runs evaluations
    * 			for a rule. You can specify a value for
    * 				<code>MaximumExecutionFrequency</code> when:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>This is for an Config managed rule that is triggered at
+   *                <p>This is for an Config managed rule that is triggered at
    * 					a periodic frequency.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>Your custom rule is triggered when Config delivers
+   *                <p>Your custom rule is triggered when Config delivers
    * 					the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
-   *
-   *
-   *
-   * 		       <note>
-   * 			         <p>By default, rules with a periodic trigger are evaluated
+   *          <note>
+   *             <p>By default, rules with a periodic trigger are evaluated
    * 				every 24 hours. To change the frequency, specify a valid value
    * 				for the <code>MaximumExecutionFrequency</code>
    * 				parameter.</p>
-   * 		       </note>
+   *          </note>
    */
   MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
 
@@ -1377,18 +1448,15 @@ export interface ConfigRule {
    * <p>Indicates whether the Config rule is active or is currently
    * 			being deleted by Config. It can also indicate the evaluation
    * 			status for the Config rule.</p>
-   *
-   * 		       <p>Config sets the state of the rule to
+   *          <p>Config sets the state of the rule to
    * 				<code>EVALUATING</code> temporarily after you use the
    * 				<code>StartConfigRulesEvaluation</code> request to evaluate your
    * 			resources against the Config rule.</p>
-   *
-   * 		       <p>Config sets the state of the rule to
+   *          <p>Config sets the state of the rule to
    * 				<code>DELETING_RESULTS</code> temporarily after you use the
    * 				<code>DeleteEvaluationResults</code> request to delete the
    * 			current evaluation results for the Config rule.</p>
-   *
-   * 		       <p>Config temporarily sets the state of a rule to
+   *          <p>Config temporarily sets the state of a rule to
    * 				<code>DELETING</code> after you use the
    * 				<code>DeleteConfigRule</code> request to delete the rule. After
    * 			Config deletes the rule, the rule and all of its evaluations are
@@ -1399,11 +1467,11 @@ export interface ConfigRule {
   /**
    * <p>Service principal name of the service that created the
    * 			rule.</p>
-   * 		       <note>
-   * 			         <p>The field is populated only if the service-linked rule is
+   *          <note>
+   *             <p>The field is populated only if the service-linked rule is
    * 				created by a service. The field is empty if you create your own
    * 				rule.</p>
-   * 		       </note>
+   *          </note>
    */
   CreatedBy?: string;
 
@@ -1425,7 +1493,7 @@ export interface ConfigRuleComplianceFilters {
 
   /**
    * <p>The rule compliance status.</p>
-   * 		       <p>For the <code>ConfigRuleComplianceFilters</code> data type, Config supports only <code>COMPLIANT</code> and
+   *          <p>For the <code>ConfigRuleComplianceFilters</code> data type, Config supports only <code>COMPLIANT</code> and
    * 				<code>NON_COMPLIANT</code>. Config does not support the
    * 				<code>NOT_APPLICABLE</code> and the
    * 				<code>INSUFFICIENT_DATA</code> values.</p>
@@ -1471,7 +1539,7 @@ export enum ConfigRuleComplianceSummaryGroupKey {
  * 			status includes information such as the last time the rule ran, the
  * 			last time it failed, and the related error for the last
  * 			failure.</p>
- * 		       <p>This action does not return status information about Config Custom Lambda rules.</p>
+ *          <p>This action does not return status information about Config Custom Lambda rules.</p>
  */
 export interface ConfigRuleEvaluationStatus {
   /**
@@ -1539,18 +1607,18 @@ export interface ConfigRuleEvaluationStatus {
   /**
    * <p>Indicates whether Config has evaluated your resources
    * 			against the rule at least once.</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
-   * 					             <code>true</code> - Config has evaluated your Amazon Web Services
+   *                <p>
+   *                   <code>true</code> - Config has evaluated your Amazon Web Services
    * 					resources against the rule at least once.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>false</code> - Config has not finished evaluating your Amazon Web Services resources against the
+   *                <p>
+   *                   <code>false</code> - Config has not finished evaluating your Amazon Web Services resources against the
    * 					rule
    * 					at least once.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   FirstEvaluationStarted?: boolean;
@@ -1576,64 +1644,54 @@ export interface ConfigRuleEvaluationStatus {
  * <p>Provides options for how often Config delivers
  * 			configuration snapshots to the Amazon S3 bucket in your delivery
  * 			channel.</p>
- *
- *
- *
- *
- * 		       <p>The frequency for a rule that triggers evaluations for your
+ *          <p>The frequency for a rule that triggers evaluations for your
  * 			resources when Config delivers the configuration snapshot is set
  * 			by one of two values, depending on which is less frequent:</p>
- *
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>The value for the <code>deliveryFrequency</code>
+ *                <p>The value for the <code>deliveryFrequency</code>
  * 					parameter within the delivery channel configuration, which
  * 					sets how often Config delivers configuration snapshots.
  * 					This value also sets how often Config invokes
  * 					evaluations for Config rules.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>The value for the
+ *                <p>The value for the
  * 						<code>MaximumExecutionFrequency</code> parameter, which
  * 					sets the maximum frequency with which Config invokes
  * 					evaluations for the rule. For more information, see <a>ConfigRule</a>.</p>
- * 			         </li>
+ *             </li>
  *          </ul>
- *
- * 		       <p>If the <code>deliveryFrequency</code> value is less frequent
+ *          <p>If the <code>deliveryFrequency</code> value is less frequent
  * 			than the <code>MaximumExecutionFrequency</code> value for a rule,
  * 			Config invokes the rule only as often as the
  * 				<code>deliveryFrequency</code> value.</p>
- *
- * 		       <ol>
+ *          <ol>
  *             <li>
- * 				           <p>For example, you want your rule to run evaluations when
+ *                <p>For example, you want your rule to run evaluations when
  * 					Config delivers the configuration snapshot.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>You specify the <code>MaximumExecutionFrequency</code>
+ *                <p>You specify the <code>MaximumExecutionFrequency</code>
  * 					value for <code>Six_Hours</code>. </p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>You then specify the delivery channel
+ *                <p>You then specify the delivery channel
  * 						<code>deliveryFrequency</code> value for
  * 						<code>TwentyFour_Hours</code>.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Because the value for <code>deliveryFrequency</code> is
+ *                <p>Because the value for <code>deliveryFrequency</code> is
  * 					less frequent than <code>MaximumExecutionFrequency</code>,
  * 					Config invokes evaluations for the rule every 24 hours.
  * 				</p>
- * 			         </li>
+ *             </li>
  *          </ol>
- *
- *
- * 		       <p>You should set the <code>MaximumExecutionFrequency</code> value
+ *          <p>You should set the <code>MaximumExecutionFrequency</code> value
  * 			to be at least as frequent as the <code>deliveryFrequency</code>
  * 			value. You can view the <code>deliveryFrequency</code> value by
  * 			using the <code>DescribeDeliveryChannnels</code> action.</p>
- *
- * 		       <p>To update the <code>deliveryFrequency</code> with which Config delivers your configuration snapshots, use the
+ *          <p>To update the <code>deliveryFrequency</code> with which Config delivers your configuration snapshots, use the
  * 				<code>PutDeliveryChannel</code> action.</p>
  */
 export interface ConfigSnapshotDeliveryProperties {
@@ -1651,8 +1709,8 @@ export interface ConfigSnapshotDeliveryProperties {
 export interface ConfigStreamDeliveryInfo {
   /**
    * <p>Status of the last attempted delivery.</p>
-   * 		       <p>
-   * 			         <b>Note</b> Providing an SNS topic on a
+   *          <p>
+   *             <b>Note</b> Providing an SNS topic on a
    * 				<a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html">DeliveryChannel</a> for Config is optional. If the SNS
    * 			delivery is turned off, the last status will be <b>Not_Applicable</b>.</p>
    */
@@ -1794,8 +1852,7 @@ export interface ConfigurationItem {
 
   /**
    * <p>The configuration item status. The valid values are:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>OK – The resource configuration has been updated</p>
    *             </li>
@@ -1812,7 +1869,7 @@ export interface ConfigurationItem {
    *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
    *             </li>
    *          </ul>
-   * 		       <note>
+   *          <note>
    *             <p>The CIs do not incur any cost.</p>
    *          </note>
    */
@@ -1827,7 +1884,7 @@ export interface ConfigurationItem {
   /**
    * <p>Unique MD5 hash that represents the configuration item's
    * 			state.</p>
-   * 		       <p>You can use MD5 hash to compare the states of two or more
+   *          <p>You can use MD5 hash to compare the states of two or more
    * 			configuration items that are associated with the same
    * 			resource.</p>
    */
@@ -1877,10 +1934,10 @@ export interface ConfigurationItem {
 
   /**
    * <p>A list of CloudTrail event IDs.</p>
-   * 		       <p>A populated field indicates that the current configuration was
+   *          <p>A populated field indicates that the current configuration was
    * 			initiated by the events recorded in the CloudTrail log. For more
    * 			information about CloudTrail, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What Is CloudTrail</a>.</p>
-   * 		       <p>An empty field indicates that the current configuration was not
+   *          <p>An empty field indicates that the current configuration was not
    * 			initiated by any event. As of Version 1.3, the relatedEvents field is empty.
    * 			You can access the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html">LookupEvents API</a> in the <i>CloudTrail API Reference</i> to retrieve the events for the resource.</p>
    */
@@ -1908,46 +1965,41 @@ export interface ConfigurationItem {
  * <p>Specifies which Amazon Web Services resource types Config
  * 			records for configuration changes. In the recording group, you specify whether you want to record all supported resource types
  * 			or only specific types of resources.</p>
- *
- * 	 	      <p>By default, Config records the configuration changes for all supported types of
+ *          <p>By default, Config records the configuration changes for all supported types of
  * 				<i>regional resources</i> that Config discovers in the region in which it is
  * 				running. Regional resources are tied to a region and can be used only in that region. Examples
  * 				of regional resources are EC2 instances and EBS volumes.</p>
- * 			      <p>You can also have Config record supported types of <i>global resources</i>.
+ *          <p>You can also have Config record supported types of <i>global resources</i>.
  * 				Global resources are not tied to a specific region and can be used in all regions. The global
  * 				resource types that Config supports include  IAM users, groups, roles, and customer managed
  * 				policies.</p>
- *
- * 		       <important>
- * 			         <p>Global resource types onboarded to Config recording after February 2022 will only be
+ *          <important>
+ *             <p>Global resource types onboarded to Config recording after February 2022 will only be
  * 				recorded in the service's home region for the commercial partition and
  * 				Amazon Web Services GovCloud (US) West for the GovCloud partition. You can view the Configuration Items for
  * 				these new global resource types only in their home region and Amazon Web Services GovCloud (US) West.</p>
- *
- * 			         <p>Supported global resource types onboarded before February 2022 such as
+ *             <p>Supported global resource types onboarded before February 2022 such as
  * 				<code>AWS::IAM::Group</code>, <code>AWS::IAM::Policy</code>, <code>AWS::IAM::Role</code>,
  * 				<code>AWS::IAM::User</code> remain unchanged, and they will continue to deliver
  * 				Configuration Items in all supported regions in Config. The change will only affect new global
  * 				resource types onboarded after February 2022.</p>
- *
- * 			         <p>To record global resource types onboarded after February 2022,
+ *             <p>To record global resource types onboarded after February 2022,
  * 				enable All Supported Resource Types in the home region of the global resource type you want to record.</p>
- * 		       </important>
- *
- * 		       <p>If you don't want Config to record all resources, you can
+ *          </important>
+ *          <p>If you don't want Config to record all resources, you can
  * 			specify which types of resources it will record with the
  * 				<code>resourceTypes</code> parameter.</p>
- * 		       <p>For a list of supported resource types, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a>.</p>
- * 		       <p>For more information and a table of the Home Regions for Global Resource Types Onboarded after February 2022, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Selecting Which Resources Config Records</a>.</p>
+ *          <p>For a list of supported resource types, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a>.</p>
+ *          <p>For more information and a table of the Home Regions for Global Resource Types Onboarded after February 2022, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Selecting Which Resources Config Records</a>.</p>
  */
 export interface RecordingGroup {
   /**
    * <p>Specifies whether Config records configuration changes for
    * 			every supported type of regional resource.</p>
-   * 		       <p>If you set this option to <code>true</code>, when Config
+   *          <p>If you set this option to <code>true</code>, when Config
    * 			adds support for a new type of regional resource, it starts
    * 			recording resources of that type automatically.</p>
-   * 		       <p>If you set this option to <code>true</code>, you cannot
+   *          <p>If you set this option to <code>true</code>, you cannot
    * 			enumerate a list of <code>resourceTypes</code>.</p>
    */
   allSupported?: boolean;
@@ -1956,13 +2008,13 @@ export interface RecordingGroup {
    * <p>Specifies whether Config includes all supported types of
    * 			global resources (for example, IAM resources) with the resources
    * 			that it records.</p>
-   * 		       <p>Before you can set this option to <code>true</code>, you must
+   *          <p>Before you can set this option to <code>true</code>, you must
    * 			set the <code>allSupported</code> option to
    * 			<code>true</code>.</p>
-   * 		       <p>If you set this option to <code>true</code>, when Config
+   *          <p>If you set this option to <code>true</code>, when Config
    * 			adds support for a new type of global resource, it starts recording
    * 			resources of that type automatically.</p>
-   * 		       <p>The configuration details for any global resource are the same
+   *          <p>The configuration details for any global resource are the same
    * 			in all regions. To prevent duplicate configuration items, you should
    * 			consider customizing Config in only one region to record global
    * 			resources.</p>
@@ -1974,14 +2026,13 @@ export interface RecordingGroup {
    * 			resources for which Config records configuration changes (for
    * 			example, <code>AWS::EC2::Instance</code> or
    * 				<code>AWS::CloudTrail::Trail</code>).</p>
-   * 		       <p>To record all configuration changes, you must
+   *          <p>To record all configuration changes, you must
    * 			set the <code>allSupported</code> option to
    * 			<code>true</code>.</p>
-   * 		       <p>If you set this option to <code>false</code>, when Config
-   * 			adds support for a new type of resource, it will not record
-   * 			resources of that type unless you manually add that type to your
-   * 			recording group.</p>
-   * 		       <p>For a list of valid <code>resourceTypes</code> values, see the
+   *          <p>If you set the <code>AllSupported</code> option to false and populate the <code>ResourceTypes</code> option with values,
+   * 			when Config adds support for a new type of resource,
+   * 			it will not record resources of that type unless you manually add that type to your recording group.</p>
+   *          <p>For a list of valid <code>resourceTypes</code> values, see the
    * 				<b>resourceType Value</b> column in
    * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Amazon Web Services resource Types</a>.</p>
    */
@@ -2003,7 +2054,7 @@ export interface ConfigurationRecorder {
   /**
    * <p>Amazon Resource Name (ARN) of the IAM role used to describe the
    * 			Amazon Web Services resources associated with the account.</p>
-   * 		       <note>
+   *          <note>
    *             <p>While the API model does not require this field, the server will reject a request without a defined roleARN for the configuration recorder.</p>
    *          </note>
    */
@@ -2024,6 +2075,9 @@ export enum RecorderStatus {
 
 /**
  * <p>The current status of the configuration recorder.</p>
+ *          <note>
+ *             <p>For a detailed status of recording events over time, add your Config events to CloudWatch metrics and use CloudWatch metrics.</p>
+ *          </note>
  */
 export interface ConfigurationRecorderStatus {
   /**
@@ -2048,23 +2102,22 @@ export interface ConfigurationRecorderStatus {
   recording?: boolean;
 
   /**
-   * <p>The last (previous) status of the recorder.</p>
+   * <p>The status of the latest recording event processed by the recorder.</p>
    */
   lastStatus?: RecorderStatus | string;
 
   /**
-   * <p>The error code indicating that the recording failed.</p>
+   * <p>The latest error code from when the recorder last failed.</p>
    */
   lastErrorCode?: string;
 
   /**
-   * <p>The message indicating that the recording failed due to an
-   * 			error.</p>
+   * <p>The latest error message from when the recorder last failed.</p>
    */
   lastErrorMessage?: string;
 
   /**
-   * <p>The time when the status was last changed.</p>
+   * <p>The time of the latest change in status of an recording event processed by the recorder.</p>
    */
   lastStatusChangeTime?: Date;
 }
@@ -2080,7 +2133,7 @@ export interface ConformancePackComplianceFilters {
 
   /**
    * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
+   *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    */
   ComplianceType?: ConformancePackComplianceType | string;
 }
@@ -2128,7 +2181,7 @@ export interface ConformancePackComplianceSummary {
   ConformancePackName: string | undefined;
 
   /**
-   * <p>The status of the conformance pack. The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code> and <code>INSUFFICIENT_DATA</code>.</p>
+   * <p>The status of the conformance pack.</p>
    */
   ConformancePackComplianceStatus: ConformancePackComplianceType | string | undefined;
 }
@@ -2152,8 +2205,7 @@ export interface ConformancePackInputParameter {
 /**
  * <p>This API allows you to create a conformance pack template with an Amazon Web Services Systems Manager document (SSM document).
  * 			To deploy a conformance pack using an SSM document, first create an SSM document with conformance pack content, and then provide the <code>DocumentName</code> in the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack API</a>. You can also provide the <code>DocumentVersion</code>.</p>
- *
- * 		       <p>The <code>TemplateSSMDocumentDetails</code> object contains the name of the SSM document and the version of the SSM document.</p>
+ *          <p>The <code>TemplateSSMDocumentDetails</code> object contains the name of the SSM document and the version of the SSM document.</p>
  */
 export interface TemplateSSMDocumentDetails {
   /**
@@ -2164,7 +2216,7 @@ export interface TemplateSSMDocumentDetails {
 
   /**
    * <p>The version of the SSM document to use to create a conformance pack. By default, Config uses the latest version.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -2192,7 +2244,7 @@ export interface ConformancePackDetail {
 
   /**
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates. </p>
-   * 	        <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -2200,7 +2252,7 @@ export interface ConformancePackDetail {
 
   /**
    * <p>The prefix for the Amazon S3 bucket.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -2238,7 +2290,7 @@ export interface ConformancePackEvaluationFilters {
 
   /**
    * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
+   *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    */
   ComplianceType?: ConformancePackComplianceType | string;
 
@@ -2249,7 +2301,7 @@ export interface ConformancePackEvaluationFilters {
 
   /**
    * <p>Filters the results by resource IDs.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This is valid only when you provide resource type. If there is no resource type, you will see an error.</p>
    *          </note>
    */
@@ -2297,7 +2349,6 @@ export interface ConformancePackRuleCompliance {
 
   /**
    * <p>Compliance of the Config rule.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.</p>
    */
   ComplianceType?: ConformancePackComplianceType | string;
 
@@ -2337,8 +2388,8 @@ export interface ConformancePackStatusDetail {
 
   /**
    * <p>Indicates deployment status of conformance pack.</p>
-   * 		       <p>Config sets the state of the conformance pack to:</p>
-   * 		       <ul>
+   *          <p>Config sets the state of the conformance pack to:</p>
+   *          <ul>
    *             <li>
    *                <p>CREATE_IN_PROGRESS when a conformance pack creation is in progress for an account.</p>
    *             </li>
@@ -2380,7 +2431,7 @@ export interface ConformancePackStatusDetail {
 }
 
 /**
- * <p>You have specified a template that is invalid or supported.</p>
+ * <p>You have specified a template that is not valid or supported.</p>
  */
 export class ConformancePackTemplateValidationException extends __BaseException {
   readonly name: "ConformancePackTemplateValidationException" = "ConformancePackTemplateValidationException";
@@ -2412,7 +2463,7 @@ export interface DeleteAggregationAuthorizationRequest {
 }
 
 /**
- * <p>One or more of the specified parameters are invalid. Verify
+ * <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  */
 export class InvalidParameterValueException extends __BaseException {
@@ -2443,7 +2494,7 @@ export interface DeleteConfigRuleRequest {
 }
 
 /**
- * <p>The Config rule in the request is invalid. Verify that the rule is an Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ * <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  */
 export class NoSuchConfigRuleException extends __BaseException {
   readonly name: "NoSuchConfigRuleException" = "NoSuchConfigRuleException";
@@ -2463,7 +2514,7 @@ export class NoSuchConfigRuleException extends __BaseException {
 
 /**
  * <p>You see this exception in the following cases: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
  *             </li>
@@ -2646,7 +2697,7 @@ export interface DeleteOrganizationConfigRuleRequest {
 }
 
 /**
- * <p>The Config rule in the request is invalid. Verify that the rule is an organization Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ * <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  */
 export class NoSuchOrganizationConfigRuleException extends __BaseException {
   readonly name: "NoSuchOrganizationConfigRuleException" = "NoSuchOrganizationConfigRuleException";
@@ -2666,7 +2717,7 @@ export class NoSuchOrganizationConfigRuleException extends __BaseException {
 
 /**
  * <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
  *             </li>
@@ -2683,7 +2734,7 @@ export class NoSuchOrganizationConfigRuleException extends __BaseException {
  * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
- * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  */
 export class OrganizationAccessDeniedException extends __BaseException {
   readonly name: "OrganizationAccessDeniedException" = "OrganizationAccessDeniedException";
@@ -2710,7 +2761,7 @@ export interface DeleteOrganizationConformancePackRequest {
 
 /**
  * <p>Config organization conformance pack that you passed in the filter does not exist.</p>
- * 		       <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
+ *          <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
  */
 export class NoSuchOrganizationConformancePackException extends __BaseException {
   readonly name: "NoSuchOrganizationConformancePackException" = "NoSuchOrganizationConformancePackException";
@@ -2757,7 +2808,7 @@ export interface DeleteRemediationConfigurationResponse {}
 
 /**
  * <p>Indicates one of the following errors:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
@@ -2769,7 +2820,7 @@ export interface DeleteRemediationConfigurationResponse {}
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
@@ -2777,7 +2828,7 @@ export interface DeleteRemediationConfigurationResponse {}
  *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
- * 			         </li>
+ *             </li>
  *          </ul>
  */
 export class InsufficientPermissionsException extends __BaseException {
@@ -3028,7 +3079,7 @@ export interface DeliveryChannel {
   /**
    * <p>The name of the Amazon S3 bucket to which Config delivers
    * 			configuration snapshots and configuration history files.</p>
-   * 		       <p>If you specify a bucket that belongs to another Amazon Web Services account,
+   *          <p>If you specify a bucket that belongs to another Amazon Web Services account,
    * 			that bucket must have policies that grant access permissions to Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions for the Amazon S3 Bucket</a> in the <i>Config
    * 			Developer Guide</i>.</p>
    */
@@ -3049,7 +3100,7 @@ export interface DeliveryChannel {
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which
    * 			Config sends notifications about configuration
    * 			changes.</p>
-   * 		       <p>If you choose a topic from another account, the topic must have
+   *          <p>If you choose a topic from another account, the topic must have
    * 			policies that grant access permissions to Config. For more
    * 			information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions for the Amazon SNS Topic</a> in the <i>Config
    * 			Developer Guide</i>.</p>
@@ -3065,8 +3116,8 @@ export interface DeliveryChannel {
 
 /**
  * <p>The status of a specified delivery channel.</p>
- * 		       <p>Valid values: <code>Success</code> | <code>Failure</code>
- * 		       </p>
+ *          <p>Valid values: <code>Success</code> | <code>Failure</code>
+ *          </p>
  */
 export interface DeliveryChannelStatus {
   /**
@@ -3155,7 +3206,7 @@ export class InvalidLimitException extends __BaseException {
 }
 
 /**
- * <p>The specified next token is invalid. Specify the
+ * <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  */
@@ -3250,7 +3301,6 @@ export interface DescribeComplianceByConfigRuleRequest {
 
   /**
    * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.</p>
    */
   ComplianceTypes?: (ComplianceType | string)[];
 
@@ -3301,7 +3351,6 @@ export interface DescribeComplianceByResourceRequest {
 
   /**
    * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.</p>
    */
   ComplianceTypes?: (ComplianceType | string)[];
 
@@ -3359,10 +3408,9 @@ export interface DescribeConfigRuleEvaluationStatusRequest {
   /**
    * <p>The number of rule evaluation results that you want
    * 			returned.</p>
-   *
-   * 		       <p>This parameter is required if the rule limit for your account
+   *          <p>This parameter is required if the rule limit for your account
    * 			is more than the default of 150 rules.</p>
-   * 		       <p>For information about requesting a rule limit increase, see
+   *          <p>For information about requesting a rule limit increase, see
    * 				<a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">Config Limits</a> in the <i>Amazon Web Services General
    * 				Reference Guide</i>.</p>
    */
@@ -3386,7 +3434,10 @@ export interface DescribeConfigRuleEvaluationStatusResponse {
 }
 
 /**
- * <p>Returns a filtered list of Detective or Proactive Config rules. By default, if the filter is not defined, this API returns an unfiltered list.</p>
+ * <p>Returns a filtered list of Detective or Proactive Config rules. By default, if the filter is not defined, this API returns an unfiltered list. For more information on Detective or Proactive Config rules,
+ * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html">
+ *                <b>Evaluation Mode</b>
+ *             </a> in the Config Developer Guide.</p>
  */
 export interface DescribeConfigRulesFilters {
   /**
@@ -3414,7 +3465,10 @@ export interface DescribeConfigRulesRequest {
   NextToken?: string;
 
   /**
-   * <p>Returns a list of Detecive or Proactive Config rules. By default, this API returns an unfiltered list.</p>
+   * <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules,
+   * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html">
+   *                <b>Evaluation Mode</b>
+   *             </a> in the Config Developer Guide.</p>
    */
   Filters?: DescribeConfigRulesFilters;
 }
@@ -3476,19 +3530,19 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
 
   /**
    * <p>Filters the status type.</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>Valid value FAILED indicates errors while moving
+   *                <p>Valid value FAILED indicates errors while moving
    * 					data.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>Valid value SUCCEEDED indicates the data was
+   *                <p>Valid value SUCCEEDED indicates the data was
    * 					successfully moved.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>Valid value OUTDATED indicates the data is not the most
+   *                <p>Valid value OUTDATED indicates the data is not the most
    * 					recent.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   UpdateStatus?: (AggregatedSourceStatusType | string)[];
@@ -3766,8 +3820,7 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    * <p>The type of notification that triggers Config to run an evaluation for a rule.
    * 			For Config Custom Policy rules, Config supports change
    * 			triggered notification types:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when Config delivers a configuration item as a result of a resource change.</p>
@@ -3849,8 +3902,7 @@ export interface OrganizationCustomRuleMetadata {
 
   /**
    * <p>The type of notification that triggers Config to run an evaluation for a rule. You can specify the following notification types:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ConfigurationItemChangeNotification</code> - Triggers an evaluation when Config delivers a configuration item as a result of a resource change.</p>
@@ -3876,7 +3928,7 @@ export interface OrganizationCustomRuleMetadata {
   /**
    * <p>The maximum frequency with which Config runs evaluations for a rule.
    * 			Your custom rule is triggered when Config delivers the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
-   * 		       <note>
+   *          <note>
    *             <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid
    * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
    *          </note>
@@ -3930,7 +3982,7 @@ export interface OrganizationManagedRuleMetadata {
 
   /**
    * <p>The maximum frequency with which Config runs evaluations for a rule. This is for an Config managed rule that is triggered at a periodic frequency.</p>
-   * 		       <note>
+   *          <note>
    *             <p>By default, rules with a periodic trigger are evaluated every 24 hours. To change the frequency, specify a valid
    * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
    *          </note>
@@ -4058,8 +4110,8 @@ export interface OrganizationConfigRuleStatus {
    * 			When management account calls PutOrganizationConfigRule action for the first time, Config rule status is created in all the member accounts.
    * 			When management account calls PutOrganizationConfigRule action for the second time, Config rule status is updated in all the member accounts. Additionally, Config rule status is updated when one or more member accounts join or leave an organization.
    * 			Config rule status is deleted when the management account deletes OrganizationConfigRule in all the member accounts and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
-   * 			      <p>Config sets the state of the rule to:</p>
-   * 		       <ul>
+   *          <p>Config sets the state of the rule to:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATE_SUCCESSFUL</code> when an organization Config rule has been successfully created in all the member accounts. </p>
@@ -4163,7 +4215,7 @@ export interface OrganizationConformancePack {
 
   /**
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.  </p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -4171,7 +4223,7 @@ export interface OrganizationConformancePack {
 
   /**
    * <p>Any folder structure you want to add to an Amazon S3 bucket.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -4257,8 +4309,8 @@ export interface OrganizationConformancePackStatus {
    * 			Conformance pack status is deleted when the management account deletes
    * 			OrganizationConformancePack in all the member accounts and disables service
    * 			access for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
-   * 		       <p>Config sets the state of the conformance pack to:</p>
-   * 		       <ul>
+   *          <p>Config sets the state of the conformance pack to:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATE_SUCCESSFUL</code> when an organization conformance pack has been successfully created in all the member accounts. </p>
@@ -4471,7 +4523,7 @@ export interface RemediationConfiguration {
 
   /**
    * <p>Version of the target. For example, version of the SSM document.</p>
-   * 		       <note>
+   *          <note>
    *             <p>If you make backward incompatible changes to the SSM document,
    * 			you must call PutRemediationConfiguration API again to ensure the remediations can run.</p>
    *          </note>
@@ -4500,7 +4552,7 @@ export interface RemediationConfiguration {
 
   /**
    * <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
-   * 		       <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds,
+   *          <p>For example, if you specify MaximumAutomaticAttempts as 5 with RetryAttemptSeconds as 50 seconds,
    *
    * 			Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.</p>
    */
@@ -4508,7 +4560,7 @@ export interface RemediationConfiguration {
 
   /**
    * <p>Maximum time in seconds that Config runs auto-remediation. If you do not select a number, the default is 60 seconds. </p>
-   * 		       <p>For example, if you specify RetryAttemptSeconds as 50 seconds and MaximumAutomaticAttempts as 5,
+   *          <p>For example, if you specify RetryAttemptSeconds as 50 seconds and MaximumAutomaticAttempts as 5,
    * 		Config will run auto-remediations 5 times within 50 seconds before throwing an exception.</p>
    */
   RetryAttemptSeconds?: number;
@@ -4708,10 +4760,10 @@ export interface DescribeRetentionConfigurationsRequest {
    * <p>A list of names of retention configurations for which you want
    * 			details. If you do not specify a name, Config returns details
    * 			for all the retention configurations for that account.</p>
-   * 		       <note>
-   * 			         <p>Currently, Config supports only one retention
+   *          <note>
+   *             <p>Currently, Config supports only one retention
    * 				configuration per region in your account.</p>
-   * 		       </note>
+   *          </note>
    */
   RetentionConfigurationNames?: string[];
 
@@ -4734,7 +4786,7 @@ export interface RetentionConfiguration {
 
   /**
    * <p>Number of days Config stores your historical information.</p>
-   * 		       <note>
+   *          <note>
    *             <p>Currently, only applicable to the configuration item history.</p>
    *          </note>
    */
@@ -4773,12 +4825,12 @@ export interface Evaluation {
   /**
    * <p>Indicates whether the Amazon Web Services resource complies with the Config
    * 			rule that it was evaluated against.</p>
-   * 		       <p>For the <code>Evaluation</code> data type, Config supports
+   *          <p>For the <code>Evaluation</code> data type, Config supports
    * 			only the <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and
    * 				<code>NOT_APPLICABLE</code> values. Config does not support
    * 			the <code>INSUFFICIENT_DATA</code> value for this data
    * 			type.</p>
-   * 		       <p>Similarly, Config does not accept
+   *          <p>Similarly, Config does not accept
    * 				<code>INSUFFICIENT_DATA</code> as the value for
    * 				<code>ComplianceType</code> from a <code>PutEvaluations</code>
    * 			request. For example, an Lambda function for a custom Config
@@ -4827,7 +4879,7 @@ export interface EvaluationResult {
   /**
    * <p>Indicates whether the Amazon Web Services resource complies with the Config
    * 			rule that evaluated it.</p>
-   * 		       <p>For the <code>EvaluationResult</code> data type, Config
+   *          <p>For the <code>EvaluationResult</code> data type, Config
    * 			supports only the <code>COMPLIANT</code>,
    * 			<code>NON_COMPLIANT</code>, and <code>NOT_APPLICABLE</code> values.
    * 			Config does not support the <code>INSUFFICIENT_DATA</code> value
@@ -4975,14 +5027,14 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
 
   /**
    * <p>The resource compliance status.</p>
-   * 		       <note>
-   * 			         <p>For the
+   *          <note>
+   *             <p>For the
    * 					<code>GetAggregateComplianceDetailsByConfigRuleRequest</code>
    * 				data type, Config supports only the <code>COMPLIANT</code>
    * 				and <code>NON_COMPLIANT</code>. Config does not support the
    * 					<code>NOT_APPLICABLE</code> and
    * 					<code>INSUFFICIENT_DATA</code> values.</p>
-   * 		       </note>
+   *          </note>
    */
   ComplianceType?: ComplianceType | string;
 
@@ -5266,9 +5318,8 @@ export interface GetComplianceDetailsByConfigRuleRequest {
 
   /**
    * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code>,
-   * 				<code>NON_COMPLIANT</code>, and
-   * 			<code>NOT_APPLICABLE</code>.</p>
+   *          <p>
+   *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
    */
   ComplianceTypes?: (ComplianceType | string)[];
 
@@ -5322,9 +5373,8 @@ export interface GetComplianceDetailsByResourceRequest {
 
   /**
    * <p>Filters the results by compliance.</p>
-   * 		       <p>The allowed values are <code>COMPLIANT</code>,
-   * 				<code>NON_COMPLIANT</code>, and
-   * 			<code>NOT_APPLICABLE</code>.</p>
+   *          <p>
+   *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
    */
   ComplianceTypes?: (ComplianceType | string)[];
 
@@ -5337,7 +5387,7 @@ export interface GetComplianceDetailsByResourceRequest {
 
   /**
    * <p>The unique ID of Amazon Web Services resource execution for which you want to retrieve evaluation results. </p>
-   * 		       <note>
+   *          <note>
    *             <p>You need to only provide either a <code>ResourceEvaluationID</code> or a <code>ResourceID </code>and <code>ResourceType</code>.</p>
    *          </note>
    */
@@ -5380,7 +5430,7 @@ export interface GetComplianceSummaryByResourceTypeRequest {
    * <p>Specify one or more resource types to get the number of
    * 			resources that are compliant and the number that are noncompliant
    * 			for each resource type.</p>
-   * 		       <p>For this request, you can specify an Amazon Web Services resource type such as
+   *          <p>For this request, you can specify an Amazon Web Services resource type such as
    * 				<code>AWS::EC2::Instance</code>. You can specify that the
    * 			resource type is an Amazon Web Services account by specifying
    * 				<code>AWS::::Account</code>.</p>
@@ -5489,16 +5539,15 @@ export interface GetDiscoveredResourceCountsRequest {
    * 			you want Config to return (for example,
    * 				<code>"AWS::EC2::Instance"</code>,
    * 			<code>"AWS::IAM::User"</code>).</p>
-   *
-   * 		       <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in
+   *          <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in
    * 			the region for your account.</p>
-   * 		       <note>
-   * 			         <p>If the configuration recorder is turned off, Config
+   *          <note>
+   *             <p>If the configuration recorder is turned off, Config
    * 				returns an empty list of <a>ResourceCount</a>
    * 				objects. If the configuration recorder is not recording a
    * 				specific resource type (for example, S3 buckets), that resource
    * 				type is not returned in the list of <a>ResourceCount</a> objects.</p>
-   * 		       </note>
+   *          </note>
    */
   resourceTypes?: string[];
 
@@ -5541,29 +5590,27 @@ export interface GetDiscoveredResourceCountsResponse {
    * 			the region for your account. If you specify resource types in the
    * 			request, Config returns only the total number of resources for
    * 			those resource types.</p>
-   *
-   *
-   * 		       <p class="title">
+   *          <p class="title">
    *             <b>Example</b>
    *          </p>
    *          <ol>
    *             <li>
-   * 				           <p>Config is recording three resource types in the US
+   *                <p>Config is recording three resource types in the US
    * 					East (Ohio) Region for your account: 25 EC2 instances, 20
    * 					IAM users, and 15 S3 buckets, for a total of 60
    * 					resources.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>You make a call to the
+   *                <p>You make a call to the
    * 						<code>GetDiscoveredResourceCounts</code> action and
    * 					specify the resource type,
    * 						<code>"AWS::EC2::Instances"</code>, in the
    * 					request.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>Config returns 25 for
+   *                <p>Config returns 25 for
    * 						<code>totalDiscoveredResources</code>.</p>
-   * 			         </li>
+   *             </li>
    *          </ol>
    */
   totalDiscoveredResources?: number;
@@ -5608,8 +5655,8 @@ export interface StatusDetailFilters {
    * 			When management account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
    * 			Config rule status is deleted when the management account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 			</p>
-   * 		       <p>Config sets the state of the rule to:</p>
-   * 		       <ul>
+   *          <p>Config sets the state of the rule to:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATE_SUCCESSFUL</code> when Config rule has been created in the member account.</p>
@@ -5693,8 +5740,8 @@ export interface MemberAccountStatus {
    * 			When management account calls <code>PutOrganizationConfigRule</code> action for the second time, Config rule status is updated in the member account.
    * 			Config rule status is deleted when the management account deletes <code>OrganizationConfigRule</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 		</p>
-   * 		       <p> Config sets the state of the rule to:</p>
-   * 		       <ul>
+   *          <p> Config sets the state of the rule to:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATE_SUCCESSFUL</code> when Config rule has been created in the member account. </p>
@@ -5790,8 +5837,8 @@ export interface OrganizationResourceDetailedStatusFilters {
    * 			When management account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account.
    * 			Conformance pack status is deleted when the management account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 		</p>
-   * 		       <p> Config sets the state of the conformance pack to:</p>
-   * 		       <ul>
+   *          <p> Config sets the state of the conformance pack to:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATE_SUCCESSFUL</code> when conformance pack has been created in the member account. </p>
@@ -5878,8 +5925,8 @@ export interface OrganizationConformancePackDetailedStatus {
    * 			When management account calls <code>PutOrganizationConformancePack</code> action for the second time, conformance pack status is updated in the member account.
    * 			Conformance pack status is deleted when the management account deletes <code>OrganizationConformancePack</code> and disables service access for <code>config-multiaccountsetup.amazonaws.com</code>.
    * 		</p>
-   * 		       <p> Config sets the state of the conformance pack to:</p>
-   * 		       <ul>
+   *          <p> Config sets the state of the conformance pack to:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATE_SUCCESSFUL</code> when conformance pack has been created in the member account. </p>
@@ -6035,7 +6082,7 @@ export interface GetResourceConfigHistoryResponse {
 }
 
 /**
- * <p>The specified time range is invalid. The earlier time is not
+ * <p>The specified time range is not valid. The earlier time is not
  * 			chronologically before the later time.</p>
  */
 export class InvalidTimeRangeException extends __BaseException {
@@ -6066,7 +6113,7 @@ export enum ResourceConfigurationSchemaType {
 }
 
 /**
- * <p>Returns information about the resource being evaluated. </p>
+ * <p>Returns information about the resource being evaluated.</p>
  */
 export interface ResourceDetails {
   /**
@@ -6086,6 +6133,13 @@ export interface ResourceDetails {
 
   /**
    * <p>The schema type of the resource configuration.</p>
+   *          <note>
+   *             <p>You can find the
+   * 			<a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource type schema</a>, or <code>CFN_RESOURCE_SCHEMA</code>, in "<i>Amazon Web Services public extensions</i>" within the CloudFormation registry or with the following CLI commmand:
+   * 			<code>aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type RESOURCE</code>.</p>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view">Managing extensions through the CloudFormation registry</a>
+   * 				and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
+   *          </note>
    */
   ResourceConfigurationSchemaType?: ResourceConfigurationSchemaType | string;
 }
@@ -6238,7 +6292,7 @@ export class InvalidConfigurationRecorderNameException extends __BaseException {
 }
 
 /**
- * <p>The specified delivery channel name is invalid.</p>
+ * <p>The specified delivery channel name is not valid.</p>
  */
 export class InvalidDeliveryChannelNameException extends __BaseException {
   readonly name: "InvalidDeliveryChannelNameException" = "InvalidDeliveryChannelNameException";
@@ -6276,7 +6330,7 @@ export class InvalidExpressionException extends __BaseException {
 }
 
 /**
- * <p>Config throws an exception if the recording group does not contain a valid list of resource types. Invalid values might also be incorrectly formatted.</p>
+ * <p>Config throws an exception if the recording group does not contain a valid list of resource types. Values that are not valid might also be incorrectly formatted.</p>
  */
 export class InvalidRecordingGroupException extends __BaseException {
   readonly name: "InvalidRecordingGroupException" = "InvalidRecordingGroupException";
@@ -6295,7 +6349,7 @@ export class InvalidRecordingGroupException extends __BaseException {
 }
 
 /**
- * <p>The specified <code>ResultToken</code> is invalid.</p>
+ * <p>The specified <code>ResultToken</code> is not valid.</p>
  */
 export class InvalidResultTokenException extends __BaseException {
   readonly name: "InvalidResultTokenException" = "InvalidResultTokenException";
@@ -6333,7 +6387,7 @@ export class InvalidRoleException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon S3 key prefix is invalid.</p>
+ * <p>The specified Amazon S3 key prefix is not valid.</p>
  */
 export class InvalidS3KeyPrefixException extends __BaseException {
   readonly name: "InvalidS3KeyPrefixException" = "InvalidS3KeyPrefixException";
@@ -6352,7 +6406,7 @@ export class InvalidS3KeyPrefixException extends __BaseException {
 }
 
 /**
- * <p>The specified Amazon KMS Key ARN is invalid.</p>
+ * <p>The specified Amazon KMS Key ARN is not valid.</p>
  */
 export class InvalidS3KmsKeyArnException extends __BaseException {
   readonly name: "InvalidS3KmsKeyArnException" = "InvalidS3KmsKeyArnException";
@@ -6393,7 +6447,7 @@ export class InvalidSNSTopicARNException extends __BaseException {
  * <p>For <code>StartConfigRulesEvaluation</code> API, this exception
  * 			is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per
  * 			minute.</p>
- * 		       <p>For <code>PutConfigurationAggregator</code> API, this exception
+ *          <p>For <code>PutConfigurationAggregator</code> API, this exception
  * 			is thrown if the number of accounts and aggregators exceeds the
  * 			limit.</p>
  */
@@ -6494,16 +6548,14 @@ export interface ListConformancePackComplianceScoresRequest {
 
   /**
    * <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
-   *
-   * 		       <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Conformance pack compliance scores are sorted in reverse alphabetical order if you enter <code>DESCENDING</code>.</p>
-   *
-   * 		       <p>You can sort conformance pack compliance scores by the numerical value of the compliance score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance scores are sorted by <code>SCORE</code>, conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and first when sorting by descending order.</p>
+   *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Conformance pack compliance scores are sorted in reverse alphabetical order if you enter <code>DESCENDING</code>.</p>
+   *          <p>You can sort conformance pack compliance scores by the numerical value of the compliance score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance scores are sorted by <code>SCORE</code>, conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and first when sorting by descending order.</p>
    */
   SortOrder?: SortOrder | string;
 
   /**
    * <p>Sorts your conformance pack compliance scores in either ascending or descending order, depending on <code>SortOrder</code>.</p>
-   * 		       <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack.
+   *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack.
    * 			Enter <code>SCORE</code>, to sort conformance pack compliance scores by the numerical value of the compliance score.</p>
    */
   SortBy?: SortBy | string;
@@ -6514,7 +6566,7 @@ export interface ListConformancePackComplianceScoresRequest {
   Limit?: number;
 
   /**
-   * <p>The <code>nextToken</code> string in a prior request that you can use to get the paginated response for next set of conformance pack compliance scores.</p>
+   * <p>The <code>nextToken</code> string in a prior request that you can use to get the paginated response for the next set of conformance pack compliance scores.</p>
    */
   NextToken?: string;
 }
@@ -6544,7 +6596,7 @@ export interface ListDiscoveredResourcesRequest {
   /**
    * <p>The IDs of only those resources that you want Config to
    * 			list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has
-   * 			discovered.</p>
+   * 			discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</p>
    */
   resourceIds?: string[];
 

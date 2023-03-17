@@ -36,7 +36,7 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
 
 /**
  * <p>Accepts a structured query language (SQL) <code>SELECT</code> command, performs the corresponding search, and returns resource configurations matching the properties.</p>
- * 		       <p>For more information about query components, see the
+ *          <p>For more information about query components, see the
  * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
  *                <b>Query Components</b>
  *             </a> section in the <i>Config Developer Guide</i>.</p>
@@ -61,7 +61,7 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *

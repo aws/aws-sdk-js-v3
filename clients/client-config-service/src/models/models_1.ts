@@ -194,7 +194,7 @@ export class OrganizationAllFeaturesNotEnabledException extends __BaseException 
 }
 
 /**
- * <p>You have specified a template that is invalid or supported.</p>
+ * <p>You have specified a template that is not valid or supported.</p>
  */
 export class OrganizationConformancePackTemplateValidationException extends __BaseException {
   readonly name: "OrganizationConformancePackTemplateValidationException" =
@@ -228,8 +228,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
   /**
    * <p>The type of notification that initiates Config to run an evaluation for a rule.
    * 			For Config Custom Policy rules, Config supports change-initiated notification types:</p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ConfigurationItemChangeNotification</code> - Initiates an evaluation when Config delivers a configuration item as a result of a resource
@@ -383,7 +382,7 @@ export interface PutConformancePackRequest {
 
   /**
    * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack. </p>
-   * 		       <note>
+   *          <note>
    *             <p>You must have access to read Amazon S3 bucket.</p>
    *          </note>
    */
@@ -391,7 +390,7 @@ export interface PutConformancePackRequest {
 
   /**
    * <p>A string containing the full conformance pack template body. The structure containing the template body has a minimum length of 1 byte and a maximum length of 51,200 bytes.</p>
-   * 		       <note>
+   *          <note>
    *             <p>You can use a YAML template with two resource types: Config rule (<code>AWS::Config::ConfigRule</code>) and remediation action (<code>AWS::Config::RemediationConfiguration</code>).</p>
    *          </note>
    */
@@ -399,7 +398,7 @@ export interface PutConformancePackRequest {
 
   /**
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -407,7 +406,7 @@ export interface PutConformancePackRequest {
 
   /**
    * <p>The prefix for the Amazon S3 bucket. </p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -467,13 +466,12 @@ export interface PutEvaluationsRequest {
    * 			<code>PutEvaluations</code>. You can verify whether your Lambda function will deliver evaluation results to Config. No
    * 			updates occur to your existing evaluations, and evaluation results
    * 			are not sent to Config.</p>
-   *
-   * 		       <note>
-   * 			         <p>When <code>TestMode</code> is <code>true</code>,
+   *          <note>
+   *             <p>When <code>TestMode</code> is <code>true</code>,
    * 					<code>PutEvaluations</code> doesn't require a valid value
    * 				for the <code>ResultToken</code> parameter, but the value cannot
    * 				be null.</p>
-   * 		       </note>
+   *          </note>
    */
   TestMode?: boolean;
 }
@@ -552,7 +550,7 @@ export interface PutOrganizationConformancePackRequest {
   /**
    * <p>Location of file containing the template body. The uri must point to the conformance pack template
    * 			(max size: 300 KB).</p>
-   * 		       <note>
+   *          <note>
    *             <p>You must have access to read Amazon S3 bucket.</p>
    *          </note>
    */
@@ -566,7 +564,7 @@ export interface PutOrganizationConformancePackRequest {
 
   /**
    * <p>The name of the Amazon S3 bucket where Config stores conformance pack templates.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional. If used, it must be prefixed with <code>awsconfigconforms</code>.</p>
    *          </note>
    */
@@ -574,7 +572,7 @@ export interface PutOrganizationConformancePackRequest {
 
   /**
    * <p>The prefix for the Amazon S3 bucket.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is optional.</p>
    *          </note>
    */
@@ -644,7 +642,7 @@ export interface PutRemediationExceptionsResponse {
 export interface PutResourceConfigRequest {
   /**
    * <p>The type of the resource. The custom resource type must be registered with CloudFormation. </p>
-   * 		       <note>
+   *          <note>
    *             <p>You cannot use the organization names “amzn”, “amazon”, “alexa”, “custom” with custom resource types. It is the first part of the ResourceType up to the first ::.</p>
    *          </note>
    */
@@ -667,7 +665,7 @@ export interface PutResourceConfigRequest {
 
   /**
    * <p>The configuration object of the resource in valid JSON format. It must match the schema registered with CloudFormation.</p>
-   * 		       <note>
+   *          <note>
    *             <p>The configuration JSON must not exceed 64 KB.</p>
    *          </note>
    */
@@ -675,7 +673,7 @@ export interface PutResourceConfigRequest {
 
   /**
    * <p>Tags associated with the resource.</p>
-   * 		       <note>
+   *          <note>
    *             <p>This field is not to be confused with the Amazon Web Services-wide tag feature for Amazon Web Services resources.
    * 			Tags for <code>PutResourceConfig</code> are tags that you supply for the configuration items of your custom resources.</p>
    *          </note>
@@ -687,10 +685,10 @@ export interface PutRetentionConfigurationRequest {
   /**
    * <p>Number of days Config stores your historical
    * 			information.</p>
-   * 		       <note>
-   * 			         <p>Currently, only applicable to the configuration item
+   *          <note>
+   *             <p>Currently, only applicable to the configuration item
    * 				history.</p>
-   * 		       </note>
+   *          </note>
    */
   RetentionPeriodInDays: number | undefined;
 }
@@ -706,7 +704,7 @@ export interface PutStoredQueryRequest {
   /**
    * <p>A list of <code>StoredQuery</code> objects.
    * 			The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p>
-   * 		       <note>
+   *          <note>
    *             <p>When you are creating a query, you must provide a query name and an expression.
    * 			When you are updating a query, you must provide a query name but updating the description is optional.</p>
    *          </note>
@@ -920,7 +918,7 @@ export interface StartResourceEvaluationRequest {
   EvaluationContext?: EvaluationContext;
 
   /**
-   * <p>The mode of an evaluation. The valid value for this API is <code>Proactive</code>.</p>
+   * <p>The mode of an evaluation. The valid values for this API are <code>DETECTIVE</code> and <code>PROACTIVE</code>.</p>
    */
   EvaluationMode: EvaluationMode | string | undefined;
 
@@ -932,7 +930,7 @@ export interface StartResourceEvaluationRequest {
   /**
    * <p>A client token is a unique, case-sensitive string of up to 64 ASCII characters.
    * 			To make an idempotent API request using one of these actions, specify a client token in the request.</p>
-   * 		       <note>
+   *          <note>
    *             <p>Avoid reusing the same client token for other API requests. If you retry
    * 				a request that completed successfully using the same client token and the same
    * 				parameters, the retry succeeds without performing any further actions. If you retry

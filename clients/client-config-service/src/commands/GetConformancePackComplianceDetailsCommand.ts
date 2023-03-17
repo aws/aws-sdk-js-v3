@@ -56,12 +56,12 @@ export interface GetConformancePackComplianceDetailsCommandOutput
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link NoSuchConfigRuleInConformancePackException} (client fault)

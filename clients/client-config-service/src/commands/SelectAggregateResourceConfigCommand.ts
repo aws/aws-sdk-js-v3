@@ -39,18 +39,16 @@ export interface SelectAggregateResourceConfigCommandOutput
 /**
  * <p>Accepts a structured query language (SQL) SELECT command and an aggregator to query configuration state of Amazon Web Services resources across multiple accounts and regions,
  * 			performs the corresponding search, and returns resource configurations matching the properties.</p>
- * 		       <p>For more information about query components, see the
+ *          <p>For more information about query components, see the
  * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/query-components.html">
  *                <b>Query Components</b>
  *             </a> section in the Config Developer Guide.</p>
- *
- * 		       <note>
- * 			         <p>If you run an aggregation query (i.e., using <code>GROUP BY</code> or using aggregate functions such as <code>COUNT</code>; e.g., <code>SELECT resourceId, COUNT(*) WHERE resourceType = 'AWS::IAM::Role' GROUP BY resourceId</code>)
+ *          <note>
+ *             <p>If you run an aggregation query (i.e., using <code>GROUP BY</code> or using aggregate functions such as <code>COUNT</code>; e.g., <code>SELECT resourceId, COUNT(*) WHERE resourceType = 'AWS::IAM::Role' GROUP BY resourceId</code>)
  * 				and do not specify the <code>MaxResults</code> or the <code>Limit</code> query parameters, the default page size is set to 500.</p>
- *
- * 			         <p>If you run a non-aggregation query (i.e., not using <code>GROUP BY</code> or aggregate function; e.g., <code>SELECT * WHERE resourceType = 'AWS::IAM::Role'</code>)
+ *             <p>If you run a non-aggregation query (i.e., not using <code>GROUP BY</code> or aggregate function; e.g., <code>SELECT * WHERE resourceType = 'AWS::IAM::Role'</code>)
  * 				and do not specify the <code>MaxResults</code> or the <code>Limit</code> query parameters, the default page size is set to 25.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,7 +70,7 @@ export interface SelectAggregateResourceConfigCommandOutput
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *

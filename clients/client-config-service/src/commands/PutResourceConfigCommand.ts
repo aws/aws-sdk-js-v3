@@ -34,11 +34,11 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  *
  * 			The configuration state of a resource is represented in Config as Configuration Items.
  * 			Once this API records the configuration item, you can retrieve the list of configuration items for the custom resource type using existing Config APIs. </p>
- * 		       <note>
+ *          <note>
  *             <p>The custom resource type must be registered with CloudFormation. This API accepts the configuration item registered with CloudFormation.</p>
- * 			         <p>When you call this API, Config only stores configuration state of the resource provided in the request. This API does not change or remediate the configuration of the resource.
+ *             <p>When you call this API, Config only stores configuration state of the resource provided in the request. This API does not change or remediate the configuration of the resource.
  * 				</p>
- * 		          <p>Write-only schema properites are not recorded as part of the published configuration item.</p>
+ *             <p>Write-only schema properites are not recorded as part of the published configuration item.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,7 +56,7 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link InsufficientPermissionsException} (client fault)
  *  <p>Indicates one of the following errors:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
@@ -68,7 +68,7 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
@@ -76,7 +76,7 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
- * 			         </li>
+ *             </li>
  *          </ul>
  *
  * @throws {@link MaxActiveResourcesExceededException} (client fault)
@@ -88,9 +88,9 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  *  <p>There is no configuration recorder running.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

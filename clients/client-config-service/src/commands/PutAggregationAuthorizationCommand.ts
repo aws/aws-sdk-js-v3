@@ -39,6 +39,11 @@ export interface PutAggregationAuthorizationCommandOutput
 /**
  * <p>Authorizes the aggregator account and region to collect data
  * 			from the source account and region. </p>
+ *          <note>
+ *             <p>
+ *                <code>PutAggregationAuthorization</code> is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different <code>tags</code> values,
+ * 			Config will ignore these differences and treat it as an idempotent request of the previous. In this case, <code>tags</code> will not be updated, even if they are different.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,7 +59,7 @@ export interface PutAggregationAuthorizationCommandOutput
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  *

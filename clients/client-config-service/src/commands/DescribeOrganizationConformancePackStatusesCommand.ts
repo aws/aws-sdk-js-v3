@@ -39,10 +39,10 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
 
 /**
  * <p>Provides organization conformance pack deployment status for an organization. </p>
- * 		       <note>
- * 			         <p>The status is not considered successful until organization conformance pack is successfully
+ *          <note>
+ *             <p>The status is not considered successful until organization conformance pack is successfully
  * 				deployed in all the member accounts with an exception of excluded accounts.</p>
- * 			         <p>When you specify the limit and the next token, you receive a paginated response.
+ *             <p>When you specify the limit and the next token, you receive a paginated response.
  * 				Limit and next token are not applicable if you specify organization conformance pack names.
  * 				They are only applicable, when you request all the organization conformance packs.</p>
  *          </note>
@@ -64,17 +64,17 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
  * @throws {@link NoSuchOrganizationConformancePackException} (client fault)
  *  <p>Config organization conformance pack that you passed in the filter does not exist.</p>
- * 		       <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
+ *          <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
  *
  * @throws {@link OrganizationAccessDeniedException} (client fault)
  *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
  *             </li>
@@ -91,7 +91,7 @@ export interface DescribeOrganizationConformancePackStatusesCommandOutput
  * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
- * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
  *
  */

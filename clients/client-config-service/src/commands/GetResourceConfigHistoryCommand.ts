@@ -42,19 +42,19 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  * 			minimum of 30 days and a maximum of 7 years (2557 days), Config
  * 			returns the <code>ConfigurationItems</code> for the specified
  * 			retention period. </p>
- * 		       <p>The response is paginated. By default, Config returns a
+ *          <p>The response is paginated. By default, Config returns a
  * 			limit of 10 configuration items per page. You can customize this
  * 			number with the <code>limit</code> parameter. The response includes
  * 			a <code>nextToken</code> string. To get the next page of results,
  * 			run the request again and specify the string for the
  * 				<code>nextToken</code> parameter.</p>
- * 		       <note>
- * 			         <p>Each call to the API is limited to span a duration of seven
+ *          <note>
+ *             <p>Each call to the API is limited to span a duration of seven
  * 				days. It is likely that the number of records returned is
  * 				smaller than the specified <code>limit</code>. In such cases,
  * 				you can make another call, using the
  * 				<code>nextToken</code>.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,12 +73,12 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
  * @throws {@link InvalidTimeRangeException} (client fault)
- *  <p>The specified time range is invalid. The earlier time is not
+ *  <p>The specified time range is not valid. The earlier time is not
  * 			chronologically before the later time.</p>
  *
  * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
@@ -91,9 +91,9 @@ export interface GetResourceConfigHistoryCommandOutput extends GetResourceConfig
  * 			been discovered.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

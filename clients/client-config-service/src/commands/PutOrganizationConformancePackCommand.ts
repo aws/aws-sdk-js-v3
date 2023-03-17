@@ -41,23 +41,20 @@ export interface PutOrganizationConformancePackCommandOutput
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the Config Developer Guide.</p>
- * 		       <p>Only a management account and a delegated administrator can call this API.
+ *          <p>Only a management account and a delegated administrator can call this API.
  * 			When calling this API with a delegated administrator, you must ensure Organizations
  * 			<code>ListDelegatedAdministrator</code> permissions are added. An organization can have up to 3 delegated administrators.</p>
- * 		       <p>This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
+ *          <p>This API enables organization service access for <code>config-multiaccountsetup.amazonaws.com</code>
  * 			through the <code>EnableAWSServiceAccess</code> action and creates a
  * 			service-linked role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the management or delegated administrator account of your organization.
  * 			The service-linked role is created only when the role does not exist in the caller account.
  * 			To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization
  * 			<code>register-delegate-admin</code> for <code>config-multiaccountsetup.amazonaws.com</code>.</p>
- *
- *
- *
- * 		       <note>
- * 			         <p>Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features in an organization.</p>
- * 			         <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
+ *          <note>
+ *             <p>Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features in an organization.</p>
+ *             <p>You must specify either the <code>TemplateS3Uri</code> or the <code>TemplateBody</code> parameter, but not both.
  * 			If you provide both Config uses the <code>TemplateS3Uri</code> parameter and ignores the <code>TemplateBody</code> parameter.</p>
- * 			         <p>Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the conformance pack is created or updated.
+ *             <p>Config sets the state of a conformance pack to CREATE_IN_PROGRESS and UPDATE_IN_PROGRESS until the conformance pack is created or updated.
  * 				You cannot update a conformance pack while it is in this state.</p>
  *          </note>
  * @example
@@ -76,7 +73,7 @@ export interface PutOrganizationConformancePackCommandOutput
  *
  * @throws {@link InsufficientPermissionsException} (client fault)
  *  <p>Indicates one of the following errors:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
@@ -88,7 +85,7 @@ export interface PutOrganizationConformancePackCommandOutput
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
@@ -96,7 +93,7 @@ export interface PutOrganizationConformancePackCommandOutput
  *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
- * 			         </li>
+ *             </li>
  *          </ul>
  *
  * @throws {@link MaxNumberOfOrganizationConformancePacksExceededException} (client fault)
@@ -109,7 +106,7 @@ export interface PutOrganizationConformancePackCommandOutput
  *
  * @throws {@link OrganizationAccessDeniedException} (client fault)
  *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
  *             </li>
@@ -126,17 +123,17 @@ export interface PutOrganizationConformancePackCommandOutput
  * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
- * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
  * @throws {@link OrganizationAllFeaturesNotEnabledException} (client fault)
  *  <p>Config resource cannot be created because your organization does not have all features enabled.</p>
  *
  * @throws {@link OrganizationConformancePackTemplateValidationException} (client fault)
- *  <p>You have specified a template that is invalid or supported.</p>
+ *  <p>You have specified a template that is not valid or supported.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>You see this exception in the following cases: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
  *             </li>
@@ -161,9 +158,9 @@ export interface PutOrganizationConformancePackCommandOutput
  *          </ul>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

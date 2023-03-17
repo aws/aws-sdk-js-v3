@@ -54,7 +54,7 @@ export interface DeleteRemediationConfigurationCommandOutput
  *
  * @throws {@link InsufficientPermissionsException} (client fault)
  *  <p>Indicates one of the following errors:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
@@ -66,7 +66,7 @@ export interface DeleteRemediationConfigurationCommandOutput
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
@@ -74,11 +74,11 @@ export interface DeleteRemediationConfigurationCommandOutput
  *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
- * 			         </li>
+ *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link NoSuchRemediationConfigurationException} (client fault)

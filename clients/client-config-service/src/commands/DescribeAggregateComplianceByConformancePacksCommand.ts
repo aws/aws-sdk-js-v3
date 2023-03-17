@@ -40,7 +40,7 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
 /**
  * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each
  * 			conformance pack. Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
- * 		       <note>
+ *          <note>
  *             <p>The results can return an empty result page, but if you have a <code>nextToken</code>, the results are displayed on the next page.</p>
  *          </note>
  * @example
@@ -61,7 +61,7 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
@@ -69,9 +69,9 @@ export interface DescribeAggregateComplianceByConformancePacksCommandOutput
  *  <p>You have specified a configuration aggregator that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

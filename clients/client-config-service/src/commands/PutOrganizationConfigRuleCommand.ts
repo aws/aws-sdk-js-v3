@@ -40,38 +40,36 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
  *                <b>Service Limits</b>
  *             </a> in the <i>Config Developer Guide</i>.</p>
- * 	        <p> Only a management account and a delegated administrator can create or update an organization Config rule.
+ *          <p> Only a management account and a delegated administrator can create or update an organization Config rule.
  * 		When calling this API with a delegated administrator, you must ensure Organizations
  * 		<code>ListDelegatedAdministrator</code> permissions are added. An organization can have up to 3 delegated administrators.</p>
- * 		       <p>This API enables organization service access through the <code>EnableAWSServiceAccess</code> action and creates a service-linked
+ *          <p>This API enables organization service access through the <code>EnableAWSServiceAccess</code> action and creates a service-linked
  * 			role <code>AWSServiceRoleForConfigMultiAccountSetup</code> in the management or delegated administrator account of your organization.
  * 			The service-linked role is created only when the role does not exist in the caller account.
  * 			Config verifies the existence of role with <code>GetRole</code> action.</p>
- * 		       <p>To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization
+ *          <p>To use this API with delegated administrator, register a delegated administrator by calling Amazon Web Services Organization
  * 			<code>register-delegated-administrator</code> for <code>config-multiaccountsetup.amazonaws.com</code>. </p>
- *
- * 		       <p>There are two types of rules: Config Custom Rules and Config Managed Rules.
- * 			You can use <code>PutOrganizationConfigRule</code> to create both Config custom rules and Config managed rules.</p>
- *
- * 		       <p>Custom rules are rules that you can create using either Guard or Lambda functions.
- * 			Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
- * 				Repository</a>) is a policy-as-code language that allows you to write policies that
- * 			are enforced by Config Custom Policy rules. Lambda uses custom code that you upload to
- * 			evaluate a custom rule. If you are adding a new Custom Lambda rule, you first need to create an Lambda function in the management account or a delegated
- * 		administrator that the rule invokes to evaluate your resources. You also need to create an IAM role in the managed account that can be assumed by the Lambda function.
- * 		When you use <code>PutOrganizationConfigRule</code> to add a Custom Lambda rule to Config, you must
- * 			specify the Amazon Resource Name (ARN) that Lambda assigns to the function.</p>
- *
- * 		       <p>Managed rules are predefined,
+ *          <p>There are two types of rules: <i>Config Managed Rules</i> and <i>Config Custom Rules</i>.
+ * 			You can use <code>PutOrganizationConfigRule</code> to create both Config Managed Rules and Config Custom Rules.</p>
+ *          <p>Config Managed Rules are predefined,
  * 			customizable rules created by Config. For a list of managed rules, see
  * 			<a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">List of Config
  * 				Managed Rules</a>. If you are adding an Config managed rule, you must specify the rule's identifier for the <code>RuleIdentifier</code> key.</p>
+ *          <p>Config Custom Rules are rules that you create from scratch. There are two ways to create Config custom rules: with Lambda functions
+ * 			(<a href="https://docs.aws.amazon.com/config/latest/developerguide/gettingstarted-concepts.html#gettingstarted-concepts-function"> Lambda Developer Guide</a>) and with Guard (<a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
+ * 					Repository</a>), a policy-as-code language.
  *
- *
- * 		       <note>
+ * 			Config custom rules created with Lambda
+ * 			are called <i>Config Custom Lambda Rules</i> and Config custom rules created with
+ * 			Guard are called <i>Config Custom Policy Rules</i>.</p>
+ *          <p>If you are adding a new Config Custom Lambda rule, you first need to create an Lambda function in the management account or a delegated
+ * 		administrator that the rule invokes to evaluate your resources. You also need to create an IAM role in the managed account that can be assumed by the Lambda function.
+ * 		When you use <code>PutOrganizationConfigRule</code> to add a Custom Lambda rule to Config, you must
+ * 			specify the Amazon Resource Name (ARN) that Lambda assigns to the function.</p>
+ *          <note>
  *             <p>Prerequisite: Ensure you call <code>EnableAllFeatures</code> API to enable all features in an organization.</p>
- * 			         <p>Make sure to specify one of either <code>OrganizationCustomPolicyRuleMetadata</code> for Custom Policy rules, <code>OrganizationCustomRuleMetadata</code> for Custom Lambda rules, or <code>OrganizationManagedRuleMetadata</code> for managed rules.</p>
- * 			      </note>
+ *             <p>Make sure to specify one of either <code>OrganizationCustomPolicyRuleMetadata</code> for Custom Policy rules, <code>OrganizationCustomRuleMetadata</code> for Custom Lambda rules, or <code>OrganizationManagedRuleMetadata</code> for managed rules.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,7 +86,7 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *
  * @throws {@link InsufficientPermissionsException} (client fault)
  *  <p>Indicates one of the following errors:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
@@ -100,7 +98,7 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
@@ -108,11 +106,11 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
- * 			         </li>
+ *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link MaxNumberOfOrganizationConfigRulesExceededException} (client fault)
@@ -125,7 +123,7 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *
  * @throws {@link OrganizationAccessDeniedException} (client fault)
  *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
  *             </li>
@@ -142,14 +140,14 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
- * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
  * @throws {@link OrganizationAllFeaturesNotEnabledException} (client fault)
  *  <p>Config resource cannot be created because your organization does not have all features enabled.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>You see this exception in the following cases: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
  *             </li>
@@ -174,9 +172,9 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *          </ul>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

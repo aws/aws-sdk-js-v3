@@ -38,10 +38,13 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  * <p>Runs an on-demand evaluation for the specified resource to determine whether the resource details will comply with configured Config rules.
  * 			You can also use it for evaluation purposes. Config recommends using an evaluation context. It runs an execution against the resource details with all
  * 			of the Config rules in your account that match with the specified proactive mode and resource type.</p>
- *
- * 		       <note>
- *             <p>Ensure you have the <code>cloudformation:DescribeType</code> role setup to validate the resource type schema.
- * 		</p>
+ *          <note>
+ *             <p>Ensure you have the <code>cloudformation:DescribeType</code> role setup to validate the resource type schema.</p>
+ *             <p>You can find the
+ * 				<a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource type schema</a> in "<i>Amazon Web Services public extensions</i>" within the CloudFormation registry or with the following CLI commmand:
+ * 			<code>aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type RESOURCE</code>.</p>
+ *             <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view">Managing extensions through the CloudFormation registry</a>
+ * 			and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,7 +64,7 @@ export interface StartResourceEvaluationCommandOutput extends StartResourceEvalu
  *  <p>Using the same client token with one or more different parameters. Specify a new client token with the parameter changes and try again.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  *

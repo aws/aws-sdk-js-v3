@@ -728,8 +728,7 @@ export interface ConfigServiceClientResolvedConfig extends ConfigServiceClientRe
 
 /**
  * <fullname>Config</fullname>
- *
- * 		       <p>Config provides a way to keep track of the configurations
+ *          <p>Config provides a way to keep track of the configurations
  * 			of all the Amazon Web Services resources associated with your Amazon Web Services account. You can
  * 			use Config to get the current and historical configurations of
  * 			each Amazon Web Services resource and also to get information about the relationship
@@ -737,8 +736,7 @@ export interface ConfigServiceClientResolvedConfig extends ConfigServiceClientRe
  * 			Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an
  * 			elastic network Interface (ENI), or a security group. For a complete
  * 			list of resources currently supported by Config, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Amazon Web Services resources</a>.</p>
- *
- * 		       <p>You can access and manage Config through the Amazon Web Services Management
+ *          <p>You can access and manage Config through the Amazon Web Services Management
  * 			Console, the Amazon Web Services Command Line Interface (Amazon Web Services CLI), the Config
  * 			API, or the Amazon Web Services SDKs for Config. This reference guide contains
  * 			documentation for the Config API and the Amazon Web Services CLI commands that

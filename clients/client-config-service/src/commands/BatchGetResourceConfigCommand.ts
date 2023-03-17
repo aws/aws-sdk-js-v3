@@ -40,20 +40,20 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  * 			not processed in the current request. If there are no unprocessed
  * 			resources, the operation returns an empty unprocessedResourceKeys
  * 			list. </p>
- * 		       <note>
- * 			         <ul>
+ *          <note>
+ *             <ul>
  *                <li>
- * 					             <p>The API does not return results for deleted
+ *                   <p>The API does not return results for deleted
  * 						resources.</p>
- * 				           </li>
+ *                </li>
  *                <li>
- * 					             <p> The API does not return any tags for the requested
+ *                   <p> The API does not return any tags for the requested
  * 						resources. This information is filtered out of the
  * 						supplementaryConfiguration section of the API
  * 						response.</p>
- * 				           </li>
+ *                </li>
  *             </ul>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,9 +74,9 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  * 			recorder.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

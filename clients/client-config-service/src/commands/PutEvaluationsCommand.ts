@@ -53,14 +53,14 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link InvalidResultTokenException} (client fault)
- *  <p>The specified <code>ResultToken</code> is invalid.</p>
+ *  <p>The specified <code>ResultToken</code> is not valid.</p>
  *
  * @throws {@link NoSuchConfigRuleException} (client fault)
- *  <p>The Config rule in the request is invalid. Verify that the rule is an Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
  *
  */

@@ -38,7 +38,7 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  *          <p> Only a management account or a delegated administrator account can delete an organization conformance pack.
  * 	When calling this API with a delegated administrator, you must ensure Organizations
  * 		<code>ListDelegatedAdministrator</code> permissions are added.</p>
- * 			      <p>Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
+ *          <p>Config sets the state of a conformance pack to DELETE_IN_PROGRESS until the deletion is complete.
  * 				You cannot update a conformance pack while it is in this state. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,11 +56,11 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  *
  * @throws {@link NoSuchOrganizationConformancePackException} (client fault)
  *  <p>Config organization conformance pack that you passed in the filter does not exist.</p>
- * 		       <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
+ *          <p>For DeleteOrganizationConformancePack, you tried to delete an organization conformance pack that does not exist.</p>
  *
  * @throws {@link OrganizationAccessDeniedException} (client fault)
  *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
  *             </li>
@@ -77,11 +77,11 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
- * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>You see this exception in the following cases: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
  *             </li>

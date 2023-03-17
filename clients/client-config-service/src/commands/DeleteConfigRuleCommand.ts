@@ -32,12 +32,12 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified Config rule and all of its evaluation
  * 			results.</p>
- * 		       <p>Config sets the state of a rule to <code>DELETING</code>
+ *          <p>Config sets the state of a rule to <code>DELETING</code>
  * 			until the deletion is complete. You cannot update a rule while it is
  * 			in this state. If you make a <code>PutConfigRule</code> or
  * 				<code>DeleteConfigRule</code> request for the rule, you will
  * 			receive a <code>ResourceInUseException</code>.</p>
- * 		       <p>You can check the state of a rule by using the
+ *          <p>You can check the state of a rule by using the
  * 				<code>DescribeConfigRules</code> request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,11 +54,11 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link NoSuchConfigRuleException} (client fault)
- *  <p>The Config rule in the request is invalid. Verify that the rule is an Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>You see this exception in the following cases: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
  *             </li>

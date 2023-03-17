@@ -40,67 +40,61 @@ export interface GetDiscoveredResourceCountsCommandOutput
  * <p>Returns the resource types, the number of each resource type,
  * 			and the total number of resources that Config is recording in
  * 			this region for your Amazon Web Services account. </p>
- * 		       <p class="title">
+ *          <p class="title">
  *             <b>Example</b>
  *          </p>
  *          <ol>
  *             <li>
- * 				           <p>Config is recording three resource types in the US
+ *                <p>Config is recording three resource types in the US
  * 					East (Ohio) Region for your account: 25 EC2 instances, 20
  * 					IAM users, and 15 S3 buckets.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>You make a call to the
+ *                <p>You make a call to the
  * 						<code>GetDiscoveredResourceCounts</code> action and
  * 					specify that you want all resource types. </p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Config returns the following:</p>
- *
- * 				           <ul>
+ *                <p>Config returns the following:</p>
+ *                <ul>
  *                   <li>
- * 						               <p>The resource types (EC2 instances, IAM users,
+ *                      <p>The resource types (EC2 instances, IAM users,
  * 							and S3 buckets).</p>
- * 					             </li>
+ *                   </li>
  *                   <li>
- * 						               <p>The number of each resource type (25, 20, and
+ *                      <p>The number of each resource type (25, 20, and
  * 							15).</p>
- * 					             </li>
+ *                   </li>
  *                   <li>
- * 						               <p>The total number of all resources
+ *                      <p>The total number of all resources
  * 							(60).</p>
- * 					             </li>
+ *                   </li>
  *                </ul>
- *
- * 			         </li>
+ *             </li>
  *          </ol>
- *
- * 		       <p>The response is paginated. By default, Config lists 100
+ *          <p>The response is paginated. By default, Config lists 100
  * 				<a>ResourceCount</a> objects on each page. You can
  * 			customize this number with the <code>limit</code> parameter. The
  * 			response includes a <code>nextToken</code> string. To get the next
  * 			page of results, run the request again and specify the string for
  * 			the <code>nextToken</code> parameter.</p>
- *
- * 		       <note>
- * 			         <p>If you make a call to the <a>GetDiscoveredResourceCounts</a> action, you might
+ *          <note>
+ *             <p>If you make a call to the <a>GetDiscoveredResourceCounts</a> action, you might
  * 				not immediately receive resource counts in the following
  * 				situations:</p>
- *
- * 			         <ul>
+ *             <ul>
  *                <li>
- * 					             <p>You are a new Config customer.</p>
- * 				           </li>
+ *                   <p>You are a new Config customer.</p>
+ *                </li>
  *                <li>
- * 					             <p>You just enabled resource recording.</p>
- * 				           </li>
+ *                   <p>You just enabled resource recording.</p>
+ *                </li>
  *             </ul>
- *
- * 			         <p>It might take a few minutes for Config to record and
+ *             <p>It might take a few minutes for Config to record and
  * 				count your resources. Wait a few minutes and then retry the
  * 					<a>GetDiscoveredResourceCounts</a> action.
  * 			</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,14 +113,14 @@ export interface GetDiscoveredResourceCountsCommandOutput
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

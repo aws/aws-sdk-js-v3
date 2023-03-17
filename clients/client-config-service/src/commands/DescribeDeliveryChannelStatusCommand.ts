@@ -41,10 +41,10 @@ export interface DescribeDeliveryChannelStatusCommandOutput
  * 			If a delivery channel is not specified, this action returns the
  * 			current status of all delivery channels associated with the
  * 			account.</p>
- * 		       <note>
- * 			         <p>Currently, you can specify only one delivery channel per
+ *          <note>
+ *             <p>Currently, you can specify only one delivery channel per
  * 				region in your account.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

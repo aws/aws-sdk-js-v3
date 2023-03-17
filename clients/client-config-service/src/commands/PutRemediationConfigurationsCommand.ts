@@ -42,16 +42,16 @@ export interface PutRemediationConfigurationsCommandOutput
  * 			The API creates the <code>RemediationConfiguration</code> object for the Config rule.
  * 		The Config rule must already exist for you to add a remediation configuration.
  * 		The target (SSM document) must exist and have permissions to use the target. </p>
- * 		       <note>
+ *          <note>
  *             <p>If you make backward incompatible changes to the SSM document,
  * 			you must call this again to ensure the remediations can run.</p>
- * 			         <p>This API does not support adding remediation configurations for service-linked Config Rules such as Organization Config rules,
+ *             <p>This API does not support adding remediation configurations for service-linked Config Rules such as Organization Config rules,
  * 				the rules deployed by conformance packs, and rules deployed by Amazon Web Services Security Hub.</p>
  *          </note>
- * 		       <note>
+ *          <note>
  *             <p>For manual remediation configuration, you need to provide a value for <code>automationAssumeRole</code> or use a value in the <code>assumeRole</code>field  to remediate your resources. The SSM automation document can use either as long as it maps to a valid parameter.</p>
- * 			         <p>However, for automatic remediation configuration, the only valid <code>assumeRole</code> field value is <code>AutomationAssumeRole</code> and you need to provide a value for <code>AutomationAssumeRole</code> to remediate your resources.</p>
- * 		       </note>
+ *             <p>However, for automatic remediation configuration, the only valid <code>assumeRole</code> field value is <code>AutomationAssumeRole</code> and you need to provide a value for <code>AutomationAssumeRole</code> to remediate your resources.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,7 +68,7 @@ export interface PutRemediationConfigurationsCommandOutput
  *
  * @throws {@link InsufficientPermissionsException} (client fault)
  *  <p>Indicates one of the following errors:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
@@ -80,7 +80,7 @@ export interface PutRemediationConfigurationsCommandOutput
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
@@ -88,11 +88,11 @@ export interface PutRemediationConfigurationsCommandOutput
  *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
- * 			         </li>
+ *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  *

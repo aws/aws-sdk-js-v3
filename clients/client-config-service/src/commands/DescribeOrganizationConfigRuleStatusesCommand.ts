@@ -39,14 +39,13 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
 
 /**
  * <p>Provides organization Config rule deployment status for an organization.</p>
- *
- * 		       <note>
+ *          <note>
  *             <p>The status is not considered successful until organization Config rule is successfully deployed in all the member
  * 			accounts with an exception of excluded accounts.</p>
- * 			         <p>When you specify the limit and the next token, you receive a paginated response.
+ *             <p>When you specify the limit and the next token, you receive a paginated response.
  * 			Limit and next token are not applicable if you specify organization Config rule names.
  * 			It is only applicable, when you request all the organization Config rules.</p>
- * 			      </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,16 +64,16 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
  * @throws {@link NoSuchOrganizationConfigRuleException} (client fault)
- *  <p>The Config rule in the request is invalid. Verify that the rule is an organization Config Custom Policy rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
+ *  <p>The Config rule in the request is not valid. Verify that the rule is an organization Config Process Check rule, that the rule name is correct, and that valid Amazon Resouce Names (ARNs) are used before trying again.</p>
  *
  * @throws {@link OrganizationAccessDeniedException} (client fault)
  *  <p>For <code>PutConfigurationAggregator</code> API, you can see this exception for the following reasons:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>No permission to call <code>EnableAWSServiceAccess</code> API</p>
  *             </li>
@@ -91,7 +90,7 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput
  * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
- * 		       <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
+ *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
  *
  */

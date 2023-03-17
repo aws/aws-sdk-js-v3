@@ -42,11 +42,11 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
  * 			rule for a specific resource in a rule. The results indicate which
  * 			Amazon Web Services resources were evaluated by the rule, when each resource was
  * 			last evaluated, and whether each resource complies with the rule. </p>
- * 		       <note>
- * 			         <p>The results can return an empty result page. But if you
+ *          <note>
+ *             <p>The results can return an empty result page. But if you
  * 				have a <code>nextToken</code>, the results are displayed on the next
  * 				page.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,7 +65,7 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
@@ -73,9 +73,9 @@ export interface GetAggregateComplianceDetailsByConfigRuleCommandOutput
  *  <p>You have specified a configuration aggregator that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

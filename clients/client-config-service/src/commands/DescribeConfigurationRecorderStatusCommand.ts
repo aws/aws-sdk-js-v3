@@ -38,13 +38,13 @@ export interface DescribeConfigurationRecorderStatusCommandOutput
 
 /**
  * <p>Returns the current status of the specified configuration
- * 			recorder. If a configuration recorder is not specified, this action
+ * 			recorder as well as the status of the last recording event for the recorder. If a configuration recorder is not specified, this action
  * 			returns the status of all configuration recorders associated with
  * 			the account.</p>
- * 		       <note>
- * 			         <p>Currently, you can specify only one configuration recorder
- * 				per region in your account.</p>
- * 		       </note>
+ *          <note>
+ *             <p>Currently, you can specify only one configuration recorder
+ * 				per region in your account. For a detailed status of recording events over time, add your Config events to Amazon CloudWatch metrics and use CloudWatch metrics.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

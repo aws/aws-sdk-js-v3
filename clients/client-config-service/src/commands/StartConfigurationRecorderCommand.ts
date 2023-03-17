@@ -35,7 +35,7 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
 /**
  * <p>Starts recording configurations of the Amazon Web Services resources you have
  * 			selected to record in your Amazon Web Services account.</p>
- * 		       <p>You must have created at least one delivery channel to
+ *          <p>You must have created at least one delivery channel to
  * 			successfully start the configuration recorder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

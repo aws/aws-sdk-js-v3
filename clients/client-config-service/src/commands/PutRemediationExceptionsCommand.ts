@@ -35,14 +35,23 @@ export interface PutRemediationExceptionsCommandInput extends PutRemediationExce
 export interface PutRemediationExceptionsCommandOutput extends PutRemediationExceptionsResponse, __MetadataBearer {}
 
 /**
- * <p>A remediation exception is when a specific resource is no longer considered for auto-remediation.
- * 			This API adds a new exception or updates an existing exception for a specific resource with a specific Config rule. </p>
- * 		       <note>
- *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
+ * <p>A remediation exception is when a specified resource is no longer considered for auto-remediation.
+ * 			This API adds a new exception or updates an existing exception for a specified resource with a specified Config rule. </p>
+ *          <note>
+ *             <p>Config generates a remediation exception when a problem occurs running a remediation action for a specified resource.
  * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
  *          </note>
- * 		       <note>
- *             <p>To place an exception on an Amazon Web Services resource, ensure remediation is set as manual remediation.</p>
+ *          <note>
+ *             <p>When placing an exception on an Amazon Web Services resource, it is recommended that remediation is set as manual remediation until
+ * 			the given Config rule for the specified resource evaluates the resource as <code>NON_COMPLIANT</code>.
+ * 			Once the resource has been evaluated as <code>NON_COMPLIANT</code>, you can add remediation exceptions and change the remediation type back from Manual to Auto if you want to use auto-remediation.
+ * 			Otherwise, using auto-remediation before a <code>NON_COMPLIANT</code> evaluation result can delete resources before the exception is applied.</p>
+ *          </note>
+ *          <note>
+ *             <p>Placing an exception can only be performed on resources that are <code>NON_COMPLIANT</code>.
+ * 			If you use this API for <code>COMPLIANT</code> resources or resources that are <code>NOT_APPLICABLE</code>, a remediation exception will not be generated.
+ * 			For more information on the conditions that initiate the possible Config evaluation results,
+ * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/config-concepts.html#aws-config-rules">Concepts | Config  Rules</a> in the Config Developer Guide.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -60,7 +69,7 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *
  * @throws {@link InsufficientPermissionsException} (client fault)
  *  <p>Indicates one of the following errors:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
@@ -72,7 +81,7 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *             </li>
  *             <li>
  *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
- * 				           <ul>
+ *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *                   </li>
@@ -80,11 +89,11 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
- * 			         </li>
+ *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  *

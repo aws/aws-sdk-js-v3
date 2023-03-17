@@ -42,10 +42,10 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * 			as <b>default</b>. When you have a
  * 				<code>RetentionConfiguration</code> object named <b>default</b>, calling the API modifies the
  * 			default object. </p>
- * 		       <note>
- * 			         <p>Currently, Config supports only one retention
+ *          <note>
+ *             <p>Currently, Config supports only one retention
  * 				configuration per region in your account.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,7 +61,7 @@ export interface PutRetentionConfigurationCommandOutput extends PutRetentionConf
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidParameterValueException} (client fault)
- *  <p>One or more of the specified parameters are invalid. Verify
+ *  <p>One or more of the specified parameters are not valid. Verify
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link MaxNumberOfRetentionConfigurationsExceededException} (client fault)

@@ -42,11 +42,11 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * 			discovered, including those that Config is not currently
  * 			recording. You can narrow the results to include only resources that
  * 			have specific resource IDs or a resource name.</p>
- * 		       <note>
- * 			         <p>You can specify either resource IDs or a resource name, but
+ *          <note>
+ *             <p>You can specify either resource IDs or a resource name, but
  * 				not both, in the same request.</p>
- * 		       </note>
- * 		       <p>The response is paginated. By default, Config lists 100
+ *          </note>
+ *          <p>The response is paginated. By default, Config lists 100
  * 			resource identifiers on each page. You can customize this number
  * 			with the <code>limit</code> parameter. The response includes a
  * 				<code>nextToken</code> string. To get the next page of results,
@@ -70,7 +70,7 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  *  <p>The specified limit is outside the allowable range.</p>
  *
  * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is invalid. Specify the
+ *  <p>The specified next token is not valid. Specify the
  * 				<code>nextToken</code> string that was returned in the previous
  * 			response to get the next page of results.</p>
  *
@@ -80,9 +80,9 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  * 			recorder.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is invalid.</p>
- * 		       <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- * 		       <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested action is not valid.</p>
+ *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
+ *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
  *
  *
  */

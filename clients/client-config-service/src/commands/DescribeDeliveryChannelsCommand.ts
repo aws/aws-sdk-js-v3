@@ -38,10 +38,10 @@ export interface DescribeDeliveryChannelsCommandOutput extends DescribeDeliveryC
  * <p>Returns details about the specified delivery channel. If a
  * 			delivery channel is not specified, this action returns the details
  * 			of all delivery channels associated with the account.</p>
- * 		       <note>
- * 			         <p>Currently, you can specify only one delivery channel per
+ *          <note>
+ *             <p>Currently, you can specify only one delivery channel per
  * 				region in your account.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -41,10 +41,10 @@ export interface DescribeConfigurationRecordersCommandOutput
  * 			If the configuration recorder is not specified, this action returns
  * 			the details for all configuration recorders associated with the
  * 			account.</p>
- * 		       <note>
- * 			         <p>Currently, you can specify only one configuration recorder
+ *          <note>
+ *             <p>Currently, you can specify only one configuration recorder
  * 				per region in your account.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -32,7 +32,7 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes the specified conformance pack and all the Config rules, remediation actions, and all evaluation results within that
  * 			conformance pack.</p>
- * 		       <p>Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
+ *          <p>Config sets the conformance pack to <code>DELETE_IN_PROGRESS</code> until the deletion is complete.
  * 			You cannot update a conformance pack while it is in this state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,7 +53,7 @@ export interface DeleteConformancePackCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>You see this exception in the following cases: </p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>For DeleteConfigRule, Config is deleting this rule. Try your request again later.</p>
  *             </li>

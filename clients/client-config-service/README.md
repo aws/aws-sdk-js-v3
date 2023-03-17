@@ -19,7 +19,6 @@ between the resources. An Amazon Web Services resource can be an Amazon Compute
 Cloud (Amazon EC2) instance, an Elastic Block Store (EBS) volume, an
 elastic network Interface (ENI), or a security group. For a complete
 list of resources currently supported by Config, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Amazon Web Services resources</a>.</p>
-
 <p>You can access and manage Config through the Amazon Web Services Management
 Console, the Amazon Web Services Command Line Interface (Amazon Web Services CLI), the Config
 API, or the Amazon Web Services SDKs for Config. This reference guide contains

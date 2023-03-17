@@ -31,7 +31,7 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the delivery channel.</p>
- * 		       <p>Before you can delete the delivery channel, you must stop the
+ *          <p>Before you can delete the delivery channel, you must stop the
  * 			configuration recorder by using the <a>StopConfigurationRecorder</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
