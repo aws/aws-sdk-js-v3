@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-appintegrations",
   "description": "AWS SDK for JavaScript Appintegrations Client for Node.js, Browser and React Native",
-  "version": "3.293.0",
+  "version": "3.294.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -66,15 +66,27 @@
     "typedoc": "0.23.23",
     "typescript": "~4.6.2"
   },
-  "engines": { "node": ">=14.0.0" },
-  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
-  "files": ["dist-*"],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*"
+  ],
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "browser": { "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser" },
+  "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
+  },
   "react-native": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },

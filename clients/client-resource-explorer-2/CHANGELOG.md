@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.294.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.293.0...v3.294.0) (2023-03-17)
+
+
+### Bug Fixes
+
+* **docs:** fix redirect loop ([#4535](https://github.com/aws/aws-sdk-js-v3/issues/4535)) ([1b7b0d1](https://github.com/aws/aws-sdk-js-v3/commit/1b7b0d1b6bc2ca84248c09fe21f44959f99065bf))
+
+
+
+
+
 # [3.293.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.292.1...v3.293.0) (2023-03-16)
 
 **Note:** Version bump only for package @aws-sdk/client-resource-explorer-2

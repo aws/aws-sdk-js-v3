@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.294.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.293.0...v3.294.0) (2023-03-17)
+
+
+### Bug Fixes
+
+* **docs:** fix redirect loop ([#4535](https://github.com/aws/aws-sdk-js-v3/issues/4535)) ([1b7b0d1](https://github.com/aws/aws-sdk-js-v3/commit/1b7b0d1b6bc2ca84248c09fe21f44959f99065bf))
+
+
+### Features
+
+* **client-billingconductor:** This release adds a new filter to ListAccountAssociations API and a new filter to ListBillingGroups API. ([ce232dd](https://github.com/aws/aws-sdk-js-v3/commit/ce232dd00ce99153c211b078896aa67cea3a3a0c))
+* **client-config-service:** This release adds resourceType enums for types released from October 2022 through February 2023. ([ffb7403](https://github.com/aws/aws-sdk-js-v3/commit/ffb74035859533e5a45c19e956301d0191e09bad))
+* **client-database-migration-service:** S3 setting to create AWS Glue Data Catalog. Oracle setting to control conversion of timestamp column. Support for Kafka SASL Plain authentication. Setting to map boolean from PostgreSQL to Redshift. SQL Server settings to force lob lookup on inline LOBs and to control access of database logs. ([3e53a35](https://github.com/aws/aws-sdk-js-v3/commit/3e53a3591c8b4925cb191d75d34a47208a2724d3))
+* **clients:** update client endpoints as of 2023-03-17 ([97ca573](https://github.com/aws/aws-sdk-js-v3/commit/97ca57338721aed40390fb62c63ee1930a55b238))
+
+
+
+
+
 # [3.293.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.292.1...v3.293.0) (2023-03-16)
 
 

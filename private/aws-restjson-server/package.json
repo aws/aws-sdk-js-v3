@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-restjson-server",
   "description": "@aws-sdk/aws-restjson-server server",
-  "version": "3.293.0",
+  "version": "3.294.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -52,9 +52,19 @@
     "typedoc": "0.23.23",
     "typescript": "~4.6.2"
   },
-  "engines": { "node": ">=14.0.0" },
-  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
-  "files": ["dist-*"],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*"
+  ],
   "private": true,
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/private/aws-restjson-server",
   "repository": {

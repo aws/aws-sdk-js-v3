@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.294.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.293.0...v3.294.0) (2023-03-17)
+
+
+### Features
+
+* **client-config-service:** This release adds resourceType enums for types released from October 2022 through February 2023. ([ffb7403](https://github.com/aws/aws-sdk-js-v3/commit/ffb74035859533e5a45c19e956301d0191e09bad))
+
+
+
+
+
 # [3.293.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.292.1...v3.293.0) (2023-03-16)
 
 **Note:** Version bump only for package @aws-sdk/client-config-service

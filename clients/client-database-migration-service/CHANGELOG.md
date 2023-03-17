@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.294.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.293.0...v3.294.0) (2023-03-17)
+
+
+### Features
+
+* **client-database-migration-service:** S3 setting to create AWS Glue Data Catalog. Oracle setting to control conversion of timestamp column. Support for Kafka SASL Plain authentication. Setting to map boolean from PostgreSQL to Redshift. SQL Server settings to force lob lookup on inline LOBs and to control access of database logs. ([3e53a35](https://github.com/aws/aws-sdk-js-v3/commit/3e53a3591c8b4925cb191d75d34a47208a2724d3))
+
+
+
+
+
 # [3.293.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.292.1...v3.293.0) (2023-03-16)
 
 **Note:** Version bump only for package @aws-sdk/client-database-migration-service
