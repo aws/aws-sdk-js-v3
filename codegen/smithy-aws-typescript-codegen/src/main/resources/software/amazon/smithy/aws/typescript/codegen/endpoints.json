@@ -15183,6 +15183,14 @@
                 }
               ]
             },
+            "ap-southeast-4": {
+              "variants": [
+                {
+                  "hostname": "servicediscovery.ap-southeast-4.amazonaws.com",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
             "ca-central-1": {
               "variants": [
                 {
