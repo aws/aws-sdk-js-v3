@@ -521,7 +521,7 @@ function. You can either load the SSO config from shared INI credential files, o
 
 ```javascript
 import { fromSSO } from "@aws-sdk/credential-providers"; // ES6 import
-// const { fromSSO } = require(@aws-sdk/credential-providers") // CommonJS import
+// const { fromSSO } = require("@aws-sdk/credential-providers") // CommonJS import
 
 const client = new FooClient({
   credentials: fromSSO({
