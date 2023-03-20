@@ -108,7 +108,7 @@
     "lerna": "5.5.2",
     "lint-staged": "^10.0.1",
     "mocha": "10.0.0",
-    "prettier": "2.7.1",
+    "prettier": "2.8.5",
     "puppeteer": "^5.1.0",
     "rimraf": "3.0.2",
     "ts-jest": "28.0.5",
