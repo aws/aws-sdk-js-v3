@@ -8,7 +8,7 @@ import { Provider } from "./util";
  *
  * @deprecated Use {@link TokenIdentity}
  */
-export interface Token extends TokenIdentity { }
+export interface Token extends TokenIdentity {}
 
 /**
  * @public

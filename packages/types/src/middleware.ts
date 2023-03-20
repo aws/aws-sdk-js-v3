@@ -39,17 +39,17 @@ export interface SerializeHandlerArguments<Input extends object> extends Initial
 /**
  * @public
  */
-export interface SerializeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> { }
+export interface SerializeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> {}
 
 /**
  * @public
  */
-export interface BuildHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> { }
+export interface BuildHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> {}
 
 /**
  * @public
  */
-export interface BuildHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> { }
+export interface BuildHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> {}
 
 /**
  * @public
@@ -64,12 +64,12 @@ export interface FinalizeHandlerArguments<Input extends object> extends Serializ
 /**
  * @public
  */
-export interface FinalizeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> { }
+export interface FinalizeHandlerOutput<Output extends object> extends InitializeHandlerOutput<Output> {}
 
 /**
  * @public
  */
-export interface DeserializeHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> { }
+export interface DeserializeHandlerArguments<Input extends object> extends FinalizeHandlerArguments<Input> {}
 
 /**
  * @public

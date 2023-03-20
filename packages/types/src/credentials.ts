@@ -8,7 +8,7 @@ import { Provider } from "./util";
  *
  * @deprecated Use {@link AwsCredentialIdentity}
  */
-export interface Credentials extends AwsCredentialIdentity { }
+export interface Credentials extends AwsCredentialIdentity {}
 
 /**
  * @public

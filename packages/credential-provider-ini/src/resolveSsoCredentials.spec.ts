@@ -24,14 +24,13 @@ describe(resolveSsoCredentials.name, () => {
     sso_role_name: "mock_sso_role_name",
   });
 
-  const getMockValidatedSsoProfile = <T>(add: T = {} as T) =>
-    ({
-      sso_start_url: "mock_validated_sso_start_url",
-      sso_account_id: "mock_validated_sso_account_id",
-      sso_region: "mock_validated_sso_region",
-      sso_role_name: "mock_validated_sso_role_name",
-      ...add,
-    });
+  const getMockValidatedSsoProfile = <T>(add: T = {} as T) => ({
+    sso_start_url: "mock_validated_sso_start_url",
+    sso_account_id: "mock_validated_sso_account_id",
+    sso_region: "mock_validated_sso_region",
+    sso_role_name: "mock_validated_sso_role_name",
+    ...add,
+  });
 
   afterEach(() => {
     jest.clearAllMocks();
