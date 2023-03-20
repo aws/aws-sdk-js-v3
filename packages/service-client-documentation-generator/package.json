@@ -19,12 +19,8 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "keywords": [
-    "typedocplugin"
-  ],
-  "dependencies": {
-    "tslib": "^2.5.0"
-  },
+  "keywords": ["typedocplugin"],
+  "dependencies": { "tslib": "^2.5.0" },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^14.14.31",
@@ -33,19 +29,9 @@
     "rimraf": "3.0.2",
     "typescript": "~4.9.5"
   },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
-  },
-  "typesVersions": {
-    "<4.0": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*"
-  ],
+  "typedoc": { "entryPoint": "src/index.ts" },
+  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
+  "files": ["dist-*"],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/client-documentation-generator",
   "repository": {
     "type": "git",
