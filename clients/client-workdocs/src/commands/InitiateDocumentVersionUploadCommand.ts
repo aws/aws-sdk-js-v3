@@ -72,6 +72,9 @@ export interface InitiateDocumentVersionUploadCommandOutput
  *             under the control of the organization is failing, such as a connected Active
  *             Directory.</p>
  *
+ * @throws {@link InvalidArgumentException} (client fault)
+ *  <p>The pagination marker or limit fields are not valid.</p>
+ *
  * @throws {@link InvalidPasswordException} (client fault)
  *  <p>The password is invalid.</p>
  *

@@ -110,6 +110,7 @@ import {
   RestoreDocumentVersionsCommandInput,
   RestoreDocumentVersionsCommandOutput,
 } from "../commands/RestoreDocumentVersionsCommand";
+import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "../commands/SearchResourcesCommand";
 import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "../commands/UpdateDocumentCommand";
 import {
   UpdateDocumentVersionCommandInput,
@@ -119,11 +120,14 @@ import { UpdateFolderCommandInput, UpdateFolderCommandOutput } from "../commands
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
 import {
   Activity,
+  AdditionalResponseFieldType,
   Comment,
   CommentMetadata,
   ConcurrentModificationException,
   ConflictingOperationException,
+  ContentCategoryType,
   CustomMetadataLimitExceededException,
+  DateRangeType,
   DeactivatingLastSystemUserException,
   DocumentLockedForCommentsException,
   DocumentMetadata,
@@ -134,6 +138,7 @@ import {
   EntityAlreadyExistsException,
   EntityNotExistsException,
   FailedDependencyException,
+  Filters,
   FolderMetadata,
   GroupMetadata,
   IllegalUserStateException,
@@ -141,17 +146,26 @@ import {
   InvalidCommentOperationException,
   InvalidOperationException,
   InvalidPasswordException,
+  LanguageCodeType,
   LimitExceededException,
+  LongRangeType,
   NotificationOptions,
   Participants,
   PermissionInfo,
   Principal,
+  PrincipalRoleType,
   ProhibitedStateException,
   RequestedEntityTooLargeException,
   ResourceAlreadyCheckedOutException,
   ResourceMetadata,
   ResourcePath,
   ResourcePathComponent,
+  ResponseItem,
+  SearchCollectionType,
+  SearchPrincipalType,
+  SearchQueryScopeType,
+  SearchResourceType,
+  SearchSortResult,
   ServiceUnavailableException,
   SharePrincipal,
   ShareResult,
@@ -1291,6 +1305,45 @@ export const serializeAws_restJson1RestoreDocumentVersionsCommand = async (
     "/api/v1/documentVersions/restore/{DocumentId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchResourcesCommand = async (
+  input: SearchResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    authentication: input.AuthenticationToken!,
+  });
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/search";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AdditionalResponseFields != null && {
+      AdditionalResponseFields: serializeAws_restJson1AdditionalResponseFieldsList(
+        input.AdditionalResponseFields,
+        context
+      ),
+    }),
+    ...(input.Filters != null && { Filters: serializeAws_restJson1Filters(input.Filters, context) }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.Marker != null && { Marker: input.Marker }),
+    ...(input.OrderBy != null && { OrderBy: serializeAws_restJson1SearchResultSortList(input.OrderBy, context) }),
+    ...(input.OrganizationId != null && { OrganizationId: input.OrganizationId }),
+    ...(input.QueryScopes != null && {
+      QueryScopes: serializeAws_restJson1SearchQueryScopeTypeList(input.QueryScopes, context),
+    }),
+    ...(input.QueryText != null && { QueryText: input.QueryText }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -3443,6 +3496,9 @@ const deserializeAws_restJson1InitiateDocumentVersionUploadCommandError = async 
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
       throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.workdocs#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "InvalidPasswordException":
     case "com.amazonaws.workdocs#InvalidPasswordException":
       throw await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context);
@@ -3617,6 +3673,59 @@ const deserializeAws_restJson1RestoreDocumentVersionsCommandError = async (
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
       throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.workdocs#UnauthorizedOperationException":
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+    case "UnauthorizedResourceAccessException":
+    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1SearchResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchResourcesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.Items != null) {
+    contents.Items = deserializeAws_restJson1ResponseItemsList(data.Items, context);
+  }
+  if (data.Marker != null) {
+    contents.Marker = __expectString(data.Marker);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1SearchResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArgumentException":
+    case "com.amazonaws.workdocs#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.workdocs#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
       throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
@@ -4298,6 +4407,17 @@ const deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse = asyn
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AdditionalResponseFieldsList = (
+  input: (AdditionalResponseFieldType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1CustomMetadataMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -4308,10 +4428,156 @@ const serializeAws_restJson1CustomMetadataMap = (input: Record<string, string>, 
   }, {});
 };
 
+const serializeAws_restJson1DateRangeType = (input: DateRangeType, context: __SerdeContext): any => {
+  return {
+    ...(input.EndValue != null && { EndValue: Math.round(input.EndValue.getTime() / 1000) }),
+    ...(input.StartValue != null && { StartValue: Math.round(input.StartValue.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_restJson1Filters = (input: Filters, context: __SerdeContext): any => {
+  return {
+    ...(input.AncestorIds != null && {
+      AncestorIds: serializeAws_restJson1SearchAncestorIdList(input.AncestorIds, context),
+    }),
+    ...(input.ContentCategories != null && {
+      ContentCategories: serializeAws_restJson1SearchContentCategoryTypeList(input.ContentCategories, context),
+    }),
+    ...(input.CreatedRange != null && {
+      CreatedRange: serializeAws_restJson1DateRangeType(input.CreatedRange, context),
+    }),
+    ...(input.Labels != null && { Labels: serializeAws_restJson1SearchLabelList(input.Labels, context) }),
+    ...(input.ModifiedRange != null && {
+      ModifiedRange: serializeAws_restJson1DateRangeType(input.ModifiedRange, context),
+    }),
+    ...(input.Principals != null && {
+      Principals: serializeAws_restJson1SearchPrincipalTypeList(input.Principals, context),
+    }),
+    ...(input.ResourceTypes != null && {
+      ResourceTypes: serializeAws_restJson1SearchResourceTypeList(input.ResourceTypes, context),
+    }),
+    ...(input.SearchCollectionTypes != null && {
+      SearchCollectionTypes: serializeAws_restJson1SearchCollectionTypeList(input.SearchCollectionTypes, context),
+    }),
+    ...(input.SizeRange != null && { SizeRange: serializeAws_restJson1LongRangeType(input.SizeRange, context) }),
+    ...(input.TextLocales != null && {
+      TextLocales: serializeAws_restJson1TextLocaleTypeList(input.TextLocales, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1LongRangeType = (input: LongRangeType, context: __SerdeContext): any => {
+  return {
+    ...(input.EndValue != null && { EndValue: input.EndValue }),
+    ...(input.StartValue != null && { StartValue: input.StartValue }),
+  };
+};
+
 const serializeAws_restJson1NotificationOptions = (input: NotificationOptions, context: __SerdeContext): any => {
   return {
     ...(input.EmailMessage != null && { EmailMessage: input.EmailMessage }),
     ...(input.SendEmail != null && { SendEmail: input.SendEmail }),
+  };
+};
+
+const serializeAws_restJson1SearchAncestorIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SearchCollectionTypeList = (
+  input: (SearchCollectionType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SearchContentCategoryTypeList = (
+  input: (ContentCategoryType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SearchLabelList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SearchPrincipalRoleList = (
+  input: (PrincipalRoleType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SearchPrincipalType = (input: SearchPrincipalType, context: __SerdeContext): any => {
+  return {
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.Roles != null && { Roles: serializeAws_restJson1SearchPrincipalRoleList(input.Roles, context) }),
+  };
+};
+
+const serializeAws_restJson1SearchPrincipalTypeList = (input: SearchPrincipalType[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SearchPrincipalType(entry, context);
+    });
+};
+
+const serializeAws_restJson1SearchQueryScopeTypeList = (
+  input: (SearchQueryScopeType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SearchResourceTypeList = (
+  input: (SearchResourceType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1SearchResultSortList = (input: SearchSortResult[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1SearchSortResult(entry, context);
+    });
+};
+
+const serializeAws_restJson1SearchSortResult = (input: SearchSortResult, context: __SerdeContext): any => {
+  return {
+    ...(input.Field != null && { Field: input.Field }),
+    ...(input.Order != null && { Order: input.Order }),
   };
 };
 
@@ -4344,6 +4610,17 @@ const serializeAws_restJson1StorageRuleType = (input: StorageRuleType, context: 
     ...(input.StorageAllocatedInBytes != null && { StorageAllocatedInBytes: input.StorageAllocatedInBytes }),
     ...(input.StorageType != null && { StorageType: input.StorageType }),
   };
+};
+
+const serializeAws_restJson1TextLocaleTypeList = (
+  input: (LanguageCodeType | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext): Activity => {
@@ -4405,6 +4682,7 @@ const deserializeAws_restJson1CommentMetadata = (output: any, context: __SerdeCo
     CommentId: __expectString(output.CommentId),
     CommentStatus: __expectString(output.CommentStatus),
     Contributor: output.Contributor != null ? deserializeAws_restJson1User(output.Contributor, context) : undefined,
+    ContributorId: __expectString(output.ContributorId),
     CreatedTimestamp:
       output.CreatedTimestamp != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTimestamp)))
@@ -4697,6 +4975,41 @@ const deserializeAws_restJson1ResourcePathComponentList = (
         return null as any;
       }
       return deserializeAws_restJson1ResourcePathComponent(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ResponseItem = (output: any, context: __SerdeContext): ResponseItem => {
+  return {
+    CommentMetadata:
+      output.CommentMetadata != null
+        ? deserializeAws_restJson1CommentMetadata(output.CommentMetadata, context)
+        : undefined,
+    DocumentMetadata:
+      output.DocumentMetadata != null
+        ? deserializeAws_restJson1DocumentMetadata(output.DocumentMetadata, context)
+        : undefined,
+    DocumentVersionMetadata:
+      output.DocumentVersionMetadata != null
+        ? deserializeAws_restJson1DocumentVersionMetadata(output.DocumentVersionMetadata, context)
+        : undefined,
+    FolderMetadata:
+      output.FolderMetadata != null
+        ? deserializeAws_restJson1FolderMetadata(output.FolderMetadata, context)
+        : undefined,
+    ResourceType: __expectString(output.ResourceType),
+    WebUrl: __expectString(output.WebUrl),
+  } as any;
+};
+
+const deserializeAws_restJson1ResponseItemsList = (output: any, context: __SerdeContext): ResponseItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResponseItem(entry, context);
     });
   return retVal;
 };

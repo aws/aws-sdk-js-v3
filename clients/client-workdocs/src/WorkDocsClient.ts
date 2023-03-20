@@ -139,6 +139,7 @@ import {
   RestoreDocumentVersionsCommandInput,
   RestoreDocumentVersionsCommandOutput,
 } from "./commands/RestoreDocumentVersionsCommand";
+import { SearchResourcesCommandInput, SearchResourcesCommandOutput } from "./commands/SearchResourcesCommand";
 import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand";
 import {
   UpdateDocumentVersionCommandInput,
@@ -194,6 +195,7 @@ export type ServiceInputTypes =
   | RemoveAllResourcePermissionsCommandInput
   | RemoveResourcePermissionCommandInput
   | RestoreDocumentVersionsCommandInput
+  | SearchResourcesCommandInput
   | UpdateDocumentCommandInput
   | UpdateDocumentVersionCommandInput
   | UpdateFolderCommandInput
@@ -239,6 +241,7 @@ export type ServiceOutputTypes =
   | RemoveAllResourcePermissionsCommandOutput
   | RemoveResourcePermissionCommandOutput
   | RestoreDocumentVersionsCommandOutput
+  | SearchResourcesCommandOutput
   | UpdateDocumentCommandOutput
   | UpdateDocumentVersionCommandOutput
   | UpdateFolderCommandOutput

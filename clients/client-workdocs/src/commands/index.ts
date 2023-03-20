@@ -38,6 +38,7 @@ export * from "./InitiateDocumentVersionUploadCommand";
 export * from "./RemoveAllResourcePermissionsCommand";
 export * from "./RemoveResourcePermissionCommand";
 export * from "./RestoreDocumentVersionsCommand";
+export * from "./SearchResourcesCommand";
 export * from "./UpdateDocumentCommand";
 export * from "./UpdateDocumentVersionCommand";
 export * from "./UpdateFolderCommand";

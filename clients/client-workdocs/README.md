@@ -578,6 +578,14 @@ RestoreDocumentVersions
 </details>
 <details>
 <summary>
+SearchResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workdocs/classes/searchresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workdocs/interfaces/searchresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-workdocs/interfaces/searchresourcescommandoutput.html)
+
+</details>
+<details>
+<summary>
 UpdateDocument
 </summary>
 

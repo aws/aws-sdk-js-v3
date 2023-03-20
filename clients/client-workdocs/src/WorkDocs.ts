@@ -181,6 +181,11 @@ import {
   RestoreDocumentVersionsCommandOutput,
 } from "./commands/RestoreDocumentVersionsCommand";
 import {
+  SearchResourcesCommand,
+  SearchResourcesCommandInput,
+  SearchResourcesCommandOutput,
+} from "./commands/SearchResourcesCommand";
+import {
   UpdateDocumentCommand,
   UpdateDocumentCommandInput,
   UpdateDocumentCommandOutput,
@@ -1514,6 +1519,38 @@ export class WorkDocs extends WorkDocsClient {
     cb?: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
   ): Promise<RestoreDocumentVersionsCommandOutput> | void {
     const command = new RestoreDocumentVersionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Searches metadata and the content of folders, documents, document versions, and comments.</p>
+   */
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchResourcesCommandOutput>;
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    cb: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): void;
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): void;
+  public searchResources(
+    args: SearchResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchResourcesCommandOutput) => void),
+    cb?: (err: any, data?: SearchResourcesCommandOutput) => void
+  ): Promise<SearchResourcesCommandOutput> | void {
+    const command = new SearchResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -372,6 +372,11 @@ export interface CommentMetadata {
    * <p>The ID of the user being replied to.</p>
    */
   RecipientId?: string;
+
+  /**
+   * <p>The ID of the user who made the comment.</p>
+   */
+  ContributorId?: string;
 }
 
 /**
@@ -571,6 +576,10 @@ export interface Activity {
    *             commenting activities.</p>
    */
   CommentMetadata?: CommentMetadata;
+}
+
+export enum AdditionalResponseFieldType {
+  WEBURL = "WEBURL",
 }
 
 /**
@@ -2595,6 +2604,306 @@ export interface RestoreDocumentVersionsRequest {
   DocumentId: string | undefined;
 }
 
+export enum ContentCategoryType {
+  AUDIO = "AUDIO",
+  DOCUMENT = "DOCUMENT",
+  IMAGE = "IMAGE",
+  OTHER = "OTHER",
+  PDF = "PDF",
+  PRESENTATION = "PRESENTATION",
+  SOURCE_CODE = "SOURCE_CODE",
+  SPREADSHEET = "SPREADSHEET",
+  VIDEO = "VIDEO",
+}
+
+/**
+ * <p>Filters results based on timestamp range (in epochs).</p>
+ */
+export interface DateRangeType {
+  /**
+   * <p>Timestamp range start value (in epochs)</p>
+   */
+  StartValue?: Date;
+
+  /**
+   * <p>Timestamp range end value (in epochs).</p>
+   */
+  EndValue?: Date;
+}
+
+export enum PrincipalRoleType {
+  CONTRIBUTOR = "CONTRIBUTOR",
+  COOWNER = "COOWNER",
+  OWNER = "OWNER",
+  VIEWER = "VIEWER",
+}
+
+/**
+ * <p>Filter based on UserIds or GroupIds.</p>
+ */
+export interface SearchPrincipalType {
+  /**
+   * <p>UserIds or GroupIds.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Role of a User or Group.</p>
+   */
+  Roles?: (PrincipalRoleType | string)[];
+}
+
+export enum SearchResourceType {
+  COMMENT = "COMMENT",
+  DOCUMENT = "DOCUMENT",
+  DOCUMENT_VERSION = "DOCUMENT_VERSION",
+  FOLDER = "FOLDER",
+}
+
+export enum SearchCollectionType {
+  OWNED = "OWNED",
+  SHARED_WITH_ME = "SHARED_WITH_ME",
+}
+
+/**
+ * <p>Filter based on size (in bytes).</p>
+ */
+export interface LongRangeType {
+  /**
+   * <p>The size start range (in bytes).</p>
+   */
+  StartValue?: number;
+
+  /**
+   * <p>The size end range (in bytes).</p>
+   */
+  EndValue?: number;
+}
+
+export enum LanguageCodeType {
+  AR = "AR",
+  BG = "BG",
+  BN = "BN",
+  CS = "CS",
+  DA = "DA",
+  DE = "DE",
+  DEFAULT = "DEFAULT",
+  EL = "EL",
+  EN = "EN",
+  ES = "ES",
+  FA = "FA",
+  FI = "FI",
+  FR = "FR",
+  HI = "HI",
+  HU = "HU",
+  ID = "ID",
+  IT = "IT",
+  JA = "JA",
+  KO = "KO",
+  LT = "LT",
+  LV = "LV",
+  NL = "NL",
+  NO = "NO",
+  PT = "PT",
+  RO = "RO",
+  RU = "RU",
+  SV = "SV",
+  SW = "SW",
+  TH = "TH",
+  TR = "TR",
+  ZH = "ZH",
+}
+
+/**
+ * <p>Filters results based on entity metadata.</p>
+ */
+export interface Filters {
+  /**
+   * <p>Filters by the locale of the content or comment.</p>
+   */
+  TextLocales?: (LanguageCodeType | string)[];
+
+  /**
+   * <p>Filters by content category.</p>
+   */
+  ContentCategories?: (ContentCategoryType | string)[];
+
+  /**
+   * <p>Filters based on entity type.</p>
+   */
+  ResourceTypes?: (SearchResourceType | string)[];
+
+  /**
+   * <p>Filter by labels using exact match.</p>
+   */
+  Labels?: string[];
+
+  /**
+   * <p>Filter based on UserIds or GroupIds.</p>
+   */
+  Principals?: SearchPrincipalType[];
+
+  /**
+   * <p>Filter based on resource’s path.</p>
+   */
+  AncestorIds?: string[];
+
+  /**
+   * <p>Filter based on file groupings.</p>
+   */
+  SearchCollectionTypes?: (SearchCollectionType | string)[];
+
+  /**
+   * <p>Filter based on size (in bytes).</p>
+   */
+  SizeRange?: LongRangeType;
+
+  /**
+   * <p>Filter based on resource’s creation timestamp.</p>
+   */
+  CreatedRange?: DateRangeType;
+
+  /**
+   * <p>Filter based on resource’s modified timestamp.</p>
+   */
+  ModifiedRange?: DateRangeType;
+}
+
+export enum OrderByFieldType {
+  CREATED_TIMESTAMP = "CREATED_TIMESTAMP",
+  MODIFIED_TIMESTAMP = "MODIFIED_TIMESTAMP",
+  NAME = "NAME",
+  RELEVANCE = "RELEVANCE",
+  SIZE = "SIZE",
+}
+
+export enum SortOrder {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
+/**
+ * <p>The result of the sort operation.</p>
+ */
+export interface SearchSortResult {
+  /**
+   * <p>Sort search results based on this field name.</p>
+   */
+  Field?: OrderByFieldType | string;
+
+  /**
+   * <p>Sort direction.</p>
+   */
+  Order?: SortOrder | string;
+}
+
+export enum SearchQueryScopeType {
+  CONTENT = "CONTENT",
+  NAME = "NAME",
+}
+
+export interface SearchResourcesRequest {
+  /**
+   * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
+   */
+  AuthenticationToken?: string;
+
+  /**
+   * <p>The String to search for. Searches across different text fields based on request parameters. Use double quotes around the query string for exact phrase matches.</p>
+   */
+  QueryText?: string;
+
+  /**
+   * <p>Filter based on the text field type. A Folder has only a name and no content. A Comment has only content and no name. A Document or Document Version has a name and content</p>
+   */
+  QueryScopes?: (SearchQueryScopeType | string)[];
+
+  /**
+   * <p>Filters based on the resource owner OrgId. This is a mandatory parameter when using Admin SigV4 credentials.</p>
+   */
+  OrganizationId?: string;
+
+  /**
+   * <p>A list of attributes to include in the response. Used to request fields that are not normally
+   *             returned in a standard response.</p>
+   */
+  AdditionalResponseFields?: (AdditionalResponseFieldType | string)[];
+
+  /**
+   * <p>Filters results based on entity metadata.</p>
+   */
+  Filters?: Filters;
+
+  /**
+   * <p>Order by results in one or more categories.</p>
+   */
+  OrderBy?: SearchSortResult[];
+
+  /**
+   * <p>Max results count per page.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The marker for the next set of results.</p>
+   */
+  Marker?: string;
+}
+
+export enum ResponseItemType {
+  COMMENT = "COMMENT",
+  DOCUMENT = "DOCUMENT",
+  DOCUMENT_VERSION = "DOCUMENT_VERSION",
+  FOLDER = "FOLDER",
+}
+
+/**
+ * <p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>
+ */
+export interface ResponseItem {
+  /**
+   * <p>The type of item being returned.</p>
+   */
+  ResourceType?: ResponseItemType | string;
+
+  /**
+   * <p>The webUrl of the item being returned.</p>
+   */
+  WebUrl?: string;
+
+  /**
+   * <p>The document that matches the query.</p>
+   */
+  DocumentMetadata?: DocumentMetadata;
+
+  /**
+   * <p>The folder that matches the query.</p>
+   */
+  FolderMetadata?: FolderMetadata;
+
+  /**
+   * <p>The comment that matches the query.</p>
+   */
+  CommentMetadata?: CommentMetadata;
+
+  /**
+   * <p>The document version that matches the metadata.</p>
+   */
+  DocumentVersionMetadata?: DocumentVersionMetadata;
+}
+
+export interface SearchResourcesResponse {
+  /**
+   * <p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>
+   */
+  Items?: ResponseItem[];
+
+  /**
+   * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
+   */
+  Marker?: string;
+}
+
 export interface UpdateDocumentRequest {
   /**
    * <p>Amazon WorkDocs authentication token. Not required when using Amazon Web Services administrator credentials to access the API.</p>
@@ -2815,7 +3124,10 @@ export const UserStorageMetadataFilterSensitiveLog = (obj: UserStorageMetadata):
  */
 export const UserFilterSensitiveLog = (obj: User): any => ({
   ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+  ...(obj.GivenName && { GivenName: SENSITIVE_STRING }),
+  ...(obj.Surname && { Surname: SENSITIVE_STRING }),
 });
 
 /**
@@ -2839,6 +3151,9 @@ export const CommentMetadataFilterSensitiveLog = (obj: CommentMetadata): any => 
  */
 export const UserMetadataFilterSensitiveLog = (obj: UserMetadata): any => ({
   ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
+  ...(obj.GivenName && { GivenName: SENSITIVE_STRING }),
+  ...(obj.Surname && { Surname: SENSITIVE_STRING }),
   ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
 });
 
@@ -2847,6 +3162,8 @@ export const UserMetadataFilterSensitiveLog = (obj: UserMetadata): any => ({
  */
 export const ResourceMetadataFilterSensitiveLog = (obj: ResourceMetadata): any => ({
   ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.OriginalName && { OriginalName: SENSITIVE_STRING }),
   ...(obj.Owner && { Owner: UserMetadataFilterSensitiveLog(obj.Owner) }),
 });
 
@@ -2966,6 +3283,7 @@ export const CreateCustomMetadataResponseFilterSensitiveLog = (obj: CreateCustom
 export const CreateFolderRequestFilterSensitiveLog = (obj: CreateFolderRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**
@@ -2973,6 +3291,7 @@ export const CreateFolderRequestFilterSensitiveLog = (obj: CreateFolderRequest):
  */
 export const FolderMetadataFilterSensitiveLog = (obj: FolderMetadata): any => ({
   ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**
@@ -2980,6 +3299,7 @@ export const FolderMetadataFilterSensitiveLog = (obj: FolderMetadata): any => ({
  */
 export const CreateFolderResponseFilterSensitiveLog = (obj: CreateFolderResponse): any => ({
   ...obj,
+  ...(obj.Metadata && { Metadata: FolderMetadataFilterSensitiveLog(obj.Metadata) }),
 });
 
 /**
@@ -3027,7 +3347,10 @@ export const CreateNotificationSubscriptionResponseFilterSensitiveLog = (
  */
 export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any => ({
   ...obj,
+  ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+  ...(obj.GivenName && { GivenName: SENSITIVE_STRING }),
+  ...(obj.Surname && { Surname: SENSITIVE_STRING }),
   ...(obj.Password && { Password: SENSITIVE_STRING }),
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
 });
@@ -3180,6 +3503,7 @@ export const DescribeDocumentVersionsRequestFilterSensitiveLog = (obj: DescribeD
  */
 export const DocumentVersionMetadataFilterSensitiveLog = (obj: DocumentVersionMetadata): any => ({
   ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Thumbnail && { Thumbnail: SENSITIVE_STRING }),
   ...(obj.Source && { Source: SENSITIVE_STRING }),
 });
@@ -3217,6 +3541,7 @@ export const DocumentMetadataFilterSensitiveLog = (obj: DocumentMetadata): any =
  */
 export const DescribeFolderContentsResponseFilterSensitiveLog = (obj: DescribeFolderContentsResponse): any => ({
   ...obj,
+  ...(obj.Folders && { Folders: obj.Folders.map((item) => FolderMetadataFilterSensitiveLog(item)) }),
   ...(obj.Documents && { Documents: obj.Documents.map((item) => DocumentMetadataFilterSensitiveLog(item)) }),
 });
 
@@ -3298,6 +3623,7 @@ export const DescribeRootFoldersRequestFilterSensitiveLog = (obj: DescribeRootFo
  */
 export const DescribeRootFoldersResponseFilterSensitiveLog = (obj: DescribeRootFoldersResponse): any => ({
   ...obj,
+  ...(obj.Folders && { Folders: obj.Folders.map((item) => FolderMetadataFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -3362,6 +3688,7 @@ export const GetDocumentPathRequestFilterSensitiveLog = (obj: GetDocumentPathReq
  */
 export const ResourcePathComponentFilterSensitiveLog = (obj: ResourcePathComponent): any => ({
   ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**
@@ -3369,6 +3696,7 @@ export const ResourcePathComponentFilterSensitiveLog = (obj: ResourcePathCompone
  */
 export const ResourcePathFilterSensitiveLog = (obj: ResourcePath): any => ({
   ...obj,
+  ...(obj.Components && { Components: obj.Components.map((item) => ResourcePathComponentFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -3376,6 +3704,7 @@ export const ResourcePathFilterSensitiveLog = (obj: ResourcePath): any => ({
  */
 export const GetDocumentPathResponseFilterSensitiveLog = (obj: GetDocumentPathResponse): any => ({
   ...obj,
+  ...(obj.Path && { Path: ResourcePathFilterSensitiveLog(obj.Path) }),
 });
 
 /**
@@ -3407,6 +3736,7 @@ export const GetFolderRequestFilterSensitiveLog = (obj: GetFolderRequest): any =
  */
 export const GetFolderResponseFilterSensitiveLog = (obj: GetFolderResponse): any => ({
   ...obj,
+  ...(obj.Metadata && { Metadata: FolderMetadataFilterSensitiveLog(obj.Metadata) }),
 });
 
 /**
@@ -3422,6 +3752,7 @@ export const GetFolderPathRequestFilterSensitiveLog = (obj: GetFolderPathRequest
  */
 export const GetFolderPathResponseFilterSensitiveLog = (obj: GetFolderPathResponse): any => ({
   ...obj,
+  ...(obj.Path && { Path: ResourcePathFilterSensitiveLog(obj.Path) }),
 });
 
 /**
@@ -3437,6 +3768,7 @@ export const GetResourcesRequestFilterSensitiveLog = (obj: GetResourcesRequest):
  */
 export const GetResourcesResponseFilterSensitiveLog = (obj: GetResourcesResponse): any => ({
   ...obj,
+  ...(obj.Folders && { Folders: obj.Folders.map((item) => FolderMetadataFilterSensitiveLog(item)) }),
   ...(obj.Documents && { Documents: obj.Documents.map((item) => DocumentMetadataFilterSensitiveLog(item)) }),
 });
 
@@ -3448,6 +3780,7 @@ export const InitiateDocumentVersionUploadRequestFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**
@@ -3498,9 +3831,76 @@ export const RestoreDocumentVersionsRequestFilterSensitiveLog = (obj: RestoreDoc
 /**
  * @internal
  */
+export const DateRangeTypeFilterSensitiveLog = (obj: DateRangeType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchPrincipalTypeFilterSensitiveLog = (obj: SearchPrincipalType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LongRangeTypeFilterSensitiveLog = (obj: LongRangeType): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FiltersFilterSensitiveLog = (obj: Filters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchSortResultFilterSensitiveLog = (obj: SearchSortResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchResourcesRequestFilterSensitiveLog = (obj: SearchResourcesRequest): any => ({
+  ...obj,
+  ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.QueryText && { QueryText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ResponseItemFilterSensitiveLog = (obj: ResponseItem): any => ({
+  ...obj,
+  ...(obj.WebUrl && { WebUrl: SENSITIVE_STRING }),
+  ...(obj.DocumentMetadata && { DocumentMetadata: DocumentMetadataFilterSensitiveLog(obj.DocumentMetadata) }),
+  ...(obj.FolderMetadata && { FolderMetadata: FolderMetadataFilterSensitiveLog(obj.FolderMetadata) }),
+  ...(obj.CommentMetadata && { CommentMetadata: CommentMetadataFilterSensitiveLog(obj.CommentMetadata) }),
+  ...(obj.DocumentVersionMetadata && {
+    DocumentVersionMetadata: DocumentVersionMetadataFilterSensitiveLog(obj.DocumentVersionMetadata),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const SearchResourcesResponseFilterSensitiveLog = (obj: SearchResourcesResponse): any => ({
+  ...obj,
+  ...(obj.Items && { Items: obj.Items.map((item) => ResponseItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateDocumentRequestFilterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**
@@ -3517,6 +3917,7 @@ export const UpdateDocumentVersionRequestFilterSensitiveLog = (obj: UpdateDocume
 export const UpdateFolderRequestFilterSensitiveLog = (obj: UpdateFolderRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
 });
 
 /**
@@ -3525,6 +3926,8 @@ export const UpdateFolderRequestFilterSensitiveLog = (obj: UpdateFolderRequest):
 export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
+  ...(obj.GivenName && { GivenName: SENSITIVE_STRING }),
+  ...(obj.Surname && { Surname: SENSITIVE_STRING }),
 });
 
 /**
