@@ -68,6 +68,9 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an exception with the internal server.</p>
  *
+ * @throws {@link OutpostOfflineException} (client fault)
+ *  <p>The service link connection to your Outposts home Region is down. Check your connection and try again.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource was not found.</p>
  *

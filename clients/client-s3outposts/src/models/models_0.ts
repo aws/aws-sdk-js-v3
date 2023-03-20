@@ -116,6 +116,27 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>The service link connection to your Outposts home Region is down. Check your connection and try again.</p>
+ */
+export class OutpostOfflineException extends __BaseException {
+  readonly name: "OutpostOfflineException" = "OutpostOfflineException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OutpostOfflineException, __BaseException>) {
+    super({
+      name: "OutpostOfflineException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OutpostOfflineException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The requested resource was not found.</p>
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -191,6 +212,21 @@ export interface DeleteEndpointRequest {
 }
 
 /**
+ * <p>The failure reason, if any, for a create or delete endpoint operation.</p>
+ */
+export interface FailedReason {
+  /**
+   * <p>The failure code, if any, for a create or delete endpoint operation.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>Additional error details describing the endpoint failure and recommended action.</p>
+   */
+  Message?: string;
+}
+
+/**
  * <p>The container for the network interface.</p>
  */
 export interface NetworkInterface {
@@ -202,6 +238,8 @@ export interface NetworkInterface {
 
 export enum EndpointStatus {
   AVAILABLE = "Available",
+  CREATE_FAILED = "Create_Failed",
+  DELETE_FAILED = "Delete_Failed",
   DELETING = "Deleting",
   PENDING = "Pending",
 }
@@ -267,6 +305,11 @@ export interface Endpoint {
    * <p>The ID of the customer-owned IPv4 address pool used for the endpoint.</p>
    */
   CustomerOwnedIpv4Pool?: string;
+
+  /**
+   * <p>The failure reason, if any, for a create or delete endpoint operation.</p>
+   */
+  FailedReason?: FailedReason;
 }
 
 export interface ListEndpointsRequest {
@@ -407,6 +450,13 @@ export const CreateEndpointResultFilterSensitiveLog = (obj: CreateEndpointResult
  * @internal
  */
 export const DeleteEndpointRequestFilterSensitiveLog = (obj: DeleteEndpointRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedReasonFilterSensitiveLog = (obj: FailedReason): any => ({
   ...obj,
 });
 

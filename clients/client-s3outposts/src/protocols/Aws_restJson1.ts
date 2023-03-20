@@ -30,9 +30,11 @@ import {
   AccessDeniedException,
   ConflictException,
   Endpoint,
+  FailedReason,
   InternalServerException,
   NetworkInterface,
   Outpost,
+  OutpostOfflineException,
   ResourceNotFoundException,
   ThrottlingException,
   ValidationException,
@@ -205,6 +207,9 @@ const deserializeAws_restJson1CreateEndpointCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.s3outposts#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "OutpostOfflineException":
+    case "com.amazonaws.s3outposts#OutpostOfflineException":
+      throw await deserializeAws_restJson1OutpostOfflineExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.s3outposts#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -255,6 +260,9 @@ const deserializeAws_restJson1DeleteEndpointCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.s3outposts#InternalServerException":
       throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "OutpostOfflineException":
+    case "com.amazonaws.s3outposts#OutpostOfflineException":
+      throw await deserializeAws_restJson1OutpostOfflineExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.s3outposts#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -489,6 +497,22 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1OutpostOfflineExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OutpostOfflineException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new OutpostOfflineException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -547,6 +571,8 @@ const deserializeAws_restJson1Endpoint = (output: any, context: __SerdeContext):
         : undefined,
     CustomerOwnedIpv4Pool: __expectString(output.CustomerOwnedIpv4Pool),
     EndpointArn: __expectString(output.EndpointArn),
+    FailedReason:
+      output.FailedReason != null ? deserializeAws_restJson1FailedReason(output.FailedReason, context) : undefined,
     NetworkInterfaces:
       output.NetworkInterfaces != null
         ? deserializeAws_restJson1NetworkInterfaces(output.NetworkInterfaces, context)
@@ -569,6 +595,13 @@ const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext)
       return deserializeAws_restJson1Endpoint(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1FailedReason = (output: any, context: __SerdeContext): FailedReason => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    Message: __expectString(output.Message),
+  } as any;
 };
 
 const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
