@@ -60,6 +60,24 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>The specified resource doesn't exist.</p>
  *
  *
+ * @example To list tags for a scalable target
+ * ```javascript
+ * // This example lists the tag key names and values that are attached to the scalable target specified by its ARN.
+ * const input = {
+ *   "ResourceARN": "arn:aws:application-autoscaling:us-west-2:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Tags": {
+ *     "environment": "production"
+ *   }
+ * }
+ * *\/
+ * // example id: to-list-tags-for-a-scalable-target-1677971474903
+ * ```
+ *
  */
 export class ListTagsForResourceCommand extends $Command<
   ListTagsForResourceCommandInput,

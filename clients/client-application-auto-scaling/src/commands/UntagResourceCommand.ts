@@ -63,6 +63,20 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *          API request.</p>
  *
  *
+ * @example To remove a tag from a scalable target
+ * ```javascript
+ * // This example removes the tag pair with the key name "environment" from the scalable target specified by its ARN.
+ * const input = {
+ *   "ResourceARN": "arn:aws:application-autoscaling:us-west-2:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123",
+ *   "TagKeys": [
+ *     "environment"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * await client.send(command);
+ * // example id: to-remove-a-tag-from-a-scalable-target-1677971117168
+ * ```
+ *
  */
 export class UntagResourceCommand extends $Command<
   UntagResourceCommandInput,
