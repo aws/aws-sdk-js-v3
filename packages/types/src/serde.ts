@@ -84,11 +84,11 @@ declare global {
   /**
    * @public
    */
-  export interface ReadableStream { }
+  export interface ReadableStream {}
   /**
    * @public
    */
-  export interface Blob { }
+  export interface Blob {}
 }
 
 /**

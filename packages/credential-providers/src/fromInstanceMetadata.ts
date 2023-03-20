@@ -23,4 +23,5 @@ import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
  * });
  * ```
  */
-export const fromInstanceMetadata = (init?: _RemoteProviderInit): AwsCredentialIdentityProvider => _fromInstanceMetadata(init);
+export const fromInstanceMetadata = (init?: _RemoteProviderInit): AwsCredentialIdentityProvider =>
+  _fromInstanceMetadata(init);

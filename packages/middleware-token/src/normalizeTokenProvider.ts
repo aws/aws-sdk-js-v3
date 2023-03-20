@@ -6,7 +6,9 @@ const isTokenWithExpiry = (token: TokenIdentity) => token.expiration !== undefin
 const isTokenExpiringWithinFiveMins = (token: TokenIdentity) =>
   isTokenWithExpiry(token) && token.expiration!.getTime() - Date.now() < 300000;
 
-export const normalizeTokenProvider = (token: TokenIdentity | TokenIdentityProvider): MemoizedProvider<TokenIdentity> => {
+export const normalizeTokenProvider = (
+  token: TokenIdentity | TokenIdentityProvider
+): MemoizedProvider<TokenIdentity> => {
   if (typeof token === "function") {
     return memoize(token, isTokenExpiringWithinFiveMins, isTokenWithExpiry);
   }

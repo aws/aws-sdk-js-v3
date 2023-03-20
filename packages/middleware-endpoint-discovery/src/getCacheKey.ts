@@ -5,7 +5,7 @@ import { AwsCredentialIdentity, Provider } from "@aws-sdk/types";
  */
 export const getCacheKey = async (
   commandName: string,
-  config: { credentials: Provider<AwsCredentialIdentity>; },
+  config: { credentials: Provider<AwsCredentialIdentity> },
   options: {
     identifiers?: Record<string, string>;
   }

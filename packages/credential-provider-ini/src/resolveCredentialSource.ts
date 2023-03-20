@@ -10,7 +10,10 @@ import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
  * fromIni() provider. The source credential needs to be refreshed every time
  * fromIni() is called.
  */
-export const resolveCredentialSource = (credentialSource: string, profileName: string): AwsCredentialIdentityProvider => {
+export const resolveCredentialSource = (
+  credentialSource: string,
+  profileName: string
+): AwsCredentialIdentityProvider => {
   const sourceProvidersMap: Record<string, () => AwsCredentialIdentityProvider> = {
     EcsContainer: fromContainerMetadata,
     Ec2InstanceMetadata: fromInstanceMetadata,

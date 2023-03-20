@@ -8,14 +8,9 @@ export interface ProcessProfile extends Profile {
 }
 
 export const isProcessProfile = (arg: any): arg is ProcessProfile =>
-  Boolean(arg) &&
-  typeof arg === "object" &&
-  typeof arg.credential_process === "string";
+  Boolean(arg) && typeof arg === "object" && typeof arg.credential_process === "string";
 
-export const resolveProcessCredentials = async (
-  options: FromIniInit,
-  profile: string,
-): Promise<Credentials> =>
+export const resolveProcessCredentials = async (options: FromIniInit, profile: string): Promise<Credentials> =>
   fromProcess({
     ...options,
     profile,

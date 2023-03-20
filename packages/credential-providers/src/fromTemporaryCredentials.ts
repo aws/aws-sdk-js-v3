@@ -3,7 +3,7 @@ import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
 
 export interface FromTemporaryCredentialsOptions {
-  params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string; };
+  params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string };
   masterCredentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
   clientConfig?: STSClientConfig;
   clientPlugins?: Pluggable<any, any>[];

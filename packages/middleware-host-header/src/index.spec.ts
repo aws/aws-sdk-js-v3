@@ -20,7 +20,6 @@ describe("hostHeaderMiddleware", () => {
     expect(mockNextHandler.mock.calls[0][0].request.headers.host).toBe("foo.amazonaws.com");
   });
 
-
   it("should include port in host header when set", async () => {
     expect.assertions(2);
     const middleware = hostHeaderMiddleware({ requestHandler: {} as any });

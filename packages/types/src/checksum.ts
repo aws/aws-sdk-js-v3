@@ -66,5 +66,5 @@ export interface Checksum {
  * lexical scope of the constructor.
  */
 export interface ChecksumConstructor {
-  new(secret?: SourceData): Checksum;
+  new (secret?: SourceData): Checksum;
 }
