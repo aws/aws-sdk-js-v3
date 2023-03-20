@@ -37,7 +37,6 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
 /**
  * <p>Returns information about provisioned DB clusters, and supports
  *       pagination.</p>
- *
  *          <note>
  *             <p>This operation can also return information for Amazon RDS clusters
  *     and Amazon DocDB clusters.</p>

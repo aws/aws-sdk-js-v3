@@ -629,17 +629,14 @@ export interface CopyDBClusterSnapshotMessage {
   /**
    * <p>The Amazon Amazon KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon
    *       Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>
-   *
    *          <p>If you copy an encrypted DB cluster snapshot from your Amazon account, you can specify a
    *       value for <code>KmsKeyId</code> to encrypt the copy with a new KMS encryption key. If you
    *       don't specify a value for <code>KmsKeyId</code>, then the copy of the DB cluster snapshot is
    *       encrypted with the same KMS key as the source DB cluster snapshot.</p>
-   *
    *          <p>If you copy an encrypted DB cluster snapshot that is shared from another Amazon account, then
    *       you must specify a value for <code>KmsKeyId</code>.</p>
    *          <p> KMS encryption keys are specific to the Amazon Region that they are created in, and you
    *       can't use encryption keys from one Amazon Region in another Amazon Region.</p>
-   *
    *          <p>You cannot encrypt an unencrypted DB cluster snapshot when you copy it. If you try to
    *       copy an unencrypted DB cluster snapshot and specify a value for the KmsKeyId parameter, an
    *       error is returned.</p>
@@ -677,13 +674,11 @@ export interface DBClusterSnapshot {
   /**
    * <p>Specifies the identifier for a DB cluster snapshot. Must match the identifier
    *       of an existing snapshot.</p>
-   *
    *          <p>After you restore a DB cluster using a <code>DBClusterSnapshotIdentifier</code>,
    *       you must specify the same <code>DBClusterSnapshotIdentifier</code> for any future
    *       updates to the DB cluster. When you specify this property for an update, the DB
    *       cluster is not restored from the snapshot again, and the data in the database is not
    *       changed.</p>
-   *
    *          <p>However, if you don't specify the <code>DBClusterSnapshotIdentifier</code>, an empty
    *       DB cluster is created, and the original DB cluster is deleted. If you specify a
    *       property that is different from the previous snapshot restore property, the DB
@@ -899,9 +894,7 @@ export interface CopyDBParameterGroupMessage {
    * <p>The identifier or ARN for the source DB parameter group. For information about creating
    *       an ARN, see <a href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing"> Constructing an
    *       Amazon Resource Name (ARN)</a>.</p>
-   *
    *          <p>Constraints:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>Must specify a valid DB parameter group.</p>
@@ -931,7 +924,6 @@ export interface CopyDBParameterGroupMessage {
    *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>Example: <code>my-db-parameter-group</code>
    *          </p>
    */
@@ -1334,6 +1326,68 @@ export interface DBClusterOptionGroupStatus {
 }
 
 /**
+ * <p>A list of the log types whose configuration is still pending. In other
+ *       words, these log types are in the process of being activated or deactivated.</p>
+ */
+export interface PendingCloudwatchLogsExports {
+  /**
+   * <p>Log types that are in the process of being deactivated. After they are
+   *       deactivated, these log types aren't exported to CloudWatch Logs.</p>
+   */
+  LogTypesToEnable?: string[];
+
+  /**
+   * <p>Log types that are in the process of being enabled. After they are
+   *       enabled, these log types are exported to CloudWatch Logs.</p>
+   */
+  LogTypesToDisable?: string[];
+}
+
+/**
+ * <p>This data type is used as a response element in the <code>ModifyDBCluster</code> operation and
+ *       contains changes that will be applied during the next maintenance window.</p>
+ */
+export interface ClusterPendingModifiedValues {
+  /**
+   * <p>This <code>PendingCloudwatchLogsExports</code> structure specifies
+   *       pending changes to which CloudWatch logs are enabled and which are disabled.</p>
+   */
+  PendingCloudwatchLogsExports?: PendingCloudwatchLogsExports;
+
+  /**
+   * <p>The DBClusterIdentifier value for the DB cluster.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>A value that indicates whether mapping of Amazon Web Services Identity and Access Management (IAM) accounts to database accounts is enabled.</p>
+   */
+  IAMDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * <p>The database engine version.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The number of days for which automatic DB snapshots are retained.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>The allocated storage size in gibibytes (GiB) for database engines. For Neptune,
+   *       <code>AllocatedStorage</code> always returns 1, because Neptune DB cluster storage size isn't fixed, but
+   *         instead automatically adjusts as needed.</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>The Provisioned IOPS (I/O operations per second) value. This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   */
+  Iops?: number;
+}
+
+/**
  * <p>Shows the scaling configuration for a Neptune Serverless DB cluster.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-using.html">Using Amazon Neptune Serverless</a> in the
  *       <i>Amazon Neptune User Guide</i>.</p>
@@ -1587,6 +1641,12 @@ export interface DBCluster {
   EnabledCloudwatchLogsExports?: string[];
 
   /**
+   * <p>This data type is used as a response element in the <code>ModifyDBCluster</code> operation and
+   *       contains changes that will be applied during the next maintenance window.</p>
+   */
+  PendingModifiedValues?: ClusterPendingModifiedValues;
+
+  /**
    * <p>Indicates whether or not the DB cluster has deletion protection enabled.
    *       The database can't be deleted when deletion protection is enabled.</p>
    */
@@ -1608,6 +1668,12 @@ export interface DBCluster {
    *       <i>Amazon Neptune User Guide</i>.</p>
    */
   ServerlessV2ScalingConfiguration?: ServerlessV2ScalingConfigurationInfo;
+
+  /**
+   * <p>Contains a user-supplied global database cluster identifier.
+   *       This identifier is the unique key that identifies a global database.</p>
+   */
+  GlobalClusterIdentifier?: string;
 }
 
 export interface CreateDBClusterResult {
@@ -2356,7 +2422,7 @@ export interface CreateDBInstanceMessage {
    *          <p>For information on creating a DB cluster, see <a>CreateDBCluster</a>.</p>
    *          <p>Type: String</p>
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier: string | undefined;
 
   /**
    * <p>Specifies the storage type to be associated with the DB instance.</p>
@@ -2477,7 +2543,6 @@ export interface CreateDBInstanceMessage {
    *       The database can't be deleted when deletion protection is enabled. By default,
    *       deletion protection is disabled. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html">Deleting
    *       a DB Instance</a>.</p>
-   *
    *          <p>DB instances in a DB cluster can be deleted even when deletion
    *       protection is enabled in their parent DB cluster.</p>
    */
@@ -2632,7 +2697,6 @@ export interface DomainMembership {
 
 /**
  * <p>Specifies a connection endpoint.</p>
- *
  *          <p>For the data structure that represents Amazon Neptune DB cluster endpoints,
  *       see <code>DBClusterEndpoint</code>.</p>
  */
@@ -2666,24 +2730,6 @@ export interface OptionGroupMembership {
    * <p>Not supported by Neptune.</p>
    */
   Status?: string;
-}
-
-/**
- * <p>A list of the log types whose configuration is still pending. In other
- *       words, these log types are in the process of being activated or deactivated.</p>
- */
-export interface PendingCloudwatchLogsExports {
-  /**
-   * <p>Log types that are in the process of being deactivated. After they are
-   *       deactivated, these log types aren't exported to CloudWatch Logs.</p>
-   */
-  LogTypesToEnable?: string[];
-
-  /**
-   * <p>Log types that are in the process of being enabled. After they are
-   *       enabled, these log types are exported to CloudWatch Logs.</p>
-   */
-  LogTypesToDisable?: string[];
 }
 
 /**
@@ -4590,7 +4636,6 @@ export interface DescribeDBClustersMessage {
    *         and restricts the results list to DB clusters created by that engine.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>For example, to invoke this API from the Amazon CLI and filter so that only
    *       Neptune DB clusters are returned, you could use the following command:</p>
    */
@@ -5055,7 +5100,6 @@ export interface DescribeDBInstancesMessage {
    *         and restricts the results list to DB instances created by that engine.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>For example, to invoke this API from the Amazon CLI and filter so that only
    *       Neptune DB instances are returned, you could use the following command:</p>
    */
@@ -5549,7 +5593,6 @@ export interface DescribeGlobalClustersMessage {
    * <p>The user-supplied DB cluster identifier. If this parameter is specified,
    *       only information about the specified DB cluster is returned. This parameter
    *       is not case-sensitive.</p>
-   *
    *          <p>Constraints: If supplied, must match an existing DB cluster identifier.</p>
    */
   GlobalClusterIdentifier?: string;
@@ -6028,7 +6071,6 @@ export class InvalidDBSecurityGroupStateFault extends __BaseException {
 /**
  * <p>The configuration setting for the log types to be enabled for export
  *       to CloudWatch Logs for a specific DB instance or DB cluster.</p>
- *
  *          <p>The <code>EnableLogTypes</code> and <code>DisableLogTypes</code> arrays
  *       determine which logs will be exported (or not exported) to CloudWatch Logs.</p>
  */
@@ -7865,6 +7907,20 @@ export const DBClusterOptionGroupStatusFilterSensitiveLog = (obj: DBClusterOptio
 /**
  * @internal
  */
+export const PendingCloudwatchLogsExportsFilterSensitiveLog = (obj: PendingCloudwatchLogsExports): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterPendingModifiedValuesFilterSensitiveLog = (obj: ClusterPendingModifiedValues): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ServerlessV2ScalingConfigurationInfoFilterSensitiveLog = (
   obj: ServerlessV2ScalingConfigurationInfo
 ): any => ({
@@ -7998,13 +8054,6 @@ export const EndpointFilterSensitiveLog = (obj: Endpoint): any => ({
  * @internal
  */
 export const OptionGroupMembershipFilterSensitiveLog = (obj: OptionGroupMembership): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PendingCloudwatchLogsExportsFilterSensitiveLog = (obj: PendingCloudwatchLogsExports): any => ({
   ...obj,
 });
 

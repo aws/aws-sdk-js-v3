@@ -593,7 +593,6 @@ export interface NeptuneClientResolvedConfig extends NeptuneClientResolvedConfig
  *       efficiently navigate highly connected datasets. Neptune powers graph use cases such as
  *       recommendation engines, fraud detection, knowledge graphs, drug discovery, and network
  *       security.</p>
- *
  *          <p>This interface reference for Amazon Neptune contains documentation for a programming or
  *       command line interface you can use to manage Amazon Neptune. Note that Amazon Neptune is
  *       asynchronous, which means that some interfaces might require techniques such as polling or

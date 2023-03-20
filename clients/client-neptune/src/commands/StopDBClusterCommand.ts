@@ -38,7 +38,6 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * <p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune
  *       retains the DB cluster's metadata, including its endpoints and DB parameter
  *       groups.</p>
- *
  *          <p>Neptune also retains the transaction logs so you can do a point-in-time
  *       restore if necessary.</p>
  * @example

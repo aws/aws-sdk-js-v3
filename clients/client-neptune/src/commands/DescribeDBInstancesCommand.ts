@@ -36,7 +36,6 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
 
 /**
  * <p>Returns information about provisioned instances, and supports pagination.</p>
- *
  *          <note>
  *             <p>This operation can also return information for Amazon RDS instances
  *     and Amazon DocDB instances.</p>

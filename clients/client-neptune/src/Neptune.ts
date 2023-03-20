@@ -359,7 +359,6 @@ import { NeptuneClient } from "./NeptuneClient";
  *       efficiently navigate highly connected datasets. Neptune powers graph use cases such as
  *       recommendation engines, fraud detection, knowledge graphs, drug discovery, and network
  *       security.</p>
- *
  *          <p>This interface reference for Amazon Neptune contains documentation for a programming or
  *       command line interface you can use to manage Amazon Neptune. Note that Amazon Neptune is
  *       asynchronous, which means that some interfaces might require techniques such as polling or
@@ -791,7 +790,6 @@ export class Neptune extends NeptuneClient {
 
   /**
    * <p>Creates a new DB parameter group.</p>
-   *
    *          <p>A DB parameter group is initially created with the default parameters for the database
    *       engine used by the DB instance. To provide custom values for any of the parameters, you must
    *       modify the group after creating it using <i>ModifyDBParameterGroup</i>. Once
@@ -799,7 +797,6 @@ export class Neptune extends NeptuneClient {
    *       <i>ModifyDBInstance</i>. When you associate a new DB parameter group with a
    *       running DB instance, you need to reboot the DB instance without failover for the new DB
    *       parameter group and associated settings to take effect.</p>
-   *
    *          <important>
    *             <p>After you create a DB parameter group, you should wait at least 5 minutes before
    *         creating your first DB instance that uses that DB parameter group as the default parameter
@@ -927,7 +924,6 @@ export class Neptune extends NeptuneClient {
    *       capability, and read-only secondary clusters that receive data from the
    *       primary cluster through high-speed replication performed by the Neptune
    *       storage subsystem.</p>
-   *
    *          <p>You can create a global database that is initially empty, and then
    *       add a primary cluster and secondary clusters to it, or you can specify
    *       an existing Neptune cluster during the create operation to become the
@@ -966,7 +962,6 @@ export class Neptune extends NeptuneClient {
    * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When you delete a
    *       DB cluster, all automated backups for that DB cluster are deleted and can't be recovered.
    *       Manual DB cluster snapshots of the specified DB cluster are not deleted.</p>
-   *
    *          <p>Note that the DB Cluster cannot be deleted if deletion protection is enabled.  To
    *       delete it, you must first set its <code>DeletionProtection</code> field to
    *       <code>False</code>.</p>
@@ -1385,7 +1380,6 @@ export class Neptune extends NeptuneClient {
   /**
    * <p>Returns information about provisioned DB clusters, and supports
    *       pagination.</p>
-   *
    *          <note>
    *             <p>This operation can also return information for Amazon RDS clusters
    *     and Amazon DocDB clusters.</p>
@@ -1528,7 +1522,6 @@ export class Neptune extends NeptuneClient {
 
   /**
    * <p>Returns information about provisioned instances, and supports pagination.</p>
-   *
    *          <note>
    *             <p>This operation can also return information for Amazon RDS instances
    *     and Amazon DocDB instances.</p>
@@ -2013,7 +2006,6 @@ export class Neptune extends NeptuneClient {
    *       words, the role of the current primary DB cluster and the selected
    *       target secondary DB cluster are switched. The selected secondary DB cluster
    *       assumes full read/write capabilities for the Neptune global database.</p>
-   *
    *          <note>
    *             <p>This action applies <b>only</b> to
    *       Neptune global databases. This action is only intended for use on healthy
@@ -2153,7 +2145,6 @@ export class Neptune extends NeptuneClient {
    *       parameter, submit a list of the following: <code>ParameterName</code>,
    *       <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20 parameters can be
    *       modified in a single request.</p>
-   *
    *          <note>
    *             <p>Changes to dynamic parameters are applied immediately. Changes to static parameters
    *         require a reboot without failover to the DB cluster associated with the parameter group
@@ -2829,7 +2820,6 @@ export class Neptune extends NeptuneClient {
    * <p>Stops an Amazon Neptune DB cluster. When you stop a DB cluster, Neptune
    *       retains the DB cluster's metadata, including its endpoints and DB parameter
    *       groups.</p>
-   *
    *          <p>Neptune also retains the transaction logs so you can do a point-in-time
    *       restore if necessary.</p>
    */

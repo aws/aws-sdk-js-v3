@@ -36,7 +36,6 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
 
 /**
  * <p>Creates a new DB parameter group.</p>
- *
  *          <p>A DB parameter group is initially created with the default parameters for the database
  *       engine used by the DB instance. To provide custom values for any of the parameters, you must
  *       modify the group after creating it using <i>ModifyDBParameterGroup</i>. Once
@@ -44,7 +43,6 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *       <i>ModifyDBInstance</i>. When you associate a new DB parameter group with a
  *       running DB instance, you need to reboot the DB instance without failover for the new DB
  *       parameter group and associated settings to take effect.</p>
- *
  *          <important>
  *             <p>After you create a DB parameter group, you should wait at least 5 minutes before
  *         creating your first DB instance that uses that DB parameter group as the default parameter

@@ -268,6 +268,7 @@ import {
   CertificateNotFoundFault,
   CharacterSet,
   CloudwatchLogsExportConfiguration,
+  ClusterPendingModifiedValues,
   CopyDBClusterParameterGroupMessage,
   CopyDBClusterParameterGroupResult,
   CopyDBClusterSnapshotMessage,
@@ -8355,6 +8356,46 @@ const deserializeAws_queryCharacterSet = (output: any, context: __SerdeContext):
   return contents;
 };
 
+const deserializeAws_queryClusterPendingModifiedValues = (
+  output: any,
+  context: __SerdeContext
+): ClusterPendingModifiedValues => {
+  const contents: any = {
+    PendingCloudwatchLogsExports: undefined,
+    DBClusterIdentifier: undefined,
+    IAMDatabaseAuthenticationEnabled: undefined,
+    EngineVersion: undefined,
+    BackupRetentionPeriod: undefined,
+    AllocatedStorage: undefined,
+    Iops: undefined,
+  };
+  if (output["PendingCloudwatchLogsExports"] !== undefined) {
+    contents.PendingCloudwatchLogsExports = deserializeAws_queryPendingCloudwatchLogsExports(
+      output["PendingCloudwatchLogsExports"],
+      context
+    );
+  }
+  if (output["DBClusterIdentifier"] !== undefined) {
+    contents.DBClusterIdentifier = __expectString(output["DBClusterIdentifier"]);
+  }
+  if (output["IAMDatabaseAuthenticationEnabled"] !== undefined) {
+    contents.IAMDatabaseAuthenticationEnabled = __parseBoolean(output["IAMDatabaseAuthenticationEnabled"]);
+  }
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = __expectString(output["EngineVersion"]);
+  }
+  if (output["BackupRetentionPeriod"] !== undefined) {
+    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  }
+  if (output["AllocatedStorage"] !== undefined) {
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  }
+  if (output["Iops"] !== undefined) {
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
+  }
+  return contents;
+};
+
 const deserializeAws_queryCopyDBClusterParameterGroupResult = (
   output: any,
   context: __SerdeContext
@@ -8596,10 +8637,12 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     ClusterCreateTime: undefined,
     CopyTagsToSnapshot: undefined,
     EnabledCloudwatchLogsExports: undefined,
+    PendingModifiedValues: undefined,
     DeletionProtection: undefined,
     CrossAccountClone: undefined,
     AutomaticRestartTime: undefined,
     ServerlessV2ScalingConfiguration: undefined,
+    GlobalClusterIdentifier: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -8764,6 +8807,12 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
       context
     );
   }
+  if (output["PendingModifiedValues"] !== undefined) {
+    contents.PendingModifiedValues = deserializeAws_queryClusterPendingModifiedValues(
+      output["PendingModifiedValues"],
+      context
+    );
+  }
   if (output["DeletionProtection"] !== undefined) {
     contents.DeletionProtection = __parseBoolean(output["DeletionProtection"]);
   }
@@ -8778,6 +8827,9 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
       output["ServerlessV2ScalingConfiguration"],
       context
     );
+  }
+  if (output["GlobalClusterIdentifier"] !== undefined) {
+    contents.GlobalClusterIdentifier = __expectString(output["GlobalClusterIdentifier"]);
   }
   return contents;
 };

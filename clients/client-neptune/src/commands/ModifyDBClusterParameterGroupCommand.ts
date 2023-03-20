@@ -41,7 +41,6 @@ export interface ModifyDBClusterParameterGroupCommandOutput
  *       parameter, submit a list of the following: <code>ParameterName</code>,
  *       <code>ParameterValue</code>, and <code>ApplyMethod</code>. A maximum of 20 parameters can be
  *       modified in a single request.</p>
- *
  *          <note>
  *             <p>Changes to dynamic parameters are applied immediately. Changes to static parameters
  *         require a reboot without failover to the DB cluster associated with the parameter group

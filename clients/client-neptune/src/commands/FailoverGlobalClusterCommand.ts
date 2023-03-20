@@ -42,7 +42,6 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  *       words, the role of the current primary DB cluster and the selected
  *       target secondary DB cluster are switched. The selected secondary DB cluster
  *       assumes full read/write capabilities for the Neptune global database.</p>
- *
  *          <note>
  *             <p>This action applies <b>only</b> to
  *       Neptune global databases. This action is only intended for use on healthy
