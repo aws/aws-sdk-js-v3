@@ -33,23 +33,13 @@
     "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
-  "typesVersions": {
-    "<4.0": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*"
-  ],
+  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
+  "files": ["dist-*"],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-stream-browser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-stream-browser"
   },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
-  }
+  "typedoc": { "entryPoint": "src/index.ts" }
 }

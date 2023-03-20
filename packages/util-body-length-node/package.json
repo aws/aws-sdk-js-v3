@@ -29,29 +29,15 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "dependencies": {
-    "tslib": "^2.5.0"
-  },
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "typesVersions": {
-    "<4.0": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*"
-  ],
+  "dependencies": { "tslib": "^2.5.0" },
+  "engines": { "node": ">=14.0.0" },
+  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
+  "files": ["dist-*"],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-body-length-node",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-body-length-node"
   },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
-  }
+  "typedoc": { "entryPoint": "src/index.ts" }
 }

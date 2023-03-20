@@ -19,10 +19,7 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "dependencies": {
-    "@aws-sdk/util-buffer-from": "*",
-    "tslib": "^2.5.0"
-  },
+  "dependencies": { "@aws-sdk/util-buffer-from": "*", "tslib": "^2.5.0" },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
@@ -32,19 +29,9 @@
     "typescript": "~4.9.5"
   },
   "types": "./dist-types/index.d.ts",
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "typesVersions": {
-    "<4.0": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*"
-  ],
+  "engines": { "node": ">=14.0.0" },
+  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
+  "files": ["dist-*"],
   "browser": {
     "./dist-es/fromUtf8": "./dist-es/fromUtf8.browser",
     "./dist-es/toUtf8": "./dist-es/toUtf8.browser"
@@ -59,7 +46,5 @@
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-utf8"
   },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
-  }
+  "typedoc": { "entryPoint": "src/index.ts" }
 }

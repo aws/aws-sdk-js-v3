@@ -1,10 +1,7 @@
 {
   "name": "@aws-sdk/shared-ini-file-loader",
   "version": "3.295.0",
-  "dependencies": {
-    "@aws-sdk/types": "*",
-    "tslib": "^2.5.0"
-  },
+  "dependencies": { "@aws-sdk/types": "*", "tslib": "^2.5.0" },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^14.14.31",
@@ -32,26 +29,14 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
-  "engines": {
-    "node": ">=14.0.0"
-  },
-  "typesVersions": {
-    "<4.0": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*"
-  ],
+  "engines": { "node": ">=14.0.0" },
+  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
+  "files": ["dist-*"],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/shared-ini-file-loader",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/shared-ini-file-loader"
   },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
-  }
+  "typedoc": { "entryPoint": "src/index.ts" }
 }

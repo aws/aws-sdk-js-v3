@@ -14,17 +14,13 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "jest"
   },
-  "keywords": [
-    "dns"
-  ],
+  "keywords": ["dns"],
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "dependencies": {
-    "tslib": "^2.5.0"
-  },
+  "dependencies": { "tslib": "^2.5.0" },
   "devDependencies": {
     "@aws-sdk/types": "*",
     "@tsconfig/recommended": "1.0.1",
@@ -36,19 +32,9 @@
     "typescript": "~4.9.5"
   },
   "types": "./dist-types/index.d.ts",
-  "engines": {
-    "node": ">= 14.0.0"
-  },
-  "typesVersions": {
-    "<4.0": {
-      "types/*": [
-        "types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*"
-  ],
+  "engines": { "node": ">= 14.0.0" },
+  "typesVersions": { "<4.0": { "types/*": ["types/ts3.4/*"] } },
+  "files": ["dist-*"],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-dns",
   "repository": {
     "type": "git",
@@ -67,7 +53,5 @@
     "./dist-es/NodeDnsLookupHostResolver": false,
     "./dist-es/NodeDnsResolveHostResolver": false
   },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
-  }
+  "typedoc": { "entryPoint": "src/index.ts" }
 }
