@@ -38,13 +38,23 @@
   "react-native": {
     "@aws-sdk/chunked-blob-reader": "@aws-sdk/chunked-blob-reader-native"
   },
-  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
-  "files": ["dist-*"],
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/hash-blob-browser",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/hash-blob-browser"
   },
-  "typedoc": { "entryPoint": "src/index.ts" }
+  "typedoc": {
+    "entryPoint": "src/index.ts"
+  }
 }

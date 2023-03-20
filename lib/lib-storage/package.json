@@ -15,7 +15,9 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "jest"
   },
-  "engines": { "node": ">=14.0.0" },
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "author": {
     "name": "AWS SDK for JavaScript Team",
     "url": "https://aws.amazon.com/javascript/"
@@ -46,7 +48,13 @@
     "typescript": "~4.9.5",
     "web-streams-polyfill": "^3.0.0"
   },
-  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
   "browser": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
     "fs": false,
@@ -55,12 +63,16 @@
   "react-native": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
   },
-  "files": ["dist-*"],
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-storage",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "lib/lib-storage"
   },
-  "typedoc": { "entryPoint": "src/index.ts" }
+  "typedoc": {
+    "entryPoint": "src/index.ts"
+  }
 }
