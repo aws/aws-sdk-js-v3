@@ -97,7 +97,64 @@ class SdkThemeContext extends DefaultThemeRenderContext {
           liveRegion.innerText = resultText
         }
 
-        searchField.addEventListener('keydown', debounce(handleResults))
+        searchField.addEventListener('keydown', debounce(handleResults));
+
+        // ADD ARIA-TAGS TO SHIELDS/BADGES
+
+        function waitForElm(selector) {
+          return new Promise(resolve => {
+              if (document.querySelector(selector)) {
+                  return resolve(document.querySelector(selector));
+              }
+      
+              const observer = new MutationObserver(mutations => {
+                  if (document.querySelector(selector)) {
+                      resolve(document.querySelector(selector));
+                      observer.disconnect();
+                  }
+              });
+      
+              observer.observe(document.body, {
+                  childList: true,
+                  subtree: true
+              });
+          });
+      }
+
+      // wait for container to exist
+      waitForElm('.container-main')
+        .then(elm => {
+          if (document.querySelectorAll('img[alt~="NPM"]').length > 0) {
+            const versionEl = document.querySelector('img[alt="NPM version"]')
+            const downloadsEl = document.querySelector('img[alt="NPM downloads"]')
+  
+            const sdkName = versionEl.src.match(/\\@aws-sdk\\/client-[^\\/]+/)[0]
+
+            // fetch sdk version
+            fetch("https://registry.npmjs.org/" + encodeURIComponent(sdkName) + "/latest")
+              .then(res => {
+                return res.json()
+              })
+              .then(({ version }) => {
+                versionEl.alt += ' ' + version
+              })
+              .catch(err => {
+                console.error(err)
+              })
+
+            // fetch sdk downloads for the last month
+            fetch("https://api.npmjs.org/downloads/point/last-month/" + encodeURIComponent(sdkName))
+              .then(res => {
+                return res.json()
+              })
+              .then(({ downloads }) => {
+                downloadsEl.alt += ' ' + downloads.toString() + ' per month'
+              })
+              .catch(err => {
+                console.error(err)
+              })
+          }
+        })
       })();
       `;
       const style = `
@@ -157,11 +214,29 @@ class SdkThemeContext extends DefaultThemeRenderContext {
         --light-color-background: #FFFFFF;
         --light-color-text: #232F3E;
         --light-color-link: #DF2A5D;
-
+      
+        --light-color-ts: #DF2A5D;
+        --light-color-ts-interface: #006643;
+        --light-color-ts-enum: #7c5aed;
+        --light-color-ts-class: #005B9E;
+        --light-color-ts-function: #572be7;
+        --light-color-ts-namespace: #9F1195;
+        --light-color-ts-private: #595959;
+        --light-color-ts-variable: #1A34FF;
+      
         /* Dark */
         --dark-color-background: #232F3E;
         --dark-color-text: #FFFFFF;
         --dark-color-link: #FF9900;
+      
+        --dark-color-ts: #9ffcea;
+        --dark-color-ts-interface: #38ef7d;
+        --dark-color-ts-enum: #ffad97;
+        --dark-color-ts-class: #7ce8f4;
+        --dark-color-ts-function: #D4BAFF; 
+        --dark-color-ts-namespace: #FF99DD;
+        --dark-color-ts-private: #e2e2e2;
+        --dark-color-ts-variable: #90BEFF;
       }
 
       .tsd-filter-visibility {
