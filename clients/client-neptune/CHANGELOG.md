@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.295.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.294.0...v3.295.0) (2023-03-20)
+
+
+### Features
+
+* **client-neptune:** This release makes following few changes. db-cluster-identifier is now a required parameter of create-db-instance. describe-db-cluster will now return PendingModifiedValues and GlobalClusterIdentifier fields in the response. ([1824352](https://github.com/aws/aws-sdk-js-v3/commit/18243521befb548ac4ac5b6e512ef81c080f5070))
+
+
+
+
+
 # [3.294.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.293.0...v3.294.0) (2023-03-17)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune

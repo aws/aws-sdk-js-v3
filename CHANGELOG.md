@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.295.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.294.0...v3.295.0) (2023-03-20)
+
+
+### Bug Fixes
+
+* **e2e:** bump ts-loader version ([#4546](https://github.com/aws/aws-sdk-js-v3/issues/4546)) ([96ca38c](https://github.com/aws/aws-sdk-js-v3/commit/96ca38c2cecfba53d35ccce63bf2807372bdfa32))
+
+
+### Features
+
+* **client-application-auto-scaling:** With this release customers can now tag their Application Auto Scaling registered targets with key-value pairs and manage IAM permissions for all the tagged resources centrally. ([ba24447](https://github.com/aws/aws-sdk-js-v3/commit/ba2444768fd45525a8e341ded646ba18ca80f76b))
+* **client-neptune:** This release makes following few changes. db-cluster-identifier is now a required parameter of create-db-instance. describe-db-cluster will now return PendingModifiedValues and GlobalClusterIdentifier fields in the response. ([1824352](https://github.com/aws/aws-sdk-js-v3/commit/18243521befb548ac4ac5b6e512ef81c080f5070))
+* **client-s3outposts:** S3 On Outposts added support for endpoint status, and a failed endpoint reason, if any ([56a152d](https://github.com/aws/aws-sdk-js-v3/commit/56a152dd38b2d06f79d1f9e7987af15c5bbdef9e))
+* **client-workdocs:** This release adds a new API, SearchResources, which enable users to search through metadata and content of folders, documents, document versions and comments in a WorkDocs site. ([e1674aa](https://github.com/aws/aws-sdk-js-v3/commit/e1674aa32aac122cf405e3fcd159941644b1226e))
+* **clients:** update client endpoints as of 2023-03-20 ([3336bc7](https://github.com/aws/aws-sdk-js-v3/commit/3336bc7f1038f8515a88238cc5f0be6b558dbc2f))
+
+
+
+
+
 # [3.294.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.293.0...v3.294.0) (2023-03-17)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.295.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.294.0...v3.295.0) (2023-03-20)
+
+
+### Features
+
+* **client-application-auto-scaling:** With this release customers can now tag their Application Auto Scaling registered targets with key-value pairs and manage IAM permissions for all the tagged resources centrally. ([ba24447](https://github.com/aws/aws-sdk-js-v3/commit/ba2444768fd45525a8e341ded646ba18ca80f76b))
+
+
+
+
+
 # [3.294.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.293.0...v3.294.0) (2023-03-17)
 
 **Note:** Version bump only for package @aws-sdk/client-application-auto-scaling
