@@ -162,7 +162,7 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
           out: "docs",
           readme: "README.md",
         };
-        writeFileSync(destSubPath, prettier.format(JSON.stringify(typedocJson), { parser: "json-stringify" }));
+        writeFileSync(destSubPath, prettier.format(JSON.stringify(typedocJson), { parser: "json" }));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
