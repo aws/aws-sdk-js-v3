@@ -61,8 +61,8 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
  *          <note>
  *             <p>If a scalable target is deregistered, the scalable target is no longer available to
- *             execute scaling policies. Any scaling policies that were specified for the scalable
- *             target are deleted.</p>
+ *             use scaling policies. Any scaling policies that were specified for the scalable target
+ *             are deleted.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

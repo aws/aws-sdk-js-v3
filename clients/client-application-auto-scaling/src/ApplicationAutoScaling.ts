@@ -38,6 +38,11 @@ import {
   DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutScalingPolicyCommand,
   PutScalingPolicyCommandInput,
   PutScalingPolicyCommandOutput,
@@ -52,6 +57,12 @@ import {
   RegisterScalableTargetCommandInput,
   RegisterScalableTargetCommandOutput,
 } from "./commands/RegisterScalableTargetCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 
 /**
  * <p>With Application Auto Scaling, you can configure automatic scaling for the following
@@ -376,6 +387,40 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
+   * <p>Returns all the tags on the specified Application Auto Scaling scalable target.</p>
+   *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *          resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates or updates a scaling policy for an Application Auto Scaling scalable target.</p>
    *          <p>Each scalable target is identified by a service namespace, resource ID, and scalable
    *          dimension. A scaling policy applies to the scalable target identified by those three
@@ -398,8 +443,8 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    *          <note>
    *             <p>If a scalable target is deregistered, the scalable target is no longer available to
-   *             execute scaling policies. Any scaling policies that were specified for the scalable
-   *             target are deleted.</p>
+   *             use scaling policies. Any scaling policies that were specified for the scalable target
+   *             are deleted.</p>
    *          </note>
    */
   public putScalingPolicy(
@@ -437,7 +482,7 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          dimension. A scheduled action applies to the scalable target identified by those three
    *          attributes. You cannot create a scheduled action until you have registered the resource as
    *          a scalable target.</p>
-   *          <p>When start and end times are specified with a recurring schedule using a cron expression
+   *          <p>When you specify start and end times with a recurring schedule using a cron expression
    *          or rates, they form the boundaries for when the recurring action starts and stops.</p>
    *          <p>To update a scheduled action, specify the parameters that you want to change. If you
    *          don't specify start and end times, the old values are deleted.</p>
@@ -478,7 +523,8 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
   }
 
   /**
-   * <p>Registers or updates a scalable target, the resource that you want to scale.</p>
+   * <p>Registers or updates a scalable target, which is the resource that you want to
+   *          scale.</p>
    *          <p>Scalable targets are uniquely identified by the combination of resource ID, scalable
    *          dimension, and namespace, which represents some capacity dimension of the underlying
    *          service.</p>
@@ -486,9 +532,9 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          maximum capacity. If the specified resource is not active in the target service, this
    *          operation does not change the resource's current capacity. Otherwise, it changes the
    *          resource's current capacity to a value that is inside of this range.</p>
-   *          <p>If you choose to add a scaling policy, current capacity is adjustable within the
-   *          specified range when scaling starts. Application Auto Scaling scaling policies will not scale capacity to
-   *          values that are outside of the minimum and maximum range.</p>
+   *          <p>If you add a scaling policy, current capacity is adjustable within the specified range
+   *          when scaling starts. Application Auto Scaling scaling policies will not scale capacity to values that are
+   *          outside of the minimum and maximum range.</p>
    *          <p>After you register a scalable target, you do not need to register it again to use other
    *          Application Auto Scaling operations. To see which resources have been registered, use <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. You can also view the scaling policies for a service
    *          namespace by using <a href="https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html">DescribeScalableTargets</a>. If you no longer need a scalable target, you can
@@ -497,11 +543,17 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
    *          parameters that identify the scalable target: resource ID, scalable dimension, and
    *          namespace. Any parameters that you don't specify are not changed by this update request. </p>
    *          <note>
-   *             <p>If you call the <code>RegisterScalableTarget</code> API to update an existing
-   *             scalable target, Application Auto Scaling retrieves the current capacity of the resource. If it is below
-   *             the minimum capacity or above the maximum capacity, Application Auto Scaling adjusts the capacity of the
-   *             scalable target to place it within these bounds, even if you don't include the
-   *                <code>MinCapacity</code> or <code>MaxCapacity</code> request parameters.</p>
+   *             <p>If you call the <code>RegisterScalableTarget</code> API operation to create a
+   *             scalable target, there might be a brief delay until the operation achieves <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual
+   *             consistency</a>. You might become aware of this brief delay if you get unexpected
+   *             errors when performing sequential operations. The typical strategy is to retry the
+   *             request, and some Amazon Web Services SDKs include automatic backoff and retry logic.</p>
+   *             <p>If you call the <code>RegisterScalableTarget</code> API operation to update an
+   *             existing scalable target, Application Auto Scaling retrieves the current capacity of the resource. If
+   *             it's below the minimum capacity or above the maximum capacity, Application Auto Scaling adjusts the
+   *             capacity of the scalable target to place it within these bounds, even if you don't
+   *             include the <code>MinCapacity</code> or <code>MaxCapacity</code> request
+   *             parameters.</p>
    *          </note>
    */
   public registerScalableTarget(
@@ -523,6 +575,76 @@ export class ApplicationAutoScaling extends ApplicationAutoScalingClient {
     cb?: (err: any, data?: RegisterScalableTargetCommandOutput) => void
   ): Promise<RegisterScalableTargetCommandOutput> | void {
     const command = new RegisterScalableTargetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Adds or edits tags on an Application Auto Scaling scalable target.</p>
+   *          <p>Each tag consists of a tag key and a tag value, which are both case-sensitive strings.
+   *          To add a tag, specify a new tag key and a tag value. To edit a tag, specify an existing tag
+   *          key and a new tag value.</p>
+   *          <p>You can use this operation to tag an Application Auto Scaling scalable target, but you cannot tag a
+   *          scaling policy or scheduled action.</p>
+   *          <p>You can also add tags to an Application Auto Scaling scalable target while creating it
+   *          (<code>RegisterScalableTarget</code>).</p>
+   *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+   *          resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   *          <p>Use tags to control access to a scalable target. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html">Tagging support
+   *          for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes tags from an Application Auto Scaling scalable target. To delete a tag, specify the tag key and
+   *          the Application Auto Scaling scalable target.</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

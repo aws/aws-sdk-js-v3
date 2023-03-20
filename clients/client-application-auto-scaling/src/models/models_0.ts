@@ -1069,6 +1069,11 @@ export interface ScalableTarget {
    *          state.</p>
    */
   SuspendedState?: SuspendedState;
+
+  /**
+   * <p>The ARN of the scalable target.</p>
+   */
+  ScalableTargetARN?: string;
 }
 
 export interface DescribeScalableTargetsResponse {
@@ -1782,12 +1787,14 @@ export enum MetricAggregationType {
  *          50:</p>
  *          <ul>
  *             <li>
- *                <p>To trigger the adjustment when the metric is greater than or equal to 50 and less
- *                than 60, specify a lower bound of 0 and an upper bound of 10.</p>
+ *                <p>To initiate the adjustment when the metric is greater than or equal to 50 and less
+ *                than 60, specify a lower bound of <code>0</code> and an upper bound of
+ *                   <code>10</code>.</p>
  *             </li>
  *             <li>
- *                <p>To trigger the adjustment when the metric is greater than 40 and less than or
- *                equal to 50, specify a lower bound of -10 and an upper bound of 0.</p>
+ *                <p>To initiate the adjustment when the metric is greater than 40 and less than or
+ *                equal to 50, specify a lower bound of <code>-10</code> and an upper bound of
+ *                   <code>0</code>.</p>
  *             </li>
  *          </ul>
  *          <p>There are a few rules for the step adjustments for your step policy:</p>
@@ -1814,7 +1821,7 @@ export interface StepAdjustment {
   /**
    * <p>The lower bound for the difference between the alarm threshold and the CloudWatch metric. If
    *          the metric value is above the breach threshold, the lower bound is inclusive (the metric
-   *          must be greater than or equal to the threshold plus the lower bound). Otherwise, it is
+   *          must be greater than or equal to the threshold plus the lower bound). Otherwise, it's
    *          exclusive (the metric must be greater than the threshold plus the lower bound). A null
    *          value indicates negative infinity.</p>
    */
@@ -1823,7 +1830,7 @@ export interface StepAdjustment {
   /**
    * <p>The upper bound for the difference between the alarm threshold and the CloudWatch metric. If
    *          the metric value is above the breach threshold, the upper bound is exclusive (the metric
-   *          must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the
+   *          must be less than the threshold plus the upper bound). Otherwise, it's inclusive (the
    *          metric must be less than or equal to the threshold plus the upper bound). A null value
    *          indicates positive infinity.</p>
    *          <p>The upper bound must be greater than the lower bound.</p>
@@ -2020,8 +2027,7 @@ export interface TargetTrackingMetricStat {
   /**
    * <p>The statistic to return. It can include any CloudWatch statistic or extended statistic. For a
    *          list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
-   *          <p>The most commonly used metrics for scaling is <code>Average</code>
-   *          </p>
+   *          <p>The most commonly used metric for scaling is <code>Average</code>.</p>
    */
   Stat: string | undefined;
 
@@ -2123,7 +2129,7 @@ export enum MetricStatistic {
 export interface CustomizedMetricSpecification {
   /**
    * <p>The name of the metric. To get the exact metric name, namespace, and dimensions, inspect
-   *          the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
+   *          the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that's returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.</p>
    */
   MetricName?: string;
 
@@ -3086,6 +3092,50 @@ export interface DescribeScheduledActionsResponse {
   NextToken?: string;
 }
 
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>Specify the ARN of the scalable target.</p>
+   *          <p>For example:
+   *          <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code>
+   *          </p>
+   *          <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>A list of tags. Each tag consists of a tag key and a tag value.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * <p>The specified resource doesn't exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
+}
+
 /**
  * <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-limits.html">Application Auto Scaling service quotas</a>.</p>
  */
@@ -3755,7 +3805,7 @@ export interface RegisterScalableTargetRequest {
    * <p>The maximum value that you plan to scale out to. When a scaling policy is in effect,
    *          Application Auto Scaling can scale out (expand) as needed to the maximum capacity limit in response to
    *          changing demand. This property is required when registering a new scalable target.</p>
-   *          <p>Although you can specify a large maximum capacity, note that service quotas may impose
+   *          <p>Although you can specify a large maximum capacity, note that service quotas might impose
    *          lower limits. Each service has its own default quotas for the maximum capacity of the
    *          resource. If you want to specify a higher limit, you can request an increase. For more
    *          information, consult the documentation for that service. For information about the default
@@ -3799,9 +3849,95 @@ export interface RegisterScalableTargetRequest {
    *          Guide</i>.</p>
    */
   SuspendedState?: SuspendedState;
+
+  /**
+   * <p>Assigns one or more tags to the scalable target. Use this parameter to tag the scalable
+   *          target when it is created. To tag an existing scalable target, use the <a>TagResource</a> operation.</p>
+   *          <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are
+   *          required. You cannot have more than one tag on a scalable target with the same tag
+   *          key.</p>
+   *          <p>Use tags to control access to a scalable target. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html">Tagging support
+   *          for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
-export interface RegisterScalableTargetResponse {}
+export interface RegisterScalableTargetResponse {
+  /**
+   * <p>The ARN of the scalable target.</p>
+   */
+  ScalableTargetARN?: string;
+}
+
+export interface TagResourceRequest {
+  /**
+   * <p>Identifies the Application Auto Scaling scalable target that you want to apply tags to.</p>
+   *          <p>For example:
+   *          <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code>
+   *          </p>
+   *          <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>The tags assigned to the resource. A tag is a label that you assign to an AWS
+   *          resource.</p>
+   *          <p>Each tag consists of a tag key and a tag value.</p>
+   *          <p>You cannot have more than one tag on an Application Auto Scaling scalable target with the same tag key.
+   *          If you specify an existing tag key with a different tag value, Application Auto Scaling replaces the
+   *          current tag value with the specified one.</p>
+   *          <p>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-defined tag
+   *          restrictions</a> in the <i>Amazon Web Services Billing and Cost Management User
+   *             Guide</i>.</p>
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+export interface TagResourceResponse {}
+
+/**
+ * <p>The request contains too many tags. Try the request again with fewer tags.</p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The name of the Application Auto Scaling resource. This value is an Amazon Resource Name (ARN).</p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>Identifies the Application Auto Scaling scalable target from which to remove tags.</p>
+   *          <p>For example:
+   *          <code>arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123</code>
+   *          </p>
+   *          <p>To get the ARN for a scalable target, use <a>DescribeScalableTargets</a>.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export interface UntagResourceResponse {}
 
 /**
  * @internal
@@ -4032,6 +4168,20 @@ export const DescribeScheduledActionsResponseFilterSensitiveLog = (obj: Describe
 /**
  * @internal
  */
+export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const PutScalingPolicyRequestFilterSensitiveLog = (obj: PutScalingPolicyRequest): any => ({
   ...obj,
 });
@@ -4068,5 +4218,33 @@ export const RegisterScalableTargetRequestFilterSensitiveLog = (obj: RegisterSca
  * @internal
  */
 export const RegisterScalableTargetResponseFilterSensitiveLog = (obj: RegisterScalableTargetResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
   ...obj,
 });

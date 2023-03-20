@@ -77,12 +77,18 @@ import {
   DescribeScheduledActionsCommandInput,
   DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand";
 import { PutScheduledActionCommandInput, PutScheduledActionCommandOutput } from "./commands/PutScheduledActionCommand";
 import {
   RegisterScalableTargetCommandInput,
   RegisterScalableTargetCommandOutput,
 } from "./commands/RegisterScalableTargetCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -99,9 +105,12 @@ export type ServiceInputTypes =
   | DescribeScalingActivitiesCommandInput
   | DescribeScalingPoliciesCommandInput
   | DescribeScheduledActionsCommandInput
+  | ListTagsForResourceCommandInput
   | PutScalingPolicyCommandInput
   | PutScheduledActionCommandInput
-  | RegisterScalableTargetCommandInput;
+  | RegisterScalableTargetCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | DeleteScalingPolicyCommandOutput
@@ -111,9 +120,12 @@ export type ServiceOutputTypes =
   | DescribeScalingActivitiesCommandOutput
   | DescribeScalingPoliciesCommandOutput
   | DescribeScheduledActionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutScalingPolicyCommandOutput
   | PutScheduledActionCommandOutput
-  | RegisterScalableTargetCommandOutput;
+  | RegisterScalableTargetCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
