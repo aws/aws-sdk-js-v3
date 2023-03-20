@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateRouteTableRequest,
-  AssociateRouteTableRequestFilterSensitiveLog,
-  AssociateRouteTableResult,
-  AssociateRouteTableResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateRouteTableRequest, AssociateRouteTableResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssociateRouteTableCommand,
   serializeAws_ec2AssociateRouteTableCommand,
@@ -130,8 +125,8 @@ export class AssociateRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateRouteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateRouteTableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

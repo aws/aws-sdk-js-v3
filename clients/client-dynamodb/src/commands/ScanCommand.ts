@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { ScanInput, ScanInputFilterSensitiveLog, ScanOutput, ScanOutputFilterSensitiveLog } from "../models/models_0";
+import { ScanInput, ScanOutput } from "../models/models_0";
 import { deserializeAws_json1_0ScanCommand, serializeAws_json1_0ScanCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -185,8 +185,8 @@ export class ScanCommand extends $Command<ScanCommandInput, ScanCommandOutput, D
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ScanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ScanOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

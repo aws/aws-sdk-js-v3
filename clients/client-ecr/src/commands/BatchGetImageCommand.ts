@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  BatchGetImageRequest,
-  BatchGetImageRequestFilterSensitiveLog,
-  BatchGetImageResponse,
-  BatchGetImageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetImageRequest, BatchGetImageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetImageCommand,
   serializeAws_json1_1BatchGetImageCommand,
@@ -151,8 +146,8 @@ export class BatchGetImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

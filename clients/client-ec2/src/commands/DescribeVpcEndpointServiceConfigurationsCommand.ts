@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeVpcEndpointServiceConfigurationsRequest,
-  DescribeVpcEndpointServiceConfigurationsRequestFilterSensitiveLog,
   DescribeVpcEndpointServiceConfigurationsResult,
-  DescribeVpcEndpointServiceConfigurationsResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand,
@@ -116,8 +114,8 @@ export class DescribeVpcEndpointServiceConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcEndpointServiceConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcEndpointServiceConfigurationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

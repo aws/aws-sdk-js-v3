@@ -18,7 +18,6 @@ import {
   DeleteSubscriberRequest,
   DeleteSubscriberRequestFilterSensitiveLog,
   DeleteSubscriberResponse,
-  DeleteSubscriberResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSubscriberCommand,
@@ -128,7 +127,7 @@ export class DeleteSubscriberCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteSubscriberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubscriberResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

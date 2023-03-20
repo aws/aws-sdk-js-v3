@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutConfigurationRecorderRequest, PutConfigurationRecorderRequestFilterSensitiveLog } from "../models/models_1";
+import { PutConfigurationRecorderRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1PutConfigurationRecorderCommand,
   serializeAws_json1_1PutConfigurationRecorderCommand,
@@ -129,8 +129,8 @@ export class PutConfigurationRecorderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationRecorderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

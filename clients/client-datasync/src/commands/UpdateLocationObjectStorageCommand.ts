@@ -18,7 +18,6 @@ import {
   UpdateLocationObjectStorageRequest,
   UpdateLocationObjectStorageRequestFilterSensitiveLog,
   UpdateLocationObjectStorageResponse,
-  UpdateLocationObjectStorageResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateLocationObjectStorageCommand,
@@ -119,7 +118,7 @@ export class UpdateLocationObjectStorageCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateLocationObjectStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLocationObjectStorageResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

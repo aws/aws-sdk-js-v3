@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import {
-  ListProjectsRequest,
-  ListProjectsRequestFilterSensitiveLog,
-  ListProjectsResult,
-  ListProjectsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListProjectsRequest, ListProjectsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListProjectsCommand,
   serializeAws_restJson1ListProjectsCommand,
@@ -136,8 +131,8 @@ export class ListProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProjectsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateNetworkAclRequest,
-  CreateNetworkAclRequestFilterSensitiveLog,
-  CreateNetworkAclResult,
-  CreateNetworkAclResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateNetworkAclRequest, CreateNetworkAclResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreateNetworkAclCommand,
   serializeAws_ec2CreateNetworkAclCommand,
@@ -147,8 +142,8 @@ export class CreateNetworkAclCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNetworkAclRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkAclResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

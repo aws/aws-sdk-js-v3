@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RemoveFromGlobalClusterMessage,
-  RemoveFromGlobalClusterMessageFilterSensitiveLog,
-  RemoveFromGlobalClusterResult,
-  RemoveFromGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryRemoveFromGlobalClusterCommand,
@@ -120,8 +115,8 @@ export class RemoveFromGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveFromGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveFromGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

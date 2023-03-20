@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  ListNodegroupsRequest,
-  ListNodegroupsRequestFilterSensitiveLog,
-  ListNodegroupsResponse,
-  ListNodegroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListNodegroupsRequest, ListNodegroupsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListNodegroupsCommand,
   serializeAws_restJson1ListNodegroupsCommand,
@@ -130,8 +125,8 @@ export class ListNodegroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNodegroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNodegroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

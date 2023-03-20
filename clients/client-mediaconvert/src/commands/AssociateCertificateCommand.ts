@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  AssociateCertificateRequest,
-  AssociateCertificateRequestFilterSensitiveLog,
-  AssociateCertificateResponse,
-  AssociateCertificateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1AssociateCertificateCommand,
   serializeAws_restJson1AssociateCertificateCommand,
@@ -125,8 +120,8 @@ export class AssociateCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

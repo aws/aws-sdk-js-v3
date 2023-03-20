@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateThingGroupRequest,
-  CreateThingGroupRequestFilterSensitiveLog,
-  CreateThingGroupResponse,
-  CreateThingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateThingGroupRequest, CreateThingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateThingGroupCommand,
   serializeAws_restJson1CreateThingGroupCommand,
@@ -124,8 +119,8 @@ export class CreateThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateThingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateThingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

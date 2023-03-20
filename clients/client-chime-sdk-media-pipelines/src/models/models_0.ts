@@ -1350,123 +1350,6 @@ export interface UntagResourceResponse {}
 /**
  * @internal
  */
-export const AudioConcatenationConfigurationFilterSensitiveLog = (obj: AudioConcatenationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompositedVideoConcatenationConfigurationFilterSensitiveLog = (
-  obj: CompositedVideoConcatenationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContentConcatenationConfigurationFilterSensitiveLog = (obj: ContentConcatenationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataChannelConcatenationConfigurationFilterSensitiveLog = (
-  obj: DataChannelConcatenationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MeetingEventsConcatenationConfigurationFilterSensitiveLog = (
-  obj: MeetingEventsConcatenationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TranscriptionMessagesConcatenationConfigurationFilterSensitiveLog = (
-  obj: TranscriptionMessagesConcatenationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoConcatenationConfigurationFilterSensitiveLog = (obj: VideoConcatenationConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArtifactsConcatenationConfigurationFilterSensitiveLog = (
-  obj: ArtifactsConcatenationConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioArtifactsConfigurationFilterSensitiveLog = (obj: AudioArtifactsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PresenterOnlyConfigurationFilterSensitiveLog = (obj: PresenterOnlyConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GridViewConfigurationFilterSensitiveLog = (obj: GridViewConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompositedVideoArtifactsConfigurationFilterSensitiveLog = (
-  obj: CompositedVideoArtifactsConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ContentArtifactsConfigurationFilterSensitiveLog = (obj: ContentArtifactsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VideoArtifactsConfigurationFilterSensitiveLog = (obj: VideoArtifactsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArtifactsConfigurationFilterSensitiveLog = (obj: ArtifactsConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SelectedVideoStreamsFilterSensitiveLog = (obj: SelectedVideoStreams): any => ({
   ...obj,
   ...(obj.ExternalUserIds && { ExternalUserIds: SENSITIVE_STRING }),
@@ -1490,13 +1373,6 @@ export const ChimeSdkMeetingConfigurationFilterSensitiveLog = (obj: ChimeSdkMeet
   ...(obj.SourceConfiguration && {
     SourceConfiguration: SourceConfigurationFilterSensitiveLog(obj.SourceConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
 });
 
 /**
@@ -1550,15 +1426,6 @@ export const ConcatenationSinkFilterSensitiveLog = (obj: ConcatenationSink): any
   ...(obj.S3BucketSinkConfiguration && {
     S3BucketSinkConfiguration: S3BucketSinkConfigurationFilterSensitiveLog(obj.S3BucketSinkConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const ChimeSdkMeetingConcatenationConfigurationFilterSensitiveLog = (
-  obj: ChimeSdkMeetingConcatenationConfiguration
-): any => ({
-  ...obj,
 });
 
 /**
@@ -1695,39 +1562,11 @@ export const CreateMediaLiveConnectorPipelineResponseFilterSensitiveLog = (
 /**
  * @internal
  */
-export const DeleteMediaCapturePipelineRequestFilterSensitiveLog = (obj: DeleteMediaCapturePipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteMediaPipelineRequestFilterSensitiveLog = (obj: DeleteMediaPipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMediaCapturePipelineRequestFilterSensitiveLog = (obj: GetMediaCapturePipelineRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetMediaCapturePipelineResponseFilterSensitiveLog = (obj: GetMediaCapturePipelineResponse): any => ({
   ...obj,
   ...(obj.MediaCapturePipeline && {
     MediaCapturePipeline: MediaCapturePipelineFilterSensitiveLog(obj.MediaCapturePipeline),
   }),
-});
-
-/**
- * @internal
- */
-export const GetMediaPipelineRequestFilterSensitiveLog = (obj: GetMediaPipelineRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1752,88 +1591,4 @@ export const MediaPipelineFilterSensitiveLog = (obj: MediaPipeline): any => ({
 export const GetMediaPipelineResponseFilterSensitiveLog = (obj: GetMediaPipelineResponse): any => ({
   ...obj,
   ...(obj.MediaPipeline && { MediaPipeline: MediaPipelineFilterSensitiveLog(obj.MediaPipeline) }),
-});
-
-/**
- * @internal
- */
-export const ListMediaCapturePipelinesRequestFilterSensitiveLog = (obj: ListMediaCapturePipelinesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MediaCapturePipelineSummaryFilterSensitiveLog = (obj: MediaCapturePipelineSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMediaCapturePipelinesResponseFilterSensitiveLog = (obj: ListMediaCapturePipelinesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMediaPipelinesRequestFilterSensitiveLog = (obj: ListMediaPipelinesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MediaPipelineSummaryFilterSensitiveLog = (obj: MediaPipelineSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListMediaPipelinesResponseFilterSensitiveLog = (obj: ListMediaPipelinesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });

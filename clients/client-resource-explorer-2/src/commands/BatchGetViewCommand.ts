@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetViewInput,
-  BatchGetViewInputFilterSensitiveLog,
-  BatchGetViewOutput,
-  BatchGetViewOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetViewInput, BatchGetViewOutput, BatchGetViewOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetViewCommand,
   serializeAws_restJson1BatchGetViewCommand,
@@ -128,7 +123,7 @@ export class BatchGetViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetViewInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchGetViewOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

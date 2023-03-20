@@ -16,7 +16,6 @@ import {
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
 import {
   StartProjectSessionRequest,
-  StartProjectSessionRequestFilterSensitiveLog,
   StartProjectSessionResponse,
   StartProjectSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -120,7 +119,7 @@ export class StartProjectSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartProjectSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartProjectSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

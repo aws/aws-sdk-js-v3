@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  StartProductSubscriptionRequest,
-  StartProductSubscriptionRequestFilterSensitiveLog,
-  StartProductSubscriptionResponse,
-  StartProductSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartProductSubscriptionRequest, StartProductSubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartProductSubscriptionCommand,
   serializeAws_restJson1StartProductSubscriptionCommand,
@@ -138,8 +133,8 @@ export class StartProductSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartProductSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartProductSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

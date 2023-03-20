@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetLoadBalancerRequest,
-  GetLoadBalancerRequestFilterSensitiveLog,
-  GetLoadBalancerResult,
-  GetLoadBalancerResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetLoadBalancerRequest, GetLoadBalancerResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetLoadBalancerCommand,
   serializeAws_json1_1GetLoadBalancerCommand,
@@ -137,8 +132,8 @@ export class GetLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLoadBalancerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLoadBalancerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

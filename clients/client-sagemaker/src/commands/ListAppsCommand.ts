@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAppsRequest,
-  ListAppsRequestFilterSensitiveLog,
-  ListAppsResponse,
-  ListAppsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListAppsRequest, ListAppsResponse } from "../models/models_3";
 import { deserializeAws_json1_1ListAppsCommand, serializeAws_json1_1ListAppsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -102,8 +97,8 @@ export class ListAppsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAppsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAppsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

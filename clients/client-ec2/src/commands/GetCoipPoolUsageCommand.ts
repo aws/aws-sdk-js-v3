@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetCoipPoolUsageRequest,
-  GetCoipPoolUsageRequestFilterSensitiveLog,
-  GetCoipPoolUsageResult,
-  GetCoipPoolUsageResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetCoipPoolUsageRequest, GetCoipPoolUsageResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetCoipPoolUsageCommand,
   serializeAws_ec2GetCoipPoolUsageCommand,
@@ -107,8 +102,8 @@ export class GetCoipPoolUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCoipPoolUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCoipPoolUsageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

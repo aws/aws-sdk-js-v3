@@ -16,7 +16,6 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   GetProxySessionRequest,
-  GetProxySessionRequestFilterSensitiveLog,
   GetProxySessionResponse,
   GetProxySessionResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -86,7 +85,7 @@ export class GetProxySessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProxySessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetProxySessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

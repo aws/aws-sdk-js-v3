@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketWebsiteOutput,
-  GetBucketWebsiteOutputFilterSensitiveLog,
-  GetBucketWebsiteRequest,
-  GetBucketWebsiteRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBucketWebsiteOutput, GetBucketWebsiteRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketWebsiteCommand,
   serializeAws_restXmlGetBucketWebsiteCommand,
@@ -154,8 +149,8 @@ export class GetBucketWebsiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketWebsiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketWebsiteOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

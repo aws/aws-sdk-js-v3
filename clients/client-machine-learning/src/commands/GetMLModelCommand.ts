@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  GetMLModelInput,
-  GetMLModelInputFilterSensitiveLog,
-  GetMLModelOutput,
-  GetMLModelOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMLModelInput, GetMLModelOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetMLModelCommand,
   serializeAws_json1_1GetMLModelCommand,
@@ -116,8 +111,8 @@ export class GetMLModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMLModelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMLModelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

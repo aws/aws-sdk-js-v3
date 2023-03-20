@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateTagOptionFromResourceInput,
-  DisassociateTagOptionFromResourceInputFilterSensitiveLog,
-  DisassociateTagOptionFromResourceOutput,
-  DisassociateTagOptionFromResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateTagOptionFromResourceInput, DisassociateTagOptionFromResourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateTagOptionFromResourceCommand,
   serializeAws_json1_1DisassociateTagOptionFromResourceCommand,
@@ -117,8 +112,8 @@ export class DisassociateTagOptionFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTagOptionFromResourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTagOptionFromResourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

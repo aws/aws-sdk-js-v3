@@ -16,7 +16,6 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   DescribeLaunchConfigurationTemplatesRequest,
-  DescribeLaunchConfigurationTemplatesRequestFilterSensitiveLog,
   DescribeLaunchConfigurationTemplatesResponse,
   DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -118,7 +117,7 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLaunchConfigurationTemplatesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

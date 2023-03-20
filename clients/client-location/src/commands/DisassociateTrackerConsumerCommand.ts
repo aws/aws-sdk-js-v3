@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DisassociateTrackerConsumerRequest,
-  DisassociateTrackerConsumerRequestFilterSensitiveLog,
-  DisassociateTrackerConsumerResponse,
-  DisassociateTrackerConsumerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateTrackerConsumerRequest, DisassociateTrackerConsumerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateTrackerConsumerCommand,
   serializeAws_restJson1DisassociateTrackerConsumerCommand,
@@ -129,8 +124,8 @@ export class DisassociateTrackerConsumerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTrackerConsumerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTrackerConsumerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

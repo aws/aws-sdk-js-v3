@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetComplianceSummaryInput,
-  GetComplianceSummaryInputFilterSensitiveLog,
-  GetComplianceSummaryOutput,
-  GetComplianceSummaryOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetComplianceSummaryInput, GetComplianceSummaryOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetComplianceSummaryCommand,
   serializeAws_json1_1GetComplianceSummaryCommand,
@@ -175,8 +170,8 @@ export class GetComplianceSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceSummaryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceSummaryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

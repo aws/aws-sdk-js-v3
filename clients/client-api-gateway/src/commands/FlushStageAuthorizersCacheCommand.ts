@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  FlushStageAuthorizersCacheRequest,
-  FlushStageAuthorizersCacheRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { FlushStageAuthorizersCacheRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1FlushStageAuthorizersCacheCommand,
   serializeAws_restJson1FlushStageAuthorizersCacheCommand,
@@ -123,8 +120,8 @@ export class FlushStageAuthorizersCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FlushStageAuthorizersCacheRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  UpdateIdentityProviderSettingsRequest,
-  UpdateIdentityProviderSettingsRequestFilterSensitiveLog,
-  UpdateIdentityProviderSettingsResponse,
-  UpdateIdentityProviderSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateIdentityProviderSettingsRequest, UpdateIdentityProviderSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateIdentityProviderSettingsCommand,
   serializeAws_restJson1UpdateIdentityProviderSettingsCommand,
@@ -126,8 +121,8 @@ export class UpdateIdentityProviderSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIdentityProviderSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIdentityProviderSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

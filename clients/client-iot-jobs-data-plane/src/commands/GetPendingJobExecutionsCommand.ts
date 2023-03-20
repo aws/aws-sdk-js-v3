@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient";
-import {
-  GetPendingJobExecutionsRequest,
-  GetPendingJobExecutionsRequestFilterSensitiveLog,
-  GetPendingJobExecutionsResponse,
-  GetPendingJobExecutionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPendingJobExecutionsRequest, GetPendingJobExecutionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPendingJobExecutionsCommand,
   serializeAws_restJson1GetPendingJobExecutionsCommand,
@@ -122,8 +117,8 @@ export class GetPendingJobExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPendingJobExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPendingJobExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

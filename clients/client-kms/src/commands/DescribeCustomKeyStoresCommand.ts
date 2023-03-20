@@ -16,7 +16,6 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   DescribeCustomKeyStoresRequest,
-  DescribeCustomKeyStoresRequestFilterSensitiveLog,
   DescribeCustomKeyStoresResponse,
   DescribeCustomKeyStoresResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -278,7 +277,7 @@ export class DescribeCustomKeyStoresCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomKeyStoresRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeCustomKeyStoresResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

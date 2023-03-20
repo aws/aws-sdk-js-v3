@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTemplatesRequest,
-  ListTemplatesRequestFilterSensitiveLog,
-  ListTemplatesResponse,
-  ListTemplatesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListTemplatesRequest, ListTemplatesResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1ListTemplatesCommand,
@@ -120,8 +115,8 @@ export class ListTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

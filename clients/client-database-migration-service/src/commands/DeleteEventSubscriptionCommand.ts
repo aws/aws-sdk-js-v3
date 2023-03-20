@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteEventSubscriptionMessage,
-  DeleteEventSubscriptionMessageFilterSensitiveLog,
-  DeleteEventSubscriptionResponse,
-  DeleteEventSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEventSubscriptionCommand,
   serializeAws_json1_1DeleteEventSubscriptionCommand,
@@ -117,8 +112,8 @@ export class DeleteEventSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEventSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

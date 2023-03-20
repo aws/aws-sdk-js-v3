@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  RejectInvitationInput,
-  RejectInvitationInputFilterSensitiveLog,
-  RejectInvitationOutput,
-  RejectInvitationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RejectInvitationInput, RejectInvitationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1RejectInvitationCommand,
   serializeAws_restJson1RejectInvitationCommand,
@@ -133,8 +128,8 @@ export class RejectInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectInvitationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectInvitationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

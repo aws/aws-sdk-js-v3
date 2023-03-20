@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  FailoverGlobalClusterMessage,
-  FailoverGlobalClusterMessageFilterSensitiveLog,
-  FailoverGlobalClusterResult,
-  FailoverGlobalClusterResultFilterSensitiveLog,
-} from "../models/models_1";
+import { FailoverGlobalClusterMessage, FailoverGlobalClusterResult } from "../models/models_1";
 import {
   deserializeAws_queryFailoverGlobalClusterCommand,
   serializeAws_queryFailoverGlobalClusterCommand,
@@ -132,8 +127,8 @@ export class FailoverGlobalClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverGlobalClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: FailoverGlobalClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

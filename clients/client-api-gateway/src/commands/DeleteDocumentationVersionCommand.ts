@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  DeleteDocumentationVersionRequest,
-  DeleteDocumentationVersionRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDocumentationVersionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDocumentationVersionCommand,
   serializeAws_restJson1DeleteDocumentationVersionCommand,
@@ -120,8 +117,8 @@ export class DeleteDocumentationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDocumentationVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

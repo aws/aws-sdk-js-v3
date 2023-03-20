@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { DeleteAlternateContactRequest, DeleteAlternateContactRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteAlternateContactRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAlternateContactCommand,
   serializeAws_restJson1DeleteAlternateContactCommand,
@@ -128,8 +128,8 @@ export class DeleteAlternateContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAlternateContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

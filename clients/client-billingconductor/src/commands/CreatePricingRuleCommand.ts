@@ -18,7 +18,6 @@ import {
   CreatePricingRuleInput,
   CreatePricingRuleInputFilterSensitiveLog,
   CreatePricingRuleOutput,
-  CreatePricingRuleOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePricingRuleCommand,
@@ -133,7 +132,7 @@ export class CreatePricingRuleCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreatePricingRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePricingRuleOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

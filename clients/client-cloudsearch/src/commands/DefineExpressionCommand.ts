@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DefineExpressionRequest,
-  DefineExpressionRequestFilterSensitiveLog,
-  DefineExpressionResponse,
-  DefineExpressionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DefineExpressionRequest, DefineExpressionResponse } from "../models/models_0";
 import {
   deserializeAws_queryDefineExpressionCommand,
   serializeAws_queryDefineExpressionCommand,
@@ -126,8 +121,8 @@ export class DefineExpressionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DefineExpressionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DefineExpressionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

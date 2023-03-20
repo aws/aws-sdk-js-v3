@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  ListIdentityProvidersRequest,
-  ListIdentityProvidersRequestFilterSensitiveLog,
-  ListIdentityProvidersResponse,
-  ListIdentityProvidersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListIdentityProvidersRequest, ListIdentityProvidersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListIdentityProvidersCommand,
   serializeAws_restJson1ListIdentityProvidersCommand,
@@ -133,8 +128,8 @@ export class ListIdentityProvidersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentityProvidersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIdentityProvidersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

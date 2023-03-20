@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTrainingJobRequest,
-  DescribeTrainingJobRequestFilterSensitiveLog,
-  DescribeTrainingJobResponse,
-  DescribeTrainingJobResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DescribeTrainingJobRequest, DescribeTrainingJobResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeTrainingJobCommand,
   serializeAws_json1_1DescribeTrainingJobCommand,
@@ -116,8 +111,8 @@ export class DescribeTrainingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrainingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrainingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

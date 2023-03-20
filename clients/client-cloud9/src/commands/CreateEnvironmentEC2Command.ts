@@ -18,7 +18,6 @@ import {
   CreateEnvironmentEC2Request,
   CreateEnvironmentEC2RequestFilterSensitiveLog,
   CreateEnvironmentEC2Result,
-  CreateEnvironmentEC2ResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEnvironmentEC2Command,
@@ -151,7 +150,7 @@ export class CreateEnvironmentEC2Command extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateEnvironmentEC2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentEC2ResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

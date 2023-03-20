@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListByteMatchSetsRequest,
-  ListByteMatchSetsRequestFilterSensitiveLog,
-  ListByteMatchSetsResponse,
-  ListByteMatchSetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListByteMatchSetsRequest, ListByteMatchSetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListByteMatchSetsCommand,
   serializeAws_json1_1ListByteMatchSetsCommand,
@@ -121,8 +116,8 @@ export class ListByteMatchSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListByteMatchSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListByteMatchSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

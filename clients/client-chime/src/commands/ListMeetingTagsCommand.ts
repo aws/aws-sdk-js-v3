@@ -127,7 +127,7 @@ export class ListMeetingTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListMeetingTagsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

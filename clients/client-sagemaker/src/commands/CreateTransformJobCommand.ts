@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTransformJobRequest,
-  CreateTransformJobRequestFilterSensitiveLog,
-  CreateTransformJobResponse,
-  CreateTransformJobResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateTransformJobRequest, CreateTransformJobResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateTransformJobCommand,
   serializeAws_json1_1CreateTransformJobCommand,
@@ -151,8 +146,8 @@ export class CreateTransformJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTransformJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTransformJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

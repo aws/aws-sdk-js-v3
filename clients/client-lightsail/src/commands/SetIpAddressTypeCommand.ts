@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  SetIpAddressTypeRequest,
-  SetIpAddressTypeRequestFilterSensitiveLog,
-  SetIpAddressTypeResult,
-  SetIpAddressTypeResultFilterSensitiveLog,
-} from "../models/models_1";
+import { SetIpAddressTypeRequest, SetIpAddressTypeResult } from "../models/models_1";
 import {
   deserializeAws_json1_1SetIpAddressTypeCommand,
   serializeAws_json1_1SetIpAddressTypeCommand,
@@ -140,8 +135,8 @@ export class SetIpAddressTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIpAddressTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetIpAddressTypeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

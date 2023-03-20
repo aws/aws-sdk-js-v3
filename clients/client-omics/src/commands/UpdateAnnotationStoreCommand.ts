@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAnnotationStoreRequest,
-  UpdateAnnotationStoreRequestFilterSensitiveLog,
-  UpdateAnnotationStoreResponse,
-  UpdateAnnotationStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAnnotationStoreRequest, UpdateAnnotationStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1UpdateAnnotationStoreCommand,
@@ -122,8 +117,8 @@ export class UpdateAnnotationStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAnnotationStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAnnotationStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

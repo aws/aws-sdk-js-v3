@@ -16,9 +16,7 @@ import {
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
 import {
   ListSubscriptionDefinitionVersionsRequest,
-  ListSubscriptionDefinitionVersionsRequestFilterSensitiveLog,
   ListSubscriptionDefinitionVersionsResponse,
-  ListSubscriptionDefinitionVersionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand,
@@ -112,8 +110,8 @@ export class ListSubscriptionDefinitionVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSubscriptionDefinitionVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSubscriptionDefinitionVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

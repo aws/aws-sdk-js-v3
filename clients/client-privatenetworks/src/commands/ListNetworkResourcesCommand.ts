@@ -15,7 +15,6 @@ import {
 
 import {
   ListNetworkResourcesRequest,
-  ListNetworkResourcesRequestFilterSensitiveLog,
   ListNetworkResourcesResponse,
   ListNetworkResourcesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -120,7 +119,7 @@ export class ListNetworkResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNetworkResourcesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListNetworkResourcesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

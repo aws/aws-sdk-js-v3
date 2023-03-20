@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetWebACLRequest,
-  GetWebACLRequestFilterSensitiveLog,
-  GetWebACLResponse,
-  GetWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetWebACLRequest, GetWebACLResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetWebACLCommand, serializeAws_json1_1GetWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
@@ -151,8 +146,8 @@ export class GetWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,9 +16,7 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DescribeBudgetNotificationsForAccountRequest,
-  DescribeBudgetNotificationsForAccountRequestFilterSensitiveLog,
   DescribeBudgetNotificationsForAccountResponse,
-  DescribeBudgetNotificationsForAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommand,
@@ -135,8 +133,8 @@ export class DescribeBudgetNotificationsForAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBudgetNotificationsForAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBudgetNotificationsForAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

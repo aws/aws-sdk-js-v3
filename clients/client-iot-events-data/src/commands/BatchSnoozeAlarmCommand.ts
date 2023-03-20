@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
-import {
-  BatchSnoozeAlarmRequest,
-  BatchSnoozeAlarmRequestFilterSensitiveLog,
-  BatchSnoozeAlarmResponse,
-  BatchSnoozeAlarmResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchSnoozeAlarmRequest, BatchSnoozeAlarmResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchSnoozeAlarmCommand,
   serializeAws_restJson1BatchSnoozeAlarmCommand,
@@ -120,8 +115,8 @@ export class BatchSnoozeAlarmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchSnoozeAlarmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchSnoozeAlarmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

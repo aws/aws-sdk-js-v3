@@ -18,7 +18,6 @@ import {
   TestHypervisorConfigurationInput,
   TestHypervisorConfigurationInputFilterSensitiveLog,
   TestHypervisorConfigurationOutput,
-  TestHypervisorConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0TestHypervisorConfigurationCommand,
@@ -125,7 +124,7 @@ export class TestHypervisorConfigurationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TestHypervisorConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TestHypervisorConfigurationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

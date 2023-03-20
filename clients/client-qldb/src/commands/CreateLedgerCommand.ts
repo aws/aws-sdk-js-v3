@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLedgerRequest,
-  CreateLedgerRequestFilterSensitiveLog,
-  CreateLedgerResponse,
-  CreateLedgerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateLedgerRequest, CreateLedgerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateLedgerCommand,
   serializeAws_restJson1CreateLedgerCommand,
@@ -117,8 +112,8 @@ export class CreateLedgerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLedgerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLedgerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

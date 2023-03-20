@@ -15,7 +15,6 @@ import {
 
 import {
   CreateOrganizationRequest,
-  CreateOrganizationRequestFilterSensitiveLog,
   CreateOrganizationResponse,
   CreateOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -505,7 +504,7 @@ export class CreateOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOrganizationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

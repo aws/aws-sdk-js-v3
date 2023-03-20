@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  RebootInstanceRequest,
-  RebootInstanceRequestFilterSensitiveLog,
-  RebootInstanceResult,
-  RebootInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
+import { RebootInstanceRequest, RebootInstanceResult } from "../models/models_1";
 import {
   deserializeAws_json1_1RebootInstanceCommand,
   serializeAws_json1_1RebootInstanceCommand,
@@ -140,8 +135,8 @@ export class RebootInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetTableMetadataInput,
-  GetTableMetadataInputFilterSensitiveLog,
-  GetTableMetadataOutput,
-  GetTableMetadataOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTableMetadataInput, GetTableMetadataOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetTableMetadataCommand,
   serializeAws_json1_1GetTableMetadataCommand,
@@ -123,8 +118,8 @@ export class GetTableMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableMetadataInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTableMetadataOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

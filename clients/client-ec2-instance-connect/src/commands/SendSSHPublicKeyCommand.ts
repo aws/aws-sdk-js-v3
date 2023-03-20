@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../EC2InstanceConnectClient";
-import {
-  SendSSHPublicKeyRequest,
-  SendSSHPublicKeyRequestFilterSensitiveLog,
-  SendSSHPublicKeyResponse,
-  SendSSHPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1SendSSHPublicKeyCommand,
   serializeAws_json1_1SendSSHPublicKeyCommand,
@@ -158,8 +153,8 @@ export class SendSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendSSHPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendSSHPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DeleteSubnetGroupRequest,
-  DeleteSubnetGroupRequestFilterSensitiveLog,
-  DeleteSubnetGroupResponse,
-  DeleteSubnetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteSubnetGroupCommand,
   serializeAws_json1_1DeleteSubnetGroupCommand,
@@ -116,8 +111,8 @@ export class DeleteSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubnetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubnetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

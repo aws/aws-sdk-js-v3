@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { RevokeSignatureRequest, RevokeSignatureRequestFilterSensitiveLog } from "../models/models_0";
+import { RevokeSignatureRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1RevokeSignatureCommand,
   serializeAws_restJson1RevokeSignatureCommand,
@@ -119,8 +119,8 @@ export class RevokeSignatureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeSignatureRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

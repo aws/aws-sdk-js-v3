@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  GetMetadataRequest,
-  GetMetadataRequestFilterSensitiveLog,
-  GetMetadataResponse,
-  GetMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMetadataRequest, GetMetadataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMetadataCommand,
   serializeAws_restJson1GetMetadataCommand,
@@ -111,8 +106,8 @@ export class GetMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

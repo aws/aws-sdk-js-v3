@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  GetRoutesRequest,
-  GetRoutesRequestFilterSensitiveLog,
-  GetRoutesResponse,
-  GetRoutesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRoutesRequest, GetRoutesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRoutesCommand,
   serializeAws_restJson1GetRoutesCommand,
@@ -114,8 +109,8 @@ export class GetRoutesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoutesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRoutesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

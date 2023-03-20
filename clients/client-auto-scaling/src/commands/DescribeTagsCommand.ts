@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DescribeTagsType,
-  DescribeTagsTypeFilterSensitiveLog,
-  TagsType,
-  TagsTypeFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTagsType, TagsType } from "../models/models_0";
 import { deserializeAws_queryDescribeTagsCommand, serializeAws_queryDescribeTagsCommand } from "../protocols/Aws_query";
 
 /**
@@ -155,8 +150,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: TagsTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

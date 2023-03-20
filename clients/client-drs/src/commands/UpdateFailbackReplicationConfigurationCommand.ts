@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import {
-  UpdateFailbackReplicationConfigurationRequest,
-  UpdateFailbackReplicationConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFailbackReplicationConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFailbackReplicationConfigurationCommand,
   serializeAws_restJson1UpdateFailbackReplicationConfigurationCommand,
@@ -121,8 +118,8 @@ export class UpdateFailbackReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFailbackReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

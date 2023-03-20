@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  PutLifecyclePolicyRequest,
-  PutLifecyclePolicyRequestFilterSensitiveLog,
-  PutLifecyclePolicyResponse,
-  PutLifecyclePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutLifecyclePolicyRequest, PutLifecyclePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutLifecyclePolicyCommand,
   serializeAws_json1_1PutLifecyclePolicyCommand,
@@ -120,8 +115,8 @@ export class PutLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutLifecyclePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutLifecyclePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

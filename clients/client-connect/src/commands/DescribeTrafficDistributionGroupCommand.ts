@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeTrafficDistributionGroupRequest,
-  DescribeTrafficDistributionGroupRequestFilterSensitiveLog,
-  DescribeTrafficDistributionGroupResponse,
-  DescribeTrafficDistributionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTrafficDistributionGroupRequest, DescribeTrafficDistributionGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeTrafficDistributionGroupCommand,
   serializeAws_restJson1DescribeTrafficDistributionGroupCommand,
@@ -124,8 +119,8 @@ export class DescribeTrafficDistributionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrafficDistributionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrafficDistributionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  DeregisterIdentityProviderRequest,
-  DeregisterIdentityProviderRequestFilterSensitiveLog,
-  DeregisterIdentityProviderResponse,
-  DeregisterIdentityProviderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterIdentityProviderRequest, DeregisterIdentityProviderResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeregisterIdentityProviderCommand,
   serializeAws_restJson1DeregisterIdentityProviderCommand,
@@ -133,8 +128,8 @@ export class DeregisterIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterIdentityProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterIdentityProviderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

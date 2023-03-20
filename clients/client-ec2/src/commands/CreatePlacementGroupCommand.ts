@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreatePlacementGroupRequest,
-  CreatePlacementGroupRequestFilterSensitiveLog,
-  CreatePlacementGroupResult,
-  CreatePlacementGroupResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreatePlacementGroupRequest, CreatePlacementGroupResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreatePlacementGroupCommand,
   serializeAws_ec2CreatePlacementGroupCommand,
@@ -128,8 +123,8 @@ export class CreatePlacementGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePlacementGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePlacementGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

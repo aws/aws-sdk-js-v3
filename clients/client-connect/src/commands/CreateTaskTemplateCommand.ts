@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateTaskTemplateRequest,
-  CreateTaskTemplateRequestFilterSensitiveLog,
-  CreateTaskTemplateResponse,
-  CreateTaskTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateTaskTemplateRequest, CreateTaskTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTaskTemplateCommand,
   serializeAws_restJson1CreateTaskTemplateCommand,
@@ -125,8 +120,8 @@ export class CreateTaskTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTaskTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTaskTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

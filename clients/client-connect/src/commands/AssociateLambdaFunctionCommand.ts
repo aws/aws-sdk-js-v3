@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { AssociateLambdaFunctionRequest, AssociateLambdaFunctionRequestFilterSensitiveLog } from "../models/models_0";
+import { AssociateLambdaFunctionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateLambdaFunctionCommand,
   serializeAws_restJson1AssociateLambdaFunctionCommand,
@@ -125,8 +125,8 @@ export class AssociateLambdaFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLambdaFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

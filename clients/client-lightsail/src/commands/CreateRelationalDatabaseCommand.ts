@@ -18,7 +18,6 @@ import {
   CreateRelationalDatabaseRequest,
   CreateRelationalDatabaseRequestFilterSensitiveLog,
   CreateRelationalDatabaseResult,
-  CreateRelationalDatabaseResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRelationalDatabaseCommand,
@@ -140,7 +139,7 @@ export class CreateRelationalDatabaseCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateRelationalDatabaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRelationalDatabaseResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

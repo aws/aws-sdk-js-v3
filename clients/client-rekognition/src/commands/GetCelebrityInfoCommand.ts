@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCelebrityInfoRequest,
-  GetCelebrityInfoRequestFilterSensitiveLog,
-  GetCelebrityInfoResponse,
-  GetCelebrityInfoResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCelebrityInfoRequest, GetCelebrityInfoResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCelebrityInfoCommand,
   serializeAws_json1_1GetCelebrityInfoCommand,
@@ -133,8 +128,8 @@ export class GetCelebrityInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCelebrityInfoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCelebrityInfoResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

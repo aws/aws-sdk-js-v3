@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import {
-  ListDatasourcePackagesRequest,
-  ListDatasourcePackagesRequestFilterSensitiveLog,
-  ListDatasourcePackagesResponse,
-  ListDatasourcePackagesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDatasourcePackagesRequest, ListDatasourcePackagesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDatasourcePackagesCommand,
   serializeAws_restJson1ListDatasourcePackagesCommand,
@@ -120,8 +115,8 @@ export class ListDatasourcePackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatasourcePackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatasourcePackagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  StopChannelRequest,
-  StopChannelRequestFilterSensitiveLog,
-  StopChannelResponse,
-  StopChannelResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { StopChannelRequest, StopChannelResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1StopChannelCommand,
   serializeAws_restJson1StopChannelCommand,
@@ -129,8 +124,8 @@ export class StopChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

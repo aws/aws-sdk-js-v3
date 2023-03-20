@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  SetTaskStatusInput,
-  SetTaskStatusInputFilterSensitiveLog,
-  SetTaskStatusOutput,
-  SetTaskStatusOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { SetTaskStatusInput, SetTaskStatusOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1SetTaskStatusCommand,
   serializeAws_json1_1SetTaskStatusCommand,
@@ -150,8 +145,8 @@ export class SetTaskStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetTaskStatusInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetTaskStatusOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

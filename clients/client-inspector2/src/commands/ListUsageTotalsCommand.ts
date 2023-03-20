@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  ListUsageTotalsRequest,
-  ListUsageTotalsRequestFilterSensitiveLog,
-  ListUsageTotalsResponse,
-  ListUsageTotalsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListUsageTotalsRequest, ListUsageTotalsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListUsageTotalsCommand,
   serializeAws_restJson1ListUsageTotalsCommand,
@@ -120,8 +115,8 @@ export class ListUsageTotalsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsageTotalsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUsageTotalsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

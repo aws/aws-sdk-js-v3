@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  DescribeRecommendationFeedbackRequest,
-  DescribeRecommendationFeedbackRequestFilterSensitiveLog,
-  DescribeRecommendationFeedbackResponse,
-  DescribeRecommendationFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRecommendationFeedbackRequest, DescribeRecommendationFeedbackResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRecommendationFeedbackCommand,
   serializeAws_restJson1DescribeRecommendationFeedbackCommand,
@@ -124,8 +119,8 @@ export class DescribeRecommendationFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecommendationFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecommendationFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

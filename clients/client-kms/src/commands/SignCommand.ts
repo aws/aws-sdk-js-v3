@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  SignRequest,
-  SignRequestFilterSensitiveLog,
-  SignResponse,
-  SignResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SignRequest, SignRequestFilterSensitiveLog, SignResponse } from "../models/models_0";
 import { deserializeAws_json1_1SignCommand, serializeAws_json1_1SignCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -253,7 +248,7 @@ export class SignCommand extends $Command<SignCommandInput, SignCommandOutput, K
       clientName,
       commandName,
       inputFilterSensitiveLog: SignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SignResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

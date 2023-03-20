@@ -18,7 +18,6 @@ import {
   UpdateDestinationInput,
   UpdateDestinationInputFilterSensitiveLog,
   UpdateDestinationOutput,
-  UpdateDestinationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDestinationCommand,
@@ -144,7 +143,7 @@ export class UpdateDestinationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDestinationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDestinationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

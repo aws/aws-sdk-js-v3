@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeRouteTablesRequest,
-  DescribeRouteTablesRequestFilterSensitiveLog,
-  DescribeRouteTablesResult,
-  DescribeRouteTablesResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeRouteTablesRequest, DescribeRouteTablesResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeRouteTablesCommand,
   serializeAws_ec2DescribeRouteTablesCommand,
@@ -149,8 +144,8 @@ export class DescribeRouteTablesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRouteTablesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRouteTablesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlTimestampsInputOutput, XmlTimestampsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { XmlTimestampsInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlXmlTimestampsCommand,
   serializeAws_restXmlXmlTimestampsCommand,
@@ -20,15 +20,20 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlTimestampsCommand}.
  */
 export interface XmlTimestampsCommandInput extends XmlTimestampsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlTimestampsCommand}.
  */
 export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This tests how timestamps are serialized, including using the
  * default format of date-time and various @timestampFormat trait
  * values.
@@ -42,6 +47,8 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlTimestampsCommandInput - {@link XmlTimestampsCommandInput}
+ * @returns {@link XmlTimestampsCommandOutput}
  * @see {@link XmlTimestampsCommandInput} for command's `input` shape.
  * @see {@link XmlTimestampsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -56,6 +63,9 @@ export class XmlTimestampsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlTimestampsCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,8 +91,8 @@ export class XmlTimestampsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlTimestampsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlTimestampsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,10 +102,16 @@ export class XmlTimestampsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlXmlTimestampsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlTimestampsCommandOutput> {
     return deserializeAws_restXmlXmlTimestampsCommand(output, context);
   }

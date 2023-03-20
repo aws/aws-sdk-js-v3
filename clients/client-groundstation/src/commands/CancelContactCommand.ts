@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  CancelContactRequest,
-  CancelContactRequestFilterSensitiveLog,
-  ContactIdResponse,
-  ContactIdResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelContactRequest, ContactIdResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelContactCommand,
   serializeAws_restJson1CancelContactCommand,
@@ -114,8 +109,8 @@ export class CancelContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ContactIdResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

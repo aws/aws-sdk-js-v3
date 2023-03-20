@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DescribeRecommendationsRequest,
-  DescribeRecommendationsRequestFilterSensitiveLog,
-  DescribeRecommendationsResponse,
-  DescribeRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRecommendationsRequest, DescribeRecommendationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeRecommendationsCommand,
   serializeAws_json1_1DescribeRecommendationsCommand,
@@ -119,8 +114,8 @@ export class DescribeRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

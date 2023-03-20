@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLineageGroupPolicyRequest,
-  GetLineageGroupPolicyRequestFilterSensitiveLog,
-  GetLineageGroupPolicyResponse,
-  GetLineageGroupPolicyResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { GetLineageGroupPolicyRequest, GetLineageGroupPolicyResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1GetLineageGroupPolicyCommand,
   serializeAws_json1_1GetLineageGroupPolicyCommand,
@@ -110,8 +105,8 @@ export class GetLineageGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLineageGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLineageGroupPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

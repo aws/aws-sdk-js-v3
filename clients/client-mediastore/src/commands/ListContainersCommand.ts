@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  ListContainersInput,
-  ListContainersInputFilterSensitiveLog,
-  ListContainersOutput,
-  ListContainersOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListContainersInput, ListContainersOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListContainersCommand,
   serializeAws_json1_1ListContainersCommand,
@@ -118,8 +113,8 @@ export class ListContainersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContainersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContainersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

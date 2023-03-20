@@ -16,7 +16,6 @@ import {
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import {
   ListTestGridSessionArtifactsRequest,
-  ListTestGridSessionArtifactsRequestFilterSensitiveLog,
   ListTestGridSessionArtifactsResult,
   ListTestGridSessionArtifactsResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class ListTestGridSessionArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTestGridSessionArtifactsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListTestGridSessionArtifactsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

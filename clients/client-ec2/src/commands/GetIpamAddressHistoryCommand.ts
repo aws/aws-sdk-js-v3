@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetIpamAddressHistoryRequest,
-  GetIpamAddressHistoryRequestFilterSensitiveLog,
-  GetIpamAddressHistoryResult,
-  GetIpamAddressHistoryResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetIpamAddressHistoryRequest, GetIpamAddressHistoryResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetIpamAddressHistoryCommand,
   serializeAws_ec2GetIpamAddressHistoryCommand,
@@ -107,8 +102,8 @@ export class GetIpamAddressHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIpamAddressHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIpamAddressHistoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

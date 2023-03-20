@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePermissionSetRequest,
-  UpdatePermissionSetRequestFilterSensitiveLog,
-  UpdatePermissionSetResponse,
-  UpdatePermissionSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePermissionSetRequest, UpdatePermissionSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdatePermissionSetCommand,
   serializeAws_json1_1UpdatePermissionSetCommand,
@@ -130,8 +125,8 @@ export class UpdatePermissionSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

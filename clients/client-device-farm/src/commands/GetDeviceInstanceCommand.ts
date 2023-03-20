@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetDeviceInstanceRequest,
-  GetDeviceInstanceRequestFilterSensitiveLog,
-  GetDeviceInstanceResult,
-  GetDeviceInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDeviceInstanceRequest, GetDeviceInstanceResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDeviceInstanceCommand,
   serializeAws_json1_1GetDeviceInstanceCommand,
@@ -119,8 +114,8 @@ export class GetDeviceInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

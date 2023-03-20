@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyVerifiedAccessEndpointPolicyRequest,
-  ModifyVerifiedAccessEndpointPolicyRequestFilterSensitiveLog,
   ModifyVerifiedAccessEndpointPolicyResult,
-  ModifyVerifiedAccessEndpointPolicyResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand,
@@ -109,8 +107,8 @@ export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyVerifiedAccessEndpointPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVerifiedAccessEndpointPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

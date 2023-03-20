@@ -19,12 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  StopUserImportJobRequest,
-  StopUserImportJobRequestFilterSensitiveLog,
-  StopUserImportJobResponse,
-  StopUserImportJobResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StopUserImportJobRequest, StopUserImportJobResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1StopUserImportJobCommand,
   serializeAws_json1_1StopUserImportJobCommand,
@@ -134,8 +129,8 @@ export class StopUserImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopUserImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopUserImportJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

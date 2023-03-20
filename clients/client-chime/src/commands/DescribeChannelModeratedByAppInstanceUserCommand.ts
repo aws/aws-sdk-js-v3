@@ -140,7 +140,7 @@ export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelModeratedByAppInstanceUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -15,7 +15,6 @@ import {
 
 import {
   GetIdentityProviderRequest,
-  GetIdentityProviderRequestFilterSensitiveLog,
   GetIdentityProviderResponse,
   GetIdentityProviderResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class GetIdentityProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityProviderRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetIdentityProviderResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

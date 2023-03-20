@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateContactRequest,
-  UpdateContactRequestFilterSensitiveLog,
-  UpdateContactResponse,
-  UpdateContactResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateContactRequest, UpdateContactResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateContactCommand,
   serializeAws_restJson1UpdateContactCommand,
@@ -119,8 +114,8 @@ export class UpdateContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

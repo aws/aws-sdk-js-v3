@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DeleteVpcPeeringConnectionInput,
-  DeleteVpcPeeringConnectionInputFilterSensitiveLog,
-  DeleteVpcPeeringConnectionOutput,
-  DeleteVpcPeeringConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVpcPeeringConnectionInput, DeleteVpcPeeringConnectionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteVpcPeeringConnectionCommand,
   serializeAws_json1_1DeleteVpcPeeringConnectionCommand,
@@ -131,8 +126,8 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcPeeringConnectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcPeeringConnectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

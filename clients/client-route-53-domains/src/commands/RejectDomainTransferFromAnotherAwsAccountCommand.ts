@@ -15,9 +15,7 @@ import {
 
 import {
   RejectDomainTransferFromAnotherAwsAccountRequest,
-  RejectDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog,
   RejectDomainTransferFromAnotherAwsAccountResponse,
-  RejectDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand,
@@ -132,8 +130,8 @@ export class RejectDomainTransferFromAnotherAwsAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectDomainTransferFromAnotherAwsAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectDomainTransferFromAnotherAwsAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

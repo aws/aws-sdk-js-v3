@@ -17,7 +17,6 @@ import {
   StartSimulationInput,
   StartSimulationInputFilterSensitiveLog,
   StartSimulationOutput,
-  StartSimulationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1StartSimulationCommand,
@@ -123,7 +122,7 @@ export class StartSimulationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartSimulationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSimulationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

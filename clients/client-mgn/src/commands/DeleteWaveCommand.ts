@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DeleteWaveRequest,
-  DeleteWaveRequestFilterSensitiveLog,
-  DeleteWaveResponse,
-  DeleteWaveResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWaveRequest, DeleteWaveResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWaveCommand,
   serializeAws_restJson1DeleteWaveCommand,
@@ -114,8 +109,8 @@ export class DeleteWaveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWaveRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWaveResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

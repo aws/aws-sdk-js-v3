@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  Application,
-  ApplicationFilterSensitiveLog,
-  CreateApplicationRequest,
-  CreateApplicationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { Application, CreateApplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateApplicationCommand,
   serializeAws_restJson1CreateApplicationCommand,
@@ -136,8 +131,8 @@ export class CreateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApplicationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ListImagesInRecycleBinRequest,
-  ListImagesInRecycleBinRequestFilterSensitiveLog,
-  ListImagesInRecycleBinResult,
-  ListImagesInRecycleBinResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ListImagesInRecycleBinRequest, ListImagesInRecycleBinResult } from "../models/models_6";
 import {
   deserializeAws_ec2ListImagesInRecycleBinCommand,
   serializeAws_ec2ListImagesInRecycleBinCommand,
@@ -109,8 +104,8 @@ export class ListImagesInRecycleBinCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImagesInRecycleBinRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImagesInRecycleBinResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

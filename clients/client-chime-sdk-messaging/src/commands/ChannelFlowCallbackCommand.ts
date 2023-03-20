@@ -22,7 +22,6 @@ import {
   ChannelFlowCallbackRequest,
   ChannelFlowCallbackRequestFilterSensitiveLog,
   ChannelFlowCallbackResponse,
-  ChannelFlowCallbackResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ChannelFlowCallbackCommand,
@@ -146,7 +145,7 @@ export class ChannelFlowCallbackCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ChannelFlowCallbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ChannelFlowCallbackResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

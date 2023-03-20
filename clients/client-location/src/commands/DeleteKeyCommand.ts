@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DeleteKeyRequest,
-  DeleteKeyRequestFilterSensitiveLog,
-  DeleteKeyResponse,
-  DeleteKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteKeyRequest, DeleteKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteKeyCommand,
   serializeAws_restJson1DeleteKeyCommand,
@@ -122,8 +117,8 @@ export class DeleteKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

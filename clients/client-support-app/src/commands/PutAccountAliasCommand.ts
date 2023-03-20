@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutAccountAliasRequest,
-  PutAccountAliasRequestFilterSensitiveLog,
-  PutAccountAliasResult,
-  PutAccountAliasResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PutAccountAliasRequest, PutAccountAliasResult } from "../models/models_0";
 import {
   deserializeAws_restJson1PutAccountAliasCommand,
   serializeAws_restJson1PutAccountAliasCommand,
@@ -118,8 +113,8 @@ export class PutAccountAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAccountAliasResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

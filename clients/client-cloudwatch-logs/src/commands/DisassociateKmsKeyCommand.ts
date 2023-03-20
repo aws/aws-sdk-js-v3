@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DisassociateKmsKeyRequest, DisassociateKmsKeyRequestFilterSensitiveLog } from "../models/models_0";
+import { DisassociateKmsKeyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateKmsKeyCommand,
   serializeAws_json1_1DisassociateKmsKeyCommand,
@@ -119,8 +119,8 @@ export class DisassociateKmsKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateKmsKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,6 @@ import {
 
 import {
   UpdateContentRequest,
-  UpdateContentRequestFilterSensitiveLog,
   UpdateContentResponse,
   UpdateContentResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -118,7 +117,7 @@ export class UpdateContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateContentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

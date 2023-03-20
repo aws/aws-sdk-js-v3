@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  ListManagedInsightRulesInput,
-  ListManagedInsightRulesInputFilterSensitiveLog,
-  ListManagedInsightRulesOutput,
-  ListManagedInsightRulesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListManagedInsightRulesInput, ListManagedInsightRulesOutput } from "../models/models_0";
 import {
   deserializeAws_queryListManagedInsightRulesCommand,
   serializeAws_queryListManagedInsightRulesCommand,
@@ -122,8 +117,8 @@ export class ListManagedInsightRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListManagedInsightRulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListManagedInsightRulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

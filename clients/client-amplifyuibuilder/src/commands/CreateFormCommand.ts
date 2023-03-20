@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  CreateFormRequest,
-  CreateFormRequestFilterSensitiveLog,
-  CreateFormResponse,
-  CreateFormResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateFormRequest, CreateFormResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateFormCommand,
   serializeAws_restJson1CreateFormCommand,
@@ -118,8 +113,8 @@ export class CreateFormCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFormRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFormResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

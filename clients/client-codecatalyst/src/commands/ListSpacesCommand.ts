@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  ListSpacesRequest,
-  ListSpacesRequestFilterSensitiveLog,
-  ListSpacesResponse,
-  ListSpacesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSpacesRequest, ListSpacesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSpacesCommand,
   serializeAws_restJson1ListSpacesCommand,
@@ -124,8 +119,8 @@ export class ListSpacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSpacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSpacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTableRequest,
-  UpdateTableRequestFilterSensitiveLog,
-  UpdateTableResponse,
-  UpdateTableResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateTableRequest, UpdateTableResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateTableCommand,
   serializeAws_json1_0UpdateTableCommand,
@@ -136,8 +131,8 @@ export class UpdateTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

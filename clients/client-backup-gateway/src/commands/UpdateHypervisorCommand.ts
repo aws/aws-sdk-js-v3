@@ -18,7 +18,6 @@ import {
   UpdateHypervisorInput,
   UpdateHypervisorInputFilterSensitiveLog,
   UpdateHypervisorOutput,
-  UpdateHypervisorOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateHypervisorCommand,
@@ -129,7 +128,7 @@ export class UpdateHypervisorCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateHypervisorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHypervisorOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

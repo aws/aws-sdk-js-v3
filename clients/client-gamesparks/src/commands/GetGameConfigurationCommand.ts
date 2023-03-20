@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  GetGameConfigurationRequest,
-  GetGameConfigurationRequestFilterSensitiveLog,
-  GetGameConfigurationResult,
-  GetGameConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetGameConfigurationRequest, GetGameConfigurationResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetGameConfigurationCommand,
   serializeAws_restJson1GetGameConfigurationCommand,
@@ -122,8 +117,8 @@ export class GetGameConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGameConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGameConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

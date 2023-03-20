@@ -16,7 +16,6 @@ import {
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
 import {
   DescribeUserProfileRequest,
-  DescribeUserProfileRequestFilterSensitiveLog,
   DescribeUserProfileResult,
   DescribeUserProfileResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -113,7 +112,7 @@ export class DescribeUserProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUserProfileRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeUserProfileResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -15,9 +15,7 @@ import {
 
 import {
   GetAssociationForServiceQuotaTemplateRequest,
-  GetAssociationForServiceQuotaTemplateRequestFilterSensitiveLog,
   GetAssociationForServiceQuotaTemplateResponse,
-  GetAssociationForServiceQuotaTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAssociationForServiceQuotaTemplateCommand,
@@ -136,8 +134,8 @@ export class GetAssociationForServiceQuotaTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssociationForServiceQuotaTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssociationForServiceQuotaTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

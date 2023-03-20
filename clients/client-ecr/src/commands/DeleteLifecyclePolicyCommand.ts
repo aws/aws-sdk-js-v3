@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  DeleteLifecyclePolicyRequest,
-  DeleteLifecyclePolicyRequestFilterSensitiveLog,
-  DeleteLifecyclePolicyResponse,
-  DeleteLifecyclePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLifecyclePolicyCommand,
   serializeAws_json1_1DeleteLifecyclePolicyCommand,
@@ -122,8 +117,8 @@ export class DeleteLifecyclePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLifecyclePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLifecyclePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

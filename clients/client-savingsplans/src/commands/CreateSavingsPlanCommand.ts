@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSavingsPlanRequest,
-  CreateSavingsPlanRequestFilterSensitiveLog,
-  CreateSavingsPlanResponse,
-  CreateSavingsPlanResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSavingsPlanRequest, CreateSavingsPlanResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateSavingsPlanCommand,
   serializeAws_restJson1CreateSavingsPlanCommand,
@@ -119,8 +114,8 @@ export class CreateSavingsPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSavingsPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSavingsPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

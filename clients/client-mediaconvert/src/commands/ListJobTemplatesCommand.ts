@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
-import {
-  ListJobTemplatesRequest,
-  ListJobTemplatesRequestFilterSensitiveLog,
-  ListJobTemplatesResponse,
-  ListJobTemplatesResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ListJobTemplatesRequest, ListJobTemplatesResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ListJobTemplatesCommand,
   serializeAws_restJson1ListJobTemplatesCommand,
@@ -125,8 +120,8 @@ export class ListJobTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

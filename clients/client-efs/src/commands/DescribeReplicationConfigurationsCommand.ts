@@ -16,9 +16,7 @@ import {
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
 import {
   DescribeReplicationConfigurationsRequest,
-  DescribeReplicationConfigurationsRequestFilterSensitiveLog,
   DescribeReplicationConfigurationsResponse,
-  DescribeReplicationConfigurationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeReplicationConfigurationsCommand,
@@ -129,8 +127,8 @@ export class DescribeReplicationConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReplicationConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReplicationConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

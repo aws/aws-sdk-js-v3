@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteThingGroupRequest,
-  DeleteThingGroupRequestFilterSensitiveLog,
-  DeleteThingGroupResponse,
-  DeleteThingGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteThingGroupRequest, DeleteThingGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteThingGroupCommand,
   serializeAws_restJson1DeleteThingGroupCommand,
@@ -122,8 +117,8 @@ export class DeleteThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteThingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

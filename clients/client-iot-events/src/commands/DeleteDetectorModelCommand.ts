@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient";
-import {
-  DeleteDetectorModelRequest,
-  DeleteDetectorModelRequestFilterSensitiveLog,
-  DeleteDetectorModelResponse,
-  DeleteDetectorModelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDetectorModelRequest, DeleteDetectorModelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDetectorModelCommand,
   serializeAws_restJson1DeleteDetectorModelCommand,
@@ -126,8 +121,8 @@ export class DeleteDetectorModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDetectorModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDetectorModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

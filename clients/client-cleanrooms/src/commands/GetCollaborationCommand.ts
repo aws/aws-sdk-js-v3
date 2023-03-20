@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  GetCollaborationInput,
-  GetCollaborationInputFilterSensitiveLog,
-  GetCollaborationOutput,
-  GetCollaborationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCollaborationInput, GetCollaborationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCollaborationCommand,
   serializeAws_restJson1GetCollaborationCommand,
@@ -119,8 +114,8 @@ export class GetCollaborationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCollaborationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCollaborationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

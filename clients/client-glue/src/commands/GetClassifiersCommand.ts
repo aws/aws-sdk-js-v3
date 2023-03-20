@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetClassifiersRequest,
-  GetClassifiersRequestFilterSensitiveLog,
-  GetClassifiersResponse,
-  GetClassifiersResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetClassifiersRequest, GetClassifiersResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetClassifiersCommand,
   serializeAws_json1_1GetClassifiersCommand,
@@ -110,8 +105,8 @@ export class GetClassifiersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClassifiersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetClassifiersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

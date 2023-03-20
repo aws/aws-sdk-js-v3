@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  GetNamespaceDeletionStatusRequest,
-  GetNamespaceDeletionStatusRequestFilterSensitiveLog,
-  GetNamespaceDeletionStatusResponse,
-  GetNamespaceDeletionStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetNamespaceDeletionStatusRequest, GetNamespaceDeletionStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetNamespaceDeletionStatusCommand,
   serializeAws_json1_1GetNamespaceDeletionStatusCommand,
@@ -118,8 +113,8 @@ export class GetNamespaceDeletionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNamespaceDeletionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNamespaceDeletionStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

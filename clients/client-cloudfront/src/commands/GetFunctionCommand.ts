@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetFunctionRequest,
-  GetFunctionRequestFilterSensitiveLog,
-  GetFunctionResult,
-  GetFunctionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetFunctionRequest, GetFunctionResult, GetFunctionResultFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlGetFunctionCommand,
   serializeAws_restXmlGetFunctionCommand,
@@ -114,7 +109,7 @@ export class GetFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFunctionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetFunctionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

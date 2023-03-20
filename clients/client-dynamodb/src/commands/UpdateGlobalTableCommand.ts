@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateGlobalTableInput,
-  UpdateGlobalTableInputFilterSensitiveLog,
-  UpdateGlobalTableOutput,
-  UpdateGlobalTableOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateGlobalTableInput, UpdateGlobalTableOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateGlobalTableCommand,
   serializeAws_json1_0UpdateGlobalTableCommand,
@@ -167,8 +162,8 @@ export class UpdateGlobalTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGlobalTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

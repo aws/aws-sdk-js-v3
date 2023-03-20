@@ -17,7 +17,6 @@ import {
   CreateDashboardRequest,
   CreateDashboardRequestFilterSensitiveLog,
   CreateDashboardResponse,
-  CreateDashboardResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_restJson1CreateDashboardCommand,
@@ -143,7 +142,7 @@ export class CreateDashboardCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateDashboardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDashboardResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

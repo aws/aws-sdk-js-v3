@@ -18,7 +18,6 @@ import {
   CreateWhatIfAnalysisRequest,
   CreateWhatIfAnalysisRequestFilterSensitiveLog,
   CreateWhatIfAnalysisResponse,
-  CreateWhatIfAnalysisResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateWhatIfAnalysisCommand,
@@ -137,7 +136,7 @@ export class CreateWhatIfAnalysisCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateWhatIfAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWhatIfAnalysisResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  ListExportErrorsRequest,
-  ListExportErrorsRequestFilterSensitiveLog,
-  ListExportErrorsResponse,
-  ListExportErrorsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListExportErrorsRequest, ListExportErrorsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListExportErrorsCommand,
   serializeAws_restJson1ListExportErrorsCommand,
@@ -113,8 +108,8 @@ export class ListExportErrorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExportErrorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListExportErrorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

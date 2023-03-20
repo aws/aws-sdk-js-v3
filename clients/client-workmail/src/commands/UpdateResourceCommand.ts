@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResourceRequest,
-  UpdateResourceRequestFilterSensitiveLog,
-  UpdateResourceResponse,
-  UpdateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateResourceRequest, UpdateResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateResourceCommand,
   serializeAws_json1_1UpdateResourceCommand,
@@ -147,8 +142,8 @@ export class UpdateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

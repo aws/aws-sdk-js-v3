@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  GetUpgradeStatusRequest,
-  GetUpgradeStatusRequestFilterSensitiveLog,
-  GetUpgradeStatusResponse,
-  GetUpgradeStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUpgradeStatusRequest, GetUpgradeStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUpgradeStatusCommand,
   serializeAws_restJson1GetUpgradeStatusCommand,
@@ -126,8 +121,8 @@ export class GetUpgradeStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUpgradeStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUpgradeStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,9 +16,7 @@ import {
 
 import {
   StartDBInstanceAutomatedBackupsReplicationMessage,
-  StartDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog,
   StartDBInstanceAutomatedBackupsReplicationResult,
-  StartDBInstanceAutomatedBackupsReplicationResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_queryStartDBInstanceAutomatedBackupsReplicationCommand,
@@ -141,8 +139,8 @@ export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDBInstanceAutomatedBackupsReplicationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

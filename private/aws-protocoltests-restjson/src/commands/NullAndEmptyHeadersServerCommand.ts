@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NullAndEmptyHeadersIO, NullAndEmptyHeadersIOFilterSensitiveLog } from "../models/models_0";
+import { NullAndEmptyHeadersIO } from "../models/models_0";
 import {
   deserializeAws_restJson1NullAndEmptyHeadersServerCommand,
   serializeAws_restJson1NullAndEmptyHeadersServerCommand,
@@ -20,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link NullAndEmptyHeadersServerCommand}.
  */
 export interface NullAndEmptyHeadersServerCommandInput extends NullAndEmptyHeadersIO {}
 /**
+ * @public
+ *
  * The output of {@link NullAndEmptyHeadersServerCommand}.
  */
 export interface NullAndEmptyHeadersServerCommandOutput extends NullAndEmptyHeadersIO, __MetadataBearer {}
 
 /**
+ * @public
  * Null and empty headers are not sent over the wire.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface NullAndEmptyHeadersServerCommandOutput extends NullAndEmptyHead
  * const response = await client.send(command);
  * ```
  *
+ * @param NullAndEmptyHeadersServerCommandInput - {@link NullAndEmptyHeadersServerCommandInput}
+ * @returns {@link NullAndEmptyHeadersServerCommandOutput}
  * @see {@link NullAndEmptyHeadersServerCommandInput} for command's `input` shape.
  * @see {@link NullAndEmptyHeadersServerCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class NullAndEmptyHeadersServerCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NullAndEmptyHeadersServerCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class NullAndEmptyHeadersServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NullAndEmptyHeadersIOFilterSensitiveLog,
-      outputFilterSensitiveLog: NullAndEmptyHeadersIOFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class NullAndEmptyHeadersServerCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NullAndEmptyHeadersServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1NullAndEmptyHeadersServerCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

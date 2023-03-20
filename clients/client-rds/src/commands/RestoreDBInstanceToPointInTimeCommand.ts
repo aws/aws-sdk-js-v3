@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreDBInstanceToPointInTimeMessage,
-  RestoreDBInstanceToPointInTimeMessageFilterSensitiveLog,
-  RestoreDBInstanceToPointInTimeResult,
-  RestoreDBInstanceToPointInTimeResultFilterSensitiveLog,
-} from "../models/models_1";
+import { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/models_1";
 import {
   deserializeAws_queryRestoreDBInstanceToPointInTimeCommand,
   serializeAws_queryRestoreDBInstanceToPointInTimeCommand,
@@ -297,8 +292,8 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBInstanceToPointInTimeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBInstanceToPointInTimeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

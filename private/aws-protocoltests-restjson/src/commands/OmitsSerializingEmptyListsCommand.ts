@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { OmitsSerializingEmptyListsInput, OmitsSerializingEmptyListsInputFilterSensitiveLog } from "../models/models_0";
+import { OmitsSerializingEmptyListsInput } from "../models/models_0";
 import {
   deserializeAws_restJson1OmitsSerializingEmptyListsCommand,
   serializeAws_restJson1OmitsSerializingEmptyListsCommand,
@@ -20,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link OmitsSerializingEmptyListsCommand}.
  */
 export interface OmitsSerializingEmptyListsCommandInput extends OmitsSerializingEmptyListsInput {}
 /**
+ * @public
+ *
  * The output of {@link OmitsSerializingEmptyListsCommand}.
  */
 export interface OmitsSerializingEmptyListsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * Omits serializing empty lists. Because empty strings are serilized as
  * `Foo=`, empty lists cannot also be serialized as `Foo=` and instead
  * must be omitted.
@@ -42,6 +47,8 @@ export interface OmitsSerializingEmptyListsCommandOutput extends __MetadataBeare
  * const response = await client.send(command);
  * ```
  *
+ * @param OmitsSerializingEmptyListsCommandInput - {@link OmitsSerializingEmptyListsCommandInput}
+ * @returns {@link OmitsSerializingEmptyListsCommandOutput}
  * @see {@link OmitsSerializingEmptyListsCommandInput} for command's `input` shape.
  * @see {@link OmitsSerializingEmptyListsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -56,6 +63,9 @@ export class OmitsSerializingEmptyListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: OmitsSerializingEmptyListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -81,8 +91,8 @@ export class OmitsSerializingEmptyListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OmitsSerializingEmptyListsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -92,10 +102,16 @@ export class OmitsSerializingEmptyListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: OmitsSerializingEmptyListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1OmitsSerializingEmptyListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

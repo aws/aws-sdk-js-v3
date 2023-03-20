@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  ListWorkflowsRequest,
-  ListWorkflowsRequestFilterSensitiveLog,
-  ListWorkflowsResponse,
-  ListWorkflowsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListWorkflowsRequest, ListWorkflowsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListWorkflowsCommand,
   serializeAws_restJson1ListWorkflowsCommand,
@@ -120,8 +115,8 @@ export class ListWorkflowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkflowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkflowsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

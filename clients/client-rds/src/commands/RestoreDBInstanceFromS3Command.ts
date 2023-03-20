@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreDBInstanceFromS3Message,
-  RestoreDBInstanceFromS3MessageFilterSensitiveLog,
-  RestoreDBInstanceFromS3Result,
-  RestoreDBInstanceFromS3ResultFilterSensitiveLog,
-} from "../models/models_1";
+import { RestoreDBInstanceFromS3Message, RestoreDBInstanceFromS3Result } from "../models/models_1";
 import {
   deserializeAws_queryRestoreDBInstanceFromS3Command,
   serializeAws_queryRestoreDBInstanceFromS3Command,
@@ -181,8 +176,8 @@ export class RestoreDBInstanceFromS3Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreDBInstanceFromS3MessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreDBInstanceFromS3ResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

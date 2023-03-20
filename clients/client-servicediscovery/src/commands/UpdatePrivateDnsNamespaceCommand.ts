@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePrivateDnsNamespaceRequest,
-  UpdatePrivateDnsNamespaceRequestFilterSensitiveLog,
-  UpdatePrivateDnsNamespaceResponse,
-  UpdatePrivateDnsNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePrivateDnsNamespaceRequest, UpdatePrivateDnsNamespaceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdatePrivateDnsNamespaceCommand,
   serializeAws_json1_1UpdatePrivateDnsNamespaceCommand,
@@ -128,8 +123,8 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePrivateDnsNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePrivateDnsNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DescribeFileCachesRequest,
-  DescribeFileCachesRequestFilterSensitiveLog,
-  DescribeFileCachesResponse,
-  DescribeFileCachesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFileCachesRequest, DescribeFileCachesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFileCachesCommand,
   serializeAws_json1_1DescribeFileCachesCommand,
@@ -143,8 +138,8 @@ export class DescribeFileCachesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileCachesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFileCachesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

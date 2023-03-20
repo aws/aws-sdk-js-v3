@@ -16,9 +16,7 @@ import {
 
 import {
   DeleteStorageLensConfigurationTaggingRequest,
-  DeleteStorageLensConfigurationTaggingRequestFilterSensitiveLog,
   DeleteStorageLensConfigurationTaggingResult,
-  DeleteStorageLensConfigurationTaggingResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteStorageLensConfigurationTaggingCommand,
@@ -124,8 +122,8 @@ export class DeleteStorageLensConfigurationTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStorageLensConfigurationTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStorageLensConfigurationTaggingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

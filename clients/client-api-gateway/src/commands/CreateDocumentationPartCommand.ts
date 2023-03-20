@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  CreateDocumentationPartRequest,
-  CreateDocumentationPartRequestFilterSensitiveLog,
-  DocumentationPart,
-  DocumentationPartFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDocumentationPartRequest, DocumentationPart } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDocumentationPartCommand,
   serializeAws_restJson1CreateDocumentationPartCommand,
@@ -125,8 +120,8 @@ export class CreateDocumentationPartCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDocumentationPartRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DocumentationPartFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

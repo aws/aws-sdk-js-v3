@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  UpdateDestinationRequest,
-  UpdateDestinationRequestFilterSensitiveLog,
-  UpdateDestinationResponse,
-  UpdateDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDestinationRequest, UpdateDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDestinationCommand,
   serializeAws_restJson1UpdateDestinationCommand,
@@ -122,8 +117,8 @@ export class UpdateDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

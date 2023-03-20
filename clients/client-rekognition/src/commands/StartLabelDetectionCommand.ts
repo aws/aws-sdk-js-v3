@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartLabelDetectionRequest,
-  StartLabelDetectionRequestFilterSensitiveLog,
-  StartLabelDetectionResponse,
-  StartLabelDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartLabelDetectionRequest, StartLabelDetectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartLabelDetectionCommand,
   serializeAws_json1_1StartLabelDetectionCommand,
@@ -164,8 +159,8 @@ export class StartLabelDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartLabelDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartLabelDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

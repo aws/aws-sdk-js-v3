@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   RejectTransitGatewayMulticastDomainAssociationsRequest,
-  RejectTransitGatewayMulticastDomainAssociationsRequestFilterSensitiveLog,
   RejectTransitGatewayMulticastDomainAssociationsResult,
-  RejectTransitGatewayMulticastDomainAssociationsResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2RejectTransitGatewayMulticastDomainAssociationsCommand,
@@ -116,8 +114,8 @@ export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Com
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectTransitGatewayMulticastDomainAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectTransitGatewayMulticastDomainAssociationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

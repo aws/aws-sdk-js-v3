@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetListsMetadataRequest,
-  GetListsMetadataRequestFilterSensitiveLog,
-  GetListsMetadataResult,
-  GetListsMetadataResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetListsMetadataRequest, GetListsMetadataResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetListsMetadataCommand,
   serializeAws_json1_1GetListsMetadataCommand,
@@ -124,8 +119,8 @@ export class GetListsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetListsMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetListsMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

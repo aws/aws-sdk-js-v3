@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  BatchGetFrameMetricDataRequest,
-  BatchGetFrameMetricDataRequestFilterSensitiveLog,
-  BatchGetFrameMetricDataResponse,
-  BatchGetFrameMetricDataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetFrameMetricDataRequest, BatchGetFrameMetricDataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetFrameMetricDataCommand,
   serializeAws_restJson1BatchGetFrameMetricDataCommand,
@@ -121,8 +116,8 @@ export class BatchGetFrameMetricDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetFrameMetricDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetFrameMetricDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

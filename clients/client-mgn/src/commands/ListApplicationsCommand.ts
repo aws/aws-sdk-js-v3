@@ -16,7 +16,6 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   ListApplicationsRequest,
-  ListApplicationsRequestFilterSensitiveLog,
   ListApplicationsResponse,
   ListApplicationsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -110,7 +109,7 @@ export class ListApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApplicationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListApplicationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

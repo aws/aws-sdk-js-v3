@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetApplicationSettingsRequest,
-  GetApplicationSettingsRequestFilterSensitiveLog,
-  GetApplicationSettingsResponse,
-  GetApplicationSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetApplicationSettingsRequest, GetApplicationSettingsResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetApplicationSettingsCommand,
@@ -128,8 +123,8 @@ export class GetApplicationSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApplicationSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetApplicationSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

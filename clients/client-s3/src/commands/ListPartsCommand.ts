@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPartsOutput,
-  ListPartsOutputFilterSensitiveLog,
-  ListPartsRequest,
-  ListPartsRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPartsOutput, ListPartsRequest, ListPartsRequestFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_restXmlListPartsCommand, serializeAws_restXmlListPartsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -196,7 +191,7 @@ export class ListPartsCommand extends $Command<ListPartsCommandInput, ListPartsC
       clientName,
       commandName,
       inputFilterSensitiveLog: ListPartsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPartsOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  StopDeploymentInput,
-  StopDeploymentInputFilterSensitiveLog,
-  StopDeploymentOutput,
-  StopDeploymentOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StopDeploymentInput, StopDeploymentOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StopDeploymentCommand,
   serializeAws_json1_1StopDeploymentCommand,
@@ -126,8 +121,8 @@ export class StopDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopDeploymentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopDeploymentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

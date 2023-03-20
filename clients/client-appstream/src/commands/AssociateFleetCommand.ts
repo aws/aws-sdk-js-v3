@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  AssociateFleetRequest,
-  AssociateFleetRequestFilterSensitiveLog,
-  AssociateFleetResult,
-  AssociateFleetResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateFleetRequest, AssociateFleetResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateFleetCommand,
   serializeAws_json1_1AssociateFleetCommand,
@@ -125,8 +120,8 @@ export class AssociateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

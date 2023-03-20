@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  StartPHIDetectionJobRequest,
-  StartPHIDetectionJobRequestFilterSensitiveLog,
-  StartPHIDetectionJobResponse,
-  StartPHIDetectionJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartPHIDetectionJobRequest, StartPHIDetectionJobResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartPHIDetectionJobCommand,
   serializeAws_json1_1StartPHIDetectionJobCommand,
@@ -128,8 +123,8 @@ export class StartPHIDetectionJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartPHIDetectionJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartPHIDetectionJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

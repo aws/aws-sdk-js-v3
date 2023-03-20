@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  GetRulesRequest,
-  GetRulesRequestFilterSensitiveLog,
-  GetRulesResult,
-  GetRulesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRulesRequest, GetRulesResult, GetRulesResultFilterSensitiveLog } from "../models/models_0";
 import { deserializeAws_json1_1GetRulesCommand, serializeAws_json1_1GetRulesCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -118,7 +113,7 @@ export class GetRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRulesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRulesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

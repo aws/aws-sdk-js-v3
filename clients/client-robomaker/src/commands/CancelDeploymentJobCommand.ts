@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelDeploymentJobRequest,
-  CancelDeploymentJobRequestFilterSensitiveLog,
-  CancelDeploymentJobResponse,
-  CancelDeploymentJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelDeploymentJobRequest, CancelDeploymentJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelDeploymentJobCommand,
   serializeAws_restJson1CancelDeploymentJobCommand,
@@ -125,8 +120,8 @@ export class CancelDeploymentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDeploymentJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelDeploymentJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

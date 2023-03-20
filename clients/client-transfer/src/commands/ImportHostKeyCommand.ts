@@ -17,7 +17,6 @@ import {
   ImportHostKeyRequest,
   ImportHostKeyRequestFilterSensitiveLog,
   ImportHostKeyResponse,
-  ImportHostKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportHostKeyCommand,
@@ -126,7 +125,7 @@ export class ImportHostKeyCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ImportHostKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportHostKeyResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

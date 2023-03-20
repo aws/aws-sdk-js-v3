@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  ListImagesRequest,
-  ListImagesRequestFilterSensitiveLog,
-  ListImagesResponse,
-  ListImagesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListImagesRequest, ListImagesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListImagesCommand,
   serializeAws_json1_1ListImagesCommand,
@@ -143,8 +138,8 @@ export class ListImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

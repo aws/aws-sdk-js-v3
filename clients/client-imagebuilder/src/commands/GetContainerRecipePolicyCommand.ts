@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  GetContainerRecipePolicyRequest,
-  GetContainerRecipePolicyRequestFilterSensitiveLog,
-  GetContainerRecipePolicyResponse,
-  GetContainerRecipePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetContainerRecipePolicyRequest, GetContainerRecipePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetContainerRecipePolicyCommand,
   serializeAws_restJson1GetContainerRecipePolicyCommand,
@@ -125,8 +120,8 @@ export class GetContainerRecipePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContainerRecipePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContainerRecipePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

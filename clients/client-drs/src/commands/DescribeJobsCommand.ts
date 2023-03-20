@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import {
-  DescribeJobsRequest,
-  DescribeJobsRequestFilterSensitiveLog,
-  DescribeJobsResponse,
-  DescribeJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeJobsRequest, DescribeJobsResponse, DescribeJobsResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeJobsCommand,
   serializeAws_restJson1DescribeJobsCommand,
@@ -117,7 +112,7 @@ export class DescribeJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

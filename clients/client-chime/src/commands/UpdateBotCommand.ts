@@ -121,7 +121,7 @@ export class UpdateBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateBotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

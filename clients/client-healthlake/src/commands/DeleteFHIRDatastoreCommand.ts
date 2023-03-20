@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
-import {
-  DeleteFHIRDatastoreRequest,
-  DeleteFHIRDatastoreRequestFilterSensitiveLog,
-  DeleteFHIRDatastoreResponse,
-  DeleteFHIRDatastoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFHIRDatastoreRequest, DeleteFHIRDatastoreResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteFHIRDatastoreCommand,
   serializeAws_json1_0DeleteFHIRDatastoreCommand,
@@ -125,8 +120,8 @@ export class DeleteFHIRDatastoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFHIRDatastoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFHIRDatastoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

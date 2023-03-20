@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchGetCollectionRequest,
-  BatchGetCollectionRequestFilterSensitiveLog,
-  BatchGetCollectionResponse,
-  BatchGetCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetCollectionRequest, BatchGetCollectionResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -120,8 +115,8 @@ export class BatchGetCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDashboardVersionsRequest,
-  ListDashboardVersionsRequestFilterSensitiveLog,
-  ListDashboardVersionsResponse,
-  ListDashboardVersionsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListDashboardVersionsRequest, ListDashboardVersionsResponse } from "../models/models_3";
 import {
   deserializeAws_restJson1ListDashboardVersionsCommand,
   serializeAws_restJson1ListDashboardVersionsCommand,
@@ -128,8 +123,8 @@ export class ListDashboardVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDashboardVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDashboardVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

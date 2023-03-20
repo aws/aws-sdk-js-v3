@@ -161,7 +161,7 @@ export class DescribeOrganizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

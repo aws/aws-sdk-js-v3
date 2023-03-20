@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  CreateRecipeRequest,
-  CreateRecipeRequestFilterSensitiveLog,
-  CreateRecipeResponse,
-  CreateRecipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRecipeRequest, CreateRecipeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRecipeCommand,
   serializeAws_restJson1CreateRecipeCommand,
@@ -114,8 +109,8 @@ export class CreateRecipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRecipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRecipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  TestCustomDataIdentifierRequest,
-  TestCustomDataIdentifierRequestFilterSensitiveLog,
-  TestCustomDataIdentifierResponse,
-  TestCustomDataIdentifierResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { TestCustomDataIdentifierRequest, TestCustomDataIdentifierResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1TestCustomDataIdentifierCommand,
   serializeAws_restJson1TestCustomDataIdentifierCommand,
@@ -128,8 +123,8 @@ export class TestCustomDataIdentifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestCustomDataIdentifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestCustomDataIdentifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

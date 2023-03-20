@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetMethodRequest,
-  GetMethodRequestFilterSensitiveLog,
-  Method,
-  MethodFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMethodRequest, Method } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMethodCommand,
   serializeAws_restJson1GetMethodCommand,
@@ -114,8 +109,8 @@ export class GetMethodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMethodRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MethodFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

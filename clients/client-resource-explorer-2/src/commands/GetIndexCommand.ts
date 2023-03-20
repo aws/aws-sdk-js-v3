@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GetIndexOutput, GetIndexOutputFilterSensitiveLog } from "../models/models_0";
+import { GetIndexOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetIndexCommand,
   serializeAws_restJson1GetIndexCommand,
@@ -125,8 +125,8 @@ export class GetIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: GetIndexOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

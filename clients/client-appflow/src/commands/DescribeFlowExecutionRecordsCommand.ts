@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  DescribeFlowExecutionRecordsRequest,
-  DescribeFlowExecutionRecordsRequestFilterSensitiveLog,
-  DescribeFlowExecutionRecordsResponse,
-  DescribeFlowExecutionRecordsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFlowExecutionRecordsRequest, DescribeFlowExecutionRecordsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeFlowExecutionRecordsCommand,
   serializeAws_restJson1DescribeFlowExecutionRecordsCommand,
@@ -120,8 +115,8 @@ export class DescribeFlowExecutionRecordsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFlowExecutionRecordsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFlowExecutionRecordsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

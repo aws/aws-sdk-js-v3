@@ -16,7 +16,6 @@ import {
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import {
   GetListElementsRequest,
-  GetListElementsRequestFilterSensitiveLog,
   GetListElementsResult,
   GetListElementsResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -124,7 +123,7 @@ export class GetListElementsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetListElementsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetListElementsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

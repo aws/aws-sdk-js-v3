@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteOutpostInput,
-  DeleteOutpostInputFilterSensitiveLog,
-  DeleteOutpostOutput,
-  DeleteOutpostOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteOutpostInput, DeleteOutpostOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1DeleteOutpostCommand,
@@ -120,8 +115,8 @@ export class DeleteOutpostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOutpostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOutpostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

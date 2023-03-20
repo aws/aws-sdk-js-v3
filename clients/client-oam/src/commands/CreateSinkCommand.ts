@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSinkInput,
-  CreateSinkInputFilterSensitiveLog,
-  CreateSinkOutput,
-  CreateSinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSinkInput, CreateSinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import {
   deserializeAws_restJson1CreateSinkCommand,
@@ -126,8 +121,8 @@ export class CreateSinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

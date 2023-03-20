@@ -18,10 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  RemoveCustomRoutingEndpointsRequest,
-  RemoveCustomRoutingEndpointsRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveCustomRoutingEndpointsRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveCustomRoutingEndpointsCommand,
   serializeAws_json1_1RemoveCustomRoutingEndpointsCommand,
@@ -127,8 +124,8 @@ export class RemoveCustomRoutingEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveCustomRoutingEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

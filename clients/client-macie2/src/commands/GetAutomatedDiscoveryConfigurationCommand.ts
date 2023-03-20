@@ -16,9 +16,7 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   GetAutomatedDiscoveryConfigurationRequest,
-  GetAutomatedDiscoveryConfigurationRequestFilterSensitiveLog,
   GetAutomatedDiscoveryConfigurationResponse,
-  GetAutomatedDiscoveryConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAutomatedDiscoveryConfigurationCommand,
@@ -121,8 +119,8 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAutomatedDiscoveryConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAutomatedDiscoveryConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

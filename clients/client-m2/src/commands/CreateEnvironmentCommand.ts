@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  CreateEnvironmentRequest,
-  CreateEnvironmentRequestFilterSensitiveLog,
-  CreateEnvironmentResponse,
-  CreateEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEnvironmentRequest, CreateEnvironmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateEnvironmentCommand,
   serializeAws_restJson1CreateEnvironmentCommand,
@@ -125,8 +120,8 @@ export class CreateEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

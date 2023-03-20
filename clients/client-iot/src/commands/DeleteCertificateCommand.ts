@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteCertificateRequest, DeleteCertificateRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteCertificateRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCertificateCommand,
   serializeAws_restJson1DeleteCertificateCommand,
@@ -131,8 +131,8 @@ export class DeleteCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

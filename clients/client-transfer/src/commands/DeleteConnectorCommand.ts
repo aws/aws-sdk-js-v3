@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteConnectorRequest, DeleteConnectorRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteConnectorRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConnectorCommand,
   serializeAws_json1_1DeleteConnectorCommand,
@@ -115,8 +115,8 @@ export class DeleteConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

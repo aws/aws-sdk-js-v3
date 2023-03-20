@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  UpdateApiMappingRequest,
-  UpdateApiMappingRequestFilterSensitiveLog,
-  UpdateApiMappingResponse,
-  UpdateApiMappingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateApiMappingRequest, UpdateApiMappingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateApiMappingCommand,
   serializeAws_restJson1UpdateApiMappingCommand,
@@ -119,8 +114,8 @@ export class UpdateApiMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApiMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApiMappingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

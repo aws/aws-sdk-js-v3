@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  RunTaskRequest,
-  RunTaskRequestFilterSensitiveLog,
-  RunTaskResponse,
-  RunTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RunTaskRequest, RunTaskResponse } from "../models/models_0";
 import { deserializeAws_json1_1RunTaskCommand, serializeAws_json1_1RunTaskCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -197,8 +192,8 @@ export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RunTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RunTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

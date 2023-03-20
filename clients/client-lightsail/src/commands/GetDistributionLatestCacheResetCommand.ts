@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetDistributionLatestCacheResetRequest,
-  GetDistributionLatestCacheResetRequestFilterSensitiveLog,
-  GetDistributionLatestCacheResetResult,
-  GetDistributionLatestCacheResetResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetDistributionLatestCacheResetRequest, GetDistributionLatestCacheResetResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetDistributionLatestCacheResetCommand,
   serializeAws_json1_1GetDistributionLatestCacheResetCommand,
@@ -136,8 +131,8 @@ export class GetDistributionLatestCacheResetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDistributionLatestCacheResetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDistributionLatestCacheResetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

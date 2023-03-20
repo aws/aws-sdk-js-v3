@@ -23,7 +23,6 @@ import {
   AdminListGroupsForUserRequest,
   AdminListGroupsForUserRequestFilterSensitiveLog,
   AdminListGroupsForUserResponse,
-  AdminListGroupsForUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminListGroupsForUserCommand,
@@ -136,7 +135,7 @@ export class AdminListGroupsForUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminListGroupsForUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminListGroupsForUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

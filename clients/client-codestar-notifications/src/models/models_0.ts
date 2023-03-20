@@ -887,51 +887,9 @@ export const CreateNotificationRuleRequestFilterSensitiveLog = (obj: CreateNotif
 /**
  * @internal
  */
-export const CreateNotificationRuleResultFilterSensitiveLog = (obj: CreateNotificationRuleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNotificationRuleRequestFilterSensitiveLog = (obj: DeleteNotificationRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNotificationRuleResultFilterSensitiveLog = (obj: DeleteNotificationRuleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteTargetRequestFilterSensitiveLog = (obj: DeleteTargetRequest): any => ({
   ...obj,
   ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteTargetResultFilterSensitiveLog = (obj: DeleteTargetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationRuleRequestFilterSensitiveLog = (obj: DescribeNotificationRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EventTypeSummaryFilterSensitiveLog = (obj: EventTypeSummary): any => ({
-  ...obj,
 });
 
 /**
@@ -954,83 +912,6 @@ export const DescribeNotificationRuleResultFilterSensitiveLog = (obj: DescribeNo
 /**
  * @internal
  */
-export const ListEventTypesFilterFilterSensitiveLog = (obj: ListEventTypesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventTypesRequestFilterSensitiveLog = (obj: ListEventTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEventTypesResultFilterSensitiveLog = (obj: ListEventTypesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationRulesFilterFilterSensitiveLog = (obj: ListNotificationRulesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationRulesRequestFilterSensitiveLog = (obj: ListNotificationRulesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotificationRuleSummaryFilterSensitiveLog = (obj: NotificationRuleSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNotificationRulesResultFilterSensitiveLog = (obj: ListNotificationRulesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsFilterFilterSensitiveLog = (obj: ListTargetsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsRequestFilterSensitiveLog = (obj: ListTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTargetsResultFilterSensitiveLog = (obj: ListTargetsResult): any => ({
   ...obj,
   ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetSummaryFilterSensitiveLog(item)) }),
@@ -1047,51 +928,9 @@ export const SubscribeRequestFilterSensitiveLog = (obj: SubscribeRequest): any =
 /**
  * @internal
  */
-export const SubscribeResultFilterSensitiveLog = (obj: SubscribeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UnsubscribeRequestFilterSensitiveLog = (obj: UnsubscribeRequest): any => ({
   ...obj,
   ...(obj.TargetAddress && { TargetAddress: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UnsubscribeResultFilterSensitiveLog = (obj: UnsubscribeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
-  ...obj,
 });
 
 /**
@@ -1101,11 +940,4 @@ export const UpdateNotificationRuleRequestFilterSensitiveLog = (obj: UpdateNotif
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateNotificationRuleResultFilterSensitiveLog = (obj: UpdateNotificationRuleResult): any => ({
-  ...obj,
 });

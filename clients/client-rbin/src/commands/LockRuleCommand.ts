@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  LockRuleRequest,
-  LockRuleRequestFilterSensitiveLog,
-  LockRuleResponse,
-  LockRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { LockRuleRequest, LockRuleResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1LockRuleCommand,
   serializeAws_restJson1LockRuleCommand,
@@ -113,8 +108,8 @@ export class LockRuleCommand extends $Command<LockRuleCommandInput, LockRuleComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: LockRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: LockRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

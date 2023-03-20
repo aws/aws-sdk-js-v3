@@ -16,9 +16,7 @@ import {
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import {
   RegisterOrganizationDelegatedAdminRequest,
-  RegisterOrganizationDelegatedAdminRequestFilterSensitiveLog,
   RegisterOrganizationDelegatedAdminResponse,
-  RegisterOrganizationDelegatedAdminResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommand,
@@ -163,8 +161,8 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterOrganizationDelegatedAdminRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterOrganizationDelegatedAdminResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

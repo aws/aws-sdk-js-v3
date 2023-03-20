@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RejectInboundConnectionRequest,
-  RejectInboundConnectionRequestFilterSensitiveLog,
-  RejectInboundConnectionResponse,
-  RejectInboundConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RejectInboundConnectionRequest, RejectInboundConnectionResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1RejectInboundConnectionCommand,
@@ -114,8 +109,8 @@ export class RejectInboundConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectInboundConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RejectInboundConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

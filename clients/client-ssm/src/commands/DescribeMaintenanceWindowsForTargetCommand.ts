@@ -15,9 +15,7 @@ import {
 
 import {
   DescribeMaintenanceWindowsForTargetRequest,
-  DescribeMaintenanceWindowsForTargetRequestFilterSensitiveLog,
   DescribeMaintenanceWindowsForTargetResult,
-  DescribeMaintenanceWindowsForTargetResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand,
@@ -113,8 +111,8 @@ export class DescribeMaintenanceWindowsForTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowsForTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMaintenanceWindowsForTargetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

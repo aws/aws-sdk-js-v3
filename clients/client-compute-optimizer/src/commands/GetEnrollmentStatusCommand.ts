@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import {
-  GetEnrollmentStatusRequest,
-  GetEnrollmentStatusRequestFilterSensitiveLog,
-  GetEnrollmentStatusResponse,
-  GetEnrollmentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetEnrollmentStatusRequest, GetEnrollmentStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0GetEnrollmentStatusCommand,
   serializeAws_json1_0GetEnrollmentStatusCommand,
@@ -130,8 +125,8 @@ export class GetEnrollmentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnrollmentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEnrollmentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

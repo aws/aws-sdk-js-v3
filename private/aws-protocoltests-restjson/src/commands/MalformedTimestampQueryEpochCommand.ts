@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  MalformedTimestampQueryEpochInput,
-  MalformedTimestampQueryEpochInputFilterSensitiveLog,
-} from "../models/models_0";
+import { MalformedTimestampQueryEpochInput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedTimestampQueryEpochCommand,
   serializeAws_restJson1MalformedTimestampQueryEpochCommand,
@@ -23,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedTimestampQueryEpochCommand}.
  */
 export interface MalformedTimestampQueryEpochCommandInput extends MalformedTimestampQueryEpochInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedTimestampQueryEpochCommand}.
  */
 export interface MalformedTimestampQueryEpochCommandOutput extends __MetadataBearer {}
@@ -39,6 +40,9 @@ export class MalformedTimestampQueryEpochCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedTimestampQueryEpochCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,8 +68,8 @@ export class MalformedTimestampQueryEpochCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampQueryEpochInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,10 +79,16 @@ export class MalformedTimestampQueryEpochCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedTimestampQueryEpochCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MalformedTimestampQueryEpochCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

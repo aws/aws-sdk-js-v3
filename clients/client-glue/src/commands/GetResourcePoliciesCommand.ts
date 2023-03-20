@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetResourcePoliciesRequest,
-  GetResourcePoliciesRequestFilterSensitiveLog,
-  GetResourcePoliciesResponse,
-  GetResourcePoliciesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetResourcePoliciesRequest, GetResourcePoliciesResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetResourcePoliciesCommand,
   serializeAws_json1_1GetResourcePoliciesCommand,
@@ -124,8 +119,8 @@ export class GetResourcePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcePoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

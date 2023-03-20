@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateConnectionRequest,
-  CreateConnectionRequestFilterSensitiveLog,
-  CreateConnectionResponse,
-  CreateConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateConnectionRequest, CreateConnectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateConnectionCommand,
   serializeAws_json1_1CreateConnectionCommand,
@@ -122,8 +117,8 @@ export class CreateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  BatchCreateVehicleRequest,
-  BatchCreateVehicleRequestFilterSensitiveLog,
-  BatchCreateVehicleResponse,
-  BatchCreateVehicleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchCreateVehicleRequest, BatchCreateVehicleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0BatchCreateVehicleCommand,
   serializeAws_json1_0BatchCreateVehicleCommand,
@@ -128,8 +123,8 @@ export class BatchCreateVehicleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateVehicleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateVehicleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

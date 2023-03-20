@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAssistantRequest,
-  GetAssistantRequestFilterSensitiveLog,
-  GetAssistantResponse,
-  GetAssistantResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAssistantRequest, GetAssistantResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAssistantCommand,
   serializeAws_restJson1GetAssistantCommand,
@@ -114,8 +109,8 @@ export class GetAssistantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAssistantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAssistantResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

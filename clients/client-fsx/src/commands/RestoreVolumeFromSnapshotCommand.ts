@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  RestoreVolumeFromSnapshotRequest,
-  RestoreVolumeFromSnapshotRequestFilterSensitiveLog,
-  RestoreVolumeFromSnapshotResponse,
-  RestoreVolumeFromSnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RestoreVolumeFromSnapshotRequest, RestoreVolumeFromSnapshotResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RestoreVolumeFromSnapshotCommand,
   serializeAws_json1_1RestoreVolumeFromSnapshotCommand,
@@ -117,8 +112,8 @@ export class RestoreVolumeFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreVolumeFromSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreVolumeFromSnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

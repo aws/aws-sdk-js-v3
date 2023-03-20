@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDimensionKeysRequest,
-  DescribeDimensionKeysRequestFilterSensitiveLog,
-  DescribeDimensionKeysResponse,
-  DescribeDimensionKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDimensionKeysRequest, DescribeDimensionKeysResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import {
   deserializeAws_json1_1DescribeDimensionKeysCommand,
@@ -121,8 +116,8 @@ export class DescribeDimensionKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDimensionKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDimensionKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

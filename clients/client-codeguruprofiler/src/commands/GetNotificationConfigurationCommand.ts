@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  GetNotificationConfigurationRequest,
-  GetNotificationConfigurationRequestFilterSensitiveLog,
-  GetNotificationConfigurationResponse,
-  GetNotificationConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetNotificationConfigurationRequest, GetNotificationConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetNotificationConfigurationCommand,
   serializeAws_restJson1GetNotificationConfigurationCommand,
@@ -121,8 +116,8 @@ export class GetNotificationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNotificationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNotificationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

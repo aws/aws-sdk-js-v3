@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  DeleteCustomLineItemInput,
-  DeleteCustomLineItemInputFilterSensitiveLog,
-  DeleteCustomLineItemOutput,
-  DeleteCustomLineItemOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCustomLineItemInput, DeleteCustomLineItemOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomLineItemCommand,
   serializeAws_restJson1DeleteCustomLineItemCommand,
@@ -128,8 +123,8 @@ export class DeleteCustomLineItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomLineItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomLineItemOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

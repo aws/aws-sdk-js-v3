@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetFlowLogsIntegrationTemplateRequest,
-  GetFlowLogsIntegrationTemplateRequestFilterSensitiveLog,
-  GetFlowLogsIntegrationTemplateResult,
-  GetFlowLogsIntegrationTemplateResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetFlowLogsIntegrationTemplateRequest, GetFlowLogsIntegrationTemplateResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetFlowLogsIntegrationTemplateCommand,
   serializeAws_ec2GetFlowLogsIntegrationTemplateCommand,
@@ -126,8 +121,8 @@ export class GetFlowLogsIntegrationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFlowLogsIntegrationTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFlowLogsIntegrationTemplateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

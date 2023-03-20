@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DescribeFlywheelIterationRequest,
-  DescribeFlywheelIterationRequestFilterSensitiveLog,
-  DescribeFlywheelIterationResponse,
-  DescribeFlywheelIterationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFlywheelIterationRequest, DescribeFlywheelIterationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFlywheelIterationCommand,
   serializeAws_json1_1DescribeFlywheelIterationCommand,
@@ -121,8 +116,8 @@ export class DescribeFlywheelIterationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFlywheelIterationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFlywheelIterationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

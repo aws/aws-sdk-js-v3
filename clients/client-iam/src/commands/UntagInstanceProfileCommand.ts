@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagInstanceProfileRequest, UntagInstanceProfileRequestFilterSensitiveLog } from "../models/models_0";
+import { UntagInstanceProfileRequest } from "../models/models_0";
 import {
   deserializeAws_queryUntagInstanceProfileCommand,
   serializeAws_queryUntagInstanceProfileCommand,
@@ -119,8 +119,8 @@ export class UntagInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

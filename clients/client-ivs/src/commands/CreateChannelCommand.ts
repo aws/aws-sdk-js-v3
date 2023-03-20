@@ -16,7 +16,6 @@ import {
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
 import {
   CreateChannelRequest,
-  CreateChannelRequestFilterSensitiveLog,
   CreateChannelResponse,
   CreateChannelResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -120,7 +119,7 @@ export class CreateChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateChannelRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateChannelResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

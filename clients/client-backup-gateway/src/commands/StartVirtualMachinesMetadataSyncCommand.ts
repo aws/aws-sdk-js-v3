@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  StartVirtualMachinesMetadataSyncInput,
-  StartVirtualMachinesMetadataSyncInputFilterSensitiveLog,
-  StartVirtualMachinesMetadataSyncOutput,
-  StartVirtualMachinesMetadataSyncOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StartVirtualMachinesMetadataSyncInput, StartVirtualMachinesMetadataSyncOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0StartVirtualMachinesMetadataSyncCommand,
   serializeAws_json1_0StartVirtualMachinesMetadataSyncCommand,
@@ -125,8 +120,8 @@ export class StartVirtualMachinesMetadataSyncCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartVirtualMachinesMetadataSyncInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartVirtualMachinesMetadataSyncOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

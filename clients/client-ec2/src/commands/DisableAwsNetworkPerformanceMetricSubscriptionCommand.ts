@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DisableAwsNetworkPerformanceMetricSubscriptionRequest,
-  DisableAwsNetworkPerformanceMetricSubscriptionRequestFilterSensitiveLog,
   DisableAwsNetworkPerformanceMetricSubscriptionResult,
-  DisableAwsNetworkPerformanceMetricSubscriptionResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2DisableAwsNetworkPerformanceMetricSubscriptionCommand,
@@ -116,8 +114,8 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableAwsNetworkPerformanceMetricSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableAwsNetworkPerformanceMetricSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

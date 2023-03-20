@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  BatchGetOnPremisesInstancesInput,
-  BatchGetOnPremisesInstancesInputFilterSensitiveLog,
-  BatchGetOnPremisesInstancesOutput,
-  BatchGetOnPremisesInstancesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetOnPremisesInstancesInput, BatchGetOnPremisesInstancesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetOnPremisesInstancesCommand,
   serializeAws_json1_1BatchGetOnPremisesInstancesCommand,
@@ -117,8 +112,8 @@ export class BatchGetOnPremisesInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetOnPremisesInstancesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetOnPremisesInstancesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

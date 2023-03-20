@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetPasswordDataRequest,
-  GetPasswordDataRequestFilterSensitiveLog,
-  GetPasswordDataResult,
-  GetPasswordDataResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetPasswordDataRequest, GetPasswordDataResult } from "../models/models_5";
 import { deserializeAws_ec2GetPasswordDataCommand, serializeAws_ec2GetPasswordDataCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -116,8 +111,8 @@ export class GetPasswordDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPasswordDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPasswordDataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

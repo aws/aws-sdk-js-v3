@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  DescribeTrailsRequest,
-  DescribeTrailsRequestFilterSensitiveLog,
-  DescribeTrailsResponse,
-  DescribeTrailsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTrailsRequest, DescribeTrailsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTrailsCommand,
   serializeAws_json1_1DescribeTrailsCommand,
@@ -141,8 +136,8 @@ export class DescribeTrailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTrailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTrailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

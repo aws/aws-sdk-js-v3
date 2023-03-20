@@ -17,7 +17,6 @@ import {
   AssociateNodeRequest,
   AssociateNodeRequestFilterSensitiveLog,
   AssociateNodeResponse,
-  AssociateNodeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
@@ -134,7 +133,7 @@ export class AssociateNodeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AssociateNodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateNodeResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,25 +13,27 @@ import {
 } from "@aws-sdk/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
-import {
-  PutAndGetInlineDocumentsInputOutput,
-  PutAndGetInlineDocumentsInputOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutAndGetInlineDocumentsCommand,
   serializeAws_json1_1PutAndGetInlineDocumentsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
+ * @public
+ *
  * The input for {@link PutAndGetInlineDocumentsCommand}.
  */
 export interface PutAndGetInlineDocumentsCommandInput extends PutAndGetInlineDocumentsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link PutAndGetInlineDocumentsCommand}.
  */
 export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDocumentsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example serializes an inline document as part of the payload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +45,8 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * const response = await client.send(command);
  * ```
  *
+ * @param PutAndGetInlineDocumentsCommandInput - {@link PutAndGetInlineDocumentsCommandInput}
+ * @returns {@link PutAndGetInlineDocumentsCommandOutput}
  * @see {@link PutAndGetInlineDocumentsCommandInput} for command's `input` shape.
  * @see {@link PutAndGetInlineDocumentsCommandOutput} for command's `response` shape.
  * @see {@link JsonProtocolClientResolvedConfig | config} for JsonProtocolClient's `config` shape.
@@ -57,6 +61,9 @@ export class PutAndGetInlineDocumentsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: PutAndGetInlineDocumentsCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,8 +89,8 @@ export class PutAndGetInlineDocumentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAndGetInlineDocumentsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAndGetInlineDocumentsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,10 +100,16 @@ export class PutAndGetInlineDocumentsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PutAndGetInlineDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_1PutAndGetInlineDocumentsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAndGetInlineDocumentsCommandOutput> {
     return deserializeAws_json1_1PutAndGetInlineDocumentsCommand(output, context);
   }

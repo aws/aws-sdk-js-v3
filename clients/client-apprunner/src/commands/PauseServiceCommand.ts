@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  PauseServiceRequest,
-  PauseServiceRequestFilterSensitiveLog,
-  PauseServiceResponse,
-  PauseServiceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PauseServiceRequest, PauseServiceResponse, PauseServiceResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0PauseServiceCommand,
   serializeAws_json1_0PauseServiceCommand,
@@ -120,7 +115,7 @@ export class PauseServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PauseServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: PauseServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

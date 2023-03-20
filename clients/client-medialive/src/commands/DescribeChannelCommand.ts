@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeChannelRequest,
-  DescribeChannelRequestFilterSensitiveLog,
-  DescribeChannelResponse,
-  DescribeChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeChannelRequest, DescribeChannelResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeChannelCommand,
   serializeAws_restJson1DescribeChannelCommand,
@@ -128,8 +123,8 @@ export class DescribeChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetHostedZoneCountRequest,
-  GetHostedZoneCountRequestFilterSensitiveLog,
-  GetHostedZoneCountResponse,
-  GetHostedZoneCountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetHostedZoneCountRequest, GetHostedZoneCountResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlGetHostedZoneCountCommand,
   serializeAws_restXmlGetHostedZoneCountCommand,
@@ -110,8 +105,8 @@ export class GetHostedZoneCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostedZoneCountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHostedZoneCountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

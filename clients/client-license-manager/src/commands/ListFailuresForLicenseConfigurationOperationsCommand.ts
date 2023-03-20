@@ -16,9 +16,7 @@ import {
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
   ListFailuresForLicenseConfigurationOperationsRequest,
-  ListFailuresForLicenseConfigurationOperationsRequestFilterSensitiveLog,
   ListFailuresForLicenseConfigurationOperationsResponse,
-  ListFailuresForLicenseConfigurationOperationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
@@ -132,8 +130,8 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListFailuresForLicenseConfigurationOperationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DisassociateMacSecKeyRequest,
-  DisassociateMacSecKeyRequestFilterSensitiveLog,
-  DisassociateMacSecKeyResponse,
-  DisassociateMacSecKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateMacSecKeyRequest, DisassociateMacSecKeyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateMacSecKeyCommand,
   serializeAws_json1_1DisassociateMacSecKeyCommand,
@@ -113,8 +108,8 @@ export class DisassociateMacSecKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMacSecKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateMacSecKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

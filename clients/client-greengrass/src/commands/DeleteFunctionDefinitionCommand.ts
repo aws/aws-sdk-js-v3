@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  DeleteFunctionDefinitionRequest,
-  DeleteFunctionDefinitionRequestFilterSensitiveLog,
-  DeleteFunctionDefinitionResponse,
-  DeleteFunctionDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFunctionDefinitionRequest, DeleteFunctionDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFunctionDefinitionCommand,
   serializeAws_restJson1DeleteFunctionDefinitionCommand,
@@ -110,8 +105,8 @@ export class DeleteFunctionDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFunctionDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

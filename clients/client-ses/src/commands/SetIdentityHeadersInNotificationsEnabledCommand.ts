@@ -15,9 +15,7 @@ import {
 
 import {
   SetIdentityHeadersInNotificationsEnabledRequest,
-  SetIdentityHeadersInNotificationsEnabledRequestFilterSensitiveLog,
   SetIdentityHeadersInNotificationsEnabledResponse,
-  SetIdentityHeadersInNotificationsEnabledResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_querySetIdentityHeadersInNotificationsEnabledCommand,
@@ -134,8 +132,8 @@ export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityHeadersInNotificationsEnabledRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetIdentityHeadersInNotificationsEnabledResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

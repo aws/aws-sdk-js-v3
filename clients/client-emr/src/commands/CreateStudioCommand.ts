@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  CreateStudioInput,
-  CreateStudioInputFilterSensitiveLog,
-  CreateStudioOutput,
-  CreateStudioOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateStudioInput, CreateStudioOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateStudioCommand,
   serializeAws_json1_1CreateStudioCommand,
@@ -112,8 +107,8 @@ export class CreateStudioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStudioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStudioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

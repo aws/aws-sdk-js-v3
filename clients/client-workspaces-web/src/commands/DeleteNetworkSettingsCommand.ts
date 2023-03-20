@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteNetworkSettingsRequest,
-  DeleteNetworkSettingsRequestFilterSensitiveLog,
-  DeleteNetworkSettingsResponse,
-  DeleteNetworkSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteNetworkSettingsRequest, DeleteNetworkSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNetworkSettingsCommand,
   serializeAws_restJson1DeleteNetworkSettingsCommand,
@@ -122,8 +117,8 @@ export class DeleteNetworkSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

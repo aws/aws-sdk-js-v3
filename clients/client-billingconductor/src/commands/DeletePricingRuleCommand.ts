@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  DeletePricingRuleInput,
-  DeletePricingRuleInputFilterSensitiveLog,
-  DeletePricingRuleOutput,
-  DeletePricingRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePricingRuleInput, DeletePricingRuleOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePricingRuleCommand,
   serializeAws_restJson1DeletePricingRuleCommand,
@@ -126,8 +121,8 @@ export class DeletePricingRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePricingRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePricingRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

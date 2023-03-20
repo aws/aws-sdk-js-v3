@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVpcClassicLinkDnsSupportRequest,
-  DescribeVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
-  DescribeVpcClassicLinkDnsSupportResult,
-  DescribeVpcClassicLinkDnsSupportResultFilterSensitiveLog,
-} from "../models/models_5";
+import { DescribeVpcClassicLinkDnsSupportRequest, DescribeVpcClassicLinkDnsSupportResult } from "../models/models_5";
 import {
   deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
   serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand,
@@ -116,8 +111,8 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcClassicLinkDnsSupportResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

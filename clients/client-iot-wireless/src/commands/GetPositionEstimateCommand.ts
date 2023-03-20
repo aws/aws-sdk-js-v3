@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  GetPositionEstimateRequest,
-  GetPositionEstimateRequestFilterSensitiveLog,
-  GetPositionEstimateResponse,
-  GetPositionEstimateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPositionEstimateRequest, GetPositionEstimateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPositionEstimateCommand,
   serializeAws_restJson1GetPositionEstimateCommand,
@@ -123,8 +118,8 @@ export class GetPositionEstimateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPositionEstimateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPositionEstimateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

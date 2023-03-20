@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeregisterFromWorkMailRequest,
-  DeregisterFromWorkMailRequestFilterSensitiveLog,
-  DeregisterFromWorkMailResponse,
-  DeregisterFromWorkMailResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterFromWorkMailRequest, DeregisterFromWorkMailResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterFromWorkMailCommand,
   serializeAws_json1_1DeregisterFromWorkMailCommand,
@@ -129,8 +124,8 @@ export class DeregisterFromWorkMailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterFromWorkMailRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterFromWorkMailResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

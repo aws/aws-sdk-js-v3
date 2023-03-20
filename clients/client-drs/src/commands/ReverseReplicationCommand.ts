@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import {
-  ReverseReplicationRequest,
-  ReverseReplicationRequestFilterSensitiveLog,
-  ReverseReplicationResponse,
-  ReverseReplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ReverseReplicationRequest, ReverseReplicationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ReverseReplicationCommand,
   serializeAws_restJson1ReverseReplicationCommand,
@@ -131,8 +126,8 @@ export class ReverseReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReverseReplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReverseReplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

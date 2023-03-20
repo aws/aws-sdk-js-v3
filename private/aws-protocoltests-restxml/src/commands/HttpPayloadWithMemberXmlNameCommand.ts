@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  HttpPayloadWithMemberXmlNameInputOutput,
-  HttpPayloadWithMemberXmlNameInputOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { HttpPayloadWithMemberXmlNameInputOutput } from "../models/models_0";
 import {
   deserializeAws_restXmlHttpPayloadWithMemberXmlNameCommand,
   serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand,
@@ -23,10 +20,14 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link HttpPayloadWithMemberXmlNameCommand}.
  */
 export interface HttpPayloadWithMemberXmlNameCommandInput extends HttpPayloadWithMemberXmlNameInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link HttpPayloadWithMemberXmlNameCommand}.
  */
 export interface HttpPayloadWithMemberXmlNameCommandOutput
@@ -34,6 +35,7 @@ export interface HttpPayloadWithMemberXmlNameCommandOutput
     __MetadataBearer {}
 
 /**
+ * @public
  * The following example serializes a payload that uses an XML name
  * on the member, changing the wrapper name.
  * @example
@@ -46,6 +48,8 @@ export interface HttpPayloadWithMemberXmlNameCommandOutput
  * const response = await client.send(command);
  * ```
  *
+ * @param HttpPayloadWithMemberXmlNameCommandInput - {@link HttpPayloadWithMemberXmlNameCommandInput}
+ * @returns {@link HttpPayloadWithMemberXmlNameCommandOutput}
  * @see {@link HttpPayloadWithMemberXmlNameCommandInput} for command's `input` shape.
  * @see {@link HttpPayloadWithMemberXmlNameCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -60,6 +64,9 @@ export class HttpPayloadWithMemberXmlNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: HttpPayloadWithMemberXmlNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +92,8 @@ export class HttpPayloadWithMemberXmlNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HttpPayloadWithMemberXmlNameInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: HttpPayloadWithMemberXmlNameInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,10 +103,16 @@ export class HttpPayloadWithMemberXmlNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: HttpPayloadWithMemberXmlNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlHttpPayloadWithMemberXmlNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

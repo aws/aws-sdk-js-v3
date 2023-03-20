@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  AssociateMemberRequest,
-  AssociateMemberRequestFilterSensitiveLog,
-  AssociateMemberResponse,
-  AssociateMemberResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateMemberRequest, AssociateMemberResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateMemberCommand,
   serializeAws_restJson1AssociateMemberCommand,
@@ -120,8 +115,8 @@ export class AssociateMemberCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateMemberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateMemberResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

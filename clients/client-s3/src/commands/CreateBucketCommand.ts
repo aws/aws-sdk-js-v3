@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateBucketOutput,
-  CreateBucketOutputFilterSensitiveLog,
-  CreateBucketRequest,
-  CreateBucketRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlCreateBucketCommand,
   serializeAws_restXmlCreateBucketCommand,
@@ -304,8 +299,8 @@ export class CreateBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBucketOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

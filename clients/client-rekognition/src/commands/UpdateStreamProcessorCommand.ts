@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateStreamProcessorRequest,
-  UpdateStreamProcessorRequestFilterSensitiveLog,
-  UpdateStreamProcessorResponse,
-  UpdateStreamProcessorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateStreamProcessorRequest, UpdateStreamProcessorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateStreamProcessorCommand,
   serializeAws_json1_1UpdateStreamProcessorCommand,
@@ -129,8 +124,8 @@ export class UpdateStreamProcessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStreamProcessorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStreamProcessorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

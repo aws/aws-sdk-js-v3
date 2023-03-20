@@ -132,7 +132,7 @@ export class DescribeChannelMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

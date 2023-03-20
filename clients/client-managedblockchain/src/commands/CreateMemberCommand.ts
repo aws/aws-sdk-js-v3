@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  CreateMemberInput,
-  CreateMemberInputFilterSensitiveLog,
-  CreateMemberOutput,
-  CreateMemberOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateMemberInput, CreateMemberInputFilterSensitiveLog, CreateMemberOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMemberCommand,
   serializeAws_restJson1CreateMemberCommand,
@@ -142,7 +137,7 @@ export class CreateMemberCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateMemberInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMemberOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

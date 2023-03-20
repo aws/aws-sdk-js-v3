@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListResolverEndpointIpAddressesRequest,
-  ListResolverEndpointIpAddressesRequestFilterSensitiveLog,
-  ListResolverEndpointIpAddressesResponse,
-  ListResolverEndpointIpAddressesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListResolverEndpointIpAddressesRequest, ListResolverEndpointIpAddressesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListResolverEndpointIpAddressesCommand,
   serializeAws_json1_1ListResolverEndpointIpAddressesCommand,
@@ -124,8 +119,8 @@ export class ListResolverEndpointIpAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResolverEndpointIpAddressesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResolverEndpointIpAddressesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

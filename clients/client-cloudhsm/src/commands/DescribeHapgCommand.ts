@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  DescribeHapgRequest,
-  DescribeHapgRequestFilterSensitiveLog,
-  DescribeHapgResponse,
-  DescribeHapgResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeHapgRequest, DescribeHapgResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeHapgCommand,
   serializeAws_json1_1DescribeHapgCommand,
@@ -124,8 +119,8 @@ export class DescribeHapgCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeHapgRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeHapgResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

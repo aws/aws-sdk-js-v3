@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  ListAgentsRequest,
-  ListAgentsRequestFilterSensitiveLog,
-  ListAgentsResponse,
-  ListAgentsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAgentsRequest, ListAgentsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAgentsCommand,
   serializeAws_json1_1ListAgentsCommand,
@@ -121,8 +116,8 @@ export class ListAgentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAgentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAgentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

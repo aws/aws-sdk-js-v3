@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetAccountAuthorizationDetailsRequest,
-  GetAccountAuthorizationDetailsRequestFilterSensitiveLog,
-  GetAccountAuthorizationDetailsResponse,
-  GetAccountAuthorizationDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountAuthorizationDetailsRequest, GetAccountAuthorizationDetailsResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetAccountAuthorizationDetailsCommand,
   serializeAws_queryGetAccountAuthorizationDetailsCommand,
@@ -126,8 +121,8 @@ export class GetAccountAuthorizationDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountAuthorizationDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountAuthorizationDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

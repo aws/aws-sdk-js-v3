@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetReferenceMetadataRequest,
-  GetReferenceMetadataRequestFilterSensitiveLog,
-  GetReferenceMetadataResponse,
-  GetReferenceMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReferenceMetadataRequest, GetReferenceMetadataResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1GetReferenceMetadataCommand,
@@ -125,8 +120,8 @@ export class GetReferenceMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReferenceMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReferenceMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  GetRecommendationsRequest,
-  GetRecommendationsRequestFilterSensitiveLog,
-  GetRecommendationsResponse,
-  GetRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRecommendationsCommand,
   serializeAws_restJson1GetRecommendationsCommand,
@@ -130,8 +125,8 @@ export class GetRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

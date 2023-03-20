@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetOperationsRequest,
-  GetOperationsRequestFilterSensitiveLog,
-  GetOperationsResult,
-  GetOperationsResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetOperationsRequest, GetOperationsResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetOperationsCommand,
   serializeAws_json1_1GetOperationsCommand,
@@ -138,8 +133,8 @@ export class GetOperationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetOperationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetOperationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,6 @@ import {
   SendTaskFailureInput,
   SendTaskFailureInputFilterSensitiveLog,
   SendTaskFailureOutput,
-  SendTaskFailureOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0SendTaskFailureCommand,
@@ -116,7 +115,7 @@ export class SendTaskFailureCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SendTaskFailureInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SendTaskFailureOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

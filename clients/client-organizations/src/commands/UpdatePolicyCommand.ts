@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePolicyRequest,
-  UpdatePolicyRequestFilterSensitiveLog,
-  UpdatePolicyResponse,
-  UpdatePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePolicyRequest, UpdatePolicyResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1UpdatePolicyCommand,
@@ -510,8 +505,8 @@ export class UpdatePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  UpdateUserRequest,
-  UpdateUserRequestFilterSensitiveLog,
-  UpdateUserResponse,
-  UpdateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateUserRequest, UpdateUserRequestFilterSensitiveLog, UpdateUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateUserCommand,
   serializeAws_restJson1UpdateUserCommand,
@@ -125,7 +120,7 @@ export class UpdateUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

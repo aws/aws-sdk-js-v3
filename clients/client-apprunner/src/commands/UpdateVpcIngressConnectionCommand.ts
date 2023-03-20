@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  UpdateVpcIngressConnectionRequest,
-  UpdateVpcIngressConnectionRequestFilterSensitiveLog,
-  UpdateVpcIngressConnectionResponse,
-  UpdateVpcIngressConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateVpcIngressConnectionRequest, UpdateVpcIngressConnectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateVpcIngressConnectionCommand,
   serializeAws_json1_0UpdateVpcIngressConnectionCommand,
@@ -136,8 +131,8 @@ export class UpdateVpcIngressConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVpcIngressConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVpcIngressConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

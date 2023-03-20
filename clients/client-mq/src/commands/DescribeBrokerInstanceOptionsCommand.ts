@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeBrokerInstanceOptionsRequest,
-  DescribeBrokerInstanceOptionsRequestFilterSensitiveLog,
-  DescribeBrokerInstanceOptionsResponse,
-  DescribeBrokerInstanceOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeBrokerInstanceOptionsRequest, DescribeBrokerInstanceOptionsResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1DescribeBrokerInstanceOptionsCommand,
@@ -118,8 +113,8 @@ export class DescribeBrokerInstanceOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBrokerInstanceOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBrokerInstanceOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

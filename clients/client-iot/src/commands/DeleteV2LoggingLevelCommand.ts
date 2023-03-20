@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteV2LoggingLevelRequest, DeleteV2LoggingLevelRequestFilterSensitiveLog } from "../models/models_1";
+import { DeleteV2LoggingLevelRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteV2LoggingLevelCommand,
   serializeAws_restJson1DeleteV2LoggingLevelCommand,
@@ -112,8 +112,8 @@ export class DeleteV2LoggingLevelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteV2LoggingLevelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

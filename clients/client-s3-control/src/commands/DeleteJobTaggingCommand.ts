@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteJobTaggingRequest,
-  DeleteJobTaggingRequestFilterSensitiveLog,
-  DeleteJobTaggingResult,
-  DeleteJobTaggingResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteJobTaggingRequest, DeleteJobTaggingResult } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteJobTaggingCommand,
   serializeAws_restXmlDeleteJobTaggingCommand,
@@ -145,8 +140,8 @@ export class DeleteJobTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteJobTaggingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

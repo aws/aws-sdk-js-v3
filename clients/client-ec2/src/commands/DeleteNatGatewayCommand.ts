@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteNatGatewayRequest,
-  DeleteNatGatewayRequestFilterSensitiveLog,
-  DeleteNatGatewayResult,
-  DeleteNatGatewayResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteNatGatewayRequest, DeleteNatGatewayResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteNatGatewayCommand,
   serializeAws_ec2DeleteNatGatewayCommand,
@@ -125,8 +120,8 @@ export class DeleteNatGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNatGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNatGatewayResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

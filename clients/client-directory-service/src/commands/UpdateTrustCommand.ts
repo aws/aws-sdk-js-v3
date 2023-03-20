@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  UpdateTrustRequest,
-  UpdateTrustRequestFilterSensitiveLog,
-  UpdateTrustResult,
-  UpdateTrustResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateTrustRequest, UpdateTrustResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateTrustCommand,
   serializeAws_json1_1UpdateTrustCommand,
@@ -118,8 +113,8 @@ export class UpdateTrustCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrustRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrustResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

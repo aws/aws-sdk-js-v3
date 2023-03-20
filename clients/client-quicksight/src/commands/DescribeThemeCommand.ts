@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeThemeRequest,
-  DescribeThemeRequestFilterSensitiveLog,
-  DescribeThemeResponse,
-  DescribeThemeResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DescribeThemeRequest, DescribeThemeResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeThemeCommand,
   serializeAws_restJson1DescribeThemeCommand,
@@ -132,8 +127,8 @@ export class DescribeThemeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeThemeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeThemeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

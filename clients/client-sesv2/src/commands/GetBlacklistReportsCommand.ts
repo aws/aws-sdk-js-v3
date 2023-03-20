@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBlacklistReportsRequest,
-  GetBlacklistReportsRequestFilterSensitiveLog,
-  GetBlacklistReportsResponse,
-  GetBlacklistReportsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBlacklistReportsCommand,
   serializeAws_restJson1GetBlacklistReportsCommand,
@@ -116,8 +111,8 @@ export class GetBlacklistReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBlacklistReportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBlacklistReportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

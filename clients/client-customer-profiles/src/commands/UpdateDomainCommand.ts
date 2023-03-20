@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  UpdateDomainRequest,
-  UpdateDomainRequestFilterSensitiveLog,
-  UpdateDomainResponse,
-  UpdateDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDomainCommand,
   serializeAws_restJson1UpdateDomainCommand,
@@ -128,8 +123,8 @@ export class UpdateDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

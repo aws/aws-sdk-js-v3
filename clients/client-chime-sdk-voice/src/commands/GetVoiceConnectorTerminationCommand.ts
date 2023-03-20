@@ -16,7 +16,6 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   GetVoiceConnectorTerminationRequest,
-  GetVoiceConnectorTerminationRequestFilterSensitiveLog,
   GetVoiceConnectorTerminationResponse,
   GetVoiceConnectorTerminationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -88,7 +87,7 @@ export class GetVoiceConnectorTerminationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceConnectorTerminationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetVoiceConnectorTerminationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

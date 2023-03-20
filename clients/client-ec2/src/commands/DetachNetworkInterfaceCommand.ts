@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DetachNetworkInterfaceRequest, DetachNetworkInterfaceRequestFilterSensitiveLog } from "../models/models_5";
+import { DetachNetworkInterfaceRequest } from "../models/models_5";
 import {
   deserializeAws_ec2DetachNetworkInterfaceCommand,
   serializeAws_ec2DetachNetworkInterfaceCommand,
@@ -113,8 +113,8 @@ export class DetachNetworkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachNetworkInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

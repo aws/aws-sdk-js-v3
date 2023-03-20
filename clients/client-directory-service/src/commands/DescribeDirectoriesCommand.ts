@@ -16,7 +16,6 @@ import {
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import {
   DescribeDirectoriesRequest,
-  DescribeDirectoriesRequestFilterSensitiveLog,
   DescribeDirectoriesResult,
   DescribeDirectoriesResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -132,7 +131,7 @@ export class DescribeDirectoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDirectoriesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDirectoriesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

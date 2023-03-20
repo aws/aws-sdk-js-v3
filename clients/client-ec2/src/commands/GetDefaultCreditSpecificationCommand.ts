@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetDefaultCreditSpecificationRequest,
-  GetDefaultCreditSpecificationRequestFilterSensitiveLog,
-  GetDefaultCreditSpecificationResult,
-  GetDefaultCreditSpecificationResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetDefaultCreditSpecificationCommand,
   serializeAws_ec2GetDefaultCreditSpecificationCommand,
@@ -112,8 +107,8 @@ export class GetDefaultCreditSpecificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDefaultCreditSpecificationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDefaultCreditSpecificationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

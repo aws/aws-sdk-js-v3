@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  GetPublicKeyRequest,
-  GetPublicKeyRequestFilterSensitiveLog,
-  GetPublicKeyResponse,
-  GetPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPublicKeyRequest, GetPublicKeyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetPublicKeyCommand,
   serializeAws_json1_1GetPublicKeyCommand,
@@ -245,8 +240,8 @@ export class GetPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

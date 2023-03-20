@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketReplicationOutput,
-  GetBucketReplicationOutputFilterSensitiveLog,
-  GetBucketReplicationRequest,
-  GetBucketReplicationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBucketReplicationOutput, GetBucketReplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketReplicationCommand,
   serializeAws_restXmlGetBucketReplicationCommand,
@@ -170,8 +165,8 @@ export class GetBucketReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketReplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketReplicationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

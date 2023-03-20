@@ -16,7 +16,6 @@ import {
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import {
   ListManagedEndpointsRequest,
-  ListManagedEndpointsRequestFilterSensitiveLog,
   ListManagedEndpointsResponse,
   ListManagedEndpointsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -115,7 +114,7 @@ export class ListManagedEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListManagedEndpointsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListManagedEndpointsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

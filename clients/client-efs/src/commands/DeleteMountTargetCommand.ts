@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { DeleteMountTargetRequest, DeleteMountTargetRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteMountTargetRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMountTargetCommand,
   serializeAws_restJson1DeleteMountTargetCommand,
@@ -158,8 +158,8 @@ export class DeleteMountTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMountTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

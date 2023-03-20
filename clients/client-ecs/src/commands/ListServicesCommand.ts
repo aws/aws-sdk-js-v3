@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListServicesRequest,
-  ListServicesRequestFilterSensitiveLog,
-  ListServicesResponse,
-  ListServicesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListServicesRequest, ListServicesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListServicesCommand,
   serializeAws_json1_1ListServicesCommand,
@@ -137,8 +132,8 @@ export class ListServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListServicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

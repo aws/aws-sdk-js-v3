@@ -15,7 +15,6 @@ import {
 
 import {
   RestoreFromSnapshotRequest,
-  RestoreFromSnapshotRequestFilterSensitiveLog,
   RestoreFromSnapshotResponse,
   RestoreFromSnapshotResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class RestoreFromSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreFromSnapshotRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RestoreFromSnapshotResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

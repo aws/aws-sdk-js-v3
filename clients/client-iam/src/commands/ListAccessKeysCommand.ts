@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListAccessKeysRequest,
-  ListAccessKeysRequestFilterSensitiveLog,
-  ListAccessKeysResponse,
-  ListAccessKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccessKeysRequest, ListAccessKeysResponse } from "../models/models_0";
 import {
   deserializeAws_queryListAccessKeysCommand,
   serializeAws_queryListAccessKeysCommand,
@@ -157,8 +152,8 @@ export class ListAccessKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

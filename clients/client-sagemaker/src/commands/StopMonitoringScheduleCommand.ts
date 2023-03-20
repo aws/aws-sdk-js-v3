@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopMonitoringScheduleRequest, StopMonitoringScheduleRequestFilterSensitiveLog } from "../models/models_3";
+import { StopMonitoringScheduleRequest } from "../models/models_3";
 import {
   deserializeAws_json1_1StopMonitoringScheduleCommand,
   serializeAws_json1_1StopMonitoringScheduleCommand,
@@ -105,8 +105,8 @@ export class StopMonitoringScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopMonitoringScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

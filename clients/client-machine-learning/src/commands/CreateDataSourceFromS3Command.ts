@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  CreateDataSourceFromS3Input,
-  CreateDataSourceFromS3InputFilterSensitiveLog,
-  CreateDataSourceFromS3Output,
-  CreateDataSourceFromS3OutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDataSourceFromS3Input, CreateDataSourceFromS3Output } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDataSourceFromS3Command,
   serializeAws_json1_1CreateDataSourceFromS3Command,
@@ -146,8 +141,8 @@ export class CreateDataSourceFromS3Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataSourceFromS3InputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSourceFromS3OutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

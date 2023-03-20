@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteBillingGroupRequest,
-  DeleteBillingGroupRequestFilterSensitiveLog,
-  DeleteBillingGroupResponse,
-  DeleteBillingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBillingGroupRequest, DeleteBillingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBillingGroupCommand,
   serializeAws_restJson1DeleteBillingGroupCommand,
@@ -122,8 +117,8 @@ export class DeleteBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBillingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBillingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

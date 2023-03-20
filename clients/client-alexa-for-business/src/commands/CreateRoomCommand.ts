@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  CreateRoomRequest,
-  CreateRoomRequestFilterSensitiveLog,
-  CreateRoomResponse,
-  CreateRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRoomRequest, CreateRoomResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRoomCommand,
   serializeAws_json1_1CreateRoomCommand,
@@ -111,8 +106,8 @@ export class CreateRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,9 +15,7 @@ import {
 
 import {
   DescribeValidDBInstanceModificationsMessage,
-  DescribeValidDBInstanceModificationsMessageFilterSensitiveLog,
   DescribeValidDBInstanceModificationsResult,
-  DescribeValidDBInstanceModificationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
@@ -118,8 +116,8 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeValidDBInstanceModificationsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeValidDBInstanceModificationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

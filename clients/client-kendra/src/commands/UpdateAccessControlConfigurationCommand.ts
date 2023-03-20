@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  UpdateAccessControlConfigurationRequest,
-  UpdateAccessControlConfigurationRequestFilterSensitiveLog,
-  UpdateAccessControlConfigurationResponse,
-  UpdateAccessControlConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAccessControlConfigurationRequest, UpdateAccessControlConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAccessControlConfigurationCommand,
   serializeAws_json1_1UpdateAccessControlConfigurationCommand,
@@ -157,8 +152,8 @@ export class UpdateAccessControlConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccessControlConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAccessControlConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

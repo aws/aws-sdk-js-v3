@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetSchemaByDefinitionInput,
-  GetSchemaByDefinitionInputFilterSensitiveLog,
-  GetSchemaByDefinitionResponse,
-  GetSchemaByDefinitionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetSchemaByDefinitionInput, GetSchemaByDefinitionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetSchemaByDefinitionCommand,
   serializeAws_json1_1GetSchemaByDefinitionCommand,
@@ -119,8 +114,8 @@ export class GetSchemaByDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSchemaByDefinitionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSchemaByDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

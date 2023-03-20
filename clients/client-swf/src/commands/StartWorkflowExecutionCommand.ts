@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  Run,
-  RunFilterSensitiveLog,
-  StartWorkflowExecutionInput,
-  StartWorkflowExecutionInputFilterSensitiveLog,
-} from "../models/models_0";
+import { Run, StartWorkflowExecutionInput } from "../models/models_0";
 import {
   deserializeAws_json1_0StartWorkflowExecutionCommand,
   serializeAws_json1_0StartWorkflowExecutionCommand,
@@ -201,8 +196,8 @@ export class StartWorkflowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartWorkflowExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RunFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteGroupPolicyRequest, DeleteGroupPolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteGroupPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteGroupPolicyCommand,
   serializeAws_queryDeleteGroupPolicyCommand,
@@ -131,8 +131,8 @@ export class DeleteGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

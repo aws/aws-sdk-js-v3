@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteClassifierRequest,
-  DeleteClassifierRequestFilterSensitiveLog,
-  DeleteClassifierResponse,
-  DeleteClassifierResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteClassifierRequest, DeleteClassifierResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteClassifierCommand,
   serializeAws_json1_1DeleteClassifierCommand,
@@ -113,8 +108,8 @@ export class DeleteClassifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteClassifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteClassifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

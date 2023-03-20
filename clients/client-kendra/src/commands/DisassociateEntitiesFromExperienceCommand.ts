@@ -16,9 +16,7 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import {
   DisassociateEntitiesFromExperienceRequest,
-  DisassociateEntitiesFromExperienceRequestFilterSensitiveLog,
   DisassociateEntitiesFromExperienceResponse,
-  DisassociateEntitiesFromExperienceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateEntitiesFromExperienceCommand,
@@ -133,8 +131,8 @@ export class DisassociateEntitiesFromExperienceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateEntitiesFromExperienceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateEntitiesFromExperienceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

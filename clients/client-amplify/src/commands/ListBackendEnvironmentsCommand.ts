@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  ListBackendEnvironmentsRequest,
-  ListBackendEnvironmentsRequestFilterSensitiveLog,
-  ListBackendEnvironmentsResult,
-  ListBackendEnvironmentsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListBackendEnvironmentsRequest, ListBackendEnvironmentsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ListBackendEnvironmentsCommand,
   serializeAws_restJson1ListBackendEnvironmentsCommand,
@@ -116,8 +111,8 @@ export class ListBackendEnvironmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListBackendEnvironmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListBackendEnvironmentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

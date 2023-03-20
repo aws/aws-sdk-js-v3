@@ -15,7 +15,6 @@ import {
 
 import {
   GetSessionEmbedUrlRequest,
-  GetSessionEmbedUrlRequestFilterSensitiveLog,
   GetSessionEmbedUrlResponse,
   GetSessionEmbedUrlResponseFilterSensitiveLog,
 } from "../models/models_3";
@@ -168,7 +167,7 @@ export class GetSessionEmbedUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionEmbedUrlRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSessionEmbedUrlResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

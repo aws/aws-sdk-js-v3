@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
-import {
-  BatchDeleteTableRowsRequest,
-  BatchDeleteTableRowsRequestFilterSensitiveLog,
-  BatchDeleteTableRowsResult,
-  BatchDeleteTableRowsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDeleteTableRowsRequest, BatchDeleteTableRowsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDeleteTableRowsCommand,
   serializeAws_restJson1BatchDeleteTableRowsCommand,
@@ -136,8 +131,8 @@ export class BatchDeleteTableRowsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteTableRowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteTableRowsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

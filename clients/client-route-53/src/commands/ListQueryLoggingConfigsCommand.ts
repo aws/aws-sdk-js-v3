@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListQueryLoggingConfigsRequest,
-  ListQueryLoggingConfigsRequestFilterSensitiveLog,
-  ListQueryLoggingConfigsResponse,
-  ListQueryLoggingConfigsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListQueryLoggingConfigsRequest, ListQueryLoggingConfigsResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlListQueryLoggingConfigsCommand,
   serializeAws_restXmlListQueryLoggingConfigsCommand,
@@ -124,8 +119,8 @@ export class ListQueryLoggingConfigsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueryLoggingConfigsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueryLoggingConfigsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

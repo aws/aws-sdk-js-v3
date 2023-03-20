@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient";
-import {
-  DeregisterScalableTargetRequest,
-  DeregisterScalableTargetRequestFilterSensitiveLog,
-  DeregisterScalableTargetResponse,
-  DeregisterScalableTargetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterScalableTargetRequest, DeregisterScalableTargetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterScalableTargetCommand,
   serializeAws_json1_1DeregisterScalableTargetCommand,
@@ -147,8 +142,8 @@ export class DeregisterScalableTargetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterScalableTargetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterScalableTargetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

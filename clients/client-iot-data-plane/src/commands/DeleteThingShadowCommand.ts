@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import {
-  DeleteThingShadowRequest,
-  DeleteThingShadowRequestFilterSensitiveLog,
-  DeleteThingShadowResponse,
-  DeleteThingShadowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteThingShadowCommand,
   serializeAws_restJson1DeleteThingShadowCommand,
@@ -133,8 +128,8 @@ export class DeleteThingShadowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteThingShadowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteThingShadowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  UpdateResourcePositionRequest,
-  UpdateResourcePositionRequestFilterSensitiveLog,
-  UpdateResourcePositionResponse,
-  UpdateResourcePositionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateResourcePositionRequest, UpdateResourcePositionResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateResourcePositionCommand,
   serializeAws_restJson1UpdateResourcePositionCommand,
@@ -124,8 +119,8 @@ export class UpdateResourcePositionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourcePositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourcePositionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

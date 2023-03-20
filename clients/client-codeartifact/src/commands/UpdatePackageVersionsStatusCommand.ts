@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  UpdatePackageVersionsStatusRequest,
-  UpdatePackageVersionsStatusRequestFilterSensitiveLog,
-  UpdatePackageVersionsStatusResult,
-  UpdatePackageVersionsStatusResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePackageVersionsStatusRequest, UpdatePackageVersionsStatusResult } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePackageVersionsStatusCommand,
   serializeAws_restJson1UpdatePackageVersionsStatusCommand,
@@ -140,8 +135,8 @@ export class UpdatePackageVersionsStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePackageVersionsStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePackageVersionsStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

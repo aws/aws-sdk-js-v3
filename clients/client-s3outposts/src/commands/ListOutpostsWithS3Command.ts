@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOutpostsWithS3Request,
-  ListOutpostsWithS3RequestFilterSensitiveLog,
-  ListOutpostsWithS3Result,
-  ListOutpostsWithS3ResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListOutpostsWithS3Request, ListOutpostsWithS3Result } from "../models/models_0";
 import {
   deserializeAws_restJson1ListOutpostsWithS3Command,
   serializeAws_restJson1ListOutpostsWithS3Command,
@@ -121,8 +116,8 @@ export class ListOutpostsWithS3Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOutpostsWithS3RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOutpostsWithS3ResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

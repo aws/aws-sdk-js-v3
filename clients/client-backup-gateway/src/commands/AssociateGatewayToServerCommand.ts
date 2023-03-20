@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  AssociateGatewayToServerInput,
-  AssociateGatewayToServerInputFilterSensitiveLog,
-  AssociateGatewayToServerOutput,
-  AssociateGatewayToServerOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateGatewayToServerInput, AssociateGatewayToServerOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0AssociateGatewayToServerCommand,
   serializeAws_json1_0AssociateGatewayToServerCommand,
@@ -121,8 +116,8 @@ export class AssociateGatewayToServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateGatewayToServerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateGatewayToServerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

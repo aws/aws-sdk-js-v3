@@ -16,9 +16,7 @@ import {
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
 import {
   DeleteDirectConnectGatewayAssociationProposalRequest,
-  DeleteDirectConnectGatewayAssociationProposalRequestFilterSensitiveLog,
   DeleteDirectConnectGatewayAssociationProposalResult,
-  DeleteDirectConnectGatewayAssociationProposalResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand,
@@ -122,8 +120,8 @@ export class DeleteDirectConnectGatewayAssociationProposalCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationProposalRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDirectConnectGatewayAssociationProposalResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

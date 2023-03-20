@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListControlPanelsRequest,
-  ListControlPanelsRequestFilterSensitiveLog,
-  ListControlPanelsResponse,
-  ListControlPanelsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListControlPanelsRequest, ListControlPanelsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListControlPanelsCommand,
   serializeAws_restJson1ListControlPanelsCommand,
@@ -126,8 +121,8 @@ export class ListControlPanelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListControlPanelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListControlPanelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

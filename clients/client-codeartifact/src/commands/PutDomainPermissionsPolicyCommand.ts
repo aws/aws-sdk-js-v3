@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  PutDomainPermissionsPolicyRequest,
-  PutDomainPermissionsPolicyRequestFilterSensitiveLog,
-  PutDomainPermissionsPolicyResult,
-  PutDomainPermissionsPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PutDomainPermissionsPolicyRequest, PutDomainPermissionsPolicyResult } from "../models/models_0";
 import {
   deserializeAws_restJson1PutDomainPermissionsPolicyCommand,
   serializeAws_restJson1PutDomainPermissionsPolicyCommand,
@@ -147,8 +142,8 @@ export class PutDomainPermissionsPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDomainPermissionsPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDomainPermissionsPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

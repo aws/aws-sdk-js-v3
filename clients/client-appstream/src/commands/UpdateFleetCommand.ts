@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  UpdateFleetRequest,
-  UpdateFleetRequestFilterSensitiveLog,
-  UpdateFleetResult,
-  UpdateFleetResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFleetRequest, UpdateFleetResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFleetCommand,
   serializeAws_json1_1UpdateFleetCommand,
@@ -159,8 +154,8 @@ export class UpdateFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

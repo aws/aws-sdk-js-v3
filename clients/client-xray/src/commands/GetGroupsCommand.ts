@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetGroupsRequest,
-  GetGroupsRequestFilterSensitiveLog,
-  GetGroupsResult,
-  GetGroupsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetGroupsRequest, GetGroupsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetGroupsCommand,
   serializeAws_restJson1GetGroupsCommand,
@@ -111,8 +106,8 @@ export class GetGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

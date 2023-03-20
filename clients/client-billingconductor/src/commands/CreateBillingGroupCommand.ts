@@ -18,7 +18,6 @@ import {
   CreateBillingGroupInput,
   CreateBillingGroupInputFilterSensitiveLog,
   CreateBillingGroupOutput,
-  CreateBillingGroupOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBillingGroupCommand,
@@ -133,7 +132,7 @@ export class CreateBillingGroupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBillingGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBillingGroupOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

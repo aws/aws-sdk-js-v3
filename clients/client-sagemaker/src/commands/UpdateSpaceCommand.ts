@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSpaceRequest,
-  UpdateSpaceRequestFilterSensitiveLog,
-  UpdateSpaceResponse,
-  UpdateSpaceResponseFilterSensitiveLog,
-} from "../models/models_4";
+import { UpdateSpaceRequest, UpdateSpaceResponse } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateSpaceCommand,
   serializeAws_json1_1UpdateSpaceCommand,
@@ -115,8 +110,8 @@ export class UpdateSpaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSpaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSpaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

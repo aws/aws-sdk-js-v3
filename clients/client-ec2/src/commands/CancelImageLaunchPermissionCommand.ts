@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CancelImageLaunchPermissionRequest,
-  CancelImageLaunchPermissionRequestFilterSensitiveLog,
-  CancelImageLaunchPermissionResult,
-  CancelImageLaunchPermissionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelImageLaunchPermissionRequest, CancelImageLaunchPermissionResult } from "../models/models_0";
 import {
   deserializeAws_ec2CancelImageLaunchPermissionCommand,
   serializeAws_ec2CancelImageLaunchPermissionCommand,
@@ -110,8 +105,8 @@ export class CancelImageLaunchPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelImageLaunchPermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelImageLaunchPermissionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GenerateMobileSdkReleaseUrlRequest,
-  GenerateMobileSdkReleaseUrlRequestFilterSensitiveLog,
-  GenerateMobileSdkReleaseUrlResponse,
-  GenerateMobileSdkReleaseUrlResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GenerateMobileSdkReleaseUrlRequest, GenerateMobileSdkReleaseUrlResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateMobileSdkReleaseUrlCommand,
   serializeAws_json1_1GenerateMobileSdkReleaseUrlCommand,
@@ -145,8 +140,8 @@ export class GenerateMobileSdkReleaseUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateMobileSdkReleaseUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateMobileSdkReleaseUrlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

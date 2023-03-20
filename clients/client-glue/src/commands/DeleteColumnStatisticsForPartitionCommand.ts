@@ -16,9 +16,7 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   DeleteColumnStatisticsForPartitionRequest,
-  DeleteColumnStatisticsForPartitionRequestFilterSensitiveLog,
   DeleteColumnStatisticsForPartitionResponse,
-  DeleteColumnStatisticsForPartitionResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteColumnStatisticsForPartitionCommand,
@@ -125,8 +123,8 @@ export class DeleteColumnStatisticsForPartitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteColumnStatisticsForPartitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteColumnStatisticsForPartitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

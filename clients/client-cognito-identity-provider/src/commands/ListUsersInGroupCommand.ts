@@ -21,7 +21,6 @@ import {
 } from "../CognitoIdentityProviderClient";
 import {
   ListUsersInGroupRequest,
-  ListUsersInGroupRequestFilterSensitiveLog,
   ListUsersInGroupResponse,
   ListUsersInGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -132,7 +131,7 @@ export class ListUsersInGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsersInGroupRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListUsersInGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

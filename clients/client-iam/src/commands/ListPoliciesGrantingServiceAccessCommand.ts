@@ -16,9 +16,7 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   ListPoliciesGrantingServiceAccessRequest,
-  ListPoliciesGrantingServiceAccessRequestFilterSensitiveLog,
   ListPoliciesGrantingServiceAccessResponse,
-  ListPoliciesGrantingServiceAccessResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryListPoliciesGrantingServiceAccessCommand,
@@ -204,8 +202,8 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPoliciesGrantingServiceAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPoliciesGrantingServiceAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

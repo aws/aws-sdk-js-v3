@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import {
-  RunJobFlowInput,
-  RunJobFlowInputFilterSensitiveLog,
-  RunJobFlowOutput,
-  RunJobFlowOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RunJobFlowInput, RunJobFlowOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RunJobFlowCommand,
   serializeAws_json1_1RunJobFlowCommand,
@@ -130,8 +125,8 @@ export class RunJobFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RunJobFlowInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RunJobFlowOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

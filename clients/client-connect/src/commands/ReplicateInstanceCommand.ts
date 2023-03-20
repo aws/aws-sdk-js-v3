@@ -18,7 +18,6 @@ import {
   ReplicateInstanceRequest,
   ReplicateInstanceRequestFilterSensitiveLog,
   ReplicateInstanceResponse,
-  ReplicateInstanceResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1ReplicateInstanceCommand,
@@ -135,7 +134,7 @@ export class ReplicateInstanceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ReplicateInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReplicateInstanceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

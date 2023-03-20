@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRobotApplicationRequest,
-  CreateRobotApplicationRequestFilterSensitiveLog,
-  CreateRobotApplicationResponse,
-  CreateRobotApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRobotApplicationRequest, CreateRobotApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRobotApplicationCommand,
   serializeAws_restJson1CreateRobotApplicationCommand,
@@ -128,8 +123,8 @@ export class CreateRobotApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRobotApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRobotApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

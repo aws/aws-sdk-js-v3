@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateUserHierarchyGroupNameRequest,
-  UpdateUserHierarchyGroupNameRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateUserHierarchyGroupNameRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateUserHierarchyGroupNameCommand,
   serializeAws_restJson1UpdateUserHierarchyGroupNameCommand,
@@ -123,8 +120,8 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserHierarchyGroupNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

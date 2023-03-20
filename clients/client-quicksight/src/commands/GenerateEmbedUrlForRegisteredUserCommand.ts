@@ -15,7 +15,6 @@ import {
 
 import {
   GenerateEmbedUrlForRegisteredUserRequest,
-  GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog,
   GenerateEmbedUrlForRegisteredUserResponse,
   GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
 } from "../models/models_2";
@@ -173,7 +172,7 @@ export class GenerateEmbedUrlForRegisteredUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GenerateEmbedUrlForRegisteredUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

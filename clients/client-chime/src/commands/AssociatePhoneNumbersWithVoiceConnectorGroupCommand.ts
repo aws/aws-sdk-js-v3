@@ -140,7 +140,7 @@ export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Comman
       clientName,
       commandName,
       inputFilterSensitiveLog: AssociatePhoneNumbersWithVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

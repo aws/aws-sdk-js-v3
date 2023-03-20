@@ -17,7 +17,6 @@ import {
   DescribeGroupsRequest,
   DescribeGroupsRequestFilterSensitiveLog,
   DescribeGroupsResponse,
-  DescribeGroupsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeGroupsCommand,
@@ -123,7 +122,7 @@ export class DescribeGroupsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DescribeGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeGroupsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

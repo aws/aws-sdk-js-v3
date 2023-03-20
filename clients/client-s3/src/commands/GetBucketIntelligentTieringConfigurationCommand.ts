@@ -15,9 +15,7 @@ import {
 
 import {
   GetBucketIntelligentTieringConfigurationOutput,
-  GetBucketIntelligentTieringConfigurationOutputFilterSensitiveLog,
   GetBucketIntelligentTieringConfigurationRequest,
-  GetBucketIntelligentTieringConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketIntelligentTieringConfigurationCommand,
@@ -144,8 +142,8 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketIntelligentTieringConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketIntelligentTieringConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

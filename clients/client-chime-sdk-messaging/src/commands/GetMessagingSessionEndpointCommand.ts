@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import {
-  GetMessagingSessionEndpointRequest,
-  GetMessagingSessionEndpointRequestFilterSensitiveLog,
-  GetMessagingSessionEndpointResponse,
-  GetMessagingSessionEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMessagingSessionEndpointRequest, GetMessagingSessionEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMessagingSessionEndpointCommand,
   serializeAws_restJson1GetMessagingSessionEndpointCommand,
@@ -128,8 +123,8 @@ export class GetMessagingSessionEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMessagingSessionEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMessagingSessionEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

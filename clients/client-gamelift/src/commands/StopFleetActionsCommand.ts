@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  StopFleetActionsInput,
-  StopFleetActionsInputFilterSensitiveLog,
-  StopFleetActionsOutput,
-  StopFleetActionsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StopFleetActionsInput, StopFleetActionsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StopFleetActionsCommand,
   serializeAws_json1_1StopFleetActionsCommand,
@@ -150,8 +145,8 @@ export class StopFleetActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFleetActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopFleetActionsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

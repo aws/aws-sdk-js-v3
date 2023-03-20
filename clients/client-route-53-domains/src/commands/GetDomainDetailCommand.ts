@@ -15,7 +15,6 @@ import {
 
 import {
   GetDomainDetailRequest,
-  GetDomainDetailRequestFilterSensitiveLog,
   GetDomainDetailResponse,
   GetDomainDetailResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -118,7 +117,7 @@ export class GetDomainDetailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainDetailRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetDomainDetailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

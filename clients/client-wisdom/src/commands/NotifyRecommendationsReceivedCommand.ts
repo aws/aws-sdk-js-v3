@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  NotifyRecommendationsReceivedRequest,
-  NotifyRecommendationsReceivedRequestFilterSensitiveLog,
-  NotifyRecommendationsReceivedResponse,
-  NotifyRecommendationsReceivedResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { NotifyRecommendationsReceivedRequest, NotifyRecommendationsReceivedResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1NotifyRecommendationsReceivedCommand,
   serializeAws_restJson1NotifyRecommendationsReceivedCommand,
@@ -120,8 +115,8 @@ export class NotifyRecommendationsReceivedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NotifyRecommendationsReceivedRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: NotifyRecommendationsReceivedResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

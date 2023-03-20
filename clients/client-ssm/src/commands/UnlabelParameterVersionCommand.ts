@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UnlabelParameterVersionRequest,
-  UnlabelParameterVersionRequestFilterSensitiveLog,
-  UnlabelParameterVersionResult,
-  UnlabelParameterVersionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { UnlabelParameterVersionRequest, UnlabelParameterVersionResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UnlabelParameterVersionCommand,
   serializeAws_json1_1UnlabelParameterVersionCommand,
@@ -120,8 +115,8 @@ export class UnlabelParameterVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnlabelParameterVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UnlabelParameterVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

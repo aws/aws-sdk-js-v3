@@ -20,7 +20,6 @@ import {
 } from "../ChimeSDKMediaPipelinesClient";
 import {
   GetMediaPipelineRequest,
-  GetMediaPipelineRequestFilterSensitiveLog,
   GetMediaPipelineResponse,
   GetMediaPipelineResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -132,7 +131,7 @@ export class GetMediaPipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMediaPipelineRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMediaPipelineResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

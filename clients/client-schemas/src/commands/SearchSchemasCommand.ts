@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchSchemasRequest,
-  SearchSchemasRequestFilterSensitiveLog,
-  SearchSchemasResponse,
-  SearchSchemasResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SearchSchemasRequest, SearchSchemasResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SearchSchemasCommand,
   serializeAws_restJson1SearchSchemasCommand,
@@ -115,8 +110,8 @@ export class SearchSchemasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchSchemasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchSchemasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

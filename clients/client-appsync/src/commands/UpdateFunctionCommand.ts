@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  UpdateFunctionRequest,
-  UpdateFunctionRequestFilterSensitiveLog,
-  UpdateFunctionResponse,
-  UpdateFunctionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFunctionRequest, UpdateFunctionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFunctionCommand,
   serializeAws_restJson1UpdateFunctionCommand,
@@ -120,8 +115,8 @@ export class UpdateFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

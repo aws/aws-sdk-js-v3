@@ -17,7 +17,6 @@ import {
   CreateTrustAnchorRequest,
   CreateTrustAnchorRequestFilterSensitiveLog,
   TrustAnchorDetailResponse,
-  TrustAnchorDetailResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateTrustAnchorCommand,
@@ -118,7 +117,7 @@ export class CreateTrustAnchorCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateTrustAnchorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TrustAnchorDetailResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import {
-  DeleteStorageVirtualMachineRequest,
-  DeleteStorageVirtualMachineRequestFilterSensitiveLog,
-  DeleteStorageVirtualMachineResponse,
-  DeleteStorageVirtualMachineResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteStorageVirtualMachineRequest, DeleteStorageVirtualMachineResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteStorageVirtualMachineCommand,
   serializeAws_json1_1DeleteStorageVirtualMachineCommand,
@@ -124,8 +119,8 @@ export class DeleteStorageVirtualMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStorageVirtualMachineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStorageVirtualMachineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

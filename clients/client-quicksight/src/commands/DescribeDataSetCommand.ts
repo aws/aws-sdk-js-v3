@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeDataSetRequest,
-  DescribeDataSetRequestFilterSensitiveLog,
   DescribeDataSetResponse,
   DescribeDataSetResponseFilterSensitiveLog,
 } from "../models/models_2";
@@ -125,7 +124,7 @@ export class DescribeDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSetRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDataSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

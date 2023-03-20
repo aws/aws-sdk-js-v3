@@ -16,7 +16,6 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   GetLaunchTemplateDataRequest,
-  GetLaunchTemplateDataRequestFilterSensitiveLog,
   GetLaunchTemplateDataResult,
   GetLaunchTemplateDataResultFilterSensitiveLog,
 } from "../models/models_5";
@@ -177,7 +176,7 @@ export class GetLaunchTemplateDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLaunchTemplateDataRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLaunchTemplateDataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

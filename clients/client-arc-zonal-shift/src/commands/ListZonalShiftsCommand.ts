@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import {
-  ListZonalShiftsRequest,
-  ListZonalShiftsRequestFilterSensitiveLog,
-  ListZonalShiftsResponse,
-  ListZonalShiftsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListZonalShiftsRequest, ListZonalShiftsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListZonalShiftsCommand,
   serializeAws_restJson1ListZonalShiftsCommand,
@@ -119,8 +114,8 @@ export class ListZonalShiftsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListZonalShiftsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListZonalShiftsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

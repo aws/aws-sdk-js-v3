@@ -15,7 +15,6 @@ import {
 
 import {
   UpdateNetworkSitePlanRequest,
-  UpdateNetworkSitePlanRequestFilterSensitiveLog,
   UpdateNetworkSiteResponse,
   UpdateNetworkSiteResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class UpdateNetworkSitePlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNetworkSitePlanRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateNetworkSiteResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  DescribeInterconnectsRequest,
-  DescribeInterconnectsRequestFilterSensitiveLog,
-  Interconnects,
-  InterconnectsFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeInterconnectsRequest, Interconnects } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeInterconnectsCommand,
   serializeAws_json1_1DescribeInterconnectsCommand,
@@ -113,8 +108,8 @@ export class DescribeInterconnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInterconnectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InterconnectsFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

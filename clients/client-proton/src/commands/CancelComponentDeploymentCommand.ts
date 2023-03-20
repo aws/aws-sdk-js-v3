@@ -15,7 +15,6 @@ import {
 
 import {
   CancelComponentDeploymentInput,
-  CancelComponentDeploymentInputFilterSensitiveLog,
   CancelComponentDeploymentOutput,
   CancelComponentDeploymentOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -128,7 +127,7 @@ export class CancelComponentDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelComponentDeploymentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CancelComponentDeploymentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

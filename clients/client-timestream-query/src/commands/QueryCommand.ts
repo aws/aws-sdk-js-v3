@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  QueryRequest,
-  QueryRequestFilterSensitiveLog,
-  QueryResponse,
-  QueryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { QueryRequest, QueryRequestFilterSensitiveLog, QueryResponse } from "../models/models_0";
 import { deserializeAws_json1_0QueryCommand, serializeAws_json1_0QueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
 
@@ -157,7 +152,7 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
       clientName,
       commandName,
       inputFilterSensitiveLog: QueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

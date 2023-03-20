@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { PutDeliveryChannelRequest, PutDeliveryChannelRequestFilterSensitiveLog } from "../models/models_1";
+import { PutDeliveryChannelRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1PutDeliveryChannelCommand,
   serializeAws_json1_1PutDeliveryChannelCommand,
@@ -144,8 +144,8 @@ export class PutDeliveryChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDeliveryChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

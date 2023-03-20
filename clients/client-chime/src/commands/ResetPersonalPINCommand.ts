@@ -128,7 +128,7 @@ export class ResetPersonalPINCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ResetPersonalPINResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  GetVirtualMachineInput,
-  GetVirtualMachineInputFilterSensitiveLog,
-  GetVirtualMachineOutput,
-  GetVirtualMachineOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetVirtualMachineInput, GetVirtualMachineOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0GetVirtualMachineCommand,
   serializeAws_json1_0GetVirtualMachineCommand,
@@ -120,8 +115,8 @@ export class GetVirtualMachineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVirtualMachineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVirtualMachineOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

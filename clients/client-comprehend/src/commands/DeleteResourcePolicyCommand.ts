@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DeleteResourcePolicyRequest,
-  DeleteResourcePolicyRequestFilterSensitiveLog,
-  DeleteResourcePolicyResponse,
-  DeleteResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourcePolicyCommand,
   serializeAws_json1_1DeleteResourcePolicyCommand,
@@ -116,8 +111,8 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  StopContactRecordingRequest,
-  StopContactRecordingRequestFilterSensitiveLog,
-  StopContactRecordingResponse,
-  StopContactRecordingResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StopContactRecordingRequest, StopContactRecordingResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1StopContactRecordingCommand,
   serializeAws_restJson1StopContactRecordingCommand,
@@ -121,8 +116,8 @@ export class StopContactRecordingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopContactRecordingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopContactRecordingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

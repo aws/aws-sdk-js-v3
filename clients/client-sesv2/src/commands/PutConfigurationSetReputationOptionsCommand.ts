@@ -15,9 +15,7 @@ import {
 
 import {
   PutConfigurationSetReputationOptionsRequest,
-  PutConfigurationSetReputationOptionsRequestFilterSensitiveLog,
   PutConfigurationSetReputationOptionsResponse,
-  PutConfigurationSetReputationOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand,
@@ -119,8 +117,8 @@ export class PutConfigurationSetReputationOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationSetReputationOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationSetReputationOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

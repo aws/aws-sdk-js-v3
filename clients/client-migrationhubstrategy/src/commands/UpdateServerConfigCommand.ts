@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubStrategyClient";
-import {
-  UpdateServerConfigRequest,
-  UpdateServerConfigRequestFilterSensitiveLog,
-  UpdateServerConfigResponse,
-  UpdateServerConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateServerConfigRequest, UpdateServerConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateServerConfigCommand,
   serializeAws_restJson1UpdateServerConfigCommand,
@@ -123,8 +118,8 @@ export class UpdateServerConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateServerConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

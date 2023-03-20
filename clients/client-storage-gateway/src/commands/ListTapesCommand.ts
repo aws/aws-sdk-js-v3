@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListTapesInput,
-  ListTapesInputFilterSensitiveLog,
-  ListTapesOutput,
-  ListTapesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTapesInput, ListTapesOutput } from "../models/models_0";
 import { deserializeAws_json1_1ListTapesCommand, serializeAws_json1_1ListTapesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -120,8 +115,8 @@ export class ListTapesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTapesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTapesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

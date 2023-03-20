@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeAddressesAttributeRequest,
-  DescribeAddressesAttributeRequestFilterSensitiveLog,
-  DescribeAddressesAttributeResult,
-  DescribeAddressesAttributeResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeAddressesAttributeRequest, DescribeAddressesAttributeResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeAddressesAttributeCommand,
   serializeAws_ec2DescribeAddressesAttributeCommand,
@@ -107,8 +102,8 @@ export class DescribeAddressesAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAddressesAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAddressesAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

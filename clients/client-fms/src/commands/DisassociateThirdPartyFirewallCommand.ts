@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  DisassociateThirdPartyFirewallRequest,
-  DisassociateThirdPartyFirewallRequestFilterSensitiveLog,
-  DisassociateThirdPartyFirewallResponse,
-  DisassociateThirdPartyFirewallResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateThirdPartyFirewallRequest, DisassociateThirdPartyFirewallResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateThirdPartyFirewallCommand,
   serializeAws_json1_1DisassociateThirdPartyFirewallCommand,
@@ -126,8 +121,8 @@ export class DisassociateThirdPartyFirewallCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateThirdPartyFirewallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateThirdPartyFirewallResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

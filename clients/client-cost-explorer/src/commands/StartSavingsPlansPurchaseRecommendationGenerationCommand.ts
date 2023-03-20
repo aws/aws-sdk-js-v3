@@ -16,9 +16,7 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import {
   StartSavingsPlansPurchaseRecommendationGenerationRequest,
-  StartSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog,
   StartSavingsPlansPurchaseRecommendationGenerationResponse,
-  StartSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand,
@@ -134,8 +132,8 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

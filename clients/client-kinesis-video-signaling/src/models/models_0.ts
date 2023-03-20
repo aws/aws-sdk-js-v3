@@ -236,38 +236,3 @@ export interface SendAlexaOfferToMasterResponse {
    */
   Answer?: string;
 }
-
-/**
- * @internal
- */
-export const GetIceServerConfigRequestFilterSensitiveLog = (obj: GetIceServerConfigRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IceServerFilterSensitiveLog = (obj: IceServer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIceServerConfigResponseFilterSensitiveLog = (obj: GetIceServerConfigResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendAlexaOfferToMasterRequestFilterSensitiveLog = (obj: SendAlexaOfferToMasterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendAlexaOfferToMasterResponseFilterSensitiveLog = (obj: SendAlexaOfferToMasterResponse): any => ({
-  ...obj,
-});

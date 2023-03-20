@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RequestCancelWorkflowExecutionInput,
-  RequestCancelWorkflowExecutionInputFilterSensitiveLog,
-} from "../models/models_0";
+import { RequestCancelWorkflowExecutionInput } from "../models/models_0";
 import {
   deserializeAws_json1_0RequestCancelWorkflowExecutionCommand,
   serializeAws_json1_0RequestCancelWorkflowExecutionCommand,
@@ -149,8 +146,8 @@ export class RequestCancelWorkflowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RequestCancelWorkflowExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  GetTaskProtectionRequest,
-  GetTaskProtectionRequestFilterSensitiveLog,
-  GetTaskProtectionResponse,
-  GetTaskProtectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTaskProtectionRequest, GetTaskProtectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetTaskProtectionCommand,
   serializeAws_json1_1GetTaskProtectionCommand,
@@ -157,8 +152,8 @@ export class GetTaskProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTaskProtectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTaskProtectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

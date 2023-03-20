@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAgreementRequest,
-  UpdateAgreementRequestFilterSensitiveLog,
-  UpdateAgreementResponse,
-  UpdateAgreementResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAgreementRequest, UpdateAgreementResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAgreementCommand,
   serializeAws_json1_1UpdateAgreementCommand,
@@ -128,8 +123,8 @@ export class UpdateAgreementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAgreementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAgreementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

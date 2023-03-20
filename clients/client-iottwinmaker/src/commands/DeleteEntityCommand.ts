@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  DeleteEntityRequest,
-  DeleteEntityRequestFilterSensitiveLog,
-  DeleteEntityResponse,
-  DeleteEntityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEntityRequest, DeleteEntityResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEntityCommand,
   serializeAws_restJson1DeleteEntityCommand,
@@ -120,8 +115,8 @@ export class DeleteEntityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEntityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEntityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

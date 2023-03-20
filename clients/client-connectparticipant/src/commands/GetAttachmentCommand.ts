@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient";
-import {
-  GetAttachmentRequest,
-  GetAttachmentRequestFilterSensitiveLog,
-  GetAttachmentResponse,
-  GetAttachmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAttachmentRequest, GetAttachmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAttachmentCommand,
   serializeAws_restJson1GetAttachmentCommand,
@@ -129,8 +124,8 @@ export class GetAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

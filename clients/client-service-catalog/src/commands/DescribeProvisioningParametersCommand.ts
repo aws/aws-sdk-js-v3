@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeProvisioningParametersInput,
-  DescribeProvisioningParametersInputFilterSensitiveLog,
-  DescribeProvisioningParametersOutput,
-  DescribeProvisioningParametersOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeProvisioningParametersInput, DescribeProvisioningParametersOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeProvisioningParametersCommand,
   serializeAws_json1_1DescribeProvisioningParametersCommand,
@@ -122,8 +117,8 @@ export class DescribeProvisioningParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeProvisioningParametersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeProvisioningParametersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

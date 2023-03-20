@@ -16,7 +16,6 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   UpdateDistributionWithStagingConfigRequest,
-  UpdateDistributionWithStagingConfigRequestFilterSensitiveLog,
   UpdateDistributionWithStagingConfigResult,
   UpdateDistributionWithStagingConfigResultFilterSensitiveLog,
 } from "../models/models_1";
@@ -332,7 +331,7 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDistributionWithStagingConfigRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateDistributionWithStagingConfigResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

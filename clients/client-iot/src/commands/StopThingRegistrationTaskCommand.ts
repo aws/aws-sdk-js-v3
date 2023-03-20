@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  StopThingRegistrationTaskRequest,
-  StopThingRegistrationTaskRequestFilterSensitiveLog,
-  StopThingRegistrationTaskResponse,
-  StopThingRegistrationTaskResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { StopThingRegistrationTaskRequest, StopThingRegistrationTaskResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1StopThingRegistrationTaskCommand,
   serializeAws_restJson1StopThingRegistrationTaskCommand,
@@ -123,8 +118,8 @@ export class StopThingRegistrationTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopThingRegistrationTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopThingRegistrationTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

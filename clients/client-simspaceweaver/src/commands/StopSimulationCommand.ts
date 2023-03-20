@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopSimulationInput,
-  StopSimulationInputFilterSensitiveLog,
-  StopSimulationOutput,
-  StopSimulationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StopSimulationInput, StopSimulationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1StopSimulationCommand,
   serializeAws_restJson1StopSimulationCommand,
@@ -127,8 +122,8 @@ export class StopSimulationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopSimulationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StopSimulationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

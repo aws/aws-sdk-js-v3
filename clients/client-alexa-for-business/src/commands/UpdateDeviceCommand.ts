@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  UpdateDeviceRequest,
-  UpdateDeviceRequestFilterSensitiveLog,
-  UpdateDeviceResponse,
-  UpdateDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDeviceRequest, UpdateDeviceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDeviceCommand,
   serializeAws_json1_1UpdateDeviceCommand,
@@ -114,8 +109,8 @@ export class UpdateDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

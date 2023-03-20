@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  ListDataViewsRequest,
-  ListDataViewsRequestFilterSensitiveLog,
-  ListDataViewsResponse,
-  ListDataViewsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDataViewsRequest, ListDataViewsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListDataViewsCommand,
   serializeAws_restJson1ListDataViewsCommand,
@@ -121,8 +116,8 @@ export class ListDataViewsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataViewsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataViewsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

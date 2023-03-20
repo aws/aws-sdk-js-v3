@@ -17,7 +17,6 @@ import {
   DescribeResourcePermissionsRequest,
   DescribeResourcePermissionsRequestFilterSensitiveLog,
   DescribeResourcePermissionsResponse,
-  DescribeResourcePermissionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeResourcePermissionsCommand,
@@ -127,7 +126,7 @@ export class DescribeResourcePermissionsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DescribeResourcePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourcePermissionsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  UpdateFlywheelRequest,
-  UpdateFlywheelRequestFilterSensitiveLog,
-  UpdateFlywheelResponse,
-  UpdateFlywheelResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateFlywheelRequest, UpdateFlywheelResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateFlywheelCommand,
   serializeAws_json1_1UpdateFlywheelCommand,
@@ -123,8 +118,8 @@ export class UpdateFlywheelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFlywheelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFlywheelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

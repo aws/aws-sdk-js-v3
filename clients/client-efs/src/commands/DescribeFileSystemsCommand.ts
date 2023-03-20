@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  DescribeFileSystemsRequest,
-  DescribeFileSystemsRequestFilterSensitiveLog,
-  DescribeFileSystemsResponse,
-  DescribeFileSystemsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeFileSystemsCommand,
   serializeAws_restJson1DescribeFileSystemsCommand,
@@ -171,8 +166,8 @@ export class DescribeFileSystemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFileSystemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFileSystemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

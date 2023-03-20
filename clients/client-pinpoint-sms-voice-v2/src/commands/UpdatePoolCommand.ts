@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePoolRequest,
-  UpdatePoolRequestFilterSensitiveLog,
-  UpdatePoolResult,
-  UpdatePoolResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePoolRequest, UpdatePoolResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -136,8 +131,8 @@ export class UpdatePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

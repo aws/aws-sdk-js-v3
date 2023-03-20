@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  ListDataSourceSyncJobsRequest,
-  ListDataSourceSyncJobsRequestFilterSensitiveLog,
-  ListDataSourceSyncJobsResponse,
-  ListDataSourceSyncJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDataSourceSyncJobsRequest, ListDataSourceSyncJobsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDataSourceSyncJobsCommand,
   serializeAws_json1_1ListDataSourceSyncJobsCommand,
@@ -131,8 +126,8 @@ export class ListDataSourceSyncJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataSourceSyncJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataSourceSyncJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

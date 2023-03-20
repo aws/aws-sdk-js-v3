@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetRoomSkillParameterRequest,
-  GetRoomSkillParameterRequestFilterSensitiveLog,
-  GetRoomSkillParameterResponse,
-  GetRoomSkillParameterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRoomSkillParameterRequest, GetRoomSkillParameterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRoomSkillParameterCommand,
   serializeAws_json1_1GetRoomSkillParameterCommand,
@@ -110,8 +105,8 @@ export class GetRoomSkillParameterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoomSkillParameterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRoomSkillParameterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

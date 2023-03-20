@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetHubClient";
-import {
-  CreateApplicationRequest,
-  CreateApplicationRequestFilterSensitiveLog,
-  CreateApplicationResponse,
-  CreateApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateApplicationCommand,
   serializeAws_restJson1CreateApplicationCommand,
@@ -122,8 +117,8 @@ export class CreateApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddUploadBufferInput,
-  AddUploadBufferInputFilterSensitiveLog,
-  AddUploadBufferOutput,
-  AddUploadBufferOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { AddUploadBufferInput, AddUploadBufferOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1AddUploadBufferCommand,
   serializeAws_json1_1AddUploadBufferCommand,
@@ -141,8 +136,8 @@ export class AddUploadBufferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddUploadBufferInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddUploadBufferOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

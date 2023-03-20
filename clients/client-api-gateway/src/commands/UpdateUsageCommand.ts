@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  UpdateUsageRequest,
-  UpdateUsageRequestFilterSensitiveLog,
-  Usage,
-  UsageFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateUsageRequest, Usage } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateUsageCommand,
   serializeAws_restJson1UpdateUsageCommand,
@@ -123,8 +118,8 @@ export class UpdateUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UsageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

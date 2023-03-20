@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { NullAndEmptyHeadersIO, NullAndEmptyHeadersIOFilterSensitiveLog } from "../models/models_0";
+import { NullAndEmptyHeadersIO } from "../models/models_0";
 import {
   deserializeAws_restXmlNullAndEmptyHeadersClientCommand,
   serializeAws_restXmlNullAndEmptyHeadersClientCommand,
@@ -20,15 +20,20 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link NullAndEmptyHeadersClientCommand}.
  */
 export interface NullAndEmptyHeadersClientCommandInput extends NullAndEmptyHeadersIO {}
 /**
+ * @public
+ *
  * The output of {@link NullAndEmptyHeadersClientCommand}.
  */
 export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHeadersIO, __MetadataBearer {}
 
 /**
+ * @public
  * Null and empty headers are not sent over the wire.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHead
  * const response = await client.send(command);
  * ```
  *
+ * @param NullAndEmptyHeadersClientCommandInput - {@link NullAndEmptyHeadersClientCommandInput}
+ * @returns {@link NullAndEmptyHeadersClientCommandOutput}
  * @see {@link NullAndEmptyHeadersClientCommandInput} for command's `input` shape.
  * @see {@link NullAndEmptyHeadersClientCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: NullAndEmptyHeadersClientCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: NullAndEmptyHeadersIOFilterSensitiveLog,
-      outputFilterSensitiveLog: NullAndEmptyHeadersIOFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class NullAndEmptyHeadersClientCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: NullAndEmptyHeadersClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlNullAndEmptyHeadersClientCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

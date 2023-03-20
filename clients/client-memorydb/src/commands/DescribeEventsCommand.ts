@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DescribeEventsRequest,
-  DescribeEventsRequestFilterSensitiveLog,
-  DescribeEventsResponse,
-  DescribeEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEventsRequest, DescribeEventsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEventsCommand,
   serializeAws_json1_1DescribeEventsCommand,
@@ -118,8 +113,8 @@ export class DescribeEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateInstanceAttributeRequest, UpdateInstanceAttributeRequestFilterSensitiveLog } from "../models/models_1";
+import { UpdateInstanceAttributeRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateInstanceAttributeCommand,
   serializeAws_restJson1UpdateInstanceAttributeCommand,
@@ -118,8 +118,8 @@ export class UpdateInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

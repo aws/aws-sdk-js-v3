@@ -134,7 +134,7 @@ export class DescribeChannelBanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelBanResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

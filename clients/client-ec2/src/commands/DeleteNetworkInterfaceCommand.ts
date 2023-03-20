@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkInterfaceRequest, DeleteNetworkInterfaceRequestFilterSensitiveLog } from "../models/models_2";
+import { DeleteNetworkInterfaceRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteNetworkInterfaceCommand,
   serializeAws_ec2DeleteNetworkInterfaceCommand,
@@ -113,8 +113,8 @@ export class DeleteNetworkInterfaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkInterfaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  RegisterResourceRequest,
-  RegisterResourceRequestFilterSensitiveLog,
-  RegisterResourceResponse,
-  RegisterResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterResourceRequest, RegisterResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterResourceCommand,
   serializeAws_restJson1RegisterResourceCommand,
@@ -138,8 +133,8 @@ export class RegisterResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

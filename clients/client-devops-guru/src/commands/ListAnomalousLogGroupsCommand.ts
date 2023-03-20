@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  ListAnomalousLogGroupsRequest,
-  ListAnomalousLogGroupsRequestFilterSensitiveLog,
-  ListAnomalousLogGroupsResponse,
-  ListAnomalousLogGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAnomalousLogGroupsRequest, ListAnomalousLogGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAnomalousLogGroupsCommand,
   serializeAws_restJson1ListAnomalousLogGroupsCommand,
@@ -128,8 +123,8 @@ export class ListAnomalousLogGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnomalousLogGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnomalousLogGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  ListTimeSeriesRequest,
-  ListTimeSeriesRequestFilterSensitiveLog,
-  ListTimeSeriesResponse,
-  ListTimeSeriesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTimeSeriesRequest, ListTimeSeriesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTimeSeriesCommand,
   serializeAws_restJson1ListTimeSeriesCommand,
@@ -123,8 +118,8 @@ export class ListTimeSeriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTimeSeriesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTimeSeriesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

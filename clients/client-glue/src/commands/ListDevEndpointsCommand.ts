@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  ListDevEndpointsRequest,
-  ListDevEndpointsRequestFilterSensitiveLog,
-  ListDevEndpointsResponse,
-  ListDevEndpointsResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ListDevEndpointsRequest, ListDevEndpointsResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1ListDevEndpointsCommand,
   serializeAws_json1_1ListDevEndpointsCommand,
@@ -124,8 +119,8 @@ export class ListDevEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

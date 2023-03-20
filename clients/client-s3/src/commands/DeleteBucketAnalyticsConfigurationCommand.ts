@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteBucketAnalyticsConfigurationRequest,
-  DeleteBucketAnalyticsConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBucketAnalyticsConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand,
   serializeAws_restXmlDeleteBucketAnalyticsConfigurationCommand,
@@ -138,8 +135,8 @@ export class DeleteBucketAnalyticsConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketAnalyticsConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  StartOnDemandAuditTaskRequest,
-  StartOnDemandAuditTaskRequestFilterSensitiveLog,
-  StartOnDemandAuditTaskResponse,
-  StartOnDemandAuditTaskResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { StartOnDemandAuditTaskRequest, StartOnDemandAuditTaskResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1StartOnDemandAuditTaskCommand,
   serializeAws_restJson1StartOnDemandAuditTaskCommand,
@@ -120,8 +115,8 @@ export class StartOnDemandAuditTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartOnDemandAuditTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartOnDemandAuditTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

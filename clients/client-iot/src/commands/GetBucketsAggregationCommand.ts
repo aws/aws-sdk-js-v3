@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetBucketsAggregationRequest,
-  GetBucketsAggregationRequestFilterSensitiveLog,
-  GetBucketsAggregationResponse,
-  GetBucketsAggregationResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetBucketsAggregationRequest, GetBucketsAggregationResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetBucketsAggregationCommand,
   serializeAws_restJson1GetBucketsAggregationCommand,
@@ -135,8 +130,8 @@ export class GetBucketsAggregationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketsAggregationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketsAggregationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

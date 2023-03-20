@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DeleteOriginAccessControlRequest,
-  DeleteOriginAccessControlRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteOriginAccessControlRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteOriginAccessControlCommand,
   serializeAws_restXmlDeleteOriginAccessControlCommand,
@@ -125,8 +122,8 @@ export class DeleteOriginAccessControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOriginAccessControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

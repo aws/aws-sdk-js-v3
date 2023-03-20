@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  DeleteQueuedMessagesRequest,
-  DeleteQueuedMessagesRequestFilterSensitiveLog,
-  DeleteQueuedMessagesResponse,
-  DeleteQueuedMessagesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteQueuedMessagesRequest, DeleteQueuedMessagesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteQueuedMessagesCommand,
   serializeAws_restJson1DeleteQueuedMessagesCommand,
@@ -122,8 +117,8 @@ export class DeleteQueuedMessagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteQueuedMessagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteQueuedMessagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

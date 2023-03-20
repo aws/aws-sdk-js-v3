@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyEbsDefaultKmsKeyIdRequest,
-  ModifyEbsDefaultKmsKeyIdRequestFilterSensitiveLog,
-  ModifyEbsDefaultKmsKeyIdResult,
-  ModifyEbsDefaultKmsKeyIdResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyEbsDefaultKmsKeyIdRequest, ModifyEbsDefaultKmsKeyIdResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
   serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
@@ -114,8 +109,8 @@ export class ModifyEbsDefaultKmsKeyIdCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyEbsDefaultKmsKeyIdRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyEbsDefaultKmsKeyIdResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportHubContentRequest,
-  ImportHubContentRequestFilterSensitiveLog,
-  ImportHubContentResponse,
-  ImportHubContentResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ImportHubContentRequest, ImportHubContentResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1ImportHubContentCommand,
   serializeAws_json1_1ImportHubContentCommand,
@@ -120,8 +115,8 @@ export class ImportHubContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportHubContentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportHubContentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
-import {
-  UntagDeliveryStreamInput,
-  UntagDeliveryStreamInputFilterSensitiveLog,
-  UntagDeliveryStreamOutput,
-  UntagDeliveryStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UntagDeliveryStreamInput, UntagDeliveryStreamOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UntagDeliveryStreamCommand,
   serializeAws_json1_1UntagDeliveryStreamCommand,
@@ -122,8 +117,8 @@ export class UntagDeliveryStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagDeliveryStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagDeliveryStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

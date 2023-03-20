@@ -16,9 +16,7 @@ import {
 
 import {
   DeleteVPCAssociationAuthorizationRequest,
-  DeleteVPCAssociationAuthorizationRequestFilterSensitiveLog,
   DeleteVPCAssociationAuthorizationResponse,
-  DeleteVPCAssociationAuthorizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteVPCAssociationAuthorizationCommand,
@@ -140,8 +138,8 @@ export class DeleteVPCAssociationAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVPCAssociationAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVPCAssociationAuthorizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

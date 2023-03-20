@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  GetCampaignStateBatchRequest,
-  GetCampaignStateBatchRequestFilterSensitiveLog,
-  GetCampaignStateBatchResponse,
-  GetCampaignStateBatchResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCampaignStateBatchRequest, GetCampaignStateBatchResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCampaignStateBatchCommand,
   serializeAws_restJson1GetCampaignStateBatchCommand,
@@ -119,8 +114,8 @@ export class GetCampaignStateBatchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCampaignStateBatchRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCampaignStateBatchResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

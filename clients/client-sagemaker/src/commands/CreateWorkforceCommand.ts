@@ -17,7 +17,6 @@ import {
   CreateWorkforceRequest,
   CreateWorkforceRequestFilterSensitiveLog,
   CreateWorkforceResponse,
-  CreateWorkforceResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateWorkforceCommand,
@@ -125,7 +124,7 @@ export class CreateWorkforceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateWorkforceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWorkforceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

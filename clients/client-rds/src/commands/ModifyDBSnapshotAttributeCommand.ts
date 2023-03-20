@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ModifyDBSnapshotAttributeMessage,
-  ModifyDBSnapshotAttributeMessageFilterSensitiveLog,
-  ModifyDBSnapshotAttributeResult,
-  ModifyDBSnapshotAttributeResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult } from "../models/models_1";
 import {
   deserializeAws_queryModifyDBSnapshotAttributeCommand,
   serializeAws_queryModifyDBSnapshotAttributeCommand,
@@ -153,8 +148,8 @@ export class ModifyDBSnapshotAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBSnapshotAttributeMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBSnapshotAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

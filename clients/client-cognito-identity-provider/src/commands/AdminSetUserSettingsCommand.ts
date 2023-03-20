@@ -23,7 +23,6 @@ import {
   AdminSetUserSettingsRequest,
   AdminSetUserSettingsRequestFilterSensitiveLog,
   AdminSetUserSettingsResponse,
-  AdminSetUserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminSetUserSettingsCommand,
@@ -134,7 +133,7 @@ export class AdminSetUserSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminSetUserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminSetUserSettingsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

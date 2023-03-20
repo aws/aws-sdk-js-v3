@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDBClusterMessage,
-  CreateDBClusterMessageFilterSensitiveLog,
-  CreateDBClusterResult,
-  CreateDBClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryCreateDBClusterCommand,
@@ -177,8 +172,8 @@ export class CreateDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

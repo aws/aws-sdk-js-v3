@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  GetFindingsReportAccountSummaryRequest,
-  GetFindingsReportAccountSummaryRequestFilterSensitiveLog,
-  GetFindingsReportAccountSummaryResponse,
-  GetFindingsReportAccountSummaryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetFindingsReportAccountSummaryRequest, GetFindingsReportAccountSummaryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFindingsReportAccountSummaryCommand,
   serializeAws_restJson1GetFindingsReportAccountSummaryCommand,
@@ -124,8 +119,8 @@ export class GetFindingsReportAccountSummaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFindingsReportAccountSummaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFindingsReportAccountSummaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

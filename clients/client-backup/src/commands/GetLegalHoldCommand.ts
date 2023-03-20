@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  GetLegalHoldInput,
-  GetLegalHoldInputFilterSensitiveLog,
-  GetLegalHoldOutput,
-  GetLegalHoldOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLegalHoldInput, GetLegalHoldOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetLegalHoldCommand,
   serializeAws_restJson1GetLegalHoldCommand,
@@ -119,8 +114,8 @@ export class GetLegalHoldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLegalHoldInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLegalHoldOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

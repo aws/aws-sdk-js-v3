@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  DescribeCrossAccountAccessRoleResponse,
-  DescribeCrossAccountAccessRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeCrossAccountAccessRoleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
   serializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
@@ -127,8 +124,8 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeCrossAccountAccessRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

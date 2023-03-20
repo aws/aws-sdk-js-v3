@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DisableLDAPSRequest,
-  DisableLDAPSRequestFilterSensitiveLog,
-  DisableLDAPSResult,
-  DisableLDAPSResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DisableLDAPSRequest, DisableLDAPSResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableLDAPSCommand,
   serializeAws_json1_1DisableLDAPSCommand,
@@ -127,8 +122,8 @@ export class DisableLDAPSCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableLDAPSRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisableLDAPSResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

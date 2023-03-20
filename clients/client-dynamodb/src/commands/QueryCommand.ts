@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  QueryInput,
-  QueryInputFilterSensitiveLog,
-  QueryOutput,
-  QueryOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { QueryInput, QueryOutput } from "../models/models_0";
 import { deserializeAws_json1_0QueryCommand, serializeAws_json1_0QueryCommand } from "../protocols/Aws_json1_0";
 
 /**
@@ -200,8 +195,8 @@ export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

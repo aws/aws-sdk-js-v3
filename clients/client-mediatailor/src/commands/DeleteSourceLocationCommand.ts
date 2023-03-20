@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DeleteSourceLocationRequest,
-  DeleteSourceLocationRequestFilterSensitiveLog,
-  DeleteSourceLocationResponse,
-  DeleteSourceLocationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSourceLocationRequest, DeleteSourceLocationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSourceLocationCommand,
   serializeAws_restJson1DeleteSourceLocationCommand,
@@ -107,8 +102,8 @@ export class DeleteSourceLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSourceLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSourceLocationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

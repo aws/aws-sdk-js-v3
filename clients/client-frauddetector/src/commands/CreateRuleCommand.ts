@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  CreateRuleRequest,
-  CreateRuleRequestFilterSensitiveLog,
-  CreateRuleResult,
-  CreateRuleResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRuleRequest, CreateRuleRequestFilterSensitiveLog, CreateRuleResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRuleCommand,
   serializeAws_json1_1CreateRuleCommand,
@@ -118,7 +113,7 @@ export class CreateRuleCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRuleResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

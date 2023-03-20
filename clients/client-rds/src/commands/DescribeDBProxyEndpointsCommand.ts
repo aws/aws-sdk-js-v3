@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDBProxyEndpointsRequest,
-  DescribeDBProxyEndpointsRequestFilterSensitiveLog,
-  DescribeDBProxyEndpointsResponse,
-  DescribeDBProxyEndpointsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeDBProxyEndpointsRequest, DescribeDBProxyEndpointsResponse } from "../models/models_1";
 import {
   deserializeAws_queryDescribeDBProxyEndpointsCommand,
   serializeAws_queryDescribeDBProxyEndpointsCommand,
@@ -113,8 +108,8 @@ export class DescribeDBProxyEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBProxyEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBProxyEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

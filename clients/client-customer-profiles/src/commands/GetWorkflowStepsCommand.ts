@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  GetWorkflowStepsRequest,
-  GetWorkflowStepsRequestFilterSensitiveLog,
-  GetWorkflowStepsResponse,
-  GetWorkflowStepsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetWorkflowStepsRequest, GetWorkflowStepsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetWorkflowStepsCommand,
   serializeAws_restJson1GetWorkflowStepsCommand,
@@ -122,8 +117,8 @@ export class GetWorkflowStepsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetWorkflowStepsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetWorkflowStepsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

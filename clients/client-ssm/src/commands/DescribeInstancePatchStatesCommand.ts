@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeInstancePatchStatesRequest,
-  DescribeInstancePatchStatesRequestFilterSensitiveLog,
   DescribeInstancePatchStatesResult,
   DescribeInstancePatchStatesResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -113,7 +112,7 @@ export class DescribeInstancePatchStatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancePatchStatesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeInstancePatchStatesResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

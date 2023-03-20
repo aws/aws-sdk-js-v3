@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetUserRequest,
-  GetUserRequestFilterSensitiveLog,
-  GetUserResponse,
-  GetUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUserRequest, GetUserResponse } from "../models/models_0";
 import { deserializeAws_queryGetUserCommand, serializeAws_queryGetUserCommand } from "../protocols/Aws_query";
 
 /**
@@ -131,8 +126,8 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

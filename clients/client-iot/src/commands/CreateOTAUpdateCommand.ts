@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateOTAUpdateRequest,
-  CreateOTAUpdateRequestFilterSensitiveLog,
-  CreateOTAUpdateResponse,
-  CreateOTAUpdateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateOTAUpdateRequest, CreateOTAUpdateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateOTAUpdateCommand,
   serializeAws_restJson1CreateOTAUpdateCommand,
@@ -132,8 +127,8 @@ export class CreateOTAUpdateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOTAUpdateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOTAUpdateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

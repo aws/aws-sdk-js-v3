@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListThingGroupsRequest,
-  ListThingGroupsRequestFilterSensitiveLog,
-  ListThingGroupsResponse,
-  ListThingGroupsResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ListThingGroupsRequest, ListThingGroupsResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ListThingGroupsCommand,
   serializeAws_restJson1ListThingGroupsCommand,
@@ -120,8 +115,8 @@ export class ListThingGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListThingGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListThingGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

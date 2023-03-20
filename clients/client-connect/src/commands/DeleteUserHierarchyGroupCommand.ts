@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteUserHierarchyGroupRequest, DeleteUserHierarchyGroupRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteUserHierarchyGroupRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteUserHierarchyGroupCommand,
   serializeAws_restJson1DeleteUserHierarchyGroupCommand,
@@ -121,8 +121,8 @@ export class DeleteUserHierarchyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserHierarchyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

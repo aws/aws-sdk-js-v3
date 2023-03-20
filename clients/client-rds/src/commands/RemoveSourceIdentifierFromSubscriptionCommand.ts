@@ -15,9 +15,7 @@ import {
 
 import {
   RemoveSourceIdentifierFromSubscriptionMessage,
-  RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
   RemoveSourceIdentifierFromSubscriptionResult,
-  RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
@@ -133,8 +131,8 @@ export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveSourceIdentifierFromSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

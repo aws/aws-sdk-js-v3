@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartVectorEnrichmentJobInput,
-  StartVectorEnrichmentJobInputFilterSensitiveLog,
-  StartVectorEnrichmentJobOutput,
-  StartVectorEnrichmentJobOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StartVectorEnrichmentJobInput, StartVectorEnrichmentJobOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1StartVectorEnrichmentJobCommand,
   serializeAws_restJson1StartVectorEnrichmentJobCommand,
@@ -132,8 +127,8 @@ export class StartVectorEnrichmentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartVectorEnrichmentJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartVectorEnrichmentJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

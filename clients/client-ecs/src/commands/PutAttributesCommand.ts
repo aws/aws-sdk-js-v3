@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  PutAttributesRequest,
-  PutAttributesRequestFilterSensitiveLog,
-  PutAttributesResponse,
-  PutAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutAttributesRequest, PutAttributesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutAttributesCommand,
   serializeAws_json1_1PutAttributesCommand,
@@ -125,8 +120,8 @@ export class PutAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

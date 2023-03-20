@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateSSHPublicKeyRequest, UpdateSSHPublicKeyRequestFilterSensitiveLog } from "../models/models_1";
+import { UpdateSSHPublicKeyRequest } from "../models/models_1";
 import {
   deserializeAws_queryUpdateSSHPublicKeyCommand,
   serializeAws_queryUpdateSSHPublicKeyCommand,
@@ -112,8 +112,8 @@ export class UpdateSSHPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSSHPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

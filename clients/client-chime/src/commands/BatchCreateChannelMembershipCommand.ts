@@ -126,7 +126,7 @@ export class BatchCreateChannelMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchCreateChannelMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

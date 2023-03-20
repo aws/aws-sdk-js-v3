@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { UpdateExperienceRequest, UpdateExperienceRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateExperienceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateExperienceCommand,
   serializeAws_json1_1UpdateExperienceCommand,
@@ -128,8 +128,8 @@ export class UpdateExperienceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateExperienceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

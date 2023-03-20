@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  DeleteFunctionEventInvokeConfigRequest,
-  DeleteFunctionEventInvokeConfigRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFunctionEventInvokeConfigRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand,
   serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand,
@@ -121,8 +118,8 @@ export class DeleteFunctionEventInvokeConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionEventInvokeConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  ConfirmCustomerAgreementRequest,
-  ConfirmCustomerAgreementRequestFilterSensitiveLog,
-  ConfirmCustomerAgreementResponse,
-  ConfirmCustomerAgreementResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ConfirmCustomerAgreementRequest, ConfirmCustomerAgreementResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmCustomerAgreementCommand,
   serializeAws_json1_1ConfirmCustomerAgreementCommand,
@@ -115,8 +110,8 @@ export class ConfirmCustomerAgreementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmCustomerAgreementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmCustomerAgreementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

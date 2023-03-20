@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import {
-  RestoreTableRequest,
-  RestoreTableRequestFilterSensitiveLog,
-  RestoreTableResponse,
-  RestoreTableResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RestoreTableRequest, RestoreTableResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0RestoreTableCommand,
   serializeAws_json1_0RestoreTableCommand,
@@ -172,8 +167,8 @@ export class RestoreTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

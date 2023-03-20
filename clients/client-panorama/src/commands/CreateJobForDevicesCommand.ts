@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateJobForDevicesRequest,
-  CreateJobForDevicesRequestFilterSensitiveLog,
-  CreateJobForDevicesResponse,
-  CreateJobForDevicesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateJobForDevicesRequest, CreateJobForDevicesResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
   deserializeAws_restJson1CreateJobForDevicesCommand,
@@ -122,8 +117,8 @@ export class CreateJobForDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJobForDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobForDevicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import {
-  CreateQuantumTaskRequest,
-  CreateQuantumTaskRequestFilterSensitiveLog,
-  CreateQuantumTaskResponse,
-  CreateQuantumTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateQuantumTaskRequest, CreateQuantumTaskResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateQuantumTaskCommand,
   serializeAws_restJson1CreateQuantumTaskCommand,
@@ -129,8 +124,8 @@ export class CreateQuantumTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQuantumTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQuantumTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

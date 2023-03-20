@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteHumanTaskUiRequest,
-  DeleteHumanTaskUiRequestFilterSensitiveLog,
-  DeleteHumanTaskUiResponse,
-  DeleteHumanTaskUiResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteHumanTaskUiRequest, DeleteHumanTaskUiResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteHumanTaskUiCommand,
   serializeAws_json1_1DeleteHumanTaskUiCommand,
@@ -114,8 +109,8 @@ export class DeleteHumanTaskUiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHumanTaskUiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHumanTaskUiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterVolumeRequest,
-  RegisterVolumeRequestFilterSensitiveLog,
-  RegisterVolumeResult,
-  RegisterVolumeResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterVolumeRequest, RegisterVolumeResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1RegisterVolumeCommand,
@@ -120,8 +115,8 @@ export class RegisterVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterVolumeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

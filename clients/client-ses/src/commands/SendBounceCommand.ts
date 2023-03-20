@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendBounceRequest,
-  SendBounceRequestFilterSensitiveLog,
-  SendBounceResponse,
-  SendBounceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendBounceRequest, SendBounceResponse } from "../models/models_0";
 import { deserializeAws_querySendBounceCommand, serializeAws_querySendBounceCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
@@ -114,8 +109,8 @@ export class SendBounceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendBounceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendBounceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

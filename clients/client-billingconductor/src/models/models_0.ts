@@ -2974,122 +2974,10 @@ export const AccountAssociationsListElementFilterSensitiveLog = (obj: AccountAss
 /**
  * @internal
  */
-export const AccountGroupingFilterSensitiveLog = (obj: AccountGrouping): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateAccountsInputFilterSensitiveLog = (obj: AssociateAccountsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateAccountsOutputFilterSensitiveLog = (obj: AssociateAccountsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePricingRulesInputFilterSensitiveLog = (obj: AssociatePricingRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociatePricingRulesOutputFilterSensitiveLog = (obj: AssociatePricingRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResourceErrorFilterSensitiveLog = (obj: AssociateResourceError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateResourceResponseElementFilterSensitiveLog = (obj: AssociateResourceResponseElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ComputationPreferenceFilterSensitiveLog = (obj: ComputationPreference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateBillingGroupInputFilterSensitiveLog = (obj: CreateBillingGroupInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateBillingGroupOutputFilterSensitiveLog = (obj: CreateBillingGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBillingGroupInputFilterSensitiveLog = (obj: DeleteBillingGroupInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBillingGroupOutputFilterSensitiveLog = (obj: DeleteBillingGroupOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateAccountsInputFilterSensitiveLog = (obj: DisassociateAccountsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateAccountsOutputFilterSensitiveLog = (obj: DisassociateAccountsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBillingGroupsFilterFilterSensitiveLog = (obj: ListBillingGroupsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBillingGroupsInputFilterSensitiveLog = (obj: ListBillingGroupsInput): any => ({
-  ...obj,
 });
 
 /**
@@ -3132,106 +3020,10 @@ export const UpdateBillingGroupOutputFilterSensitiveLog = (obj: UpdateBillingGro
 /**
  * @internal
  */
-export const CustomLineItemBillingPeriodRangeFilterSensitiveLog = (obj: CustomLineItemBillingPeriodRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateResourcesToCustomLineItemInputFilterSensitiveLog = (
-  obj: BatchAssociateResourcesToCustomLineItemInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchAssociateResourcesToCustomLineItemOutputFilterSensitiveLog = (
-  obj: BatchAssociateResourcesToCustomLineItemOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateResourcesFromCustomLineItemInputFilterSensitiveLog = (
-  obj: BatchDisassociateResourcesFromCustomLineItemInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateResourceResponseElementFilterSensitiveLog = (
-  obj: DisassociateResourceResponseElement
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDisassociateResourcesFromCustomLineItemOutputFilterSensitiveLog = (
-  obj: BatchDisassociateResourcesFromCustomLineItemOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomLineItemFlatChargeDetailsFilterSensitiveLog = (obj: CustomLineItemFlatChargeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomLineItemPercentageChargeDetailsFilterSensitiveLog = (
-  obj: CustomLineItemPercentageChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomLineItemChargeDetailsFilterSensitiveLog = (obj: CustomLineItemChargeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateCustomLineItemInputFilterSensitiveLog = (obj: CreateCustomLineItemInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateCustomLineItemOutputFilterSensitiveLog = (obj: CreateCustomLineItemOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomLineItemInputFilterSensitiveLog = (obj: DeleteCustomLineItemInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomLineItemOutputFilterSensitiveLog = (obj: DeleteCustomLineItemOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -3253,31 +3045,6 @@ export const ListCustomLineItemsInputFilterSensitiveLog = (obj: ListCustomLineIt
 /**
  * @internal
  */
-export const ListCustomLineItemFlatChargeDetailsFilterSensitiveLog = (
-  obj: ListCustomLineItemFlatChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemPercentageChargeDetailsFilterSensitiveLog = (
-  obj: ListCustomLineItemPercentageChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemChargeDetailsFilterSensitiveLog = (obj: ListCustomLineItemChargeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CustomLineItemListElementFilterSensitiveLog = (obj: CustomLineItemListElement): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3292,29 +3059,6 @@ export const ListCustomLineItemsOutputFilterSensitiveLog = (obj: ListCustomLineI
   ...(obj.CustomLineItems && {
     CustomLineItems: obj.CustomLineItems.map((item) => CustomLineItemListElementFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemVersionsBillingPeriodRangeFilterFilterSensitiveLog = (
-  obj: ListCustomLineItemVersionsBillingPeriodRangeFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemVersionsFilterFilterSensitiveLog = (obj: ListCustomLineItemVersionsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCustomLineItemVersionsInputFilterSensitiveLog = (obj: ListCustomLineItemVersionsInput): any => ({
-  ...obj,
 });
 
 /**
@@ -3341,67 +3085,6 @@ export const ListCustomLineItemVersionsOutputFilterSensitiveLog = (obj: ListCust
 /**
  * @internal
  */
-export const ListResourcesAssociatedToCustomLineItemFilterFilterSensitiveLog = (
-  obj: ListResourcesAssociatedToCustomLineItemFilter
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesAssociatedToCustomLineItemInputFilterSensitiveLog = (
-  obj: ListResourcesAssociatedToCustomLineItemInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesAssociatedToCustomLineItemResponseElementFilterSensitiveLog = (
-  obj: ListResourcesAssociatedToCustomLineItemResponseElement
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourcesAssociatedToCustomLineItemOutputFilterSensitiveLog = (
-  obj: ListResourcesAssociatedToCustomLineItemOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCustomLineItemFlatChargeDetailsFilterSensitiveLog = (
-  obj: UpdateCustomLineItemFlatChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCustomLineItemPercentageChargeDetailsFilterSensitiveLog = (
-  obj: UpdateCustomLineItemPercentageChargeDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateCustomLineItemChargeDetailsFilterSensitiveLog = (obj: UpdateCustomLineItemChargeDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateCustomLineItemInputFilterSensitiveLog = (obj: UpdateCustomLineItemInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3420,20 +3103,6 @@ export const UpdateCustomLineItemOutputFilterSensitiveLog = (obj: UpdateCustomLi
 /**
  * @internal
  */
-export const ListAccountAssociationsFilterFilterSensitiveLog = (obj: ListAccountAssociationsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAccountAssociationsInputFilterSensitiveLog = (obj: ListAccountAssociationsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListAccountAssociationsOutputFilterSensitiveLog = (obj: ListAccountAssociationsOutput): any => ({
   ...obj,
   ...(obj.LinkedAccounts && {
@@ -3444,101 +3113,10 @@ export const ListAccountAssociationsOutputFilterSensitiveLog = (obj: ListAccount
 /**
  * @internal
  */
-export const ListBillingGroupCostReportsFilterFilterSensitiveLog = (obj: ListBillingGroupCostReportsFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBillingGroupCostReportsInputFilterSensitiveLog = (obj: ListBillingGroupCostReportsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BillingGroupCostReportElementFilterSensitiveLog = (obj: BillingGroupCostReportElement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBillingGroupCostReportsOutputFilterSensitiveLog = (obj: ListBillingGroupCostReportsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreatePricingPlanInputFilterSensitiveLog = (obj: CreatePricingPlanInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePricingPlanOutputFilterSensitiveLog = (obj: CreatePricingPlanOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePricingPlanInputFilterSensitiveLog = (obj: DeletePricingPlanInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePricingPlanOutputFilterSensitiveLog = (obj: DeletePricingPlanOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociatePricingRulesInputFilterSensitiveLog = (obj: DisassociatePricingRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociatePricingRulesOutputFilterSensitiveLog = (obj: DisassociatePricingRulesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingPlansFilterFilterSensitiveLog = (obj: ListPricingPlansFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingPlansInputFilterSensitiveLog = (obj: ListPricingPlansInput): any => ({
-  ...obj,
 });
 
 /**
@@ -3563,24 +3141,6 @@ export const ListPricingPlansOutputFilterSensitiveLog = (obj: ListPricingPlansOu
 /**
  * @internal
  */
-export const ListPricingPlansAssociatedWithPricingRuleInputFilterSensitiveLog = (
-  obj: ListPricingPlansAssociatedWithPricingRuleInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingPlansAssociatedWithPricingRuleOutputFilterSensitiveLog = (
-  obj: ListPricingPlansAssociatedWithPricingRuleOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdatePricingPlanInputFilterSensitiveLog = (obj: UpdatePricingPlanInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3599,73 +3159,10 @@ export const UpdatePricingPlanOutputFilterSensitiveLog = (obj: UpdatePricingPlan
 /**
  * @internal
  */
-export const CreateFreeTierConfigFilterSensitiveLog = (obj: CreateFreeTierConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTieringInputFilterSensitiveLog = (obj: CreateTieringInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreatePricingRuleInputFilterSensitiveLog = (obj: CreatePricingRuleInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreatePricingRuleOutputFilterSensitiveLog = (obj: CreatePricingRuleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePricingRuleInputFilterSensitiveLog = (obj: DeletePricingRuleInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePricingRuleOutputFilterSensitiveLog = (obj: DeletePricingRuleOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingRulesFilterFilterSensitiveLog = (obj: ListPricingRulesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingRulesInputFilterSensitiveLog = (obj: ListPricingRulesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FreeTierConfigFilterSensitiveLog = (obj: FreeTierConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TieringFilterSensitiveLog = (obj: Tiering): any => ({
-  ...obj,
 });
 
 /**
@@ -3690,38 +3187,6 @@ export const ListPricingRulesOutputFilterSensitiveLog = (obj: ListPricingRulesOu
 /**
  * @internal
  */
-export const ListPricingRulesAssociatedToPricingPlanInputFilterSensitiveLog = (
-  obj: ListPricingRulesAssociatedToPricingPlanInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPricingRulesAssociatedToPricingPlanOutputFilterSensitiveLog = (
-  obj: ListPricingRulesAssociatedToPricingPlanOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFreeTierConfigFilterSensitiveLog = (obj: UpdateFreeTierConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTieringInputFilterSensitiveLog = (obj: UpdateTieringInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdatePricingRuleInputFilterSensitiveLog = (obj: UpdatePricingRuleInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3735,32 +3200,4 @@ export const UpdatePricingRuleOutputFilterSensitiveLog = (obj: UpdatePricingRule
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });

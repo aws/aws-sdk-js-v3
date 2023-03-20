@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListAccountSettingsRequest,
-  ListAccountSettingsRequestFilterSensitiveLog,
-  ListAccountSettingsResponse,
-  ListAccountSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccountSettingsRequest, ListAccountSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAccountSettingsCommand,
   serializeAws_json1_1ListAccountSettingsCommand,
@@ -184,8 +179,8 @@ export class ListAccountSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

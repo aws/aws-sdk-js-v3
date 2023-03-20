@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetObjectRetentionOutput,
-  GetObjectRetentionOutputFilterSensitiveLog,
-  GetObjectRetentionRequest,
-  GetObjectRetentionRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { GetObjectRetentionOutput, GetObjectRetentionRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetObjectRetentionCommand,
   serializeAws_restXmlGetObjectRetentionCommand,
@@ -122,8 +117,8 @@ export class GetObjectRetentionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectRetentionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectRetentionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

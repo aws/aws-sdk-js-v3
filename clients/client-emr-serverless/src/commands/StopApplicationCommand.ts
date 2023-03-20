@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import {
-  StopApplicationRequest,
-  StopApplicationRequestFilterSensitiveLog,
-  StopApplicationResponse,
-  StopApplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopApplicationRequest, StopApplicationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopApplicationCommand,
   serializeAws_restJson1StopApplicationCommand,
@@ -117,8 +112,8 @@ export class StopApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

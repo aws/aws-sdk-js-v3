@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
-import {
-  PutObjectRequest,
-  PutObjectRequestFilterSensitiveLog,
-  PutObjectResponse,
-  PutObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutObjectRequest, PutObjectRequestFilterSensitiveLog, PutObjectResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutObjectCommand,
   serializeAws_restJson1PutObjectCommand,
@@ -121,7 +116,7 @@ export class PutObjectCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

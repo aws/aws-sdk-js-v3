@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetSignalCatalogRequest,
-  GetSignalCatalogRequestFilterSensitiveLog,
-  GetSignalCatalogResponse,
-  GetSignalCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSignalCatalogRequest, GetSignalCatalogResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0GetSignalCatalogCommand,
   serializeAws_json1_0GetSignalCatalogCommand,
@@ -122,8 +117,8 @@ export class GetSignalCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSignalCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSignalCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

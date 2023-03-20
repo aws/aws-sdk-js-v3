@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDevicesRequest,
-  ListDevicesRequestFilterSensitiveLog,
-  ListDevicesResponse,
-  ListDevicesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDevicesRequest, ListDevicesResponse } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
   deserializeAws_restJson1ListDevicesCommand,
@@ -117,8 +112,8 @@ export class ListDevicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDevicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDevicesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

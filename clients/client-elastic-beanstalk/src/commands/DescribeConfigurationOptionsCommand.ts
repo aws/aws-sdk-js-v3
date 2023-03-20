@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ConfigurationOptionsDescription,
-  ConfigurationOptionsDescriptionFilterSensitiveLog,
-  DescribeConfigurationOptionsMessage,
-  DescribeConfigurationOptionsMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { ConfigurationOptionsDescription, DescribeConfigurationOptionsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeConfigurationOptionsCommand,
   serializeAws_queryDescribeConfigurationOptionsCommand,
@@ -150,8 +145,8 @@ export class DescribeConfigurationOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConfigurationOptionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigurationOptionsDescriptionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

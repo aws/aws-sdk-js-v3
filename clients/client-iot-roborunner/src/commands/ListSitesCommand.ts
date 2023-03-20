@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTRoboRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTRoboRunnerClient";
-import {
-  ListSitesRequest,
-  ListSitesRequestFilterSensitiveLog,
-  ListSitesResponse,
-  ListSitesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSitesRequest, ListSitesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSitesCommand,
   serializeAws_restJson1ListSitesCommand,
@@ -117,8 +112,8 @@ export class ListSitesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSitesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSitesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

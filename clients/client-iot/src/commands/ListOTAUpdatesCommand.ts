@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListOTAUpdatesRequest,
-  ListOTAUpdatesRequestFilterSensitiveLog,
-  ListOTAUpdatesResponse,
-  ListOTAUpdatesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListOTAUpdatesRequest, ListOTAUpdatesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListOTAUpdatesCommand,
   serializeAws_restJson1ListOTAUpdatesCommand,
@@ -123,8 +118,8 @@ export class ListOTAUpdatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOTAUpdatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOTAUpdatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

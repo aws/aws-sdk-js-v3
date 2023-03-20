@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  UpdateSceneRequest,
-  UpdateSceneRequestFilterSensitiveLog,
-  UpdateSceneResponse,
-  UpdateSceneResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSceneRequest, UpdateSceneResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSceneCommand,
   serializeAws_restJson1UpdateSceneCommand,
@@ -120,8 +115,8 @@ export class UpdateSceneCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSceneRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSceneResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

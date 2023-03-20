@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  StartResourceEvaluationRequest,
-  StartResourceEvaluationRequestFilterSensitiveLog,
-  StartResourceEvaluationResponse,
-  StartResourceEvaluationResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StartResourceEvaluationRequest, StartResourceEvaluationResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1StartResourceEvaluationCommand,
   serializeAws_json1_1StartResourceEvaluationCommand,
@@ -124,8 +119,8 @@ export class StartResourceEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartResourceEvaluationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartResourceEvaluationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

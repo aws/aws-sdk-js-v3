@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  DescribeSignalingChannelInput,
-  DescribeSignalingChannelInputFilterSensitiveLog,
-  DescribeSignalingChannelOutput,
-  DescribeSignalingChannelOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSignalingChannelInput, DescribeSignalingChannelOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeSignalingChannelCommand,
   serializeAws_restJson1DescribeSignalingChannelCommand,
@@ -122,8 +117,8 @@ export class DescribeSignalingChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSignalingChannelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSignalingChannelOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

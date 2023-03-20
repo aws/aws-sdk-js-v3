@@ -1333,20 +1333,6 @@ export const AppInstanceSummaryFilterSensitiveLog = (obj: AppInstanceSummary): a
 /**
  * @internal
  */
-export const ChannelRetentionSettingsFilterSensitiveLog = (obj: ChannelRetentionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AppInstanceRetentionSettingsFilterSensitiveLog = (obj: AppInstanceRetentionSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AppInstanceUserFilterSensitiveLog = (obj: AppInstanceUser): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -1360,13 +1346,6 @@ export const EndpointAttributesFilterSensitiveLog = (obj: EndpointAttributes): a
   ...obj,
   ...(obj.DeviceToken && { DeviceToken: SENSITIVE_STRING }),
   ...(obj.VoipDeviceToken && { VoipDeviceToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EndpointStateFilterSensitiveLog = (obj: EndpointState): any => ({
-  ...obj,
 });
 
 /**
@@ -1423,20 +1402,6 @@ export const CreateAppInstanceRequestFilterSensitiveLog = (obj: CreateAppInstanc
 /**
  * @internal
  */
-export const CreateAppInstanceResponseFilterSensitiveLog = (obj: CreateAppInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAppInstanceAdminRequestFilterSensitiveLog = (obj: CreateAppInstanceAdminRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateAppInstanceAdminResponseFilterSensitiveLog = (obj: CreateAppInstanceAdminResponse): any => ({
   ...obj,
   ...(obj.AppInstanceAdmin && { AppInstanceAdmin: IdentityFilterSensitiveLog(obj.AppInstanceAdmin) }),
@@ -1457,47 +1422,12 @@ export const CreateAppInstanceUserRequestFilterSensitiveLog = (obj: CreateAppIns
 /**
  * @internal
  */
-export const CreateAppInstanceUserResponseFilterSensitiveLog = (obj: CreateAppInstanceUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceRequestFilterSensitiveLog = (obj: DeleteAppInstanceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceAdminRequestFilterSensitiveLog = (obj: DeleteAppInstanceAdminRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteAppInstanceUserRequestFilterSensitiveLog = (obj: DeleteAppInstanceUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeregisterAppInstanceUserEndpointRequestFilterSensitiveLog = (
   obj: DeregisterAppInstanceUserEndpointRequest
 ): any => ({
   ...obj,
   ...(obj.AppInstanceUserArn && { AppInstanceUserArn: SENSITIVE_STRING }),
   ...(obj.EndpointId && { EndpointId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeAppInstanceRequestFilterSensitiveLog = (obj: DescribeAppInstanceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1511,23 +1441,9 @@ export const DescribeAppInstanceResponseFilterSensitiveLog = (obj: DescribeAppIn
 /**
  * @internal
  */
-export const DescribeAppInstanceAdminRequestFilterSensitiveLog = (obj: DescribeAppInstanceAdminRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeAppInstanceAdminResponseFilterSensitiveLog = (obj: DescribeAppInstanceAdminResponse): any => ({
   ...obj,
   ...(obj.AppInstanceAdmin && { AppInstanceAdmin: AppInstanceAdminFilterSensitiveLog(obj.AppInstanceAdmin) }),
-});
-
-/**
- * @internal
- */
-export const DescribeAppInstanceUserRequestFilterSensitiveLog = (obj: DescribeAppInstanceUserRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1559,24 +1475,6 @@ export const DescribeAppInstanceUserEndpointResponseFilterSensitiveLog = (
   ...(obj.AppInstanceUserEndpoint && {
     AppInstanceUserEndpoint: AppInstanceUserEndpointFilterSensitiveLog(obj.AppInstanceUserEndpoint),
   }),
-});
-
-/**
- * @internal
- */
-export const GetAppInstanceRetentionSettingsRequestFilterSensitiveLog = (
-  obj: GetAppInstanceRetentionSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAppInstanceRetentionSettingsResponseFilterSensitiveLog = (
-  obj: GetAppInstanceRetentionSettingsResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -1663,34 +1561,9 @@ export const ListAppInstanceUsersResponseFilterSensitiveLog = (obj: ListAppInsta
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: obj.Tags.map((item) => TagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const PutAppInstanceRetentionSettingsRequestFilterSensitiveLog = (
-  obj: PutAppInstanceRetentionSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAppInstanceRetentionSettingsResponseFilterSensitiveLog = (
-  obj: PutAppInstanceRetentionSettingsResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -1746,24 +1619,10 @@ export const UpdateAppInstanceRequestFilterSensitiveLog = (obj: UpdateAppInstanc
 /**
  * @internal
  */
-export const UpdateAppInstanceResponseFilterSensitiveLog = (obj: UpdateAppInstanceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateAppInstanceUserRequestFilterSensitiveLog = (obj: UpdateAppInstanceUserRequest): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAppInstanceUserResponseFilterSensitiveLog = (obj: UpdateAppInstanceUserResponse): any => ({
-  ...obj,
 });
 
 /**

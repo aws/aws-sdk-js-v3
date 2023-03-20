@@ -15,7 +15,6 @@ import {
 
 import {
   GetParameterHistoryRequest,
-  GetParameterHistoryRequestFilterSensitiveLog,
   GetParameterHistoryResult,
   GetParameterHistoryResultFilterSensitiveLog,
 } from "../models/models_1";
@@ -125,7 +124,7 @@ export class GetParameterHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetParameterHistoryRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetParameterHistoryResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

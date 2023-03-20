@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  GetRepositoryCatalogDataRequest,
-  GetRepositoryCatalogDataRequestFilterSensitiveLog,
-  GetRepositoryCatalogDataResponse,
-  GetRepositoryCatalogDataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRepositoryCatalogDataRequest, GetRepositoryCatalogDataResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRepositoryCatalogDataCommand,
   serializeAws_json1_1GetRepositoryCatalogDataCommand,
@@ -125,8 +120,8 @@ export class GetRepositoryCatalogDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryCatalogDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryCatalogDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

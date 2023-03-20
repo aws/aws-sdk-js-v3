@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ClusterExtendedCredentials, ClusterExtendedCredentialsFilterSensitiveLog } from "../models/models_0";
-import {
-  GetClusterCredentialsWithIAMMessage,
-  GetClusterCredentialsWithIAMMessageFilterSensitiveLog,
-} from "../models/models_1";
+import { GetClusterCredentialsWithIAMMessage } from "../models/models_1";
 import {
   deserializeAws_queryGetClusterCredentialsWithIAMCommand,
   serializeAws_queryGetClusterCredentialsWithIAMCommand,
@@ -122,7 +119,7 @@ export class GetClusterCredentialsWithIAMCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClusterCredentialsWithIAMMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ClusterExtendedCredentialsFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

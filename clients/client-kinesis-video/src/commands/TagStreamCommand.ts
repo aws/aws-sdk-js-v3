@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  TagStreamInput,
-  TagStreamInputFilterSensitiveLog,
-  TagStreamOutput,
-  TagStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { TagStreamInput, TagStreamOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1TagStreamCommand,
   serializeAws_restJson1TagStreamCommand,
@@ -134,8 +129,8 @@ export class TagStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TagStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

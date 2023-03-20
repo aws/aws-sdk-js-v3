@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import {
-  CancelJobRunRequest,
-  CancelJobRunRequestFilterSensitiveLog,
-  CancelJobRunResponse,
-  CancelJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelJobRunRequest, CancelJobRunResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelJobRunCommand,
   serializeAws_restJson1CancelJobRunCommand,
@@ -114,8 +109,8 @@ export class CancelJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

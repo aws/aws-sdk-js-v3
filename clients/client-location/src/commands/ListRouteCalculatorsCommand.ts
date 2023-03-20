@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListRouteCalculatorsRequest,
-  ListRouteCalculatorsRequestFilterSensitiveLog,
-  ListRouteCalculatorsResponse,
-  ListRouteCalculatorsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRouteCalculatorsRequest, ListRouteCalculatorsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListRouteCalculatorsCommand,
   serializeAws_restJson1ListRouteCalculatorsCommand,
@@ -120,8 +115,8 @@ export class ListRouteCalculatorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRouteCalculatorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRouteCalculatorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

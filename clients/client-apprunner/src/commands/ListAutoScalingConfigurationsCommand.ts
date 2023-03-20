@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  ListAutoScalingConfigurationsRequest,
-  ListAutoScalingConfigurationsRequestFilterSensitiveLog,
-  ListAutoScalingConfigurationsResponse,
-  ListAutoScalingConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAutoScalingConfigurationsRequest, ListAutoScalingConfigurationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ListAutoScalingConfigurationsCommand,
   serializeAws_json1_0ListAutoScalingConfigurationsCommand,
@@ -119,8 +114,8 @@ export class ListAutoScalingConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAutoScalingConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAutoScalingConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

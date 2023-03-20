@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetPolicyRequest,
-  GetPolicyRequestFilterSensitiveLog,
-  GetPolicyResponse,
-  GetPolicyResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetPolicyRequest, GetPolicyResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetPolicyCommand,
   serializeAws_restJson1GetPolicyCommand,
@@ -121,8 +116,8 @@ export class GetPolicyCommand extends $Command<GetPolicyCommandInput, GetPolicyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

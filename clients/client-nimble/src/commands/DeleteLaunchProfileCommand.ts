@@ -15,7 +15,6 @@ import {
 
 import {
   DeleteLaunchProfileRequest,
-  DeleteLaunchProfileRequestFilterSensitiveLog,
   DeleteLaunchProfileResponse,
   DeleteLaunchProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class DeleteLaunchProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchProfileRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteLaunchProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

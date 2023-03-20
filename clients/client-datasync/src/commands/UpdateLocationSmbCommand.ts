@@ -18,7 +18,6 @@ import {
   UpdateLocationSmbRequest,
   UpdateLocationSmbRequestFilterSensitiveLog,
   UpdateLocationSmbResponse,
-  UpdateLocationSmbResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateLocationSmbCommand,
@@ -116,7 +115,7 @@ export class UpdateLocationSmbCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateLocationSmbRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLocationSmbResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

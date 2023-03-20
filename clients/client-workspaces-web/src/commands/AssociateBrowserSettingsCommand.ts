@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateBrowserSettingsRequest,
-  AssociateBrowserSettingsRequestFilterSensitiveLog,
-  AssociateBrowserSettingsResponse,
-  AssociateBrowserSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateBrowserSettingsRequest, AssociateBrowserSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateBrowserSettingsCommand,
   serializeAws_restJson1AssociateBrowserSettingsCommand,
@@ -125,8 +120,8 @@ export class AssociateBrowserSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateBrowserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateBrowserSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

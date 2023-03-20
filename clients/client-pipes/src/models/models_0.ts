@@ -2861,48 +2861,6 @@ export const AwsVpcConfigurationFilterSensitiveLog = (obj: AwsVpcConfiguration):
 /**
  * @internal
  */
-export const BatchArrayPropertiesFilterSensitiveLog = (obj: BatchArrayProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchEnvironmentVariableFilterSensitiveLog = (obj: BatchEnvironmentVariable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchResourceRequirementFilterSensitiveLog = (obj: BatchResourceRequirement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchContainerOverridesFilterSensitiveLog = (obj: BatchContainerOverrides): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchJobDependencyFilterSensitiveLog = (obj: BatchJobDependency): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchRetryStrategyFilterSensitiveLog = (obj: BatchRetryStrategy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CapacityProviderStrategyItemFilterSensitiveLog = (obj: CapacityProviderStrategyItem): any => ({
   ...obj,
   ...(obj.capacityProvider && { capacityProvider: SENSITIVE_STRING }),
@@ -2930,32 +2888,10 @@ export const PipeEnrichmentParametersFilterSensitiveLog = (obj: PipeEnrichmentPa
 /**
  * @internal
  */
-export const MQBrokerAccessCredentialsFilterSensitiveLog = (obj: MQBrokerAccessCredentials): any => {
-  if (obj.BasicAuth !== undefined) return { BasicAuth: obj.BasicAuth };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
 export const PipeSourceActiveMQBrokerParametersFilterSensitiveLog = (obj: PipeSourceActiveMQBrokerParameters): any => ({
   ...obj,
-  ...(obj.Credentials && { Credentials: MQBrokerAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
   ...(obj.QueueName && { QueueName: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeadLetterConfigFilterSensitiveLog = (obj: DeadLetterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipeSourceDynamoDBStreamParametersFilterSensitiveLog = (obj: PipeSourceDynamoDBStreamParameters): any => ({
-  ...obj,
 });
 
 /**
@@ -2977,29 +2913,13 @@ export const FilterCriteriaFilterSensitiveLog = (obj: FilterCriteria): any => ({
 /**
  * @internal
  */
-export const PipeSourceKinesisStreamParametersFilterSensitiveLog = (obj: PipeSourceKinesisStreamParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MSKAccessCredentialsFilterSensitiveLog = (obj: MSKAccessCredentials): any => {
-  if (obj.SaslScram512Auth !== undefined) return { SaslScram512Auth: obj.SaslScram512Auth };
-  if (obj.ClientCertificateTlsAuth !== undefined) return { ClientCertificateTlsAuth: obj.ClientCertificateTlsAuth };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
 export const PipeSourceManagedStreamingKafkaParametersFilterSensitiveLog = (
   obj: PipeSourceManagedStreamingKafkaParameters
 ): any => ({
   ...obj,
   ...(obj.TopicName && { TopicName: SENSITIVE_STRING }),
   ...(obj.ConsumerGroupID && { ConsumerGroupID: SENSITIVE_STRING }),
-  ...(obj.Credentials && { Credentials: MSKAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
 });
 
 /**
@@ -3007,23 +2927,10 @@ export const PipeSourceManagedStreamingKafkaParametersFilterSensitiveLog = (
  */
 export const PipeSourceRabbitMQBrokerParametersFilterSensitiveLog = (obj: PipeSourceRabbitMQBrokerParameters): any => ({
   ...obj,
-  ...(obj.Credentials && { Credentials: MQBrokerAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
   ...(obj.QueueName && { QueueName: SENSITIVE_STRING }),
   ...(obj.VirtualHost && { VirtualHost: SENSITIVE_STRING }),
 });
-
-/**
- * @internal
- */
-export const SelfManagedKafkaAccessConfigurationCredentialsFilterSensitiveLog = (
-  obj: SelfManagedKafkaAccessConfigurationCredentials
-): any => {
-  if (obj.BasicAuth !== undefined) return { BasicAuth: obj.BasicAuth };
-  if (obj.SaslScram512Auth !== undefined) return { SaslScram512Auth: obj.SaslScram512Auth };
-  if (obj.SaslScram256Auth !== undefined) return { SaslScram256Auth: obj.SaslScram256Auth };
-  if (obj.ClientCertificateTlsAuth !== undefined) return { ClientCertificateTlsAuth: obj.ClientCertificateTlsAuth };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
 /**
  * @internal
@@ -3046,17 +2953,8 @@ export const PipeSourceSelfManagedKafkaParametersFilterSensitiveLog = (
   ...(obj.TopicName && { TopicName: SENSITIVE_STRING }),
   ...(obj.AdditionalBootstrapServers && { AdditionalBootstrapServers: SENSITIVE_STRING }),
   ...(obj.ConsumerGroupID && { ConsumerGroupID: SENSITIVE_STRING }),
-  ...(obj.Credentials && {
-    Credentials: SelfManagedKafkaAccessConfigurationCredentialsFilterSensitiveLog(obj.Credentials),
-  }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
   ...(obj.Vpc && { Vpc: SelfManagedKafkaAccessConfigurationVpcFilterSensitiveLog(obj.Vpc) }),
-});
-
-/**
- * @internal
- */
-export const PipeSourceSqsQueueParametersFilterSensitiveLog = (obj: PipeSourceSqsQueueParameters): any => ({
-  ...obj,
 });
 
 /**
@@ -3084,74 +2982,11 @@ export const PipeSourceParametersFilterSensitiveLog = (obj: PipeSourceParameters
 /**
  * @internal
  */
-export const PipeTargetBatchJobParametersFilterSensitiveLog = (obj: PipeTargetBatchJobParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PipeTargetCloudWatchLogsParametersFilterSensitiveLog = (obj: PipeTargetCloudWatchLogsParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const NetworkConfigurationFilterSensitiveLog = (obj: NetworkConfiguration): any => ({
   ...obj,
   ...(obj.awsvpcConfiguration && {
     awsvpcConfiguration: AwsVpcConfigurationFilterSensitiveLog(obj.awsvpcConfiguration),
   }),
-});
-
-/**
- * @internal
- */
-export const EcsEnvironmentVariableFilterSensitiveLog = (obj: EcsEnvironmentVariable): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsEnvironmentFileFilterSensitiveLog = (obj: EcsEnvironmentFile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsResourceRequirementFilterSensitiveLog = (obj: EcsResourceRequirement): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsContainerOverrideFilterSensitiveLog = (obj: EcsContainerOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsEphemeralStorageFilterSensitiveLog = (obj: EcsEphemeralStorage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsInferenceAcceleratorOverrideFilterSensitiveLog = (obj: EcsInferenceAcceleratorOverride): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EcsTaskOverrideFilterSensitiveLog = (obj: EcsTaskOverride): any => ({
-  ...obj,
 });
 
 /**
@@ -3234,13 +3069,6 @@ export const PipeTargetKinesisStreamParametersFilterSensitiveLog = (obj: PipeTar
 /**
  * @internal
  */
-export const PipeTargetLambdaFunctionParametersFilterSensitiveLog = (obj: PipeTargetLambdaFunctionParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PipeTargetRedshiftDataParametersFilterSensitiveLog = (obj: PipeTargetRedshiftDataParameters): any => ({
   ...obj,
   ...(obj.Database && { Database: SENSITIVE_STRING }),
@@ -3277,13 +3105,6 @@ export const PipeTargetSqsQueueParametersFilterSensitiveLog = (obj: PipeTargetSq
   ...obj,
   ...(obj.MessageGroupId && { MessageGroupId: SENSITIVE_STRING }),
   ...(obj.MessageDeduplicationId && { MessageDeduplicationId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PipeTargetStateMachineParametersFilterSensitiveLog = (obj: PipeTargetStateMachineParameters): any => ({
-  ...obj,
 });
 
 /**
@@ -3334,41 +3155,6 @@ export const CreatePipeRequestFilterSensitiveLog = (obj: CreatePipeRequest): any
 /**
  * @internal
  */
-export const CreatePipeResponseFilterSensitiveLog = (obj: CreatePipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePipeRequestFilterSensitiveLog = (obj: DeletePipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePipeResponseFilterSensitiveLog = (obj: DeletePipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribePipeRequestFilterSensitiveLog = (obj: DescribePipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribePipeResponseFilterSensitiveLog = (obj: DescribePipeResponse): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
@@ -3391,23 +3177,9 @@ export const ListPipesRequestFilterSensitiveLog = (obj: ListPipesRequest): any =
 /**
  * @internal
  */
-export const PipeFilterSensitiveLog = (obj: Pipe): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListPipesResponseFilterSensitiveLog = (obj: ListPipesResponse): any => ({
   ...obj,
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3421,97 +3193,12 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
 /**
  * @internal
  */
-export const StartPipeRequestFilterSensitiveLog = (obj: StartPipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartPipeResponseFilterSensitiveLog = (obj: StartPipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopPipeRequestFilterSensitiveLog = (obj: StopPipeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopPipeResponseFilterSensitiveLog = (obj: StopPipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceActiveMQBrokerParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceActiveMQBrokerParameters
-): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: MQBrokerAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceDynamoDBStreamParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceDynamoDBStreamParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceKinesisStreamParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceKinesisStreamParameters
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceManagedStreamingKafkaParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceManagedStreamingKafkaParameters
-): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: MSKAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceRabbitMQBrokerParametersFilterSensitiveLog = (
-  obj: UpdatePipeSourceRabbitMQBrokerParameters
-): any => ({
-  ...obj,
-  ...(obj.Credentials && { Credentials: MQBrokerAccessCredentialsFilterSensitiveLog(obj.Credentials) }),
-});
-
-/**
- * @internal
- */
 export const UpdatePipeSourceSelfManagedKafkaParametersFilterSensitiveLog = (
   obj: UpdatePipeSourceSelfManagedKafkaParameters
 ): any => ({
   ...obj,
-  ...(obj.Credentials && {
-    Credentials: SelfManagedKafkaAccessConfigurationCredentialsFilterSensitiveLog(obj.Credentials),
-  }),
+  ...(obj.Credentials && { Credentials: obj.Credentials }),
   ...(obj.Vpc && { Vpc: SelfManagedKafkaAccessConfigurationVpcFilterSensitiveLog(obj.Vpc) }),
-});
-
-/**
- * @internal
- */
-export const UpdatePipeSourceSqsQueueParametersFilterSensitiveLog = (obj: UpdatePipeSourceSqsQueueParameters): any => ({
-  ...obj,
 });
 
 /**
@@ -3520,17 +3207,9 @@ export const UpdatePipeSourceSqsQueueParametersFilterSensitiveLog = (obj: Update
 export const UpdatePipeSourceParametersFilterSensitiveLog = (obj: UpdatePipeSourceParameters): any => ({
   ...obj,
   ...(obj.FilterCriteria && { FilterCriteria: FilterCriteriaFilterSensitiveLog(obj.FilterCriteria) }),
-  ...(obj.ActiveMQBrokerParameters && {
-    ActiveMQBrokerParameters: UpdatePipeSourceActiveMQBrokerParametersFilterSensitiveLog(obj.ActiveMQBrokerParameters),
-  }),
-  ...(obj.RabbitMQBrokerParameters && {
-    RabbitMQBrokerParameters: UpdatePipeSourceRabbitMQBrokerParametersFilterSensitiveLog(obj.RabbitMQBrokerParameters),
-  }),
-  ...(obj.ManagedStreamingKafkaParameters && {
-    ManagedStreamingKafkaParameters: UpdatePipeSourceManagedStreamingKafkaParametersFilterSensitiveLog(
-      obj.ManagedStreamingKafkaParameters
-    ),
-  }),
+  ...(obj.ActiveMQBrokerParameters && { ActiveMQBrokerParameters: obj.ActiveMQBrokerParameters }),
+  ...(obj.RabbitMQBrokerParameters && { RabbitMQBrokerParameters: obj.RabbitMQBrokerParameters }),
+  ...(obj.ManagedStreamingKafkaParameters && { ManagedStreamingKafkaParameters: obj.ManagedStreamingKafkaParameters }),
   ...(obj.SelfManagedKafkaParameters && {
     SelfManagedKafkaParameters: UpdatePipeSourceSelfManagedKafkaParametersFilterSensitiveLog(
       obj.SelfManagedKafkaParameters
@@ -3554,35 +3233,7 @@ export const UpdatePipeRequestFilterSensitiveLog = (obj: UpdatePipeRequest): any
 /**
  * @internal
  */
-export const UpdatePipeResponseFilterSensitiveLog = (obj: UpdatePipeResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });

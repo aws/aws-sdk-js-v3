@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DescribeCustomDomainsRequest,
-  DescribeCustomDomainsRequestFilterSensitiveLog,
-  DescribeCustomDomainsResponse,
-  DescribeCustomDomainsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeCustomDomainsRequest, DescribeCustomDomainsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeCustomDomainsCommand,
   serializeAws_json1_0DescribeCustomDomainsCommand,
@@ -116,8 +111,8 @@ export class DescribeCustomDomainsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomDomainsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCustomDomainsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

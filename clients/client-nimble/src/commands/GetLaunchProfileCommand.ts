@@ -15,7 +15,6 @@ import {
 
 import {
   GetLaunchProfileRequest,
-  GetLaunchProfileRequestFilterSensitiveLog,
   GetLaunchProfileResponse,
   GetLaunchProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class GetLaunchProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLaunchProfileRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLaunchProfileResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

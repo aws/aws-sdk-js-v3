@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  AttachDiskRequest,
-  AttachDiskRequestFilterSensitiveLog,
-  AttachDiskResult,
-  AttachDiskResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AttachDiskRequest, AttachDiskResult } from "../models/models_0";
 import {
   deserializeAws_json1_1AttachDiskCommand,
   serializeAws_json1_1AttachDiskCommand,
@@ -139,8 +134,8 @@ export class AttachDiskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachDiskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachDiskResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

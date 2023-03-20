@@ -18,7 +18,6 @@ import {
   PutSnapshotBlockRequest,
   PutSnapshotBlockRequestFilterSensitiveLog,
   PutSnapshotBlockResponse,
-  PutSnapshotBlockResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutSnapshotBlockCommand,
@@ -139,7 +138,7 @@ export class PutSnapshotBlockCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutSnapshotBlockRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSnapshotBlockResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

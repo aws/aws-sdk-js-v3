@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  ListProductSubscriptionsRequest,
-  ListProductSubscriptionsRequestFilterSensitiveLog,
-  ListProductSubscriptionsResponse,
-  ListProductSubscriptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListProductSubscriptionsRequest, ListProductSubscriptionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListProductSubscriptionsCommand,
   serializeAws_restJson1ListProductSubscriptionsCommand,
@@ -133,8 +128,8 @@ export class ListProductSubscriptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProductSubscriptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProductSubscriptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

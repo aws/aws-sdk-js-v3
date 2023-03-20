@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetSerialConsoleAccessStatusRequest,
-  GetSerialConsoleAccessStatusRequestFilterSensitiveLog,
-  GetSerialConsoleAccessStatusResult,
-  GetSerialConsoleAccessStatusResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetSerialConsoleAccessStatusRequest, GetSerialConsoleAccessStatusResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetSerialConsoleAccessStatusCommand,
   serializeAws_ec2GetSerialConsoleAccessStatusCommand,
@@ -112,8 +107,8 @@ export class GetSerialConsoleAccessStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSerialConsoleAccessStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSerialConsoleAccessStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

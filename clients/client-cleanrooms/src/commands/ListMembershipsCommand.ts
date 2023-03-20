@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  ListMembershipsInput,
-  ListMembershipsInputFilterSensitiveLog,
-  ListMembershipsOutput,
-  ListMembershipsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListMembershipsInput, ListMembershipsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListMembershipsCommand,
   serializeAws_restJson1ListMembershipsCommand,
@@ -119,8 +114,8 @@ export class ListMembershipsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMembershipsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMembershipsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

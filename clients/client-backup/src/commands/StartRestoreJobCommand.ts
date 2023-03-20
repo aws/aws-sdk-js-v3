@@ -18,7 +18,6 @@ import {
   StartRestoreJobInput,
   StartRestoreJobInputFilterSensitiveLog,
   StartRestoreJobOutput,
-  StartRestoreJobOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1StartRestoreJobCommand,
@@ -121,7 +120,7 @@ export class StartRestoreJobCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartRestoreJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRestoreJobOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

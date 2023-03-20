@@ -15,7 +15,6 @@ import {
 
 import {
   ListServiceTemplatesInput,
-  ListServiceTemplatesInputFilterSensitiveLog,
   ListServiceTemplatesOutput,
   ListServiceTemplatesOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class ListServiceTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServiceTemplatesInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListServiceTemplatesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

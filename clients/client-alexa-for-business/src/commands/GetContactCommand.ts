@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetContactRequest,
-  GetContactRequestFilterSensitiveLog,
-  GetContactResponse,
-  GetContactResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetContactRequest, GetContactResponse, GetContactResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1GetContactCommand,
   serializeAws_json1_1GetContactCommand,
@@ -108,7 +103,7 @@ export class GetContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

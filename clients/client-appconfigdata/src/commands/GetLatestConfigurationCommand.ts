@@ -16,7 +16,6 @@ import {
 import { AppConfigDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigDataClient";
 import {
   GetLatestConfigurationRequest,
-  GetLatestConfigurationRequestFilterSensitiveLog,
   GetLatestConfigurationResponse,
   GetLatestConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -139,7 +138,7 @@ export class GetLatestConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLatestConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetLatestConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

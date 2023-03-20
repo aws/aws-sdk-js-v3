@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  PutImageRequest,
-  PutImageRequestFilterSensitiveLog,
-  PutImageResponse,
-  PutImageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutImageRequest, PutImageResponse } from "../models/models_0";
 import { deserializeAws_json1_1PutImageCommand, serializeAws_json1_1PutImageCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -144,8 +139,8 @@ export class PutImageCommand extends $Command<PutImageCommandInput, PutImageComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

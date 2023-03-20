@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDefaultMailDomainRequest,
-  UpdateDefaultMailDomainRequestFilterSensitiveLog,
-  UpdateDefaultMailDomainResponse,
-  UpdateDefaultMailDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDefaultMailDomainRequest, UpdateDefaultMailDomainResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDefaultMailDomainCommand,
   serializeAws_json1_1UpdateDefaultMailDomainCommand,
@@ -125,8 +120,8 @@ export class UpdateDefaultMailDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDefaultMailDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDefaultMailDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -1581,26 +1581,11 @@ export const ExternalIdFilterSensitiveLog = (obj: ExternalId): any => ({
 /**
  * @internal
  */
-export const UniqueAttributeFilterSensitiveLog = (obj: UniqueAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AlternateIdentifierFilterSensitiveLog = (obj: AlternateIdentifier): any => {
   if (obj.ExternalId !== undefined) return { ExternalId: ExternalIdFilterSensitiveLog(obj.ExternalId) };
-  if (obj.UniqueAttribute !== undefined)
-    return { UniqueAttribute: UniqueAttributeFilterSensitiveLog(obj.UniqueAttribute) };
+  if (obj.UniqueAttribute !== undefined) return { UniqueAttribute: obj.UniqueAttribute };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const AttributeOperationFilterSensitiveLog = (obj: AttributeOperation): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -1610,36 +1595,6 @@ export const GetGroupIdRequestFilterSensitiveLog = (obj: GetGroupIdRequest): any
   ...(obj.AlternateIdentifier && {
     AlternateIdentifier: AlternateIdentifierFilterSensitiveLog(obj.AlternateIdentifier),
   }),
-});
-
-/**
- * @internal
- */
-export const GetGroupIdResponseFilterSensitiveLog = (obj: GetGroupIdResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberIdFilterSensitiveLog = (obj: MemberId): any => {
-  if (obj.UserId !== undefined) return { UserId: obj.UserId };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const GetGroupMembershipIdRequestFilterSensitiveLog = (obj: GetGroupMembershipIdRequest): any => ({
-  ...obj,
-  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
-});
-
-/**
- * @internal
- */
-export const GetGroupMembershipIdResponseFilterSensitiveLog = (obj: GetGroupMembershipIdResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -1655,114 +1610,10 @@ export const GetUserIdRequestFilterSensitiveLog = (obj: GetUserIdRequest): any =
 /**
  * @internal
  */
-export const GetUserIdResponseFilterSensitiveLog = (obj: GetUserIdResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGroupMembershipRequestFilterSensitiveLog = (obj: CreateGroupMembershipRequest): any => ({
-  ...obj,
-  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
-});
-
-/**
- * @internal
- */
-export const CreateGroupMembershipResponseFilterSensitiveLog = (obj: CreateGroupMembershipResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupMembershipRequestFilterSensitiveLog = (obj: DeleteGroupMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupMembershipResponseFilterSensitiveLog = (obj: DeleteGroupMembershipResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGroupMembershipRequestFilterSensitiveLog = (obj: DescribeGroupMembershipRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGroupMembershipResponseFilterSensitiveLog = (obj: DescribeGroupMembershipResponse): any => ({
-  ...obj,
-  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
-});
-
-/**
- * @internal
- */
-export const ListGroupMembershipsRequestFilterSensitiveLog = (obj: ListGroupMembershipsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GroupMembershipFilterSensitiveLog = (obj: GroupMembership): any => ({
-  ...obj,
-  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
-});
-
-/**
- * @internal
- */
-export const ListGroupMembershipsResponseFilterSensitiveLog = (obj: ListGroupMembershipsResponse): any => ({
-  ...obj,
-  ...(obj.GroupMemberships && {
-    GroupMemberships: obj.GroupMemberships.map((item) => GroupMembershipFilterSensitiveLog(item)),
-  }),
-});
-
-/**
- * @internal
- */
 export const CreateGroupRequestFilterSensitiveLog = (obj: CreateGroupRequest): any => ({
   ...obj,
   ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateGroupResponseFilterSensitiveLog = (obj: CreateGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupRequestFilterSensitiveLog = (obj: DeleteGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteGroupResponseFilterSensitiveLog = (obj: DeleteGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeGroupRequestFilterSensitiveLog = (obj: DescribeGroupRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -1812,31 +1663,9 @@ export const ListGroupsResponseFilterSensitiveLog = (obj: ListGroupsResponse): a
 /**
  * @internal
  */
-export const UpdateGroupRequestFilterSensitiveLog = (obj: UpdateGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGroupResponseFilterSensitiveLog = (obj: UpdateGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IsMemberInGroupsRequestFilterSensitiveLog = (obj: IsMemberInGroupsRequest): any => ({
-  ...obj,
-  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
-});
-
-/**
- * @internal
- */
 export const GroupMembershipExistenceResultFilterSensitiveLog = (obj: GroupMembershipExistenceResult): any => ({
   ...obj,
-  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
+  ...(obj.MemberId && { MemberId: obj.MemberId }),
   ...(obj.MembershipExists && { MembershipExists: SENSITIVE_STRING }),
 });
 
@@ -1846,28 +1675,6 @@ export const GroupMembershipExistenceResultFilterSensitiveLog = (obj: GroupMembe
 export const IsMemberInGroupsResponseFilterSensitiveLog = (obj: IsMemberInGroupsResponse): any => ({
   ...obj,
   ...(obj.Results && { Results: obj.Results.map((item) => GroupMembershipExistenceResultFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListGroupMembershipsForMemberRequestFilterSensitiveLog = (
-  obj: ListGroupMembershipsForMemberRequest
-): any => ({
-  ...obj,
-  ...(obj.MemberId && { MemberId: MemberIdFilterSensitiveLog(obj.MemberId) }),
-});
-
-/**
- * @internal
- */
-export const ListGroupMembershipsForMemberResponseFilterSensitiveLog = (
-  obj: ListGroupMembershipsForMemberResponse
-): any => ({
-  ...obj,
-  ...(obj.GroupMemberships && {
-    GroupMemberships: obj.GroupMemberships.map((item) => GroupMembershipFilterSensitiveLog(item)),
-  }),
 });
 
 /**
@@ -1926,34 +1733,6 @@ export const CreateUserRequestFilterSensitiveLog = (obj: CreateUserRequest): any
 /**
  * @internal
  */
-export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserRequestFilterSensitiveLog = (obj: DeleteUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserResponseFilterSensitiveLog = (obj: DeleteUserResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeUserRequestFilterSensitiveLog = (obj: DescribeUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeUserResponseFilterSensitiveLog = (obj: DescribeUserResponse): any => ({
   ...obj,
   ...(obj.UserName && { UserName: SENSITIVE_STRING }),
@@ -2007,18 +1786,4 @@ export const UserFilterSensitiveLog = (obj: User): any => ({
 export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
   ...obj,
   ...(obj.Users && { Users: obj.Users.map((item) => UserFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserRequestFilterSensitiveLog = (obj: UpdateUserRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserResponseFilterSensitiveLog = (obj: UpdateUserResponse): any => ({
-  ...obj,
 });

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  UpdateFunctionUrlConfigRequest,
-  UpdateFunctionUrlConfigRequestFilterSensitiveLog,
-  UpdateFunctionUrlConfigResponse,
-  UpdateFunctionUrlConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFunctionUrlConfigRequest, UpdateFunctionUrlConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFunctionUrlConfigCommand,
   serializeAws_restJson1UpdateFunctionUrlConfigCommand,
@@ -122,8 +117,8 @@ export class UpdateFunctionUrlConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFunctionUrlConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFunctionUrlConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEventStreamRequest,
-  GetEventStreamRequestFilterSensitiveLog,
-  GetEventStreamResponse,
-  GetEventStreamResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetEventStreamRequest, GetEventStreamResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetEventStreamCommand,
@@ -128,8 +123,8 @@ export class GetEventStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEventStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

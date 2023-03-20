@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetNetworkResourceRelationshipsRequest,
-  GetNetworkResourceRelationshipsRequestFilterSensitiveLog,
-  GetNetworkResourceRelationshipsResponse,
-  GetNetworkResourceRelationshipsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetNetworkResourceRelationshipsRequest, GetNetworkResourceRelationshipsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetNetworkResourceRelationshipsCommand,
@@ -124,8 +119,8 @@ export class GetNetworkResourceRelationshipsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkResourceRelationshipsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetNetworkResourceRelationshipsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

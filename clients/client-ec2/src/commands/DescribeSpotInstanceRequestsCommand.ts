@@ -16,7 +16,6 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeSpotInstanceRequestsRequest,
-  DescribeSpotInstanceRequestsRequestFilterSensitiveLog,
   DescribeSpotInstanceRequestsResult,
   DescribeSpotInstanceRequestsResultFilterSensitiveLog,
 } from "../models/models_4";
@@ -180,7 +179,7 @@ export class DescribeSpotInstanceRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpotInstanceRequestsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSpotInstanceRequestsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

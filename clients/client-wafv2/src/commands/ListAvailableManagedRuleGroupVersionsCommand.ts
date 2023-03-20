@@ -15,9 +15,7 @@ import {
 
 import {
   ListAvailableManagedRuleGroupVersionsRequest,
-  ListAvailableManagedRuleGroupVersionsRequestFilterSensitiveLog,
   ListAvailableManagedRuleGroupVersionsResponse,
-  ListAvailableManagedRuleGroupVersionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAvailableManagedRuleGroupVersionsCommand,
@@ -144,8 +142,8 @@ export class ListAvailableManagedRuleGroupVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailableManagedRuleGroupVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailableManagedRuleGroupVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  Application,
-  ApplicationFilterSensitiveLog,
-  UnarchiveApplicationRequest,
-  UnarchiveApplicationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { Application, ApplicationFilterSensitiveLog, UnarchiveApplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UnarchiveApplicationCommand,
   serializeAws_restJson1UnarchiveApplicationCommand,
@@ -116,7 +111,7 @@ export class UnarchiveApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnarchiveApplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ApplicationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

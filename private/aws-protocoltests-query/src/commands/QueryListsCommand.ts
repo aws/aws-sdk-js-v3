@@ -12,20 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { QueryListsInput, QueryListsInputFilterSensitiveLog } from "../models/models_0";
+import { QueryListsInput } from "../models/models_0";
 import { deserializeAws_queryQueryListsCommand, serializeAws_queryQueryListsCommand } from "../protocols/Aws_query";
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link QueryListsCommand}.
  */
 export interface QueryListsCommandInput extends QueryListsInput {}
 /**
+ * @public
+ *
  * The output of {@link QueryListsCommand}.
  */
 export interface QueryListsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This test serializes simple and complex lists.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,6 +42,8 @@ export interface QueryListsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryListsCommandInput - {@link QueryListsCommandInput}
+ * @returns {@link QueryListsCommandOutput}
  * @see {@link QueryListsCommandInput} for command's `input` shape.
  * @see {@link QueryListsCommandOutput} for command's `response` shape.
  * @see {@link QueryProtocolClientResolvedConfig | config} for QueryProtocolClient's `config` shape.
@@ -51,6 +58,9 @@ export class QueryListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,8 +86,8 @@ export class QueryListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryListsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,10 +97,16 @@ export class QueryListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryQueryListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryListsCommandOutput> {
     return deserializeAws_queryQueryListsCommand(output, context);
   }

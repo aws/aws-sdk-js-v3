@@ -1053,13 +1053,6 @@ export interface UpdateResourceOutput {
 /**
  * @internal
  */
-export const CancelResourceRequestInputFilterSensitiveLog = (obj: CancelResourceRequestInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ProgressEventFilterSensitiveLog = (obj: ProgressEvent): any => ({
   ...obj,
   ...(obj.ResourceModel && { ResourceModel: SENSITIVE_STRING }),
@@ -1092,23 +1085,9 @@ export const CreateResourceOutputFilterSensitiveLog = (obj: CreateResourceOutput
 /**
  * @internal
  */
-export const DeleteResourceInputFilterSensitiveLog = (obj: DeleteResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteResourceOutputFilterSensitiveLog = (obj: DeleteResourceOutput): any => ({
   ...obj,
   ...(obj.ProgressEvent && { ProgressEvent: ProgressEventFilterSensitiveLog(obj.ProgressEvent) }),
-});
-
-/**
- * @internal
- */
-export const GetResourceInputFilterSensitiveLog = (obj: GetResourceInput): any => ({
-  ...obj,
 });
 
 /**
@@ -1132,30 +1111,9 @@ export const GetResourceOutputFilterSensitiveLog = (obj: GetResourceOutput): any
 /**
  * @internal
  */
-export const GetResourceRequestStatusInputFilterSensitiveLog = (obj: GetResourceRequestStatusInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetResourceRequestStatusOutputFilterSensitiveLog = (obj: GetResourceRequestStatusOutput): any => ({
   ...obj,
   ...(obj.ProgressEvent && { ProgressEvent: ProgressEventFilterSensitiveLog(obj.ProgressEvent) }),
-});
-
-/**
- * @internal
- */
-export const ResourceRequestStatusFilterFilterSensitiveLog = (obj: ResourceRequestStatusFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceRequestsInputFilterSensitiveLog = (obj: ListResourceRequestsInput): any => ({
-  ...obj,
 });
 
 /**

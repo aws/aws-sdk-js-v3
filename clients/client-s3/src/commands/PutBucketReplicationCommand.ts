@@ -14,7 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketReplicationRequest, PutBucketReplicationRequestFilterSensitiveLog } from "../models/models_0";
+import { PutBucketReplicationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketReplicationCommand,
   serializeAws_restXmlPutBucketReplicationCommand,
@@ -201,8 +201,8 @@ export class PutBucketReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketReplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

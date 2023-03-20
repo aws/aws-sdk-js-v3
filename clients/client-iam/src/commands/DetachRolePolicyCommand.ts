@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DetachRolePolicyRequest, DetachRolePolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { DetachRolePolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryDetachRolePolicyCommand,
   serializeAws_queryDetachRolePolicyCommand,
@@ -128,8 +128,8 @@ export class DetachRolePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachRolePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

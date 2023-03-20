@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  ListProgressUpdateStreamsRequest,
-  ListProgressUpdateStreamsRequestFilterSensitiveLog,
-  ListProgressUpdateStreamsResult,
-  ListProgressUpdateStreamsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListProgressUpdateStreamsRequest, ListProgressUpdateStreamsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListProgressUpdateStreamsCommand,
   serializeAws_json1_1ListProgressUpdateStreamsCommand,
@@ -128,8 +123,8 @@ export class ListProgressUpdateStreamsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProgressUpdateStreamsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProgressUpdateStreamsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutBucketCorsRequest, PutBucketCorsRequestFilterSensitiveLog } from "../models/models_0";
+import { PutBucketCorsRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutBucketCorsCommand,
   serializeAws_restXmlPutBucketCorsCommand,
@@ -214,8 +214,8 @@ export class PutBucketCorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBucketCorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

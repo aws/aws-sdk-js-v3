@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DeleteNetworkInsightsAccessScopeAnalysisRequest,
-  DeleteNetworkInsightsAccessScopeAnalysisRequestFilterSensitiveLog,
   DeleteNetworkInsightsAccessScopeAnalysisResult,
-  DeleteNetworkInsightsAccessScopeAnalysisResultFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteNetworkInsightsAccessScopeAnalysisCommand,
@@ -116,8 +114,8 @@ export class DeleteNetworkInsightsAccessScopeAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkInsightsAccessScopeAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkInsightsAccessScopeAnalysisResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

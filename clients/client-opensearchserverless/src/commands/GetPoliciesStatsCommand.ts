@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPoliciesStatsRequest,
-  GetPoliciesStatsRequestFilterSensitiveLog,
-  GetPoliciesStatsResponse,
-  GetPoliciesStatsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPoliciesStatsRequest, GetPoliciesStatsResponse } from "../models/models_0";
 import {
   OpenSearchServerlessClientResolvedConfig,
   ServiceInputTypes,
@@ -115,8 +110,8 @@ export class GetPoliciesStatsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPoliciesStatsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPoliciesStatsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

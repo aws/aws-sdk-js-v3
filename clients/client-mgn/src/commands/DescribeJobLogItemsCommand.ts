@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  DescribeJobLogItemsRequest,
-  DescribeJobLogItemsRequestFilterSensitiveLog,
-  DescribeJobLogItemsResponse,
-  DescribeJobLogItemsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeJobLogItemsRequest, DescribeJobLogItemsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeJobLogItemsCommand,
   serializeAws_restJson1DescribeJobLogItemsCommand,
@@ -113,8 +108,8 @@ export class DescribeJobLogItemsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobLogItemsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeJobLogItemsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

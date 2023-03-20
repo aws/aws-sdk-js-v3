@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  CreateDeploymentStrategyRequest,
-  CreateDeploymentStrategyRequestFilterSensitiveLog,
-  DeploymentStrategy,
-  DeploymentStrategyFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDeploymentStrategyRequest, DeploymentStrategy } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDeploymentStrategyCommand,
   serializeAws_restJson1CreateDeploymentStrategyCommand,
@@ -141,8 +136,8 @@ export class CreateDeploymentStrategyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDeploymentStrategyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeploymentStrategyFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

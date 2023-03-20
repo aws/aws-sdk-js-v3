@@ -15,7 +15,6 @@ import {
 
 import {
   EnableAllFeaturesRequest,
-  EnableAllFeaturesRequestFilterSensitiveLog,
   EnableAllFeaturesResponse,
   EnableAllFeaturesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -354,7 +353,7 @@ export class EnableAllFeaturesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableAllFeaturesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: EnableAllFeaturesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

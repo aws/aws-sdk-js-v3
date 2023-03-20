@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  PutAggregationAuthorizationRequest,
-  PutAggregationAuthorizationRequestFilterSensitiveLog,
-  PutAggregationAuthorizationResponse,
-  PutAggregationAuthorizationResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1PutAggregationAuthorizationCommand,
   serializeAws_json1_1PutAggregationAuthorizationCommand,
@@ -119,8 +114,8 @@ export class PutAggregationAuthorizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAggregationAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutAggregationAuthorizationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

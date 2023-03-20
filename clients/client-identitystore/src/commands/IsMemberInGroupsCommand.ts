@@ -16,7 +16,6 @@ import {
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import {
   IsMemberInGroupsRequest,
-  IsMemberInGroupsRequestFilterSensitiveLog,
   IsMemberInGroupsResponse,
   IsMemberInGroupsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class IsMemberInGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: IsMemberInGroupsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: IsMemberInGroupsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListGroupsForUserRequest,
-  ListGroupsForUserRequestFilterSensitiveLog,
-  ListGroupsForUserResponse,
-  ListGroupsForUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListGroupsForUserRequest, ListGroupsForUserResponse } from "../models/models_0";
 import {
   deserializeAws_queryListGroupsForUserCommand,
   serializeAws_queryListGroupsForUserCommand,
@@ -148,8 +143,8 @@ export class ListGroupsForUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGroupsForUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGroupsForUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

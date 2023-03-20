@@ -16,9 +16,7 @@ import {
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
 import {
   DescribeEnvironmentManagedActionHistoryRequest,
-  DescribeEnvironmentManagedActionHistoryRequestFilterSensitiveLog,
   DescribeEnvironmentManagedActionHistoryResult,
-  DescribeEnvironmentManagedActionHistoryResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryDescribeEnvironmentManagedActionHistoryCommand,
@@ -119,8 +117,8 @@ export class DescribeEnvironmentManagedActionHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentManagedActionHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEnvironmentManagedActionHistoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import {
-  DisassociateMemberAccountRequest,
-  DisassociateMemberAccountRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateMemberAccountRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateMemberAccountCommand,
   serializeAws_json1_1DisassociateMemberAccountCommand,
@@ -113,8 +110,8 @@ export class DisassociateMemberAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMemberAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

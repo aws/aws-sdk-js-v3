@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteStudioLifecycleConfigRequest,
-  DeleteStudioLifecycleConfigRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteStudioLifecycleConfigRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteStudioLifecycleConfigCommand,
   serializeAws_json1_1DeleteStudioLifecycleConfigCommand,
@@ -111,8 +108,8 @@ export class DeleteStudioLifecycleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStudioLifecycleConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

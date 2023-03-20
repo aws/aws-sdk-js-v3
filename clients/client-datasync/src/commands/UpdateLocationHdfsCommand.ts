@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  UpdateLocationHdfsRequest,
-  UpdateLocationHdfsRequestFilterSensitiveLog,
-  UpdateLocationHdfsResponse,
-  UpdateLocationHdfsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateLocationHdfsRequest, UpdateLocationHdfsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateLocationHdfsCommand,
   serializeAws_json1_1UpdateLocationHdfsCommand,
@@ -114,8 +109,8 @@ export class UpdateLocationHdfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLocationHdfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLocationHdfsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

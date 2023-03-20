@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetSettingsRequest,
-  GetSettingsRequestFilterSensitiveLog,
-  GetSettingsResponse,
-  GetSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSettingsRequest, GetSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSettingsCommand,
   serializeAws_restJson1GetSettingsCommand,
@@ -113,8 +108,8 @@ export class GetSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

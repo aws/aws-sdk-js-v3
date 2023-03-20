@@ -16,7 +16,6 @@ import {
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
 import {
   GetClusterSessionCredentialsInput,
-  GetClusterSessionCredentialsInputFilterSensitiveLog,
   GetClusterSessionCredentialsOutput,
   GetClusterSessionCredentialsOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -117,7 +116,7 @@ export class GetClusterSessionCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetClusterSessionCredentialsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetClusterSessionCredentialsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

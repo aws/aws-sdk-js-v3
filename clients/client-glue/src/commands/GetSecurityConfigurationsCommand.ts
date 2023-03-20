@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetSecurityConfigurationsRequest,
-  GetSecurityConfigurationsRequestFilterSensitiveLog,
-  GetSecurityConfigurationsResponse,
-  GetSecurityConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetSecurityConfigurationsRequest, GetSecurityConfigurationsResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetSecurityConfigurationsCommand,
   serializeAws_json1_1GetSecurityConfigurationsCommand,
@@ -119,8 +114,8 @@ export class GetSecurityConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSecurityConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSecurityConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

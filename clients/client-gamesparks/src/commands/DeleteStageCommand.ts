@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  DeleteStageRequest,
-  DeleteStageRequestFilterSensitiveLog,
-  DeleteStageResult,
-  DeleteStageResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteStageRequest, DeleteStageResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteStageCommand,
   serializeAws_restJson1DeleteStageCommand,
@@ -123,8 +118,8 @@ export class DeleteStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

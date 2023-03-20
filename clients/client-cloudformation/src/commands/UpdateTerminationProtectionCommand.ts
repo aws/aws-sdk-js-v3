@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  UpdateTerminationProtectionInput,
-  UpdateTerminationProtectionInputFilterSensitiveLog,
-  UpdateTerminationProtectionOutput,
-  UpdateTerminationProtectionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateTerminationProtectionInput, UpdateTerminationProtectionOutput } from "../models/models_0";
 import {
   deserializeAws_queryUpdateTerminationProtectionCommand,
   serializeAws_queryUpdateTerminationProtectionCommand,
@@ -113,8 +108,8 @@ export class UpdateTerminationProtectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTerminationProtectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTerminationProtectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

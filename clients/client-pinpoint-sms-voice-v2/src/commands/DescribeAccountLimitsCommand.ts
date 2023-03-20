@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAccountLimitsRequest,
-  DescribeAccountLimitsRequestFilterSensitiveLog,
-  DescribeAccountLimitsResult,
-  DescribeAccountLimitsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAccountLimitsRequest, DescribeAccountLimitsResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -133,8 +128,8 @@ export class DescribeAccountLimitsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountLimitsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountLimitsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

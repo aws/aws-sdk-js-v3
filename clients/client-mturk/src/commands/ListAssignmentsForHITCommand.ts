@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAssignmentsForHITRequest,
-  ListAssignmentsForHITRequestFilterSensitiveLog,
-  ListAssignmentsForHITResponse,
-  ListAssignmentsForHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAssignmentsForHITRequest, ListAssignmentsForHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1ListAssignmentsForHITCommand,
@@ -139,8 +134,8 @@ export class ListAssignmentsForHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssignmentsForHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssignmentsForHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

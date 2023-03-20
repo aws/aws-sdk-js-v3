@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DescribeBotVersionRequest,
-  DescribeBotVersionRequestFilterSensitiveLog,
-  DescribeBotVersionResponse,
-  DescribeBotVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeBotVersionRequest, DescribeBotVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeBotVersionCommand,
   serializeAws_restJson1DescribeBotVersionCommand,
@@ -126,8 +121,8 @@ export class DescribeBotVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBotVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBotVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

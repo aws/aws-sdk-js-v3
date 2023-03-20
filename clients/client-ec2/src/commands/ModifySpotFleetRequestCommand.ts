@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifySpotFleetRequestRequest,
-  ModifySpotFleetRequestRequestFilterSensitiveLog,
-  ModifySpotFleetRequestResponse,
-  ModifySpotFleetRequestResponseFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifySpotFleetRequestRequest, ModifySpotFleetRequestResponse } from "../models/models_6";
 import {
   deserializeAws_ec2ModifySpotFleetRequestCommand,
   serializeAws_ec2ModifySpotFleetRequestCommand,
@@ -166,8 +161,8 @@ export class ModifySpotFleetRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySpotFleetRequestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifySpotFleetRequestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

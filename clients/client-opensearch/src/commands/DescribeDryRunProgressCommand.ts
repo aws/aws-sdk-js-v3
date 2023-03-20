@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDryRunProgressRequest,
-  DescribeDryRunProgressRequestFilterSensitiveLog,
-  DescribeDryRunProgressResponse,
-  DescribeDryRunProgressResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDryRunProgressRequest, DescribeDryRunProgressResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1DescribeDryRunProgressCommand,
@@ -123,8 +118,8 @@ export class DescribeDryRunProgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDryRunProgressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDryRunProgressResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

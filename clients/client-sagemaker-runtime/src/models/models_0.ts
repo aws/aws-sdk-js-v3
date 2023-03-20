@@ -389,10 +389,3 @@ export const InvokeEndpointAsyncInputFilterSensitiveLog = (obj: InvokeEndpointAs
   ...obj,
   ...(obj.CustomAttributes && { CustomAttributes: SENSITIVE_STRING }),
 });
-
-/**
- * @internal
- */
-export const InvokeEndpointAsyncOutputFilterSensitiveLog = (obj: InvokeEndpointAsyncOutput): any => ({
-  ...obj,
-});

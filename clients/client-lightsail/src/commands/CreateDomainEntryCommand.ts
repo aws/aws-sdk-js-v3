@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateDomainEntryRequest,
-  CreateDomainEntryRequestFilterSensitiveLog,
-  CreateDomainEntryResult,
-  CreateDomainEntryResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDomainEntryRequest, CreateDomainEntryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDomainEntryCommand,
   serializeAws_json1_1CreateDomainEntryCommand,
@@ -142,8 +137,8 @@ export class CreateDomainEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainEntryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainEntryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

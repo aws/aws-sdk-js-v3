@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  CreateProfileRequest,
-  CreateProfileRequestFilterSensitiveLog,
-  CreateProfileResponse,
-  CreateProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateProfileRequest, CreateProfileResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProfileCommand,
   serializeAws_restJson1CreateProfileCommand,
@@ -122,8 +117,8 @@ export class CreateProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

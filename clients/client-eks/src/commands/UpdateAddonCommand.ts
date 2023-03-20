@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  UpdateAddonRequest,
-  UpdateAddonRequestFilterSensitiveLog,
-  UpdateAddonResponse,
-  UpdateAddonResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAddonRequest, UpdateAddonResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAddonCommand,
   serializeAws_restJson1UpdateAddonCommand,
@@ -130,8 +125,8 @@ export class UpdateAddonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAddonRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAddonResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import {
-  ReportTaskRunnerHeartbeatInput,
-  ReportTaskRunnerHeartbeatInputFilterSensitiveLog,
-  ReportTaskRunnerHeartbeatOutput,
-  ReportTaskRunnerHeartbeatOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand,
   serializeAws_json1_1ReportTaskRunnerHeartbeatCommand,
@@ -145,8 +140,8 @@ export class ReportTaskRunnerHeartbeatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReportTaskRunnerHeartbeatInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ReportTaskRunnerHeartbeatOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateQueueRequest,
-  CreateQueueRequestFilterSensitiveLog,
-  CreateQueueResult,
-  CreateQueueResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateQueueRequest, CreateQueueResult } from "../models/models_0";
 import { deserializeAws_queryCreateQueueCommand, serializeAws_queryCreateQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
@@ -161,8 +156,8 @@ export class CreateQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQueueResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

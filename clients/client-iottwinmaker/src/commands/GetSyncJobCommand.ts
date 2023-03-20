@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  GetSyncJobRequest,
-  GetSyncJobRequestFilterSensitiveLog,
-  GetSyncJobResponse,
-  GetSyncJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSyncJobRequest, GetSyncJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSyncJobCommand,
   serializeAws_restJson1GetSyncJobCommand,
@@ -123,8 +118,8 @@ export class GetSyncJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSyncJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSyncJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

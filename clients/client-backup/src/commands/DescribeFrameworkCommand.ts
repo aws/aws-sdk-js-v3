@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeFrameworkInput,
-  DescribeFrameworkInputFilterSensitiveLog,
-  DescribeFrameworkOutput,
-  DescribeFrameworkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFrameworkInput, DescribeFrameworkOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeFrameworkCommand,
   serializeAws_restJson1DescribeFrameworkCommand,
@@ -120,8 +115,8 @@ export class DescribeFrameworkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFrameworkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFrameworkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

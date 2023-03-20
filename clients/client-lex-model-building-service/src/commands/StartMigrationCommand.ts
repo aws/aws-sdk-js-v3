@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  StartMigrationRequest,
-  StartMigrationRequestFilterSensitiveLog,
-  StartMigrationResponse,
-  StartMigrationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartMigrationRequest, StartMigrationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartMigrationCommand,
   serializeAws_restJson1StartMigrationCommand,
@@ -133,8 +128,8 @@ export class StartMigrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMigrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMigrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

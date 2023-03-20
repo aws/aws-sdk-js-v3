@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  StopRunRequest,
-  StopRunRequestFilterSensitiveLog,
-  StopRunResult,
-  StopRunResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StopRunRequest, StopRunResult } from "../models/models_0";
 import { deserializeAws_json1_1StopRunCommand, serializeAws_json1_1StopRunCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -133,8 +128,8 @@ export class StopRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopRunResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,6 @@ import {
   GetRecommendationsRequest,
   GetRecommendationsRequestFilterSensitiveLog,
   GetRecommendationsResponse,
-  GetRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PersonalizeRuntimeClientResolvedConfig,
@@ -135,7 +134,7 @@ export class GetRecommendationsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRecommendationsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

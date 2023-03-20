@@ -16,9 +16,7 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   GenerateOrganizationsAccessReportRequest,
-  GenerateOrganizationsAccessReportRequestFilterSensitiveLog,
   GenerateOrganizationsAccessReportResponse,
-  GenerateOrganizationsAccessReportResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryGenerateOrganizationsAccessReportCommand,
@@ -259,8 +257,8 @@ export class GenerateOrganizationsAccessReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateOrganizationsAccessReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateOrganizationsAccessReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

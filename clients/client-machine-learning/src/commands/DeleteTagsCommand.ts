@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DeleteTagsInput,
-  DeleteTagsInputFilterSensitiveLog,
-  DeleteTagsOutput,
-  DeleteTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteTagsInput, DeleteTagsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTagsCommand,
   serializeAws_json1_1DeleteTagsCommand,
@@ -117,8 +112,8 @@ export class DeleteTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

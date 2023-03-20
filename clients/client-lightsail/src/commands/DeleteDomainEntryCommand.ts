@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteDomainEntryRequest,
-  DeleteDomainEntryRequestFilterSensitiveLog,
-  DeleteDomainEntryResult,
-  DeleteDomainEntryResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDomainEntryRequest, DeleteDomainEntryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDomainEntryCommand,
   serializeAws_json1_1DeleteDomainEntryCommand,
@@ -140,8 +135,8 @@ export class DeleteDomainEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainEntryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainEntryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

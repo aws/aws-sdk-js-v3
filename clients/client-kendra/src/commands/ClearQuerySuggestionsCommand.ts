@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { ClearQuerySuggestionsRequest, ClearQuerySuggestionsRequestFilterSensitiveLog } from "../models/models_0";
+import { ClearQuerySuggestionsRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1ClearQuerySuggestionsCommand,
   serializeAws_json1_1ClearQuerySuggestionsCommand,
@@ -135,8 +135,8 @@ export class ClearQuerySuggestionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ClearQuerySuggestionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

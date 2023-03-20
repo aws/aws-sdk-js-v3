@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  ListCoverageRequest,
-  ListCoverageRequestFilterSensitiveLog,
-  ListCoverageResponse,
-  ListCoverageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCoverageRequest, ListCoverageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListCoverageCommand,
   serializeAws_restJson1ListCoverageCommand,
@@ -115,8 +110,8 @@ export class ListCoverageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoverageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCoverageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

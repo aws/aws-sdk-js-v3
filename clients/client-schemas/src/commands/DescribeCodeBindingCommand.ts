@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeCodeBindingRequest,
-  DescribeCodeBindingRequestFilterSensitiveLog,
-  DescribeCodeBindingResponse,
-  DescribeCodeBindingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeCodeBindingRequest, DescribeCodeBindingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeCodeBindingCommand,
   serializeAws_restJson1DescribeCodeBindingCommand,
@@ -119,8 +114,8 @@ export class DescribeCodeBindingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCodeBindingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCodeBindingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

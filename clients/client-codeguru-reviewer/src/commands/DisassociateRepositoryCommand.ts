@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  DisassociateRepositoryRequest,
-  DisassociateRepositoryRequestFilterSensitiveLog,
-  DisassociateRepositoryResponse,
-  DisassociateRepositoryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateRepositoryRequest, DisassociateRepositoryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateRepositoryCommand,
   serializeAws_restJson1DisassociateRepositoryCommand,
@@ -127,8 +122,8 @@ export class DisassociateRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateRepositoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateRepositoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

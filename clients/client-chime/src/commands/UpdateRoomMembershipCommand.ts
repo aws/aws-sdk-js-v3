@@ -130,7 +130,7 @@ export class UpdateRoomMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateRoomMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

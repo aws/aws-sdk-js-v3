@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateHealthCheckRequest,
-  DisassociateHealthCheckRequestFilterSensitiveLog,
-  DisassociateHealthCheckResponse,
-  DisassociateHealthCheckResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateHealthCheckRequest, DisassociateHealthCheckResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateHealthCheckCommand,
   serializeAws_json1_1DisassociateHealthCheckCommand,
@@ -124,8 +119,8 @@ export class DisassociateHealthCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateHealthCheckRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateHealthCheckResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

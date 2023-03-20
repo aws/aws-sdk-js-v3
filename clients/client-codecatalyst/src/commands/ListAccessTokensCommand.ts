@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  ListAccessTokensRequest,
-  ListAccessTokensRequestFilterSensitiveLog,
-  ListAccessTokensResponse,
-  ListAccessTokensResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccessTokensRequest, ListAccessTokensResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAccessTokensCommand,
   serializeAws_restJson1ListAccessTokensCommand,
@@ -126,8 +121,8 @@ export class ListAccessTokensCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessTokensRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessTokensResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

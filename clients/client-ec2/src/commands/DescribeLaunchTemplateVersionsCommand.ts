@@ -16,7 +16,6 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeLaunchTemplateVersionsRequest,
-  DescribeLaunchTemplateVersionsRequestFilterSensitiveLog,
   DescribeLaunchTemplateVersionsResult,
   DescribeLaunchTemplateVersionsResultFilterSensitiveLog,
 } from "../models/models_4";
@@ -176,7 +175,7 @@ export class DescribeLaunchTemplateVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLaunchTemplateVersionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeLaunchTemplateVersionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

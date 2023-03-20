@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  PutFeedbackRequest,
-  PutFeedbackRequestFilterSensitiveLog,
-  PutFeedbackResponse,
-  PutFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutFeedbackRequest, PutFeedbackResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutFeedbackCommand,
   serializeAws_restJson1PutFeedbackCommand,
@@ -121,8 +116,8 @@ export class PutFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

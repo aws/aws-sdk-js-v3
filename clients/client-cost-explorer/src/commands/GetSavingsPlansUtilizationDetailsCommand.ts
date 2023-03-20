@@ -16,9 +16,7 @@ import {
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import {
   GetSavingsPlansUtilizationDetailsRequest,
-  GetSavingsPlansUtilizationDetailsRequestFilterSensitiveLog,
   GetSavingsPlansUtilizationDetailsResponse,
-  GetSavingsPlansUtilizationDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand,
@@ -129,8 +127,8 @@ export class GetSavingsPlansUtilizationDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSavingsPlansUtilizationDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSavingsPlansUtilizationDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

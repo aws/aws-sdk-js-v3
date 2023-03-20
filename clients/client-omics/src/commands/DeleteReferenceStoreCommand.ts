@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReferenceStoreRequest,
-  DeleteReferenceStoreRequestFilterSensitiveLog,
-  DeleteReferenceStoreResponse,
-  DeleteReferenceStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReferenceStoreRequest, DeleteReferenceStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1DeleteReferenceStoreCommand,
@@ -128,8 +123,8 @@ export class DeleteReferenceStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReferenceStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReferenceStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

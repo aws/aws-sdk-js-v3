@@ -126,7 +126,7 @@ export class DeleteFolderContentsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteFolderContentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

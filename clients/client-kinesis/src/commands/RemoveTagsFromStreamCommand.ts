@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import { RemoveTagsFromStreamInput, RemoveTagsFromStreamInputFilterSensitiveLog } from "../models/models_0";
+import { RemoveTagsFromStreamInput } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromStreamCommand,
   serializeAws_json1_1RemoveTagsFromStreamCommand,
@@ -133,8 +133,8 @@ export class RemoveTagsFromStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

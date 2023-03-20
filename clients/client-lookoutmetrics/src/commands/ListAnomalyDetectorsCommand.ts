@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  ListAnomalyDetectorsRequest,
-  ListAnomalyDetectorsRequestFilterSensitiveLog,
-  ListAnomalyDetectorsResponse,
-  ListAnomalyDetectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAnomalyDetectorsRequest, ListAnomalyDetectorsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAnomalyDetectorsCommand,
   serializeAws_restJson1ListAnomalyDetectorsCommand,
@@ -125,8 +120,8 @@ export class ListAnomalyDetectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnomalyDetectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnomalyDetectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

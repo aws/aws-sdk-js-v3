@@ -328,35 +328,3 @@ export interface SendSSHPublicKeyResponse {
    */
   Success?: boolean;
 }
-
-/**
- * @internal
- */
-export const SendSerialConsoleSSHPublicKeyRequestFilterSensitiveLog = (
-  obj: SendSerialConsoleSSHPublicKeyRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendSerialConsoleSSHPublicKeyResponseFilterSensitiveLog = (
-  obj: SendSerialConsoleSSHPublicKeyResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendSSHPublicKeyRequestFilterSensitiveLog = (obj: SendSSHPublicKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SendSSHPublicKeyResponseFilterSensitiveLog = (obj: SendSSHPublicKeyResponse): any => ({
-  ...obj,
-});

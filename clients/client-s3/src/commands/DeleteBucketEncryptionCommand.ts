@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteBucketEncryptionRequest, DeleteBucketEncryptionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteBucketEncryptionRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteBucketEncryptionCommand,
   serializeAws_restXmlDeleteBucketEncryptionCommand,
@@ -130,8 +130,8 @@ export class DeleteBucketEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketEncryptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

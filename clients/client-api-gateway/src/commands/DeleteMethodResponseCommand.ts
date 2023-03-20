@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteMethodResponseRequest, DeleteMethodResponseRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteMethodResponseRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMethodResponseCommand,
   serializeAws_restJson1DeleteMethodResponseCommand,
@@ -117,8 +117,8 @@ export class DeleteMethodResponseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMethodResponseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

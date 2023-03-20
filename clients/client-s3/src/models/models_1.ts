@@ -1879,65 +1879,9 @@ export interface WriteGetObjectResponseRequest {
 /**
  * @internal
  */
-export const PutObjectRetentionOutputFilterSensitiveLog = (obj: PutObjectRetentionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectRetentionRequestFilterSensitiveLog = (obj: PutObjectRetentionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectTaggingOutputFilterSensitiveLog = (obj: PutObjectTaggingOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectTaggingRequestFilterSensitiveLog = (obj: PutObjectTaggingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutPublicAccessBlockRequestFilterSensitiveLog = (obj: PutPublicAccessBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RestoreObjectOutputFilterSensitiveLog = (obj: RestoreObjectOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlacierJobParametersFilterSensitiveLog = (obj: GlacierJobParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EncryptionFilterSensitiveLog = (obj: Encryption): any => ({
   ...obj,
   ...(obj.KMSKeyId && { KMSKeyId: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const MetadataEntryFilterSensitiveLog = (obj: MetadataEntry): any => ({
-  ...obj,
 });
 
 /**
@@ -1959,62 +1903,6 @@ export const OutputLocationFilterSensitiveLog = (obj: OutputLocation): any => ({
 /**
  * @internal
  */
-export const CSVInputFilterSensitiveLog = (obj: CSVInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JSONInputFilterSensitiveLog = (obj: JSONInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ParquetInputFilterSensitiveLog = (obj: ParquetInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InputSerializationFilterSensitiveLog = (obj: InputSerialization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CSVOutputFilterSensitiveLog = (obj: CSVOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JSONOutputFilterSensitiveLog = (obj: JSONOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputSerializationFilterSensitiveLog = (obj: OutputSerialization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SelectParametersFilterSensitiveLog = (obj: SelectParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RestoreRequestFilterSensitiveLog = (obj: RestoreRequest): any => ({
   ...obj,
   ...(obj.OutputLocation && { OutputLocation: OutputLocationFilterSensitiveLog(obj.OutputLocation) }),
@@ -2031,61 +1919,12 @@ export const RestoreObjectRequestFilterSensitiveLog = (obj: RestoreObjectRequest
 /**
  * @internal
  */
-export const ContinuationEventFilterSensitiveLog = (obj: ContinuationEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EndEventFilterSensitiveLog = (obj: EndEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProgressFilterSensitiveLog = (obj: Progress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProgressEventFilterSensitiveLog = (obj: ProgressEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RecordsEventFilterSensitiveLog = (obj: RecordsEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatsFilterSensitiveLog = (obj: Stats): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatsEventFilterSensitiveLog = (obj: StatsEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SelectObjectContentEventStreamFilterSensitiveLog = (obj: SelectObjectContentEventStream): any => {
-  if (obj.Records !== undefined) return { Records: RecordsEventFilterSensitiveLog(obj.Records) };
-  if (obj.Stats !== undefined) return { Stats: StatsEventFilterSensitiveLog(obj.Stats) };
-  if (obj.Progress !== undefined) return { Progress: ProgressEventFilterSensitiveLog(obj.Progress) };
-  if (obj.Cont !== undefined) return { Cont: ContinuationEventFilterSensitiveLog(obj.Cont) };
-  if (obj.End !== undefined) return { End: EndEventFilterSensitiveLog(obj.End) };
+  if (obj.Records !== undefined) return { Records: obj.Records };
+  if (obj.Stats !== undefined) return { Stats: obj.Stats };
+  if (obj.Progress !== undefined) return { Progress: obj.Progress };
+  if (obj.Cont !== undefined) return { Cont: obj.Cont };
+  if (obj.End !== undefined) return { End: obj.End };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -2095,20 +1934,6 @@ export const SelectObjectContentEventStreamFilterSensitiveLog = (obj: SelectObje
 export const SelectObjectContentOutputFilterSensitiveLog = (obj: SelectObjectContentOutput): any => ({
   ...obj,
   ...(obj.Payload && { Payload: "STREAMING_CONTENT" }),
-});
-
-/**
- * @internal
- */
-export const RequestProgressFilterSensitiveLog = (obj: RequestProgress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScanRangeFilterSensitiveLog = (obj: ScanRange): any => ({
-  ...obj,
 });
 
 /**
@@ -2133,13 +1958,6 @@ export const UploadPartOutputFilterSensitiveLog = (obj: UploadPartOutput): any =
 export const UploadPartRequestFilterSensitiveLog = (obj: UploadPartRequest): any => ({
   ...obj,
   ...(obj.SSECustomerKey && { SSECustomerKey: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CopyPartResultFilterSensitiveLog = (obj: CopyPartResult): any => ({
-  ...obj,
 });
 
 /**

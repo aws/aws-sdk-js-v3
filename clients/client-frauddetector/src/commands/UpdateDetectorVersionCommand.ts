@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  UpdateDetectorVersionRequest,
-  UpdateDetectorVersionRequestFilterSensitiveLog,
-  UpdateDetectorVersionResult,
-  UpdateDetectorVersionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDetectorVersionRequest, UpdateDetectorVersionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDetectorVersionCommand,
   serializeAws_json1_1UpdateDetectorVersionCommand,
@@ -125,8 +120,8 @@ export class UpdateDetectorVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDetectorVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDetectorVersionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import {
-  ListJobRunsRequest,
-  ListJobRunsRequestFilterSensitiveLog,
-  ListJobRunsResponse,
-  ListJobRunsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListJobRunsRequest, ListJobRunsResponse, ListJobRunsResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1ListJobRunsCommand,
   serializeAws_restJson1ListJobRunsCommand,
@@ -112,7 +107,7 @@ export class ListJobRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobRunsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListJobRunsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

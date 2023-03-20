@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetInsightImpactGraphRequest,
-  GetInsightImpactGraphRequestFilterSensitiveLog,
-  GetInsightImpactGraphResult,
-  GetInsightImpactGraphResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetInsightImpactGraphRequest, GetInsightImpactGraphResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetInsightImpactGraphCommand,
   serializeAws_restJson1GetInsightImpactGraphCommand,
@@ -114,8 +109,8 @@ export class GetInsightImpactGraphCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetInsightImpactGraphRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetInsightImpactGraphResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

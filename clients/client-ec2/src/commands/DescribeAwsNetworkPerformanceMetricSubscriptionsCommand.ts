@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   DescribeAwsNetworkPerformanceMetricSubscriptionsRequest,
-  DescribeAwsNetworkPerformanceMetricSubscriptionsRequestFilterSensitiveLog,
   DescribeAwsNetworkPerformanceMetricSubscriptionsResult,
-  DescribeAwsNetworkPerformanceMetricSubscriptionsResultFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
@@ -116,8 +114,8 @@ export class DescribeAwsNetworkPerformanceMetricSubscriptionsCommand extends $Co
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAwsNetworkPerformanceMetricSubscriptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAwsNetworkPerformanceMetricSubscriptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  CreateRegistryInput,
-  CreateRegistryInputFilterSensitiveLog,
-  CreateRegistryResponse,
-  CreateRegistryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRegistryInput, CreateRegistryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateRegistryCommand,
   serializeAws_json1_1CreateRegistryCommand,
@@ -125,8 +120,8 @@ export class CreateRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRegistryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRegistryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

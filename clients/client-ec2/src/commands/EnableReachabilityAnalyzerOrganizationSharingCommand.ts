@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   EnableReachabilityAnalyzerOrganizationSharingRequest,
-  EnableReachabilityAnalyzerOrganizationSharingRequestFilterSensitiveLog,
   EnableReachabilityAnalyzerOrganizationSharingResult,
-  EnableReachabilityAnalyzerOrganizationSharingResultFilterSensitiveLog,
 } from "../models/models_5";
 import {
   deserializeAws_ec2EnableReachabilityAnalyzerOrganizationSharingCommand,
@@ -120,8 +118,8 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableReachabilityAnalyzerOrganizationSharingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableReachabilityAnalyzerOrganizationSharingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

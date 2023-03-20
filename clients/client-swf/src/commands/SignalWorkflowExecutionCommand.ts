@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SignalWorkflowExecutionInput, SignalWorkflowExecutionInputFilterSensitiveLog } from "../models/models_0";
+import { SignalWorkflowExecutionInput } from "../models/models_0";
 import {
   deserializeAws_json1_0SignalWorkflowExecutionCommand,
   serializeAws_json1_0SignalWorkflowExecutionCommand,
@@ -146,8 +146,8 @@ export class SignalWorkflowExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SignalWorkflowExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

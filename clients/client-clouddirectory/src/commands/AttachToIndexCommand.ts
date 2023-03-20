@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  AttachToIndexRequest,
-  AttachToIndexRequestFilterSensitiveLog,
-  AttachToIndexResponse,
-  AttachToIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AttachToIndexRequest, AttachToIndexResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AttachToIndexCommand,
   serializeAws_restJson1AttachToIndexCommand,
@@ -144,8 +139,8 @@ export class AttachToIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachToIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachToIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

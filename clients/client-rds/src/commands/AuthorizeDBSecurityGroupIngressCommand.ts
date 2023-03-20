@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AuthorizeDBSecurityGroupIngressMessage,
-  AuthorizeDBSecurityGroupIngressMessageFilterSensitiveLog,
-  AuthorizeDBSecurityGroupIngressResult,
-  AuthorizeDBSecurityGroupIngressResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult } from "../models/models_0";
 import {
   deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
   serializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
@@ -155,8 +150,8 @@ export class AuthorizeDBSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeDBSecurityGroupIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

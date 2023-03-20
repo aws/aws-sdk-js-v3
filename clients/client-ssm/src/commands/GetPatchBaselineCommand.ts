@@ -15,7 +15,6 @@ import {
 
 import {
   GetPatchBaselineRequest,
-  GetPatchBaselineRequestFilterSensitiveLog,
   GetPatchBaselineResult,
   GetPatchBaselineResultFilterSensitiveLog,
 } from "../models/models_1";
@@ -119,7 +118,7 @@ export class GetPatchBaselineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPatchBaselineRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPatchBaselineResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

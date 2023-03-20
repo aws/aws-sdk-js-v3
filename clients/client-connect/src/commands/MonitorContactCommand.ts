@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  MonitorContactRequest,
-  MonitorContactRequestFilterSensitiveLog,
-  MonitorContactResponse,
-  MonitorContactResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { MonitorContactRequest, MonitorContactResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1MonitorContactCommand,
   serializeAws_restJson1MonitorContactCommand,
@@ -130,8 +125,8 @@ export class MonitorContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MonitorContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MonitorContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

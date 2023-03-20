@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DeleteEvaluationInput,
-  DeleteEvaluationInputFilterSensitiveLog,
-  DeleteEvaluationOutput,
-  DeleteEvaluationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEvaluationInput, DeleteEvaluationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEvaluationCommand,
   serializeAws_json1_1DeleteEvaluationCommand,
@@ -121,8 +116,8 @@ export class DeleteEvaluationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEvaluationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEvaluationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

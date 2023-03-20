@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RebootWorkspacesRequest,
-  RebootWorkspacesRequestFilterSensitiveLog,
-  RebootWorkspacesResult,
-  RebootWorkspacesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RebootWorkspacesRequest, RebootWorkspacesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RebootWorkspacesCommand,
   serializeAws_json1_1RebootWorkspacesCommand,
@@ -113,8 +108,8 @@ export class RebootWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RebootWorkspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RebootWorkspacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
   DescribeSourceServersRequest,
-  DescribeSourceServersRequestFilterSensitiveLog,
   DescribeSourceServersResponse,
   DescribeSourceServersResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -113,7 +112,7 @@ export class DescribeSourceServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSourceServersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSourceServersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

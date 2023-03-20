@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetFileUploadURLRequest,
-  GetFileUploadURLRequestFilterSensitiveLog,
-  GetFileUploadURLResponse,
-  GetFileUploadURLResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetFileUploadURLRequest, GetFileUploadURLResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1GetFileUploadURLCommand,
@@ -130,8 +125,8 @@ export class GetFileUploadURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFileUploadURLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetFileUploadURLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  GetImageRecipeRequest,
-  GetImageRecipeRequestFilterSensitiveLog,
-  GetImageRecipeResponse,
-  GetImageRecipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetImageRecipeRequest, GetImageRecipeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetImageRecipeCommand,
   serializeAws_restJson1GetImageRecipeCommand,
@@ -127,8 +122,8 @@ export class GetImageRecipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImageRecipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImageRecipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

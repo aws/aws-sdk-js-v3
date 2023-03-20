@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient";
-import {
-  DetectEntitiesRequest,
-  DetectEntitiesRequestFilterSensitiveLog,
-  DetectEntitiesResponse,
-  DetectEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DetectEntitiesRequest, DetectEntitiesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DetectEntitiesCommand,
   serializeAws_json1_1DetectEntitiesCommand,
@@ -140,8 +135,8 @@ export class DetectEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

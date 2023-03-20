@@ -22,7 +22,6 @@ import {
   UpdateNotificationRuleRequest,
   UpdateNotificationRuleRequestFilterSensitiveLog,
   UpdateNotificationRuleResult,
-  UpdateNotificationRuleResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateNotificationRuleCommand,
@@ -126,7 +125,7 @@ export class UpdateNotificationRuleCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateNotificationRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNotificationRuleResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

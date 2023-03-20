@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateAliasInput,
-  CreateAliasInputFilterSensitiveLog,
-  CreateAliasOutput,
-  CreateAliasOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAliasInput, CreateAliasOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAliasCommand,
   serializeAws_json1_1CreateAliasCommand,
@@ -150,8 +145,8 @@ export class CreateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAliasInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAliasOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

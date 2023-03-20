@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AddCacheInput,
-  AddCacheInputFilterSensitiveLog,
-  AddCacheOutput,
-  AddCacheOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { AddCacheInput, AddCacheOutput } from "../models/models_0";
 import { deserializeAws_json1_1AddCacheCommand, serializeAws_json1_1AddCacheCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -134,8 +129,8 @@ export class AddCacheCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddCacheInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AddCacheOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

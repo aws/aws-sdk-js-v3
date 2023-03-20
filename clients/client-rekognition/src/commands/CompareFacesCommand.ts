@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CompareFacesRequest,
-  CompareFacesRequestFilterSensitiveLog,
-  CompareFacesResponse,
-  CompareFacesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CompareFacesRequest, CompareFacesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CompareFacesCommand,
   serializeAws_json1_1CompareFacesCommand,
@@ -234,8 +229,8 @@ export class CompareFacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompareFacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CompareFacesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

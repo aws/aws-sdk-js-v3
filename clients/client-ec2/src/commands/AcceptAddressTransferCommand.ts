@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AcceptAddressTransferRequest,
-  AcceptAddressTransferRequestFilterSensitiveLog,
-  AcceptAddressTransferResult,
-  AcceptAddressTransferResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AcceptAddressTransferRequest, AcceptAddressTransferResult } from "../models/models_0";
 import {
   deserializeAws_ec2AcceptAddressTransferCommand,
   serializeAws_ec2AcceptAddressTransferCommand,
@@ -107,8 +102,8 @@ export class AcceptAddressTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptAddressTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptAddressTransferResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

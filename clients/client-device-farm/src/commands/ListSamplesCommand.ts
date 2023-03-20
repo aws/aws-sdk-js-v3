@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListSamplesRequest,
-  ListSamplesRequestFilterSensitiveLog,
-  ListSamplesResult,
-  ListSamplesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSamplesRequest, ListSamplesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListSamplesCommand,
   serializeAws_json1_1ListSamplesCommand,
@@ -134,8 +129,8 @@ export class ListSamplesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSamplesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSamplesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

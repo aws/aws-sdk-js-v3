@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetCalculationExecutionRequest,
-  GetCalculationExecutionRequestFilterSensitiveLog,
-  GetCalculationExecutionResponse,
-  GetCalculationExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCalculationExecutionRequest, GetCalculationExecutionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCalculationExecutionCommand,
   serializeAws_json1_1GetCalculationExecutionCommand,
@@ -118,8 +113,8 @@ export class GetCalculationExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCalculationExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCalculationExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  GetCostEstimationRequest,
-  GetCostEstimationRequestFilterSensitiveLog,
-  GetCostEstimationResponse,
-  GetCostEstimationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCostEstimationRequest, GetCostEstimationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCostEstimationCommand,
   serializeAws_restJson1GetCostEstimationCommand,
@@ -130,8 +125,8 @@ export class GetCostEstimationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCostEstimationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCostEstimationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

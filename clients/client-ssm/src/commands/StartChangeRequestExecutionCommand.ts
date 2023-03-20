@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartChangeRequestExecutionRequest,
-  StartChangeRequestExecutionRequestFilterSensitiveLog,
-  StartChangeRequestExecutionResult,
-  StartChangeRequestExecutionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult } from "../models/models_1";
 import {
   deserializeAws_json1_1StartChangeRequestExecutionCommand,
   serializeAws_json1_1StartChangeRequestExecutionCommand,
@@ -135,8 +130,8 @@ export class StartChangeRequestExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartChangeRequestExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartChangeRequestExecutionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

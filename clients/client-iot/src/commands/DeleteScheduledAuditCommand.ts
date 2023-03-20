@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteScheduledAuditRequest,
-  DeleteScheduledAuditRequestFilterSensitiveLog,
-  DeleteScheduledAuditResponse,
-  DeleteScheduledAuditResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteScheduledAuditRequest, DeleteScheduledAuditResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteScheduledAuditCommand,
   serializeAws_restJson1DeleteScheduledAuditCommand,
@@ -120,8 +115,8 @@ export class DeleteScheduledAuditCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduledAuditRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScheduledAuditResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

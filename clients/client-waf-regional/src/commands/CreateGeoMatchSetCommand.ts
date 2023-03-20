@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateGeoMatchSetRequest,
-  CreateGeoMatchSetRequestFilterSensitiveLog,
-  CreateGeoMatchSetResponse,
-  CreateGeoMatchSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateGeoMatchSetRequest, CreateGeoMatchSetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateGeoMatchSetCommand,
   serializeAws_json1_1CreateGeoMatchSetCommand,
@@ -192,8 +187,8 @@ export class CreateGeoMatchSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGeoMatchSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGeoMatchSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

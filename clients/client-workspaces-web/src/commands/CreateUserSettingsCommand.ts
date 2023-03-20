@@ -17,7 +17,6 @@ import {
   CreateUserSettingsRequest,
   CreateUserSettingsRequestFilterSensitiveLog,
   CreateUserSettingsResponse,
-  CreateUserSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateUserSettingsCommand,
@@ -128,7 +127,7 @@ export class CreateUserSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateUserSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUserSettingsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

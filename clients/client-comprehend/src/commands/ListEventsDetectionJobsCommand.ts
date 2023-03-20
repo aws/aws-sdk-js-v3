@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ListEventsDetectionJobsRequest,
-  ListEventsDetectionJobsRequestFilterSensitiveLog,
-  ListEventsDetectionJobsResponse,
-  ListEventsDetectionJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEventsDetectionJobsRequest, ListEventsDetectionJobsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListEventsDetectionJobsCommand,
   serializeAws_json1_1ListEventsDetectionJobsCommand,
@@ -120,8 +115,8 @@ export class ListEventsDetectionJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEventsDetectionJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEventsDetectionJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

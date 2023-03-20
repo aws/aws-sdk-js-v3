@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPortalRequest,
-  GetPortalRequestFilterSensitiveLog,
-  GetPortalResponse,
-  GetPortalResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPortalRequest, GetPortalResponse, GetPortalResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPortalCommand,
   serializeAws_restJson1GetPortalCommand,
@@ -120,7 +115,7 @@ export class GetPortalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPortalRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetPortalResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  UpdatePricingPlanRequest,
-  UpdatePricingPlanRequestFilterSensitiveLog,
-  UpdatePricingPlanResponse,
-  UpdatePricingPlanResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePricingPlanRequest, UpdatePricingPlanResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePricingPlanCommand,
   serializeAws_restJson1UpdatePricingPlanCommand,
@@ -119,8 +114,8 @@ export class UpdatePricingPlanCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePricingPlanRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePricingPlanResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  ListSchedulesRequest,
-  ListSchedulesRequestFilterSensitiveLog,
-  ListSchedulesResponse,
-  ListSchedulesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSchedulesRequest, ListSchedulesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSchedulesCommand,
   serializeAws_restJson1ListSchedulesCommand,
@@ -108,8 +103,8 @@ export class ListSchedulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchedulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSchedulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

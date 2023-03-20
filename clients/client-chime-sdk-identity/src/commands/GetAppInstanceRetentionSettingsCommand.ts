@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
-import {
-  GetAppInstanceRetentionSettingsRequest,
-  GetAppInstanceRetentionSettingsRequestFilterSensitiveLog,
-  GetAppInstanceRetentionSettingsResponse,
-  GetAppInstanceRetentionSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAppInstanceRetentionSettingsRequest, GetAppInstanceRetentionSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAppInstanceRetentionSettingsCommand,
   serializeAws_restJson1GetAppInstanceRetentionSettingsCommand,
@@ -127,8 +122,8 @@ export class GetAppInstanceRetentionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppInstanceRetentionSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppInstanceRetentionSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

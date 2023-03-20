@@ -17,7 +17,6 @@ import {
   GetBucketEncryptionOutput,
   GetBucketEncryptionOutputFilterSensitiveLog,
   GetBucketEncryptionRequest,
-  GetBucketEncryptionRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketEncryptionCommand,
@@ -134,7 +133,7 @@ export class GetBucketEncryptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketEncryptionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBucketEncryptionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

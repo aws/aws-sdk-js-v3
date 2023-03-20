@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import {
-  UpdateClusterInput,
-  UpdateClusterInputFilterSensitiveLog,
-  UpdateClusterOutput,
-  UpdateClusterOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateClusterInput, UpdateClusterInputFilterSensitiveLog, UpdateClusterOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateClusterCommand,
   serializeAws_restJson1UpdateClusterCommand,
@@ -125,7 +120,7 @@ export class UpdateClusterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateClusterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

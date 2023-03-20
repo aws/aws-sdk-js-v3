@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  ListTagsOfResourceInput,
-  ListTagsOfResourceInputFilterSensitiveLog,
-  ListTagsOfResourceOutput,
-  ListTagsOfResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTagsOfResourceInput, ListTagsOfResourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0ListTagsOfResourceCommand,
   serializeAws_json1_0ListTagsOfResourceCommand,
@@ -119,8 +114,8 @@ export class ListTagsOfResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsOfResourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsOfResourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

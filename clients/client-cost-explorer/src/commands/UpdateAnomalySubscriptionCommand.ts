@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  UpdateAnomalySubscriptionRequest,
-  UpdateAnomalySubscriptionRequestFilterSensitiveLog,
-  UpdateAnomalySubscriptionResponse,
-  UpdateAnomalySubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAnomalySubscriptionRequest, UpdateAnomalySubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAnomalySubscriptionCommand,
   serializeAws_json1_1UpdateAnomalySubscriptionCommand,
@@ -116,8 +111,8 @@ export class UpdateAnomalySubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAnomalySubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAnomalySubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

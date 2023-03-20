@@ -17,7 +17,6 @@ import {
   UpdateAnalysisRequest,
   UpdateAnalysisRequestFilterSensitiveLog,
   UpdateAnalysisResponse,
-  UpdateAnalysisResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateAnalysisCommand,
@@ -132,7 +131,7 @@ export class UpdateAnalysisCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAnalysisResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

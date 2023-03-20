@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLongTermPricingRequest,
-  CreateLongTermPricingRequestFilterSensitiveLog,
-  CreateLongTermPricingResult,
-  CreateLongTermPricingResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateLongTermPricingRequest, CreateLongTermPricingResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLongTermPricingCommand,
   serializeAws_json1_1CreateLongTermPricingCommand,
@@ -113,8 +108,8 @@ export class CreateLongTermPricingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLongTermPricingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLongTermPricingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

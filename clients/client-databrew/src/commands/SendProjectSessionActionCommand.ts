@@ -18,7 +18,6 @@ import {
   SendProjectSessionActionRequest,
   SendProjectSessionActionRequestFilterSensitiveLog,
   SendProjectSessionActionResponse,
-  SendProjectSessionActionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1SendProjectSessionActionCommand,
@@ -118,7 +117,7 @@ export class SendProjectSessionActionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SendProjectSessionActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendProjectSessionActionResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import { DeleteVcenterClientRequest, DeleteVcenterClientRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteVcenterClientRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVcenterClientCommand,
   serializeAws_restJson1DeleteVcenterClientCommand,
@@ -111,8 +111,8 @@ export class DeleteVcenterClientCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVcenterClientRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

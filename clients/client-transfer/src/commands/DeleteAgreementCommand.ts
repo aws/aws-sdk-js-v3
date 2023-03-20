@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteAgreementRequest, DeleteAgreementRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteAgreementRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAgreementCommand,
   serializeAws_json1_1DeleteAgreementCommand,
@@ -115,8 +115,8 @@ export class DeleteAgreementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAgreementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

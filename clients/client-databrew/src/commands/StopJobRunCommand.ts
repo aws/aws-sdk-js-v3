@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import {
-  StopJobRunRequest,
-  StopJobRunRequestFilterSensitiveLog,
-  StopJobRunResponse,
-  StopJobRunResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopJobRunRequest, StopJobRunResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopJobRunCommand,
   serializeAws_restJson1StopJobRunCommand,
@@ -111,8 +106,8 @@ export class StopJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopJobRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopJobRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

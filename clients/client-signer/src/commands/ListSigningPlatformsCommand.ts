@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSigningPlatformsRequest,
-  ListSigningPlatformsRequestFilterSensitiveLog,
-  ListSigningPlatformsResponse,
-  ListSigningPlatformsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSigningPlatformsRequest, ListSigningPlatformsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSigningPlatformsCommand,
   serializeAws_restJson1ListSigningPlatformsCommand,
@@ -126,8 +121,8 @@ export class ListSigningPlatformsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSigningPlatformsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSigningPlatformsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateSpotDatafeedSubscriptionRequest,
-  CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog,
-  CreateSpotDatafeedSubscriptionResult,
-  CreateSpotDatafeedSubscriptionResultFilterSensitiveLog,
-} from "../models/models_2";
+import { CreateSpotDatafeedSubscriptionRequest, CreateSpotDatafeedSubscriptionResult } from "../models/models_2";
 import {
   deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
   serializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
@@ -134,8 +129,8 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSpotDatafeedSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

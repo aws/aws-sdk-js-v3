@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeLoadBasedAutoScalingRequest,
-  DescribeLoadBasedAutoScalingRequestFilterSensitiveLog,
-  DescribeLoadBasedAutoScalingResult,
-  DescribeLoadBasedAutoScalingResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLoadBasedAutoScalingRequest, DescribeLoadBasedAutoScalingResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1DescribeLoadBasedAutoScalingCommand,
@@ -123,8 +118,8 @@ export class DescribeLoadBasedAutoScalingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLoadBasedAutoScalingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLoadBasedAutoScalingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

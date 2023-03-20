@@ -18,7 +18,6 @@ import {
   UpdateRuleVersionRequest,
   UpdateRuleVersionRequestFilterSensitiveLog,
   UpdateRuleVersionResult,
-  UpdateRuleVersionResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateRuleVersionCommand,
@@ -126,7 +125,7 @@ export class UpdateRuleVersionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateRuleVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRuleVersionResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

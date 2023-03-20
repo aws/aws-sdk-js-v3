@@ -18,7 +18,6 @@ import {
   PutSkillAuthorizationRequest,
   PutSkillAuthorizationRequestFilterSensitiveLog,
   PutSkillAuthorizationResponse,
-  PutSkillAuthorizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1PutSkillAuthorizationCommand,
@@ -116,7 +115,7 @@ export class PutSkillAuthorizationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutSkillAuthorizationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSkillAuthorizationResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

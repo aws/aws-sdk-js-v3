@@ -16,9 +16,7 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   GetBehaviorModelTrainingSummariesRequest,
-  GetBehaviorModelTrainingSummariesRequestFilterSensitiveLog,
   GetBehaviorModelTrainingSummariesResponse,
-  GetBehaviorModelTrainingSummariesResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1GetBehaviorModelTrainingSummariesCommand,
@@ -124,8 +122,8 @@ export class GetBehaviorModelTrainingSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBehaviorModelTrainingSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBehaviorModelTrainingSummariesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

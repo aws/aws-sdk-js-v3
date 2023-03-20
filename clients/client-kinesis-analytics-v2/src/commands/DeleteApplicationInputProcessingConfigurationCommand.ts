@@ -20,9 +20,7 @@ import {
 } from "../KinesisAnalyticsV2Client";
 import {
   DeleteApplicationInputProcessingConfigurationRequest,
-  DeleteApplicationInputProcessingConfigurationRequestFilterSensitiveLog,
   DeleteApplicationInputProcessingConfigurationResponse,
-  DeleteApplicationInputProcessingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,
@@ -137,8 +135,8 @@ export class DeleteApplicationInputProcessingConfigurationCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationInputProcessingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationInputProcessingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

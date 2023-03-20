@@ -136,7 +136,7 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

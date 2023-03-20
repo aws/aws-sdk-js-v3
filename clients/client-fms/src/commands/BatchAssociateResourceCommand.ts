@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  BatchAssociateResourceRequest,
-  BatchAssociateResourceRequestFilterSensitiveLog,
-  BatchAssociateResourceResponse,
-  BatchAssociateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchAssociateResourceRequest, BatchAssociateResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchAssociateResourceCommand,
   serializeAws_json1_1BatchAssociateResourceCommand,
@@ -130,8 +125,8 @@ export class BatchAssociateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchAssociateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchAssociateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

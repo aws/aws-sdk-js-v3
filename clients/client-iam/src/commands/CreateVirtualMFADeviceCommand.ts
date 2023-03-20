@@ -16,7 +16,6 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   CreateVirtualMFADeviceRequest,
-  CreateVirtualMFADeviceRequestFilterSensitiveLog,
   CreateVirtualMFADeviceResponse,
   CreateVirtualMFADeviceResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -139,7 +138,7 @@ export class CreateVirtualMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVirtualMFADeviceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateVirtualMFADeviceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

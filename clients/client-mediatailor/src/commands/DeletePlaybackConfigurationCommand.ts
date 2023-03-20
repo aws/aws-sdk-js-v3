@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  DeletePlaybackConfigurationRequest,
-  DeletePlaybackConfigurationRequestFilterSensitiveLog,
-  DeletePlaybackConfigurationResponse,
-  DeletePlaybackConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePlaybackConfigurationRequest, DeletePlaybackConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePlaybackConfigurationCommand,
   serializeAws_restJson1DeletePlaybackConfigurationCommand,
@@ -109,8 +104,8 @@ export class DeletePlaybackConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlaybackConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePlaybackConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -130,7 +130,7 @@ export class BatchUpdatePhoneNumberCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchUpdatePhoneNumberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

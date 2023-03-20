@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  PutChannelPolicyRequest,
-  PutChannelPolicyRequestFilterSensitiveLog,
-  PutChannelPolicyResponse,
-  PutChannelPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutChannelPolicyRequest, PutChannelPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutChannelPolicyCommand,
   serializeAws_restJson1PutChannelPolicyCommand,
@@ -107,8 +102,8 @@ export class PutChannelPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutChannelPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutChannelPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { JsonMapsInputOutput, JsonMapsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { JsonMapsInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1JsonMapsCommand,
   serializeAws_restJson1JsonMapsCommand,
@@ -20,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link JsonMapsCommand}.
  */
 export interface JsonMapsCommandInput extends JsonMapsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link JsonMapsCommand}.
  */
 export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * The example tests basic map serialization.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -40,6 +45,8 @@ export interface JsonMapsCommandOutput extends JsonMapsInputOutput, __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param JsonMapsCommandInput - {@link JsonMapsCommandInput}
+ * @returns {@link JsonMapsCommandOutput}
  * @see {@link JsonMapsCommandInput} for command's `input` shape.
  * @see {@link JsonMapsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -54,6 +61,9 @@ export class JsonMapsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: JsonMapsCommandInput) {
     // Start section: command_constructor
     super();
@@ -79,8 +89,8 @@ export class JsonMapsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonMapsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: JsonMapsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -90,10 +100,16 @@ export class JsonMapsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JsonMapsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1JsonMapsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonMapsCommandOutput> {
     return deserializeAws_restJson1JsonMapsCommand(output, context);
   }

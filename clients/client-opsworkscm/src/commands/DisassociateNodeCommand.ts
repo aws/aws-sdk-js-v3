@@ -17,7 +17,6 @@ import {
   DisassociateNodeRequest,
   DisassociateNodeRequestFilterSensitiveLog,
   DisassociateNodeResponse,
-  DisassociateNodeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import {
@@ -127,7 +126,7 @@ export class DisassociateNodeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DisassociateNodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateNodeResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

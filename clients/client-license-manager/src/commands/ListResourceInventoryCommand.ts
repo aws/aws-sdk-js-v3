@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  ListResourceInventoryRequest,
-  ListResourceInventoryRequestFilterSensitiveLog,
-  ListResourceInventoryResponse,
-  ListResourceInventoryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListResourceInventoryRequest, ListResourceInventoryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListResourceInventoryCommand,
   serializeAws_json1_1ListResourceInventoryCommand,
@@ -129,8 +124,8 @@ export class ListResourceInventoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListResourceInventoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListResourceInventoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

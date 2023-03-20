@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartFileTransferRequest,
-  StartFileTransferRequestFilterSensitiveLog,
-  StartFileTransferResponse,
-  StartFileTransferResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartFileTransferRequest, StartFileTransferResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartFileTransferCommand,
   serializeAws_json1_1StartFileTransferCommand,
@@ -124,8 +119,8 @@ export class StartFileTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartFileTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFileTransferResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

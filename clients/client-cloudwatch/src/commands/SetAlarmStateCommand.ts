@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { SetAlarmStateInput, SetAlarmStateInputFilterSensitiveLog } from "../models/models_0";
+import { SetAlarmStateInput } from "../models/models_0";
 import {
   deserializeAws_querySetAlarmStateCommand,
   serializeAws_querySetAlarmStateCommand,
@@ -121,8 +121,8 @@ export class SetAlarmStateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetAlarmStateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

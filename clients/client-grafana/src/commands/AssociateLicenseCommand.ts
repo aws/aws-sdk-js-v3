@@ -16,7 +16,6 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   AssociateLicenseRequest,
-  AssociateLicenseRequestFilterSensitiveLog,
   AssociateLicenseResponse,
   AssociateLicenseResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -124,7 +123,7 @@ export class AssociateLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateLicenseRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: AssociateLicenseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

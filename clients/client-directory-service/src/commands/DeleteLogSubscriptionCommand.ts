@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeleteLogSubscriptionRequest,
-  DeleteLogSubscriptionRequestFilterSensitiveLog,
-  DeleteLogSubscriptionResult,
-  DeleteLogSubscriptionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLogSubscriptionCommand,
   serializeAws_json1_1DeleteLogSubscriptionCommand,
@@ -119,8 +114,8 @@ export class DeleteLogSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLogSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLogSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

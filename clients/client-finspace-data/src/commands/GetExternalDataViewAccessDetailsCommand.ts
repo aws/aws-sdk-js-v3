@@ -16,7 +16,6 @@ import {
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
 import {
   GetExternalDataViewAccessDetailsRequest,
-  GetExternalDataViewAccessDetailsRequestFilterSensitiveLog,
   GetExternalDataViewAccessDetailsResponse,
   GetExternalDataViewAccessDetailsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -133,7 +132,7 @@ export class GetExternalDataViewAccessDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetExternalDataViewAccessDetailsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetExternalDataViewAccessDetailsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

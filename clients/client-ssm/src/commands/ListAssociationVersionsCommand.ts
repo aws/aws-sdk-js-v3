@@ -15,7 +15,6 @@ import {
 
 import {
   ListAssociationVersionsRequest,
-  ListAssociationVersionsRequestFilterSensitiveLog,
   ListAssociationVersionsResult,
   ListAssociationVersionsResultFilterSensitiveLog,
 } from "../models/models_1";
@@ -116,7 +115,7 @@ export class ListAssociationVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociationVersionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAssociationVersionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

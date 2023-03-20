@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCommerceAnalyticsClient";
-import {
-  GenerateDataSetRequest,
-  GenerateDataSetRequestFilterSensitiveLog,
-  GenerateDataSetResult,
-  GenerateDataSetResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GenerateDataSetRequest, GenerateDataSetResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateDataSetCommand,
   serializeAws_json1_1GenerateDataSetCommand,
@@ -121,8 +116,8 @@ export class GenerateDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateDataSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateDataSetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

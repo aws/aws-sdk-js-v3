@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { ValidateConfigurationRequest, ValidateConfigurationRequestFilterSensitiveLog } from "../models/models_0";
+import { ValidateConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1ValidateConfigurationCommand,
   serializeAws_restJson1ValidateConfigurationCommand,
@@ -124,8 +124,8 @@ export class ValidateConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

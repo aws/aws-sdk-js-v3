@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  MalformedTimestampQueryDefaultInput,
-  MalformedTimestampQueryDefaultInputFilterSensitiveLog,
-} from "../models/models_0";
+import { MalformedTimestampQueryDefaultInput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedTimestampQueryDefaultCommand,
   serializeAws_restJson1MalformedTimestampQueryDefaultCommand,
@@ -23,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedTimestampQueryDefaultCommand}.
  */
 export interface MalformedTimestampQueryDefaultCommandInput extends MalformedTimestampQueryDefaultInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedTimestampQueryDefaultCommand}.
  */
 export interface MalformedTimestampQueryDefaultCommandOutput extends __MetadataBearer {}
@@ -39,6 +40,9 @@ export class MalformedTimestampQueryDefaultCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedTimestampQueryDefaultCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,8 +68,8 @@ export class MalformedTimestampQueryDefaultCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampQueryDefaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,6 +79,9 @@ export class MalformedTimestampQueryDefaultCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: MalformedTimestampQueryDefaultCommandInput,
     context: __SerdeContext
@@ -82,6 +89,9 @@ export class MalformedTimestampQueryDefaultCommand extends $Command<
     return serializeAws_restJson1MalformedTimestampQueryDefaultCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

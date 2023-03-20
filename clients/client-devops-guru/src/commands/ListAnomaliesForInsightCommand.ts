@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  ListAnomaliesForInsightRequest,
-  ListAnomaliesForInsightRequestFilterSensitiveLog,
-  ListAnomaliesForInsightResponse,
-  ListAnomaliesForInsightResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAnomaliesForInsightRequest, ListAnomaliesForInsightResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAnomaliesForInsightCommand,
   serializeAws_restJson1ListAnomaliesForInsightCommand,
@@ -127,8 +122,8 @@ export class ListAnomaliesForInsightCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAnomaliesForInsightRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAnomaliesForInsightResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  ListAggregatedUtterancesRequest,
-  ListAggregatedUtterancesRequestFilterSensitiveLog,
-  ListAggregatedUtterancesResponse,
-  ListAggregatedUtterancesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAggregatedUtterancesRequest, ListAggregatedUtterancesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAggregatedUtterancesCommand,
   serializeAws_restJson1ListAggregatedUtterancesCommand,
@@ -148,8 +143,8 @@ export class ListAggregatedUtterancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAggregatedUtterancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAggregatedUtterancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

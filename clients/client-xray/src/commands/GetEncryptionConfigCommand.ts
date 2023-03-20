@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetEncryptionConfigRequest,
-  GetEncryptionConfigRequestFilterSensitiveLog,
-  GetEncryptionConfigResult,
-  GetEncryptionConfigResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetEncryptionConfigRequest, GetEncryptionConfigResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetEncryptionConfigCommand,
   serializeAws_restJson1GetEncryptionConfigCommand,
@@ -113,8 +108,8 @@ export class GetEncryptionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEncryptionConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEncryptionConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

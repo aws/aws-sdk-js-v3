@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient";
-import {
-  ExportBundleRequest,
-  ExportBundleRequestFilterSensitiveLog,
-  ExportBundleResult,
-  ExportBundleResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ExportBundleRequest, ExportBundleResult } from "../models/models_0";
 import {
   deserializeAws_restJson1ExportBundleCommand,
   serializeAws_restJson1ExportBundleCommand,
@@ -142,8 +137,8 @@ export class ExportBundleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportBundleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportBundleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -120,7 +120,7 @@ export class PutMetadataCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

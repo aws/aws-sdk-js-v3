@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteEmailChannelRequest,
-  DeleteEmailChannelRequestFilterSensitiveLog,
-  DeleteEmailChannelResponse,
-  DeleteEmailChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEmailChannelRequest, DeleteEmailChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1DeleteEmailChannelCommand,
@@ -128,8 +123,8 @@ export class DeleteEmailChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEmailChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEmailChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

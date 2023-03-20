@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetMobileDeviceAccessOverrideRequest,
-  GetMobileDeviceAccessOverrideRequestFilterSensitiveLog,
-  GetMobileDeviceAccessOverrideResponse,
-  GetMobileDeviceAccessOverrideResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMobileDeviceAccessOverrideRequest, GetMobileDeviceAccessOverrideResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetMobileDeviceAccessOverrideCommand,
   serializeAws_json1_1GetMobileDeviceAccessOverrideCommand,
@@ -127,8 +122,8 @@ export class GetMobileDeviceAccessOverrideCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMobileDeviceAccessOverrideRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMobileDeviceAccessOverrideResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

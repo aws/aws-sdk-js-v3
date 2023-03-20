@@ -15,7 +15,6 @@ import {
 
 import {
   ListEnvironmentOutputsInput,
-  ListEnvironmentOutputsInputFilterSensitiveLog,
   ListEnvironmentOutputsOutput,
   ListEnvironmentOutputsOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class ListEnvironmentOutputsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEnvironmentOutputsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListEnvironmentOutputsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

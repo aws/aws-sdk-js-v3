@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCampaignRequest,
-  UpdateCampaignRequestFilterSensitiveLog,
-  UpdateCampaignResponse,
-  UpdateCampaignResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateCampaignRequest, UpdateCampaignResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1UpdateCampaignCommand,
@@ -128,8 +123,8 @@ export class UpdateCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
-import {
-  DeleteContainerInput,
-  DeleteContainerInputFilterSensitiveLog,
-  DeleteContainerOutput,
-  DeleteContainerOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteContainerInput, DeleteContainerOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteContainerCommand,
   serializeAws_json1_1DeleteContainerCommand,
@@ -119,8 +114,8 @@ export class DeleteContainerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContainerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContainerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

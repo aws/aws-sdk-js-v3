@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { InputAndOutputWithHeadersIO, InputAndOutputWithHeadersIOFilterSensitiveLog } from "../models/models_0";
+import { InputAndOutputWithHeadersIO } from "../models/models_0";
 import {
   deserializeAws_restXmlInputAndOutputWithHeadersCommand,
   serializeAws_restXmlInputAndOutputWithHeadersCommand,
@@ -20,15 +20,20 @@ import {
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link InputAndOutputWithHeadersCommand}.
  */
 export interface InputAndOutputWithHeadersCommandInput extends InputAndOutputWithHeadersIO {}
 /**
+ * @public
+ *
  * The output of {@link InputAndOutputWithHeadersCommand}.
  */
 export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWithHeadersIO, __MetadataBearer {}
 
 /**
+ * @public
  * The example tests how requests and responses are serialized when there is
  * no input or output payload but there are HTTP header bindings.
  * @example
@@ -41,6 +46,8 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * const response = await client.send(command);
  * ```
  *
+ * @param InputAndOutputWithHeadersCommandInput - {@link InputAndOutputWithHeadersCommandInput}
+ * @returns {@link InputAndOutputWithHeadersCommandOutput}
  * @see {@link InputAndOutputWithHeadersCommandInput} for command's `input` shape.
  * @see {@link InputAndOutputWithHeadersCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -55,6 +62,9 @@ export class InputAndOutputWithHeadersCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: InputAndOutputWithHeadersCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,8 +90,8 @@ export class InputAndOutputWithHeadersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InputAndOutputWithHeadersIOFilterSensitiveLog,
-      outputFilterSensitiveLog: InputAndOutputWithHeadersIOFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,10 +101,16 @@ export class InputAndOutputWithHeadersCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: InputAndOutputWithHeadersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlInputAndOutputWithHeadersCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

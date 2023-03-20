@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeUsersRequest,
-  DescribeUsersRequestFilterSensitiveLog,
-  DescribeUsersResult,
-  DescribeUsersResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeUsersRequest, DescribeUsersResult, DescribeUsersResultFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeUsersCommand,
   serializeAws_json1_1DescribeUsersCommand,
@@ -114,7 +109,7 @@ export class DescribeUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeUsersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeUsersResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

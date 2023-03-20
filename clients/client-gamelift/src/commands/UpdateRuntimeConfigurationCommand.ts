@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  UpdateRuntimeConfigurationInput,
-  UpdateRuntimeConfigurationInputFilterSensitiveLog,
-  UpdateRuntimeConfigurationOutput,
-  UpdateRuntimeConfigurationOutputFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateRuntimeConfigurationInput, UpdateRuntimeConfigurationOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateRuntimeConfigurationCommand,
   serializeAws_json1_1UpdateRuntimeConfigurationCommand,
@@ -144,8 +139,8 @@ export class UpdateRuntimeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRuntimeConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRuntimeConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

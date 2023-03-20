@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DescribeSnapshotsListMessage,
-  DescribeSnapshotsListMessageFilterSensitiveLog,
-  DescribeSnapshotsMessage,
-  DescribeSnapshotsMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSnapshotsListMessage, DescribeSnapshotsMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeSnapshotsCommand,
   serializeAws_queryDescribeSnapshotsCommand,
@@ -171,8 +166,8 @@ export class DescribeSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSnapshotsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSnapshotsListMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

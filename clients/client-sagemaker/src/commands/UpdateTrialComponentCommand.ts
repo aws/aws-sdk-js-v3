@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateTrialComponentRequest,
-  UpdateTrialComponentRequestFilterSensitiveLog,
-  UpdateTrialComponentResponse,
-  UpdateTrialComponentResponseFilterSensitiveLog,
-} from "../models/models_4";
+import { UpdateTrialComponentRequest, UpdateTrialComponentResponse } from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateTrialComponentCommand,
   serializeAws_json1_1UpdateTrialComponentCommand,
@@ -114,8 +109,8 @@ export class UpdateTrialComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrialComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrialComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

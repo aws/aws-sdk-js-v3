@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { MalformedBlobInput, MalformedBlobInputFilterSensitiveLog } from "../models/models_0";
+import { MalformedBlobInput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedBlobCommand,
   serializeAws_restJson1MalformedBlobCommand,
@@ -20,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedBlobCommand}.
  */
 export interface MalformedBlobCommandInput extends MalformedBlobInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedBlobCommand}.
  */
 export interface MalformedBlobCommandOutput extends __MetadataBearer {}
@@ -36,6 +40,9 @@ export class MalformedBlobCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedBlobCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class MalformedBlobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedBlobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class MalformedBlobCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedBlobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MalformedBlobCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MalformedBlobCommandOutput> {
     return deserializeAws_restJson1MalformedBlobCommand(output, context);
   }

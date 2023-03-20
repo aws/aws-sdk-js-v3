@@ -19,12 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminDisableProviderForUserRequest,
-  AdminDisableProviderForUserRequestFilterSensitiveLog,
-  AdminDisableProviderForUserResponse,
-  AdminDisableProviderForUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AdminDisableProviderForUserRequest, AdminDisableProviderForUserResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminDisableProviderForUserCommand,
   serializeAws_json1_1AdminDisableProviderForUserCommand,
@@ -170,8 +165,8 @@ export class AdminDisableProviderForUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminDisableProviderForUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminDisableProviderForUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

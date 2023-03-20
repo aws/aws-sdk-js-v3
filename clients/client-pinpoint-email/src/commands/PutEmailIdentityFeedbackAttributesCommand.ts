@@ -15,9 +15,7 @@ import {
 
 import {
   PutEmailIdentityFeedbackAttributesRequest,
-  PutEmailIdentityFeedbackAttributesRequestFilterSensitiveLog,
   PutEmailIdentityFeedbackAttributesResponse,
-  PutEmailIdentityFeedbackAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
@@ -128,8 +126,8 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailIdentityFeedbackAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

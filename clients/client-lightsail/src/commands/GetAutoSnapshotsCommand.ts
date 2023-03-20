@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetAutoSnapshotsRequest,
-  GetAutoSnapshotsRequestFilterSensitiveLog,
-  GetAutoSnapshotsResult,
-  GetAutoSnapshotsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAutoSnapshotsRequest, GetAutoSnapshotsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAutoSnapshotsCommand,
   serializeAws_json1_1GetAutoSnapshotsCommand,
@@ -134,8 +129,8 @@ export class GetAutoSnapshotsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAutoSnapshotsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAutoSnapshotsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

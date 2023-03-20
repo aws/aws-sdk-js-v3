@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  UpdateApiKeyRequest,
-  UpdateApiKeyRequestFilterSensitiveLog,
-  UpdateApiKeyResponse,
-  UpdateApiKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateApiKeyRequest, UpdateApiKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateApiKeyCommand,
   serializeAws_restJson1UpdateApiKeyCommand,
@@ -125,8 +120,8 @@ export class UpdateApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApiKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

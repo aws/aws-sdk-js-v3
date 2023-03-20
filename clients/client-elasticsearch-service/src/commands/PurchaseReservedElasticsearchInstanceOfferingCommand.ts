@@ -20,9 +20,7 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   PurchaseReservedElasticsearchInstanceOfferingRequest,
-  PurchaseReservedElasticsearchInstanceOfferingRequestFilterSensitiveLog,
   PurchaseReservedElasticsearchInstanceOfferingResponse,
-  PurchaseReservedElasticsearchInstanceOfferingResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand,
@@ -138,8 +136,8 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedElasticsearchInstanceOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedElasticsearchInstanceOfferingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

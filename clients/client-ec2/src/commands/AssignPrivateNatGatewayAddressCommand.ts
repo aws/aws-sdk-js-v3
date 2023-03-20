@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssignPrivateNatGatewayAddressRequest,
-  AssignPrivateNatGatewayAddressRequestFilterSensitiveLog,
-  AssignPrivateNatGatewayAddressResult,
-  AssignPrivateNatGatewayAddressResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssignPrivateNatGatewayAddressRequest, AssignPrivateNatGatewayAddressResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssignPrivateNatGatewayAddressCommand,
   serializeAws_ec2AssignPrivateNatGatewayAddressCommand,
@@ -109,8 +104,8 @@ export class AssignPrivateNatGatewayAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignPrivateNatGatewayAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssignPrivateNatGatewayAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

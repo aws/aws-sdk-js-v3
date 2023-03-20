@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  ListCustomRoutingPortMappingsRequest,
-  ListCustomRoutingPortMappingsRequestFilterSensitiveLog,
-  ListCustomRoutingPortMappingsResponse,
-  ListCustomRoutingPortMappingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCustomRoutingPortMappingsRequest, ListCustomRoutingPortMappingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListCustomRoutingPortMappingsCommand,
   serializeAws_json1_1ListCustomRoutingPortMappingsCommand,
@@ -136,8 +131,8 @@ export class ListCustomRoutingPortMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomRoutingPortMappingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomRoutingPortMappingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

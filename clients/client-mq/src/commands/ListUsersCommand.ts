@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListUsersRequest,
-  ListUsersRequestFilterSensitiveLog,
-  ListUsersResponse,
-  ListUsersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import {
   deserializeAws_restJson1ListUsersCommand,
@@ -113,8 +108,8 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUsersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

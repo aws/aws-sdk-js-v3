@@ -745,42 +745,7 @@ export interface StartObjectOutput {
 /**
  * @internal
  */
-export const BackupObjectFilterSensitiveLog = (obj: BackupObject): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChunkFilterSensitiveLog = (obj: Chunk): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteObjectInputFilterSensitiveLog = (obj: DeleteObjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetChunkInputFilterSensitiveLog = (obj: GetChunkInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetChunkOutputFilterSensitiveLog = (obj: GetChunkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetObjectMetadataInputFilterSensitiveLog = (obj: GetObjectMetadataInput): any => ({
   ...obj,
 });
 
@@ -794,42 +759,7 @@ export const GetObjectMetadataOutputFilterSensitiveLog = (obj: GetObjectMetadata
 /**
  * @internal
  */
-export const ListChunksInputFilterSensitiveLog = (obj: ListChunksInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListChunksOutputFilterSensitiveLog = (obj: ListChunksOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListObjectsInputFilterSensitiveLog = (obj: ListObjectsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListObjectsOutputFilterSensitiveLog = (obj: ListObjectsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const NotifyObjectCompleteInputFilterSensitiveLog = (obj: NotifyObjectCompleteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NotifyObjectCompleteOutputFilterSensitiveLog = (obj: NotifyObjectCompleteOutput): any => ({
   ...obj,
 });
 
@@ -843,34 +773,6 @@ export const PutChunkInputFilterSensitiveLog = (obj: PutChunkInput): any => ({
 /**
  * @internal
  */
-export const PutChunkOutputFilterSensitiveLog = (obj: PutChunkOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutObjectInputFilterSensitiveLog = (obj: PutObjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectOutputFilterSensitiveLog = (obj: PutObjectOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartObjectInputFilterSensitiveLog = (obj: StartObjectInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartObjectOutputFilterSensitiveLog = (obj: StartObjectOutput): any => ({
   ...obj,
 });

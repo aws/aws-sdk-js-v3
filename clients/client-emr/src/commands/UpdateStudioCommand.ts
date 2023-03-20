@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { UpdateStudioInput, UpdateStudioInputFilterSensitiveLog } from "../models/models_0";
+import { UpdateStudioInput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateStudioCommand,
   serializeAws_json1_1UpdateStudioCommand,
@@ -108,8 +108,8 @@ export class UpdateStudioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateStudioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

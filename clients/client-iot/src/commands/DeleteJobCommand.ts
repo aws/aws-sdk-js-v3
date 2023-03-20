@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteJobRequest, DeleteJobRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteJobRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteJobCommand,
   serializeAws_restJson1DeleteJobCommand,
@@ -124,8 +124,8 @@ export class DeleteJobCommand extends $Command<DeleteJobCommandInput, DeleteJobC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  AssociateExternalConnectionRequest,
-  AssociateExternalConnectionRequestFilterSensitiveLog,
-  AssociateExternalConnectionResult,
-  AssociateExternalConnectionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateExternalConnectionRequest, AssociateExternalConnectionResult } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateExternalConnectionCommand,
   serializeAws_restJson1AssociateExternalConnectionCommand,
@@ -144,8 +139,8 @@ export class AssociateExternalConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateExternalConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateExternalConnectionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

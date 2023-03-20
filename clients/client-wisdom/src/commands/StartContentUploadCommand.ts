@@ -15,7 +15,6 @@ import {
 
 import {
   StartContentUploadRequest,
-  StartContentUploadRequestFilterSensitiveLog,
   StartContentUploadResponse,
   StartContentUploadResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class StartContentUploadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartContentUploadRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartContentUploadResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import { PutMetadataFlagRequest, PutMetadataFlagRequestFilterSensitiveLog } from "../models/models_0";
+import { PutMetadataFlagRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PutMetadataFlagCommand,
   serializeAws_restJson1PutMetadataFlagCommand,
@@ -108,8 +108,8 @@ export class PutMetadataFlagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMetadataFlagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

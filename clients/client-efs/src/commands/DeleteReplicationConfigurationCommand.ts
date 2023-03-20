@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  DeleteReplicationConfigurationRequest,
-  DeleteReplicationConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReplicationConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteReplicationConfigurationCommand,
   serializeAws_restJson1DeleteReplicationConfigurationCommand,
@@ -125,8 +122,8 @@ export class DeleteReplicationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReplicationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

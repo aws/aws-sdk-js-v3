@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  CreateTaskRequest,
-  CreateTaskRequestFilterSensitiveLog,
-  CreateTaskResponse,
-  CreateTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateTaskRequest, CreateTaskResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTaskCommand,
   serializeAws_json1_1CreateTaskCommand,
@@ -115,8 +110,8 @@ export class CreateTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

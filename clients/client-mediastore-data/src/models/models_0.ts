@@ -426,41 +426,6 @@ export interface PutObjectResponse {
 /**
  * @internal
  */
-export const DeleteObjectRequestFilterSensitiveLog = (obj: DeleteObjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteObjectResponseFilterSensitiveLog = (obj: DeleteObjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeObjectRequestFilterSensitiveLog = (obj: DescribeObjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeObjectResponseFilterSensitiveLog = (obj: DescribeObjectResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetObjectRequestFilterSensitiveLog = (obj: GetObjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetObjectResponseFilterSensitiveLog = (obj: GetObjectResponse): any => ({
   ...obj,
 });
@@ -468,34 +433,6 @@ export const GetObjectResponseFilterSensitiveLog = (obj: GetObjectResponse): any
 /**
  * @internal
  */
-export const ItemFilterSensitiveLog = (obj: Item): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListItemsRequestFilterSensitiveLog = (obj: ListItemsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListItemsResponseFilterSensitiveLog = (obj: ListItemsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PutObjectRequestFilterSensitiveLog = (obj: PutObjectRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutObjectResponseFilterSensitiveLog = (obj: PutObjectResponse): any => ({
   ...obj,
 });

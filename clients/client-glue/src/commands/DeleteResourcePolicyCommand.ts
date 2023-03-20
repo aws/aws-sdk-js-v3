@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteResourcePolicyRequest,
-  DeleteResourcePolicyRequestFilterSensitiveLog,
-  DeleteResourcePolicyResponse,
-  DeleteResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteResourcePolicyCommand,
   serializeAws_json1_1DeleteResourcePolicyCommand,
@@ -122,8 +117,8 @@ export class DeleteResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

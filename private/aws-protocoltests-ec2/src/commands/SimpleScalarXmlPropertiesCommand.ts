@@ -13,17 +13,21 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { SimpleScalarXmlPropertiesOutput, SimpleScalarXmlPropertiesOutputFilterSensitiveLog } from "../models/models_0";
+import { SimpleScalarXmlPropertiesOutput } from "../models/models_0";
 import {
   deserializeAws_ec2SimpleScalarXmlPropertiesCommand,
   serializeAws_ec2SimpleScalarXmlPropertiesCommand,
 } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link SimpleScalarXmlPropertiesCommand}.
  */
 export interface SimpleScalarXmlPropertiesCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link SimpleScalarXmlPropertiesCommand}.
  */
 export interface SimpleScalarXmlPropertiesCommandOutput extends SimpleScalarXmlPropertiesOutput, __MetadataBearer {}
@@ -36,6 +40,9 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: SimpleScalarXmlPropertiesCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: SimpleScalarXmlPropertiesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class SimpleScalarXmlPropertiesCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: SimpleScalarXmlPropertiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2SimpleScalarXmlPropertiesCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

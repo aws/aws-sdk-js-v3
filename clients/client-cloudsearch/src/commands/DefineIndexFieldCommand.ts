@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DefineIndexFieldRequest,
-  DefineIndexFieldRequestFilterSensitiveLog,
-  DefineIndexFieldResponse,
-  DefineIndexFieldResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DefineIndexFieldRequest, DefineIndexFieldResponse } from "../models/models_0";
 import {
   deserializeAws_queryDefineIndexFieldCommand,
   serializeAws_queryDefineIndexFieldCommand,
@@ -126,8 +121,8 @@ export class DefineIndexFieldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DefineIndexFieldRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DefineIndexFieldResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

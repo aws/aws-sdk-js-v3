@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteVpcLinkRequest, DeleteVpcLinkRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteVpcLinkRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVpcLinkCommand,
   serializeAws_restJson1DeleteVpcLinkCommand,
@@ -115,8 +115,8 @@ export class DeleteVpcLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

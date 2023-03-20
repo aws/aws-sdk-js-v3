@@ -18,7 +18,6 @@ import {
   ConnectDirectoryRequest,
   ConnectDirectoryRequestFilterSensitiveLog,
   ConnectDirectoryResult,
-  ConnectDirectoryResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ConnectDirectoryCommand,
@@ -126,7 +125,7 @@ export class ConnectDirectoryCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ConnectDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectDirectoryResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

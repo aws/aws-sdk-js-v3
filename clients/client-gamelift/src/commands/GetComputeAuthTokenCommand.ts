@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  GetComputeAuthTokenInput,
-  GetComputeAuthTokenInputFilterSensitiveLog,
-  GetComputeAuthTokenOutput,
-  GetComputeAuthTokenOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetComputeAuthTokenInput, GetComputeAuthTokenOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetComputeAuthTokenCommand,
   serializeAws_json1_1GetComputeAuthTokenCommand,
@@ -124,8 +119,8 @@ export class GetComputeAuthTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComputeAuthTokenInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComputeAuthTokenOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  UpdateMeshInput,
-  UpdateMeshInputFilterSensitiveLog,
-  UpdateMeshOutput,
-  UpdateMeshOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateMeshInput, UpdateMeshOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMeshCommand,
   serializeAws_restJson1UpdateMeshCommand,
@@ -130,8 +125,8 @@ export class UpdateMeshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMeshInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMeshOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

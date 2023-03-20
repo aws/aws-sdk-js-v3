@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAppRequest,
-  CreateAppRequestFilterSensitiveLog,
-  CreateAppResult,
-  CreateAppResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAppRequest, CreateAppResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import { deserializeAws_json1_1CreateAppCommand, serializeAws_json1_1CreateAppCommand } from "../protocols/Aws_json1_1";
 
@@ -114,8 +109,8 @@ export class CreateAppCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAppResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IotDeviceAdvisorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IotDeviceAdvisorClient";
-import {
-  DeleteSuiteDefinitionRequest,
-  DeleteSuiteDefinitionRequestFilterSensitiveLog,
-  DeleteSuiteDefinitionResponse,
-  DeleteSuiteDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSuiteDefinitionRequest, DeleteSuiteDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSuiteDefinitionCommand,
   serializeAws_restJson1DeleteSuiteDefinitionCommand,
@@ -114,8 +109,8 @@ export class DeleteSuiteDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSuiteDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSuiteDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

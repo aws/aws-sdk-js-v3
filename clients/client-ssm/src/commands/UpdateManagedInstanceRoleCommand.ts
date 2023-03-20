@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateManagedInstanceRoleRequest,
-  UpdateManagedInstanceRoleRequestFilterSensitiveLog,
-  UpdateManagedInstanceRoleResult,
-  UpdateManagedInstanceRoleResultFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateManagedInstanceRoleCommand,
   serializeAws_json1_1UpdateManagedInstanceRoleCommand,
@@ -132,8 +127,8 @@ export class UpdateManagedInstanceRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateManagedInstanceRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateManagedInstanceRoleResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

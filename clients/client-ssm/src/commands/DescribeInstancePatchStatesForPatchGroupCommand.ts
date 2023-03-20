@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeInstancePatchStatesForPatchGroupRequest,
-  DescribeInstancePatchStatesForPatchGroupRequestFilterSensitiveLog,
   DescribeInstancePatchStatesForPatchGroupResult,
   DescribeInstancePatchStatesForPatchGroupResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class DescribeInstancePatchStatesForPatchGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInstancePatchStatesForPatchGroupRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeInstancePatchStatesForPatchGroupResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

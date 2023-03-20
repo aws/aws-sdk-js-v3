@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PutDataProtectionPolicyInput, PutDataProtectionPolicyInputFilterSensitiveLog } from "../models/models_0";
+import { PutDataProtectionPolicyInput } from "../models/models_0";
 import {
   deserializeAws_queryPutDataProtectionPolicyCommand,
   serializeAws_queryPutDataProtectionPolicyCommand,
@@ -120,8 +120,8 @@ export class PutDataProtectionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDataProtectionPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { PutAccountConfigurationRequest, PutAccountConfigurationRequestFilterSensitiveLog } from "../models/models_0";
+import { PutAccountConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1PutAccountConfigurationCommand,
   serializeAws_json1_1PutAccountConfigurationCommand,
@@ -120,8 +120,8 @@ export class PutAccountConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutAccountConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

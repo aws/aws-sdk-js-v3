@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutSolFunctionPackageContentInput,
-  PutSolFunctionPackageContentInputFilterSensitiveLog,
-  PutSolFunctionPackageContentOutput,
-  PutSolFunctionPackageContentOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutSolFunctionPackageContentInput, PutSolFunctionPackageContentOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1PutSolFunctionPackageContentCommand,
   serializeAws_restJson1PutSolFunctionPackageContentCommand,
@@ -125,8 +120,8 @@ export class PutSolFunctionPackageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSolFunctionPackageContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSolFunctionPackageContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

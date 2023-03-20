@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateDRTLogBucketRequest,
-  AssociateDRTLogBucketRequestFilterSensitiveLog,
-  AssociateDRTLogBucketResponse,
-  AssociateDRTLogBucketResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateDRTLogBucketRequest, AssociateDRTLogBucketResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateDRTLogBucketCommand,
   serializeAws_json1_1AssociateDRTLogBucketCommand,
@@ -133,8 +128,8 @@ export class AssociateDRTLogBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDRTLogBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDRTLogBucketResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

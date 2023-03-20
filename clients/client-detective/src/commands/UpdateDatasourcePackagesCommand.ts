@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { UpdateDatasourcePackagesRequest, UpdateDatasourcePackagesRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateDatasourcePackagesRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDatasourcePackagesCommand,
   serializeAws_restJson1UpdateDatasourcePackagesCommand,
@@ -133,8 +133,8 @@ export class UpdateDatasourcePackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasourcePackagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

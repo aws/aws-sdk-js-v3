@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeStoreImageTasksRequest,
-  DescribeStoreImageTasksRequestFilterSensitiveLog,
-  DescribeStoreImageTasksResult,
-  DescribeStoreImageTasksResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeStoreImageTasksRequest, DescribeStoreImageTasksResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeStoreImageTasksCommand,
   serializeAws_ec2DescribeStoreImageTasksCommand,
@@ -118,8 +113,8 @@ export class DescribeStoreImageTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStoreImageTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStoreImageTasksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

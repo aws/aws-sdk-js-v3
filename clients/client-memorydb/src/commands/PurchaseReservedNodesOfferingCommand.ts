@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  PurchaseReservedNodesOfferingRequest,
-  PurchaseReservedNodesOfferingRequestFilterSensitiveLog,
-  PurchaseReservedNodesOfferingResponse,
-  PurchaseReservedNodesOfferingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PurchaseReservedNodesOfferingRequest, PurchaseReservedNodesOfferingResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PurchaseReservedNodesOfferingCommand,
   serializeAws_json1_1PurchaseReservedNodesOfferingCommand,
@@ -132,8 +127,8 @@ export class PurchaseReservedNodesOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PurchaseReservedNodesOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PurchaseReservedNodesOfferingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  AddFacetToObjectRequest,
-  AddFacetToObjectRequestFilterSensitiveLog,
-  AddFacetToObjectResponse,
-  AddFacetToObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AddFacetToObjectRequest, AddFacetToObjectResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AddFacetToObjectCommand,
   serializeAws_restJson1AddFacetToObjectCommand,
@@ -136,8 +131,8 @@ export class AddFacetToObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddFacetToObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddFacetToObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

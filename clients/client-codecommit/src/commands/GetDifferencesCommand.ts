@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetDifferencesInput,
-  GetDifferencesInputFilterSensitiveLog,
-  GetDifferencesOutput,
-  GetDifferencesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDifferencesInput, GetDifferencesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDifferencesCommand,
   serializeAws_json1_1GetDifferencesCommand,
@@ -163,8 +158,8 @@ export class GetDifferencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDifferencesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDifferencesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

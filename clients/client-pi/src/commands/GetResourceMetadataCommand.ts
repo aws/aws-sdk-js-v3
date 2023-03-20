@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourceMetadataRequest,
-  GetResourceMetadataRequestFilterSensitiveLog,
-  GetResourceMetadataResponse,
-  GetResourceMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetResourceMetadataRequest, GetResourceMetadataResponse } from "../models/models_0";
 import { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import {
   deserializeAws_json1_1GetResourceMetadataCommand,
@@ -118,8 +113,8 @@ export class GetResourceMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourceMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourceMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

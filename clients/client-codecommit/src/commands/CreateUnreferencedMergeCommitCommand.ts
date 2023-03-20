@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  CreateUnreferencedMergeCommitInput,
-  CreateUnreferencedMergeCommitInputFilterSensitiveLog,
-  CreateUnreferencedMergeCommitOutput,
-  CreateUnreferencedMergeCommitOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateUnreferencedMergeCommitInput, CreateUnreferencedMergeCommitOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateUnreferencedMergeCommitCommand,
   serializeAws_json1_1CreateUnreferencedMergeCommitCommand,
@@ -237,8 +232,8 @@ export class CreateUnreferencedMergeCommitCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUnreferencedMergeCommitInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUnreferencedMergeCommitOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

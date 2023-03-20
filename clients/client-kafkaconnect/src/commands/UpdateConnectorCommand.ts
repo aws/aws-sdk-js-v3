@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  UpdateConnectorRequest,
-  UpdateConnectorRequestFilterSensitiveLog,
-  UpdateConnectorResponse,
-  UpdateConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateConnectorRequest, UpdateConnectorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateConnectorCommand,
   serializeAws_restJson1UpdateConnectorCommand,
@@ -134,8 +129,8 @@ export class UpdateConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

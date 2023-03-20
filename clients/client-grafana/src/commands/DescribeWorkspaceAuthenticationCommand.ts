@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import {
-  DescribeWorkspaceAuthenticationRequest,
-  DescribeWorkspaceAuthenticationRequestFilterSensitiveLog,
-  DescribeWorkspaceAuthenticationResponse,
-  DescribeWorkspaceAuthenticationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeWorkspaceAuthenticationRequest, DescribeWorkspaceAuthenticationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeWorkspaceAuthenticationCommand,
   serializeAws_restJson1DescribeWorkspaceAuthenticationCommand,
@@ -125,8 +120,8 @@ export class DescribeWorkspaceAuthenticationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorkspaceAuthenticationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorkspaceAuthenticationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

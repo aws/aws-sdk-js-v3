@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAppRequest,
-  UpdateAppRequestFilterSensitiveLog,
-  UpdateAppResponse,
-  UpdateAppResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAppRequest, UpdateAppResponse } from "../models/models_0";
 import { deserializeAws_json1_1UpdateAppCommand, serializeAws_json1_1UpdateAppCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "../SMSClient";
 
@@ -114,8 +109,8 @@ export class UpdateAppCommand extends $Command<UpdateAppCommandInput, UpdateAppC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

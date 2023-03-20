@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreObjectOutput,
-  RestoreObjectOutputFilterSensitiveLog,
-  RestoreObjectRequest,
-  RestoreObjectRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { RestoreObjectOutput, RestoreObjectRequest, RestoreObjectRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlRestoreObjectCommand,
   serializeAws_restXmlRestoreObjectCommand,
@@ -424,7 +419,7 @@ export class RestoreObjectCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RestoreObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreObjectOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

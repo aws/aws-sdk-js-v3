@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetScheduleGroupInput,
-  GetScheduleGroupInputFilterSensitiveLog,
-  GetScheduleGroupOutput,
-  GetScheduleGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetScheduleGroupInput, GetScheduleGroupOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetScheduleGroupCommand,
   serializeAws_restJson1GetScheduleGroupCommand,
@@ -119,8 +114,8 @@ export class GetScheduleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetScheduleGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetScheduleGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

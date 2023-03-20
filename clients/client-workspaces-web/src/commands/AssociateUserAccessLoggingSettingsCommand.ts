@@ -15,9 +15,7 @@ import {
 
 import {
   AssociateUserAccessLoggingSettingsRequest,
-  AssociateUserAccessLoggingSettingsRequestFilterSensitiveLog,
   AssociateUserAccessLoggingSettingsResponse,
-  AssociateUserAccessLoggingSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateUserAccessLoggingSettingsCommand,
@@ -127,8 +125,8 @@ export class AssociateUserAccessLoggingSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateUserAccessLoggingSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateUserAccessLoggingSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import {
-  DeleteSourceServerRequest,
-  DeleteSourceServerRequestFilterSensitiveLog,
-  DeleteSourceServerResponse,
-  DeleteSourceServerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSourceServerRequest, DeleteSourceServerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSourceServerCommand,
   serializeAws_restJson1DeleteSourceServerCommand,
@@ -122,8 +117,8 @@ export class DeleteSourceServerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSourceServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSourceServerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

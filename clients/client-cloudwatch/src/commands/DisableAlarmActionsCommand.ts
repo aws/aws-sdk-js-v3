@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { DisableAlarmActionsInput, DisableAlarmActionsInputFilterSensitiveLog } from "../models/models_0";
+import { DisableAlarmActionsInput } from "../models/models_0";
 import {
   deserializeAws_queryDisableAlarmActionsCommand,
   serializeAws_queryDisableAlarmActionsCommand,
@@ -103,8 +103,8 @@ export class DisableAlarmActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableAlarmActionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

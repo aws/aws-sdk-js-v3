@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateCustomerGatewayRequest,
-  AssociateCustomerGatewayRequestFilterSensitiveLog,
-  AssociateCustomerGatewayResponse,
-  AssociateCustomerGatewayResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1AssociateCustomerGatewayCommand,
@@ -137,8 +132,8 @@ export class AssociateCustomerGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateCustomerGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateCustomerGatewayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

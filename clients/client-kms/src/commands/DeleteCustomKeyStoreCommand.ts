@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  DeleteCustomKeyStoreRequest,
-  DeleteCustomKeyStoreRequestFilterSensitiveLog,
-  DeleteCustomKeyStoreResponse,
-  DeleteCustomKeyStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCustomKeyStoreRequest, DeleteCustomKeyStoreResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCustomKeyStoreCommand,
   serializeAws_json1_1DeleteCustomKeyStoreCommand,
@@ -226,8 +221,8 @@ export class DeleteCustomKeyStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomKeyStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

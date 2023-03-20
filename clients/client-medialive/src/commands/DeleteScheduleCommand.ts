@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DeleteScheduleRequest,
-  DeleteScheduleRequestFilterSensitiveLog,
-  DeleteScheduleResponse,
-  DeleteScheduleResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteScheduleRequest, DeleteScheduleResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteScheduleCommand,
   serializeAws_restJson1DeleteScheduleCommand,
@@ -128,8 +123,8 @@ export class DeleteScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScheduleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

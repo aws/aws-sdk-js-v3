@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  QueryLineageRequest,
-  QueryLineageRequestFilterSensitiveLog,
-  QueryLineageResponse,
-  QueryLineageResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { QueryLineageRequest, QueryLineageResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1QueryLineageCommand,
   serializeAws_json1_1QueryLineageCommand,
@@ -110,8 +105,8 @@ export class QueryLineageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryLineageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryLineageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RemoveTagsFromResourceInput,
-  RemoveTagsFromResourceInputFilterSensitiveLog,
-  RemoveTagsFromResourceOutput,
-  RemoveTagsFromResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveTagsFromResourceInput, RemoveTagsFromResourceOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand,
@@ -136,8 +131,8 @@ export class RemoveTagsFromResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsFromResourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsFromResourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

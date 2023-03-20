@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutRumMetricsDestinationRequest,
-  PutRumMetricsDestinationRequestFilterSensitiveLog,
-  PutRumMetricsDestinationResponse,
-  PutRumMetricsDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutRumMetricsDestinationRequest, PutRumMetricsDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutRumMetricsDestinationCommand,
   serializeAws_restJson1PutRumMetricsDestinationCommand,
@@ -127,8 +122,8 @@ export class PutRumMetricsDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRumMetricsDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRumMetricsDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

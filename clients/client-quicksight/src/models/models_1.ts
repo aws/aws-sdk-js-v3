@@ -6763,13 +6763,6 @@ export const ComboChartVisualFilterSensitiveLog = (obj: ComboChartVisual): any =
 /**
  * @internal
  */
-export const CustomContentConfigurationFilterSensitiveLog = (obj: CustomContentConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CustomContentVisualFilterSensitiveLog = (obj: CustomContentVisual): any => ({
   ...obj,
 });
@@ -6799,49 +6792,7 @@ export const FilledMapFieldWellsFilterSensitiveLog = (obj: FilledMapFieldWells):
 /**
  * @internal
  */
-export const GeospatialMapStyleOptionsFilterSensitiveLog = (obj: GeospatialMapStyleOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilledMapSortConfigurationFilterSensitiveLog = (obj: FilledMapSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeospatialCoordinateBoundsFilterSensitiveLog = (obj: GeospatialCoordinateBounds): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeospatialWindowOptionsFilterSensitiveLog = (obj: GeospatialWindowOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FilledMapConfigurationFilterSensitiveLog = (obj: FilledMapConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GradientStopFilterSensitiveLog = (obj: GradientStop): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GradientColorFilterSensitiveLog = (obj: GradientColor): any => ({
   ...obj,
 });
 
@@ -6923,13 +6874,6 @@ export const FilledMapVisualFilterSensitiveLog = (obj: FilledMapVisual): any => 
 /**
  * @internal
  */
-export const FunnelChartDataLabelOptionsFilterSensitiveLog = (obj: FunnelChartDataLabelOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const FunnelChartAggregatedFieldWellsFilterSensitiveLog = (obj: FunnelChartAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -6939,13 +6883,6 @@ export const FunnelChartAggregatedFieldWellsFilterSensitiveLog = (obj: FunnelCha
  * @internal
  */
 export const FunnelChartFieldWellsFilterSensitiveLog = (obj: FunnelChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FunnelChartSortConfigurationFilterSensitiveLog = (obj: FunnelChartSortConfiguration): any => ({
   ...obj,
 });
 
@@ -6971,27 +6908,6 @@ export const GaugeChartFieldWellsFilterSensitiveLog = (obj: GaugeChartFieldWells
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
   ...(obj.TargetValues && { TargetValues: obj.TargetValues.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ArcConfigurationFilterSensitiveLog = (obj: ArcConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArcAxisDisplayRangeFilterSensitiveLog = (obj: ArcAxisDisplayRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ArcAxisConfigurationFilterSensitiveLog = (obj: ArcAxisConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -7046,24 +6962,6 @@ export const GaugeChartConfigurationFilterSensitiveLog = (obj: GaugeChartConfigu
 export const GaugeChartArcConditionalFormattingFilterSensitiveLog = (obj: GaugeChartArcConditionalFormatting): any => ({
   ...obj,
   ...(obj.ForegroundColor && { ForegroundColor: ConditionalFormattingColorFilterSensitiveLog(obj.ForegroundColor) }),
-});
-
-/**
- * @internal
- */
-export const ConditionalFormattingIconDisplayConfigurationFilterSensitiveLog = (
-  obj: ConditionalFormattingIconDisplayConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConditionalFormattingCustomIconOptionsFilterSensitiveLog = (
-  obj: ConditionalFormattingCustomIconOptions
-): any => ({
-  ...obj,
 });
 
 /**
@@ -7162,34 +7060,6 @@ export const GeospatialMapFieldWellsFilterSensitiveLog = (obj: GeospatialMapFiel
 /**
  * @internal
  */
-export const SimpleClusterMarkerFilterSensitiveLog = (obj: SimpleClusterMarker): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterMarkerFilterSensitiveLog = (obj: ClusterMarker): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClusterMarkerConfigurationFilterSensitiveLog = (obj: ClusterMarkerConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeospatialPointStyleOptionsFilterSensitiveLog = (obj: GeospatialPointStyleOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GeospatialMapConfigurationFilterSensitiveLog = (obj: GeospatialMapConfiguration): any => ({
   ...obj,
   ...(obj.VisualPalette && { VisualPalette: VisualPaletteFilterSensitiveLog(obj.VisualPalette) }),
@@ -7199,20 +7069,6 @@ export const GeospatialMapConfigurationFilterSensitiveLog = (obj: GeospatialMapC
  * @internal
  */
 export const GeospatialMapVisualFilterSensitiveLog = (obj: GeospatialMapVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataColorFilterSensitiveLog = (obj: DataColor): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColorScaleFilterSensitiveLog = (obj: ColorScale): any => ({
   ...obj,
 });
 
@@ -7234,13 +7090,6 @@ export const HeatMapFieldWellsFilterSensitiveLog = (obj: HeatMapFieldWells): any
 /**
  * @internal
  */
-export const HeatMapSortConfigurationFilterSensitiveLog = (obj: HeatMapSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const HeatMapConfigurationFilterSensitiveLog = (obj: HeatMapConfiguration): any => ({
   ...obj,
   ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
@@ -7250,27 +7099,6 @@ export const HeatMapConfigurationFilterSensitiveLog = (obj: HeatMapConfiguration
  * @internal
  */
 export const HeatMapVisualFilterSensitiveLog = (obj: HeatMapVisual): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BinCountOptionsFilterSensitiveLog = (obj: BinCountOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BinWidthOptionsFilterSensitiveLog = (obj: BinWidthOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const HistogramBinOptionsFilterSensitiveLog = (obj: HistogramBinOptions): any => ({
   ...obj,
 });
 
@@ -7417,13 +7245,6 @@ export const ComputationFilterSensitiveLog = (obj: Computation): any => ({
 /**
  * @internal
  */
-export const CustomNarrativeOptionsFilterSensitiveLog = (obj: CustomNarrativeOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const InsightConfigurationFilterSensitiveLog = (obj: InsightConfiguration): any => ({
   ...obj,
   ...(obj.Computations && { Computations: obj.Computations.map((item) => ComputationFilterSensitiveLog(item)) }),
@@ -7451,37 +7272,9 @@ export const KPIFieldWellsFilterSensitiveLog = (obj: KPIFieldWells): any => ({
 /**
  * @internal
  */
-export const ProgressBarOptionsFilterSensitiveLog = (obj: ProgressBarOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecondaryValueOptionsFilterSensitiveLog = (obj: SecondaryValueOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrendArrowOptionsFilterSensitiveLog = (obj: TrendArrowOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const KPIOptionsFilterSensitiveLog = (obj: KPIOptions): any => ({
   ...obj,
   ...(obj.Comparison && { Comparison: ComparisonConfigurationFilterSensitiveLog(obj.Comparison) }),
-});
-
-/**
- * @internal
- */
-export const KPISortConfigurationFilterSensitiveLog = (obj: KPISortConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -7549,27 +7342,6 @@ export const KPIVisualFilterSensitiveLog = (obj: KPIVisual): any => ({
 /**
  * @internal
  */
-export const LineChartLineStyleSettingsFilterSensitiveLog = (obj: LineChartLineStyleSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineChartMarkerStyleSettingsFilterSensitiveLog = (obj: LineChartMarkerStyleSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineChartDefaultSeriesSettingsFilterSensitiveLog = (obj: LineChartDefaultSeriesSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const LineChartAggregatedFieldWellsFilterSensitiveLog = (obj: LineChartAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -7585,72 +7357,9 @@ export const LineChartFieldWellsFilterSensitiveLog = (obj: LineChartFieldWells):
 /**
  * @internal
  */
-export const TimeBasedForecastPropertiesFilterSensitiveLog = (obj: TimeBasedForecastProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WhatIfPointScenarioFilterSensitiveLog = (obj: WhatIfPointScenario): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WhatIfRangeScenarioFilterSensitiveLog = (obj: WhatIfRangeScenario): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForecastScenarioFilterSensitiveLog = (obj: ForecastScenario): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ForecastConfigurationFilterSensitiveLog = (obj: ForecastConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MissingDataConfigurationFilterSensitiveLog = (obj: MissingDataConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineSeriesAxisDisplayOptionsFilterSensitiveLog = (obj: LineSeriesAxisDisplayOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LineChartSeriesSettingsFilterSensitiveLog = (obj: LineChartSeriesSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DataFieldSeriesItemFilterSensitiveLog = (obj: DataFieldSeriesItem): any => ({
   ...obj,
   ...(obj.FieldValue && { FieldValue: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FieldSeriesItemFilterSensitiveLog = (obj: FieldSeriesItem): any => ({
-  ...obj,
 });
 
 /**
@@ -7661,13 +7370,6 @@ export const SeriesItemFilterSensitiveLog = (obj: SeriesItem): any => ({
   ...(obj.DataFieldSeriesItem && {
     DataFieldSeriesItem: DataFieldSeriesItemFilterSensitiveLog(obj.DataFieldSeriesItem),
   }),
-});
-
-/**
- * @internal
- */
-export const LineChartSortConfigurationFilterSensitiveLog = (obj: LineChartSortConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -7693,27 +7395,6 @@ export const LineChartVisualFilterSensitiveLog = (obj: LineChartVisual): any => 
 /**
  * @internal
  */
-export const ArcOptionsFilterSensitiveLog = (obj: ArcOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DonutCenterOptionsFilterSensitiveLog = (obj: DonutCenterOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DonutOptionsFilterSensitiveLog = (obj: DonutOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PieChartAggregatedFieldWellsFilterSensitiveLog = (obj: PieChartAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -7723,13 +7404,6 @@ export const PieChartAggregatedFieldWellsFilterSensitiveLog = (obj: PieChartAggr
  * @internal
  */
 export const PieChartFieldWellsFilterSensitiveLog = (obj: PieChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PieChartSortConfigurationFilterSensitiveLog = (obj: PieChartSortConfiguration): any => ({
   ...obj,
 });
 
@@ -7760,13 +7434,6 @@ export const PivotTableDataPathOptionFilterSensitiveLog = (obj: PivotTableDataPa
 /**
  * @internal
  */
-export const PivotTableFieldOptionFilterSensitiveLog = (obj: PivotTableFieldOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PivotTableFieldOptionsFilterSensitiveLog = (obj: PivotTableFieldOptions): any => ({
   ...obj,
 });
@@ -7783,13 +7450,6 @@ export const PivotTableAggregatedFieldWellsFilterSensitiveLog = (obj: PivotTable
  * @internal
  */
 export const PivotTableFieldWellsFilterSensitiveLog = (obj: PivotTableFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTablePaginatedReportOptionsFilterSensitiveLog = (obj: PivotTablePaginatedReportOptions): any => ({
   ...obj,
 });
 
@@ -7827,86 +7487,7 @@ export const PivotTableSortConfigurationFilterSensitiveLog = (obj: PivotTableSor
 /**
  * @internal
  */
-export const TableBorderOptionsFilterSensitiveLog = (obj: TableBorderOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableSideBorderOptionsFilterSensitiveLog = (obj: TableSideBorderOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GlobalTableBorderOptionsFilterSensitiveLog = (obj: GlobalTableBorderOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableCellStyleFilterSensitiveLog = (obj: TableCellStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RowAlternateColorOptionsFilterSensitiveLog = (obj: RowAlternateColorOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableOptionsFilterSensitiveLog = (obj: PivotTableOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableFieldSubtotalOptionsFilterSensitiveLog = (obj: PivotTableFieldSubtotalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubtotalOptionsFilterSensitiveLog = (obj: SubtotalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTotalOptionsFilterSensitiveLog = (obj: PivotTotalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableTotalOptionsFilterSensitiveLog = (obj: PivotTableTotalOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PivotTableConfigurationFilterSensitiveLog = (obj: PivotTableConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PivotTableConditionalFormattingScopeFilterSensitiveLog = (
-  obj: PivotTableConditionalFormattingScope
-): any => ({
   ...obj,
 });
 
@@ -7965,20 +7546,6 @@ export const PivotTableVisualFilterSensitiveLog = (obj: PivotTableVisual): any =
 /**
  * @internal
  */
-export const RadarChartAreaStyleSettingsFilterSensitiveLog = (obj: RadarChartAreaStyleSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RadarChartSeriesSettingsFilterSensitiveLog = (obj: RadarChartSeriesSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const RadarChartAggregatedFieldWellsFilterSensitiveLog = (obj: RadarChartAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -7988,13 +7555,6 @@ export const RadarChartAggregatedFieldWellsFilterSensitiveLog = (obj: RadarChart
  * @internal
  */
 export const RadarChartFieldWellsFilterSensitiveLog = (obj: RadarChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RadarChartSortConfigurationFilterSensitiveLog = (obj: RadarChartSortConfiguration): any => ({
   ...obj,
 });
 
@@ -8025,13 +7585,6 @@ export const SankeyDiagramAggregatedFieldWellsFilterSensitiveLog = (obj: SankeyD
  * @internal
  */
 export const SankeyDiagramFieldWellsFilterSensitiveLog = (obj: SankeyDiagramFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SankeyDiagramSortConfigurationFilterSensitiveLog = (obj: SankeyDiagramSortConfiguration): any => ({
   ...obj,
 });
 
@@ -8105,69 +7658,6 @@ export const ScatterPlotVisualFilterSensitiveLog = (obj: ScatterPlotVisual): any
 /**
  * @internal
  */
-export const TableCellImageSizingConfigurationFilterSensitiveLog = (obj: TableCellImageSizingConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldImageConfigurationFilterSensitiveLog = (obj: TableFieldImageConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldCustomIconContentFilterSensitiveLog = (obj: TableFieldCustomIconContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldCustomTextContentFilterSensitiveLog = (obj: TableFieldCustomTextContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldLinkContentConfigurationFilterSensitiveLog = (obj: TableFieldLinkContentConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldLinkConfigurationFilterSensitiveLog = (obj: TableFieldLinkConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldURLConfigurationFilterSensitiveLog = (obj: TableFieldURLConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldOptionFilterSensitiveLog = (obj: TableFieldOption): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFieldOptionsFilterSensitiveLog = (obj: TableFieldOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TableAggregatedFieldWellsFilterSensitiveLog = (obj: TableAggregatedFieldWells): any => ({
   ...obj,
   ...(obj.Values && { Values: obj.Values.map((item) => MeasureFieldFilterSensitiveLog(item)) }),
@@ -8199,48 +7689,6 @@ export const TableFieldWellsFilterSensitiveLog = (obj: TableFieldWells): any => 
   ...(obj.TableUnaggregatedFieldWells && {
     TableUnaggregatedFieldWells: TableUnaggregatedFieldWellsFilterSensitiveLog(obj.TableUnaggregatedFieldWells),
   }),
-});
-
-/**
- * @internal
- */
-export const TablePaginatedReportOptionsFilterSensitiveLog = (obj: TablePaginatedReportOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableSortConfigurationFilterSensitiveLog = (obj: TableSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataBarsOptionsFilterSensitiveLog = (obj: DataBarsOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableInlineVisualizationFilterSensitiveLog = (obj: TableInlineVisualization): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableOptionsFilterSensitiveLog = (obj: TableOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TotalOptionsFilterSensitiveLog = (obj: TotalOptions): any => ({
-  ...obj,
 });
 
 /**
@@ -8317,13 +7765,6 @@ export const TreeMapFieldWellsFilterSensitiveLog = (obj: TreeMapFieldWells): any
 /**
  * @internal
  */
-export const TreeMapSortConfigurationFilterSensitiveLog = (obj: TreeMapSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TreeMapConfigurationFilterSensitiveLog = (obj: TreeMapConfiguration): any => ({
   ...obj,
   ...(obj.DataLabels && { DataLabels: DataLabelOptionsFilterSensitiveLog(obj.DataLabels) }),
@@ -8348,20 +7789,6 @@ export const WaterfallChartAggregatedFieldWellsFilterSensitiveLog = (obj: Waterf
  * @internal
  */
 export const WaterfallChartFieldWellsFilterSensitiveLog = (obj: WaterfallChartFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WaterfallChartSortConfigurationFilterSensitiveLog = (obj: WaterfallChartSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WaterfallChartOptionsFilterSensitiveLog = (obj: WaterfallChartOptions): any => ({
   ...obj,
 });
 
@@ -8393,20 +7820,6 @@ export const WordCloudAggregatedFieldWellsFilterSensitiveLog = (obj: WordCloudAg
  * @internal
  */
 export const WordCloudFieldWellsFilterSensitiveLog = (obj: WordCloudFieldWells): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WordCloudSortConfigurationFilterSensitiveLog = (obj: WordCloudSortConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const WordCloudOptionsFilterSensitiveLog = (obj: WordCloudOptions): any => ({
   ...obj,
 });
 
@@ -8462,239 +7875,7 @@ export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): a
 /**
  * @internal
  */
-export const AnalysisSearchFilterFilterSensitiveLog = (obj: AnalysisSearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DataSetReferenceFilterSensitiveLog = (obj: DataSetReference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisSourceTemplateFilterSensitiveLog = (obj: AnalysisSourceTemplate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisSourceEntityFilterSensitiveLog = (obj: AnalysisSourceEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnalysisSummaryFilterSensitiveLog = (obj: AnalysisSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnonymousUserDashboardEmbeddingConfigurationFilterSensitiveLog = (
-  obj: AnonymousUserDashboardEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DashboardVisualIdFilterSensitiveLog = (obj: DashboardVisualId): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnonymousUserDashboardVisualEmbeddingConfigurationFilterSensitiveLog = (
-  obj: AnonymousUserDashboardVisualEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnonymousUserQSearchBarEmbeddingConfigurationFilterSensitiveLog = (
-  obj: AnonymousUserQSearchBarEmbeddingConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AnonymousUserEmbeddingExperienceConfigurationFilterSensitiveLog = (
-  obj: AnonymousUserEmbeddingExperienceConfiguration
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AthenaParametersFilterSensitiveLog = (obj: AthenaParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuroraParametersFilterSensitiveLog = (obj: AuroraParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuroraPostgreSqlParametersFilterSensitiveLog = (obj: AuroraPostgreSqlParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIotAnalyticsParametersFilterSensitiveLog = (obj: AwsIotAnalyticsParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BorderStyleFilterSensitiveLog = (obj: BorderStyle): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CalculatedColumnFilterSensitiveLog = (obj: CalculatedColumn): any => ({
   ...obj,
   ...(obj.Expression && { Expression: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CancelIngestionRequestFilterSensitiveLog = (obj: CancelIngestionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelIngestionResponseFilterSensitiveLog = (obj: CancelIngestionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CastColumnTypeOperationFilterSensitiveLog = (obj: CastColumnTypeOperation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnDescriptionFilterSensitiveLog = (obj: ColumnDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GeoSpatialColumnGroupFilterSensitiveLog = (obj: GeoSpatialColumnGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnGroupFilterSensitiveLog = (obj: ColumnGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnGroupColumnSchemaFilterSensitiveLog = (obj: ColumnGroupColumnSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnGroupSchemaFilterSensitiveLog = (obj: ColumnGroupSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnLevelPermissionRuleFilterSensitiveLog = (obj: ColumnLevelPermissionRule): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnSchemaFilterSensitiveLog = (obj: ColumnSchema): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ColumnTagFilterSensitiveLog = (obj: ColumnTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountCustomizationRequestFilterSensitiveLog = (obj: CreateAccountCustomizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountCustomizationResponseFilterSensitiveLog = (obj: CreateAccountCustomizationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountSubscriptionRequestFilterSensitiveLog = (obj: CreateAccountSubscriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SignupResponseFilterSensitiveLog = (obj: SignupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAccountSubscriptionResponseFilterSensitiveLog = (obj: CreateAccountSubscriptionResponse): any => ({
-  ...obj,
 });

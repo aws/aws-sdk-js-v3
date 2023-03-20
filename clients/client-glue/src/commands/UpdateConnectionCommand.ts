@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  UpdateConnectionRequest,
-  UpdateConnectionRequestFilterSensitiveLog,
-  UpdateConnectionResponse,
-  UpdateConnectionResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateConnectionRequest, UpdateConnectionResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateConnectionCommand,
   serializeAws_json1_1UpdateConnectionCommand,
@@ -119,8 +114,8 @@ export class UpdateConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSolFunctionPackagesInput,
-  ListSolFunctionPackagesInputFilterSensitiveLog,
-  ListSolFunctionPackagesOutput,
-  ListSolFunctionPackagesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSolFunctionPackagesInput, ListSolFunctionPackagesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSolFunctionPackagesCommand,
   serializeAws_restJson1ListSolFunctionPackagesCommand,
@@ -120,8 +115,8 @@ export class ListSolFunctionPackagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSolFunctionPackagesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSolFunctionPackagesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

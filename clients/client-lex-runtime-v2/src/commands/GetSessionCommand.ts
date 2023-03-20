@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
-import {
-  GetSessionRequest,
-  GetSessionRequestFilterSensitiveLog,
-  GetSessionResponse,
-  GetSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSessionRequest, GetSessionResponse, GetSessionResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSessionCommand,
   serializeAws_restJson1GetSessionCommand,
@@ -128,7 +123,7 @@ export class GetSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

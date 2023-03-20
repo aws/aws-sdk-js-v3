@@ -18,7 +18,6 @@ import {
   UpdateSubscriberRequest,
   UpdateSubscriberRequestFilterSensitiveLog,
   UpdateSubscriberResponse,
-  UpdateSubscriberResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateSubscriberCommand,
@@ -128,7 +127,7 @@ export class UpdateSubscriberCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateSubscriberRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubscriberResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

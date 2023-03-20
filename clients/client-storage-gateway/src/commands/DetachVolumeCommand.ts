@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetachVolumeInput,
-  DetachVolumeInputFilterSensitiveLog,
-  DetachVolumeOutput,
-  DetachVolumeOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DetachVolumeInput, DetachVolumeOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DetachVolumeCommand,
   serializeAws_json1_1DetachVolumeCommand,
@@ -117,8 +112,8 @@ export class DetachVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachVolumeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachVolumeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

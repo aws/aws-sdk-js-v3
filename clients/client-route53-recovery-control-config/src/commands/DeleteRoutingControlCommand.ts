@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteRoutingControlRequest,
-  DeleteRoutingControlRequestFilterSensitiveLog,
-  DeleteRoutingControlResponse,
-  DeleteRoutingControlResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRoutingControlRequest, DeleteRoutingControlResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRoutingControlCommand,
   serializeAws_restJson1DeleteRoutingControlCommand,
@@ -129,8 +124,8 @@ export class DeleteRoutingControlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRoutingControlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRoutingControlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

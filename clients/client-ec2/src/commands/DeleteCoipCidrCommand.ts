@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteCoipCidrRequest,
-  DeleteCoipCidrRequestFilterSensitiveLog,
-  DeleteCoipCidrResult,
-  DeleteCoipCidrResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteCoipCidrRequest, DeleteCoipCidrResult } from "../models/models_2";
 import { deserializeAws_ec2DeleteCoipCidrCommand, serializeAws_ec2DeleteCoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -106,8 +101,8 @@ export class DeleteCoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCoipCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

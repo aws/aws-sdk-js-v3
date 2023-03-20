@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  DisconnectUserRequest,
-  DisconnectUserRequestFilterSensitiveLog,
-  DisconnectUserResponse,
-  DisconnectUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisconnectUserRequest, DisconnectUserResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisconnectUserCommand,
   serializeAws_restJson1DisconnectUserCommand,
@@ -124,8 +119,8 @@ export class DisconnectUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisconnectUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisconnectUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

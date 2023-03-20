@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListLensSharesInput,
-  ListLensSharesInputFilterSensitiveLog,
-  ListLensSharesOutput,
-  ListLensSharesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListLensSharesInput, ListLensSharesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListLensSharesCommand,
   serializeAws_restJson1ListLensSharesCommand,
@@ -122,8 +117,8 @@ export class ListLensSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLensSharesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLensSharesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

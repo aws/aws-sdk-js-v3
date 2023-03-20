@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetBucketLocationOutput,
-  GetBucketLocationOutputFilterSensitiveLog,
-  GetBucketLocationRequest,
-  GetBucketLocationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBucketLocationOutput, GetBucketLocationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketLocationCommand,
   serializeAws_restXmlGetBucketLocationCommand,
@@ -146,8 +141,8 @@ export class GetBucketLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBucketLocationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

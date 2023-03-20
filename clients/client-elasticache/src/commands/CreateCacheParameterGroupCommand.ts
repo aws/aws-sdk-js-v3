@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateCacheParameterGroupMessage,
-  CreateCacheParameterGroupMessageFilterSensitiveLog,
-  CreateCacheParameterGroupResult,
-  CreateCacheParameterGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCacheParameterGroupMessage, CreateCacheParameterGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateCacheParameterGroupCommand,
   serializeAws_queryCreateCacheParameterGroupCommand,
@@ -162,8 +157,8 @@ export class CreateCacheParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCacheParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCacheParameterGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

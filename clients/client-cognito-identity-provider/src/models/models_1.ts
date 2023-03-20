@@ -1110,80 +1110,10 @@ export const SignUpRequestFilterSensitiveLog = (obj: SignUpRequest): any => ({
 /**
  * @internal
  */
-export const SignUpResponseFilterSensitiveLog = (obj: SignUpResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartUserImportJobRequestFilterSensitiveLog = (obj: StartUserImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartUserImportJobResponseFilterSensitiveLog = (obj: StartUserImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopUserImportJobRequestFilterSensitiveLog = (obj: StopUserImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopUserImportJobResponseFilterSensitiveLog = (obj: StopUserImportJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateAuthEventFeedbackRequestFilterSensitiveLog = (obj: UpdateAuthEventFeedbackRequest): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
   ...(obj.FeedbackToken && { FeedbackToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateAuthEventFeedbackResponseFilterSensitiveLog = (obj: UpdateAuthEventFeedbackResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -1197,82 +1127,12 @@ export const UpdateDeviceStatusRequestFilterSensitiveLog = (obj: UpdateDeviceSta
 /**
  * @internal
  */
-export const UpdateDeviceStatusResponseFilterSensitiveLog = (obj: UpdateDeviceStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGroupRequestFilterSensitiveLog = (obj: UpdateGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateGroupResponseFilterSensitiveLog = (obj: UpdateGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIdentityProviderRequestFilterSensitiveLog = (obj: UpdateIdentityProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIdentityProviderResponseFilterSensitiveLog = (obj: UpdateIdentityProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceServerRequestFilterSensitiveLog = (obj: UpdateResourceServerRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceServerResponseFilterSensitiveLog = (obj: UpdateResourceServerResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateUserAttributesRequestFilterSensitiveLog = (obj: UpdateUserAttributesRequest): any => ({
   ...obj,
   ...(obj.UserAttributes && {
     UserAttributes: obj.UserAttributes.map((item) => AttributeTypeFilterSensitiveLog(item)),
   }),
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateUserAttributesResponseFilterSensitiveLog = (obj: UpdateUserAttributesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserPoolRequestFilterSensitiveLog = (obj: UpdateUserPoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserPoolResponseFilterSensitiveLog = (obj: UpdateUserPoolResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -1294,20 +1154,6 @@ export const UpdateUserPoolClientResponseFilterSensitiveLog = (obj: UpdateUserPo
 /**
  * @internal
  */
-export const UpdateUserPoolDomainRequestFilterSensitiveLog = (obj: UpdateUserPoolDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserPoolDomainResponseFilterSensitiveLog = (obj: UpdateUserPoolDomainResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VerifySoftwareTokenRequestFilterSensitiveLog = (obj: VerifySoftwareTokenRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
@@ -1316,21 +1162,7 @@ export const VerifySoftwareTokenRequestFilterSensitiveLog = (obj: VerifySoftware
 /**
  * @internal
  */
-export const VerifySoftwareTokenResponseFilterSensitiveLog = (obj: VerifySoftwareTokenResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VerifyUserAttributeRequestFilterSensitiveLog = (obj: VerifyUserAttributeRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VerifyUserAttributeResponseFilterSensitiveLog = (obj: VerifyUserAttributeResponse): any => ({
-  ...obj,
 });

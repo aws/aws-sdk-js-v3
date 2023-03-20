@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import {
-  DescribeChangeSetRequest,
-  DescribeChangeSetRequestFilterSensitiveLog,
-  DescribeChangeSetResponse,
-  DescribeChangeSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeChangeSetRequest, DescribeChangeSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeChangeSetCommand,
   serializeAws_restJson1DescribeChangeSetCommand,
@@ -126,8 +121,8 @@ export class DescribeChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeChangeSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeChangeSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

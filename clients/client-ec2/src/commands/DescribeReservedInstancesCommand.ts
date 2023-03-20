@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeReservedInstancesRequest,
-  DescribeReservedInstancesRequestFilterSensitiveLog,
-  DescribeReservedInstancesResult,
-  DescribeReservedInstancesResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeReservedInstancesRequest, DescribeReservedInstancesResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeReservedInstancesCommand,
   serializeAws_ec2DescribeReservedInstancesCommand,
@@ -109,8 +104,8 @@ export class DescribeReservedInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedInstancesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  ListDashboardsInput,
-  ListDashboardsInputFilterSensitiveLog,
-  ListDashboardsOutput,
-  ListDashboardsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDashboardsInput, ListDashboardsOutput } from "../models/models_0";
 import {
   deserializeAws_queryListDashboardsCommand,
   serializeAws_queryListDashboardsCommand,
@@ -121,8 +116,8 @@ export class ListDashboardsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDashboardsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDashboardsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

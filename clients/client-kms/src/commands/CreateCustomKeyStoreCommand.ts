@@ -18,7 +18,6 @@ import {
   CreateCustomKeyStoreRequest,
   CreateCustomKeyStoreRequestFilterSensitiveLog,
   CreateCustomKeyStoreResponse,
-  CreateCustomKeyStoreResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCustomKeyStoreCommand,
@@ -387,7 +386,7 @@ export class CreateCustomKeyStoreCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomKeyStoreResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

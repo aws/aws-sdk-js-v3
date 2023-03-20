@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  DeleteUserRequest,
-  DeleteUserRequestFilterSensitiveLog,
-  DeleteUserResponse,
-  DeleteUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteUserRequest, DeleteUserResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteUserCommand,
   serializeAws_json1_1DeleteUserCommand,
@@ -114,8 +109,8 @@ export class DeleteUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

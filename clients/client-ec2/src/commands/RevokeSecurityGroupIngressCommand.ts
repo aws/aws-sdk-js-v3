@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RevokeSecurityGroupIngressRequest,
-  RevokeSecurityGroupIngressRequestFilterSensitiveLog,
-  RevokeSecurityGroupIngressResult,
-  RevokeSecurityGroupIngressResultFilterSensitiveLog,
-} from "../models/models_6";
+import { RevokeSecurityGroupIngressRequest, RevokeSecurityGroupIngressResult } from "../models/models_6";
 import {
   deserializeAws_ec2RevokeSecurityGroupIngressCommand,
   serializeAws_ec2RevokeSecurityGroupIngressCommand,
@@ -121,8 +116,8 @@ export class RevokeSecurityGroupIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeSecurityGroupIngressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeSecurityGroupIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

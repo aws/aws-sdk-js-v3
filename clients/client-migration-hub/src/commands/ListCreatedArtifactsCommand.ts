@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  ListCreatedArtifactsRequest,
-  ListCreatedArtifactsRequestFilterSensitiveLog,
-  ListCreatedArtifactsResult,
-  ListCreatedArtifactsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCreatedArtifactsRequest, ListCreatedArtifactsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListCreatedArtifactsCommand,
   serializeAws_json1_1ListCreatedArtifactsCommand,
@@ -147,8 +142,8 @@ export class ListCreatedArtifactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCreatedArtifactsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCreatedArtifactsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

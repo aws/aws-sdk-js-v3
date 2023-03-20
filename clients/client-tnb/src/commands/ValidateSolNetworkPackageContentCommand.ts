@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ValidateSolNetworkPackageContentInput,
-  ValidateSolNetworkPackageContentInputFilterSensitiveLog,
-  ValidateSolNetworkPackageContentOutput,
-  ValidateSolNetworkPackageContentOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ValidateSolNetworkPackageContentInput, ValidateSolNetworkPackageContentOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ValidateSolNetworkPackageContentCommand,
   serializeAws_restJson1ValidateSolNetworkPackageContentCommand,
@@ -125,8 +120,8 @@ export class ValidateSolNetworkPackageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateSolNetworkPackageContentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateSolNetworkPackageContentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

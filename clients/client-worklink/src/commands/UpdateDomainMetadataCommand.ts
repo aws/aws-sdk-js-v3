@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDomainMetadataRequest,
-  UpdateDomainMetadataRequestFilterSensitiveLog,
-  UpdateDomainMetadataResponse,
-  UpdateDomainMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDomainMetadataRequest, UpdateDomainMetadataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDomainMetadataCommand,
   serializeAws_restJson1UpdateDomainMetadataCommand,
@@ -124,8 +119,8 @@ export class UpdateDomainMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetResourcesInput,
-  GetResourcesInputFilterSensitiveLog,
-  GetResourcesOutput,
-  GetResourcesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetResourcesInput, GetResourcesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetResourcesCommand,
   serializeAws_json1_1GetResourcesCommand,
@@ -166,8 +161,8 @@ export class GetResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetResourcesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetResourcesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

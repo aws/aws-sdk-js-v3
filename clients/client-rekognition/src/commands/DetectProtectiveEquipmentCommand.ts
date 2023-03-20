@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectProtectiveEquipmentRequest,
-  DetectProtectiveEquipmentRequestFilterSensitiveLog,
-  DetectProtectiveEquipmentResponse,
-  DetectProtectiveEquipmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DetectProtectiveEquipmentRequest, DetectProtectiveEquipmentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DetectProtectiveEquipmentCommand,
   serializeAws_json1_1DetectProtectiveEquipmentCommand,
@@ -172,8 +167,8 @@ export class DetectProtectiveEquipmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectProtectiveEquipmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectProtectiveEquipmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

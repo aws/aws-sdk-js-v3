@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeModelCardRequest,
-  DescribeModelCardRequestFilterSensitiveLog,
   DescribeModelCardResponse,
   DescribeModelCardResponseFilterSensitiveLog,
 } from "../models/models_2";
@@ -110,7 +109,7 @@ export class DescribeModelCardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelCardRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeModelCardResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

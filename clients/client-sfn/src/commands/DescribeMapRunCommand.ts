@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeMapRunInput,
-  DescribeMapRunInputFilterSensitiveLog,
-  DescribeMapRunOutput,
-  DescribeMapRunOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeMapRunInput, DescribeMapRunOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeMapRunCommand,
   serializeAws_json1_0DescribeMapRunCommand,
@@ -114,8 +109,8 @@ export class DescribeMapRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMapRunInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMapRunOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

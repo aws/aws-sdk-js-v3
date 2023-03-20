@@ -22,7 +22,6 @@ import {
   ForgotPasswordRequest,
   ForgotPasswordRequestFilterSensitiveLog,
   ForgotPasswordResponse,
-  ForgotPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ForgotPasswordCommand,
@@ -194,7 +193,7 @@ export class ForgotPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ForgotPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ForgotPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

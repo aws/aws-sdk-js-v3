@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListClosedWorkflowExecutionsInput,
-  ListClosedWorkflowExecutionsInputFilterSensitiveLog,
-  WorkflowExecutionInfos,
-  WorkflowExecutionInfosFilterSensitiveLog,
-} from "../models/models_0";
+import { ListClosedWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/models_0";
 import {
   deserializeAws_json1_0ListClosedWorkflowExecutionsCommand,
   serializeAws_json1_0ListClosedWorkflowExecutionsCommand,
@@ -160,8 +155,8 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListClosedWorkflowExecutionsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: WorkflowExecutionInfosFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

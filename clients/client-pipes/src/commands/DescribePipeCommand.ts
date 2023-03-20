@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribePipeRequest,
-  DescribePipeRequestFilterSensitiveLog,
-  DescribePipeResponse,
-  DescribePipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePipeRequest, DescribePipeResponse, DescribePipeResponseFilterSensitiveLog } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
 import {
   deserializeAws_restJson1DescribePipeCommand,
@@ -117,7 +112,7 @@ export class DescribePipeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePipeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribePipeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

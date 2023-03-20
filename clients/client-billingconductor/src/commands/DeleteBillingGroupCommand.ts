@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  DeleteBillingGroupInput,
-  DeleteBillingGroupInputFilterSensitiveLog,
-  DeleteBillingGroupOutput,
-  DeleteBillingGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBillingGroupInput, DeleteBillingGroupOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteBillingGroupCommand,
   serializeAws_restJson1DeleteBillingGroupCommand,
@@ -124,8 +119,8 @@ export class DeleteBillingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBillingGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBillingGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

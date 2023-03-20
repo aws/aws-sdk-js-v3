@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteOpsMetadataRequest,
-  DeleteOpsMetadataRequestFilterSensitiveLog,
-  DeleteOpsMetadataResult,
-  DeleteOpsMetadataResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteOpsMetadataRequest, DeleteOpsMetadataResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteOpsMetadataCommand,
   serializeAws_json1_1DeleteOpsMetadataCommand,
@@ -116,8 +111,8 @@ export class DeleteOpsMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOpsMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteOpsMetadataResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

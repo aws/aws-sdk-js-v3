@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  CreateCacheClusterMessage,
-  CreateCacheClusterMessageFilterSensitiveLog,
-  CreateCacheClusterResult,
-  CreateCacheClusterResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCacheClusterMessage, CreateCacheClusterResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateCacheClusterCommand,
   serializeAws_queryCreateCacheClusterCommand,
@@ -195,8 +190,8 @@ export class CreateCacheClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCacheClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCacheClusterResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateWebACLRequest,
-  DisassociateWebACLRequestFilterSensitiveLog,
-  DisassociateWebACLResponse,
-  DisassociateWebACLResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateWebACLRequest, DisassociateWebACLResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateWebACLCommand,
   serializeAws_json1_1DisassociateWebACLCommand,
@@ -145,8 +140,8 @@ export class DisassociateWebACLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateWebACLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateWebACLResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

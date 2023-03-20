@@ -13,19 +13,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { XmlIntEnumsOutput, XmlIntEnumsOutputFilterSensitiveLog } from "../models/models_0";
+import { XmlIntEnumsOutput } from "../models/models_0";
 import { deserializeAws_ec2XmlIntEnumsCommand, serializeAws_ec2XmlIntEnumsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link XmlIntEnumsCommand}.
  */
 export interface XmlIntEnumsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link XmlIntEnumsCommand}.
  */
 export interface XmlIntEnumsCommandOutput extends XmlIntEnumsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example serializes intEnums as top level properties, in lists, sets, and maps.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,6 +42,8 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsOutput, __MetadataB
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlIntEnumsCommandInput - {@link XmlIntEnumsCommandInput}
+ * @returns {@link XmlIntEnumsCommandOutput}
  * @see {@link XmlIntEnumsCommandInput} for command's `input` shape.
  * @see {@link XmlIntEnumsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
@@ -51,6 +58,9 @@ export class XmlIntEnumsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlIntEnumsCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,8 +86,8 @@ export class XmlIntEnumsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlIntEnumsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,10 +97,16 @@ export class XmlIntEnumsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlIntEnumsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2XmlIntEnumsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlIntEnumsCommandOutput> {
     return deserializeAws_ec2XmlIntEnumsCommand(output, context);
   }

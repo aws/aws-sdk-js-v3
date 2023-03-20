@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  RevokeFlowEntitlementRequest,
-  RevokeFlowEntitlementRequestFilterSensitiveLog,
-  RevokeFlowEntitlementResponse,
-  RevokeFlowEntitlementResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RevokeFlowEntitlementRequest, RevokeFlowEntitlementResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RevokeFlowEntitlementCommand,
   serializeAws_restJson1RevokeFlowEntitlementCommand,
@@ -125,8 +120,8 @@ export class RevokeFlowEntitlementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeFlowEntitlementRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeFlowEntitlementResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

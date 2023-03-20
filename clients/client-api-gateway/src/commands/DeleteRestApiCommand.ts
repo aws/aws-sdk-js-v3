@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { DeleteRestApiRequest, DeleteRestApiRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteRestApiRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRestApiCommand,
   serializeAws_restJson1DeleteRestApiCommand,
@@ -115,8 +115,8 @@ export class DeleteRestApiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRestApiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

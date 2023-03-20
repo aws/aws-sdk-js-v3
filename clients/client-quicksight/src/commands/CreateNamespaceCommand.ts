@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateNamespaceRequest,
-  CreateNamespaceRequestFilterSensitiveLog,
-  CreateNamespaceResponse,
-  CreateNamespaceResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { CreateNamespaceRequest, CreateNamespaceResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1CreateNamespaceCommand,
   serializeAws_restJson1CreateNamespaceCommand,
@@ -147,8 +142,8 @@ export class CreateNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNamespaceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

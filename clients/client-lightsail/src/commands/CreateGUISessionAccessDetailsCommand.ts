@@ -16,7 +16,6 @@ import {
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
 import {
   CreateGUISessionAccessDetailsRequest,
-  CreateGUISessionAccessDetailsRequestFilterSensitiveLog,
   CreateGUISessionAccessDetailsResult,
   CreateGUISessionAccessDetailsResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -134,7 +133,7 @@ export class CreateGUISessionAccessDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGUISessionAccessDetailsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateGUISessionAccessDetailsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

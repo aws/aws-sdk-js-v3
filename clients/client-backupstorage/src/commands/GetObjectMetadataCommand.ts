@@ -19,7 +19,6 @@ import {
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
 import {
   GetObjectMetadataInput,
-  GetObjectMetadataInputFilterSensitiveLog,
   GetObjectMetadataOutput,
   GetObjectMetadataOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -136,7 +135,7 @@ export class GetObjectMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectMetadataInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetObjectMetadataOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  GetTableObjectsRequest,
-  GetTableObjectsRequestFilterSensitiveLog,
-  GetTableObjectsResponse,
-  GetTableObjectsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTableObjectsRequest, GetTableObjectsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTableObjectsCommand,
   serializeAws_restJson1GetTableObjectsCommand,
@@ -128,8 +123,8 @@ export class GetTableObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableObjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTableObjectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

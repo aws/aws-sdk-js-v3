@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAvailabilityConfigurationsRequest,
-  ListAvailabilityConfigurationsRequestFilterSensitiveLog,
-  ListAvailabilityConfigurationsResponse,
-  ListAvailabilityConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAvailabilityConfigurationsRequest, ListAvailabilityConfigurationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAvailabilityConfigurationsCommand,
   serializeAws_json1_1ListAvailabilityConfigurationsCommand,
@@ -117,8 +112,8 @@ export class ListAvailabilityConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAvailabilityConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAvailabilityConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

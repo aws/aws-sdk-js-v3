@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  DBClusterMessage,
-  DBClusterMessageFilterSensitiveLog,
-  DescribeDBClustersMessage,
-  DescribeDBClustersMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DBClusterMessage, DescribeDBClustersMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDBClustersCommand,
   serializeAws_queryDescribeDBClustersCommand,
@@ -116,8 +111,8 @@ export class DescribeDBClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBClustersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

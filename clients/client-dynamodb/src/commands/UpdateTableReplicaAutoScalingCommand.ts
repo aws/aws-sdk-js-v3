@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  UpdateTableReplicaAutoScalingInput,
-  UpdateTableReplicaAutoScalingInputFilterSensitiveLog,
-  UpdateTableReplicaAutoScalingOutput,
-  UpdateTableReplicaAutoScalingOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateTableReplicaAutoScalingInput, UpdateTableReplicaAutoScalingOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand,
   serializeAws_json1_0UpdateTableReplicaAutoScalingCommand,
@@ -139,8 +134,8 @@ export class UpdateTableReplicaAutoScalingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTableReplicaAutoScalingInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTableReplicaAutoScalingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

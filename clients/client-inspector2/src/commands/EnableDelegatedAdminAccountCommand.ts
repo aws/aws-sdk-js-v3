@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  EnableDelegatedAdminAccountRequest,
-  EnableDelegatedAdminAccountRequestFilterSensitiveLog,
-  EnableDelegatedAdminAccountResponse,
-  EnableDelegatedAdminAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { EnableDelegatedAdminAccountRequest, EnableDelegatedAdminAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1EnableDelegatedAdminAccountCommand,
   serializeAws_restJson1EnableDelegatedAdminAccountCommand,
@@ -128,8 +123,8 @@ export class EnableDelegatedAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableDelegatedAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableDelegatedAdminAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  GetCaseEventConfigurationRequest,
-  GetCaseEventConfigurationRequestFilterSensitiveLog,
-  GetCaseEventConfigurationResponse,
-  GetCaseEventConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCaseEventConfigurationRequest, GetCaseEventConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCaseEventConfigurationCommand,
   serializeAws_restJson1GetCaseEventConfigurationCommand,
@@ -124,8 +119,8 @@ export class GetCaseEventConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCaseEventConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCaseEventConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

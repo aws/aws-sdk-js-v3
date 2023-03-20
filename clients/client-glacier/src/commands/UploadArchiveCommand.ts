@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ArchiveCreationOutput,
-  ArchiveCreationOutputFilterSensitiveLog,
-  UploadArchiveInput,
-  UploadArchiveInputFilterSensitiveLog,
-} from "../models/models_0";
+import { ArchiveCreationOutput, UploadArchiveInput, UploadArchiveInputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1UploadArchiveCommand,
   serializeAws_restJson1UploadArchiveCommand,
@@ -185,7 +180,7 @@ export class UploadArchiveCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UploadArchiveInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ArchiveCreationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

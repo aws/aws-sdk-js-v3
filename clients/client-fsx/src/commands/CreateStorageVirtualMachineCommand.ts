@@ -18,7 +18,6 @@ import {
   CreateStorageVirtualMachineRequest,
   CreateStorageVirtualMachineRequestFilterSensitiveLog,
   CreateStorageVirtualMachineResponse,
-  CreateStorageVirtualMachineResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateStorageVirtualMachineCommand,
@@ -134,7 +133,7 @@ export class CreateStorageVirtualMachineCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateStorageVirtualMachineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStorageVirtualMachineResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

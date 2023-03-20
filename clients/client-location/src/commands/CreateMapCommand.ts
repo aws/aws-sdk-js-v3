@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  CreateMapRequest,
-  CreateMapRequestFilterSensitiveLog,
-  CreateMapResponse,
-  CreateMapResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateMapRequest, CreateMapResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateMapCommand,
   serializeAws_restJson1CreateMapCommand,
@@ -132,8 +127,8 @@ export class CreateMapCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateMapRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMapResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

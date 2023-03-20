@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DocumentTypeAsPayloadInputOutput,
-  DocumentTypeAsPayloadInputOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DocumentTypeAsPayloadInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DocumentTypeAsPayloadCommand,
   serializeAws_restJson1DocumentTypeAsPayloadCommand,
@@ -23,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link DocumentTypeAsPayloadCommand}.
  */
 export interface DocumentTypeAsPayloadCommandInput extends DocumentTypeAsPayloadInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link DocumentTypeAsPayloadCommand}.
  */
 export interface DocumentTypeAsPayloadCommandOutput extends DocumentTypeAsPayloadInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example serializes a document as the entire HTTP payload.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,6 +45,8 @@ export interface DocumentTypeAsPayloadCommandOutput extends DocumentTypeAsPayloa
  * const response = await client.send(command);
  * ```
  *
+ * @param DocumentTypeAsPayloadCommandInput - {@link DocumentTypeAsPayloadCommandInput}
+ * @returns {@link DocumentTypeAsPayloadCommandOutput}
  * @see {@link DocumentTypeAsPayloadCommandInput} for command's `input` shape.
  * @see {@link DocumentTypeAsPayloadCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -57,6 +61,9 @@ export class DocumentTypeAsPayloadCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: DocumentTypeAsPayloadCommandInput) {
     // Start section: command_constructor
     super();
@@ -82,8 +89,8 @@ export class DocumentTypeAsPayloadCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DocumentTypeAsPayloadInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: DocumentTypeAsPayloadInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -93,10 +100,16 @@ export class DocumentTypeAsPayloadCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: DocumentTypeAsPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1DocumentTypeAsPayloadCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DocumentTypeAsPayloadCommandOutput> {
     return deserializeAws_restJson1DocumentTypeAsPayloadCommand(output, context);
   }

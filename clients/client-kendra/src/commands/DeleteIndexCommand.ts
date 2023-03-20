@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import { DeleteIndexRequest, DeleteIndexRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteIndexRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteIndexCommand,
   serializeAws_json1_1DeleteIndexCommand,
@@ -127,8 +127,8 @@ export class DeleteIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

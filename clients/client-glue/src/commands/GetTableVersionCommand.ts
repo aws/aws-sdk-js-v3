@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetTableVersionRequest,
-  GetTableVersionRequestFilterSensitiveLog,
-  GetTableVersionResponse,
-  GetTableVersionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetTableVersionRequest, GetTableVersionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetTableVersionCommand,
   serializeAws_json1_1GetTableVersionCommand,
@@ -122,8 +117,8 @@ export class GetTableVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTableVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTableVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

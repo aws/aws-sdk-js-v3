@@ -16,7 +16,6 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   DisassociateLicenseRequest,
-  DisassociateLicenseRequestFilterSensitiveLog,
   DisassociateLicenseResponse,
   DisassociateLicenseResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class DisassociateLicenseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateLicenseRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DisassociateLicenseResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -15,9 +15,7 @@ import {
 
 import {
   UpdateSubscriptionNotificationConfigurationRequest,
-  UpdateSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
   UpdateSubscriptionNotificationConfigurationResponse,
-  UpdateSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSubscriptionNotificationConfigurationCommand,
@@ -145,8 +143,8 @@ export class UpdateSubscriptionNotificationConfigurationCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   BatchCreateTableRowsRequest,
   BatchCreateTableRowsRequestFilterSensitiveLog,
   BatchCreateTableRowsResult,
-  BatchCreateTableRowsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchCreateTableRowsCommand,
@@ -148,7 +147,7 @@ export class BatchCreateTableRowsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchCreateTableRowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateTableRowsResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

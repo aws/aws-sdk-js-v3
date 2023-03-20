@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  StartReplayRequest,
-  StartReplayRequestFilterSensitiveLog,
-  StartReplayResponse,
-  StartReplayResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartReplayRequest, StartReplayResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartReplayCommand,
   serializeAws_json1_1StartReplayCommand,
@@ -129,8 +124,8 @@ export class StartReplayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReplayResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

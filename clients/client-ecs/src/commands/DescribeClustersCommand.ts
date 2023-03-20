@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  DescribeClustersRequest,
-  DescribeClustersRequestFilterSensitiveLog,
-  DescribeClustersResponse,
-  DescribeClustersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeClustersCommand,
   serializeAws_json1_1DescribeClustersCommand,
@@ -144,8 +139,8 @@ export class DescribeClustersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClustersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClustersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

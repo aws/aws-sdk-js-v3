@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import {
-  ConfigurationProfiles,
-  ConfigurationProfilesFilterSensitiveLog,
-  ListConfigurationProfilesRequest,
-  ListConfigurationProfilesRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { ConfigurationProfiles, ListConfigurationProfilesRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1ListConfigurationProfilesCommand,
   serializeAws_restJson1ListConfigurationProfilesCommand,
@@ -139,8 +134,8 @@ export class ListConfigurationProfilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationProfilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigurationProfilesFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

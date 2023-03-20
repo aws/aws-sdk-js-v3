@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DeleteAccessKeyRequest, DeleteAccessKeyRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteAccessKeyRequest } from "../models/models_0";
 import {
   deserializeAws_queryDeleteAccessKeyCommand,
   serializeAws_queryDeleteAccessKeyCommand,
@@ -130,8 +130,8 @@ export class DeleteAccessKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

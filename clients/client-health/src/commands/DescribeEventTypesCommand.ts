@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import {
-  DescribeEventTypesRequest,
-  DescribeEventTypesRequestFilterSensitiveLog,
-  DescribeEventTypesResponse,
-  DescribeEventTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEventTypesRequest, DescribeEventTypesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEventTypesCommand,
   serializeAws_json1_1DescribeEventTypesCommand,
@@ -120,8 +115,8 @@ export class DescribeEventTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEventTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEventTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

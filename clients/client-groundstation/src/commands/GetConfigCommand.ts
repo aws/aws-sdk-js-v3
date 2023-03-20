@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  GetConfigRequest,
-  GetConfigRequestFilterSensitiveLog,
-  GetConfigResponse,
-  GetConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConfigRequest, GetConfigResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetConfigCommand,
   serializeAws_restJson1GetConfigCommand,
@@ -115,8 +110,8 @@ export class GetConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateControlPanelRequest,
-  CreateControlPanelRequestFilterSensitiveLog,
-  CreateControlPanelResponse,
-  CreateControlPanelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateControlPanelRequest, CreateControlPanelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateControlPanelCommand,
   serializeAws_restJson1CreateControlPanelCommand,
@@ -132,8 +127,8 @@ export class CreateControlPanelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateControlPanelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateControlPanelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,6 @@ import {
   UpdateDashboardRequest,
   UpdateDashboardRequestFilterSensitiveLog,
   UpdateDashboardResponse,
-  UpdateDashboardResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDashboardCommand,
@@ -139,7 +138,7 @@ export class UpdateDashboardCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateDashboardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDashboardResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

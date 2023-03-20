@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCellRequest,
-  GetCellRequestFilterSensitiveLog,
-  GetCellResponse,
-  GetCellResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCellRequest, GetCellResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCellCommand,
   serializeAws_restJson1GetCellCommand,
@@ -124,8 +119,8 @@ export class GetCellCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCellRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCellResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

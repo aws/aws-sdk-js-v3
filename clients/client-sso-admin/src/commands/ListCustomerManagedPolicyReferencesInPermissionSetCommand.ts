@@ -15,9 +15,7 @@ import {
 
 import {
   ListCustomerManagedPolicyReferencesInPermissionSetRequest,
-  ListCustomerManagedPolicyReferencesInPermissionSetRequestFilterSensitiveLog,
   ListCustomerManagedPolicyReferencesInPermissionSetResponse,
-  ListCustomerManagedPolicyReferencesInPermissionSetResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListCustomerManagedPolicyReferencesInPermissionSetCommand,
@@ -133,8 +131,8 @@ export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomerManagedPolicyReferencesInPermissionSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomerManagedPolicyReferencesInPermissionSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

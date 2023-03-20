@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  MoveAddressToVpcRequest,
-  MoveAddressToVpcRequestFilterSensitiveLog,
-  MoveAddressToVpcResult,
-  MoveAddressToVpcResultFilterSensitiveLog,
-} from "../models/models_6";
+import { MoveAddressToVpcRequest, MoveAddressToVpcResult } from "../models/models_6";
 import {
   deserializeAws_ec2MoveAddressToVpcCommand,
   serializeAws_ec2MoveAddressToVpcCommand,
@@ -131,8 +126,8 @@ export class MoveAddressToVpcCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MoveAddressToVpcRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MoveAddressToVpcResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

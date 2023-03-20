@@ -15,12 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
-import {
-  ListIdentitiesInput,
-  ListIdentitiesInputFilterSensitiveLog,
-  ListIdentitiesResponse,
-  ListIdentitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListIdentitiesInput, ListIdentitiesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListIdentitiesCommand,
   serializeAws_json1_1ListIdentitiesCommand,
@@ -126,8 +121,8 @@ export class ListIdentitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIdentitiesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIdentitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

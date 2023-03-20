@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ResetAddressAttributeRequest,
-  ResetAddressAttributeRequestFilterSensitiveLog,
-  ResetAddressAttributeResult,
-  ResetAddressAttributeResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ResetAddressAttributeRequest, ResetAddressAttributeResult } from "../models/models_6";
 import {
   deserializeAws_ec2ResetAddressAttributeCommand,
   serializeAws_ec2ResetAddressAttributeCommand,
@@ -107,8 +102,8 @@ export class ResetAddressAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetAddressAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResetAddressAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

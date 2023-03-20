@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAppLaunchConfigurationRequest,
-  GetAppLaunchConfigurationRequestFilterSensitiveLog,
-  GetAppLaunchConfigurationResponse,
-  GetAppLaunchConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAppLaunchConfigurationRequest, GetAppLaunchConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAppLaunchConfigurationCommand,
   serializeAws_json1_1GetAppLaunchConfigurationCommand,
@@ -123,8 +118,8 @@ export class GetAppLaunchConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAppLaunchConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAppLaunchConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

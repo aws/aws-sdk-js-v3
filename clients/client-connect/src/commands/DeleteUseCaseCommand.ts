@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DeleteUseCaseRequest, DeleteUseCaseRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteUseCaseRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteUseCaseCommand,
   serializeAws_restJson1DeleteUseCaseCommand,
@@ -112,8 +112,8 @@ export class DeleteUseCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteUseCaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

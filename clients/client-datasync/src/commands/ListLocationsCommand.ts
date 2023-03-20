@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  ListLocationsRequest,
-  ListLocationsRequestFilterSensitiveLog,
-  ListLocationsResponse,
-  ListLocationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListLocationsRequest, ListLocationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListLocationsCommand,
   serializeAws_json1_1ListLocationsCommand,
@@ -114,8 +109,8 @@ export class ListLocationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLocationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLocationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

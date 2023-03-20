@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteStreamingSessionRequest,
-  DeleteStreamingSessionRequestFilterSensitiveLog,
-  DeleteStreamingSessionResponse,
-  DeleteStreamingSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteStreamingSessionRequest, DeleteStreamingSessionResponse } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
   deserializeAws_restJson1DeleteStreamingSessionCommand,
@@ -135,8 +130,8 @@ export class DeleteStreamingSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamingSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteStreamingSessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

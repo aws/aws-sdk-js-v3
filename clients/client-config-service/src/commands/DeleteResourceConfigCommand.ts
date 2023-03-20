@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { DeleteResourceConfigRequest, DeleteResourceConfigRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteResourceConfigRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteResourceConfigCommand,
   serializeAws_json1_1DeleteResourceConfigCommand,
@@ -111,8 +111,8 @@ export class DeleteResourceConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

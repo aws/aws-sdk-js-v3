@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyImageAttributeRequest, ModifyImageAttributeRequestFilterSensitiveLog } from "../models/models_6";
+import { ModifyImageAttributeRequest } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyImageAttributeCommand,
   serializeAws_ec2ModifyImageAttributeCommand,
@@ -143,8 +143,8 @@ export class ModifyImageAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyImageAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

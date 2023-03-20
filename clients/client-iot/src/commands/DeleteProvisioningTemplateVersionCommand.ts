@@ -16,9 +16,7 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   DeleteProvisioningTemplateVersionRequest,
-  DeleteProvisioningTemplateVersionRequestFilterSensitiveLog,
   DeleteProvisioningTemplateVersionResponse,
-  DeleteProvisioningTemplateVersionResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand,
@@ -133,8 +131,8 @@ export class DeleteProvisioningTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProvisioningTemplateVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProvisioningTemplateVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

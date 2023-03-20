@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PushDomainRequest, PushDomainRequestFilterSensitiveLog } from "../models/models_0";
+import { PushDomainRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1PushDomainCommand,
   serializeAws_json1_1PushDomainCommand,
@@ -120,8 +120,8 @@ export class PushDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PushDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

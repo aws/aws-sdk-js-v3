@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateEndpointAccessRequest,
-  UpdateEndpointAccessRequestFilterSensitiveLog,
-  UpdateEndpointAccessResponse,
-  UpdateEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateEndpointAccessRequest, UpdateEndpointAccessResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateEndpointAccessCommand,
   serializeAws_json1_1UpdateEndpointAccessCommand,
@@ -126,8 +121,8 @@ export class UpdateEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

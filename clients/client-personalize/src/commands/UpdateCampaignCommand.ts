@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCampaignRequest,
-  UpdateCampaignRequestFilterSensitiveLog,
-  UpdateCampaignResponse,
-  UpdateCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCampaignRequest, UpdateCampaignResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1UpdateCampaignCommand,
@@ -127,8 +122,8 @@ export class UpdateCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

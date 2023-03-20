@@ -15,9 +15,7 @@ import {
 
 import {
   DescribeEffectivePatchesForPatchBaselineRequest,
-  DescribeEffectivePatchesForPatchBaselineRequestFilterSensitiveLog,
   DescribeEffectivePatchesForPatchBaselineResult,
-  DescribeEffectivePatchesForPatchBaselineResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand,
@@ -133,8 +131,8 @@ export class DescribeEffectivePatchesForPatchBaselineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEffectivePatchesForPatchBaselineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEffectivePatchesForPatchBaselineResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

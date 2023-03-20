@@ -131,7 +131,7 @@ export class AdminAddUserToGroupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminAddUserToGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeRoleAliasRequest,
-  DescribeRoleAliasRequestFilterSensitiveLog,
-  DescribeRoleAliasResponse,
-  DescribeRoleAliasResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeRoleAliasRequest, DescribeRoleAliasResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeRoleAliasCommand,
   serializeAws_restJson1DescribeRoleAliasCommand,
@@ -126,8 +121,8 @@ export class DescribeRoleAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRoleAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRoleAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

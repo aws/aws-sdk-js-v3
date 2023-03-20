@@ -15,9 +15,7 @@ import {
 
 import {
   ListAssociatedRoute53HealthChecksRequest,
-  ListAssociatedRoute53HealthChecksRequestFilterSensitiveLog,
   ListAssociatedRoute53HealthChecksResponse,
-  ListAssociatedRoute53HealthChecksResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAssociatedRoute53HealthChecksCommand,
@@ -122,8 +120,8 @@ export class ListAssociatedRoute53HealthChecksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedRoute53HealthChecksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedRoute53HealthChecksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

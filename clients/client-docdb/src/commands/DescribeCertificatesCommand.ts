@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  CertificateMessage,
-  CertificateMessageFilterSensitiveLog,
-  DescribeCertificatesMessage,
-  DescribeCertificatesMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { CertificateMessage, DescribeCertificatesMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeCertificatesCommand,
   serializeAws_queryDescribeCertificatesCommand,
@@ -111,8 +106,8 @@ export class DescribeCertificatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCertificatesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CertificateMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

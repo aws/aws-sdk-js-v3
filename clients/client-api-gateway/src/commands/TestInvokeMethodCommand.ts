@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  TestInvokeMethodRequest,
-  TestInvokeMethodRequestFilterSensitiveLog,
-  TestInvokeMethodResponse,
-  TestInvokeMethodResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { TestInvokeMethodRequest, TestInvokeMethodResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1TestInvokeMethodCommand,
   serializeAws_restJson1TestInvokeMethodCommand,
@@ -119,8 +114,8 @@ export class TestInvokeMethodCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestInvokeMethodRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TestInvokeMethodResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

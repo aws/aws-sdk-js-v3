@@ -116,7 +116,7 @@ export class TagResourceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TagResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

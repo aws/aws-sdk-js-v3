@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
-import {
-  DescribeRepositoryAssociationRequest,
-  DescribeRepositoryAssociationRequestFilterSensitiveLog,
-  DescribeRepositoryAssociationResponse,
-  DescribeRepositoryAssociationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRepositoryAssociationCommand,
   serializeAws_restJson1DescribeRepositoryAssociationCommand,
@@ -125,8 +120,8 @@ export class DescribeRepositoryAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRepositoryAssociationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRepositoryAssociationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

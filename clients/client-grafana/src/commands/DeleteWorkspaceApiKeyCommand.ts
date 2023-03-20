@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
-import {
-  DeleteWorkspaceApiKeyRequest,
-  DeleteWorkspaceApiKeyRequestFilterSensitiveLog,
-  DeleteWorkspaceApiKeyResponse,
-  DeleteWorkspaceApiKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWorkspaceApiKeyRequest, DeleteWorkspaceApiKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteWorkspaceApiKeyCommand,
   serializeAws_restJson1DeleteWorkspaceApiKeyCommand,
@@ -125,8 +120,8 @@ export class DeleteWorkspaceApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkspaceApiKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

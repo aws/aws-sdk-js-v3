@@ -19,12 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  GetIdentityProviderByIdentifierRequest,
-  GetIdentityProviderByIdentifierRequestFilterSensitiveLog,
-  GetIdentityProviderByIdentifierResponse,
-  GetIdentityProviderByIdentifierResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetIdentityProviderByIdentifierRequest, GetIdentityProviderByIdentifierResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetIdentityProviderByIdentifierCommand,
   serializeAws_json1_1GetIdentityProviderByIdentifierCommand,
@@ -133,8 +128,8 @@ export class GetIdentityProviderByIdentifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIdentityProviderByIdentifierRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIdentityProviderByIdentifierResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

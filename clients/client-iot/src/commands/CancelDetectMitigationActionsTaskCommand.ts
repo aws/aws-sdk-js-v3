@@ -16,9 +16,7 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CancelDetectMitigationActionsTaskRequest,
-  CancelDetectMitigationActionsTaskRequestFilterSensitiveLog,
   CancelDetectMitigationActionsTaskResponse,
-  CancelDetectMitigationActionsTaskResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelDetectMitigationActionsTaskCommand,
@@ -124,8 +122,8 @@ export class CancelDetectMitigationActionsTaskCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelDetectMitigationActionsTaskRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelDetectMitigationActionsTaskResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

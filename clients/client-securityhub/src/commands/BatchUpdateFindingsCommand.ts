@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchUpdateFindingsRequest,
-  BatchUpdateFindingsRequestFilterSensitiveLog,
-  BatchUpdateFindingsResponse,
-  BatchUpdateFindingsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { BatchUpdateFindingsRequest, BatchUpdateFindingsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1BatchUpdateFindingsCommand,
   serializeAws_restJson1BatchUpdateFindingsCommand,
@@ -179,8 +174,8 @@ export class BatchUpdateFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

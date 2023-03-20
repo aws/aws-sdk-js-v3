@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetSubnetCidrReservationsRequest,
-  GetSubnetCidrReservationsRequestFilterSensitiveLog,
-  GetSubnetCidrReservationsResult,
-  GetSubnetCidrReservationsResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetSubnetCidrReservationsRequest, GetSubnetCidrReservationsResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetSubnetCidrReservationsCommand,
   serializeAws_ec2GetSubnetCidrReservationsCommand,
@@ -107,8 +102,8 @@ export class GetSubnetCidrReservationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSubnetCidrReservationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSubnetCidrReservationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

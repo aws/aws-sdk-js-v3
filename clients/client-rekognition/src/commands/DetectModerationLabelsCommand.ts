@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DetectModerationLabelsRequest,
-  DetectModerationLabelsRequestFilterSensitiveLog,
-  DetectModerationLabelsResponse,
-  DetectModerationLabelsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DetectModerationLabelsRequest, DetectModerationLabelsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DetectModerationLabelsCommand,
   serializeAws_json1_1DetectModerationLabelsCommand,
@@ -151,8 +146,8 @@ export class DetectModerationLabelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetectModerationLabelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetectModerationLabelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

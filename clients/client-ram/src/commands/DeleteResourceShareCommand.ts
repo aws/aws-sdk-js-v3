@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteResourceShareRequest,
-  DeleteResourceShareRequestFilterSensitiveLog,
-  DeleteResourceShareResponse,
-  DeleteResourceShareResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteResourceShareCommand,
   serializeAws_restJson1DeleteResourceShareCommand,
@@ -138,8 +133,8 @@ export class DeleteResourceShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteResourceShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

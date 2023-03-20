@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetDomainNameRequest,
-  GetDomainNameRequestFilterSensitiveLog,
-  GetDomainNameResponse,
-  GetDomainNameResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDomainNameRequest, GetDomainNameResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDomainNameCommand,
   serializeAws_restJson1GetDomainNameCommand,
@@ -118,8 +113,8 @@ export class GetDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainNameResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

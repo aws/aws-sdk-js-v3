@@ -17,7 +17,6 @@ import {
   ActivateNetworkSiteRequest,
   ActivateNetworkSiteRequestFilterSensitiveLog,
   ActivateNetworkSiteResponse,
-  ActivateNetworkSiteResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
 import {
@@ -117,7 +116,7 @@ export class ActivateNetworkSiteCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ActivateNetworkSiteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivateNetworkSiteResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import { ExportConfigurationsResponse, ExportConfigurationsResponseFilterSensitiveLog } from "../models/models_0";
+import { ExportConfigurationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ExportConfigurationsCommand,
   serializeAws_json1_1ExportConfigurationsCommand,
@@ -133,8 +133,8 @@ export class ExportConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ExportConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

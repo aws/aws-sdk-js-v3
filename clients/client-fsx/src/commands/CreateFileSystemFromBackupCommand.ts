@@ -18,7 +18,6 @@ import {
   CreateFileSystemFromBackupRequest,
   CreateFileSystemFromBackupRequestFilterSensitiveLog,
   CreateFileSystemFromBackupResponse,
-  CreateFileSystemFromBackupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateFileSystemFromBackupCommand,
@@ -228,7 +227,7 @@ export class CreateFileSystemFromBackupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateFileSystemFromBackupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFileSystemFromBackupResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

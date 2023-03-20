@@ -16,7 +16,6 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   CreateServiceSpecificCredentialRequest,
-  CreateServiceSpecificCredentialRequestFilterSensitiveLog,
   CreateServiceSpecificCredentialResponse,
   CreateServiceSpecificCredentialResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -130,7 +129,7 @@ export class CreateServiceSpecificCredentialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateServiceSpecificCredentialRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateServiceSpecificCredentialResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

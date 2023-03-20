@@ -18,7 +18,6 @@ import {
   PublishLayerVersionRequest,
   PublishLayerVersionRequestFilterSensitiveLog,
   PublishLayerVersionResponse,
-  PublishLayerVersionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PublishLayerVersionCommand,
@@ -126,7 +125,7 @@ export class PublishLayerVersionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PublishLayerVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishLayerVersionResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

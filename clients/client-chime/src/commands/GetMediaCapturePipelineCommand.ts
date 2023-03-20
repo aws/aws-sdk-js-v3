@@ -127,7 +127,7 @@ export class GetMediaCapturePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMediaCapturePipelineResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

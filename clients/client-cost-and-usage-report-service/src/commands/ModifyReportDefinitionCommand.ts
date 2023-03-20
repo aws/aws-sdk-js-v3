@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
-import {
-  ModifyReportDefinitionRequest,
-  ModifyReportDefinitionRequestFilterSensitiveLog,
-  ModifyReportDefinitionResponse,
-  ModifyReportDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyReportDefinitionRequest, ModifyReportDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyReportDefinitionCommand,
   serializeAws_json1_1ModifyReportDefinitionCommand,
@@ -117,8 +112,8 @@ export class ModifyReportDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyReportDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyReportDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

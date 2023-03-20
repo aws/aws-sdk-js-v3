@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  DeleteTableInput,
-  DeleteTableInputFilterSensitiveLog,
-  DeleteTableOutput,
-  DeleteTableOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteTableInput, DeleteTableOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteTableCommand,
   serializeAws_json1_0DeleteTableCommand,
@@ -180,8 +175,8 @@ export class DeleteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

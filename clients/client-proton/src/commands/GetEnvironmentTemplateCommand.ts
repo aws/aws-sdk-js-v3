@@ -15,7 +15,6 @@ import {
 
 import {
   GetEnvironmentTemplateInput,
-  GetEnvironmentTemplateInputFilterSensitiveLog,
   GetEnvironmentTemplateOutput,
   GetEnvironmentTemplateOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class GetEnvironmentTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEnvironmentTemplateInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEnvironmentTemplateOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

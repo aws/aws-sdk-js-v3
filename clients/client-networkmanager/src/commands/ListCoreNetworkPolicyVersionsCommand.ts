@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListCoreNetworkPolicyVersionsRequest,
-  ListCoreNetworkPolicyVersionsRequestFilterSensitiveLog,
-  ListCoreNetworkPolicyVersionsResponse,
-  ListCoreNetworkPolicyVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCoreNetworkPolicyVersionsRequest, ListCoreNetworkPolicyVersionsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1ListCoreNetworkPolicyVersionsCommand,
@@ -124,8 +119,8 @@ export class ListCoreNetworkPolicyVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCoreNetworkPolicyVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCoreNetworkPolicyVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

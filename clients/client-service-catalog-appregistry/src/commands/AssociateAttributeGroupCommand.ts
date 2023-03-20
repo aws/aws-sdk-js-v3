@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateAttributeGroupRequest,
-  AssociateAttributeGroupRequestFilterSensitiveLog,
-  AssociateAttributeGroupResponse,
-  AssociateAttributeGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateAttributeGroupRequest, AssociateAttributeGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateAttributeGroupCommand,
   serializeAws_restJson1AssociateAttributeGroupCommand,
@@ -129,8 +124,8 @@ export class AssociateAttributeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateAttributeGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateAttributeGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

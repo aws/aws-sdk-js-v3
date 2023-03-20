@@ -1823,34 +1823,6 @@ export const BatchCreateTableRowsRequestFilterSensitiveLog = (obj: BatchCreateTa
 /**
  * @internal
  */
-export const FailedBatchItemFilterSensitiveLog = (obj: FailedBatchItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchCreateTableRowsResultFilterSensitiveLog = (obj: BatchCreateTableRowsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteTableRowsRequestFilterSensitiveLog = (obj: BatchDeleteTableRowsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchDeleteTableRowsResultFilterSensitiveLog = (obj: BatchDeleteTableRowsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateRowDataFilterSensitiveLog = (obj: UpdateRowData): any => ({
   ...obj,
   ...(obj.cellsToUpdate && {
@@ -1867,13 +1839,6 @@ export const UpdateRowDataFilterSensitiveLog = (obj: UpdateRowData): any => ({
 export const BatchUpdateTableRowsRequestFilterSensitiveLog = (obj: BatchUpdateTableRowsRequest): any => ({
   ...obj,
   ...(obj.rowsToUpdate && { rowsToUpdate: obj.rowsToUpdate.map((item) => UpdateRowDataFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const BatchUpdateTableRowsResultFilterSensitiveLog = (obj: BatchUpdateTableRowsResult): any => ({
-  ...obj,
 });
 
 /**
@@ -1909,20 +1874,6 @@ export const BatchUpsertTableRowsRequestFilterSensitiveLog = (obj: BatchUpsertTa
 /**
  * @internal
  */
-export const UpsertRowsResultFilterSensitiveLog = (obj: UpsertRowsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchUpsertTableRowsResultFilterSensitiveLog = (obj: BatchUpsertTableRowsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CellFilterSensitiveLog = (obj: Cell): any => ({
   ...obj,
   ...(obj.formula && { formula: SENSITIVE_STRING }),
@@ -1946,20 +1897,6 @@ export const DataItemFilterSensitiveLog = (obj: DataItem): any => ({
 /**
  * @internal
  */
-export const DelimitedTextImportOptionsFilterSensitiveLog = (obj: DelimitedTextImportOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTableDataImportJobRequestFilterSensitiveLog = (obj: DescribeTableDataImportJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ImportDataSourceConfigFilterSensitiveLog = (obj: ImportDataSourceConfig): any => ({
   ...obj,
   ...(obj.dataSourceUrl && { dataSourceUrl: SENSITIVE_STRING }),
@@ -1971,27 +1908,6 @@ export const ImportDataSourceConfigFilterSensitiveLog = (obj: ImportDataSourceCo
 export const ImportDataSourceFilterSensitiveLog = (obj: ImportDataSource): any => ({
   ...obj,
   ...(obj.dataSourceConfig && { dataSourceConfig: ImportDataSourceConfigFilterSensitiveLog(obj.dataSourceConfig) }),
-});
-
-/**
- * @internal
- */
-export const SourceDataColumnPropertiesFilterSensitiveLog = (obj: SourceDataColumnProperties): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DestinationOptionsFilterSensitiveLog = (obj: DestinationOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportOptionsFilterSensitiveLog = (obj: ImportOptions): any => ({
-  ...obj,
 });
 
 /**
@@ -2075,41 +1991,6 @@ export const InvokeScreenAutomationRequestFilterSensitiveLog = (obj: InvokeScree
 /**
  * @internal
  */
-export const InvokeScreenAutomationResultFilterSensitiveLog = (obj: InvokeScreenAutomationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTableColumnsRequestFilterSensitiveLog = (obj: ListTableColumnsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableColumnFilterSensitiveLog = (obj: TableColumn): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTableColumnsResultFilterSensitiveLog = (obj: ListTableColumnsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTableRowsRequestFilterSensitiveLog = (obj: ListTableRowsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TableRowFilterSensitiveLog = (obj: TableRow): any => ({
   ...obj,
   ...(obj.cells && { cells: SENSITIVE_STRING }),
@@ -2121,41 +2002,6 @@ export const TableRowFilterSensitiveLog = (obj: TableRow): any => ({
 export const ListTableRowsResultFilterSensitiveLog = (obj: ListTableRowsResult): any => ({
   ...obj,
   ...(obj.rows && { rows: obj.rows.map((item) => TableRowFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const ListTablesRequestFilterSensitiveLog = (obj: ListTablesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TableFilterSensitiveLog = (obj: Table): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTablesResultFilterSensitiveLog = (obj: ListTablesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResultFilterSensitiveLog = (obj: ListTagsForResourceResult): any => ({
-  ...obj,
 });
 
 /**
@@ -2180,39 +2026,4 @@ export const QueryTableRowsResultFilterSensitiveLog = (obj: QueryTableRowsResult
 export const StartTableDataImportJobRequestFilterSensitiveLog = (obj: StartTableDataImportJobRequest): any => ({
   ...obj,
   ...(obj.dataSource && { dataSource: ImportDataSourceFilterSensitiveLog(obj.dataSource) }),
-});
-
-/**
- * @internal
- */
-export const StartTableDataImportJobResultFilterSensitiveLog = (obj: StartTableDataImportJobResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResultFilterSensitiveLog = (obj: TagResourceResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResultFilterSensitiveLog = (obj: UntagResourceResult): any => ({
-  ...obj,
 });

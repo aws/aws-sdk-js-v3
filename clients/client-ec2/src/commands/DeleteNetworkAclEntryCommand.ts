@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteNetworkAclEntryRequest, DeleteNetworkAclEntryRequestFilterSensitiveLog } from "../models/models_2";
+import { DeleteNetworkAclEntryRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteNetworkAclEntryCommand,
   serializeAws_ec2DeleteNetworkAclEntryCommand,
@@ -115,8 +115,8 @@ export class DeleteNetworkAclEntryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkAclEntryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

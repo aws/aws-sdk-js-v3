@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSpotFleetInstancesRequest,
-  DescribeSpotFleetInstancesRequestFilterSensitiveLog,
-  DescribeSpotFleetInstancesResponse,
-  DescribeSpotFleetInstancesResponseFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeSpotFleetInstancesRequest, DescribeSpotFleetInstancesResponse } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeSpotFleetInstancesCommand,
   serializeAws_ec2DescribeSpotFleetInstancesCommand,
@@ -130,8 +125,8 @@ export class DescribeSpotFleetInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpotFleetInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSpotFleetInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

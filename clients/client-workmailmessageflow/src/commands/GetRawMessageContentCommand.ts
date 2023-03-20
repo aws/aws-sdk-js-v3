@@ -18,7 +18,6 @@ import {
 
 import {
   GetRawMessageContentRequest,
-  GetRawMessageContentRequestFilterSensitiveLog,
   GetRawMessageContentResponse,
   GetRawMessageContentResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class GetRawMessageContentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRawMessageContentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRawMessageContentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

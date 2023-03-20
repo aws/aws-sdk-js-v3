@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  DeleteGeofenceCollectionRequest,
-  DeleteGeofenceCollectionRequestFilterSensitiveLog,
-  DeleteGeofenceCollectionResponse,
-  DeleteGeofenceCollectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteGeofenceCollectionRequest, DeleteGeofenceCollectionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteGeofenceCollectionCommand,
   serializeAws_restJson1DeleteGeofenceCollectionCommand,
@@ -127,8 +122,8 @@ export class DeleteGeofenceCollectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGeofenceCollectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGeofenceCollectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

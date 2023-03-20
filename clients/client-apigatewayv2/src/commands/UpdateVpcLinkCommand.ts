@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import {
-  UpdateVpcLinkRequest,
-  UpdateVpcLinkRequestFilterSensitiveLog,
-  UpdateVpcLinkResponse,
-  UpdateVpcLinkResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateVpcLinkRequest, UpdateVpcLinkResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateVpcLinkCommand,
   serializeAws_restJson1UpdateVpcLinkCommand,
@@ -114,8 +109,8 @@ export class UpdateVpcLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVpcLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVpcLinkResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

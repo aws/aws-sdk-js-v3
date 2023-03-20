@@ -16,7 +16,6 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   StartReplicationRequest,
-  StartReplicationRequestFilterSensitiveLog,
   StartReplicationResponse,
   StartReplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class StartReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartReplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteRegistryRequest, DeleteRegistryRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteRegistryRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteRegistryCommand,
   serializeAws_restJson1DeleteRegistryCommand,
@@ -114,8 +114,8 @@ export class DeleteRegistryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegistryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

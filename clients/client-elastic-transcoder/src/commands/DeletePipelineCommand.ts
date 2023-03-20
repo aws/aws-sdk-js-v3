@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  DeletePipelineRequest,
-  DeletePipelineRequestFilterSensitiveLog,
-  DeletePipelineResponse,
-  DeletePipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePipelineRequest, DeletePipelineResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePipelineCommand,
   serializeAws_restJson1DeletePipelineCommand,
@@ -133,8 +128,8 @@ export class DeletePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

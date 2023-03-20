@@ -122,7 +122,7 @@ export class GetUserCommand extends $Command<GetUserCommandInput, GetUserCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

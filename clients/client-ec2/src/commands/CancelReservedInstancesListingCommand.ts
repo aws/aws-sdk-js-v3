@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CancelReservedInstancesListingRequest,
-  CancelReservedInstancesListingRequestFilterSensitiveLog,
-  CancelReservedInstancesListingResult,
-  CancelReservedInstancesListingResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelReservedInstancesListingRequest, CancelReservedInstancesListingResult } from "../models/models_0";
 import {
   deserializeAws_ec2CancelReservedInstancesListingCommand,
   serializeAws_ec2CancelReservedInstancesListingCommand,
@@ -112,8 +107,8 @@ export class CancelReservedInstancesListingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelReservedInstancesListingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelReservedInstancesListingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

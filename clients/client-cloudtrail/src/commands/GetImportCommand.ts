@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  GetImportRequest,
-  GetImportRequestFilterSensitiveLog,
-  GetImportResponse,
-  GetImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetImportRequest, GetImportResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetImportCommand, serializeAws_json1_1GetImportCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -114,8 +109,8 @@ export class GetImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetContactChannelRequest,
-  GetContactChannelRequestFilterSensitiveLog,
-  GetContactChannelResult,
-  GetContactChannelResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetContactChannelRequest, GetContactChannelResult } from "../models/models_0";
 import {
   deserializeAws_json1_1GetContactChannelCommand,
   serializeAws_json1_1GetContactChannelCommand,
@@ -150,8 +145,8 @@ export class GetContactChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetContactChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetContactChannelResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

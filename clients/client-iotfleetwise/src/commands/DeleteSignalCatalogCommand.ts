@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  DeleteSignalCatalogRequest,
-  DeleteSignalCatalogRequestFilterSensitiveLog,
-  DeleteSignalCatalogResponse,
-  DeleteSignalCatalogResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSignalCatalogRequest, DeleteSignalCatalogResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteSignalCatalogCommand,
   serializeAws_json1_0DeleteSignalCatalogCommand,
@@ -127,8 +122,8 @@ export class DeleteSignalCatalogCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSignalCatalogRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSignalCatalogResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

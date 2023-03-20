@@ -16,9 +16,7 @@ import {
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import {
   UpdateGatewayCapabilityConfigurationRequest,
-  UpdateGatewayCapabilityConfigurationRequestFilterSensitiveLog,
   UpdateGatewayCapabilityConfigurationResponse,
-  UpdateGatewayCapabilityConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand,
@@ -139,8 +137,8 @@ export class UpdateGatewayCapabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewayCapabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewayCapabilityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

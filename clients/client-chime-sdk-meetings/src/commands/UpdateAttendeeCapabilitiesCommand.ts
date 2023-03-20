@@ -16,7 +16,6 @@ import {
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
 import {
   UpdateAttendeeCapabilitiesRequest,
-  UpdateAttendeeCapabilitiesRequestFilterSensitiveLog,
   UpdateAttendeeCapabilitiesResponse,
   UpdateAttendeeCapabilitiesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -145,7 +144,7 @@ export class UpdateAttendeeCapabilitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAttendeeCapabilitiesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateAttendeeCapabilitiesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

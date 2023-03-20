@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteVocabularyRequest, DeleteVocabularyRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteVocabularyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteVocabularyCommand,
   serializeAws_json1_1DeleteVocabularyCommand,
@@ -122,8 +122,8 @@ export class DeleteVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AuthorizeClientVpnIngressRequest,
-  AuthorizeClientVpnIngressRequestFilterSensitiveLog,
-  AuthorizeClientVpnIngressResult,
-  AuthorizeClientVpnIngressResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AuthorizeClientVpnIngressRequest, AuthorizeClientVpnIngressResult } from "../models/models_0";
 import {
   deserializeAws_ec2AuthorizeClientVpnIngressCommand,
   serializeAws_ec2AuthorizeClientVpnIngressCommand,
@@ -109,8 +104,8 @@ export class AuthorizeClientVpnIngressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AuthorizeClientVpnIngressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AuthorizeClientVpnIngressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

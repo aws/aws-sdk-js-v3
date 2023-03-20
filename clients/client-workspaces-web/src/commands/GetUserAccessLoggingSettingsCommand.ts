@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetUserAccessLoggingSettingsRequest,
-  GetUserAccessLoggingSettingsRequestFilterSensitiveLog,
-  GetUserAccessLoggingSettingsResponse,
-  GetUserAccessLoggingSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUserAccessLoggingSettingsRequest, GetUserAccessLoggingSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUserAccessLoggingSettingsCommand,
   serializeAws_restJson1GetUserAccessLoggingSettingsCommand,
@@ -124,8 +119,8 @@ export class GetUserAccessLoggingSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserAccessLoggingSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserAccessLoggingSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

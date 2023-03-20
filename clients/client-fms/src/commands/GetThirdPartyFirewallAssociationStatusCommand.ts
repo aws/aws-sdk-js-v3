@@ -16,9 +16,7 @@ import {
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import {
   GetThirdPartyFirewallAssociationStatusRequest,
-  GetThirdPartyFirewallAssociationStatusRequestFilterSensitiveLog,
   GetThirdPartyFirewallAssociationStatusResponse,
-  GetThirdPartyFirewallAssociationStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand,
@@ -127,8 +125,8 @@ export class GetThirdPartyFirewallAssociationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThirdPartyFirewallAssociationStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetThirdPartyFirewallAssociationStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

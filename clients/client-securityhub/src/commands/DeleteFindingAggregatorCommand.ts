@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteFindingAggregatorRequest,
-  DeleteFindingAggregatorRequestFilterSensitiveLog,
-  DeleteFindingAggregatorResponse,
-  DeleteFindingAggregatorResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteFindingAggregatorRequest, DeleteFindingAggregatorResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteFindingAggregatorCommand,
   serializeAws_restJson1DeleteFindingAggregatorCommand,
@@ -129,8 +124,8 @@ export class DeleteFindingAggregatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFindingAggregatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFindingAggregatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

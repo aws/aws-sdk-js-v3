@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  GetAccuracyMetricsRequest,
-  GetAccuracyMetricsRequestFilterSensitiveLog,
-  GetAccuracyMetricsResponse,
-  GetAccuracyMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccuracyMetricsRequest, GetAccuracyMetricsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetAccuracyMetricsCommand,
   serializeAws_json1_1GetAccuracyMetricsCommand,
@@ -134,8 +129,8 @@ export class GetAccuracyMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccuracyMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccuracyMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

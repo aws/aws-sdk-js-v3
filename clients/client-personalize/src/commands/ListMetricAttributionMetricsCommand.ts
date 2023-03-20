@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMetricAttributionMetricsRequest,
-  ListMetricAttributionMetricsRequestFilterSensitiveLog,
-  ListMetricAttributionMetricsResponse,
-  ListMetricAttributionMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListMetricAttributionMetricsRequest, ListMetricAttributionMetricsResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import {
   deserializeAws_json1_1ListMetricAttributionMetricsCommand,
@@ -115,8 +110,8 @@ export class ListMetricAttributionMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMetricAttributionMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMetricAttributionMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

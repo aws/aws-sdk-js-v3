@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisableLoggingMessage,
-  DisableLoggingMessageFilterSensitiveLog,
-  LoggingStatus,
-  LoggingStatusFilterSensitiveLog,
-} from "../models/models_1";
+import { DisableLoggingMessage, LoggingStatus } from "../models/models_1";
 import {
   deserializeAws_queryDisableLoggingCommand,
   serializeAws_queryDisableLoggingCommand,
@@ -115,8 +110,8 @@ export class DisableLoggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisableLoggingMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: LoggingStatusFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

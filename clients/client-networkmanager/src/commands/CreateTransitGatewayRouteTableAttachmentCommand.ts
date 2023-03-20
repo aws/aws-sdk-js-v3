@@ -15,9 +15,7 @@ import {
 
 import {
   CreateTransitGatewayRouteTableAttachmentRequest,
-  CreateTransitGatewayRouteTableAttachmentRequestFilterSensitiveLog,
   CreateTransitGatewayRouteTableAttachmentResponse,
-  CreateTransitGatewayRouteTableAttachmentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
@@ -135,8 +133,8 @@ export class CreateTransitGatewayRouteTableAttachmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTransitGatewayRouteTableAttachmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTransitGatewayRouteTableAttachmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

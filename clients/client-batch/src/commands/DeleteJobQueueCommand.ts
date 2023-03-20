@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import {
-  DeleteJobQueueRequest,
-  DeleteJobQueueRequestFilterSensitiveLog,
-  DeleteJobQueueResponse,
-  DeleteJobQueueResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteJobQueueRequest, DeleteJobQueueResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteJobQueueCommand,
   serializeAws_restJson1DeleteJobQueueCommand,
@@ -129,8 +124,8 @@ export class DeleteJobQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteJobQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteJobQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

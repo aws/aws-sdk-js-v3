@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteScheduleInput,
-  DeleteScheduleInputFilterSensitiveLog,
-  DeleteScheduleOutput,
-  DeleteScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteScheduleInput, DeleteScheduleOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteScheduleCommand,
   serializeAws_restJson1DeleteScheduleCommand,
@@ -122,8 +117,8 @@ export class DeleteScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

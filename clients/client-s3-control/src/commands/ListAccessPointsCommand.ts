@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAccessPointsRequest,
-  ListAccessPointsRequestFilterSensitiveLog,
-  ListAccessPointsResult,
-  ListAccessPointsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAccessPointsRequest, ListAccessPointsResult } from "../models/models_0";
 import {
   deserializeAws_restXmlListAccessPointsCommand,
   serializeAws_restXmlListAccessPointsCommand,
@@ -140,8 +135,8 @@ export class ListAccessPointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccessPointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccessPointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

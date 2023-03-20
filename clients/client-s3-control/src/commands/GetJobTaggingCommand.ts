@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetJobTaggingRequest,
-  GetJobTaggingRequestFilterSensitiveLog,
-  GetJobTaggingResult,
-  GetJobTaggingResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetJobTaggingRequest, GetJobTaggingResult } from "../models/models_0";
 import {
   deserializeAws_restXmlGetJobTaggingCommand,
   serializeAws_restXmlGetJobTaggingCommand,
@@ -143,8 +138,8 @@ export class GetJobTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobTaggingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

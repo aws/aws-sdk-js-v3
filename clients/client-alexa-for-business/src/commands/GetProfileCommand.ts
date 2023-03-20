@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  GetProfileRequest,
-  GetProfileRequestFilterSensitiveLog,
-  GetProfileResponse,
-  GetProfileResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetProfileRequest, GetProfileResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetProfileCommand,
   serializeAws_json1_1GetProfileCommand,
@@ -108,8 +103,8 @@ export class GetProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

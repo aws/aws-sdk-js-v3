@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateFirewallRuleGroupRequest,
-  AssociateFirewallRuleGroupRequestFilterSensitiveLog,
-  AssociateFirewallRuleGroupResponse,
-  AssociateFirewallRuleGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateFirewallRuleGroupRequest, AssociateFirewallRuleGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateFirewallRuleGroupCommand,
   serializeAws_json1_1AssociateFirewallRuleGroupCommand,
@@ -131,8 +126,8 @@ export class AssociateFirewallRuleGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateFirewallRuleGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateFirewallRuleGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

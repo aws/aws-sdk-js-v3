@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartRouteAnalysisRequest,
-  StartRouteAnalysisRequestFilterSensitiveLog,
-  StartRouteAnalysisResponse,
-  StartRouteAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartRouteAnalysisRequest, StartRouteAnalysisResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1StartRouteAnalysisCommand,
@@ -127,8 +122,8 @@ export class StartRouteAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRouteAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRouteAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

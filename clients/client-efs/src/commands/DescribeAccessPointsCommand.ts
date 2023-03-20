@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import {
-  DescribeAccessPointsRequest,
-  DescribeAccessPointsRequestFilterSensitiveLog,
-  DescribeAccessPointsResponse,
-  DescribeAccessPointsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAccessPointsRequest, DescribeAccessPointsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAccessPointsCommand,
   serializeAws_restJson1DescribeAccessPointsCommand,
@@ -125,8 +120,8 @@ export class DescribeAccessPointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccessPointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccessPointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

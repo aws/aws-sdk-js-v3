@@ -18,7 +18,6 @@ import {
   BatchUpdateTableRowsRequest,
   BatchUpdateTableRowsRequestFilterSensitiveLog,
   BatchUpdateTableRowsResult,
-  BatchUpdateTableRowsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchUpdateTableRowsCommand,
@@ -143,7 +142,7 @@ export class BatchUpdateTableRowsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: BatchUpdateTableRowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateTableRowsResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

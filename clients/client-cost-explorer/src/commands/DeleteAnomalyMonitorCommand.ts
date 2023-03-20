@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  DeleteAnomalyMonitorRequest,
-  DeleteAnomalyMonitorRequestFilterSensitiveLog,
-  DeleteAnomalyMonitorResponse,
-  DeleteAnomalyMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAnomalyMonitorRequest, DeleteAnomalyMonitorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAnomalyMonitorCommand,
   serializeAws_json1_1DeleteAnomalyMonitorCommand,
@@ -113,8 +108,8 @@ export class DeleteAnomalyMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnomalyMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAnomalyMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

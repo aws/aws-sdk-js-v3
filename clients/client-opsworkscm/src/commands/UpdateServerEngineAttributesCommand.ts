@@ -15,7 +15,6 @@ import {
 
 import {
   UpdateServerEngineAttributesRequest,
-  UpdateServerEngineAttributesRequestFilterSensitiveLog,
   UpdateServerEngineAttributesResponse,
   UpdateServerEngineAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -134,7 +133,7 @@ export class UpdateServerEngineAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateServerEngineAttributesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateServerEngineAttributesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

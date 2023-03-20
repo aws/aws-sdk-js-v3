@@ -17,7 +17,6 @@ import {
   AssociateFileSystemInput,
   AssociateFileSystemInputFilterSensitiveLog,
   AssociateFileSystemOutput,
-  AssociateFileSystemOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateFileSystemCommand,
@@ -119,7 +118,7 @@ export class AssociateFileSystemCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AssociateFileSystemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateFileSystemOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

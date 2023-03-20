@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  DisassociateFromMasterAccountRequest,
-  DisassociateFromMasterAccountRequestFilterSensitiveLog,
-  DisassociateFromMasterAccountResponse,
-  DisassociateFromMasterAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateFromMasterAccountCommand,
   serializeAws_restJson1DisassociateFromMasterAccountCommand,
@@ -130,8 +125,8 @@ export class DisassociateFromMasterAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateFromMasterAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateFromMasterAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

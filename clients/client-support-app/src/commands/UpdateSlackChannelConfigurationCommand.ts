@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateSlackChannelConfigurationRequest,
-  UpdateSlackChannelConfigurationRequestFilterSensitiveLog,
-  UpdateSlackChannelConfigurationResult,
-  UpdateSlackChannelConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSlackChannelConfigurationRequest, UpdateSlackChannelConfigurationResult } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSlackChannelConfigurationCommand,
   serializeAws_restJson1UpdateSlackChannelConfigurationCommand,
@@ -151,8 +146,8 @@ export class UpdateSlackChannelConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSlackChannelConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSlackChannelConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

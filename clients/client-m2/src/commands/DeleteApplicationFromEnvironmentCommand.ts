@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
-import {
-  DeleteApplicationFromEnvironmentRequest,
-  DeleteApplicationFromEnvironmentRequestFilterSensitiveLog,
-  DeleteApplicationFromEnvironmentResponse,
-  DeleteApplicationFromEnvironmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteApplicationFromEnvironmentRequest, DeleteApplicationFromEnvironmentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteApplicationFromEnvironmentCommand,
   serializeAws_restJson1DeleteApplicationFromEnvironmentCommand,
@@ -130,8 +125,8 @@ export class DeleteApplicationFromEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApplicationFromEnvironmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApplicationFromEnvironmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

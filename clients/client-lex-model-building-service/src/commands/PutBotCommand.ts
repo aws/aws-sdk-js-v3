@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  PutBotRequest,
-  PutBotRequestFilterSensitiveLog,
-  PutBotResponse,
-  PutBotResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutBotRequest, PutBotResponse } from "../models/models_0";
 import { deserializeAws_restJson1PutBotCommand, serializeAws_restJson1PutBotCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -235,8 +230,8 @@ export class PutBotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutBotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutBotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

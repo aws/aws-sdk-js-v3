@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAutomationExecutionRequest,
-  GetAutomationExecutionRequestFilterSensitiveLog,
-  GetAutomationExecutionResult,
-  GetAutomationExecutionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetAutomationExecutionRequest, GetAutomationExecutionResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetAutomationExecutionCommand,
   serializeAws_json1_1GetAutomationExecutionCommand,
@@ -114,8 +109,8 @@ export class GetAutomationExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAutomationExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAutomationExecutionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

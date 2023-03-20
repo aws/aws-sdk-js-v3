@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  DescribeScalingParametersRequest,
-  DescribeScalingParametersRequestFilterSensitiveLog,
-  DescribeScalingParametersResponse,
-  DescribeScalingParametersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeScalingParametersRequest, DescribeScalingParametersResponse } from "../models/models_0";
 import {
   deserializeAws_queryDescribeScalingParametersCommand,
   serializeAws_queryDescribeScalingParametersCommand,
@@ -117,8 +112,8 @@ export class DescribeScalingParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeScalingParametersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeScalingParametersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

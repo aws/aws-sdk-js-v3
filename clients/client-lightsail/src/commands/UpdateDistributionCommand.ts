@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  UpdateDistributionRequest,
-  UpdateDistributionRequestFilterSensitiveLog,
-  UpdateDistributionResult,
-  UpdateDistributionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateDistributionRequest, UpdateDistributionResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateDistributionCommand,
   serializeAws_json1_1UpdateDistributionCommand,
@@ -134,8 +129,8 @@ export class UpdateDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDistributionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

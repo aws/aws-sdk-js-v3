@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  TerminateClientVpnConnectionsRequest,
-  TerminateClientVpnConnectionsRequestFilterSensitiveLog,
-  TerminateClientVpnConnectionsResult,
-  TerminateClientVpnConnectionsResultFilterSensitiveLog,
-} from "../models/models_7";
+import { TerminateClientVpnConnectionsRequest, TerminateClientVpnConnectionsResult } from "../models/models_7";
 import {
   deserializeAws_ec2TerminateClientVpnConnectionsCommand,
   serializeAws_ec2TerminateClientVpnConnectionsCommand,
@@ -109,8 +104,8 @@ export class TerminateClientVpnConnectionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateClientVpnConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateClientVpnConnectionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

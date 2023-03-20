@@ -17,7 +17,6 @@ import {
   InvokeEndpointAsyncInput,
   InvokeEndpointAsyncInputFilterSensitiveLog,
   InvokeEndpointAsyncOutput,
-  InvokeEndpointAsyncOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1InvokeEndpointAsyncCommand,
@@ -128,7 +127,7 @@ export class InvokeEndpointAsyncCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: InvokeEndpointAsyncInputFilterSensitiveLog,
-      outputFilterSensitiveLog: InvokeEndpointAsyncOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

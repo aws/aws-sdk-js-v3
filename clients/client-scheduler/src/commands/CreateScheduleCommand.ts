@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateScheduleInput,
-  CreateScheduleInputFilterSensitiveLog,
-  CreateScheduleOutput,
-  CreateScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateScheduleInput, CreateScheduleOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateScheduleCommand,
   serializeAws_restJson1CreateScheduleCommand,
@@ -125,8 +120,8 @@ export class CreateScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

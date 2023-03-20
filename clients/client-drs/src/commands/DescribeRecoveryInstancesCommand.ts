@@ -16,7 +16,6 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   DescribeRecoveryInstancesRequest,
-  DescribeRecoveryInstancesRequestFilterSensitiveLog,
   DescribeRecoveryInstancesResponse,
   DescribeRecoveryInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class DescribeRecoveryInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecoveryInstancesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeRecoveryInstancesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

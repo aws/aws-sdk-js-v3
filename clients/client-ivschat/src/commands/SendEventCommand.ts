@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  SendEventRequest,
-  SendEventRequestFilterSensitiveLog,
-  SendEventResponse,
-  SendEventResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendEventRequest, SendEventResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SendEventCommand,
   serializeAws_restJson1SendEventCommand,
@@ -122,8 +117,8 @@ export class SendEventCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendEventRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendEventResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

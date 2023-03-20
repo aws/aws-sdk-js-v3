@@ -16,7 +16,6 @@ import {
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import {
   GetHostedConfigurationVersionRequest,
-  GetHostedConfigurationVersionRequestFilterSensitiveLog,
   HostedConfigurationVersion,
   HostedConfigurationVersionFilterSensitiveLog,
 } from "../models/models_0";
@@ -137,7 +136,7 @@ export class GetHostedConfigurationVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHostedConfigurationVersionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: HostedConfigurationVersionFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

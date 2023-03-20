@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssociateIamInstanceProfileRequest,
-  AssociateIamInstanceProfileRequestFilterSensitiveLog,
-  AssociateIamInstanceProfileResult,
-  AssociateIamInstanceProfileResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateIamInstanceProfileRequest, AssociateIamInstanceProfileResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssociateIamInstanceProfileCommand,
   serializeAws_ec2AssociateIamInstanceProfileCommand,
@@ -135,8 +130,8 @@ export class AssociateIamInstanceProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateIamInstanceProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateIamInstanceProfileResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

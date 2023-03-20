@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteHITRequest,
-  DeleteHITRequestFilterSensitiveLog,
-  DeleteHITResponse,
-  DeleteHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteHITRequest, DeleteHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { deserializeAws_json1_1DeleteHITCommand, serializeAws_json1_1DeleteHITCommand } from "../protocols/Aws_json1_1";
 
@@ -143,8 +138,8 @@ export class DeleteHITCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

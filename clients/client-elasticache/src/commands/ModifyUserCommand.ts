@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  ModifyUserMessage,
-  ModifyUserMessageFilterSensitiveLog,
-  User,
-  UserFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyUserMessage, User } from "../models/models_0";
 import { deserializeAws_queryModifyUserCommand, serializeAws_queryModifyUserCommand } from "../protocols/Aws_query";
 
 /**
@@ -117,8 +112,8 @@ export class ModifyUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyUserMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: UserFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

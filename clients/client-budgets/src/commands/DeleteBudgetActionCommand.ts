@@ -16,7 +16,6 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DeleteBudgetActionRequest,
-  DeleteBudgetActionRequestFilterSensitiveLog,
   DeleteBudgetActionResponse,
   DeleteBudgetActionResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -130,7 +129,7 @@ export class DeleteBudgetActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBudgetActionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteBudgetActionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  GetRepositoryTriggersInput,
-  GetRepositoryTriggersInputFilterSensitiveLog,
-  GetRepositoryTriggersOutput,
-  GetRepositoryTriggersOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRepositoryTriggersInput, GetRepositoryTriggersOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRepositoryTriggersCommand,
   serializeAws_json1_1GetRepositoryTriggersCommand,
@@ -137,8 +132,8 @@ export class GetRepositoryTriggersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRepositoryTriggersInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRepositoryTriggersOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

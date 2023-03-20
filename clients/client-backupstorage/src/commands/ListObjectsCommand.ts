@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  ListObjectsInput,
-  ListObjectsInputFilterSensitiveLog,
-  ListObjectsOutput,
-  ListObjectsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListObjectsInput, ListObjectsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListObjectsCommand,
   serializeAws_restJson1ListObjectsCommand,
@@ -129,8 +124,8 @@ export class ListObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

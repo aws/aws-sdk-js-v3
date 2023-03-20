@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  UpdateTableObjectsRequest,
-  UpdateTableObjectsRequestFilterSensitiveLog,
-  UpdateTableObjectsResponse,
-  UpdateTableObjectsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateTableObjectsRequest, UpdateTableObjectsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateTableObjectsCommand,
   serializeAws_restJson1UpdateTableObjectsCommand,
@@ -134,8 +129,8 @@ export class UpdateTableObjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTableObjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTableObjectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  StartBgpFailoverTestRequest,
-  StartBgpFailoverTestRequestFilterSensitiveLog,
-  StartBgpFailoverTestResponse,
-  StartBgpFailoverTestResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartBgpFailoverTestRequest, StartBgpFailoverTestResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartBgpFailoverTestCommand,
   serializeAws_json1_1StartBgpFailoverTestCommand,
@@ -116,8 +111,8 @@ export class StartBgpFailoverTestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartBgpFailoverTestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartBgpFailoverTestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

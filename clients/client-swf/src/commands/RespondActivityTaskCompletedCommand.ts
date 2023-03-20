@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RespondActivityTaskCompletedInput,
-  RespondActivityTaskCompletedInputFilterSensitiveLog,
-} from "../models/models_0";
+import { RespondActivityTaskCompletedInput } from "../models/models_0";
 import {
   deserializeAws_json1_0RespondActivityTaskCompletedCommand,
   serializeAws_json1_0RespondActivityTaskCompletedCommand,
@@ -150,8 +147,8 @@ export class RespondActivityTaskCompletedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RespondActivityTaskCompletedInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  AddNotificationChannelsRequest,
-  AddNotificationChannelsRequestFilterSensitiveLog,
-  AddNotificationChannelsResponse,
-  AddNotificationChannelsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AddNotificationChannelsRequest, AddNotificationChannelsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AddNotificationChannelsCommand,
   serializeAws_restJson1AddNotificationChannelsCommand,
@@ -131,8 +126,8 @@ export class AddNotificationChannelsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddNotificationChannelsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AddNotificationChannelsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

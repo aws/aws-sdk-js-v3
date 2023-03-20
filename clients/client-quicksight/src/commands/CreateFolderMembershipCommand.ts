@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateFolderMembershipRequest,
-  CreateFolderMembershipRequestFilterSensitiveLog,
-  CreateFolderMembershipResponse,
-  CreateFolderMembershipResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { CreateFolderMembershipRequest, CreateFolderMembershipResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1CreateFolderMembershipCommand,
   serializeAws_restJson1CreateFolderMembershipCommand,
@@ -137,8 +132,8 @@ export class CreateFolderMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateFolderMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateFolderMembershipResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

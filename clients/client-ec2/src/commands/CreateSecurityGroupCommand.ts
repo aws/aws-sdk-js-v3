@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateSecurityGroupRequest,
-  CreateSecurityGroupRequestFilterSensitiveLog,
-  CreateSecurityGroupResult,
-  CreateSecurityGroupResultFilterSensitiveLog,
-} from "../models/models_2";
+import { CreateSecurityGroupRequest, CreateSecurityGroupResult } from "../models/models_2";
 import {
   deserializeAws_ec2CreateSecurityGroupCommand,
   serializeAws_ec2CreateSecurityGroupCommand,
@@ -142,8 +137,8 @@ export class CreateSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSecurityGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSecurityGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

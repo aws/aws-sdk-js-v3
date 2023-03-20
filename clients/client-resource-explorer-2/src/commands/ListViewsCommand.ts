@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListViewsInput,
-  ListViewsInputFilterSensitiveLog,
-  ListViewsOutput,
-  ListViewsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListViewsInput, ListViewsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListViewsCommand,
   serializeAws_restJson1ListViewsCommand,
@@ -134,8 +129,8 @@ export class ListViewsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListViewsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListViewsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

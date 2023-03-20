@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportSshPublicKeyRequest,
-  ImportSshPublicKeyRequestFilterSensitiveLog,
-  ImportSshPublicKeyResponse,
-  ImportSshPublicKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ImportSshPublicKeyRequest, ImportSshPublicKeyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportSshPublicKeyCommand,
   serializeAws_json1_1ImportSshPublicKeyCommand,
@@ -130,8 +125,8 @@ export class ImportSshPublicKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportSshPublicKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportSshPublicKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

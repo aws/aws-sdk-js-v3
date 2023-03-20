@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  GetKeyPolicyRequest,
-  GetKeyPolicyRequestFilterSensitiveLog,
-  GetKeyPolicyResponse,
-  GetKeyPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetKeyPolicyRequest, GetKeyPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetKeyPolicyCommand,
   serializeAws_json1_1GetKeyPolicyCommand,
@@ -163,8 +158,8 @@ export class GetKeyPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetKeyPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetKeyPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

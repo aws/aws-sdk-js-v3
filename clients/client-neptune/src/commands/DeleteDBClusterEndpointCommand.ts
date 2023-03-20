@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDBClusterEndpointMessage,
-  DeleteDBClusterEndpointMessageFilterSensitiveLog,
-  DeleteDBClusterEndpointOutput,
-  DeleteDBClusterEndpointOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDBClusterEndpointMessage, DeleteDBClusterEndpointOutput } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import {
   deserializeAws_queryDeleteDBClusterEndpointCommand,
@@ -116,8 +111,8 @@ export class DeleteDBClusterEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBClusterEndpointMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBClusterEndpointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

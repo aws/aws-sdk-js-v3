@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  ListJobsByStatusRequest,
-  ListJobsByStatusRequestFilterSensitiveLog,
-  ListJobsByStatusResponse,
-  ListJobsByStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListJobsByStatusRequest, ListJobsByStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListJobsByStatusCommand,
   serializeAws_restJson1ListJobsByStatusCommand,
@@ -127,8 +122,8 @@ export class ListJobsByStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobsByStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobsByStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

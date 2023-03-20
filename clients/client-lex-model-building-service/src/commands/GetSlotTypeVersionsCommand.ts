@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetSlotTypeVersionsRequest,
-  GetSlotTypeVersionsRequestFilterSensitiveLog,
-  GetSlotTypeVersionsResponse,
-  GetSlotTypeVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSlotTypeVersionsRequest, GetSlotTypeVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSlotTypeVersionsCommand,
   serializeAws_restJson1GetSlotTypeVersionsCommand,
@@ -136,8 +131,8 @@ export class GetSlotTypeVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSlotTypeVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSlotTypeVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

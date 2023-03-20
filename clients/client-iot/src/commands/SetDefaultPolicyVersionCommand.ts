@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { SetDefaultPolicyVersionRequest, SetDefaultPolicyVersionRequestFilterSensitiveLog } from "../models/models_2";
+import { SetDefaultPolicyVersionRequest } from "../models/models_2";
 import {
   deserializeAws_restJson1SetDefaultPolicyVersionCommand,
   serializeAws_restJson1SetDefaultPolicyVersionCommand,
@@ -124,8 +124,8 @@ export class SetDefaultPolicyVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetDefaultPolicyVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

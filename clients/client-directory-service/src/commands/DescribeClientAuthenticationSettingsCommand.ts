@@ -16,9 +16,7 @@ import {
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
 import {
   DescribeClientAuthenticationSettingsRequest,
-  DescribeClientAuthenticationSettingsRequestFilterSensitiveLog,
   DescribeClientAuthenticationSettingsResult,
-  DescribeClientAuthenticationSettingsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeClientAuthenticationSettingsCommand,
@@ -128,8 +126,8 @@ export class DescribeClientAuthenticationSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeClientAuthenticationSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeClientAuthenticationSettingsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,6 @@ import {
 
 import {
   ListAccountsForParentRequest,
-  ListAccountsForParentRequestFilterSensitiveLog,
   ListAccountsForParentResponse,
   ListAccountsForParentResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -285,7 +284,7 @@ export class ListAccountsForParentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAccountsForParentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListAccountsForParentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

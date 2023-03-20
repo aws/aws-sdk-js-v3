@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchDescribeModelPackageInput,
-  BatchDescribeModelPackageInputFilterSensitiveLog,
-  BatchDescribeModelPackageOutput,
-  BatchDescribeModelPackageOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDescribeModelPackageInput, BatchDescribeModelPackageOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDescribeModelPackageCommand,
   serializeAws_json1_1BatchDescribeModelPackageCommand,
@@ -107,8 +102,8 @@ export class BatchDescribeModelPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDescribeModelPackageInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDescribeModelPackageOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

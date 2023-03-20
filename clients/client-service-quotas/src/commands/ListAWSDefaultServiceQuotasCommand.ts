@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAWSDefaultServiceQuotasRequest,
-  ListAWSDefaultServiceQuotasRequestFilterSensitiveLog,
-  ListAWSDefaultServiceQuotasResponse,
-  ListAWSDefaultServiceQuotasResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAWSDefaultServiceQuotasRequest, ListAWSDefaultServiceQuotasResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand,
   serializeAws_json1_1ListAWSDefaultServiceQuotasCommand,
@@ -129,8 +124,8 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAWSDefaultServiceQuotasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAWSDefaultServiceQuotasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

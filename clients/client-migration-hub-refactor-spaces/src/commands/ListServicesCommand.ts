@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubRefactorSpacesClient";
-import {
-  ListServicesRequest,
-  ListServicesRequestFilterSensitiveLog,
-  ListServicesResponse,
-  ListServicesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListServicesRequest, ListServicesResponse, ListServicesResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1ListServicesCommand,
   serializeAws_restJson1ListServicesCommand,
@@ -131,7 +126,7 @@ export class ListServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListServicesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListServicesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

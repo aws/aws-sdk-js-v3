@@ -13,19 +13,24 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { QueryTimestampsInput, QueryTimestampsInputFilterSensitiveLog } from "../models/models_0";
+import { QueryTimestampsInput } from "../models/models_0";
 import { deserializeAws_ec2QueryTimestampsCommand, serializeAws_ec2QueryTimestampsCommand } from "../protocols/Aws_ec2";
 
 /**
+ * @public
+ *
  * The input for {@link QueryTimestampsCommand}.
  */
 export interface QueryTimestampsCommandInput extends QueryTimestampsInput {}
 /**
+ * @public
+ *
  * The output of {@link QueryTimestampsCommand}.
  */
 export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This test serializes timestamps.
  *
  * 1. Timestamps are serialized as RFC 3339 date-time values by default.
@@ -41,6 +46,8 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  * const response = await client.send(command);
  * ```
  *
+ * @param QueryTimestampsCommandInput - {@link QueryTimestampsCommandInput}
+ * @returns {@link QueryTimestampsCommandOutput}
  * @see {@link QueryTimestampsCommandInput} for command's `input` shape.
  * @see {@link QueryTimestampsCommandOutput} for command's `response` shape.
  * @see {@link EC2ProtocolClientResolvedConfig | config} for EC2ProtocolClient's `config` shape.
@@ -55,6 +62,9 @@ export class QueryTimestampsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: QueryTimestampsCommandInput) {
     // Start section: command_constructor
     super();
@@ -80,8 +90,8 @@ export class QueryTimestampsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: QueryTimestampsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -91,10 +101,16 @@ export class QueryTimestampsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: QueryTimestampsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_ec2QueryTimestampsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryTimestampsCommandOutput> {
     return deserializeAws_ec2QueryTimestampsCommand(output, context);
   }

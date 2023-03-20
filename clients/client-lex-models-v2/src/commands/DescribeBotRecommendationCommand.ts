@@ -16,7 +16,6 @@ import {
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import {
   DescribeBotRecommendationRequest,
-  DescribeBotRecommendationRequestFilterSensitiveLog,
   DescribeBotRecommendationResponse,
   DescribeBotRecommendationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -127,7 +126,7 @@ export class DescribeBotRecommendationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBotRecommendationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeBotRecommendationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

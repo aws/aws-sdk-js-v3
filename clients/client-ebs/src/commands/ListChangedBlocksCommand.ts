@@ -16,7 +16,6 @@ import {
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
 import {
   ListChangedBlocksRequest,
-  ListChangedBlocksRequestFilterSensitiveLog,
   ListChangedBlocksResponse,
   ListChangedBlocksResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -127,7 +126,7 @@ export class ListChangedBlocksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChangedBlocksRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListChangedBlocksResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

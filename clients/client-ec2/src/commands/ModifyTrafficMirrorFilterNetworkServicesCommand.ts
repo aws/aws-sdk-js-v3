@@ -16,9 +16,7 @@ import {
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import {
   ModifyTrafficMirrorFilterNetworkServicesRequest,
-  ModifyTrafficMirrorFilterNetworkServicesRequestFilterSensitiveLog,
   ModifyTrafficMirrorFilterNetworkServicesResult,
-  ModifyTrafficMirrorFilterNetworkServicesResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand,
@@ -119,8 +117,8 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyTrafficMirrorFilterNetworkServicesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyTrafficMirrorFilterNetworkServicesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

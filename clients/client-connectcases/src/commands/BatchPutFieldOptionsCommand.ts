@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  BatchPutFieldOptionsRequest,
-  BatchPutFieldOptionsRequestFilterSensitiveLog,
-  BatchPutFieldOptionsResponse,
-  BatchPutFieldOptionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchPutFieldOptionsRequest, BatchPutFieldOptionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchPutFieldOptionsCommand,
   serializeAws_restJson1BatchPutFieldOptionsCommand,
@@ -129,8 +124,8 @@ export class BatchPutFieldOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutFieldOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutFieldOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

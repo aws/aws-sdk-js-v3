@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ImportDecoderManifestRequest,
-  ImportDecoderManifestRequestFilterSensitiveLog,
-  ImportDecoderManifestResponse,
-  ImportDecoderManifestResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ImportDecoderManifestRequest, ImportDecoderManifestResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ImportDecoderManifestCommand,
   serializeAws_json1_0ImportDecoderManifestCommand,
@@ -133,8 +128,8 @@ export class ImportDecoderManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportDecoderManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportDecoderManifestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

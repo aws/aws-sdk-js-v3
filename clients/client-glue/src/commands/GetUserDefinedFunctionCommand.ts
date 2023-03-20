@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetUserDefinedFunctionRequest,
-  GetUserDefinedFunctionRequestFilterSensitiveLog,
-  GetUserDefinedFunctionResponse,
-  GetUserDefinedFunctionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetUserDefinedFunctionRequest, GetUserDefinedFunctionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetUserDefinedFunctionCommand,
   serializeAws_json1_1GetUserDefinedFunctionCommand,
@@ -122,8 +117,8 @@ export class GetUserDefinedFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserDefinedFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserDefinedFunctionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

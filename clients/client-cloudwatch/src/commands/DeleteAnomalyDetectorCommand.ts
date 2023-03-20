@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import {
-  DeleteAnomalyDetectorInput,
-  DeleteAnomalyDetectorInputFilterSensitiveLog,
-  DeleteAnomalyDetectorOutput,
-  DeleteAnomalyDetectorOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteAnomalyDetectorCommand,
   serializeAws_queryDeleteAnomalyDetectorCommand,
@@ -130,8 +125,8 @@ export class DeleteAnomalyDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAnomalyDetectorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAnomalyDetectorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

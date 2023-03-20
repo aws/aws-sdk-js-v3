@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  BatchRevokePermissionsRequest,
-  BatchRevokePermissionsRequestFilterSensitiveLog,
-  BatchRevokePermissionsResponse,
-  BatchRevokePermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchRevokePermissionsRequest, BatchRevokePermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchRevokePermissionsCommand,
   serializeAws_restJson1BatchRevokePermissionsCommand,
@@ -113,8 +108,8 @@ export class BatchRevokePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchRevokePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchRevokePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

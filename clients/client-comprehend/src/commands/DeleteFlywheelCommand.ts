@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DeleteFlywheelRequest,
-  DeleteFlywheelRequestFilterSensitiveLog,
-  DeleteFlywheelResponse,
-  DeleteFlywheelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFlywheelRequest, DeleteFlywheelResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteFlywheelCommand,
   serializeAws_json1_1DeleteFlywheelCommand,
@@ -130,8 +125,8 @@ export class DeleteFlywheelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlywheelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlywheelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import {
-  BuildSuggestersRequest,
-  BuildSuggestersRequestFilterSensitiveLog,
-  BuildSuggestersResponse,
-  BuildSuggestersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BuildSuggestersRequest, BuildSuggestersResponse } from "../models/models_0";
 import {
   deserializeAws_queryBuildSuggestersCommand,
   serializeAws_queryBuildSuggestersCommand,
@@ -120,8 +115,8 @@ export class BuildSuggestersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BuildSuggestersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BuildSuggestersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
   GetFederationTokenRequest,
-  GetFederationTokenRequestFilterSensitiveLog,
   GetFederationTokenResponse,
   GetFederationTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -133,7 +132,7 @@ export class GetFederationTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFederationTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetFederationTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

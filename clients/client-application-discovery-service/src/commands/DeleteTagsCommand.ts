@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  DeleteTagsRequest,
-  DeleteTagsRequestFilterSensitiveLog,
-  DeleteTagsResponse,
-  DeleteTagsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteTagsRequest, DeleteTagsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteTagsCommand,
   serializeAws_json1_1DeleteTagsCommand,
@@ -131,8 +126,8 @@ export class DeleteTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTagsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  ListSourceLocationsRequest,
-  ListSourceLocationsRequestFilterSensitiveLog,
-  ListSourceLocationsResponse,
-  ListSourceLocationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSourceLocationsRequest, ListSourceLocationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSourceLocationsCommand,
   serializeAws_restJson1ListSourceLocationsCommand,
@@ -107,8 +102,8 @@ export class ListSourceLocationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSourceLocationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSourceLocationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

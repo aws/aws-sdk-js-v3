@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutIdentityPolicyRequest,
-  PutIdentityPolicyRequestFilterSensitiveLog,
-  PutIdentityPolicyResponse,
-  PutIdentityPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutIdentityPolicyRequest, PutIdentityPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_queryPutIdentityPolicyCommand,
   serializeAws_queryPutIdentityPolicyCommand,
@@ -134,8 +129,8 @@ export class PutIdentityPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutIdentityPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutIdentityPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

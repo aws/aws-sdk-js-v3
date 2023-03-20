@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListReferenceImportJobsRequest,
-  ListReferenceImportJobsRequestFilterSensitiveLog,
-  ListReferenceImportJobsResponse,
-  ListReferenceImportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReferenceImportJobsRequest, ListReferenceImportJobsResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1ListReferenceImportJobsCommand,
@@ -125,8 +120,8 @@ export class ListReferenceImportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReferenceImportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReferenceImportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

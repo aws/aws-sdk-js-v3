@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKIdentityClient";
-import { DeleteAppInstanceAdminRequest, DeleteAppInstanceAdminRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteAppInstanceAdminRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAppInstanceAdminCommand,
   serializeAws_restJson1DeleteAppInstanceAdminCommand,
@@ -128,8 +128,8 @@ export class DeleteAppInstanceAdminCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppInstanceAdminRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

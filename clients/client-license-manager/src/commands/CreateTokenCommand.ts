@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  CreateTokenRequest,
-  CreateTokenRequestFilterSensitiveLog,
-  CreateTokenResponse,
-  CreateTokenResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateTokenCommand,
   serializeAws_json1_1CreateTokenCommand,
@@ -133,8 +128,8 @@ export class CreateTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTokenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTokenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

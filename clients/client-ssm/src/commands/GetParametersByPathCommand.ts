@@ -15,7 +15,6 @@ import {
 
 import {
   GetParametersByPathRequest,
-  GetParametersByPathRequestFilterSensitiveLog,
   GetParametersByPathResult,
   GetParametersByPathResultFilterSensitiveLog,
 } from "../models/models_1";
@@ -132,7 +131,7 @@ export class GetParametersByPathCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetParametersByPathRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetParametersByPathResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

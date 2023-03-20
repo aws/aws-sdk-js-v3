@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  PutChunkInput,
-  PutChunkInputFilterSensitiveLog,
-  PutChunkOutput,
-  PutChunkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutChunkInput, PutChunkInputFilterSensitiveLog, PutChunkOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1PutChunkCommand,
   serializeAws_restJson1PutChunkCommand,
@@ -139,7 +134,7 @@ export class PutChunkCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutChunkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutChunkOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

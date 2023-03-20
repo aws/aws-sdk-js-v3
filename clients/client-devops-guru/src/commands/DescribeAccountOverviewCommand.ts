@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import {
-  DescribeAccountOverviewRequest,
-  DescribeAccountOverviewRequestFilterSensitiveLog,
-  DescribeAccountOverviewResponse,
-  DescribeAccountOverviewResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAccountOverviewRequest, DescribeAccountOverviewResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAccountOverviewCommand,
   serializeAws_restJson1DescribeAccountOverviewCommand,
@@ -125,8 +120,8 @@ export class DescribeAccountOverviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountOverviewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAccountOverviewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

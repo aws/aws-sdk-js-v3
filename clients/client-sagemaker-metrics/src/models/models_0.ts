@@ -96,31 +96,3 @@ export interface BatchPutMetricsResponse {
    */
   Errors?: BatchPutMetricsError[];
 }
-
-/**
- * @internal
- */
-export const RawMetricDataFilterSensitiveLog = (obj: RawMetricData): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPutMetricsRequestFilterSensitiveLog = (obj: BatchPutMetricsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPutMetricsErrorFilterSensitiveLog = (obj: BatchPutMetricsError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchPutMetricsResponseFilterSensitiveLog = (obj: BatchPutMetricsResponse): any => ({
-  ...obj,
-});

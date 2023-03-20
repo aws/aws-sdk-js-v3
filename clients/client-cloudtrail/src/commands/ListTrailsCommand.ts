@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  ListTrailsRequest,
-  ListTrailsRequestFilterSensitiveLog,
-  ListTrailsResponse,
-  ListTrailsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTrailsRequest, ListTrailsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTrailsCommand,
   serializeAws_json1_1ListTrailsCommand,
@@ -111,8 +106,8 @@ export class ListTrailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

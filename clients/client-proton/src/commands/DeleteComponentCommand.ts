@@ -15,7 +15,6 @@ import {
 
 import {
   DeleteComponentInput,
-  DeleteComponentInputFilterSensitiveLog,
   DeleteComponentOutput,
   DeleteComponentOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -128,7 +127,7 @@ export class DeleteComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteComponentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteComponentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

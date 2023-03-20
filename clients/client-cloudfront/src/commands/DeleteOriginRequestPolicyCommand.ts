@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DeleteOriginRequestPolicyRequest,
-  DeleteOriginRequestPolicyRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteOriginRequestPolicyRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteOriginRequestPolicyCommand,
   serializeAws_restXmlDeleteOriginRequestPolicyCommand,
@@ -131,8 +128,8 @@ export class DeleteOriginRequestPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteOriginRequestPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

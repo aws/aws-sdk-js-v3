@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DescribeReservedCacheNodesMessage,
-  DescribeReservedCacheNodesMessageFilterSensitiveLog,
-  ReservedCacheNodeMessage,
-  ReservedCacheNodeMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeReservedCacheNodesMessage, ReservedCacheNodeMessage } from "../models/models_0";
 import {
   deserializeAws_queryDescribeReservedCacheNodesCommand,
   serializeAws_queryDescribeReservedCacheNodesCommand,
@@ -128,8 +123,8 @@ export class DescribeReservedCacheNodesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedCacheNodesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ReservedCacheNodeMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

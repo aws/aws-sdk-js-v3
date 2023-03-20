@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDocumentTextDetectionRequest,
-  GetDocumentTextDetectionRequestFilterSensitiveLog,
-  GetDocumentTextDetectionResponse,
-  GetDocumentTextDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDocumentTextDetectionRequest, GetDocumentTextDetectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetDocumentTextDetectionCommand,
   serializeAws_json1_1GetDocumentTextDetectionCommand,
@@ -165,8 +160,8 @@ export class GetDocumentTextDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDocumentTextDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDocumentTextDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

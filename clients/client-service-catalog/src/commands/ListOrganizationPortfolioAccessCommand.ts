@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOrganizationPortfolioAccessInput,
-  ListOrganizationPortfolioAccessInputFilterSensitiveLog,
-  ListOrganizationPortfolioAccessOutput,
-  ListOrganizationPortfolioAccessOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListOrganizationPortfolioAccessInput, ListOrganizationPortfolioAccessOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListOrganizationPortfolioAccessCommand,
   serializeAws_json1_1ListOrganizationPortfolioAccessCommand,
@@ -121,8 +116,8 @@ export class ListOrganizationPortfolioAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrganizationPortfolioAccessInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOrganizationPortfolioAccessOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

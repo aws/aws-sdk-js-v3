@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TagQueueRequest, TagQueueRequestFilterSensitiveLog } from "../models/models_0";
+import { TagQueueRequest } from "../models/models_0";
 import { deserializeAws_queryTagQueueCommand, serializeAws_queryTagQueueCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
@@ -118,8 +118,8 @@ export class TagQueueCommand extends $Command<TagQueueCommandInput, TagQueueComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

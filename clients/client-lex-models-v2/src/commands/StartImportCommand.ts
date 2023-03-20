@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  StartImportRequest,
-  StartImportRequestFilterSensitiveLog,
-  StartImportResponse,
-  StartImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartImportRequest, StartImportRequestFilterSensitiveLog, StartImportResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartImportCommand,
   serializeAws_restJson1StartImportCommand,
@@ -131,7 +126,7 @@ export class StartImportCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StartImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartImportResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

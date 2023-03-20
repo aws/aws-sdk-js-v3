@@ -2492,34 +2492,6 @@ export interface UpdateRouteResponse {
 /**
  * @internal
  */
-export const ApiGatewayProxyConfigFilterSensitiveLog = (obj: ApiGatewayProxyConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApiGatewayProxyInputFilterSensitiveLog = (obj: ApiGatewayProxyInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ApiGatewayProxySummaryFilterSensitiveLog = (obj: ApiGatewayProxySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorResponseFilterSensitiveLog = (obj: ErrorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -2560,20 +2532,6 @@ export const CreateEnvironmentResponseFilterSensitiveLog = (obj: CreateEnvironme
 /**
  * @internal
  */
-export const DefaultRouteInputFilterSensitiveLog = (obj: DefaultRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UriPathRouteInputFilterSensitiveLog = (obj: UriPathRouteInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateRouteRequestFilterSensitiveLog = (obj: CreateRouteRequest): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -2585,20 +2543,6 @@ export const CreateRouteRequestFilterSensitiveLog = (obj: CreateRouteRequest): a
 export const CreateRouteResponseFilterSensitiveLog = (obj: CreateRouteResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LambdaEndpointInputFilterSensitiveLog = (obj: LambdaEndpointInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UrlEndpointInputFilterSensitiveLog = (obj: UrlEndpointInput): any => ({
-  ...obj,
 });
 
 /**
@@ -2620,93 +2564,9 @@ export const CreateServiceResponseFilterSensitiveLog = (obj: CreateServiceRespon
 /**
  * @internal
  */
-export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentRequestFilterSensitiveLog = (obj: DeleteEnvironmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentResponseFilterSensitiveLog = (obj: DeleteEnvironmentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyRequestFilterSensitiveLog = (obj: DeleteResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteResourcePolicyResponseFilterSensitiveLog = (obj: DeleteResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRouteRequestFilterSensitiveLog = (obj: DeleteRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRouteResponseFilterSensitiveLog = (obj: DeleteRouteResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServiceRequestFilterSensitiveLog = (obj: DeleteServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteServiceResponseFilterSensitiveLog = (obj: DeleteServiceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EnvironmentSummaryFilterSensitiveLog = (obj: EnvironmentSummary): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EnvironmentVpcFilterSensitiveLog = (obj: EnvironmentVpc): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetApplicationRequestFilterSensitiveLog = (obj: GetApplicationRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2720,37 +2580,9 @@ export const GetApplicationResponseFilterSensitiveLog = (obj: GetApplicationResp
 /**
  * @internal
  */
-export const GetEnvironmentRequestFilterSensitiveLog = (obj: GetEnvironmentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetEnvironmentResponseFilterSensitiveLog = (obj: GetEnvironmentResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyRequestFilterSensitiveLog = (obj: GetResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcePolicyResponseFilterSensitiveLog = (obj: GetResourcePolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRouteRequestFilterSensitiveLog = (obj: GetRouteRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2764,44 +2596,9 @@ export const GetRouteResponseFilterSensitiveLog = (obj: GetRouteResponse): any =
 /**
  * @internal
  */
-export const GetServiceRequestFilterSensitiveLog = (obj: GetServiceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LambdaEndpointConfigFilterSensitiveLog = (obj: LambdaEndpointConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UrlEndpointConfigFilterSensitiveLog = (obj: UrlEndpointConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetServiceResponseFilterSensitiveLog = (obj: GetServiceResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const LambdaEndpointSummaryFilterSensitiveLog = (obj: LambdaEndpointSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2817,39 +2614,11 @@ export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplications
 /**
  * @internal
  */
-export const ListEnvironmentsRequestFilterSensitiveLog = (obj: ListEnvironmentsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListEnvironmentsResponseFilterSensitiveLog = (obj: ListEnvironmentsResponse): any => ({
   ...obj,
   ...(obj.EnvironmentSummaryList && {
     EnvironmentSummaryList: obj.EnvironmentSummaryList.map((item) => EnvironmentSummaryFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentVpcsRequestFilterSensitiveLog = (obj: ListEnvironmentVpcsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentVpcsResponseFilterSensitiveLog = (obj: ListEnvironmentVpcsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRoutesRequestFilterSensitiveLog = (obj: ListRoutesRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -2873,20 +2642,6 @@ export const ListRoutesResponseFilterSensitiveLog = (obj: ListRoutesResponse): a
 /**
  * @internal
  */
-export const ListServicesRequestFilterSensitiveLog = (obj: ListServicesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UrlEndpointSummaryFilterSensitiveLog = (obj: UrlEndpointSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ServiceSummaryFilterSensitiveLog = (obj: ServiceSummary): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
@@ -2905,30 +2660,9 @@ export const ListServicesResponseFilterSensitiveLog = (obj: ListServicesResponse
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.Tags && { Tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2942,35 +2676,7 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.TagKeys && { TagKeys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRouteRequestFilterSensitiveLog = (obj: UpdateRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateRouteResponseFilterSensitiveLog = (obj: UpdateRouteResponse): any => ({
-  ...obj,
 });

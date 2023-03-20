@@ -18,7 +18,6 @@ import {
   CreateExplainabilityRequest,
   CreateExplainabilityRequestFilterSensitiveLog,
   CreateExplainabilityResponse,
-  CreateExplainabilityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateExplainabilityCommand,
@@ -243,7 +242,7 @@ export class CreateExplainabilityCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateExplainabilityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExplainabilityResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

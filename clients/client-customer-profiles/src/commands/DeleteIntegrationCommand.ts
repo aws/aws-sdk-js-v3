@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CustomerProfilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CustomerProfilesClient";
-import {
-  DeleteIntegrationRequest,
-  DeleteIntegrationRequestFilterSensitiveLog,
-  DeleteIntegrationResponse,
-  DeleteIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteIntegrationRequest, DeleteIntegrationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteIntegrationCommand,
   serializeAws_restJson1DeleteIntegrationCommand,
@@ -122,8 +117,8 @@ export class DeleteIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

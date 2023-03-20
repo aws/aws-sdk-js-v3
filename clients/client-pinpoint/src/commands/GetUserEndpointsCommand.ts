@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetUserEndpointsRequest,
-  GetUserEndpointsRequestFilterSensitiveLog,
-  GetUserEndpointsResponse,
-  GetUserEndpointsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetUserEndpointsRequest, GetUserEndpointsResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetUserEndpointsCommand,
@@ -128,8 +123,8 @@ export class GetUserEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUserEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserEndpointsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  DeregisterWebhookWithThirdPartyInput,
-  DeregisterWebhookWithThirdPartyInputFilterSensitiveLog,
-  DeregisterWebhookWithThirdPartyOutput,
-  DeregisterWebhookWithThirdPartyOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterWebhookWithThirdPartyInput, DeregisterWebhookWithThirdPartyOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand,
   serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand,
@@ -118,8 +113,8 @@ export class DeregisterWebhookWithThirdPartyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterWebhookWithThirdPartyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterWebhookWithThirdPartyOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

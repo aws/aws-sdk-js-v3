@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDataSharesMessage,
-  DescribeDataSharesMessageFilterSensitiveLog,
-  DescribeDataSharesResult,
-  DescribeDataSharesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDataSharesMessage, DescribeDataSharesResult } from "../models/models_0";
 import {
   deserializeAws_queryDescribeDataSharesCommand,
   serializeAws_queryDescribeDataSharesCommand,
@@ -111,8 +106,8 @@ export class DescribeDataSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataSharesMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataSharesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteNotebookInstanceLifecycleConfigInput,
-  DeleteNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
   serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
@@ -105,8 +102,8 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,9 +16,7 @@ import {
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import {
   DisassociateGlobalReplicationGroupMessage,
-  DisassociateGlobalReplicationGroupMessageFilterSensitiveLog,
   DisassociateGlobalReplicationGroupResult,
-  DisassociateGlobalReplicationGroupResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryDisassociateGlobalReplicationGroupCommand,
@@ -121,8 +119,8 @@ export class DisassociateGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

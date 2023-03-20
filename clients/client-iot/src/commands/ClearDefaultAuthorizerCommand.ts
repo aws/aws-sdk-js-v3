@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ClearDefaultAuthorizerRequest,
-  ClearDefaultAuthorizerRequestFilterSensitiveLog,
-  ClearDefaultAuthorizerResponse,
-  ClearDefaultAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ClearDefaultAuthorizerRequest, ClearDefaultAuthorizerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ClearDefaultAuthorizerCommand,
   serializeAws_restJson1ClearDefaultAuthorizerCommand,
@@ -126,8 +121,8 @@ export class ClearDefaultAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ClearDefaultAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ClearDefaultAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

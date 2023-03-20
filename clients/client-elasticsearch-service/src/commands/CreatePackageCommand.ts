@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  CreatePackageRequest,
-  CreatePackageRequestFilterSensitiveLog,
-  CreatePackageResponse,
-  CreatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreatePackageRequest, CreatePackageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePackageCommand,
   serializeAws_restJson1CreatePackageCommand,
@@ -130,8 +125,8 @@ export class CreatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
-import {
-  UpdateFlowTemplateRequest,
-  UpdateFlowTemplateRequestFilterSensitiveLog,
-  UpdateFlowTemplateResponse,
-  UpdateFlowTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFlowTemplateRequest, UpdateFlowTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateFlowTemplateCommand,
   serializeAws_json1_1UpdateFlowTemplateCommand,
@@ -122,8 +117,8 @@ export class UpdateFlowTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFlowTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFlowTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

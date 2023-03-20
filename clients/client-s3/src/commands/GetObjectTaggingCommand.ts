@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetObjectTaggingOutput,
-  GetObjectTaggingOutputFilterSensitiveLog,
-  GetObjectTaggingRequest,
-  GetObjectTaggingRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { GetObjectTaggingOutput, GetObjectTaggingRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlGetObjectTaggingCommand,
   serializeAws_restXmlGetObjectTaggingCommand,
@@ -192,8 +187,8 @@ export class GetObjectTaggingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectTaggingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectTaggingOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

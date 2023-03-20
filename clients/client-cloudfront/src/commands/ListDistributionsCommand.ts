@@ -16,7 +16,6 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   ListDistributionsRequest,
-  ListDistributionsRequestFilterSensitiveLog,
   ListDistributionsResult,
   ListDistributionsResultFilterSensitiveLog,
 } from "../models/models_1";
@@ -110,7 +109,7 @@ export class ListDistributionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDistributionsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListDistributionsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

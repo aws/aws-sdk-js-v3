@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  CreateRelatedItemRequest,
-  CreateRelatedItemRequestFilterSensitiveLog,
-  CreateRelatedItemResponse,
-  CreateRelatedItemResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRelatedItemRequest, CreateRelatedItemResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateRelatedItemCommand,
   serializeAws_restJson1CreateRelatedItemCommand,
@@ -136,8 +131,8 @@ export class CreateRelatedItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRelatedItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRelatedItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

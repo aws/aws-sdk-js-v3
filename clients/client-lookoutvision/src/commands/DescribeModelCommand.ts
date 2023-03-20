@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  DescribeModelRequest,
-  DescribeModelRequestFilterSensitiveLog,
-  DescribeModelResponse,
-  DescribeModelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeModelCommand,
   serializeAws_restJson1DescribeModelCommand,
@@ -126,8 +121,8 @@ export class DescribeModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

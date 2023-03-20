@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAlarmRecommendationsRequest,
-  ListAlarmRecommendationsRequestFilterSensitiveLog,
-  ListAlarmRecommendationsResponse,
-  ListAlarmRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAlarmRecommendationsRequest, ListAlarmRecommendationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAlarmRecommendationsCommand,
   serializeAws_restJson1ListAlarmRecommendationsCommand,
@@ -125,8 +120,8 @@ export class ListAlarmRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAlarmRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAlarmRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

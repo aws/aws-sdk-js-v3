@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DownloadDefaultKeyPairRequest,
-  DownloadDefaultKeyPairRequestFilterSensitiveLog,
-  DownloadDefaultKeyPairResult,
-  DownloadDefaultKeyPairResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DownloadDefaultKeyPairCommand,
   serializeAws_json1_1DownloadDefaultKeyPairCommand,
@@ -139,8 +134,8 @@ export class DownloadDefaultKeyPairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DownloadDefaultKeyPairRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DownloadDefaultKeyPairResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

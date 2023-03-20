@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  CreateHostInput,
-  CreateHostInputFilterSensitiveLog,
-  CreateHostOutput,
-  CreateHostOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateHostInput, CreateHostOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateHostCommand,
   serializeAws_json1_0CreateHostCommand,
@@ -119,8 +114,8 @@ export class CreateHostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteConnectionMessage,
-  DeleteConnectionMessageFilterSensitiveLog,
-  DeleteConnectionResponse,
-  DeleteConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteConnectionMessage, DeleteConnectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConnectionCommand,
   serializeAws_json1_1DeleteConnectionCommand,
@@ -138,8 +133,8 @@ export class DeleteConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConnectionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

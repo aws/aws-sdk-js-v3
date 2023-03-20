@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateBuildInput,
-  CreateBuildInputFilterSensitiveLog,
-  CreateBuildOutput,
-  CreateBuildOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateBuildInput, CreateBuildOutput, CreateBuildOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateBuildCommand,
   serializeAws_json1_1CreateBuildCommand,
@@ -169,7 +164,7 @@ export class CreateBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBuildInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateBuildOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateBandwidthRateLimitScheduleInput,
-  UpdateBandwidthRateLimitScheduleInputFilterSensitiveLog,
-  UpdateBandwidthRateLimitScheduleOutput,
-  UpdateBandwidthRateLimitScheduleOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateBandwidthRateLimitScheduleInput, UpdateBandwidthRateLimitScheduleOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand,
   serializeAws_json1_1UpdateBandwidthRateLimitScheduleCommand,
@@ -121,8 +116,8 @@ export class UpdateBandwidthRateLimitScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateBandwidthRateLimitScheduleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateBandwidthRateLimitScheduleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

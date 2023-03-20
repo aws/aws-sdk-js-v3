@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  AcceptAdministratorInvitationRequest,
-  AcceptAdministratorInvitationRequestFilterSensitiveLog,
-  AcceptAdministratorInvitationResponse,
-  AcceptAdministratorInvitationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AcceptAdministratorInvitationCommand,
   serializeAws_restJson1AcceptAdministratorInvitationCommand,
@@ -115,8 +110,8 @@ export class AcceptAdministratorInvitationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AcceptAdministratorInvitationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AcceptAdministratorInvitationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

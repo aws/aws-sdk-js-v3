@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartPipelineExecutionRequest,
-  StartPipelineExecutionRequestFilterSensitiveLog,
-  StartPipelineExecutionResponse,
-  StartPipelineExecutionResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { StartPipelineExecutionRequest, StartPipelineExecutionResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1StartPipelineExecutionCommand,
   serializeAws_json1_1StartPipelineExecutionCommand,
@@ -114,8 +109,8 @@ export class StartPipelineExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartPipelineExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartPipelineExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

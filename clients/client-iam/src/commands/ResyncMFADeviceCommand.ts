@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { ResyncMFADeviceRequest, ResyncMFADeviceRequestFilterSensitiveLog } from "../models/models_0";
+import { ResyncMFADeviceRequest } from "../models/models_0";
 import {
   deserializeAws_queryResyncMFADeviceCommand,
   serializeAws_queryResyncMFADeviceCommand,
@@ -121,8 +121,8 @@ export class ResyncMFADeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResyncMFADeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

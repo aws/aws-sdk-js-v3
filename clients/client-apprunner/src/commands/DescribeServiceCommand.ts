@@ -16,7 +16,6 @@ import {
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import {
   DescribeServiceRequest,
-  DescribeServiceRequestFilterSensitiveLog,
   DescribeServiceResponse,
   DescribeServiceResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class DescribeServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

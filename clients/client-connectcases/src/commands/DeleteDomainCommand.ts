@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  DeleteDomainRequest,
-  DeleteDomainRequestFilterSensitiveLog,
-  DeleteDomainResponse,
-  DeleteDomainResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDomainRequest, DeleteDomainResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDomainCommand,
   serializeAws_restJson1DeleteDomainCommand,
@@ -127,8 +122,8 @@ export class DeleteDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

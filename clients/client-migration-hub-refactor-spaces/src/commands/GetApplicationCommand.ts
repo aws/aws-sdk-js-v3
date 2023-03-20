@@ -20,7 +20,6 @@ import {
 } from "../MigrationHubRefactorSpacesClient";
 import {
   GetApplicationRequest,
-  GetApplicationRequestFilterSensitiveLog,
   GetApplicationResponse,
   GetApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -127,7 +126,7 @@ export class GetApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetApplicationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetApplicationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

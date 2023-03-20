@@ -20,7 +20,6 @@ import {
   GetObjectTorrentOutput,
   GetObjectTorrentOutputFilterSensitiveLog,
   GetObjectTorrentRequest,
-  GetObjectTorrentRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlGetObjectTorrentCommand,
@@ -146,7 +145,7 @@ export class GetObjectTorrentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetObjectTorrentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetObjectTorrentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

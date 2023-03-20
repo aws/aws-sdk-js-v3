@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import {
-  GetGatewayInput,
-  GetGatewayInputFilterSensitiveLog,
-  GetGatewayOutput,
-  GetGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetGatewayInput, GetGatewayOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0GetGatewayCommand,
   serializeAws_json1_0GetGatewayCommand,
@@ -119,8 +114,8 @@ export class GetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

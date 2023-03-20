@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeMaintenanceWindowTargetsRequest,
-  DescribeMaintenanceWindowTargetsRequestFilterSensitiveLog,
   DescribeMaintenanceWindowTargetsResult,
   DescribeMaintenanceWindowTargetsResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -118,7 +117,7 @@ export class DescribeMaintenanceWindowTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMaintenanceWindowTargetsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeMaintenanceWindowTargetsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateTemplateAliasRequest,
-  CreateTemplateAliasRequestFilterSensitiveLog,
-  CreateTemplateAliasResponse,
-  CreateTemplateAliasResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { CreateTemplateAliasRequest, CreateTemplateAliasResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1CreateTemplateAliasCommand,
   serializeAws_restJson1CreateTemplateAliasCommand,
@@ -131,8 +126,8 @@ export class CreateTemplateAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTemplateAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTemplateAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

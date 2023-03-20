@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeprecateThingTypeRequest,
-  DeprecateThingTypeRequestFilterSensitiveLog,
-  DeprecateThingTypeResponse,
-  DeprecateThingTypeResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeprecateThingTypeRequest, DeprecateThingTypeResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeprecateThingTypeCommand,
   serializeAws_restJson1DeprecateThingTypeCommand,
@@ -127,8 +122,8 @@ export class DeprecateThingTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateThingTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeprecateThingTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

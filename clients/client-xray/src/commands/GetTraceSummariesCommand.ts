@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetTraceSummariesRequest,
-  GetTraceSummariesRequestFilterSensitiveLog,
-  GetTraceSummariesResult,
-  GetTraceSummariesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTraceSummariesRequest, GetTraceSummariesResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTraceSummariesCommand,
   serializeAws_restJson1GetTraceSummariesCommand,
@@ -129,8 +124,8 @@ export class GetTraceSummariesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTraceSummariesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTraceSummariesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

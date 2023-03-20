@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  DeleteHapgRequest,
-  DeleteHapgRequestFilterSensitiveLog,
-  DeleteHapgResponse,
-  DeleteHapgResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteHapgRequest, DeleteHapgResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteHapgCommand,
   serializeAws_json1_1DeleteHapgCommand,
@@ -124,8 +119,8 @@ export class DeleteHapgCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteHapgRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteHapgResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

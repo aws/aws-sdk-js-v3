@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListNotificationsInput,
-  ListNotificationsInputFilterSensitiveLog,
-  ListNotificationsOutput,
-  ListNotificationsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListNotificationsInput, ListNotificationsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListNotificationsCommand,
   serializeAws_restJson1ListNotificationsCommand,
@@ -119,8 +114,8 @@ export class ListNotificationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNotificationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListNotificationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

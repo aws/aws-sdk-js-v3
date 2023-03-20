@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCommerceAnalyticsClient";
-import {
-  StartSupportDataExportRequest,
-  StartSupportDataExportRequestFilterSensitiveLog,
-  StartSupportDataExportResult,
-  StartSupportDataExportResultFilterSensitiveLog,
-} from "../models/models_0";
+import { StartSupportDataExportRequest, StartSupportDataExportResult } from "../models/models_0";
 import {
   deserializeAws_json1_1StartSupportDataExportCommand,
   serializeAws_json1_1StartSupportDataExportCommand,
@@ -121,8 +116,8 @@ export class StartSupportDataExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartSupportDataExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartSupportDataExportResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -3488,20 +3488,6 @@ export const ActivateUserRequestFilterSensitiveLog = (obj: ActivateUserRequest):
 /**
  * @internal
  */
-export const StorageRuleTypeFilterSensitiveLog = (obj: StorageRuleType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserStorageMetadataFilterSensitiveLog = (obj: UserStorageMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UserFilterSensitiveLog = (obj: User): any => ({
   ...obj,
   ...(obj.Username && { Username: SENSITIVE_STRING }),
@@ -3550,13 +3536,6 @@ export const ResourceMetadataFilterSensitiveLog = (obj: ResourceMetadata): any =
 /**
  * @internal
  */
-export const GroupMetadataFilterSensitiveLog = (obj: GroupMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ParticipantsFilterSensitiveLog = (obj: Participants): any => ({
   ...obj,
   ...(obj.Users && { Users: obj.Users.map((item) => UserMetadataFilterSensitiveLog(item)) }),
@@ -3580,13 +3559,6 @@ export const ActivityFilterSensitiveLog = (obj: Activity): any => ({
 export const NotificationOptionsFilterSensitiveLog = (obj: NotificationOptions): any => ({
   ...obj,
   ...(obj.EmailMessage && { EmailMessage: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SharePrincipalFilterSensitiveLog = (obj: SharePrincipal): any => ({
-  ...obj,
 });
 
 /**
@@ -3653,13 +3625,6 @@ export const CreateCustomMetadataRequestFilterSensitiveLog = (obj: CreateCustomM
 /**
  * @internal
  */
-export const CreateCustomMetadataResponseFilterSensitiveLog = (obj: CreateCustomMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateFolderRequestFilterSensitiveLog = (obj: CreateFolderRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
@@ -3688,38 +3653,6 @@ export const CreateFolderResponseFilterSensitiveLog = (obj: CreateFolderResponse
 export const CreateLabelsRequestFilterSensitiveLog = (obj: CreateLabelsRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateLabelsResponseFilterSensitiveLog = (obj: CreateLabelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNotificationSubscriptionRequestFilterSensitiveLog = (
-  obj: CreateNotificationSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateNotificationSubscriptionResponseFilterSensitiveLog = (
-  obj: CreateNotificationSubscriptionResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3770,13 +3703,6 @@ export const DeleteCustomMetadataRequestFilterSensitiveLog = (obj: DeleteCustomM
 /**
  * @internal
  */
-export const DeleteCustomMetadataResponseFilterSensitiveLog = (obj: DeleteCustomMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteDocumentRequestFilterSensitiveLog = (obj: DeleteDocumentRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
@@ -3812,22 +3738,6 @@ export const DeleteFolderContentsRequestFilterSensitiveLog = (obj: DeleteFolderC
 export const DeleteLabelsRequestFilterSensitiveLog = (obj: DeleteLabelsRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteLabelsResponseFilterSensitiveLog = (obj: DeleteLabelsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNotificationSubscriptionRequestFilterSensitiveLog = (
-  obj: DeleteNotificationSubscriptionRequest
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3937,57 +3847,9 @@ export const DescribeGroupsRequestFilterSensitiveLog = (obj: DescribeGroupsReque
 /**
  * @internal
  */
-export const DescribeGroupsResponseFilterSensitiveLog = (obj: DescribeGroupsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationSubscriptionsRequestFilterSensitiveLog = (
-  obj: DescribeNotificationSubscriptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeNotificationSubscriptionsResponseFilterSensitiveLog = (
-  obj: DescribeNotificationSubscriptionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeResourcePermissionsRequestFilterSensitiveLog = (obj: DescribeResourcePermissionsRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PermissionInfoFilterSensitiveLog = (obj: PermissionInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrincipalFilterSensitiveLog = (obj: Principal): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeResourcePermissionsResponseFilterSensitiveLog = (
-  obj: DescribeResourcePermissionsResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -4206,41 +4068,6 @@ export const RemoveResourcePermissionRequestFilterSensitiveLog = (obj: RemoveRes
 export const RestoreDocumentVersionsRequestFilterSensitiveLog = (obj: RestoreDocumentVersionsRequest): any => ({
   ...obj,
   ...(obj.AuthenticationToken && { AuthenticationToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DateRangeTypeFilterSensitiveLog = (obj: DateRangeType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchPrincipalTypeFilterSensitiveLog = (obj: SearchPrincipalType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LongRangeTypeFilterSensitiveLog = (obj: LongRangeType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FiltersFilterSensitiveLog = (obj: Filters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SearchSortResultFilterSensitiveLog = (obj: SearchSortResult): any => ({
-  ...obj,
 });
 
 /**

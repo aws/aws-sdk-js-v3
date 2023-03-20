@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateResolverDnssecConfigRequest,
-  UpdateResolverDnssecConfigRequestFilterSensitiveLog,
-  UpdateResolverDnssecConfigResponse,
-  UpdateResolverDnssecConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateResolverDnssecConfigRequest, UpdateResolverDnssecConfigResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateResolverDnssecConfigCommand,
   serializeAws_json1_1UpdateResolverDnssecConfigCommand,
@@ -125,8 +120,8 @@ export class UpdateResolverDnssecConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResolverDnssecConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResolverDnssecConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

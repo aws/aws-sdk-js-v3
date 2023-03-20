@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  FinalizeCutoverRequest,
-  FinalizeCutoverRequestFilterSensitiveLog,
-  SourceServer,
-  SourceServerFilterSensitiveLog,
-} from "../models/models_0";
+import { FinalizeCutoverRequest, SourceServer, SourceServerFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1FinalizeCutoverCommand,
   serializeAws_restJson1FinalizeCutoverCommand,
@@ -119,7 +114,7 @@ export class FinalizeCutoverCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FinalizeCutoverRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

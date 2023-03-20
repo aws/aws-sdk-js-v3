@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  ListContainerInstancesRequest,
-  ListContainerInstancesRequestFilterSensitiveLog,
-  ListContainerInstancesResponse,
-  ListContainerInstancesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListContainerInstancesRequest, ListContainerInstancesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListContainerInstancesCommand,
   serializeAws_json1_1ListContainerInstancesCommand,
@@ -143,8 +138,8 @@ export class ListContainerInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListContainerInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListContainerInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

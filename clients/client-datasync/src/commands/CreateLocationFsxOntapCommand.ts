@@ -18,7 +18,6 @@ import {
   CreateLocationFsxOntapRequest,
   CreateLocationFsxOntapRequestFilterSensitiveLog,
   CreateLocationFsxOntapResponse,
-  CreateLocationFsxOntapResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationFsxOntapCommand,
@@ -115,7 +114,7 @@ export class CreateLocationFsxOntapCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLocationFsxOntapRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationFsxOntapResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

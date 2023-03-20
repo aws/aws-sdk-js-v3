@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  UpdatePublishingDestinationRequest,
-  UpdatePublishingDestinationRequestFilterSensitiveLog,
-  UpdatePublishingDestinationResponse,
-  UpdatePublishingDestinationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePublishingDestinationRequest, UpdatePublishingDestinationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePublishingDestinationCommand,
   serializeAws_restJson1UpdatePublishingDestinationCommand,
@@ -116,8 +111,8 @@ export class UpdatePublishingDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePublishingDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePublishingDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

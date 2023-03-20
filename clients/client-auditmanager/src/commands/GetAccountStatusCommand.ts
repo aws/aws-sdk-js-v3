@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import {
-  GetAccountStatusRequest,
-  GetAccountStatusRequestFilterSensitiveLog,
-  GetAccountStatusResponse,
-  GetAccountStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountStatusRequest, GetAccountStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAccountStatusCommand,
   serializeAws_restJson1GetAccountStatusCommand,
@@ -111,8 +106,8 @@ export class GetAccountStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

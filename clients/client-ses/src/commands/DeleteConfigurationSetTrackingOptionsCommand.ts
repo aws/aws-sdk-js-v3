@@ -15,9 +15,7 @@ import {
 
 import {
   DeleteConfigurationSetTrackingOptionsRequest,
-  DeleteConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
   DeleteConfigurationSetTrackingOptionsResponse,
-  DeleteConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_queryDeleteConfigurationSetTrackingOptionsCommand,
@@ -125,8 +123,8 @@ export class DeleteConfigurationSetTrackingOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConfigurationSetTrackingOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConfigurationSetTrackingOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateUseCaseRequest,
-  CreateUseCaseRequestFilterSensitiveLog,
-  CreateUseCaseResponse,
-  CreateUseCaseResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateUseCaseRequest, CreateUseCaseResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateUseCaseCommand,
   serializeAws_restJson1CreateUseCaseCommand,
@@ -120,8 +115,8 @@ export class CreateUseCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateUseCaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateUseCaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

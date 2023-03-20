@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { EnableStageTransitionInput, EnableStageTransitionInputFilterSensitiveLog } from "../models/models_0";
+import { EnableStageTransitionInput } from "../models/models_0";
 import {
   deserializeAws_json1_1EnableStageTransitionCommand,
   serializeAws_json1_1EnableStageTransitionCommand,
@@ -111,8 +111,8 @@ export class EnableStageTransitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableStageTransitionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

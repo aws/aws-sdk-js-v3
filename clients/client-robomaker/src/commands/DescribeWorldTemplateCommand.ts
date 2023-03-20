@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeWorldTemplateRequest,
-  DescribeWorldTemplateRequestFilterSensitiveLog,
-  DescribeWorldTemplateResponse,
-  DescribeWorldTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeWorldTemplateRequest, DescribeWorldTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeWorldTemplateCommand,
   serializeAws_restJson1DescribeWorldTemplateCommand,
@@ -120,8 +115,8 @@ export class DescribeWorldTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeWorldTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeWorldTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  GetModelTemplateRequest,
-  GetModelTemplateRequestFilterSensitiveLog,
-  Template,
-  TemplateFilterSensitiveLog,
-} from "../models/models_0";
+import { GetModelTemplateRequest, Template } from "../models/models_0";
 import {
   deserializeAws_restJson1GetModelTemplateCommand,
   serializeAws_restJson1GetModelTemplateCommand,
@@ -119,8 +114,8 @@ export class GetModelTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetModelTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TemplateFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

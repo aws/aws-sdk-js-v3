@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameSparksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameSparksClient";
-import {
-  CreateGameRequest,
-  CreateGameRequestFilterSensitiveLog,
-  CreateGameResult,
-  CreateGameResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateGameRequest, CreateGameResult } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateGameCommand,
   serializeAws_restJson1CreateGameCommand,
@@ -126,8 +121,8 @@ export class CreateGameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGameResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

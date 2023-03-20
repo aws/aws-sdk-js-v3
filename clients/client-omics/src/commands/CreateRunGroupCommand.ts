@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateRunGroupRequest,
-  CreateRunGroupRequestFilterSensitiveLog,
-  CreateRunGroupResponse,
-  CreateRunGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateRunGroupRequest, CreateRunGroupResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1CreateRunGroupCommand,
@@ -131,8 +126,8 @@ export class CreateRunGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRunGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRunGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

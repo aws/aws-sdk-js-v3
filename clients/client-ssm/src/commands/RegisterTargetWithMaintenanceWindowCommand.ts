@@ -17,7 +17,6 @@ import {
   RegisterTargetWithMaintenanceWindowRequest,
   RegisterTargetWithMaintenanceWindowRequestFilterSensitiveLog,
   RegisterTargetWithMaintenanceWindowResult,
-  RegisterTargetWithMaintenanceWindowResultFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand,
@@ -129,7 +128,7 @@ export class RegisterTargetWithMaintenanceWindowCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RegisterTargetWithMaintenanceWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterTargetWithMaintenanceWindowResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

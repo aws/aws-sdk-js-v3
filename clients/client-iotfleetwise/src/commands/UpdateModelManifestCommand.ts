@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  UpdateModelManifestRequest,
-  UpdateModelManifestRequestFilterSensitiveLog,
-  UpdateModelManifestResponse,
-  UpdateModelManifestResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateModelManifestRequest, UpdateModelManifestResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateModelManifestCommand,
   serializeAws_json1_0UpdateModelManifestCommand,
@@ -130,8 +125,8 @@ export class UpdateModelManifestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateModelManifestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateModelManifestResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

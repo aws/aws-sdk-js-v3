@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeSpotPriceHistoryRequest,
-  DescribeSpotPriceHistoryRequestFilterSensitiveLog,
-  DescribeSpotPriceHistoryResult,
-  DescribeSpotPriceHistoryResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeSpotPriceHistoryRequest, DescribeSpotPriceHistoryResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeSpotPriceHistoryCommand,
   serializeAws_ec2DescribeSpotPriceHistoryCommand,
@@ -149,8 +144,8 @@ export class DescribeSpotPriceHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSpotPriceHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSpotPriceHistoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

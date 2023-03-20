@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreSecretRequest,
-  RestoreSecretRequestFilterSensitiveLog,
-  RestoreSecretResponse,
-  RestoreSecretResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RestoreSecretRequest, RestoreSecretResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RestoreSecretCommand,
   serializeAws_json1_1RestoreSecretCommand,
@@ -157,8 +152,8 @@ export class RestoreSecretCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreSecretRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreSecretResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

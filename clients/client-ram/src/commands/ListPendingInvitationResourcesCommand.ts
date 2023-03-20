@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListPendingInvitationResourcesRequest,
-  ListPendingInvitationResourcesRequestFilterSensitiveLog,
-  ListPendingInvitationResourcesResponse,
-  ListPendingInvitationResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPendingInvitationResourcesCommand,
   serializeAws_restJson1ListPendingInvitationResourcesCommand,
@@ -138,8 +133,8 @@ export class ListPendingInvitationResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPendingInvitationResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPendingInvitationResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

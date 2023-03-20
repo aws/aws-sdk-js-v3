@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ExecuteCoreNetworkChangeSetRequest,
-  ExecuteCoreNetworkChangeSetRequestFilterSensitiveLog,
-  ExecuteCoreNetworkChangeSetResponse,
-  ExecuteCoreNetworkChangeSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ExecuteCoreNetworkChangeSetRequest, ExecuteCoreNetworkChangeSetResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1ExecuteCoreNetworkChangeSetCommand,
@@ -128,8 +123,8 @@ export class ExecuteCoreNetworkChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteCoreNetworkChangeSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteCoreNetworkChangeSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

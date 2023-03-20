@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  CreateCertificateRequest,
-  CreateCertificateRequestFilterSensitiveLog,
-  CreateCertificateResult,
-  CreateCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCertificateRequest, CreateCertificateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateCertificateCommand,
   serializeAws_json1_1CreateCertificateCommand,
@@ -142,8 +137,8 @@ export class CreateCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

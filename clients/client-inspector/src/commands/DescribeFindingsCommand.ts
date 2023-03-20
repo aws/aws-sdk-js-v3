@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  DescribeFindingsRequest,
-  DescribeFindingsRequestFilterSensitiveLog,
-  DescribeFindingsResponse,
-  DescribeFindingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFindingsRequest, DescribeFindingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFindingsCommand,
   serializeAws_json1_1DescribeFindingsCommand,
@@ -160,8 +155,8 @@ export class DescribeFindingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFindingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFindingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

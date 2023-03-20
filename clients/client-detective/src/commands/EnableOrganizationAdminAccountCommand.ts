@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import {
-  EnableOrganizationAdminAccountRequest,
-  EnableOrganizationAdminAccountRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { EnableOrganizationAdminAccountRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1EnableOrganizationAdminAccountCommand,
   serializeAws_restJson1EnableOrganizationAdminAccountCommand,
@@ -130,8 +127,8 @@ export class EnableOrganizationAdminAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableOrganizationAdminAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

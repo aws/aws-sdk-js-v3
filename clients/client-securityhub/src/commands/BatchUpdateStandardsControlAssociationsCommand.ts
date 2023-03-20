@@ -15,9 +15,7 @@ import {
 
 import {
   BatchUpdateStandardsControlAssociationsRequest,
-  BatchUpdateStandardsControlAssociationsRequestFilterSensitiveLog,
   BatchUpdateStandardsControlAssociationsResponse,
-  BatchUpdateStandardsControlAssociationsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand,
@@ -132,8 +130,8 @@ export class BatchUpdateStandardsControlAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchUpdateStandardsControlAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchUpdateStandardsControlAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

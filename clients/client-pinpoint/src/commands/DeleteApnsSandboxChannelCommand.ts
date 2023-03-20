@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteApnsSandboxChannelRequest,
-  DeleteApnsSandboxChannelRequestFilterSensitiveLog,
-  DeleteApnsSandboxChannelResponse,
-  DeleteApnsSandboxChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteApnsSandboxChannelRequest, DeleteApnsSandboxChannelResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1DeleteApnsSandboxChannelCommand,
@@ -128,8 +123,8 @@ export class DeleteApnsSandboxChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApnsSandboxChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApnsSandboxChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

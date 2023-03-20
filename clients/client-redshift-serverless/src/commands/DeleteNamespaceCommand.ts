@@ -15,7 +15,6 @@ import {
 
 import {
   DeleteNamespaceRequest,
-  DeleteNamespaceRequestFilterSensitiveLog,
   DeleteNamespaceResponse,
   DeleteNamespaceResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -124,7 +123,7 @@ export class DeleteNamespaceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNamespaceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

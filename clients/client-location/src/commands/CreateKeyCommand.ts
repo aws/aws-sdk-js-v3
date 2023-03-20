@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  CreateKeyRequest,
-  CreateKeyRequestFilterSensitiveLog,
-  CreateKeyResponse,
-  CreateKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateKeyRequest, CreateKeyResponse, CreateKeyResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateKeyCommand,
   serializeAws_restJson1CreateKeyCommand,
@@ -132,7 +127,7 @@ export class CreateKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

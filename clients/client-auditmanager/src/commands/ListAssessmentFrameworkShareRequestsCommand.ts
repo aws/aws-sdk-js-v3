@@ -16,9 +16,7 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   ListAssessmentFrameworkShareRequestsRequest,
-  ListAssessmentFrameworkShareRequestsRequestFilterSensitiveLog,
   ListAssessmentFrameworkShareRequestsResponse,
-  ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand,
@@ -120,8 +118,8 @@ export class ListAssessmentFrameworkShareRequestsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssessmentFrameworkShareRequestsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

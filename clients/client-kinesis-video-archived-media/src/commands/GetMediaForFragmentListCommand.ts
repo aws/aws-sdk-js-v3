@@ -23,7 +23,6 @@ import {
 } from "../KinesisVideoArchivedMediaClient";
 import {
   GetMediaForFragmentListInput,
-  GetMediaForFragmentListInputFilterSensitiveLog,
   GetMediaForFragmentListOutput,
   GetMediaForFragmentListOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -175,7 +174,7 @@ export class GetMediaForFragmentListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMediaForFragmentListInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMediaForFragmentListOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

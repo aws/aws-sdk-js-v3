@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  OpenInstancePublicPortsRequest,
-  OpenInstancePublicPortsRequestFilterSensitiveLog,
-  OpenInstancePublicPortsResult,
-  OpenInstancePublicPortsResultFilterSensitiveLog,
-} from "../models/models_1";
+import { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/models_1";
 import {
   deserializeAws_json1_1OpenInstancePublicPortsCommand,
   serializeAws_json1_1OpenInstancePublicPortsCommand,
@@ -141,8 +136,8 @@ export class OpenInstancePublicPortsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: OpenInstancePublicPortsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: OpenInstancePublicPortsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

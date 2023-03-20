@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import {
-  UpdatePackagingGroupRequest,
-  UpdatePackagingGroupRequestFilterSensitiveLog,
-  UpdatePackagingGroupResponse,
-  UpdatePackagingGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePackagingGroupRequest, UpdatePackagingGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePackagingGroupCommand,
   serializeAws_restJson1UpdatePackagingGroupCommand,
@@ -125,8 +120,8 @@ export class UpdatePackagingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePackagingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePackagingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

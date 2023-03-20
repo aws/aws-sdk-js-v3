@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  CreateProjectRequest,
-  CreateProjectRequestFilterSensitiveLog,
-  CreateProjectResponse,
-  CreateProjectResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateProjectRequest, CreateProjectResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProjectCommand,
   serializeAws_restJson1CreateProjectCommand,
@@ -119,8 +114,8 @@ export class CreateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

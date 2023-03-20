@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetVariantStoreRequest,
-  GetVariantStoreRequestFilterSensitiveLog,
-  GetVariantStoreResponse,
-  GetVariantStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetVariantStoreRequest, GetVariantStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1GetVariantStoreCommand,
@@ -122,8 +117,8 @@ export class GetVariantStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVariantStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVariantStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

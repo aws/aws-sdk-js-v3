@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  BatchGetDeploymentsInput,
-  BatchGetDeploymentsInputFilterSensitiveLog,
-  BatchGetDeploymentsOutput,
-  BatchGetDeploymentsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetDeploymentsInput, BatchGetDeploymentsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetDeploymentsCommand,
   serializeAws_json1_1BatchGetDeploymentsCommand,
@@ -117,8 +112,8 @@ export class BatchGetDeploymentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetDeploymentsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetDeploymentsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

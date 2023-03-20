@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeIndexRequest,
-  DescribeIndexRequestFilterSensitiveLog,
-  DescribeIndexResponse,
-  DescribeIndexResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeIndexRequest, DescribeIndexResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeIndexCommand,
   serializeAws_restJson1DescribeIndexCommand,
@@ -124,8 +119,8 @@ export class DescribeIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIndexResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

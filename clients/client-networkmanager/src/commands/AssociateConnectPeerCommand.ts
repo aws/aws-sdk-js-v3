@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateConnectPeerRequest,
-  AssociateConnectPeerRequestFilterSensitiveLog,
-  AssociateConnectPeerResponse,
-  AssociateConnectPeerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateConnectPeerRequest, AssociateConnectPeerResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1AssociateConnectPeerCommand,
@@ -132,8 +127,8 @@ export class AssociateConnectPeerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateConnectPeerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateConnectPeerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

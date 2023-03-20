@@ -16,7 +16,6 @@ import {
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
 import {
   DescribeGroupRequest,
-  DescribeGroupRequestFilterSensitiveLog,
   DescribeGroupResponse,
   DescribeGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -121,7 +120,7 @@ export class DescribeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeGroupRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeGroupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

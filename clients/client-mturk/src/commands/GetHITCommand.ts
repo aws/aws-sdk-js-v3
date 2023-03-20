@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetHITRequest,
-  GetHITRequestFilterSensitiveLog,
-  GetHITResponse,
-  GetHITResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetHITRequest, GetHITResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { deserializeAws_json1_1GetHITCommand, serializeAws_json1_1GetHITCommand } from "../protocols/Aws_json1_1";
 
@@ -106,8 +101,8 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHITRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHITResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

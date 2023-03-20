@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendTextMessageRequest,
-  SendTextMessageRequestFilterSensitiveLog,
-  SendTextMessageResult,
-  SendTextMessageResultFilterSensitiveLog,
-} from "../models/models_0";
+import { SendTextMessageRequest, SendTextMessageResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -143,8 +138,8 @@ export class SendTextMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendTextMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendTextMessageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

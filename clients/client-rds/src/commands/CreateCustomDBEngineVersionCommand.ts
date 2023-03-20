@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCustomDBEngineVersionMessage,
-  CreateCustomDBEngineVersionMessageFilterSensitiveLog,
-  DBEngineVersion,
-  DBEngineVersionFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCustomDBEngineVersionMessage, DBEngineVersion } from "../models/models_0";
 import {
   deserializeAws_queryCreateCustomDBEngineVersionCommand,
   serializeAws_queryCreateCustomDBEngineVersionCommand,
@@ -119,8 +114,8 @@ export class CreateCustomDBEngineVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomDBEngineVersionMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBEngineVersionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

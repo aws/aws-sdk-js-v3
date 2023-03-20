@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetCardinalityRequest,
-  GetCardinalityRequestFilterSensitiveLog,
-  GetCardinalityResponse,
-  GetCardinalityResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetCardinalityRequest, GetCardinalityResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetCardinalityCommand,
   serializeAws_restJson1GetCardinalityCommand,
@@ -135,8 +130,8 @@ export class GetCardinalityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCardinalityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCardinalityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import { PauseCampaignRequest, PauseCampaignRequestFilterSensitiveLog } from "../models/models_0";
+import { PauseCampaignRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1PauseCampaignCommand,
   serializeAws_restJson1PauseCampaignCommand,
@@ -121,8 +121,8 @@ export class PauseCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PauseCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

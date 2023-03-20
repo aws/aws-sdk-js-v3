@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutTraceSegmentsRequest,
-  PutTraceSegmentsRequestFilterSensitiveLog,
-  PutTraceSegmentsResult,
-  PutTraceSegmentsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PutTraceSegmentsRequest, PutTraceSegmentsResult } from "../models/models_0";
 import {
   deserializeAws_restJson1PutTraceSegmentsCommand,
   serializeAws_restJson1PutTraceSegmentsCommand,
@@ -175,8 +170,8 @@ export class PutTraceSegmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutTraceSegmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutTraceSegmentsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

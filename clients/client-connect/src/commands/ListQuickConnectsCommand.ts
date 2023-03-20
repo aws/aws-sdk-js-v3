@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListQuickConnectsRequest,
-  ListQuickConnectsRequestFilterSensitiveLog,
-  ListQuickConnectsResponse,
-  ListQuickConnectsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListQuickConnectsRequest, ListQuickConnectsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListQuickConnectsCommand,
   serializeAws_restJson1ListQuickConnectsCommand,
@@ -123,8 +118,8 @@ export class ListQuickConnectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQuickConnectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQuickConnectsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

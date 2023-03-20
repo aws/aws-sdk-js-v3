@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteSlackChannelConfigurationRequest,
-  DeleteSlackChannelConfigurationRequestFilterSensitiveLog,
-  DeleteSlackChannelConfigurationResult,
-  DeleteSlackChannelConfigurationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteSlackChannelConfigurationRequest, DeleteSlackChannelConfigurationResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSlackChannelConfigurationCommand,
   serializeAws_restJson1DeleteSlackChannelConfigurationCommand,
@@ -152,8 +147,8 @@ export class DeleteSlackChannelConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSlackChannelConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSlackChannelConfigurationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

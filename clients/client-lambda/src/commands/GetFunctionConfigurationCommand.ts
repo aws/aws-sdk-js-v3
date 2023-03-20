@@ -18,7 +18,6 @@ import {
   FunctionConfiguration,
   FunctionConfigurationFilterSensitiveLog,
   GetFunctionConfigurationRequest,
-  GetFunctionConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1GetFunctionConfigurationCommand,
@@ -121,7 +120,7 @@ export class GetFunctionConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetFunctionConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: FunctionConfigurationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

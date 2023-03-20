@@ -15,12 +15,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  PredictInput,
-  PredictInputFilterSensitiveLog,
-  PredictOutput,
-  PredictOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PredictInput, PredictOutput } from "../models/models_0";
 import { deserializeAws_json1_1PredictCommand, serializeAws_json1_1PredictCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -122,8 +117,8 @@ export class PredictCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PredictInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PredictOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

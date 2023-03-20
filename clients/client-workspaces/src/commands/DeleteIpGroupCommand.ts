@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIpGroupRequest,
-  DeleteIpGroupRequestFilterSensitiveLog,
-  DeleteIpGroupResult,
-  DeleteIpGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteIpGroupRequest, DeleteIpGroupResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteIpGroupCommand,
   serializeAws_json1_1DeleteIpGroupCommand,
@@ -118,8 +113,8 @@ export class DeleteIpGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIpGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIpGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

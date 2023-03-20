@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EvidentlyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvidentlyClient";
-import {
-  ListLaunchesRequest,
-  ListLaunchesRequestFilterSensitiveLog,
-  ListLaunchesResponse,
-  ListLaunchesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListLaunchesRequest, ListLaunchesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListLaunchesCommand,
   serializeAws_restJson1ListLaunchesCommand,
@@ -114,8 +109,8 @@ export class ListLaunchesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListLaunchesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListLaunchesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

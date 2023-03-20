@@ -16,9 +16,7 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   BatchDeleteDelegationByAssessmentRequest,
-  BatchDeleteDelegationByAssessmentRequestFilterSensitiveLog,
   BatchDeleteDelegationByAssessmentResponse,
-  BatchDeleteDelegationByAssessmentResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchDeleteDelegationByAssessmentCommand,
@@ -123,8 +121,8 @@ export class BatchDeleteDelegationByAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteDelegationByAssessmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteDelegationByAssessmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { CreateBranchInput, CreateBranchInputFilterSensitiveLog } from "../models/models_0";
+import { CreateBranchInput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateBranchCommand,
   serializeAws_json1_1CreateBranchCommand,
@@ -152,8 +152,8 @@ export class CreateBranchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateBranchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

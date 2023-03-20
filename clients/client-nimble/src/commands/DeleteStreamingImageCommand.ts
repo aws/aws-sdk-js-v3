@@ -15,7 +15,6 @@ import {
 
 import {
   DeleteStreamingImageRequest,
-  DeleteStreamingImageRequestFilterSensitiveLog,
   DeleteStreamingImageResponse,
   DeleteStreamingImageResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -131,7 +130,7 @@ export class DeleteStreamingImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStreamingImageRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteStreamingImageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

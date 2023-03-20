@@ -19,12 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  UpdateGroupRequest,
-  UpdateGroupRequestFilterSensitiveLog,
-  UpdateGroupResponse,
-  UpdateGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateGroupCommand,
   serializeAws_json1_1UpdateGroupCommand,
@@ -130,8 +125,8 @@ export class UpdateGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

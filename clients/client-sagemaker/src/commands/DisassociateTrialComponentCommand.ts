@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateTrialComponentRequest,
-  DisassociateTrialComponentRequestFilterSensitiveLog,
-  DisassociateTrialComponentResponse,
-  DisassociateTrialComponentResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DisassociateTrialComponentRequest, DisassociateTrialComponentResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1DisassociateTrialComponentCommand,
   serializeAws_json1_1DisassociateTrialComponentCommand,
@@ -115,8 +110,8 @@ export class DisassociateTrialComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateTrialComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateTrialComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetCampaignRequest,
-  GetCampaignRequestFilterSensitiveLog,
-  GetCampaignResponse,
-  GetCampaignResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCampaignRequest, GetCampaignResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0GetCampaignCommand,
   serializeAws_json1_0GetCampaignCommand,
@@ -120,8 +115,8 @@ export class GetCampaignCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCampaignRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCampaignResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

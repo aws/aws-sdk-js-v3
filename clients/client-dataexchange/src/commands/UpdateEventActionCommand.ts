@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  UpdateEventActionRequest,
-  UpdateEventActionRequestFilterSensitiveLog,
-  UpdateEventActionResponse,
-  UpdateEventActionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateEventActionRequest, UpdateEventActionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateEventActionCommand,
   serializeAws_restJson1UpdateEventActionCommand,
@@ -122,8 +117,8 @@ export class UpdateEventActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import {
   DescribeEdgeConfigurationInput,
-  DescribeEdgeConfigurationInputFilterSensitiveLog,
   DescribeEdgeConfigurationOutput,
   DescribeEdgeConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class DescribeEdgeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEdgeConfigurationInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeEdgeConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

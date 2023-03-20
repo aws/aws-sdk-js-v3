@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  UpdateKeyGroupRequest,
-  UpdateKeyGroupRequestFilterSensitiveLog,
-  UpdateKeyGroupResult,
-  UpdateKeyGroupResultFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateKeyGroupRequest, UpdateKeyGroupResult } from "../models/models_1";
 import {
   deserializeAws_restXmlUpdateKeyGroupCommand,
   serializeAws_restXmlUpdateKeyGroupCommand,
@@ -146,8 +141,8 @@ export class UpdateKeyGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateKeyGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateKeyGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

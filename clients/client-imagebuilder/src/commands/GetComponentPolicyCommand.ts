@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  GetComponentPolicyRequest,
-  GetComponentPolicyRequestFilterSensitiveLog,
-  GetComponentPolicyResponse,
-  GetComponentPolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetComponentPolicyRequest, GetComponentPolicyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetComponentPolicyCommand,
   serializeAws_restJson1GetComponentPolicyCommand,
@@ -125,8 +120,8 @@ export class GetComponentPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComponentPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComponentPolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

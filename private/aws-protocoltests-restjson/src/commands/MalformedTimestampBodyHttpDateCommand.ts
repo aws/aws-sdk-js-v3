@@ -12,10 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  MalformedTimestampBodyHttpDateInput,
-  MalformedTimestampBodyHttpDateInputFilterSensitiveLog,
-} from "../models/models_0";
+import { MalformedTimestampBodyHttpDateInput } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedTimestampBodyHttpDateCommand,
   serializeAws_restJson1MalformedTimestampBodyHttpDateCommand,
@@ -23,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedTimestampBodyHttpDateCommand}.
  */
 export interface MalformedTimestampBodyHttpDateCommandInput extends MalformedTimestampBodyHttpDateInput {}
 /**
+ * @public
+ *
  * The output of {@link MalformedTimestampBodyHttpDateCommand}.
  */
 export interface MalformedTimestampBodyHttpDateCommandOutput extends __MetadataBearer {}
@@ -39,6 +40,9 @@ export class MalformedTimestampBodyHttpDateCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedTimestampBodyHttpDateCommandInput) {
     // Start section: command_constructor
     super();
@@ -64,8 +68,8 @@ export class MalformedTimestampBodyHttpDateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MalformedTimestampBodyHttpDateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -75,6 +79,9 @@ export class MalformedTimestampBodyHttpDateCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: MalformedTimestampBodyHttpDateCommandInput,
     context: __SerdeContext
@@ -82,6 +89,9 @@ export class MalformedTimestampBodyHttpDateCommand extends $Command<
     return serializeAws_restJson1MalformedTimestampBodyHttpDateCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

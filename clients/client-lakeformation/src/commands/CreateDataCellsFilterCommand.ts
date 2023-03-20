@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  CreateDataCellsFilterRequest,
-  CreateDataCellsFilterRequestFilterSensitiveLog,
-  CreateDataCellsFilterResponse,
-  CreateDataCellsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDataCellsFilterRequest, CreateDataCellsFilterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDataCellsFilterCommand,
   serializeAws_restJson1CreateDataCellsFilterCommand,
@@ -128,8 +123,8 @@ export class CreateDataCellsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataCellsFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataCellsFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

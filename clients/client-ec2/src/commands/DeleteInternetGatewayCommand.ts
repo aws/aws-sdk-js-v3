@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteInternetGatewayRequest, DeleteInternetGatewayRequestFilterSensitiveLog } from "../models/models_2";
+import { DeleteInternetGatewayRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteInternetGatewayCommand,
   serializeAws_ec2DeleteInternetGatewayCommand,
@@ -114,8 +114,8 @@ export class DeleteInternetGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInternetGatewayRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

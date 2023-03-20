@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DisassociateApplicationFleetRequest,
-  DisassociateApplicationFleetRequestFilterSensitiveLog,
-  DisassociateApplicationFleetResult,
-  DisassociateApplicationFleetResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateApplicationFleetRequest, DisassociateApplicationFleetResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateApplicationFleetCommand,
   serializeAws_json1_1DisassociateApplicationFleetCommand,
@@ -118,8 +113,8 @@ export class DisassociateApplicationFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateApplicationFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateApplicationFleetResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

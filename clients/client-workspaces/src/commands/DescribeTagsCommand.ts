@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTagsRequest,
-  DescribeTagsRequestFilterSensitiveLog,
-  DescribeTagsResult,
-  DescribeTagsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTagsRequest, DescribeTagsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTagsCommand,
   serializeAws_json1_1DescribeTagsCommand,
@@ -108,8 +103,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTagsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

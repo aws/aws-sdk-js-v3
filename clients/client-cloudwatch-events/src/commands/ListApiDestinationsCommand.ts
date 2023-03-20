@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import {
-  ListApiDestinationsRequest,
-  ListApiDestinationsRequestFilterSensitiveLog,
-  ListApiDestinationsResponse,
-  ListApiDestinationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListApiDestinationsRequest, ListApiDestinationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListApiDestinationsCommand,
   serializeAws_json1_1ListApiDestinationsCommand,
@@ -110,8 +105,8 @@ export class ListApiDestinationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApiDestinationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApiDestinationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

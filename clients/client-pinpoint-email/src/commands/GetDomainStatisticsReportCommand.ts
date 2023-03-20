@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetDomainStatisticsReportRequest,
-  GetDomainStatisticsReportRequestFilterSensitiveLog,
-  GetDomainStatisticsReportResponse,
-  GetDomainStatisticsReportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1GetDomainStatisticsReportCommand,
@@ -117,8 +112,8 @@ export class GetDomainStatisticsReportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDomainStatisticsReportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDomainStatisticsReportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

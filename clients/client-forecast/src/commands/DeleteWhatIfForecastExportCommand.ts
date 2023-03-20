@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DeleteWhatIfForecastExportRequest,
-  DeleteWhatIfForecastExportRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWhatIfForecastExportRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteWhatIfForecastExportCommand,
   serializeAws_json1_1DeleteWhatIfForecastExportCommand,
@@ -117,8 +114,8 @@ export class DeleteWhatIfForecastExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWhatIfForecastExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

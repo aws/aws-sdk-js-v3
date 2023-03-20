@@ -16,7 +16,6 @@ import {
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import {
   DescribeIndexRequest,
-  DescribeIndexRequestFilterSensitiveLog,
   DescribeIndexResponse,
   DescribeIndexResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -125,7 +124,7 @@ export class DescribeIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIndexRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeIndexResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

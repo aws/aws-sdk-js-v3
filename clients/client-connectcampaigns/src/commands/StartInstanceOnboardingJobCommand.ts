@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  StartInstanceOnboardingJobRequest,
-  StartInstanceOnboardingJobRequestFilterSensitiveLog,
-  StartInstanceOnboardingJobResponse,
-  StartInstanceOnboardingJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartInstanceOnboardingJobRequest, StartInstanceOnboardingJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartInstanceOnboardingJobCommand,
   serializeAws_restJson1StartInstanceOnboardingJobCommand,
@@ -125,8 +120,8 @@ export class StartInstanceOnboardingJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartInstanceOnboardingJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartInstanceOnboardingJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

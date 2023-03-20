@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  FailoverShardRequest,
-  FailoverShardRequestFilterSensitiveLog,
-  FailoverShardResponse,
-  FailoverShardResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { FailoverShardRequest, FailoverShardResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1FailoverShardCommand,
   serializeAws_json1_1FailoverShardCommand,
@@ -130,8 +125,8 @@ export class FailoverShardCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: FailoverShardRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: FailoverShardResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

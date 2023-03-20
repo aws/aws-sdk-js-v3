@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateVpcEndpointRequest,
-  UpdateVpcEndpointRequestFilterSensitiveLog,
-  UpdateVpcEndpointResponse,
-  UpdateVpcEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateVpcEndpointRequest, UpdateVpcEndpointResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1UpdateVpcEndpointCommand,
@@ -125,8 +120,8 @@ export class UpdateVpcEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateVpcEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateVpcEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

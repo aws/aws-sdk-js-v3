@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  CancelKeyDeletionRequest,
-  CancelKeyDeletionRequestFilterSensitiveLog,
-  CancelKeyDeletionResponse,
-  CancelKeyDeletionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelKeyDeletionRequest, CancelKeyDeletionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelKeyDeletionCommand,
   serializeAws_json1_1CancelKeyDeletionCommand,
@@ -169,8 +164,8 @@ export class CancelKeyDeletionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelKeyDeletionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelKeyDeletionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

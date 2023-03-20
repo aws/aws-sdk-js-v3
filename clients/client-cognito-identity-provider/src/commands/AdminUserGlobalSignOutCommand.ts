@@ -23,7 +23,6 @@ import {
   AdminUserGlobalSignOutRequest,
   AdminUserGlobalSignOutRequestFilterSensitiveLog,
   AdminUserGlobalSignOutResponse,
-  AdminUserGlobalSignOutResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminUserGlobalSignOutCommand,
@@ -141,7 +140,7 @@ export class AdminUserGlobalSignOutCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminUserGlobalSignOutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminUserGlobalSignOutResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

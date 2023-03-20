@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  CreateListenerInput,
-  CreateListenerInputFilterSensitiveLog,
-  CreateListenerOutput,
-  CreateListenerOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateListenerInput, CreateListenerOutput } from "../models/models_0";
 import {
   deserializeAws_queryCreateListenerCommand,
   serializeAws_queryCreateListenerCommand,
@@ -278,8 +273,8 @@ export class CreateListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateListenerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateListenerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UntagRoleRequest, UntagRoleRequestFilterSensitiveLog } from "../models/models_1";
+import { UntagRoleRequest } from "../models/models_1";
 import { deserializeAws_queryUntagRoleCommand, serializeAws_queryUntagRoleCommand } from "../protocols/Aws_query";
 
 /**
@@ -120,8 +120,8 @@ export class UntagRoleCommand extends $Command<UntagRoleCommandInput, UntagRoleC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteSecurityConfigurationRequest,
-  DeleteSecurityConfigurationRequestFilterSensitiveLog,
-  DeleteSecurityConfigurationResponse,
-  DeleteSecurityConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteSecurityConfigurationRequest, DeleteSecurityConfigurationResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteSecurityConfigurationCommand,
   serializeAws_json1_1DeleteSecurityConfigurationCommand,
@@ -121,8 +116,8 @@ export class DeleteSecurityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSecurityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSecurityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

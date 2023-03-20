@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  GetTestRequest,
-  GetTestRequestFilterSensitiveLog,
-  GetTestResult,
-  GetTestResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTestRequest, GetTestResult } from "../models/models_0";
 import { deserializeAws_json1_1GetTestCommand, serializeAws_json1_1GetTestCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -130,8 +125,8 @@ export class GetTestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTestRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTestResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

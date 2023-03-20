@@ -15,9 +15,7 @@ import {
 
 import {
   DisassociateResolverEndpointIpAddressRequest,
-  DisassociateResolverEndpointIpAddressRequestFilterSensitiveLog,
   DisassociateResolverEndpointIpAddressResponse,
-  DisassociateResolverEndpointIpAddressResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand,
@@ -132,8 +130,8 @@ export class DisassociateResolverEndpointIpAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResolverEndpointIpAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResolverEndpointIpAddressResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

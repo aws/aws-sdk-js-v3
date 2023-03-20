@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListCachePoliciesRequest,
-  ListCachePoliciesRequestFilterSensitiveLog,
-  ListCachePoliciesResult,
-  ListCachePoliciesResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ListCachePoliciesRequest, ListCachePoliciesResult } from "../models/models_1";
 import {
   deserializeAws_restXmlListCachePoliciesCommand,
   serializeAws_restXmlListCachePoliciesCommand,
@@ -123,8 +118,8 @@ export class ListCachePoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCachePoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCachePoliciesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

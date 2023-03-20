@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  DeleteDataCellsFilterRequest,
-  DeleteDataCellsFilterRequestFilterSensitiveLog,
-  DeleteDataCellsFilterResponse,
-  DeleteDataCellsFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDataCellsFilterRequest, DeleteDataCellsFilterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteDataCellsFilterCommand,
   serializeAws_restJson1DeleteDataCellsFilterCommand,
@@ -122,8 +117,8 @@ export class DeleteDataCellsFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataCellsFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDataCellsFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

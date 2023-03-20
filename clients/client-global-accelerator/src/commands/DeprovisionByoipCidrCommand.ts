@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  DeprovisionByoipCidrRequest,
-  DeprovisionByoipCidrRequestFilterSensitiveLog,
-  DeprovisionByoipCidrResponse,
-  DeprovisionByoipCidrResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeprovisionByoipCidrRequest, DeprovisionByoipCidrResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeprovisionByoipCidrCommand,
   serializeAws_json1_1DeprovisionByoipCidrCommand,
@@ -133,8 +128,8 @@ export class DeprovisionByoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprovisionByoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeprovisionByoipCidrResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

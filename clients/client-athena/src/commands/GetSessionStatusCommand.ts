@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  GetSessionStatusRequest,
-  GetSessionStatusRequestFilterSensitiveLog,
-  GetSessionStatusResponse,
-  GetSessionStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSessionStatusRequest, GetSessionStatusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSessionStatusCommand,
   serializeAws_json1_1GetSessionStatusCommand,
@@ -118,8 +113,8 @@ export class GetSessionStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSessionStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSessionStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

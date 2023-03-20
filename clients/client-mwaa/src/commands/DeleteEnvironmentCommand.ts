@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteEnvironmentInput,
-  DeleteEnvironmentInputFilterSensitiveLog,
-  DeleteEnvironmentOutput,
-  DeleteEnvironmentOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEnvironmentInput, DeleteEnvironmentOutput } from "../models/models_0";
 import { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import {
   deserializeAws_restJson1DeleteEnvironmentCommand,
@@ -116,8 +111,8 @@ export class DeleteEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteEnvironmentOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

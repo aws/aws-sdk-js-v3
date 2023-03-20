@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  ListUpdatesRequest,
-  ListUpdatesRequestFilterSensitiveLog,
-  ListUpdatesResponse,
-  ListUpdatesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListUpdatesRequest, ListUpdatesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListUpdatesCommand,
   serializeAws_restJson1ListUpdatesCommand,
@@ -124,8 +119,8 @@ export class ListUpdatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUpdatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUpdatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

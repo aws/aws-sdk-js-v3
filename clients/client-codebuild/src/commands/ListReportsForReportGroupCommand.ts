@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  ListReportsForReportGroupInput,
-  ListReportsForReportGroupInputFilterSensitiveLog,
-  ListReportsForReportGroupOutput,
-  ListReportsForReportGroupOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListReportsForReportGroupInput, ListReportsForReportGroupOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListReportsForReportGroupCommand,
   serializeAws_json1_1ListReportsForReportGroupCommand,
@@ -115,8 +110,8 @@ export class ListReportsForReportGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListReportsForReportGroupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListReportsForReportGroupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

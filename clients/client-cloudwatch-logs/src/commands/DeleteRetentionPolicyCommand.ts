@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DeleteRetentionPolicyRequest, DeleteRetentionPolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteRetentionPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRetentionPolicyCommand,
   serializeAws_json1_1DeleteRetentionPolicyCommand,
@@ -115,8 +115,8 @@ export class DeleteRetentionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRetentionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

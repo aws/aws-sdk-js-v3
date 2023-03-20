@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
-import {
-  ListTemplateActionsRequest,
-  ListTemplateActionsRequestFilterSensitiveLog,
-  ListTemplateActionsResponse,
-  ListTemplateActionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTemplateActionsRequest, ListTemplateActionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTemplateActionsCommand,
   serializeAws_restJson1ListTemplateActionsCommand,
@@ -113,8 +108,8 @@ export class ListTemplateActionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTemplateActionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTemplateActionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

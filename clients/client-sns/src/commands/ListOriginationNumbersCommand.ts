@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListOriginationNumbersRequest,
-  ListOriginationNumbersRequestFilterSensitiveLog,
-  ListOriginationNumbersResult,
-  ListOriginationNumbersResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListOriginationNumbersRequest, ListOriginationNumbersResult } from "../models/models_0";
 import {
   deserializeAws_queryListOriginationNumbersCommand,
   serializeAws_queryListOriginationNumbersCommand,
@@ -125,8 +120,8 @@ export class ListOriginationNumbersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOriginationNumbersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOriginationNumbersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

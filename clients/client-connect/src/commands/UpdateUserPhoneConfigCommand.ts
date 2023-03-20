@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateUserPhoneConfigRequest, UpdateUserPhoneConfigRequestFilterSensitiveLog } from "../models/models_1";
+import { UpdateUserPhoneConfigRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateUserPhoneConfigCommand,
   serializeAws_restJson1UpdateUserPhoneConfigCommand,
@@ -117,8 +117,8 @@ export class UpdateUserPhoneConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserPhoneConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

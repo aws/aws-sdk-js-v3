@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  GetSchemaVersionsDiffInput,
-  GetSchemaVersionsDiffInputFilterSensitiveLog,
-  GetSchemaVersionsDiffResponse,
-  GetSchemaVersionsDiffResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetSchemaVersionsDiffInput, GetSchemaVersionsDiffResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetSchemaVersionsDiffCommand,
   serializeAws_json1_1GetSchemaVersionsDiffCommand,
@@ -120,8 +115,8 @@ export class GetSchemaVersionsDiffCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSchemaVersionsDiffInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSchemaVersionsDiffResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

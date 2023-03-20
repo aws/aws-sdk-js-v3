@@ -22,7 +22,6 @@ import {
   ConfirmForgotPasswordRequest,
   ConfirmForgotPasswordRequestFilterSensitiveLog,
   ConfirmForgotPasswordResponse,
-  ConfirmForgotPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ConfirmForgotPasswordCommand,
@@ -168,7 +167,7 @@ export class ConfirmForgotPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ConfirmForgotPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmForgotPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

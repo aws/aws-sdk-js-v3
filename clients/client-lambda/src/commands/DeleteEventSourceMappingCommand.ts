@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import {
-  DeleteEventSourceMappingRequest,
-  DeleteEventSourceMappingRequestFilterSensitiveLog,
-  EventSourceMappingConfiguration,
-  EventSourceMappingConfigurationFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteEventSourceMappingRequest, EventSourceMappingConfiguration } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteEventSourceMappingCommand,
   serializeAws_restJson1DeleteEventSourceMappingCommand,
@@ -126,8 +121,8 @@ export class DeleteEventSourceMappingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEventSourceMappingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EventSourceMappingConfigurationFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

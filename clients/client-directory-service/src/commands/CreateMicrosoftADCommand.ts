@@ -18,7 +18,6 @@ import {
   CreateMicrosoftADRequest,
   CreateMicrosoftADRequestFilterSensitiveLog,
   CreateMicrosoftADResult,
-  CreateMicrosoftADResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateMicrosoftADCommand,
@@ -128,7 +127,7 @@ export class CreateMicrosoftADCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateMicrosoftADRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMicrosoftADResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

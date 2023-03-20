@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  UnassignPrivateIpAddressesRequest,
-  UnassignPrivateIpAddressesRequestFilterSensitiveLog,
-} from "../models/models_7";
+import { UnassignPrivateIpAddressesRequest } from "../models/models_7";
 import {
   deserializeAws_ec2UnassignPrivateIpAddressesCommand,
   serializeAws_ec2UnassignPrivateIpAddressesCommand,
@@ -120,8 +117,8 @@ export class UnassignPrivateIpAddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UnassignPrivateIpAddressesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

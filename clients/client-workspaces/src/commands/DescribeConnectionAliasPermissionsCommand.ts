@@ -15,9 +15,7 @@ import {
 
 import {
   DescribeConnectionAliasPermissionsRequest,
-  DescribeConnectionAliasPermissionsRequestFilterSensitiveLog,
   DescribeConnectionAliasPermissionsResult,
-  DescribeConnectionAliasPermissionsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConnectionAliasPermissionsCommand,
@@ -124,8 +122,8 @@ export class DescribeConnectionAliasPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectionAliasPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectionAliasPermissionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

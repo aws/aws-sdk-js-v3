@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { ContinueDeploymentInput, ContinueDeploymentInputFilterSensitiveLog } from "../models/models_0";
+import { ContinueDeploymentInput } from "../models/models_0";
 import {
   deserializeAws_json1_1ContinueDeploymentCommand,
   serializeAws_json1_1ContinueDeploymentCommand,
@@ -131,8 +131,8 @@ export class ContinueDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ContinueDeploymentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

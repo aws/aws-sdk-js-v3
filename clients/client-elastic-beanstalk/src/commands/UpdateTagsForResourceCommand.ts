@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import { UpdateTagsForResourceMessage, UpdateTagsForResourceMessageFilterSensitiveLog } from "../models/models_0";
+import { UpdateTagsForResourceMessage } from "../models/models_0";
 import {
   deserializeAws_queryUpdateTagsForResourceCommand,
   serializeAws_queryUpdateTagsForResourceCommand,
@@ -141,8 +141,8 @@ export class UpdateTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTagsForResourceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

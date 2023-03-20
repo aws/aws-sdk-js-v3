@@ -15,7 +15,6 @@ import {
 
 import {
   DeleteEnvironmentInput,
-  DeleteEnvironmentInputFilterSensitiveLog,
   DeleteEnvironmentOutput,
   DeleteEnvironmentOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -125,7 +124,7 @@ export class DeleteEnvironmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEnvironmentInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteEnvironmentOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

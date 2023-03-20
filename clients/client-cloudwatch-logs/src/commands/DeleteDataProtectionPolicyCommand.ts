@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  DeleteDataProtectionPolicyRequest,
-  DeleteDataProtectionPolicyRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDataProtectionPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteDataProtectionPolicyCommand,
   serializeAws_json1_1DeleteDataProtectionPolicyCommand,
@@ -118,8 +115,8 @@ export class DeleteDataProtectionPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDataProtectionPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

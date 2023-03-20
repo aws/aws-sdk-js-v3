@@ -16,9 +16,7 @@ import {
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import {
   DeleteInfrastructureConfigurationRequest,
-  DeleteInfrastructureConfigurationRequestFilterSensitiveLog,
   DeleteInfrastructureConfigurationResponse,
-  DeleteInfrastructureConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteInfrastructureConfigurationCommand,
@@ -133,8 +131,8 @@ export class DeleteInfrastructureConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInfrastructureConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInfrastructureConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

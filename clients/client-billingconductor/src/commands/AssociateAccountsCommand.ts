@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
-import {
-  AssociateAccountsInput,
-  AssociateAccountsInputFilterSensitiveLog,
-  AssociateAccountsOutput,
-  AssociateAccountsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateAccountsInput, AssociateAccountsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1AssociateAccountsCommand,
   serializeAws_restJson1AssociateAccountsCommand,
@@ -137,8 +132,8 @@ export class AssociateAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateAccountsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateAccountsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

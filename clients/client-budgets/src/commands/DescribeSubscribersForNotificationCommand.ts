@@ -16,7 +16,6 @@ import {
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
 import {
   DescribeSubscribersForNotificationRequest,
-  DescribeSubscribersForNotificationRequestFilterSensitiveLog,
   DescribeSubscribersForNotificationResponse,
   DescribeSubscribersForNotificationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -132,7 +131,7 @@ export class DescribeSubscribersForNotificationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSubscribersForNotificationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeSubscribersForNotificationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

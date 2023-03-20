@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import {
-  AssociateConnectionWithLagRequest,
-  AssociateConnectionWithLagRequestFilterSensitiveLog,
-  Connection,
-  ConnectionFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateConnectionWithLagRequest, Connection } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateConnectionWithLagCommand,
   serializeAws_json1_1AssociateConnectionWithLagCommand,
@@ -126,8 +121,8 @@ export class AssociateConnectionWithLagCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateConnectionWithLagRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConnectionFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

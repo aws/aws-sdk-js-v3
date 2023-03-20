@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListPromptsRequest,
-  ListPromptsRequestFilterSensitiveLog,
-  ListPromptsResponse,
-  ListPromptsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListPromptsRequest, ListPromptsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListPromptsCommand,
   serializeAws_restJson1ListPromptsCommand,
@@ -120,8 +115,8 @@ export class ListPromptsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPromptsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPromptsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

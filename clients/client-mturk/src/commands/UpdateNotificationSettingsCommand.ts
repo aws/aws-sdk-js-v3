@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateNotificationSettingsRequest,
-  UpdateNotificationSettingsRequestFilterSensitiveLog,
-  UpdateNotificationSettingsResponse,
-  UpdateNotificationSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateNotificationSettingsRequest, UpdateNotificationSettingsResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import {
   deserializeAws_json1_1UpdateNotificationSettingsCommand,
@@ -124,8 +119,8 @@ export class UpdateNotificationSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNotificationSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNotificationSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

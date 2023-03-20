@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  ListTagsForStreamInput,
-  ListTagsForStreamInputFilterSensitiveLog,
-  ListTagsForStreamOutput,
-  ListTagsForStreamOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTagsForStreamInput, ListTagsForStreamOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTagsForStreamCommand,
   serializeAws_json1_1ListTagsForStreamCommand,
@@ -130,8 +125,8 @@ export class ListTagsForStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTagsForStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

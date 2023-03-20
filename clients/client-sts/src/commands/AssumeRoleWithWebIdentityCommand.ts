@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssumeRoleWithWebIdentityRequest,
-  AssumeRoleWithWebIdentityRequestFilterSensitiveLog,
-  AssumeRoleWithWebIdentityResponse,
-  AssumeRoleWithWebIdentityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssumeRoleWithWebIdentityRequest, AssumeRoleWithWebIdentityResponse } from "../models/models_0";
 import {
   deserializeAws_queryAssumeRoleWithWebIdentityCommand,
   serializeAws_queryAssumeRoleWithWebIdentityCommand,
@@ -317,8 +312,8 @@ export class AssumeRoleWithWebIdentityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeRoleWithWebIdentityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeRoleWithWebIdentityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

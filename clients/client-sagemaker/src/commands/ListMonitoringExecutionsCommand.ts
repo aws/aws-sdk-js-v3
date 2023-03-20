@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMonitoringExecutionsRequest,
-  ListMonitoringExecutionsRequestFilterSensitiveLog,
-  ListMonitoringExecutionsResponse,
-  ListMonitoringExecutionsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListMonitoringExecutionsRequest, ListMonitoringExecutionsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListMonitoringExecutionsCommand,
   serializeAws_json1_1ListMonitoringExecutionsCommand,
@@ -107,8 +102,8 @@ export class ListMonitoringExecutionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitoringExecutionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitoringExecutionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

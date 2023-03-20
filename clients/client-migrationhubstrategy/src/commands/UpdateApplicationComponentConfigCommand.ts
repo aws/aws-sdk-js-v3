@@ -22,7 +22,6 @@ import {
   UpdateApplicationComponentConfigRequest,
   UpdateApplicationComponentConfigRequestFilterSensitiveLog,
   UpdateApplicationComponentConfigResponse,
-  UpdateApplicationComponentConfigResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateApplicationComponentConfigCommand,
@@ -126,7 +125,7 @@ export class UpdateApplicationComponentConfigCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateApplicationComponentConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationComponentConfigResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

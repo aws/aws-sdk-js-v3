@@ -853,35 +853,7 @@ export interface StartSnapshotResponse {
 /**
  * @internal
  */
-export const BlockFilterSensitiveLog = (obj: Block): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ChangedBlockFilterSensitiveLog = (obj: ChangedBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompleteSnapshotRequestFilterSensitiveLog = (obj: CompleteSnapshotRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CompleteSnapshotResponseFilterSensitiveLog = (obj: CompleteSnapshotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetSnapshotBlockRequestFilterSensitiveLog = (obj: GetSnapshotBlockRequest): any => ({
   ...obj,
 });
 
@@ -896,23 +868,9 @@ export const GetSnapshotBlockResponseFilterSensitiveLog = (obj: GetSnapshotBlock
 /**
  * @internal
  */
-export const ListChangedBlocksRequestFilterSensitiveLog = (obj: ListChangedBlocksRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListChangedBlocksResponseFilterSensitiveLog = (obj: ListChangedBlocksResponse): any => ({
   ...obj,
   ...(obj.ChangedBlocks && { ChangedBlocks: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListSnapshotBlocksRequestFilterSensitiveLog = (obj: ListSnapshotBlocksRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -929,20 +887,6 @@ export const ListSnapshotBlocksResponseFilterSensitiveLog = (obj: ListSnapshotBl
 export const PutSnapshotBlockRequestFilterSensitiveLog = (obj: PutSnapshotBlockRequest): any => ({
   ...obj,
   ...(obj.BlockData && { BlockData: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const PutSnapshotBlockResponseFilterSensitiveLog = (obj: PutSnapshotBlockResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
 });
 
 /**

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  CreateStreamingURLRequest,
-  CreateStreamingURLRequestFilterSensitiveLog,
-  CreateStreamingURLResult,
-  CreateStreamingURLResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateStreamingURLRequest, CreateStreamingURLResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateStreamingURLCommand,
   serializeAws_json1_1CreateStreamingURLCommand,
@@ -119,8 +114,8 @@ export class CreateStreamingURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamingURLRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStreamingURLResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

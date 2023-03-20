@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import {
-  DeleteRepositoryRequest,
-  DeleteRepositoryRequestFilterSensitiveLog,
-  DeleteRepositoryResponse,
-  DeleteRepositoryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRepositoryRequest, DeleteRepositoryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRepositoryCommand,
   serializeAws_json1_1DeleteRepositoryCommand,
@@ -148,8 +143,8 @@ export class DeleteRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRepositoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRepositoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

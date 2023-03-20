@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  UpdateComponentRequest,
-  UpdateComponentRequestFilterSensitiveLog,
-  UpdateComponentResponse,
-  UpdateComponentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateComponentRequest, UpdateComponentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateComponentCommand,
   serializeAws_restJson1UpdateComponentCommand,
@@ -116,8 +111,8 @@ export class UpdateComponentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateComponentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateComponentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
 import {
   ResetServiceSpecificCredentialRequest,
-  ResetServiceSpecificCredentialRequestFilterSensitiveLog,
   ResetServiceSpecificCredentialResponse,
   ResetServiceSpecificCredentialResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class ResetServiceSpecificCredentialCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResetServiceSpecificCredentialRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ResetServiceSpecificCredentialResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

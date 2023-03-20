@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  GetDeploymentRequest,
-  GetDeploymentRequestFilterSensitiveLog,
-  GetDeploymentResponse,
-  GetDeploymentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDeploymentRequest, GetDeploymentResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDeploymentCommand,
   serializeAws_restJson1GetDeploymentCommand,
@@ -122,8 +117,8 @@ export class GetDeploymentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeploymentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeploymentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

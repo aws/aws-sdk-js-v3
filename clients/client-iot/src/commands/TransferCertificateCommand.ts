@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  TransferCertificateRequest,
-  TransferCertificateRequestFilterSensitiveLog,
-  TransferCertificateResponse,
-  TransferCertificateResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { TransferCertificateRequest, TransferCertificateResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1TransferCertificateCommand,
   serializeAws_restJson1TransferCertificateCommand,
@@ -140,8 +135,8 @@ export class TransferCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TransferCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TransferCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

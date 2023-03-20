@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  UpdateMembershipInput,
-  UpdateMembershipInputFilterSensitiveLog,
-  UpdateMembershipOutput,
-  UpdateMembershipOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateMembershipInput, UpdateMembershipOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateMembershipCommand,
   serializeAws_restJson1UpdateMembershipCommand,
@@ -125,8 +120,8 @@ export class UpdateMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMembershipInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMembershipOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

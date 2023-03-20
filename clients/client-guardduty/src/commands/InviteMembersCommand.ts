@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  InviteMembersRequest,
-  InviteMembersRequestFilterSensitiveLog,
-  InviteMembersResponse,
-  InviteMembersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { InviteMembersRequest, InviteMembersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1InviteMembersCommand,
   serializeAws_restJson1InviteMembersCommand,
@@ -113,8 +108,8 @@ export class InviteMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InviteMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InviteMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

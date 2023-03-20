@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteReceiptRuleRequest,
-  DeleteReceiptRuleRequestFilterSensitiveLog,
-  DeleteReceiptRuleResponse,
-  DeleteReceiptRuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteReceiptRuleRequest, DeleteReceiptRuleResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteReceiptRuleCommand,
   serializeAws_queryDeleteReceiptRuleCommand,
@@ -125,8 +120,8 @@ export class DeleteReceiptRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReceiptRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteReceiptRuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

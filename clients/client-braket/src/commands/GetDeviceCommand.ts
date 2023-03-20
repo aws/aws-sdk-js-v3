@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import {
-  GetDeviceRequest,
-  GetDeviceRequestFilterSensitiveLog,
-  GetDeviceResponse,
-  GetDeviceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDeviceCommand,
   serializeAws_restJson1GetDeviceCommand,
@@ -130,8 +125,8 @@ export class GetDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

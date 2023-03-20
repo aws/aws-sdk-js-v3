@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  ActivityType,
-  ActivityTypeFilterSensitiveLog,
-  TerminateInstanceInAutoScalingGroupType,
-  TerminateInstanceInAutoScalingGroupTypeFilterSensitiveLog,
-} from "../models/models_0";
+import { ActivityType, TerminateInstanceInAutoScalingGroupType } from "../models/models_0";
 import {
   deserializeAws_queryTerminateInstanceInAutoScalingGroupCommand,
   serializeAws_queryTerminateInstanceInAutoScalingGroupCommand,
@@ -138,8 +133,8 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateInstanceInAutoScalingGroupTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: ActivityTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

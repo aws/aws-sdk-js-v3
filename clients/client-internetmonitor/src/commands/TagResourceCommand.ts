@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import {
-  TagResourceInput,
-  TagResourceInputFilterSensitiveLog,
-  TagResourceOutput,
-  TagResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { TagResourceInput, TagResourceOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,
@@ -120,8 +115,8 @@ export class TagResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagResourceInputFilterSensitiveLog,
-      outputFilterSensitiveLog: TagResourceOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   UploadMultipartPartInput,
   UploadMultipartPartInputFilterSensitiveLog,
   UploadMultipartPartOutput,
-  UploadMultipartPartOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UploadMultipartPartCommand,
@@ -205,7 +204,7 @@ export class UploadMultipartPartCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UploadMultipartPartInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadMultipartPartOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  DeleteFlowRequest,
-  DeleteFlowRequestFilterSensitiveLog,
-  DeleteFlowResponse,
-  DeleteFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteFlowRequest, DeleteFlowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFlowCommand,
   serializeAws_restJson1DeleteFlowCommand,
@@ -118,8 +113,8 @@ export class DeleteFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

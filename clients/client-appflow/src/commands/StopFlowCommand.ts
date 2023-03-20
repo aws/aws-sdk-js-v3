@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  StopFlowRequest,
-  StopFlowRequestFilterSensitiveLog,
-  StopFlowResponse,
-  StopFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopFlowRequest, StopFlowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopFlowCommand,
   serializeAws_restJson1StopFlowCommand,
@@ -122,8 +117,8 @@ export class StopFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

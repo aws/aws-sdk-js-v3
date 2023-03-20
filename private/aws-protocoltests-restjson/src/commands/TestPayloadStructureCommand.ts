@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { TestPayloadStructureInputOutput, TestPayloadStructureInputOutputFilterSensitiveLog } from "../models/models_0";
+import { TestPayloadStructureInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1TestPayloadStructureCommand,
   serializeAws_restJson1TestPayloadStructureCommand,
@@ -20,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link TestPayloadStructureCommand}.
  */
 export interface TestPayloadStructureCommandInput extends TestPayloadStructureInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link TestPayloadStructureCommand}.
  */
 export interface TestPayloadStructureCommandOutput extends TestPayloadStructureInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example operation serializes a payload targeting a structure.
  *
  * This enforces the same requirements as TestBodyStructure
@@ -44,6 +49,8 @@ export interface TestPayloadStructureCommandOutput extends TestPayloadStructureI
  * const response = await client.send(command);
  * ```
  *
+ * @param TestPayloadStructureCommandInput - {@link TestPayloadStructureCommandInput}
+ * @returns {@link TestPayloadStructureCommandOutput}
  * @see {@link TestPayloadStructureCommandInput} for command's `input` shape.
  * @see {@link TestPayloadStructureCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -58,6 +65,9 @@ export class TestPayloadStructureCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: TestPayloadStructureCommandInput) {
     // Start section: command_constructor
     super();
@@ -83,8 +93,8 @@ export class TestPayloadStructureCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TestPayloadStructureInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: TestPayloadStructureInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -94,10 +104,16 @@ export class TestPayloadStructureCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: TestPayloadStructureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1TestPayloadStructureCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TestPayloadStructureCommandOutput> {
     return deserializeAws_restJson1TestPayloadStructureCommand(output, context);
   }

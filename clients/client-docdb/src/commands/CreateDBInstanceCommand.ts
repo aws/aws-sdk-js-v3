@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  CreateDBInstanceMessage,
-  CreateDBInstanceMessageFilterSensitiveLog,
-  CreateDBInstanceResult,
-  CreateDBInstanceResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
 import {
   deserializeAws_queryCreateDBInstanceCommand,
   serializeAws_queryCreateDBInstanceCommand,
@@ -161,8 +156,8 @@ export class CreateDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDBInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

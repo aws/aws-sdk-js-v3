@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  VerifyRequest,
-  VerifyRequestFilterSensitiveLog,
-  VerifyResponse,
-  VerifyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { VerifyRequest, VerifyRequestFilterSensitiveLog, VerifyResponse } from "../models/models_0";
 import { deserializeAws_json1_1VerifyCommand, serializeAws_json1_1VerifyCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -244,7 +239,7 @@ export class VerifyCommand extends $Command<VerifyCommandInput, VerifyCommandOut
       clientName,
       commandName,
       inputFilterSensitiveLog: VerifyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifyResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

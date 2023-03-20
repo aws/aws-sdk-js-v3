@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  PutRecordInput,
-  PutRecordInputFilterSensitiveLog,
-  PutRecordOutput,
-  PutRecordOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutRecordInput, PutRecordOutput } from "../models/models_0";
 import { deserializeAws_json1_1PutRecordCommand, serializeAws_json1_1PutRecordCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -189,8 +184,8 @@ export class PutRecordCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRecordInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRecordOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { StopTransformJobRequest, StopTransformJobRequestFilterSensitiveLog } from "../models/models_3";
+import { StopTransformJobRequest } from "../models/models_3";
 import {
   deserializeAws_json1_1StopTransformJobCommand,
   serializeAws_json1_1StopTransformJobCommand,
@@ -110,8 +110,8 @@ export class StopTransformJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopTransformJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

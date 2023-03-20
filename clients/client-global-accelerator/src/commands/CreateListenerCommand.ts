@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  CreateListenerRequest,
-  CreateListenerRequestFilterSensitiveLog,
-  CreateListenerResponse,
-  CreateListenerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateListenerRequest, CreateListenerResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateListenerCommand,
   serializeAws_json1_1CreateListenerCommand,
@@ -127,8 +122,8 @@ export class CreateListenerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateListenerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateListenerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

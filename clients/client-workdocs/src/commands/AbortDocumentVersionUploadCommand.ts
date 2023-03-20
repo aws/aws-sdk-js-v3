@@ -132,7 +132,7 @@ export class AbortDocumentVersionUploadCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AbortDocumentVersionUploadRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

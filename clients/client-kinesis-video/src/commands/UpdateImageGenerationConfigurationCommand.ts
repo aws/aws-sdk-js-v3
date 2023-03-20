@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
-import {
-  UpdateImageGenerationConfigurationInput,
-  UpdateImageGenerationConfigurationInputFilterSensitiveLog,
-  UpdateImageGenerationConfigurationOutput,
-  UpdateImageGenerationConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateImageGenerationConfigurationInput, UpdateImageGenerationConfigurationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateImageGenerationConfigurationCommand,
   serializeAws_restJson1UpdateImageGenerationConfigurationCommand,
@@ -145,8 +140,8 @@ export class UpdateImageGenerationConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateImageGenerationConfigurationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateImageGenerationConfigurationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

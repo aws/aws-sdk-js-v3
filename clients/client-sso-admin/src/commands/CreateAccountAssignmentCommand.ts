@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAccountAssignmentRequest,
-  CreateAccountAssignmentRequestFilterSensitiveLog,
-  CreateAccountAssignmentResponse,
-  CreateAccountAssignmentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAccountAssignmentRequest, CreateAccountAssignmentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAccountAssignmentCommand,
   serializeAws_json1_1CreateAccountAssignmentCommand,
@@ -153,8 +148,8 @@ export class CreateAccountAssignmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccountAssignmentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAccountAssignmentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateAuthorizerRequest,
-  CreateAuthorizerRequestFilterSensitiveLog,
-  CreateAuthorizerResponse,
-  CreateAuthorizerResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAuthorizerRequest, CreateAuthorizerResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAuthorizerCommand,
   serializeAws_restJson1CreateAuthorizerCommand,
@@ -129,8 +124,8 @@ export class CreateAuthorizerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAuthorizerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAuthorizerResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

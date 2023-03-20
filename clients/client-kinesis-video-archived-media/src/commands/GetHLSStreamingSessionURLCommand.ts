@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient";
-import {
-  GetHLSStreamingSessionURLInput,
-  GetHLSStreamingSessionURLInputFilterSensitiveLog,
-  GetHLSStreamingSessionURLOutput,
-  GetHLSStreamingSessionURLOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetHLSStreamingSessionURLCommand,
   serializeAws_restJson1GetHLSStreamingSessionURLCommand,
@@ -330,8 +325,8 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetHLSStreamingSessionURLInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetHLSStreamingSessionURLOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

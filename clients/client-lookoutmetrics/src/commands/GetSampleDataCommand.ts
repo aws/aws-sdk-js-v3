@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  GetSampleDataRequest,
-  GetSampleDataRequestFilterSensitiveLog,
-  GetSampleDataResponse,
-  GetSampleDataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSampleDataRequest, GetSampleDataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSampleDataCommand,
   serializeAws_restJson1GetSampleDataCommand,
@@ -121,8 +116,8 @@ export class GetSampleDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSampleDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSampleDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

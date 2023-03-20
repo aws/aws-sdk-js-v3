@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { CompleteVaultLockInput, CompleteVaultLockInputFilterSensitiveLog } from "../models/models_0";
+import { CompleteVaultLockInput } from "../models/models_0";
 import {
   deserializeAws_restJson1CompleteVaultLockCommand,
   serializeAws_restJson1CompleteVaultLockCommand,
@@ -141,8 +141,8 @@ export class CompleteVaultLockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CompleteVaultLockInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

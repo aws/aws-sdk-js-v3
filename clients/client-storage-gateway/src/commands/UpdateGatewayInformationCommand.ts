@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateGatewayInformationInput,
-  UpdateGatewayInformationInputFilterSensitiveLog,
-  UpdateGatewayInformationOutput,
-  UpdateGatewayInformationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateGatewayInformationInput, UpdateGatewayInformationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateGatewayInformationCommand,
   serializeAws_json1_1UpdateGatewayInformationCommand,
@@ -142,8 +137,8 @@ export class UpdateGatewayInformationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGatewayInformationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateGatewayInformationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

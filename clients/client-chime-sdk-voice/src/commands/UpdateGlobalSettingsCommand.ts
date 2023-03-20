@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { UpdateGlobalSettingsRequest, UpdateGlobalSettingsRequestFilterSensitiveLog } from "../models/models_0";
+import { UpdateGlobalSettingsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateGlobalSettingsCommand,
   serializeAws_restJson1UpdateGlobalSettingsCommand,
@@ -81,8 +81,8 @@ export class UpdateGlobalSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateGlobalSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

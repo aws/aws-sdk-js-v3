@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
-import {
-  ListRetainedMessagesRequest,
-  ListRetainedMessagesRequestFilterSensitiveLog,
-  ListRetainedMessagesResponse,
-  ListRetainedMessagesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListRetainedMessagesRequest, ListRetainedMessagesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListRetainedMessagesCommand,
   serializeAws_restJson1ListRetainedMessagesCommand,
@@ -134,8 +129,8 @@ export class ListRetainedMessagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRetainedMessagesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRetainedMessagesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

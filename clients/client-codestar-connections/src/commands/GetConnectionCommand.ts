@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient";
-import {
-  GetConnectionInput,
-  GetConnectionInputFilterSensitiveLog,
-  GetConnectionOutput,
-  GetConnectionOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConnectionInput, GetConnectionOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0GetConnectionCommand,
   serializeAws_json1_0GetConnectionCommand,
@@ -115,8 +110,8 @@ export class GetConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConnectionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConnectionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

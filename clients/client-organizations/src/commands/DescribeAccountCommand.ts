@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeAccountRequest,
-  DescribeAccountRequestFilterSensitiveLog,
   DescribeAccountResponse,
   DescribeAccountResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -261,7 +260,7 @@ export class DescribeAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAccountRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAccountResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  ListPublicKeysRequest,
-  ListPublicKeysRequestFilterSensitiveLog,
-  ListPublicKeysResult,
-  ListPublicKeysResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ListPublicKeysRequest, ListPublicKeysResult } from "../models/models_1";
 import {
   deserializeAws_restXmlListPublicKeysCommand,
   serializeAws_restXmlListPublicKeysCommand,
@@ -110,8 +105,8 @@ export class ListPublicKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPublicKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPublicKeysResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

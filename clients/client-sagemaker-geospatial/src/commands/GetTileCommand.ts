@@ -16,12 +16,7 @@ import {
   WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
-import {
-  GetTileInput,
-  GetTileInputFilterSensitiveLog,
-  GetTileOutput,
-  GetTileOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTileInput, GetTileOutput, GetTileOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTileCommand,
   serializeAws_restJson1GetTileCommand,
@@ -127,7 +122,7 @@ export class GetTileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTileInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetTileOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -18,7 +18,6 @@ import {
   SourceServer,
   SourceServerFilterSensitiveLog,
   UpdateSourceServerReplicationTypeRequest,
-  UpdateSourceServerReplicationTypeRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand,
@@ -119,7 +118,7 @@ export class UpdateSourceServerReplicationTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSourceServerReplicationTypeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SourceServerFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

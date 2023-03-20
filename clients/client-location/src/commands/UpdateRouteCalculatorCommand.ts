@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  UpdateRouteCalculatorRequest,
-  UpdateRouteCalculatorRequestFilterSensitiveLog,
-  UpdateRouteCalculatorResponse,
-  UpdateRouteCalculatorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateRouteCalculatorRequest, UpdateRouteCalculatorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateRouteCalculatorCommand,
   serializeAws_restJson1UpdateRouteCalculatorCommand,
@@ -123,8 +118,8 @@ export class UpdateRouteCalculatorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRouteCalculatorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRouteCalculatorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

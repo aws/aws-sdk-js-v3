@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteInstanceEventWindowRequest,
-  DeleteInstanceEventWindowRequestFilterSensitiveLog,
-  DeleteInstanceEventWindowResult,
-  DeleteInstanceEventWindowResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteInstanceEventWindowRequest, DeleteInstanceEventWindowResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteInstanceEventWindowCommand,
   serializeAws_ec2DeleteInstanceEventWindowCommand,
@@ -109,8 +104,8 @@ export class DeleteInstanceEventWindowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceEventWindowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInstanceEventWindowResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

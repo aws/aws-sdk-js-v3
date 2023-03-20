@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  CreateIndexRequest,
-  CreateIndexRequestFilterSensitiveLog,
-  CreateIndexResponse,
-  CreateIndexResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateIndexRequest, CreateIndexRequestFilterSensitiveLog, CreateIndexResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateIndexCommand,
   serializeAws_json1_1CreateIndexCommand,
@@ -144,7 +139,7 @@ export class CreateIndexCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateIndexResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

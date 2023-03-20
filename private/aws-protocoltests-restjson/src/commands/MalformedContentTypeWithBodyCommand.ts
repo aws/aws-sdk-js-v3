@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { GreetingStruct, GreetingStructFilterSensitiveLog } from "../models/models_0";
+import { GreetingStruct } from "../models/models_0";
 import {
   deserializeAws_restJson1MalformedContentTypeWithBodyCommand,
   serializeAws_restJson1MalformedContentTypeWithBodyCommand,
@@ -20,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link MalformedContentTypeWithBodyCommand}.
  */
 export interface MalformedContentTypeWithBodyCommandInput extends GreetingStruct {}
 /**
+ * @public
+ *
  * The output of {@link MalformedContentTypeWithBodyCommand}.
  */
 export interface MalformedContentTypeWithBodyCommandOutput extends __MetadataBearer {}
@@ -36,6 +40,9 @@ export class MalformedContentTypeWithBodyCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: MalformedContentTypeWithBodyCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class MalformedContentTypeWithBodyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GreetingStructFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class MalformedContentTypeWithBodyCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: MalformedContentTypeWithBodyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1MalformedContentTypeWithBodyCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ResumeContactRecordingRequest,
-  ResumeContactRecordingRequestFilterSensitiveLog,
-  ResumeContactRecordingResponse,
-  ResumeContactRecordingResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ResumeContactRecordingRequest, ResumeContactRecordingResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ResumeContactRecordingCommand,
   serializeAws_restJson1ResumeContactRecordingCommand,
@@ -118,8 +113,8 @@ export class ResumeContactRecordingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeContactRecordingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResumeContactRecordingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

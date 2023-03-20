@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ImportClientBrandingRequest,
-  ImportClientBrandingRequestFilterSensitiveLog,
-  ImportClientBrandingResult,
-  ImportClientBrandingResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ImportClientBrandingRequest, ImportClientBrandingResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportClientBrandingCommand,
   serializeAws_json1_1ImportClientBrandingCommand,
@@ -146,8 +141,8 @@ export class ImportClientBrandingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportClientBrandingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportClientBrandingResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

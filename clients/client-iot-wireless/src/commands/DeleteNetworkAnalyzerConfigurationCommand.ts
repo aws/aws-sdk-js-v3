@@ -16,9 +16,7 @@ import {
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
   DeleteNetworkAnalyzerConfigurationRequest,
-  DeleteNetworkAnalyzerConfigurationRequestFilterSensitiveLog,
   DeleteNetworkAnalyzerConfigurationResponse,
-  DeleteNetworkAnalyzerConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteNetworkAnalyzerConfigurationCommand,
@@ -127,8 +125,8 @@ export class DeleteNetworkAnalyzerConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkAnalyzerConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkAnalyzerConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

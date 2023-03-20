@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DetachSecurityProfileRequest,
-  DetachSecurityProfileRequestFilterSensitiveLog,
-  DetachSecurityProfileResponse,
-  DetachSecurityProfileResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DetachSecurityProfileRequest, DetachSecurityProfileResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DetachSecurityProfileCommand,
   serializeAws_restJson1DetachSecurityProfileCommand,
@@ -120,8 +115,8 @@ export class DetachSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachSecurityProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DetachSecurityProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  UpdateLoadBalancerAttributeRequest,
-  UpdateLoadBalancerAttributeRequestFilterSensitiveLog,
-  UpdateLoadBalancerAttributeResult,
-  UpdateLoadBalancerAttributeResultFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateLoadBalancerAttributeRequest, UpdateLoadBalancerAttributeResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateLoadBalancerAttributeCommand,
   serializeAws_json1_1UpdateLoadBalancerAttributeCommand,
@@ -141,8 +136,8 @@ export class UpdateLoadBalancerAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLoadBalancerAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLoadBalancerAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

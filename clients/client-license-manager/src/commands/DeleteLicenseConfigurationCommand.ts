@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
-import {
-  DeleteLicenseConfigurationRequest,
-  DeleteLicenseConfigurationRequestFilterSensitiveLog,
-  DeleteLicenseConfigurationResponse,
-  DeleteLicenseConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLicenseConfigurationRequest, DeleteLicenseConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLicenseConfigurationCommand,
   serializeAws_json1_1DeleteLicenseConfigurationCommand,
@@ -124,8 +119,8 @@ export class DeleteLicenseConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLicenseConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLicenseConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

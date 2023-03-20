@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPortalServiceProviderMetadataRequest,
-  GetPortalServiceProviderMetadataRequestFilterSensitiveLog,
-  GetPortalServiceProviderMetadataResponse,
-  GetPortalServiceProviderMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPortalServiceProviderMetadataRequest, GetPortalServiceProviderMetadataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetPortalServiceProviderMetadataCommand,
   serializeAws_restJson1GetPortalServiceProviderMetadataCommand,
@@ -124,8 +119,8 @@ export class GetPortalServiceProviderMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPortalServiceProviderMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPortalServiceProviderMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

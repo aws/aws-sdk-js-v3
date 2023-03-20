@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { HostLabelInput, HostLabelInputFilterSensitiveLog } from "../models/models_0";
+import { HostLabelInput } from "../models/models_0";
 import {
   deserializeAws_restJson1EndpointWithHostLabelOperationCommand,
   serializeAws_restJson1EndpointWithHostLabelOperationCommand,
@@ -20,10 +20,14 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link EndpointWithHostLabelOperationCommand}.
  */
 export interface EndpointWithHostLabelOperationCommandInput extends HostLabelInput {}
 /**
+ * @public
+ *
  * The output of {@link EndpointWithHostLabelOperationCommand}.
  */
 export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataBearer {}
@@ -36,6 +40,9 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: EndpointWithHostLabelOperationCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: HostLabelInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,6 +79,9 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(
     input: EndpointWithHostLabelOperationCommandInput,
     context: __SerdeContext
@@ -79,6 +89,9 @@ export class EndpointWithHostLabelOperationCommand extends $Command<
     return serializeAws_restJson1EndpointWithHostLabelOperationCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

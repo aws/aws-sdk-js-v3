@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetGroupRequest,
-  GetGroupRequestFilterSensitiveLog,
-  GetGroupResponse,
-  GetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetGroupRequest, GetGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetGroupCommand,
   serializeAws_restJson1GetGroupCommand,
@@ -108,8 +103,8 @@ export class GetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

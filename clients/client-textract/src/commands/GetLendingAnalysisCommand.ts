@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLendingAnalysisRequest,
-  GetLendingAnalysisRequestFilterSensitiveLog,
-  GetLendingAnalysisResponse,
-  GetLendingAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLendingAnalysisRequest, GetLendingAnalysisResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetLendingAnalysisCommand,
   serializeAws_json1_1GetLendingAnalysisCommand,
@@ -151,8 +146,8 @@ export class GetLendingAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLendingAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLendingAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

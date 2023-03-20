@@ -15,7 +15,6 @@ import {
 
 import {
   DescribeAppAssessmentRequest,
-  DescribeAppAssessmentRequestFilterSensitiveLog,
   DescribeAppAssessmentResponse,
   DescribeAppAssessmentResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -125,7 +124,7 @@ export class DescribeAppAssessmentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAppAssessmentRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAppAssessmentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

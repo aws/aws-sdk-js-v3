@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
-import {
-  GetAgentConfigurationRequest,
-  GetAgentConfigurationRequestFilterSensitiveLog,
-  GetAgentConfigurationResponse,
-  GetAgentConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAgentConfigurationRequest, GetAgentConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAgentConfigurationCommand,
   serializeAws_restJson1GetAgentConfigurationCommand,
@@ -116,8 +111,8 @@ export class GetAgentConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAgentConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAgentConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListAttachedGroupPoliciesRequest,
-  ListAttachedGroupPoliciesRequestFilterSensitiveLog,
-  ListAttachedGroupPoliciesResponse,
-  ListAttachedGroupPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAttachedGroupPoliciesRequest, ListAttachedGroupPoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_queryListAttachedGroupPoliciesCommand,
   serializeAws_queryListAttachedGroupPoliciesCommand,
@@ -128,8 +123,8 @@ export class ListAttachedGroupPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttachedGroupPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttachedGroupPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

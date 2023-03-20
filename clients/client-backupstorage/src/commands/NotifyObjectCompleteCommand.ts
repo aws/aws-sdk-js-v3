@@ -18,7 +18,6 @@ import {
   NotifyObjectCompleteInput,
   NotifyObjectCompleteInputFilterSensitiveLog,
   NotifyObjectCompleteOutput,
-  NotifyObjectCompleteOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1NotifyObjectCompleteCommand,
@@ -141,7 +140,7 @@ export class NotifyObjectCompleteCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: NotifyObjectCompleteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: NotifyObjectCompleteOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

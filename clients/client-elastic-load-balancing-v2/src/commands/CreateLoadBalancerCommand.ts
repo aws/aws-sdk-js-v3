@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  CreateLoadBalancerInput,
-  CreateLoadBalancerInputFilterSensitiveLog,
-  CreateLoadBalancerOutput,
-  CreateLoadBalancerOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateLoadBalancerInput, CreateLoadBalancerOutput } from "../models/models_0";
 import {
   deserializeAws_queryCreateLoadBalancerCommand,
   serializeAws_queryCreateLoadBalancerCommand,
@@ -270,8 +265,8 @@ export class CreateLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLoadBalancerInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLoadBalancerOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

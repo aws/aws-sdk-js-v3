@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  ListTeamMembersRequest,
-  ListTeamMembersRequestFilterSensitiveLog,
-  ListTeamMembersResult,
-  ListTeamMembersResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTeamMembersRequest, ListTeamMembersResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTeamMembersCommand,
   serializeAws_json1_1ListTeamMembersCommand,
@@ -116,8 +111,8 @@ export class ListTeamMembersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTeamMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTeamMembersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

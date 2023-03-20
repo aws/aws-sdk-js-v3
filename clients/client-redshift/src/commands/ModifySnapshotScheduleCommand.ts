@@ -13,8 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { SnapshotSchedule, SnapshotScheduleFilterSensitiveLog } from "../models/models_0";
-import { ModifySnapshotScheduleMessage, ModifySnapshotScheduleMessageFilterSensitiveLog } from "../models/models_1";
+import { SnapshotSchedule } from "../models/models_0";
+import { ModifySnapshotScheduleMessage } from "../models/models_1";
 import {
   deserializeAws_queryModifySnapshotScheduleCommand,
   serializeAws_queryModifySnapshotScheduleCommand,
@@ -113,8 +113,8 @@ export class ModifySnapshotScheduleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySnapshotScheduleMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: SnapshotScheduleFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

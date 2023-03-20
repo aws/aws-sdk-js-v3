@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeletePoolRequest,
-  DeletePoolRequestFilterSensitiveLog,
-  DeletePoolResult,
-  DeletePoolResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePoolRequest, DeletePoolResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -139,8 +134,8 @@ export class DeletePoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

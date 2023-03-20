@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  GetCompatibleKafkaVersionsRequest,
-  GetCompatibleKafkaVersionsRequestFilterSensitiveLog,
-  GetCompatibleKafkaVersionsResponse,
-  GetCompatibleKafkaVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCompatibleKafkaVersionsRequest, GetCompatibleKafkaVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCompatibleKafkaVersionsCommand,
   serializeAws_restJson1GetCompatibleKafkaVersionsCommand,
@@ -128,8 +123,8 @@ export class GetCompatibleKafkaVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCompatibleKafkaVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCompatibleKafkaVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

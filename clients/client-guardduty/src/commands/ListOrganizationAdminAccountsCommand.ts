@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  ListOrganizationAdminAccountsRequest,
-  ListOrganizationAdminAccountsRequestFilterSensitiveLog,
-  ListOrganizationAdminAccountsResponse,
-  ListOrganizationAdminAccountsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListOrganizationAdminAccountsCommand,
   serializeAws_restJson1ListOrganizationAdminAccountsCommand,
@@ -115,8 +110,8 @@ export class ListOrganizationAdminAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListOrganizationAdminAccountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListOrganizationAdminAccountsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

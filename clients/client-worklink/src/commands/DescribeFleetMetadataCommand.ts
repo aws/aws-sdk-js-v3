@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeFleetMetadataRequest,
-  DescribeFleetMetadataRequestFilterSensitiveLog,
-  DescribeFleetMetadataResponse,
-  DescribeFleetMetadataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFleetMetadataRequest, DescribeFleetMetadataResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeFleetMetadataCommand,
   serializeAws_restJson1DescribeFleetMetadataCommand,
@@ -125,8 +120,8 @@ export class DescribeFleetMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  BatchCreateCustomVocabularyItemRequest,
-  BatchCreateCustomVocabularyItemRequestFilterSensitiveLog,
-  BatchCreateCustomVocabularyItemResponse,
-  BatchCreateCustomVocabularyItemResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchCreateCustomVocabularyItemRequest, BatchCreateCustomVocabularyItemResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchCreateCustomVocabularyItemCommand,
   serializeAws_restJson1BatchCreateCustomVocabularyItemCommand,
@@ -129,8 +124,8 @@ export class BatchCreateCustomVocabularyItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchCreateCustomVocabularyItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchCreateCustomVocabularyItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

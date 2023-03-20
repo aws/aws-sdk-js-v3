@@ -15,9 +15,7 @@ import {
 
 import {
   DeleteSubscriptionNotificationConfigurationRequest,
-  DeleteSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
   DeleteSubscriptionNotificationConfigurationResponse,
-  DeleteSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSubscriptionNotificationConfigurationCommand,
@@ -145,8 +143,8 @@ export class DeleteSubscriptionNotificationConfigurationCommand extends $Command
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSubscriptionNotificationConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteSubscriptionNotificationConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

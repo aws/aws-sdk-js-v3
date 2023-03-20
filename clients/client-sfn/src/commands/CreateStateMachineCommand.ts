@@ -17,7 +17,6 @@ import {
   CreateStateMachineInput,
   CreateStateMachineInputFilterSensitiveLog,
   CreateStateMachineOutput,
-  CreateStateMachineOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateStateMachineCommand,
@@ -161,7 +160,7 @@ export class CreateStateMachineCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateStateMachineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStateMachineOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

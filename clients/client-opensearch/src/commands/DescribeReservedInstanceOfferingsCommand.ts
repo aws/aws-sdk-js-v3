@@ -15,9 +15,7 @@ import {
 
 import {
   DescribeReservedInstanceOfferingsRequest,
-  DescribeReservedInstanceOfferingsRequestFilterSensitiveLog,
   DescribeReservedInstanceOfferingsResponse,
-  DescribeReservedInstanceOfferingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
@@ -122,8 +120,8 @@ export class DescribeReservedInstanceOfferingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeReservedInstanceOfferingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeReservedInstanceOfferingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import {
-  GetSourceRepositoryCloneUrlsRequest,
-  GetSourceRepositoryCloneUrlsRequestFilterSensitiveLog,
-  GetSourceRepositoryCloneUrlsResponse,
-  GetSourceRepositoryCloneUrlsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSourceRepositoryCloneUrlsRequest, GetSourceRepositoryCloneUrlsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetSourceRepositoryCloneUrlsCommand,
   serializeAws_restJson1GetSourceRepositoryCloneUrlsCommand,
@@ -129,8 +124,8 @@ export class GetSourceRepositoryCloneUrlsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSourceRepositoryCloneUrlsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSourceRepositoryCloneUrlsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

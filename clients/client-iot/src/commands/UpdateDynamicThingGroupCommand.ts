@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateDynamicThingGroupRequest,
-  UpdateDynamicThingGroupRequestFilterSensitiveLog,
-  UpdateDynamicThingGroupResponse,
-  UpdateDynamicThingGroupResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateDynamicThingGroupRequest, UpdateDynamicThingGroupResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateDynamicThingGroupCommand,
   serializeAws_restJson1UpdateDynamicThingGroupCommand,
@@ -128,8 +123,8 @@ export class UpdateDynamicThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDynamicThingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDynamicThingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

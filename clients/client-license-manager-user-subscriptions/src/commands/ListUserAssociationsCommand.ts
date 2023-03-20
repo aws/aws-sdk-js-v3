@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import {
-  ListUserAssociationsRequest,
-  ListUserAssociationsRequestFilterSensitiveLog,
-  ListUserAssociationsResponse,
-  ListUserAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListUserAssociationsRequest, ListUserAssociationsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListUserAssociationsCommand,
   serializeAws_restJson1ListUserAssociationsCommand,
@@ -133,8 +128,8 @@ export class ListUserAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUserAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUserAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

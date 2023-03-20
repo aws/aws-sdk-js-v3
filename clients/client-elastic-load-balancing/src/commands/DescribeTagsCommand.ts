@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  DescribeTagsInput,
-  DescribeTagsInputFilterSensitiveLog,
-  DescribeTagsOutput,
-  DescribeTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTagsInput, DescribeTagsOutput } from "../models/models_0";
 import { deserializeAws_queryDescribeTagsCommand, serializeAws_queryDescribeTagsCommand } from "../protocols/Aws_query";
 
 /**
@@ -141,8 +136,8 @@ export class DescribeTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

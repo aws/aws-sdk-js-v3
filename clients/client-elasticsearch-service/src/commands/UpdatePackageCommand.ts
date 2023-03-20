@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  UpdatePackageRequest,
-  UpdatePackageRequestFilterSensitiveLog,
-  UpdatePackageResponse,
-  UpdatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePackageRequest, UpdatePackageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdatePackageCommand,
   serializeAws_restJson1UpdatePackageCommand,
@@ -127,8 +122,8 @@ export class UpdatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

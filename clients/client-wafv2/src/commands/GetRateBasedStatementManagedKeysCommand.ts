@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetRateBasedStatementManagedKeysRequest,
-  GetRateBasedStatementManagedKeysRequestFilterSensitiveLog,
-  GetRateBasedStatementManagedKeysResponse,
-  GetRateBasedStatementManagedKeysResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRateBasedStatementManagedKeysRequest, GetRateBasedStatementManagedKeysResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetRateBasedStatementManagedKeysCommand,
   serializeAws_json1_1GetRateBasedStatementManagedKeysCommand,
@@ -156,8 +151,8 @@ export class GetRateBasedStatementManagedKeysCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRateBasedStatementManagedKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRateBasedStatementManagedKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

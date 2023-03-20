@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import {
-  DescribeEnvironmentStatusRequest,
-  DescribeEnvironmentStatusRequestFilterSensitiveLog,
-  DescribeEnvironmentStatusResult,
-  DescribeEnvironmentStatusResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEnvironmentStatusRequest, DescribeEnvironmentStatusResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEnvironmentStatusCommand,
   serializeAws_json1_1DescribeEnvironmentStatusCommand,
@@ -145,8 +140,8 @@ export class DescribeEnvironmentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEnvironmentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEnvironmentStatusResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  GetConfigRequest,
-  GetConfigRequestFilterSensitiveLog,
-  GetConfigResponse,
-  GetConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetConfigRequest, GetConfigResponse } from "../models/models_0";
 import { deserializeAws_json1_1GetConfigCommand, serializeAws_json1_1GetConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -122,8 +117,8 @@ export class GetConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

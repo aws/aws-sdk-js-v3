@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DeregisterTypeInput,
-  DeregisterTypeInputFilterSensitiveLog,
-  DeregisterTypeOutput,
-  DeregisterTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterTypeInput, DeregisterTypeOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeregisterTypeCommand,
   serializeAws_queryDeregisterTypeCommand,
@@ -122,8 +117,8 @@ export class DeregisterTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

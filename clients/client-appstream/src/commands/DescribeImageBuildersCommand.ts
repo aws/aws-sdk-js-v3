@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeImageBuildersRequest,
-  DescribeImageBuildersRequestFilterSensitiveLog,
-  DescribeImageBuildersResult,
-  DescribeImageBuildersResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeImageBuildersRequest, DescribeImageBuildersResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeImageBuildersCommand,
   serializeAws_json1_1DescribeImageBuildersCommand,
@@ -110,8 +105,8 @@ export class DescribeImageBuildersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImageBuildersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImageBuildersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

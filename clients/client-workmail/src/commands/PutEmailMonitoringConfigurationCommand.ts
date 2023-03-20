@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutEmailMonitoringConfigurationRequest,
-  PutEmailMonitoringConfigurationRequestFilterSensitiveLog,
-  PutEmailMonitoringConfigurationResponse,
-  PutEmailMonitoringConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutEmailMonitoringConfigurationRequest, PutEmailMonitoringConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutEmailMonitoringConfigurationCommand,
   serializeAws_json1_1PutEmailMonitoringConfigurationCommand,
@@ -123,8 +118,8 @@ export class PutEmailMonitoringConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEmailMonitoringConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEmailMonitoringConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

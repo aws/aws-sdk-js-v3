@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  UpdateInstanceMetadataOptionsRequest,
-  UpdateInstanceMetadataOptionsRequestFilterSensitiveLog,
-  UpdateInstanceMetadataOptionsResult,
-  UpdateInstanceMetadataOptionsResultFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateInstanceMetadataOptionsRequest, UpdateInstanceMetadataOptionsResult } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateInstanceMetadataOptionsCommand,
   serializeAws_json1_1UpdateInstanceMetadataOptionsCommand,
@@ -144,8 +139,8 @@ export class UpdateInstanceMetadataOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateInstanceMetadataOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateInstanceMetadataOptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  AssignIpv6AddressesRequest,
-  AssignIpv6AddressesRequestFilterSensitiveLog,
-  AssignIpv6AddressesResult,
-  AssignIpv6AddressesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { AssignIpv6AddressesRequest, AssignIpv6AddressesResult } from "../models/models_0";
 import {
   deserializeAws_ec2AssignIpv6AddressesCommand,
   serializeAws_ec2AssignIpv6AddressesCommand,
@@ -117,8 +112,8 @@ export class AssignIpv6AddressesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssignIpv6AddressesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssignIpv6AddressesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

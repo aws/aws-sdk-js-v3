@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient";
-import {
-  GetUtterancesViewRequest,
-  GetUtterancesViewRequestFilterSensitiveLog,
-  GetUtterancesViewResponse,
-  GetUtterancesViewResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetUtterancesViewCommand,
   serializeAws_restJson1GetUtterancesViewCommand,
@@ -145,8 +140,8 @@ export class GetUtterancesViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetUtterancesViewRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUtterancesViewResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

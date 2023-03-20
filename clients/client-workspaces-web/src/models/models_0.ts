@@ -2854,87 +2854,6 @@ export interface UpdateUserSettingsResponse {
 /**
  * @internal
  */
-export const AssociateBrowserSettingsRequestFilterSensitiveLog = (obj: AssociateBrowserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateBrowserSettingsResponseFilterSensitiveLog = (obj: AssociateBrowserSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateNetworkSettingsRequestFilterSensitiveLog = (obj: AssociateNetworkSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateNetworkSettingsResponseFilterSensitiveLog = (obj: AssociateNetworkSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTrustStoreRequestFilterSensitiveLog = (obj: AssociateTrustStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateTrustStoreResponseFilterSensitiveLog = (obj: AssociateTrustStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateUserAccessLoggingSettingsRequestFilterSensitiveLog = (
-  obj: AssociateUserAccessLoggingSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateUserAccessLoggingSettingsResponseFilterSensitiveLog = (
-  obj: AssociateUserAccessLoggingSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateUserSettingsRequestFilterSensitiveLog = (obj: AssociateUserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateUserSettingsResponseFilterSensitiveLog = (obj: AssociateUserSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TagFilterSensitiveLog = (obj: Tag): any => ({
   ...obj,
   ...(obj.Key && { Key: SENSITIVE_STRING }),
@@ -2953,13 +2872,6 @@ export const CreateBrowserSettingsRequestFilterSensitiveLog = (obj: CreateBrowse
 /**
  * @internal
  */
-export const CreateBrowserSettingsResponseFilterSensitiveLog = (obj: CreateBrowserSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateIdentityProviderRequestFilterSensitiveLog = (obj: CreateIdentityProviderRequest): any => ({
   ...obj,
   ...(obj.identityProviderName && { identityProviderName: SENSITIVE_STRING }),
@@ -2969,23 +2881,9 @@ export const CreateIdentityProviderRequestFilterSensitiveLog = (obj: CreateIdent
 /**
  * @internal
  */
-export const CreateIdentityProviderResponseFilterSensitiveLog = (obj: CreateIdentityProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateNetworkSettingsRequestFilterSensitiveLog = (obj: CreateNetworkSettingsRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateNetworkSettingsResponseFilterSensitiveLog = (obj: CreateNetworkSettingsResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3000,23 +2898,9 @@ export const CreatePortalRequestFilterSensitiveLog = (obj: CreatePortalRequest):
 /**
  * @internal
  */
-export const CreatePortalResponseFilterSensitiveLog = (obj: CreatePortalResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateTrustStoreRequestFilterSensitiveLog = (obj: CreateTrustStoreRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateTrustStoreResponseFilterSensitiveLog = (obj: CreateTrustStoreResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3032,212 +2916,9 @@ export const CreateUserAccessLoggingSettingsRequestFilterSensitiveLog = (
 /**
  * @internal
  */
-export const CreateUserAccessLoggingSettingsResponseFilterSensitiveLog = (
-  obj: CreateUserAccessLoggingSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateUserSettingsRequestFilterSensitiveLog = (obj: CreateUserSettingsRequest): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CreateUserSettingsResponseFilterSensitiveLog = (obj: CreateUserSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBrowserSettingsRequestFilterSensitiveLog = (obj: DeleteBrowserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteBrowserSettingsResponseFilterSensitiveLog = (obj: DeleteBrowserSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentityProviderRequestFilterSensitiveLog = (obj: DeleteIdentityProviderRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIdentityProviderResponseFilterSensitiveLog = (obj: DeleteIdentityProviderResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkSettingsRequestFilterSensitiveLog = (obj: DeleteNetworkSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteNetworkSettingsResponseFilterSensitiveLog = (obj: DeleteNetworkSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePortalRequestFilterSensitiveLog = (obj: DeletePortalRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeletePortalResponseFilterSensitiveLog = (obj: DeletePortalResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrustStoreRequestFilterSensitiveLog = (obj: DeleteTrustStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrustStoreResponseFilterSensitiveLog = (obj: DeleteTrustStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserAccessLoggingSettingsRequestFilterSensitiveLog = (
-  obj: DeleteUserAccessLoggingSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserAccessLoggingSettingsResponseFilterSensitiveLog = (
-  obj: DeleteUserAccessLoggingSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserSettingsRequestFilterSensitiveLog = (obj: DeleteUserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteUserSettingsResponseFilterSensitiveLog = (obj: DeleteUserSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateBrowserSettingsRequestFilterSensitiveLog = (obj: DisassociateBrowserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateBrowserSettingsResponseFilterSensitiveLog = (
-  obj: DisassociateBrowserSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateNetworkSettingsRequestFilterSensitiveLog = (obj: DisassociateNetworkSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateNetworkSettingsResponseFilterSensitiveLog = (
-  obj: DisassociateNetworkSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTrustStoreRequestFilterSensitiveLog = (obj: DisassociateTrustStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTrustStoreResponseFilterSensitiveLog = (obj: DisassociateTrustStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateUserAccessLoggingSettingsRequestFilterSensitiveLog = (
-  obj: DisassociateUserAccessLoggingSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateUserAccessLoggingSettingsResponseFilterSensitiveLog = (
-  obj: DisassociateUserAccessLoggingSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateUserSettingsRequestFilterSensitiveLog = (obj: DisassociateUserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateUserSettingsResponseFilterSensitiveLog = (obj: DisassociateUserSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetBrowserSettingsRequestFilterSensitiveLog = (obj: GetBrowserSettingsRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3254,13 +2935,6 @@ export const BrowserSettingsFilterSensitiveLog = (obj: BrowserSettings): any => 
 export const GetBrowserSettingsResponseFilterSensitiveLog = (obj: GetBrowserSettingsResponse): any => ({
   ...obj,
   ...(obj.browserSettings && { browserSettings: BrowserSettingsFilterSensitiveLog(obj.browserSettings) }),
-});
-
-/**
- * @internal
- */
-export const GetIdentityProviderRequestFilterSensitiveLog = (obj: GetIdentityProviderRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3283,34 +2957,6 @@ export const GetIdentityProviderResponseFilterSensitiveLog = (obj: GetIdentityPr
 /**
  * @internal
  */
-export const GetNetworkSettingsRequestFilterSensitiveLog = (obj: GetNetworkSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkSettingsFilterSensitiveLog = (obj: NetworkSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetNetworkSettingsResponseFilterSensitiveLog = (obj: GetNetworkSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPortalRequestFilterSensitiveLog = (obj: GetPortalRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PortalFilterSensitiveLog = (obj: Portal): any => ({
   ...obj,
   ...(obj.displayName && { displayName: SENSITIVE_STRING }),
@@ -3322,140 +2968,6 @@ export const PortalFilterSensitiveLog = (obj: Portal): any => ({
 export const GetPortalResponseFilterSensitiveLog = (obj: GetPortalResponse): any => ({
   ...obj,
   ...(obj.portal && { portal: PortalFilterSensitiveLog(obj.portal) }),
-});
-
-/**
- * @internal
- */
-export const GetPortalServiceProviderMetadataRequestFilterSensitiveLog = (
-  obj: GetPortalServiceProviderMetadataRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPortalServiceProviderMetadataResponseFilterSensitiveLog = (
-  obj: GetPortalServiceProviderMetadataResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrustStoreRequestFilterSensitiveLog = (obj: GetTrustStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrustStoreFilterSensitiveLog = (obj: TrustStore): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrustStoreResponseFilterSensitiveLog = (obj: GetTrustStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrustStoreCertificateRequestFilterSensitiveLog = (obj: GetTrustStoreCertificateRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTrustStoreCertificateResponseFilterSensitiveLog = (obj: GetTrustStoreCertificateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserAccessLoggingSettingsRequestFilterSensitiveLog = (
-  obj: GetUserAccessLoggingSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserAccessLoggingSettingsFilterSensitiveLog = (obj: UserAccessLoggingSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserAccessLoggingSettingsResponseFilterSensitiveLog = (
-  obj: GetUserAccessLoggingSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserSettingsRequestFilterSensitiveLog = (obj: GetUserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserSettingsFilterSensitiveLog = (obj: UserSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetUserSettingsResponseFilterSensitiveLog = (obj: GetUserSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBrowserSettingsRequestFilterSensitiveLog = (obj: ListBrowserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BrowserSettingsSummaryFilterSensitiveLog = (obj: BrowserSettingsSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListBrowserSettingsResponseFilterSensitiveLog = (obj: ListBrowserSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIdentityProvidersRequestFilterSensitiveLog = (obj: ListIdentityProvidersRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -3479,34 +2991,6 @@ export const ListIdentityProvidersResponseFilterSensitiveLog = (obj: ListIdentit
 /**
  * @internal
  */
-export const ListNetworkSettingsRequestFilterSensitiveLog = (obj: ListNetworkSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkSettingsSummaryFilterSensitiveLog = (obj: NetworkSettingsSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListNetworkSettingsResponseFilterSensitiveLog = (obj: ListNetworkSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPortalsRequestFilterSensitiveLog = (obj: ListPortalsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PortalSummaryFilterSensitiveLog = (obj: PortalSummary): any => ({
   ...obj,
   ...(obj.displayName && { displayName: SENSITIVE_STRING }),
@@ -3523,104 +3007,9 @@ export const ListPortalsResponseFilterSensitiveLog = (obj: ListPortalsResponse):
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListTrustStoreCertificatesRequestFilterSensitiveLog = (obj: ListTrustStoreCertificatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CertificateSummaryFilterSensitiveLog = (obj: CertificateSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrustStoreCertificatesResponseFilterSensitiveLog = (obj: ListTrustStoreCertificatesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrustStoresRequestFilterSensitiveLog = (obj: ListTrustStoresRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TrustStoreSummaryFilterSensitiveLog = (obj: TrustStoreSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTrustStoresResponseFilterSensitiveLog = (obj: ListTrustStoresResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserAccessLoggingSettingsRequestFilterSensitiveLog = (
-  obj: ListUserAccessLoggingSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserAccessLoggingSettingsSummaryFilterSensitiveLog = (obj: UserAccessLoggingSettingsSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserAccessLoggingSettingsResponseFilterSensitiveLog = (
-  obj: ListUserAccessLoggingSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserSettingsRequestFilterSensitiveLog = (obj: ListUserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserSettingsSummaryFilterSensitiveLog = (obj: UserSettingsSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListUserSettingsResponseFilterSensitiveLog = (obj: ListUserSettingsResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3634,23 +3023,9 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
 /**
  * @internal
  */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
   ...obj,
   ...(obj.tagKeys && { tagKeys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -3689,20 +3064,6 @@ export const UpdateIdentityProviderResponseFilterSensitiveLog = (obj: UpdateIden
 /**
  * @internal
  */
-export const UpdateNetworkSettingsRequestFilterSensitiveLog = (obj: UpdateNetworkSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateNetworkSettingsResponseFilterSensitiveLog = (obj: UpdateNetworkSettingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdatePortalRequestFilterSensitiveLog = (obj: UpdatePortalRequest): any => ({
   ...obj,
   ...(obj.displayName && { displayName: SENSITIVE_STRING }),
@@ -3714,50 +3075,4 @@ export const UpdatePortalRequestFilterSensitiveLog = (obj: UpdatePortalRequest):
 export const UpdatePortalResponseFilterSensitiveLog = (obj: UpdatePortalResponse): any => ({
   ...obj,
   ...(obj.portal && { portal: PortalFilterSensitiveLog(obj.portal) }),
-});
-
-/**
- * @internal
- */
-export const UpdateTrustStoreRequestFilterSensitiveLog = (obj: UpdateTrustStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTrustStoreResponseFilterSensitiveLog = (obj: UpdateTrustStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserAccessLoggingSettingsRequestFilterSensitiveLog = (
-  obj: UpdateUserAccessLoggingSettingsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserAccessLoggingSettingsResponseFilterSensitiveLog = (
-  obj: UpdateUserAccessLoggingSettingsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserSettingsRequestFilterSensitiveLog = (obj: UpdateUserSettingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateUserSettingsResponseFilterSensitiveLog = (obj: UpdateUserSettingsResponse): any => ({
-  ...obj,
 });

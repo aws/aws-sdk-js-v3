@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  UpdateListRequest,
-  UpdateListRequestFilterSensitiveLog,
-  UpdateListResult,
-  UpdateListResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateListRequest, UpdateListRequestFilterSensitiveLog, UpdateListResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateListCommand,
   serializeAws_json1_1UpdateListCommand,
@@ -126,7 +121,7 @@ export class UpdateListCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateListResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

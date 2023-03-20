@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { ProcessesType, ProcessesTypeFilterSensitiveLog } from "../models/models_0";
+import { ProcessesType } from "../models/models_0";
 import {
   deserializeAws_queryDescribeScalingProcessTypesCommand,
   serializeAws_queryDescribeScalingProcessTypesCommand,
@@ -146,8 +146,8 @@ export class DescribeScalingProcessTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: ProcessesTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

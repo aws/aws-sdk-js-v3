@@ -16,7 +16,6 @@ import {
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import {
   UpdateProtectedQueryInput,
-  UpdateProtectedQueryInputFilterSensitiveLog,
   UpdateProtectedQueryOutput,
   UpdateProtectedQueryOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -125,7 +124,7 @@ export class UpdateProtectedQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProtectedQueryInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateProtectedQueryOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDeliverabilityTestReportsRequest,
-  ListDeliverabilityTestReportsRequestFilterSensitiveLog,
-  ListDeliverabilityTestReportsResponse,
-  ListDeliverabilityTestReportsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDeliverabilityTestReportsRequest, ListDeliverabilityTestReportsResponse } from "../models/models_0";
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import {
   deserializeAws_restJson1ListDeliverabilityTestReportsCommand,
@@ -120,8 +115,8 @@ export class ListDeliverabilityTestReportsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeliverabilityTestReportsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeliverabilityTestReportsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

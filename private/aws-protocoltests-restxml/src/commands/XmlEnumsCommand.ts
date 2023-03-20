@@ -12,20 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlEnumsInputOutput, XmlEnumsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { XmlEnumsInputOutput } from "../models/models_0";
 import { deserializeAws_restXmlXmlEnumsCommand, serializeAws_restXmlXmlEnumsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlEnumsCommand}.
  */
 export interface XmlEnumsCommandInput extends XmlEnumsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlEnumsCommand}.
  */
 export interface XmlEnumsCommandOutput extends XmlEnumsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This example serializes enums as top level properties, in lists, sets, and maps.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -37,6 +42,8 @@ export interface XmlEnumsCommandOutput extends XmlEnumsInputOutput, __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlEnumsCommandInput - {@link XmlEnumsCommandInput}
+ * @returns {@link XmlEnumsCommandOutput}
  * @see {@link XmlEnumsCommandInput} for command's `input` shape.
  * @see {@link XmlEnumsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -51,6 +58,9 @@ export class XmlEnumsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlEnumsCommandInput) {
     // Start section: command_constructor
     super();
@@ -76,8 +86,8 @@ export class XmlEnumsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlEnumsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlEnumsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -87,10 +97,16 @@ export class XmlEnumsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlEnumsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlXmlEnumsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEnumsCommandOutput> {
     return deserializeAws_restXmlXmlEnumsCommand(output, context);
   }

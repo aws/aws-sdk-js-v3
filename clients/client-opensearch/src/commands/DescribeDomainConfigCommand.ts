@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeDomainConfigRequest,
-  DescribeDomainConfigRequestFilterSensitiveLog,
-  DescribeDomainConfigResponse,
-  DescribeDomainConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeDomainConfigRequest, DescribeDomainConfigResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1DescribeDomainConfigCommand,
@@ -119,8 +114,8 @@ export class DescribeDomainConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDomainConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDomainConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

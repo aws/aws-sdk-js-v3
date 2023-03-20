@@ -15,7 +15,6 @@ import {
 
 import {
   EvaluateSessionRequest,
-  EvaluateSessionRequestFilterSensitiveLog,
   EvaluateSessionResponse,
   EvaluateSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -133,7 +132,7 @@ export class EvaluateSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EvaluateSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: EvaluateSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

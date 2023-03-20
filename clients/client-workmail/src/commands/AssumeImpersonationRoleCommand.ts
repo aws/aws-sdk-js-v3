@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssumeImpersonationRoleRequest,
-  AssumeImpersonationRoleRequestFilterSensitiveLog,
-  AssumeImpersonationRoleResponse,
-  AssumeImpersonationRoleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssumeImpersonationRoleRequest, AssumeImpersonationRoleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssumeImpersonationRoleCommand,
   serializeAws_json1_1AssumeImpersonationRoleCommand,
@@ -122,8 +117,8 @@ export class AssumeImpersonationRoleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssumeImpersonationRoleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssumeImpersonationRoleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  DescribeResourcePolicyRequest,
-  DescribeResourcePolicyRequestFilterSensitiveLog,
-  DescribeResourcePolicyResponse,
-  DescribeResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeResourcePolicyRequest, DescribeResourcePolicyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeResourcePolicyCommand,
   serializeAws_json1_1DescribeResourcePolicyCommand,
@@ -117,8 +112,8 @@ export class DescribeResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

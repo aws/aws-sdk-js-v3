@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  DeleteWarmPoolAnswer,
-  DeleteWarmPoolAnswerFilterSensitiveLog,
-  DeleteWarmPoolType,
-  DeleteWarmPoolTypeFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteWarmPoolAnswer, DeleteWarmPoolType } from "../models/models_0";
 import {
   deserializeAws_queryDeleteWarmPoolCommand,
   serializeAws_queryDeleteWarmPoolCommand,
@@ -126,8 +121,8 @@ export class DeleteWarmPoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWarmPoolTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWarmPoolAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

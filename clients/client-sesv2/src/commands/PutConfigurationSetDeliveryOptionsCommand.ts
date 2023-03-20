@@ -15,9 +15,7 @@ import {
 
 import {
   PutConfigurationSetDeliveryOptionsRequest,
-  PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog,
   PutConfigurationSetDeliveryOptionsResponse,
-  PutConfigurationSetDeliveryOptionsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand,
@@ -119,8 +117,8 @@ export class PutConfigurationSetDeliveryOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutConfigurationSetDeliveryOptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

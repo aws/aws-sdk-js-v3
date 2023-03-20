@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeApplicationsRequest,
-  DescribeApplicationsRequestFilterSensitiveLog,
-  DescribeApplicationsResult,
-  DescribeApplicationsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeApplicationsRequest, DescribeApplicationsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeApplicationsCommand,
   serializeAws_json1_1DescribeApplicationsCommand,
@@ -113,8 +108,8 @@ export class DescribeApplicationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeApplicationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeApplicationsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

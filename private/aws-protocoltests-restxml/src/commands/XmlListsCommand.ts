@@ -12,20 +12,25 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlListsInputOutput, XmlListsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { XmlListsInputOutput } from "../models/models_0";
 import { deserializeAws_restXmlXmlListsCommand, serializeAws_restXmlXmlListsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlListsCommand}.
  */
 export interface XmlListsCommandInput extends XmlListsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link XmlListsCommand}.
  */
 export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This test case serializes XML lists for the following cases for both
  * input and output:
  *
@@ -48,6 +53,8 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * const response = await client.send(command);
  * ```
  *
+ * @param XmlListsCommandInput - {@link XmlListsCommandInput}
+ * @returns {@link XmlListsCommandOutput}
  * @see {@link XmlListsCommandInput} for command's `input` shape.
  * @see {@link XmlListsCommandOutput} for command's `response` shape.
  * @see {@link RestXmlProtocolClientResolvedConfig | config} for RestXmlProtocolClient's `config` shape.
@@ -62,6 +69,9 @@ export class XmlListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -87,8 +97,8 @@ export class XmlListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: XmlListsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: XmlListsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,10 +108,16 @@ export class XmlListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restXmlXmlListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlListsCommandOutput> {
     return deserializeAws_restXmlXmlListsCommand(output, context);
   }

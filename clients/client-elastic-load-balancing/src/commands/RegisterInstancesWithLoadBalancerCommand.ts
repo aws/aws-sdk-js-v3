@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  RegisterEndPointsInput,
-  RegisterEndPointsInputFilterSensitiveLog,
-  RegisterEndPointsOutput,
-  RegisterEndPointsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/models_0";
 import {
   deserializeAws_queryRegisterInstancesWithLoadBalancerCommand,
   serializeAws_queryRegisterInstancesWithLoadBalancerCommand,
@@ -166,8 +161,8 @@ export class RegisterInstancesWithLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterEndPointsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterEndPointsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

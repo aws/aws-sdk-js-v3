@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import {
-  CreateEnvironmentMembershipRequest,
-  CreateEnvironmentMembershipRequestFilterSensitiveLog,
-  CreateEnvironmentMembershipResult,
-  CreateEnvironmentMembershipResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateEnvironmentMembershipRequest, CreateEnvironmentMembershipResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateEnvironmentMembershipCommand,
   serializeAws_json1_1CreateEnvironmentMembershipCommand,
@@ -151,8 +146,8 @@ export class CreateEnvironmentMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateEnvironmentMembershipRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateEnvironmentMembershipResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

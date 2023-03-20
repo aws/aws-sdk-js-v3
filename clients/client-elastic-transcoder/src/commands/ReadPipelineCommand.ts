@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient";
-import {
-  ReadPipelineRequest,
-  ReadPipelineRequestFilterSensitiveLog,
-  ReadPipelineResponse,
-  ReadPipelineResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ReadPipelineRequest, ReadPipelineResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ReadPipelineCommand,
   serializeAws_restJson1ReadPipelineCommand,
@@ -124,8 +119,8 @@ export class ReadPipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReadPipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReadPipelineResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

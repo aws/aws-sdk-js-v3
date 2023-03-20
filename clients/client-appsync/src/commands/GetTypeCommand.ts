@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  GetTypeRequest,
-  GetTypeRequestFilterSensitiveLog,
-  GetTypeResponse,
-  GetTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetTypeRequest, GetTypeResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetTypeCommand,
   serializeAws_restJson1GetTypeCommand,
@@ -118,8 +113,8 @@ export class GetTypeCommand extends $Command<GetTypeCommandInput, GetTypeCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

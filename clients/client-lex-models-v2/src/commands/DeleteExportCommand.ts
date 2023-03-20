@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  DeleteExportRequest,
-  DeleteExportRequestFilterSensitiveLog,
-  DeleteExportResponse,
-  DeleteExportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteExportRequest, DeleteExportResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteExportCommand,
   serializeAws_restJson1DeleteExportCommand,
@@ -126,8 +121,8 @@ export class DeleteExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteExportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

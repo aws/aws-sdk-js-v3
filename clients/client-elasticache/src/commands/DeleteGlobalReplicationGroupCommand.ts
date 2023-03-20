@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteGlobalReplicationGroupMessage,
-  DeleteGlobalReplicationGroupMessageFilterSensitiveLog,
-  DeleteGlobalReplicationGroupResult,
-  DeleteGlobalReplicationGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryDeleteGlobalReplicationGroupCommand,
   serializeAws_queryDeleteGlobalReplicationGroupCommand,
@@ -131,8 +126,8 @@ export class DeleteGlobalReplicationGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGlobalReplicationGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGlobalReplicationGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -12,12 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PostUnionWithJsonNameInput,
-  PostUnionWithJsonNameInputFilterSensitiveLog,
-  PostUnionWithJsonNameOutput,
-  PostUnionWithJsonNameOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PostUnionWithJsonNameInput, PostUnionWithJsonNameOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1PostUnionWithJsonNameCommand,
   serializeAws_restJson1PostUnionWithJsonNameCommand,
@@ -25,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link PostUnionWithJsonNameCommand}.
  */
 export interface PostUnionWithJsonNameCommandInput extends PostUnionWithJsonNameInput {}
 /**
+ * @public
+ *
  * The output of {@link PostUnionWithJsonNameCommand}.
  */
 export interface PostUnionWithJsonNameCommandOutput extends PostUnionWithJsonNameOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This operation defines a union that uses jsonName on some members.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +45,8 @@ export interface PostUnionWithJsonNameCommandOutput extends PostUnionWithJsonNam
  * const response = await client.send(command);
  * ```
  *
+ * @param PostUnionWithJsonNameCommandInput - {@link PostUnionWithJsonNameCommandInput}
+ * @returns {@link PostUnionWithJsonNameCommandOutput}
  * @see {@link PostUnionWithJsonNameCommandInput} for command's `input` shape.
  * @see {@link PostUnionWithJsonNameCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -59,6 +61,9 @@ export class PostUnionWithJsonNameCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: PostUnionWithJsonNameCommandInput) {
     // Start section: command_constructor
     super();
@@ -84,8 +89,8 @@ export class PostUnionWithJsonNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PostUnionWithJsonNameInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PostUnionWithJsonNameOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -95,10 +100,16 @@ export class PostUnionWithJsonNameCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: PostUnionWithJsonNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1PostUnionWithJsonNameCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PostUnionWithJsonNameCommandOutput> {
     return deserializeAws_restJson1PostUnionWithJsonNameCommand(output, context);
   }

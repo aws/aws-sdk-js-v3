@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import {
-  ModifyDBSubnetGroupMessage,
-  ModifyDBSubnetGroupMessageFilterSensitiveLog,
-  ModifyDBSubnetGroupResult,
-  ModifyDBSubnetGroupResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult } from "../models/models_0";
 import {
   deserializeAws_queryModifyDBSubnetGroupCommand,
   serializeAws_queryModifyDBSubnetGroupCommand,
@@ -124,8 +119,8 @@ export class ModifyDBSubnetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyDBSubnetGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyDBSubnetGroupResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

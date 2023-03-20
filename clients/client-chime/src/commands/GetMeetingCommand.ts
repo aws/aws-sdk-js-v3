@@ -127,7 +127,7 @@ export class GetMeetingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetMeetingResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

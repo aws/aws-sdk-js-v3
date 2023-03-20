@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import { DeleteEndpointGroupRequest, DeleteEndpointGroupRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteEndpointGroupRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEndpointGroupCommand,
   serializeAws_json1_1DeleteEndpointGroupCommand,
@@ -115,8 +115,8 @@ export class DeleteEndpointGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteEndpointGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

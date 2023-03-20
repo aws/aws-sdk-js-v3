@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeFleetMetricRequest,
-  DescribeFleetMetricRequestFilterSensitiveLog,
-  DescribeFleetMetricResponse,
-  DescribeFleetMetricResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeFleetMetricRequest, DescribeFleetMetricResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeFleetMetricCommand,
   serializeAws_restJson1DescribeFleetMetricCommand,
@@ -126,8 +121,8 @@ export class DescribeFleetMetricCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetMetricRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetMetricResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

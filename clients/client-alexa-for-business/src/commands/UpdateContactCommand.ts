@@ -18,7 +18,6 @@ import {
   UpdateContactRequest,
   UpdateContactRequestFilterSensitiveLog,
   UpdateContactResponse,
-  UpdateContactResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateContactCommand,
@@ -112,7 +111,7 @@ export class UpdateContactCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateContactResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

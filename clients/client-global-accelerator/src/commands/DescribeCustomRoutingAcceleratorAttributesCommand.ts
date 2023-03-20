@@ -20,9 +20,7 @@ import {
 } from "../GlobalAcceleratorClient";
 import {
   DescribeCustomRoutingAcceleratorAttributesRequest,
-  DescribeCustomRoutingAcceleratorAttributesRequestFilterSensitiveLog,
   DescribeCustomRoutingAcceleratorAttributesResponse,
-  DescribeCustomRoutingAcceleratorAttributesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCustomRoutingAcceleratorAttributesCommand,
@@ -129,8 +127,8 @@ export class DescribeCustomRoutingAcceleratorAttributesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomRoutingAcceleratorAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCustomRoutingAcceleratorAttributesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

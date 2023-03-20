@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifySecurityGroupRulesRequest,
-  ModifySecurityGroupRulesRequestFilterSensitiveLog,
-  ModifySecurityGroupRulesResult,
-  ModifySecurityGroupRulesResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifySecurityGroupRulesRequest, ModifySecurityGroupRulesResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifySecurityGroupRulesCommand,
   serializeAws_ec2ModifySecurityGroupRulesCommand,
@@ -107,8 +102,8 @@ export class ModifySecurityGroupRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySecurityGroupRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifySecurityGroupRulesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

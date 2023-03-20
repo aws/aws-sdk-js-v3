@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  DeleteWorkflowRequest,
-  DeleteWorkflowRequestFilterSensitiveLog,
-  DeleteWorkflowResponse,
-  DeleteWorkflowResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteWorkflowRequest, DeleteWorkflowResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteWorkflowCommand,
   serializeAws_json1_1DeleteWorkflowCommand,
@@ -119,8 +114,8 @@ export class DeleteWorkflowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkflowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkflowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

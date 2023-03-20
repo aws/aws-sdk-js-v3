@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  RegisterEventTopicRequest,
-  RegisterEventTopicRequestFilterSensitiveLog,
-  RegisterEventTopicResult,
-  RegisterEventTopicResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterEventTopicRequest, RegisterEventTopicResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterEventTopicCommand,
   serializeAws_json1_1RegisterEventTopicCommand,
@@ -123,8 +118,8 @@ export class RegisterEventTopicCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterEventTopicRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterEventTopicResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  StopInstanceRequest,
-  StopInstanceRequestFilterSensitiveLog,
-  StopInstanceResult,
-  StopInstanceResultFilterSensitiveLog,
-} from "../models/models_1";
+import { StopInstanceRequest, StopInstanceResult } from "../models/models_1";
 import {
   deserializeAws_json1_1StopInstanceCommand,
   serializeAws_json1_1StopInstanceCommand,
@@ -143,8 +138,8 @@ export class StopInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopInstanceResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

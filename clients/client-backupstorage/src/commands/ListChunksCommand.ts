@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  ListChunksInput,
-  ListChunksInputFilterSensitiveLog,
-  ListChunksOutput,
-  ListChunksOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListChunksInput, ListChunksOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListChunksCommand,
   serializeAws_restJson1ListChunksCommand,
@@ -123,8 +118,8 @@ export class ListChunksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChunksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChunksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

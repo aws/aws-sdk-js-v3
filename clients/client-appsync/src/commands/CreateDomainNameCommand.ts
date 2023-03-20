@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  CreateDomainNameRequest,
-  CreateDomainNameRequestFilterSensitiveLog,
-  CreateDomainNameResponse,
-  CreateDomainNameResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDomainNameRequest, CreateDomainNameResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDomainNameCommand,
   serializeAws_restJson1CreateDomainNameCommand,
@@ -117,8 +112,8 @@ export class CreateDomainNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDomainNameRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDomainNameResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

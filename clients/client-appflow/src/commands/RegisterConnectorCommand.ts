@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import {
-  RegisterConnectorRequest,
-  RegisterConnectorRequestFilterSensitiveLog,
-  RegisterConnectorResponse,
-  RegisterConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterConnectorRequest, RegisterConnectorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterConnectorCommand,
   serializeAws_restJson1RegisterConnectorCommand,
@@ -141,8 +136,8 @@ export class RegisterConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

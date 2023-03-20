@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSchemaVersionRequest, DeleteSchemaVersionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteSchemaVersionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteSchemaVersionCommand,
   serializeAws_restJson1DeleteSchemaVersionCommand,
@@ -114,8 +114,8 @@ export class DeleteSchemaVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSchemaVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

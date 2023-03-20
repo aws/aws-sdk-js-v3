@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CancelRetrievalInput,
-  CancelRetrievalInputFilterSensitiveLog,
-  CancelRetrievalOutput,
-  CancelRetrievalOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelRetrievalInput, CancelRetrievalOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CancelRetrievalCommand,
   serializeAws_json1_1CancelRetrievalCommand,
@@ -134,8 +129,8 @@ export class CancelRetrievalCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelRetrievalInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelRetrievalOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

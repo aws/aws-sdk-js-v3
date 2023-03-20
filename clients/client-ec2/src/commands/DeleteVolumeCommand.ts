@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVolumeRequest, DeleteVolumeRequestFilterSensitiveLog } from "../models/models_3";
+import { DeleteVolumeRequest } from "../models/models_3";
 import { deserializeAws_ec2DeleteVolumeCommand, serializeAws_ec2DeleteVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -112,8 +112,8 @@ export class DeleteVolumeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVolumeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

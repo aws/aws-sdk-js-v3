@@ -15,7 +15,6 @@ import {
 
 import {
   StartStudioSSOConfigurationRepairRequest,
-  StartStudioSSOConfigurationRepairRequestFilterSensitiveLog,
   StartStudioSSOConfigurationRepairResponse,
   StartStudioSSOConfigurationRepairResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -139,7 +138,7 @@ export class StartStudioSSOConfigurationRepairCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartStudioSSOConfigurationRepairRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartStudioSSOConfigurationRepairResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

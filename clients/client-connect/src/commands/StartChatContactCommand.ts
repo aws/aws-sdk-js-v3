@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  StartChatContactRequest,
-  StartChatContactRequestFilterSensitiveLog,
-  StartChatContactResponse,
-  StartChatContactResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StartChatContactRequest, StartChatContactResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1StartChatContactCommand,
   serializeAws_restJson1StartChatContactCommand,
@@ -142,8 +137,8 @@ export class StartChatContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartChatContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartChatContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

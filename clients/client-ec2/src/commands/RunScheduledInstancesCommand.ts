@@ -18,7 +18,6 @@ import {
   RunScheduledInstancesRequest,
   RunScheduledInstancesRequestFilterSensitiveLog,
   RunScheduledInstancesResult,
-  RunScheduledInstancesResultFilterSensitiveLog,
 } from "../models/models_6";
 import {
   deserializeAws_ec2RunScheduledInstancesCommand,
@@ -183,7 +182,7 @@ export class RunScheduledInstancesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RunScheduledInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RunScheduledInstancesResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

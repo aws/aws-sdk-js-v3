@@ -16,9 +16,7 @@ import {
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
   ListDataQualityRuleRecommendationRunsRequest,
-  ListDataQualityRuleRecommendationRunsRequestFilterSensitiveLog,
   ListDataQualityRuleRecommendationRunsResponse,
-  ListDataQualityRuleRecommendationRunsResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand,
@@ -119,8 +117,8 @@ export class ListDataQualityRuleRecommendationRunsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDataQualityRuleRecommendationRunsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDataQualityRuleRecommendationRunsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

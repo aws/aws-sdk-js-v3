@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateDataSourcePermissionsRequest,
-  UpdateDataSourcePermissionsRequestFilterSensitiveLog,
-  UpdateDataSourcePermissionsResponse,
-  UpdateDataSourcePermissionsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { UpdateDataSourcePermissionsRequest, UpdateDataSourcePermissionsResponse } from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDataSourcePermissionsCommand,
   serializeAws_restJson1UpdateDataSourcePermissionsCommand,
@@ -130,8 +125,8 @@ export class UpdateDataSourcePermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataSourcePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataSourcePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

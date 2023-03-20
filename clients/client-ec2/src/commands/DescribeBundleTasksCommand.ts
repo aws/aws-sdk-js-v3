@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeBundleTasksRequest,
-  DescribeBundleTasksRequestFilterSensitiveLog,
-  DescribeBundleTasksResult,
-  DescribeBundleTasksResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeBundleTasksCommand,
   serializeAws_ec2DescribeBundleTasksCommand,
@@ -110,8 +105,8 @@ export class DescribeBundleTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBundleTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBundleTasksResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  StopBotRecommendationRequest,
-  StopBotRecommendationRequestFilterSensitiveLog,
-  StopBotRecommendationResponse,
-  StopBotRecommendationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopBotRecommendationRequest, StopBotRecommendationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StopBotRecommendationCommand,
   serializeAws_restJson1StopBotRecommendationCommand,
@@ -136,8 +131,8 @@ export class StopBotRecommendationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBotRecommendationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopBotRecommendationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

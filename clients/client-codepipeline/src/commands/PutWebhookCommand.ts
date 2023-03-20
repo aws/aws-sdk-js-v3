@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import {
-  PutWebhookInput,
-  PutWebhookInputFilterSensitiveLog,
-  PutWebhookOutput,
-  PutWebhookOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutWebhookInput, PutWebhookOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1PutWebhookCommand,
   serializeAws_json1_1PutWebhookCommand,
@@ -136,8 +131,8 @@ export class PutWebhookCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutWebhookInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutWebhookOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

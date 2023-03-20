@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeBuildInput,
-  DescribeBuildInputFilterSensitiveLog,
-  DescribeBuildOutput,
-  DescribeBuildOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeBuildInput, DescribeBuildOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeBuildCommand,
   serializeAws_json1_1DescribeBuildCommand,
@@ -130,8 +125,8 @@ export class DescribeBuildCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeBuildInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeBuildOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

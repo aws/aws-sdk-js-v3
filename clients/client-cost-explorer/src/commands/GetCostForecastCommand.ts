@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  GetCostForecastRequest,
-  GetCostForecastRequestFilterSensitiveLog,
-  GetCostForecastResponse,
-  GetCostForecastResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCostForecastRequest, GetCostForecastResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCostForecastCommand,
   serializeAws_json1_1GetCostForecastCommand,
@@ -114,8 +109,8 @@ export class GetCostForecastCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCostForecastRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCostForecastResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

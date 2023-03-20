@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateThemeAliasRequest,
-  UpdateThemeAliasRequestFilterSensitiveLog,
-  UpdateThemeAliasResponse,
-  UpdateThemeAliasResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { UpdateThemeAliasRequest, UpdateThemeAliasResponse } from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateThemeAliasCommand,
   serializeAws_restJson1UpdateThemeAliasCommand,
@@ -131,8 +126,8 @@ export class UpdateThemeAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateThemeAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateThemeAliasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -20,9 +20,7 @@ import {
 } from "../GlobalAcceleratorClient";
 import {
   ListCustomRoutingPortMappingsByDestinationRequest,
-  ListCustomRoutingPortMappingsByDestinationRequestFilterSensitiveLog,
   ListCustomRoutingPortMappingsByDestinationResponse,
-  ListCustomRoutingPortMappingsByDestinationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ListCustomRoutingPortMappingsByDestinationCommand,
@@ -135,8 +133,8 @@ export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCustomRoutingPortMappingsByDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCustomRoutingPortMappingsByDestinationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,9 +15,7 @@ import {
 
 import {
   RemoveDraftAppVersionResourceMappingsRequest,
-  RemoveDraftAppVersionResourceMappingsRequestFilterSensitiveLog,
   RemoveDraftAppVersionResourceMappingsResponse,
-  RemoveDraftAppVersionResourceMappingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand,
@@ -134,8 +132,8 @@ export class RemoveDraftAppVersionResourceMappingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveDraftAppVersionResourceMappingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveDraftAppVersionResourceMappingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

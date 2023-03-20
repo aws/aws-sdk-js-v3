@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetPriceListFileUrlRequest,
-  GetPriceListFileUrlRequestFilterSensitiveLog,
-  GetPriceListFileUrlResponse,
-  GetPriceListFileUrlResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetPriceListFileUrlRequest, GetPriceListFileUrlResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
 import {
   deserializeAws_json1_1GetPriceListFileUrlCommand,
@@ -127,8 +122,8 @@ export class GetPriceListFileUrlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPriceListFileUrlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPriceListFileUrlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

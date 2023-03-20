@@ -20,9 +20,7 @@ import {
 } from "../ConnectContactLensClient";
 import {
   ListRealtimeContactAnalysisSegmentsRequest,
-  ListRealtimeContactAnalysisSegmentsRequestFilterSensitiveLog,
   ListRealtimeContactAnalysisSegmentsResponse,
-  ListRealtimeContactAnalysisSegmentsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsCommand,
@@ -128,8 +126,8 @@ export class ListRealtimeContactAnalysisSegmentsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRealtimeContactAnalysisSegmentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRealtimeContactAnalysisSegmentsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

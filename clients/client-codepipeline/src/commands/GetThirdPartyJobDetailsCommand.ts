@@ -16,7 +16,6 @@ import {
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
 import {
   GetThirdPartyJobDetailsInput,
-  GetThirdPartyJobDetailsInputFilterSensitiveLog,
   GetThirdPartyJobDetailsOutput,
   GetThirdPartyJobDetailsOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class GetThirdPartyJobDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetThirdPartyJobDetailsInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetThirdPartyJobDetailsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

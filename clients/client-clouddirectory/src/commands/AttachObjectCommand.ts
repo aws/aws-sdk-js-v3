@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  AttachObjectRequest,
-  AttachObjectRequestFilterSensitiveLog,
-  AttachObjectResponse,
-  AttachObjectResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AttachObjectRequest, AttachObjectResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1AttachObjectCommand,
   serializeAws_restJson1AttachObjectCommand,
@@ -152,8 +147,8 @@ export class AttachObjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachObjectResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

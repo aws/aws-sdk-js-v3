@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DescribeLocationEfsRequest,
-  DescribeLocationEfsRequestFilterSensitiveLog,
-  DescribeLocationEfsResponse,
-  DescribeLocationEfsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeLocationEfsRequest, DescribeLocationEfsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeLocationEfsCommand,
   serializeAws_json1_1DescribeLocationEfsCommand,
@@ -113,8 +108,8 @@ export class DescribeLocationEfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationEfsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeLocationEfsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

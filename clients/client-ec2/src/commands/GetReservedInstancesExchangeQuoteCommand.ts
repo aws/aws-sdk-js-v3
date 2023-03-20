@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetReservedInstancesExchangeQuoteRequest,
-  GetReservedInstancesExchangeQuoteRequestFilterSensitiveLog,
-  GetReservedInstancesExchangeQuoteResult,
-  GetReservedInstancesExchangeQuoteResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetReservedInstancesExchangeQuoteRequest, GetReservedInstancesExchangeQuoteResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
   serializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
@@ -111,8 +106,8 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReservedInstancesExchangeQuoteRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReservedInstancesExchangeQuoteResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

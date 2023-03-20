@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  ListModelManifestNodesRequest,
-  ListModelManifestNodesRequestFilterSensitiveLog,
-  ListModelManifestNodesResponse,
-  ListModelManifestNodesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListModelManifestNodesRequest, ListModelManifestNodesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ListModelManifestNodesCommand,
   serializeAws_json1_0ListModelManifestNodesCommand,
@@ -128,8 +123,8 @@ export class ListModelManifestNodesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelManifestNodesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelManifestNodesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

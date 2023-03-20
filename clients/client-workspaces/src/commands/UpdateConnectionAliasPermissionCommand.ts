@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateConnectionAliasPermissionRequest,
-  UpdateConnectionAliasPermissionRequestFilterSensitiveLog,
-  UpdateConnectionAliasPermissionResult,
-  UpdateConnectionAliasPermissionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateConnectionAliasPermissionRequest, UpdateConnectionAliasPermissionResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateConnectionAliasPermissionCommand,
   serializeAws_json1_1UpdateConnectionAliasPermissionCommand,
@@ -151,8 +146,8 @@ export class UpdateConnectionAliasPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConnectionAliasPermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConnectionAliasPermissionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

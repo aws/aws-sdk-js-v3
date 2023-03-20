@@ -16,7 +16,6 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   GetSipMediaApplicationAlexaSkillConfigurationRequest,
-  GetSipMediaApplicationAlexaSkillConfigurationRequestFilterSensitiveLog,
   GetSipMediaApplicationAlexaSkillConfigurationResponse,
   GetSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -95,7 +94,7 @@ export class GetSipMediaApplicationAlexaSkillConfigurationCommand extends $Comma
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSipMediaApplicationAlexaSkillConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSipMediaApplicationAlexaSkillConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

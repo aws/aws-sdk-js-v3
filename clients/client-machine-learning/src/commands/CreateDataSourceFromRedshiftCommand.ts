@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  CreateDataSourceFromRedshiftInput,
-  CreateDataSourceFromRedshiftInputFilterSensitiveLog,
-  CreateDataSourceFromRedshiftOutput,
-  CreateDataSourceFromRedshiftOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDataSourceFromRedshiftInput, CreateDataSourceFromRedshiftOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateDataSourceFromRedshiftCommand,
   serializeAws_json1_1CreateDataSourceFromRedshiftCommand,
@@ -150,8 +145,8 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDataSourceFromRedshiftInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDataSourceFromRedshiftOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

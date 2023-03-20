@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateQueueHoursOfOperationRequest,
-  UpdateQueueHoursOfOperationRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateQueueHoursOfOperationRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateQueueHoursOfOperationCommand,
   serializeAws_restJson1UpdateQueueHoursOfOperationCommand,
@@ -121,8 +118,8 @@ export class UpdateQueueHoursOfOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQueueHoursOfOperationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

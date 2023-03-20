@@ -16,7 +16,6 @@ import {
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
 import {
   ListExtensibleSourceServersRequest,
-  ListExtensibleSourceServersRequestFilterSensitiveLog,
   ListExtensibleSourceServersResponse,
   ListExtensibleSourceServersResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -127,7 +126,7 @@ export class ListExtensibleSourceServersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListExtensibleSourceServersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListExtensibleSourceServersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

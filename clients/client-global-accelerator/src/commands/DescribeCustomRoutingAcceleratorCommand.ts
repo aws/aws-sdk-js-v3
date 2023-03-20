@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient";
-import {
-  DescribeCustomRoutingAcceleratorRequest,
-  DescribeCustomRoutingAcceleratorRequestFilterSensitiveLog,
-  DescribeCustomRoutingAcceleratorResponse,
-  DescribeCustomRoutingAcceleratorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeCustomRoutingAcceleratorRequest, DescribeCustomRoutingAcceleratorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommand,
   serializeAws_json1_1DescribeCustomRoutingAcceleratorCommand,
@@ -122,8 +117,8 @@ export class DescribeCustomRoutingAcceleratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeCustomRoutingAcceleratorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeCustomRoutingAcceleratorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

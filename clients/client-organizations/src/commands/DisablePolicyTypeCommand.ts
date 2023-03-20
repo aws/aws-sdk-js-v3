@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisablePolicyTypeRequest,
-  DisablePolicyTypeRequestFilterSensitiveLog,
-  DisablePolicyTypeResponse,
-  DisablePolicyTypeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisablePolicyTypeRequest, DisablePolicyTypeResponse } from "../models/models_0";
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import {
   deserializeAws_json1_1DisablePolicyTypeCommand,
@@ -483,8 +478,8 @@ export class DisablePolicyTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisablePolicyTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisablePolicyTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

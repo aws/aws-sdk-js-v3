@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InternetMonitorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InternetMonitorClient";
-import {
-  DeleteMonitorInput,
-  DeleteMonitorInputFilterSensitiveLog,
-  DeleteMonitorOutput,
-  DeleteMonitorOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteMonitorInput, DeleteMonitorOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMonitorCommand,
   serializeAws_restJson1DeleteMonitorCommand,
@@ -116,8 +111,8 @@ export class DeleteMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMonitorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMonitorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

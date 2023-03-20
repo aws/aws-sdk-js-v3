@@ -17,7 +17,6 @@ import {
   CreatePatchBaselineRequest,
   CreatePatchBaselineRequestFilterSensitiveLog,
   CreatePatchBaselineResult,
-  CreatePatchBaselineResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePatchBaselineCommand,
@@ -125,7 +124,7 @@ export class CreatePatchBaselineCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreatePatchBaselineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePatchBaselineResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

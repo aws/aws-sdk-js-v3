@@ -124,7 +124,7 @@ export class DescribeAppInstanceUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeAppInstanceUserResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

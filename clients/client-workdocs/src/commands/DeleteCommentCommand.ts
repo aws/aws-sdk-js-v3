@@ -125,7 +125,7 @@ export class DeleteCommentCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DeleteCommentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

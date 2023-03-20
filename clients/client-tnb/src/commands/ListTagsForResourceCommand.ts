@@ -15,7 +15,6 @@ import {
 
 import {
   ListTagsForResourceInput,
-  ListTagsForResourceInputFilterSensitiveLog,
   ListTagsForResourceOutput,
   ListTagsForResourceOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class ListTagsForResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTagsForResourceInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListTagsForResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

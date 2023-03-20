@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient";
-import {
-  ListPlatformVersionsRequest,
-  ListPlatformVersionsRequestFilterSensitiveLog,
-  ListPlatformVersionsResult,
-  ListPlatformVersionsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPlatformVersionsRequest, ListPlatformVersionsResult } from "../models/models_0";
 import {
   deserializeAws_queryListPlatformVersionsCommand,
   serializeAws_queryListPlatformVersionsCommand,
@@ -118,8 +113,8 @@ export class ListPlatformVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlatformVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPlatformVersionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

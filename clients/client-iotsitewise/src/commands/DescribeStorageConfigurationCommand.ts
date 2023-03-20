@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import {
-  DescribeStorageConfigurationRequest,
-  DescribeStorageConfigurationRequestFilterSensitiveLog,
-  DescribeStorageConfigurationResponse,
-  DescribeStorageConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeStorageConfigurationRequest, DescribeStorageConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeStorageConfigurationCommand,
   serializeAws_restJson1DescribeStorageConfigurationCommand,
@@ -135,8 +130,8 @@ export class DescribeStorageConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeStorageConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeStorageConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
-import {
-  StartModelRequest,
-  StartModelRequestFilterSensitiveLog,
-  StartModelResponse,
-  StartModelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartModelRequest, StartModelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartModelCommand,
   serializeAws_restJson1StartModelCommand,
@@ -138,8 +133,8 @@ export class StartModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

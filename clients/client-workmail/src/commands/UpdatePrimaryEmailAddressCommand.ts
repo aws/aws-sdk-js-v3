@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdatePrimaryEmailAddressRequest,
-  UpdatePrimaryEmailAddressRequestFilterSensitiveLog,
-  UpdatePrimaryEmailAddressResponse,
-  UpdatePrimaryEmailAddressResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdatePrimaryEmailAddressRequest, UpdatePrimaryEmailAddressResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdatePrimaryEmailAddressCommand,
   serializeAws_json1_1UpdatePrimaryEmailAddressCommand,
@@ -148,8 +143,8 @@ export class UpdatePrimaryEmailAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePrimaryEmailAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePrimaryEmailAddressResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

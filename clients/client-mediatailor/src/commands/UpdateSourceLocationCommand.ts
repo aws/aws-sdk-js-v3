@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  UpdateSourceLocationRequest,
-  UpdateSourceLocationRequestFilterSensitiveLog,
-  UpdateSourceLocationResponse,
-  UpdateSourceLocationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSourceLocationRequest, UpdateSourceLocationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSourceLocationCommand,
   serializeAws_restJson1UpdateSourceLocationCommand,
@@ -107,8 +102,8 @@ export class UpdateSourceLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSourceLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSourceLocationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

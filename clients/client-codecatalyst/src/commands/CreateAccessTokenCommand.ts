@@ -16,7 +16,6 @@ import {
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import {
   CreateAccessTokenRequest,
-  CreateAccessTokenRequestFilterSensitiveLog,
   CreateAccessTokenResponse,
   CreateAccessTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -129,7 +128,7 @@ export class CreateAccessTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAccessTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateAccessTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

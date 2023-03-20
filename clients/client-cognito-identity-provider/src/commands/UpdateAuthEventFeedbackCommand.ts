@@ -23,7 +23,6 @@ import {
   UpdateAuthEventFeedbackRequest,
   UpdateAuthEventFeedbackRequestFilterSensitiveLog,
   UpdateAuthEventFeedbackResponse,
-  UpdateAuthEventFeedbackResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateAuthEventFeedbackCommand,
@@ -140,7 +139,7 @@ export class UpdateAuthEventFeedbackCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateAuthEventFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAuthEventFeedbackResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

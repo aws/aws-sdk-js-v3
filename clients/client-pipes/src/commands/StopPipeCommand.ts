@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StopPipeRequest,
-  StopPipeRequestFilterSensitiveLog,
-  StopPipeResponse,
-  StopPipeResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StopPipeRequest, StopPipeResponse } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
 import {
   deserializeAws_restJson1StopPipeCommand,
@@ -116,8 +111,8 @@ export class StopPipeCommand extends $Command<StopPipeCommandInput, StopPipeComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopPipeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StopPipeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

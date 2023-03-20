@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppIntegrationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppIntegrationsClient";
-import {
-  UpdateEventIntegrationRequest,
-  UpdateEventIntegrationRequestFilterSensitiveLog,
-  UpdateEventIntegrationResponse,
-  UpdateEventIntegrationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateEventIntegrationRequest, UpdateEventIntegrationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateEventIntegrationCommand,
   serializeAws_restJson1UpdateEventIntegrationCommand,
@@ -122,8 +117,8 @@ export class UpdateEventIntegrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventIntegrationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventIntegrationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAvailabilityConfigurationRequest,
-  DeleteAvailabilityConfigurationRequestFilterSensitiveLog,
-  DeleteAvailabilityConfigurationResponse,
-  DeleteAvailabilityConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAvailabilityConfigurationRequest, DeleteAvailabilityConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteAvailabilityConfigurationCommand,
   serializeAws_json1_1DeleteAvailabilityConfigurationCommand,
@@ -117,8 +112,8 @@ export class DeleteAvailabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAvailabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAvailabilityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

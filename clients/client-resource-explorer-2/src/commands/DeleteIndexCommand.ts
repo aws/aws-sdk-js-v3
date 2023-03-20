@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteIndexInput,
-  DeleteIndexInputFilterSensitiveLog,
-  DeleteIndexOutput,
-  DeleteIndexOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteIndexInput, DeleteIndexOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteIndexCommand,
   serializeAws_restJson1DeleteIndexCommand,
@@ -140,8 +135,8 @@ export class DeleteIndexCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteIndexInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteIndexOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

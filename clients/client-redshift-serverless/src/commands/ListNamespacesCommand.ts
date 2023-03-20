@@ -15,7 +15,6 @@ import {
 
 import {
   ListNamespacesRequest,
-  ListNamespacesRequestFilterSensitiveLog,
   ListNamespacesResponse,
   ListNamespacesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -117,7 +116,7 @@ export class ListNamespacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListNamespacesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListNamespacesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

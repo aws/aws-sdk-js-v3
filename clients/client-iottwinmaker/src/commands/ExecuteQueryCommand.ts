@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
-import {
-  ExecuteQueryRequest,
-  ExecuteQueryRequestFilterSensitiveLog,
-  ExecuteQueryResponse,
-  ExecuteQueryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ExecuteQueryRequest, ExecuteQueryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ExecuteQueryCommand,
   serializeAws_restJson1ExecuteQueryCommand,
@@ -124,8 +119,8 @@ export class ExecuteQueryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteQueryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

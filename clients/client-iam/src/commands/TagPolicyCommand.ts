@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagPolicyRequest, TagPolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { TagPolicyRequest } from "../models/models_0";
 import { deserializeAws_queryTagPolicyCommand, serializeAws_queryTagPolicyCommand } from "../protocols/Aws_query";
 
 /**
@@ -148,8 +148,8 @@ export class TagPolicyCommand extends $Command<TagPolicyCommandInput, TagPolicyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

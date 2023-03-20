@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import {
-  ListProvisionedCapacityInput,
-  ListProvisionedCapacityInputFilterSensitiveLog,
-  ListProvisionedCapacityOutput,
-  ListProvisionedCapacityOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListProvisionedCapacityInput, ListProvisionedCapacityOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListProvisionedCapacityCommand,
   serializeAws_restJson1ListProvisionedCapacityCommand,
@@ -144,8 +139,8 @@ export class ListProvisionedCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListProvisionedCapacityInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListProvisionedCapacityOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

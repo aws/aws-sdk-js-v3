@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { CancelSolNetworkOperationInput, CancelSolNetworkOperationInputFilterSensitiveLog } from "../models/models_0";
+import { CancelSolNetworkOperationInput } from "../models/models_0";
 import {
   deserializeAws_restJson1CancelSolNetworkOperationCommand,
   serializeAws_restJson1CancelSolNetworkOperationCommand,
@@ -118,8 +118,8 @@ export class CancelSolNetworkOperationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelSolNetworkOperationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

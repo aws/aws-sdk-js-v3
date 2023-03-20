@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  CreateQueueRequest,
-  CreateQueueRequestFilterSensitiveLog,
-  CreateQueueResponse,
-  CreateQueueResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateQueueRequest, CreateQueueResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateQueueCommand,
   serializeAws_restJson1CreateQueueCommand,
@@ -138,8 +133,8 @@ export class CreateQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateQueueRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateQueueResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

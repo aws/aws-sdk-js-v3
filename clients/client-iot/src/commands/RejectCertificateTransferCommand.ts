@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  RejectCertificateTransferRequest,
-  RejectCertificateTransferRequestFilterSensitiveLog,
-} from "../models/models_2";
+import { RejectCertificateTransferRequest } from "../models/models_2";
 import {
   deserializeAws_restJson1RejectCertificateTransferCommand,
   serializeAws_restJson1RejectCertificateTransferCommand,
@@ -134,8 +131,8 @@ export class RejectCertificateTransferCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RejectCertificateTransferRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

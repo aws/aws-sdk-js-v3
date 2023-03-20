@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  CreateKeyRequest,
-  CreateKeyRequestFilterSensitiveLog,
-  CreateKeyResponse,
-  CreateKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateKeyRequest, CreateKeyResponse } from "../models/models_0";
 import { deserializeAws_json1_1CreateKeyCommand, serializeAws_json1_1CreateKeyCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -668,8 +663,8 @@ export class CreateKeyCommand extends $Command<CreateKeyCommandInput, CreateKeyC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

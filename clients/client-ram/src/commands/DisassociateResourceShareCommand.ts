@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateResourceShareRequest,
-  DisassociateResourceShareRequestFilterSensitiveLog,
-  DisassociateResourceShareResponse,
-  DisassociateResourceShareResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateResourceShareRequest, DisassociateResourceShareResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DisassociateResourceShareCommand,
   serializeAws_restJson1DisassociateResourceShareCommand,
@@ -139,8 +134,8 @@ export class DisassociateResourceShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateResourceShareRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateResourceShareResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

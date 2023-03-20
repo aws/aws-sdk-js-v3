@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import {
-  CreateClusterInput,
-  CreateClusterInputFilterSensitiveLog,
-  CreateClusterOutput,
-  CreateClusterOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateClusterInput, CreateClusterInputFilterSensitiveLog, CreateClusterOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateClusterCommand,
   serializeAws_restJson1CreateClusterCommand,
@@ -124,7 +119,7 @@ export class CreateClusterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateClusterInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

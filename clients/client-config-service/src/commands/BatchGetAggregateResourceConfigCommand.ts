@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  BatchGetAggregateResourceConfigRequest,
-  BatchGetAggregateResourceConfigRequestFilterSensitiveLog,
-  BatchGetAggregateResourceConfigResponse,
-  BatchGetAggregateResourceConfigResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetAggregateResourceConfigRequest, BatchGetAggregateResourceConfigResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetAggregateResourceConfigCommand,
   serializeAws_json1_1BatchGetAggregateResourceConfigCommand,
@@ -128,8 +123,8 @@ export class BatchGetAggregateResourceConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetAggregateResourceConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetAggregateResourceConfigResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

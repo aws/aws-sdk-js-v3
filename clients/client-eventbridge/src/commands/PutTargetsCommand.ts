@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  PutTargetsRequest,
-  PutTargetsRequestFilterSensitiveLog,
-  PutTargetsResponse,
-  PutTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutTargetsRequest, PutTargetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutTargetsCommand,
   serializeAws_json1_1PutTargetsCommand,
@@ -303,8 +298,8 @@ export class PutTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

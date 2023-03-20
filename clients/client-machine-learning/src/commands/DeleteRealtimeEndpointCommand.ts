@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import {
-  DeleteRealtimeEndpointInput,
-  DeleteRealtimeEndpointInputFilterSensitiveLog,
-  DeleteRealtimeEndpointOutput,
-  DeleteRealtimeEndpointOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRealtimeEndpointInput, DeleteRealtimeEndpointOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRealtimeEndpointCommand,
   serializeAws_json1_1DeleteRealtimeEndpointCommand,
@@ -116,8 +111,8 @@ export class DeleteRealtimeEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRealtimeEndpointInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRealtimeEndpointOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

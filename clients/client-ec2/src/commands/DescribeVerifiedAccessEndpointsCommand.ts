@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeVerifiedAccessEndpointsRequest,
-  DescribeVerifiedAccessEndpointsRequestFilterSensitiveLog,
-  DescribeVerifiedAccessEndpointsResult,
-  DescribeVerifiedAccessEndpointsResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeVerifiedAccessEndpointsRequest, DescribeVerifiedAccessEndpointsResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeVerifiedAccessEndpointsCommand,
   serializeAws_ec2DescribeVerifiedAccessEndpointsCommand,
@@ -109,8 +104,8 @@ export class DescribeVerifiedAccessEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVerifiedAccessEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVerifiedAccessEndpointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

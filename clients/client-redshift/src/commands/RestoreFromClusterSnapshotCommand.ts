@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RestoreFromClusterSnapshotMessage,
-  RestoreFromClusterSnapshotMessageFilterSensitiveLog,
-  RestoreFromClusterSnapshotResult,
-  RestoreFromClusterSnapshotResultFilterSensitiveLog,
-} from "../models/models_1";
+import { RestoreFromClusterSnapshotMessage, RestoreFromClusterSnapshotResult } from "../models/models_1";
 import {
   deserializeAws_queryRestoreFromClusterSnapshotCommand,
   serializeAws_queryRestoreFromClusterSnapshotCommand,
@@ -231,8 +226,8 @@ export class RestoreFromClusterSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreFromClusterSnapshotMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreFromClusterSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

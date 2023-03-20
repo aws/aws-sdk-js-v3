@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
-import { DeleteFunctionRequest, DeleteFunctionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteFunctionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFunctionCommand,
   serializeAws_restJson1DeleteFunctionCommand,
@@ -120,8 +120,8 @@ export class DeleteFunctionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import { DeleteMonitorRequest, DeleteMonitorRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteMonitorRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteMonitorCommand,
   serializeAws_json1_1DeleteMonitorCommand,
@@ -111,8 +111,8 @@ export class DeleteMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

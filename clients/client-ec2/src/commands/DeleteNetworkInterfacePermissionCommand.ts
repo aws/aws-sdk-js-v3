@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteNetworkInterfacePermissionRequest,
-  DeleteNetworkInterfacePermissionRequestFilterSensitiveLog,
-  DeleteNetworkInterfacePermissionResult,
-  DeleteNetworkInterfacePermissionResultFilterSensitiveLog,
-} from "../models/models_2";
+import { DeleteNetworkInterfacePermissionRequest, DeleteNetworkInterfacePermissionResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteNetworkInterfacePermissionCommand,
   serializeAws_ec2DeleteNetworkInterfacePermissionCommand,
@@ -112,8 +107,8 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteNetworkInterfacePermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteNetworkInterfacePermissionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  CreatePullRequestInput,
-  CreatePullRequestInputFilterSensitiveLog,
-  CreatePullRequestOutput,
-  CreatePullRequestOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreatePullRequestInput, CreatePullRequestOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePullRequestCommand,
   serializeAws_json1_1CreatePullRequestCommand,
@@ -199,8 +194,8 @@ export class CreatePullRequestCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePullRequestInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePullRequestOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

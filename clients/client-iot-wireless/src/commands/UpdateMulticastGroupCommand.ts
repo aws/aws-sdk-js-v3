@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
-import {
-  UpdateMulticastGroupRequest,
-  UpdateMulticastGroupRequestFilterSensitiveLog,
-  UpdateMulticastGroupResponse,
-  UpdateMulticastGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateMulticastGroupRequest, UpdateMulticastGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateMulticastGroupCommand,
   serializeAws_restJson1UpdateMulticastGroupCommand,
@@ -125,8 +120,8 @@ export class UpdateMulticastGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateMulticastGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateMulticastGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

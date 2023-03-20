@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListHubContentVersionsRequest,
-  ListHubContentVersionsRequestFilterSensitiveLog,
-  ListHubContentVersionsResponse,
-  ListHubContentVersionsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListHubContentVersionsRequest, ListHubContentVersionsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListHubContentVersionsCommand,
   serializeAws_json1_1ListHubContentVersionsCommand,
@@ -113,8 +108,8 @@ export class ListHubContentVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListHubContentVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListHubContentVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

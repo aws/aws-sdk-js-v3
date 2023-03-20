@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
-import { AbortVaultLockInput, AbortVaultLockInputFilterSensitiveLog } from "../models/models_0";
+import { AbortVaultLockInput } from "../models/models_0";
 import {
   deserializeAws_restJson1AbortVaultLockCommand,
   serializeAws_restJson1AbortVaultLockCommand,
@@ -140,8 +140,8 @@ export class AbortVaultLockCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AbortVaultLockInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

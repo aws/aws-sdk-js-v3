@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateAccountAuditConfigurationRequest,
-  UpdateAccountAuditConfigurationRequestFilterSensitiveLog,
-  UpdateAccountAuditConfigurationResponse,
-  UpdateAccountAuditConfigurationResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateAccountAuditConfigurationRequest, UpdateAccountAuditConfigurationResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateAccountAuditConfigurationCommand,
   serializeAws_restJson1UpdateAccountAuditConfigurationCommand,
@@ -121,8 +116,8 @@ export class UpdateAccountAuditConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAccountAuditConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAccountAuditConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

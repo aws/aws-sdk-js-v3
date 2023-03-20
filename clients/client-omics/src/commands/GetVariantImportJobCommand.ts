@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetVariantImportRequest,
-  GetVariantImportRequestFilterSensitiveLog,
-  GetVariantImportResponse,
-  GetVariantImportResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetVariantImportRequest, GetVariantImportResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1GetVariantImportJobCommand,
@@ -122,8 +117,8 @@ export class GetVariantImportJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVariantImportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVariantImportResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

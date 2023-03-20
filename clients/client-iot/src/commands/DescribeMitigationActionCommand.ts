@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DescribeMitigationActionRequest,
-  DescribeMitigationActionRequestFilterSensitiveLog,
-  DescribeMitigationActionResponse,
-  DescribeMitigationActionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeMitigationActionRequest, DescribeMitigationActionResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeMitigationActionCommand,
   serializeAws_restJson1DescribeMitigationActionCommand,
@@ -120,8 +115,8 @@ export class DescribeMitigationActionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMitigationActionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMitigationActionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

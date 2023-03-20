@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ExecuteSqlRequest,
-  ExecuteSqlRequestFilterSensitiveLog,
-  ExecuteSqlResponse,
-  ExecuteSqlResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ExecuteSqlRequest, ExecuteSqlResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ExecuteSqlCommand,
   serializeAws_restJson1ExecuteSqlCommand,
@@ -127,8 +122,8 @@ export class ExecuteSqlCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteSqlRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteSqlResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -19,7 +19,6 @@ import {
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import {
   DescribeInputDeviceThumbnailRequest,
-  DescribeInputDeviceThumbnailRequestFilterSensitiveLog,
   DescribeInputDeviceThumbnailResponse,
   DescribeInputDeviceThumbnailResponseFilterSensitiveLog,
 } from "../models/models_1";
@@ -133,7 +132,7 @@ export class DescribeInputDeviceThumbnailCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInputDeviceThumbnailRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeInputDeviceThumbnailResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

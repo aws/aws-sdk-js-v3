@@ -16,9 +16,7 @@ import {
 import { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
 import {
   ListControlInsightsByControlDomainRequest,
-  ListControlInsightsByControlDomainRequestFilterSensitiveLog,
   ListControlInsightsByControlDomainResponse,
-  ListControlInsightsByControlDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListControlInsightsByControlDomainCommand,
@@ -130,8 +128,8 @@ export class ListControlInsightsByControlDomainCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListControlInsightsByControlDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListControlInsightsByControlDomainResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

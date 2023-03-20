@@ -15,9 +15,7 @@ import {
 
 import {
   ListAttributeGroupsForApplicationRequest,
-  ListAttributeGroupsForApplicationRequestFilterSensitiveLog,
   ListAttributeGroupsForApplicationResponse,
-  ListAttributeGroupsForApplicationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAttributeGroupsForApplicationCommand,
@@ -122,8 +120,8 @@ export class ListAttributeGroupsForApplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttributeGroupsForApplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttributeGroupsForApplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeEngineDefaultParametersMessage,
-  DescribeEngineDefaultParametersMessageFilterSensitiveLog,
-  DescribeEngineDefaultParametersResult,
-  DescribeEngineDefaultParametersResultFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult } from "../models/models_1";
 import {
   deserializeAws_queryDescribeEngineDefaultParametersCommand,
   serializeAws_queryDescribeEngineDefaultParametersCommand,
@@ -125,8 +120,8 @@ export class DescribeEngineDefaultParametersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEngineDefaultParametersMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEngineDefaultParametersResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -168,7 +168,7 @@ export class CreateChannelMembershipCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateChannelMembershipResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

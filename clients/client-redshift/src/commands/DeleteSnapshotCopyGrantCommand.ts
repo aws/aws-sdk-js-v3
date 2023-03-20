@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteSnapshotCopyGrantMessage, DeleteSnapshotCopyGrantMessageFilterSensitiveLog } from "../models/models_0";
+import { DeleteSnapshotCopyGrantMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteSnapshotCopyGrantCommand,
   serializeAws_queryDeleteSnapshotCopyGrantCommand,
@@ -110,8 +110,8 @@ export class DeleteSnapshotCopyGrantCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteSnapshotCopyGrantMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

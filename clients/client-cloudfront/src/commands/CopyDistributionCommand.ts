@@ -16,7 +16,6 @@ import {
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
   CopyDistributionRequest,
-  CopyDistributionRequestFilterSensitiveLog,
   CopyDistributionResult,
   CopyDistributionResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -339,7 +338,7 @@ export class CopyDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopyDistributionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CopyDistributionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

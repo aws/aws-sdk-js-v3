@@ -1797,72 +1797,9 @@ export interface UpdateWorkspaceResponse {
 /**
  * @internal
  */
-export const CreateWorkspaceApiKeyRequestFilterSensitiveLog = (obj: CreateWorkspaceApiKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateWorkspaceApiKeyResponseFilterSensitiveLog = (obj: CreateWorkspaceApiKeyResponse): any => ({
   ...obj,
   ...(obj.key && { key: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkspaceApiKeyRequestFilterSensitiveLog = (obj: DeleteWorkspaceApiKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteWorkspaceApiKeyResponseFilterSensitiveLog = (obj: DeleteWorkspaceApiKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssertionAttributesFilterSensitiveLog = (obj: AssertionAttributes): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateLicenseRequestFilterSensitiveLog = (obj: AssociateLicenseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AuthenticationSummaryFilterSensitiveLog = (obj: AuthenticationSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkAccessConfigurationFilterSensitiveLog = (obj: NetworkAccessConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VpcConfigurationFilterSensitiveLog = (obj: VpcConfiguration): any => ({
-  ...obj,
 });
 
 /**
@@ -1888,236 +1825,9 @@ export const AssociateLicenseResponseFilterSensitiveLog = (obj: AssociateLicense
 /**
  * @internal
  */
-export const DescribeWorkspaceAuthenticationRequestFilterSensitiveLog = (
-  obj: DescribeWorkspaceAuthenticationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsSsoAuthenticationFilterSensitiveLog = (obj: AwsSsoAuthentication): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IdpMetadataFilterSensitiveLog = (obj: IdpMetadata): any => {
-  if (obj.url !== undefined) return { url: obj.url };
-  if (obj.xml !== undefined) return { xml: obj.xml };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const RoleValuesFilterSensitiveLog = (obj: RoleValues): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SamlConfigurationFilterSensitiveLog = (obj: SamlConfiguration): any => ({
-  ...obj,
-  ...(obj.idpMetadata && { idpMetadata: IdpMetadataFilterSensitiveLog(obj.idpMetadata) }),
-});
-
-/**
- * @internal
- */
-export const SamlAuthenticationFilterSensitiveLog = (obj: SamlAuthentication): any => ({
-  ...obj,
-  ...(obj.configuration && { configuration: SamlConfigurationFilterSensitiveLog(obj.configuration) }),
-});
-
-/**
- * @internal
- */
-export const AuthenticationDescriptionFilterSensitiveLog = (obj: AuthenticationDescription): any => ({
-  ...obj,
-  ...(obj.saml && { saml: SamlAuthenticationFilterSensitiveLog(obj.saml) }),
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceAuthenticationResponseFilterSensitiveLog = (
-  obj: DescribeWorkspaceAuthenticationResponse
-): any => ({
-  ...obj,
-  ...(obj.authentication && { authentication: AuthenticationDescriptionFilterSensitiveLog(obj.authentication) }),
-});
-
-/**
- * @internal
- */
-export const UpdateWorkspaceAuthenticationRequestFilterSensitiveLog = (
-  obj: UpdateWorkspaceAuthenticationRequest
-): any => ({
-  ...obj,
-  ...(obj.samlConfiguration && { samlConfiguration: SamlConfigurationFilterSensitiveLog(obj.samlConfiguration) }),
-});
-
-/**
- * @internal
- */
-export const UpdateWorkspaceAuthenticationResponseFilterSensitiveLog = (
-  obj: UpdateWorkspaceAuthenticationResponse
-): any => ({
-  ...obj,
-  ...(obj.authentication && { authentication: AuthenticationDescriptionFilterSensitiveLog(obj.authentication) }),
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceConfigurationRequestFilterSensitiveLog = (
-  obj: DescribeWorkspaceConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeWorkspaceConfigurationResponseFilterSensitiveLog = (
-  obj: DescribeWorkspaceConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkspaceConfigurationRequestFilterSensitiveLog = (
-  obj: UpdateWorkspaceConfigurationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateWorkspaceConfigurationResponseFilterSensitiveLog = (
-  obj: UpdateWorkspaceConfigurationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateLicenseRequestFilterSensitiveLog = (obj: DisassociateLicenseRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DisassociateLicenseResponseFilterSensitiveLog = (obj: DisassociateLicenseResponse): any => ({
   ...obj,
   ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionsRequestFilterSensitiveLog = (obj: ListPermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserFilterSensitiveLog = (obj: User): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PermissionEntryFilterSensitiveLog = (obj: PermissionEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListPermissionsResponseFilterSensitiveLog = (obj: ListPermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateInstructionFilterSensitiveLog = (obj: UpdateInstruction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePermissionsRequestFilterSensitiveLog = (obj: UpdatePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateErrorFilterSensitiveLog = (obj: UpdateError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePermissionsResponseFilterSensitiveLog = (obj: UpdatePermissionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -2143,13 +1853,6 @@ export const CreateWorkspaceResponseFilterSensitiveLog = (obj: CreateWorkspaceRe
 /**
  * @internal
  */
-export const DeleteWorkspaceRequestFilterSensitiveLog = (obj: DeleteWorkspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteWorkspaceResponseFilterSensitiveLog = (obj: DeleteWorkspaceResponse): any => ({
   ...obj,
   ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
@@ -2158,23 +1861,9 @@ export const DeleteWorkspaceResponseFilterSensitiveLog = (obj: DeleteWorkspaceRe
 /**
  * @internal
  */
-export const DescribeWorkspaceRequestFilterSensitiveLog = (obj: DescribeWorkspaceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DescribeWorkspaceResponseFilterSensitiveLog = (obj: DescribeWorkspaceResponse): any => ({
   ...obj,
   ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
-});
-
-/**
- * @internal
- */
-export const ListWorkspacesRequestFilterSensitiveLog = (obj: ListWorkspacesRequest): any => ({
-  ...obj,
 });
 
 /**

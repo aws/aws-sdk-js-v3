@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  BatchGetPreparedStatementInput,
-  BatchGetPreparedStatementInputFilterSensitiveLog,
-  BatchGetPreparedStatementOutput,
-  BatchGetPreparedStatementOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetPreparedStatementInput, BatchGetPreparedStatementOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchGetPreparedStatementCommand,
   serializeAws_json1_1BatchGetPreparedStatementCommand,
@@ -119,8 +114,8 @@ export class BatchGetPreparedStatementCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetPreparedStatementInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetPreparedStatementOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

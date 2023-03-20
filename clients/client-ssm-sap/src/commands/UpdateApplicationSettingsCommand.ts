@@ -17,7 +17,6 @@ import {
   UpdateApplicationSettingsInput,
   UpdateApplicationSettingsInputFilterSensitiveLog,
   UpdateApplicationSettingsOutput,
-  UpdateApplicationSettingsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateApplicationSettingsCommand,
@@ -118,7 +117,7 @@ export class UpdateApplicationSettingsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateApplicationSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateApplicationSettingsOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

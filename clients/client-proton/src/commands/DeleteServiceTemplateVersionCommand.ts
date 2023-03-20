@@ -15,7 +15,6 @@ import {
 
 import {
   DeleteServiceTemplateVersionInput,
-  DeleteServiceTemplateVersionInputFilterSensitiveLog,
   DeleteServiceTemplateVersionOutput,
   DeleteServiceTemplateVersionOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -132,7 +131,7 @@ export class DeleteServiceTemplateVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteServiceTemplateVersionInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteServiceTemplateVersionOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

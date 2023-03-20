@@ -16,7 +16,6 @@ import {
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
   CreateWorkspaceApiKeyRequest,
-  CreateWorkspaceApiKeyRequestFilterSensitiveLog,
   CreateWorkspaceApiKeyResponse,
   CreateWorkspaceApiKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -130,7 +129,7 @@ export class CreateWorkspaceApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateWorkspaceApiKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateWorkspaceApiKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

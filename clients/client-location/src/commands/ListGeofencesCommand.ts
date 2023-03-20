@@ -16,7 +16,6 @@ import {
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
 import {
   ListGeofencesRequest,
-  ListGeofencesRequestFilterSensitiveLog,
   ListGeofencesResponse,
   ListGeofencesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -121,7 +120,7 @@ export class ListGeofencesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGeofencesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListGeofencesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

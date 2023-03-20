@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { XmlListsOutput, XmlListsOutputFilterSensitiveLog } from "../models/models_0";
+import { XmlListsOutput } from "../models/models_0";
 import {
   deserializeAws_queryXmlEmptyListsCommand,
   serializeAws_queryXmlEmptyListsCommand,
@@ -20,10 +20,14 @@ import {
 import { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link XmlEmptyListsCommand}.
  */
 export interface XmlEmptyListsCommandInput {}
 /**
+ * @public
+ *
  * The output of {@link XmlEmptyListsCommand}.
  */
 export interface XmlEmptyListsCommandOutput extends XmlListsOutput, __MetadataBearer {}
@@ -36,6 +40,9 @@ export class XmlEmptyListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: XmlEmptyListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -61,8 +68,8 @@ export class XmlEmptyListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: XmlListsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -72,10 +79,16 @@ export class XmlEmptyListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: XmlEmptyListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_queryXmlEmptyListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<XmlEmptyListsCommandOutput> {
     return deserializeAws_queryXmlEmptyListsCommand(output, context);
   }

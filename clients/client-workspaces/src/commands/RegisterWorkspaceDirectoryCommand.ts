@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RegisterWorkspaceDirectoryRequest,
-  RegisterWorkspaceDirectoryRequestFilterSensitiveLog,
-  RegisterWorkspaceDirectoryResult,
-  RegisterWorkspaceDirectoryResultFilterSensitiveLog,
-} from "../models/models_0";
+import { RegisterWorkspaceDirectoryRequest, RegisterWorkspaceDirectoryResult } from "../models/models_0";
 import {
   deserializeAws_json1_1RegisterWorkspaceDirectoryCommand,
   serializeAws_json1_1RegisterWorkspaceDirectoryCommand,
@@ -139,8 +134,8 @@ export class RegisterWorkspaceDirectoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterWorkspaceDirectoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterWorkspaceDirectoryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

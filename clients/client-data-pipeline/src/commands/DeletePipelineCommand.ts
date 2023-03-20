@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { DeletePipelineInput, DeletePipelineInputFilterSensitiveLog } from "../models/models_0";
+import { DeletePipelineInput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePipelineCommand,
   serializeAws_json1_1DeletePipelineCommand,
@@ -142,8 +142,8 @@ export class DeletePipelineCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePipelineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

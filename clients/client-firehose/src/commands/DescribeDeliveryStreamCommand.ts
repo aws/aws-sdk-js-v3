@@ -16,7 +16,6 @@ import {
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import {
   DescribeDeliveryStreamInput,
-  DescribeDeliveryStreamInputFilterSensitiveLog,
   DescribeDeliveryStreamOutput,
   DescribeDeliveryStreamOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class DescribeDeliveryStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDeliveryStreamInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeDeliveryStreamOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

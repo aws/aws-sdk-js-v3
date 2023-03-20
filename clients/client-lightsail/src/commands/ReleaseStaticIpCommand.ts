@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  ReleaseStaticIpRequest,
-  ReleaseStaticIpRequestFilterSensitiveLog,
-  ReleaseStaticIpResult,
-  ReleaseStaticIpResultFilterSensitiveLog,
-} from "../models/models_1";
+import { ReleaseStaticIpRequest, ReleaseStaticIpResult } from "../models/models_1";
 import {
   deserializeAws_json1_1ReleaseStaticIpCommand,
   serializeAws_json1_1ReleaseStaticIpCommand,
@@ -137,8 +132,8 @@ export class ReleaseStaticIpCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReleaseStaticIpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReleaseStaticIpResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

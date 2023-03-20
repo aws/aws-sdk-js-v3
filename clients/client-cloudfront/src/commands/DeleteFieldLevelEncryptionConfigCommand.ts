@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  DeleteFieldLevelEncryptionConfigRequest,
-  DeleteFieldLevelEncryptionConfigRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteFieldLevelEncryptionConfigRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
   serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
@@ -121,8 +118,8 @@ export class DeleteFieldLevelEncryptionConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFieldLevelEncryptionConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

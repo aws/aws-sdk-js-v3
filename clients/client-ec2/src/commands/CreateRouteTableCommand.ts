@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateRouteTableRequest,
-  CreateRouteTableRequestFilterSensitiveLog,
-  CreateRouteTableResult,
-  CreateRouteTableResultFilterSensitiveLog,
-} from "../models/models_2";
+import { CreateRouteTableRequest, CreateRouteTableResult } from "../models/models_2";
 import {
   deserializeAws_ec2CreateRouteTableCommand,
   serializeAws_ec2CreateRouteTableCommand,
@@ -138,8 +133,8 @@ export class CreateRouteTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateRouteTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateRouteTableResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

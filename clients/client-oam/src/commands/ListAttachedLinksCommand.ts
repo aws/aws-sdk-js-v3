@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListAttachedLinksInput,
-  ListAttachedLinksInputFilterSensitiveLog,
-  ListAttachedLinksOutput,
-  ListAttachedLinksOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAttachedLinksInput, ListAttachedLinksOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import {
   deserializeAws_restJson1ListAttachedLinksCommand,
@@ -121,8 +116,8 @@ export class ListAttachedLinksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAttachedLinksInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAttachedLinksOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

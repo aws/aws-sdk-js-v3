@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CheckCapacityRequest,
-  CheckCapacityRequestFilterSensitiveLog,
-  CheckCapacityResponse,
-  CheckCapacityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CheckCapacityRequest, CheckCapacityResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CheckCapacityCommand,
   serializeAws_json1_1CheckCapacityCommand,
@@ -176,8 +171,8 @@ export class CheckCapacityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckCapacityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckCapacityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

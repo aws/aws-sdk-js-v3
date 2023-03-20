@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  VerifyMacRequest,
-  VerifyMacRequestFilterSensitiveLog,
-  VerifyMacResponse,
-  VerifyMacResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { VerifyMacRequest, VerifyMacRequestFilterSensitiveLog, VerifyMacResponse } from "../models/models_0";
 import { deserializeAws_json1_1VerifyMacCommand, serializeAws_json1_1VerifyMacCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -202,7 +197,7 @@ export class VerifyMacCommand extends $Command<VerifyMacCommandInput, VerifyMacC
       clientName,
       commandName,
       inputFilterSensitiveLog: VerifyMacRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VerifyMacResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

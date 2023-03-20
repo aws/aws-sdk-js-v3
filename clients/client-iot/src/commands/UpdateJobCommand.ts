@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { UpdateJobRequest, UpdateJobRequestFilterSensitiveLog } from "../models/models_2";
+import { UpdateJobRequest } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateJobCommand,
   serializeAws_restJson1UpdateJobCommand,
@@ -109,8 +109,8 @@ export class UpdateJobCommand extends $Command<UpdateJobCommandInput, UpdateJobC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

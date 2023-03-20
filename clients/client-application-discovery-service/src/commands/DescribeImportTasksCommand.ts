@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient";
-import {
-  DescribeImportTasksRequest,
-  DescribeImportTasksRequestFilterSensitiveLog,
-  DescribeImportTasksResponse,
-  DescribeImportTasksResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeImportTasksRequest, DescribeImportTasksResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeImportTasksCommand,
   serializeAws_json1_1DescribeImportTasksCommand,
@@ -129,8 +124,8 @@ export class DescribeImportTasksCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeImportTasksRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeImportTasksResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

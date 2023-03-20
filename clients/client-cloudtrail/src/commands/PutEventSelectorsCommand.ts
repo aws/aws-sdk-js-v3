@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import {
-  PutEventSelectorsRequest,
-  PutEventSelectorsRequestFilterSensitiveLog,
-  PutEventSelectorsResponse,
-  PutEventSelectorsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutEventSelectorsRequest, PutEventSelectorsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutEventSelectorsCommand,
   serializeAws_json1_1PutEventSelectorsCommand,
@@ -243,8 +238,8 @@ export class PutEventSelectorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutEventSelectorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutEventSelectorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

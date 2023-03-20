@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  StartGUISessionRequest,
-  StartGUISessionRequestFilterSensitiveLog,
-  StartGUISessionResult,
-  StartGUISessionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { StartGUISessionRequest, StartGUISessionResult } from "../models/models_1";
 import {
   deserializeAws_json1_1StartGUISessionCommand,
   serializeAws_json1_1StartGUISessionCommand,
@@ -131,8 +126,8 @@ export class StartGUISessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartGUISessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartGUISessionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

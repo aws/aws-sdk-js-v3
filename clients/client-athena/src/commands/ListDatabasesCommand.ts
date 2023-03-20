@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import {
-  ListDatabasesInput,
-  ListDatabasesInputFilterSensitiveLog,
-  ListDatabasesOutput,
-  ListDatabasesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDatabasesInput, ListDatabasesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1ListDatabasesCommand,
   serializeAws_json1_1ListDatabasesCommand,
@@ -121,8 +116,8 @@ export class ListDatabasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDatabasesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDatabasesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

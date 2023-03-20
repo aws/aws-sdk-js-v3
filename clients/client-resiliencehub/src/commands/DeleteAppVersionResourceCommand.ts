@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAppVersionResourceRequest,
-  DeleteAppVersionResourceRequestFilterSensitiveLog,
-  DeleteAppVersionResourceResponse,
-  DeleteAppVersionResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAppVersionResourceRequest, DeleteAppVersionResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAppVersionResourceCommand,
   serializeAws_restJson1DeleteAppVersionResourceCommand,
@@ -144,8 +139,8 @@ export class DeleteAppVersionResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppVersionResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppVersionResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import {
-  DeleteCacheParameterGroupMessage,
-  DeleteCacheParameterGroupMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCacheParameterGroupMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeleteCacheParameterGroupCommand,
   serializeAws_queryDeleteCacheParameterGroupCommand,
@@ -130,8 +127,8 @@ export class DeleteCacheParameterGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCacheParameterGroupMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

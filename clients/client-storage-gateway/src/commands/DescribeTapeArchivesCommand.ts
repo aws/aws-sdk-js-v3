@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTapeArchivesInput,
-  DescribeTapeArchivesInputFilterSensitiveLog,
-  DescribeTapeArchivesOutput,
-  DescribeTapeArchivesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTapeArchivesInput, DescribeTapeArchivesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeTapeArchivesCommand,
   serializeAws_json1_1DescribeTapeArchivesCommand,
@@ -156,8 +151,8 @@ export class DescribeTapeArchivesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTapeArchivesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTapeArchivesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

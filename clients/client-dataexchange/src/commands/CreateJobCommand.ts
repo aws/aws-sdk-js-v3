@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  CreateJobRequest,
-  CreateJobRequestFilterSensitiveLog,
-  CreateJobResponse,
-  CreateJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateJobRequest, CreateJobResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateJobCommand,
   serializeAws_restJson1CreateJobCommand,
@@ -123,8 +118,8 @@ export class CreateJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

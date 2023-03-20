@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DisassociateIpamResourceDiscoveryRequest,
-  DisassociateIpamResourceDiscoveryRequestFilterSensitiveLog,
-  DisassociateIpamResourceDiscoveryResult,
-  DisassociateIpamResourceDiscoveryResultFilterSensitiveLog,
-} from "../models/models_5";
+import { DisassociateIpamResourceDiscoveryRequest, DisassociateIpamResourceDiscoveryResult } from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateIpamResourceDiscoveryCommand,
   serializeAws_ec2DisassociateIpamResourceDiscoveryCommand,
@@ -109,8 +104,8 @@ export class DisassociateIpamResourceDiscoveryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateIpamResourceDiscoveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateIpamResourceDiscoveryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

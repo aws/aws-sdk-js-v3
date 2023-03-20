@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateThingGroupRequest,
-  UpdateThingGroupRequestFilterSensitiveLog,
-  UpdateThingGroupResponse,
-  UpdateThingGroupResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateThingGroupRequest, UpdateThingGroupResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateThingGroupCommand,
   serializeAws_restJson1UpdateThingGroupCommand,
@@ -125,8 +120,8 @@ export class UpdateThingGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateThingGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateThingGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

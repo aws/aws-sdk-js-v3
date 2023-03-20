@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeleteConditionalForwarderRequest,
-  DeleteConditionalForwarderRequestFilterSensitiveLog,
-  DeleteConditionalForwarderResult,
-  DeleteConditionalForwarderResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteConditionalForwarderCommand,
   serializeAws_json1_1DeleteConditionalForwarderCommand,
@@ -126,8 +121,8 @@ export class DeleteConditionalForwarderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteConditionalForwarderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteConditionalForwarderResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import {
-  DeleteImageRequest,
-  DeleteImageRequestFilterSensitiveLog,
-  DeleteImageResponse,
-  DeleteImageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteImageRequest, DeleteImageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteImageCommand,
   serializeAws_restJson1DeleteImageCommand,
@@ -149,8 +144,8 @@ export class DeleteImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

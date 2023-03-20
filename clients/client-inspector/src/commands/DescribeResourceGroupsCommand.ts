@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
-import {
-  DescribeResourceGroupsRequest,
-  DescribeResourceGroupsRequestFilterSensitiveLog,
-  DescribeResourceGroupsResponse,
-  DescribeResourceGroupsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeResourceGroupsRequest, DescribeResourceGroupsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeResourceGroupsCommand,
   serializeAws_json1_1DescribeResourceGroupsCommand,
@@ -145,8 +140,8 @@ export class DescribeResourceGroupsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeResourceGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeResourceGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

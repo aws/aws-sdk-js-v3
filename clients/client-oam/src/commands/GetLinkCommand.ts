@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLinkInput,
-  GetLinkInputFilterSensitiveLog,
-  GetLinkOutput,
-  GetLinkOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLinkInput, GetLinkOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import {
   deserializeAws_restJson1GetLinkCommand,
@@ -114,8 +109,8 @@ export class GetLinkCommand extends $Command<GetLinkCommandInput, GetLinkCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLinkInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLinkOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

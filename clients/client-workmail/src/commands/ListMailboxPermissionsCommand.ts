@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMailboxPermissionsRequest,
-  ListMailboxPermissionsRequestFilterSensitiveLog,
-  ListMailboxPermissionsResponse,
-  ListMailboxPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListMailboxPermissionsRequest, ListMailboxPermissionsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListMailboxPermissionsCommand,
   serializeAws_json1_1ListMailboxPermissionsCommand,
@@ -123,8 +118,8 @@ export class ListMailboxPermissionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMailboxPermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMailboxPermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

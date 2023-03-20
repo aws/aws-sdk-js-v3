@@ -15,7 +15,6 @@ import {
 
 import {
   RestoreFromRecoveryPointRequest,
-  RestoreFromRecoveryPointRequestFilterSensitiveLog,
   RestoreFromRecoveryPointResponse,
   RestoreFromRecoveryPointResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -123,7 +122,7 @@ export class RestoreFromRecoveryPointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreFromRecoveryPointRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RestoreFromRecoveryPointResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

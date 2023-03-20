@@ -3109,235 +3109,6 @@ export const AreaOfInterestFilterSensitiveLog = (obj: AreaOfInterest): any => {
 /**
  * @internal
  */
-export const AssetValueFilterSensitiveLog = (obj: AssetValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OperationFilterSensitiveLog = (obj: Operation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomIndicesInputFilterSensitiveLog = (obj: CustomIndicesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BandMathConfigInputFilterSensitiveLog = (obj: BandMathConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudMaskingConfigInputFilterSensitiveLog = (obj: CloudMaskingConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudRemovalConfigInputFilterSensitiveLog = (obj: CloudRemovalConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RasterDataCollectionMetadataFilterSensitiveLog = (obj: RasterDataCollectionMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEarthObservationJobInputFilterSensitiveLog = (obj: DeleteEarthObservationJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEarthObservationJobOutputFilterSensitiveLog = (obj: DeleteEarthObservationJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVectorEnrichmentJobInputFilterSensitiveLog = (obj: DeleteVectorEnrichmentJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVectorEnrichmentJobOutputFilterSensitiveLog = (obj: DeleteVectorEnrichmentJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportS3DataInputFilterSensitiveLog = (obj: ExportS3DataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputConfigInputFilterSensitiveLog = (obj: OutputConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportEarthObservationJobInputFilterSensitiveLog = (obj: ExportEarthObservationJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportEarthObservationJobOutputFilterSensitiveLog = (obj: ExportEarthObservationJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEarthObservationJobInputFilterSensitiveLog = (obj: GetEarthObservationJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EarthObservationJobErrorDetailsFilterSensitiveLog = (obj: EarthObservationJobErrorDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportErrorDetailsOutputFilterSensitiveLog = (obj: ExportErrorDetailsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportErrorDetailsFilterSensitiveLog = (obj: ExportErrorDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3DataInputFilterSensitiveLog = (obj: S3DataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EojDataSourceConfigInputFilterSensitiveLog = (obj: EojDataSourceConfigInput): any => {
-  if (obj.S3Data !== undefined) return { S3Data: S3DataInputFilterSensitiveLog(obj.S3Data) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const EoCloudCoverInputFilterSensitiveLog = (obj: EoCloudCoverInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LandsatCloudCoverLandInputFilterSensitiveLog = (obj: LandsatCloudCoverLandInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlatformInputFilterSensitiveLog = (obj: PlatformInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ViewOffNadirInputFilterSensitiveLog = (obj: ViewOffNadirInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ViewSunAzimuthInputFilterSensitiveLog = (obj: ViewSunAzimuthInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ViewSunElevationInputFilterSensitiveLog = (obj: ViewSunElevationInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PropertyFilterSensitiveLog = (obj: Property): any => {
-  if (obj.EoCloudCover !== undefined) return { EoCloudCover: EoCloudCoverInputFilterSensitiveLog(obj.EoCloudCover) };
-  if (obj.ViewOffNadir !== undefined) return { ViewOffNadir: ViewOffNadirInputFilterSensitiveLog(obj.ViewOffNadir) };
-  if (obj.ViewSunAzimuth !== undefined)
-    return { ViewSunAzimuth: ViewSunAzimuthInputFilterSensitiveLog(obj.ViewSunAzimuth) };
-  if (obj.ViewSunElevation !== undefined)
-    return { ViewSunElevation: ViewSunElevationInputFilterSensitiveLog(obj.ViewSunElevation) };
-  if (obj.Platform !== undefined) return { Platform: PlatformInputFilterSensitiveLog(obj.Platform) };
-  if (obj.LandsatCloudCoverLand !== undefined)
-    return { LandsatCloudCoverLand: LandsatCloudCoverLandInputFilterSensitiveLog(obj.LandsatCloudCoverLand) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const PropertyFilterFilterSensitiveLog = (obj: PropertyFilter): any => ({
-  ...obj,
-  ...(obj.Property && { Property: PropertyFilterSensitiveLog(obj.Property) }),
-});
-
-/**
- * @internal
- */
-export const PropertyFiltersFilterSensitiveLog = (obj: PropertyFilters): any => ({
-  ...obj,
-  ...(obj.Properties && { Properties: obj.Properties.map((item) => PropertyFilterFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
 export const TimeRangeFilterInputFilterSensitiveLog = (obj: TimeRangeFilterInput): any => ({
   ...obj,
 });
@@ -3349,7 +3120,7 @@ export const RasterDataCollectionQueryOutputFilterSensitiveLog = (obj: RasterDat
   ...obj,
   ...(obj.TimeRangeFilter && { TimeRangeFilter: SENSITIVE_STRING }),
   ...(obj.AreaOfInterest && { AreaOfInterest: AreaOfInterestFilterSensitiveLog(obj.AreaOfInterest) }),
-  ...(obj.PropertyFilters && { PropertyFilters: PropertyFiltersFilterSensitiveLog(obj.PropertyFilters) }),
+  ...(obj.PropertyFilters && { PropertyFilters: obj.PropertyFilters }),
 });
 
 /**
@@ -3357,7 +3128,7 @@ export const RasterDataCollectionQueryOutputFilterSensitiveLog = (obj: RasterDat
  */
 export const InputConfigOutputFilterSensitiveLog = (obj: InputConfigOutput): any => ({
   ...obj,
-  ...(obj.DataSourceConfig && { DataSourceConfig: EojDataSourceConfigInputFilterSensitiveLog(obj.DataSourceConfig) }),
+  ...(obj.DataSourceConfig && { DataSourceConfig: obj.DataSourceConfig }),
   ...(obj.RasterDataCollectionQuery && {
     RasterDataCollectionQuery: RasterDataCollectionQueryOutputFilterSensitiveLog(obj.RasterDataCollectionQuery),
   }),
@@ -3366,113 +3137,10 @@ export const InputConfigOutputFilterSensitiveLog = (obj: InputConfigOutput): any
 /**
  * @internal
  */
-export const GeoMosaicConfigInputFilterSensitiveLog = (obj: GeoMosaicConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LandCoverSegmentationConfigInputFilterSensitiveLog = (obj: LandCoverSegmentationConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserDefinedFilterSensitiveLog = (obj: UserDefined): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputResolutionResamplingInputFilterSensitiveLog = (obj: OutputResolutionResamplingInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResamplingConfigInputFilterSensitiveLog = (obj: ResamplingConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OutputResolutionStackInputFilterSensitiveLog = (obj: OutputResolutionStackInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StackConfigInputFilterSensitiveLog = (obj: StackConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemporalStatisticsConfigInputFilterSensitiveLog = (obj: TemporalStatisticsConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ZonalStatisticsConfigInputFilterSensitiveLog = (obj: ZonalStatisticsConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const JobConfigInputFilterSensitiveLog = (obj: JobConfigInput): any => {
-  if (obj.BandMathConfig !== undefined)
-    return { BandMathConfig: BandMathConfigInputFilterSensitiveLog(obj.BandMathConfig) };
-  if (obj.ResamplingConfig !== undefined)
-    return { ResamplingConfig: ResamplingConfigInputFilterSensitiveLog(obj.ResamplingConfig) };
-  if (obj.TemporalStatisticsConfig !== undefined)
-    return { TemporalStatisticsConfig: TemporalStatisticsConfigInputFilterSensitiveLog(obj.TemporalStatisticsConfig) };
-  if (obj.CloudRemovalConfig !== undefined)
-    return { CloudRemovalConfig: CloudRemovalConfigInputFilterSensitiveLog(obj.CloudRemovalConfig) };
-  if (obj.ZonalStatisticsConfig !== undefined)
-    return { ZonalStatisticsConfig: ZonalStatisticsConfigInputFilterSensitiveLog(obj.ZonalStatisticsConfig) };
-  if (obj.GeoMosaicConfig !== undefined)
-    return { GeoMosaicConfig: GeoMosaicConfigInputFilterSensitiveLog(obj.GeoMosaicConfig) };
-  if (obj.StackConfig !== undefined) return { StackConfig: StackConfigInputFilterSensitiveLog(obj.StackConfig) };
-  if (obj.CloudMaskingConfig !== undefined)
-    return { CloudMaskingConfig: CloudMaskingConfigInputFilterSensitiveLog(obj.CloudMaskingConfig) };
-  if (obj.LandCoverSegmentationConfig !== undefined)
-    return {
-      LandCoverSegmentationConfig: LandCoverSegmentationConfigInputFilterSensitiveLog(obj.LandCoverSegmentationConfig),
-    };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const OutputBandFilterSensitiveLog = (obj: OutputBand): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetEarthObservationJobOutputFilterSensitiveLog = (obj: GetEarthObservationJobOutput): any => ({
   ...obj,
   ...(obj.InputConfig && { InputConfig: InputConfigOutputFilterSensitiveLog(obj.InputConfig) }),
-  ...(obj.JobConfig && { JobConfig: JobConfigInputFilterSensitiveLog(obj.JobConfig) }),
-});
-
-/**
- * @internal
- */
-export const GetTileInputFilterSensitiveLog = (obj: GetTileInput): any => ({
-  ...obj,
+  ...(obj.JobConfig && { JobConfig: obj.JobConfig }),
 });
 
 /**
@@ -3493,15 +3161,6 @@ export const ListEarthObservationJobInputFilterSensitiveLog = (obj: ListEarthObs
 /**
  * @internal
  */
-export const ListEarthObservationJobOutputConfigFilterSensitiveLog = (
-  obj: ListEarthObservationJobOutputConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListEarthObservationJobOutputFilterSensitiveLog = (obj: ListEarthObservationJobOutput): any => ({
   ...obj,
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
@@ -3514,7 +3173,7 @@ export const RasterDataCollectionQueryInputFilterSensitiveLog = (obj: RasterData
   ...obj,
   ...(obj.TimeRangeFilter && { TimeRangeFilter: SENSITIVE_STRING }),
   ...(obj.AreaOfInterest && { AreaOfInterest: AreaOfInterestFilterSensitiveLog(obj.AreaOfInterest) }),
-  ...(obj.PropertyFilters && { PropertyFilters: PropertyFiltersFilterSensitiveLog(obj.PropertyFilters) }),
+  ...(obj.PropertyFilters && { PropertyFilters: obj.PropertyFilters }),
 });
 
 /**
@@ -3522,7 +3181,7 @@ export const RasterDataCollectionQueryInputFilterSensitiveLog = (obj: RasterData
  */
 export const InputConfigInputFilterSensitiveLog = (obj: InputConfigInput): any => ({
   ...obj,
-  ...(obj.DataSourceConfig && { DataSourceConfig: EojDataSourceConfigInputFilterSensitiveLog(obj.DataSourceConfig) }),
+  ...(obj.DataSourceConfig && { DataSourceConfig: obj.DataSourceConfig }),
   ...(obj.RasterDataCollectionQuery && {
     RasterDataCollectionQuery: RasterDataCollectionQueryInputFilterSensitiveLog(obj.RasterDataCollectionQuery),
   }),
@@ -3534,7 +3193,7 @@ export const InputConfigInputFilterSensitiveLog = (obj: InputConfigInput): any =
 export const StartEarthObservationJobInputFilterSensitiveLog = (obj: StartEarthObservationJobInput): any => ({
   ...obj,
   ...(obj.InputConfig && { InputConfig: InputConfigInputFilterSensitiveLog(obj.InputConfig) }),
-  ...(obj.JobConfig && { JobConfig: JobConfigInputFilterSensitiveLog(obj.JobConfig) }),
+  ...(obj.JobConfig && { JobConfig: obj.JobConfig }),
 });
 
 /**
@@ -3543,51 +3202,7 @@ export const StartEarthObservationJobInputFilterSensitiveLog = (obj: StartEarthO
 export const StartEarthObservationJobOutputFilterSensitiveLog = (obj: StartEarthObservationJobOutput): any => ({
   ...obj,
   ...(obj.InputConfig && { InputConfig: InputConfigOutputFilterSensitiveLog(obj.InputConfig) }),
-  ...(obj.JobConfig && { JobConfig: JobConfigInputFilterSensitiveLog(obj.JobConfig) }),
-});
-
-/**
- * @internal
- */
-export const StopEarthObservationJobInputFilterSensitiveLog = (obj: StopEarthObservationJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopEarthObservationJobOutputFilterSensitiveLog = (obj: StopEarthObservationJobOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VectorEnrichmentJobS3DataFilterSensitiveLog = (obj: VectorEnrichmentJobS3Data): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportVectorEnrichmentJobOutputConfigFilterSensitiveLog = (
-  obj: ExportVectorEnrichmentJobOutputConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportVectorEnrichmentJobInputFilterSensitiveLog = (obj: ExportVectorEnrichmentJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ExportVectorEnrichmentJobOutputFilterSensitiveLog = (obj: ExportVectorEnrichmentJobOutput): any => ({
-  ...obj,
+  ...(obj.JobConfig && { JobConfig: obj.JobConfig }),
 });
 
 /**
@@ -3596,104 +3211,6 @@ export const ExportVectorEnrichmentJobOutputFilterSensitiveLog = (obj: ExportVec
 export const GeometryFilterSensitiveLog = (obj: Geometry): any => ({
   ...obj,
   ...(obj.Coordinates && { Coordinates: obj.Coordinates.map((item) => SENSITIVE_STRING) }),
-});
-
-/**
- * @internal
- */
-export const GetRasterDataCollectionInputFilterSensitiveLog = (obj: GetRasterDataCollectionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRasterDataCollectionOutputFilterSensitiveLog = (obj: GetRasterDataCollectionOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetVectorEnrichmentJobInputFilterSensitiveLog = (obj: GetVectorEnrichmentJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VectorEnrichmentJobErrorDetailsFilterSensitiveLog = (obj: VectorEnrichmentJobErrorDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VectorEnrichmentJobExportErrorDetailsFilterSensitiveLog = (
-  obj: VectorEnrichmentJobExportErrorDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VectorEnrichmentJobDataSourceConfigInputFilterSensitiveLog = (
-  obj: VectorEnrichmentJobDataSourceConfigInput
-): any => {
-  if (obj.S3Data !== undefined) return { S3Data: VectorEnrichmentJobS3DataFilterSensitiveLog(obj.S3Data) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const VectorEnrichmentJobInputConfigFilterSensitiveLog = (obj: VectorEnrichmentJobInputConfig): any => ({
-  ...obj,
-  ...(obj.DataSourceConfig && {
-    DataSourceConfig: VectorEnrichmentJobDataSourceConfigInputFilterSensitiveLog(obj.DataSourceConfig),
-  }),
-});
-
-/**
- * @internal
- */
-export const MapMatchingConfigFilterSensitiveLog = (obj: MapMatchingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReverseGeocodingConfigFilterSensitiveLog = (obj: ReverseGeocodingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VectorEnrichmentJobConfigFilterSensitiveLog = (obj: VectorEnrichmentJobConfig): any => {
-  if (obj.ReverseGeocodingConfig !== undefined)
-    return { ReverseGeocodingConfig: ReverseGeocodingConfigFilterSensitiveLog(obj.ReverseGeocodingConfig) };
-  if (obj.MapMatchingConfig !== undefined)
-    return { MapMatchingConfig: MapMatchingConfigFilterSensitiveLog(obj.MapMatchingConfig) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const GetVectorEnrichmentJobOutputFilterSensitiveLog = (obj: GetVectorEnrichmentJobOutput): any => ({
-  ...obj,
-  ...(obj.InputConfig && { InputConfig: VectorEnrichmentJobInputConfigFilterSensitiveLog(obj.InputConfig) }),
-  ...(obj.JobConfig && { JobConfig: VectorEnrichmentJobConfigFilterSensitiveLog(obj.JobConfig) }),
-});
-
-/**
- * @internal
- */
-export const PropertiesFilterSensitiveLog = (obj: Properties): any => ({
-  ...obj,
 });
 
 /**
@@ -3723,32 +3240,9 @@ export const ListRasterDataCollectionsOutputFilterSensitiveLog = (obj: ListRaste
 /**
  * @internal
  */
-export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListVectorEnrichmentJobInputFilterSensitiveLog = (obj: ListVectorEnrichmentJobInput): any => ({
   ...obj,
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListVectorEnrichmentJobOutputConfigFilterSensitiveLog = (
-  obj: ListVectorEnrichmentJobOutputConfig
-): any => ({
-  ...obj,
 });
 
 /**
@@ -3768,7 +3262,7 @@ export const RasterDataCollectionQueryWithBandFilterInputFilterSensitiveLog = (
   ...obj,
   ...(obj.TimeRangeFilter && { TimeRangeFilter: SENSITIVE_STRING }),
   ...(obj.AreaOfInterest && { AreaOfInterest: AreaOfInterestFilterSensitiveLog(obj.AreaOfInterest) }),
-  ...(obj.PropertyFilters && { PropertyFilters: PropertyFiltersFilterSensitiveLog(obj.PropertyFilters) }),
+  ...(obj.PropertyFilters && { PropertyFilters: obj.PropertyFilters }),
 });
 
 /**
@@ -3791,64 +3285,4 @@ export const SearchRasterDataCollectionOutputFilterSensitiveLog = (obj: SearchRa
   ...obj,
   ...(obj.NextToken && { NextToken: SENSITIVE_STRING }),
   ...(obj.Items && { Items: obj.Items.map((item) => ItemSourceFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartVectorEnrichmentJobInputFilterSensitiveLog = (obj: StartVectorEnrichmentJobInput): any => ({
-  ...obj,
-  ...(obj.InputConfig && { InputConfig: VectorEnrichmentJobInputConfigFilterSensitiveLog(obj.InputConfig) }),
-  ...(obj.JobConfig && { JobConfig: VectorEnrichmentJobConfigFilterSensitiveLog(obj.JobConfig) }),
-});
-
-/**
- * @internal
- */
-export const StartVectorEnrichmentJobOutputFilterSensitiveLog = (obj: StartVectorEnrichmentJobOutput): any => ({
-  ...obj,
-  ...(obj.InputConfig && { InputConfig: VectorEnrichmentJobInputConfigFilterSensitiveLog(obj.InputConfig) }),
-  ...(obj.JobConfig && { JobConfig: VectorEnrichmentJobConfigFilterSensitiveLog(obj.JobConfig) }),
-});
-
-/**
- * @internal
- */
-export const StopVectorEnrichmentJobInputFilterSensitiveLog = (obj: StopVectorEnrichmentJobInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopVectorEnrichmentJobOutputFilterSensitiveLog = (obj: StopVectorEnrichmentJobOutput): any => ({
-  ...obj,
 });

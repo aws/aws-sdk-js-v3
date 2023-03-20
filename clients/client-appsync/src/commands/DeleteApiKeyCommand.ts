@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  DeleteApiKeyRequest,
-  DeleteApiKeyRequestFilterSensitiveLog,
-  DeleteApiKeyResponse,
-  DeleteApiKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteApiKeyRequest, DeleteApiKeyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteApiKeyCommand,
   serializeAws_restJson1DeleteApiKeyCommand,
@@ -118,8 +113,8 @@ export class DeleteApiKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteApiKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

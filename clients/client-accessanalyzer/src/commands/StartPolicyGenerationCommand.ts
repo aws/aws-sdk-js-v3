@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
-import {
-  StartPolicyGenerationRequest,
-  StartPolicyGenerationRequestFilterSensitiveLog,
-  StartPolicyGenerationResponse,
-  StartPolicyGenerationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartPolicyGenerationRequest, StartPolicyGenerationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1StartPolicyGenerationCommand,
   serializeAws_restJson1StartPolicyGenerationCommand,
@@ -125,8 +120,8 @@ export class StartPolicyGenerationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartPolicyGenerationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartPolicyGenerationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

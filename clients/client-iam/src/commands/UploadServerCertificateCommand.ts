@@ -18,7 +18,6 @@ import {
   UploadServerCertificateRequest,
   UploadServerCertificateRequestFilterSensitiveLog,
   UploadServerCertificateResponse,
-  UploadServerCertificateResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_queryUploadServerCertificateCommand,
@@ -185,7 +184,7 @@ export class UploadServerCertificateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UploadServerCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadServerCertificateResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

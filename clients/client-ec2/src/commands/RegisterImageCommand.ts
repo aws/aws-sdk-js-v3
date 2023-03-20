@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  RegisterImageRequest,
-  RegisterImageRequestFilterSensitiveLog,
-  RegisterImageResult,
-  RegisterImageResultFilterSensitiveLog,
-} from "../models/models_6";
+import { RegisterImageRequest, RegisterImageResult } from "../models/models_6";
 import { deserializeAws_ec2RegisterImageCommand, serializeAws_ec2RegisterImageCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -150,8 +145,8 @@ export class RegisterImageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterImageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

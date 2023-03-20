@@ -18,7 +18,6 @@ import {
   UpdatePartnerAccountRequest,
   UpdatePartnerAccountRequestFilterSensitiveLog,
   UpdatePartnerAccountResponse,
-  UpdatePartnerAccountResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdatePartnerAccountCommand,
@@ -120,7 +119,7 @@ export class UpdatePartnerAccountCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdatePartnerAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePartnerAccountResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

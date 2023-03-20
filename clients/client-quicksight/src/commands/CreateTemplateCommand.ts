@@ -17,7 +17,6 @@ import {
   CreateTemplateRequest,
   CreateTemplateRequestFilterSensitiveLog,
   CreateTemplateResponse,
-  CreateTemplateResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
   deserializeAws_restJson1CreateTemplateCommand,
@@ -148,7 +147,7 @@ export class CreateTemplateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateTemplateResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

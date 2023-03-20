@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateImageVersionRequest,
-  CreateImageVersionRequestFilterSensitiveLog,
-  CreateImageVersionResponse,
-  CreateImageVersionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateImageVersionRequest, CreateImageVersionResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1CreateImageVersionCommand,
   serializeAws_json1_1CreateImageVersionCommand,
@@ -118,8 +113,8 @@ export class CreateImageVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateImageVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateImageVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

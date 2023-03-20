@@ -5469,48 +5469,6 @@ export interface VerifyMacResponse {
 /**
  * @internal
  */
-export const AliasListEntryFilterSensitiveLog = (obj: AliasListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelKeyDeletionRequestFilterSensitiveLog = (obj: CancelKeyDeletionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelKeyDeletionResponseFilterSensitiveLog = (obj: CancelKeyDeletionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectCustomKeyStoreRequestFilterSensitiveLog = (obj: ConnectCustomKeyStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectCustomKeyStoreResponseFilterSensitiveLog = (obj: ConnectCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateAliasRequestFilterSensitiveLog = (obj: CreateAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const XksProxyAuthenticationCredentialTypeFilterSensitiveLog = (
   obj: XksProxyAuthenticationCredentialType
 ): any => ({
@@ -5535,83 +5493,6 @@ export const CreateCustomKeyStoreRequestFilterSensitiveLog = (obj: CreateCustomK
 /**
  * @internal
  */
-export const CreateCustomKeyStoreResponseFilterSensitiveLog = (obj: CreateCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrantConstraintsFilterSensitiveLog = (obj: GrantConstraints): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGrantRequestFilterSensitiveLog = (obj: CreateGrantRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateGrantResponseFilterSensitiveLog = (obj: CreateGrantResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateKeyRequestFilterSensitiveLog = (obj: CreateKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiRegionKeyFilterSensitiveLog = (obj: MultiRegionKey): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MultiRegionConfigurationFilterSensitiveLog = (obj: MultiRegionConfiguration): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const XksKeyConfigurationTypeFilterSensitiveLog = (obj: XksKeyConfigurationType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyMetadataFilterSensitiveLog = (obj: KeyMetadata): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateKeyResponseFilterSensitiveLog = (obj: CreateKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const XksProxyConfigurationTypeFilterSensitiveLog = (obj: XksProxyConfigurationType): any => ({
   ...obj,
   ...(obj.AccessKeyId && { AccessKeyId: SENSITIVE_STRING }),
@@ -5630,51 +5511,9 @@ export const CustomKeyStoresListEntryFilterSensitiveLog = (obj: CustomKeyStoresL
 /**
  * @internal
  */
-export const DecryptRequestFilterSensitiveLog = (obj: DecryptRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DecryptResponseFilterSensitiveLog = (obj: DecryptResponse): any => ({
   ...obj,
   ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DeleteAliasRequestFilterSensitiveLog = (obj: DeleteAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomKeyStoreRequestFilterSensitiveLog = (obj: DeleteCustomKeyStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCustomKeyStoreResponseFilterSensitiveLog = (obj: DeleteCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteImportedKeyMaterialRequestFilterSensitiveLog = (obj: DeleteImportedKeyMaterialRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeCustomKeyStoresRequestFilterSensitiveLog = (obj: DescribeCustomKeyStoresRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5690,79 +5529,9 @@ export const DescribeCustomKeyStoresResponseFilterSensitiveLog = (obj: DescribeC
 /**
  * @internal
  */
-export const DescribeKeyRequestFilterSensitiveLog = (obj: DescribeKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeKeyResponseFilterSensitiveLog = (obj: DescribeKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableKeyRequestFilterSensitiveLog = (obj: DisableKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableKeyRotationRequestFilterSensitiveLog = (obj: DisableKeyRotationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisconnectCustomKeyStoreRequestFilterSensitiveLog = (obj: DisconnectCustomKeyStoreRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisconnectCustomKeyStoreResponseFilterSensitiveLog = (obj: DisconnectCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableKeyRequestFilterSensitiveLog = (obj: EnableKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableKeyRotationRequestFilterSensitiveLog = (obj: EnableKeyRotationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EncryptRequestFilterSensitiveLog = (obj: EncryptRequest): any => ({
   ...obj,
   ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EncryptResponseFilterSensitiveLog = (obj: EncryptResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyRequestFilterSensitiveLog = (obj: GenerateDataKeyRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5776,52 +5545,9 @@ export const GenerateDataKeyResponseFilterSensitiveLog = (obj: GenerateDataKeyRe
 /**
  * @internal
  */
-export const GenerateDataKeyPairRequestFilterSensitiveLog = (obj: GenerateDataKeyPairRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GenerateDataKeyPairResponseFilterSensitiveLog = (obj: GenerateDataKeyPairResponse): any => ({
   ...obj,
   ...(obj.PrivateKeyPlaintext && { PrivateKeyPlaintext: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyPairWithoutPlaintextRequestFilterSensitiveLog = (
-  obj: GenerateDataKeyPairWithoutPlaintextRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyPairWithoutPlaintextResponseFilterSensitiveLog = (
-  obj: GenerateDataKeyPairWithoutPlaintextResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyWithoutPlaintextRequestFilterSensitiveLog = (
-  obj: GenerateDataKeyWithoutPlaintextRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateDataKeyWithoutPlaintextResponseFilterSensitiveLog = (
-  obj: GenerateDataKeyWithoutPlaintextResponse
-): any => ({
-  ...obj,
 });
 
 /**
@@ -5835,58 +5561,9 @@ export const GenerateMacRequestFilterSensitiveLog = (obj: GenerateMacRequest): a
 /**
  * @internal
  */
-export const GenerateMacResponseFilterSensitiveLog = (obj: GenerateMacResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GenerateRandomRequestFilterSensitiveLog = (obj: GenerateRandomRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GenerateRandomResponseFilterSensitiveLog = (obj: GenerateRandomResponse): any => ({
   ...obj,
   ...(obj.Plaintext && { Plaintext: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const GetKeyPolicyRequestFilterSensitiveLog = (obj: GetKeyPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyPolicyResponseFilterSensitiveLog = (obj: GetKeyPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyRotationStatusRequestFilterSensitiveLog = (obj: GetKeyRotationStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetKeyRotationStatusResponseFilterSensitiveLog = (obj: GetKeyRotationStatusResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetParametersForImportRequestFilterSensitiveLog = (obj: GetParametersForImportRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -5900,219 +5577,9 @@ export const GetParametersForImportResponseFilterSensitiveLog = (obj: GetParamet
 /**
  * @internal
  */
-export const GetPublicKeyRequestFilterSensitiveLog = (obj: GetPublicKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPublicKeyResponseFilterSensitiveLog = (obj: GetPublicKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GrantListEntryFilterSensitiveLog = (obj: GrantListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportKeyMaterialRequestFilterSensitiveLog = (obj: ImportKeyMaterialRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportKeyMaterialResponseFilterSensitiveLog = (obj: ImportKeyMaterialResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyListEntryFilterSensitiveLog = (obj: KeyListEntry): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGrantsRequestFilterSensitiveLog = (obj: ListGrantsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListGrantsResponseFilterSensitiveLog = (obj: ListGrantsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeyPoliciesRequestFilterSensitiveLog = (obj: ListKeyPoliciesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeyPoliciesResponseFilterSensitiveLog = (obj: ListKeyPoliciesResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeysRequestFilterSensitiveLog = (obj: ListKeysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListKeysResponseFilterSensitiveLog = (obj: ListKeysResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceTagsRequestFilterSensitiveLog = (obj: ListResourceTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListResourceTagsResponseFilterSensitiveLog = (obj: ListResourceTagsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRetirableGrantsRequestFilterSensitiveLog = (obj: ListRetirableGrantsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutKeyPolicyRequestFilterSensitiveLog = (obj: PutKeyPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReEncryptRequestFilterSensitiveLog = (obj: ReEncryptRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReEncryptResponseFilterSensitiveLog = (obj: ReEncryptResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicateKeyRequestFilterSensitiveLog = (obj: ReplicateKeyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ReplicateKeyResponseFilterSensitiveLog = (obj: ReplicateKeyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RetireGrantRequestFilterSensitiveLog = (obj: RetireGrantRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevokeGrantRequestFilterSensitiveLog = (obj: RevokeGrantRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleKeyDeletionRequestFilterSensitiveLog = (obj: ScheduleKeyDeletionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ScheduleKeyDeletionResponseFilterSensitiveLog = (obj: ScheduleKeyDeletionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SignRequestFilterSensitiveLog = (obj: SignRequest): any => ({
   ...obj,
   ...(obj.Message && { Message: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SignResponseFilterSensitiveLog = (obj: SignResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAliasRequestFilterSensitiveLog = (obj: UpdateAliasRequest): any => ({
-  ...obj,
 });
 
 /**
@@ -6131,27 +5598,6 @@ export const UpdateCustomKeyStoreRequestFilterSensitiveLog = (obj: UpdateCustomK
 /**
  * @internal
  */
-export const UpdateCustomKeyStoreResponseFilterSensitiveLog = (obj: UpdateCustomKeyStoreResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateKeyDescriptionRequestFilterSensitiveLog = (obj: UpdateKeyDescriptionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdatePrimaryRegionRequestFilterSensitiveLog = (obj: UpdatePrimaryRegionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VerifyRequestFilterSensitiveLog = (obj: VerifyRequest): any => ({
   ...obj,
   ...(obj.Message && { Message: SENSITIVE_STRING }),
@@ -6160,21 +5606,7 @@ export const VerifyRequestFilterSensitiveLog = (obj: VerifyRequest): any => ({
 /**
  * @internal
  */
-export const VerifyResponseFilterSensitiveLog = (obj: VerifyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const VerifyMacRequestFilterSensitiveLog = (obj: VerifyMacRequest): any => ({
   ...obj,
   ...(obj.Message && { Message: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const VerifyMacResponseFilterSensitiveLog = (obj: VerifyMacResponse): any => ({
-  ...obj,
 });

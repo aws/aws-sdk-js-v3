@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateCoipCidrRequest,
-  CreateCoipCidrRequestFilterSensitiveLog,
-  CreateCoipCidrResult,
-  CreateCoipCidrResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateCoipCidrRequest, CreateCoipCidrResult } from "../models/models_1";
 import { deserializeAws_ec2CreateCoipCidrCommand, serializeAws_ec2CreateCoipCidrCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -106,8 +101,8 @@ export class CreateCoipCidrCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCoipCidrRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCoipCidrResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

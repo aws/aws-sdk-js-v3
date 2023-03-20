@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
-import {
-  DescribeOfferingRequest,
-  DescribeOfferingRequestFilterSensitiveLog,
-  DescribeOfferingResponse,
-  DescribeOfferingResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeOfferingRequest, DescribeOfferingResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeOfferingCommand,
   serializeAws_restJson1DescribeOfferingCommand,
@@ -122,8 +117,8 @@ export class DescribeOfferingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOfferingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOfferingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

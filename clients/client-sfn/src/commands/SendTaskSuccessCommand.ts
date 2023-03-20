@@ -17,7 +17,6 @@ import {
   SendTaskSuccessInput,
   SendTaskSuccessInputFilterSensitiveLog,
   SendTaskSuccessOutput,
-  SendTaskSuccessOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0SendTaskSuccessCommand,
@@ -120,7 +119,7 @@ export class SendTaskSuccessCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SendTaskSuccessInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SendTaskSuccessOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

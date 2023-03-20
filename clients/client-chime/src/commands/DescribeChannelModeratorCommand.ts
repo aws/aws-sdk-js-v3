@@ -132,7 +132,7 @@ export class DescribeChannelModeratorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeChannelModeratorResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

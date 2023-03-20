@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  DeleteLoggerDefinitionRequest,
-  DeleteLoggerDefinitionRequestFilterSensitiveLog,
-  DeleteLoggerDefinitionResponse,
-  DeleteLoggerDefinitionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLoggerDefinitionRequest, DeleteLoggerDefinitionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteLoggerDefinitionCommand,
   serializeAws_restJson1DeleteLoggerDefinitionCommand,
@@ -110,8 +105,8 @@ export class DeleteLoggerDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoggerDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLoggerDefinitionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

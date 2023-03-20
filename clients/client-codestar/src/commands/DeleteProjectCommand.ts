@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient";
-import {
-  DeleteProjectRequest,
-  DeleteProjectRequestFilterSensitiveLog,
-  DeleteProjectResult,
-  DeleteProjectResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteProjectRequest, DeleteProjectResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProjectCommand,
   serializeAws_json1_1DeleteProjectCommand,
@@ -116,8 +111,8 @@ export class DeleteProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProjectResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

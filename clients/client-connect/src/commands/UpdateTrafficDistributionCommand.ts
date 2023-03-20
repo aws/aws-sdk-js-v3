@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  UpdateTrafficDistributionRequest,
-  UpdateTrafficDistributionRequestFilterSensitiveLog,
-  UpdateTrafficDistributionResponse,
-  UpdateTrafficDistributionResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateTrafficDistributionRequest, UpdateTrafficDistributionResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateTrafficDistributionCommand,
   serializeAws_restJson1UpdateTrafficDistributionCommand,
@@ -128,8 +123,8 @@ export class UpdateTrafficDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTrafficDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTrafficDistributionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

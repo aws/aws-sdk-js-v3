@@ -17,7 +17,6 @@ import {
   ListAccountRolesRequest,
   ListAccountRolesRequestFilterSensitiveLog,
   ListAccountRolesResponse,
-  ListAccountRolesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAccountRolesCommand,
@@ -123,7 +122,7 @@ export class ListAccountRolesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ListAccountRolesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAccountRolesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

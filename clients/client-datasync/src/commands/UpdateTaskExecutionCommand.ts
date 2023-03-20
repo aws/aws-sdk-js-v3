@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  UpdateTaskExecutionRequest,
-  UpdateTaskExecutionRequestFilterSensitiveLog,
-  UpdateTaskExecutionResponse,
-  UpdateTaskExecutionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateTaskExecutionRequest, UpdateTaskExecutionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateTaskExecutionCommand,
   serializeAws_json1_1UpdateTaskExecutionCommand,
@@ -121,8 +116,8 @@ export class UpdateTaskExecutionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateTaskExecutionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateTaskExecutionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

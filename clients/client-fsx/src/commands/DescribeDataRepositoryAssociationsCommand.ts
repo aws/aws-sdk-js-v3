@@ -16,9 +16,7 @@ import {
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
 import {
   DescribeDataRepositoryAssociationsRequest,
-  DescribeDataRepositoryAssociationsRequestFilterSensitiveLog,
   DescribeDataRepositoryAssociationsResponse,
-  DescribeDataRepositoryAssociationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeDataRepositoryAssociationsCommand,
@@ -142,8 +140,8 @@ export class DescribeDataRepositoryAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDataRepositoryAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDataRepositoryAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

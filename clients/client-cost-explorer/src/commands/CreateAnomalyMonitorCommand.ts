@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  CreateAnomalyMonitorRequest,
-  CreateAnomalyMonitorRequestFilterSensitiveLog,
-  CreateAnomalyMonitorResponse,
-  CreateAnomalyMonitorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAnomalyMonitorRequest, CreateAnomalyMonitorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateAnomalyMonitorCommand,
   serializeAws_json1_1CreateAnomalyMonitorCommand,
@@ -111,8 +106,8 @@ export class CreateAnomalyMonitorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAnomalyMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAnomalyMonitorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

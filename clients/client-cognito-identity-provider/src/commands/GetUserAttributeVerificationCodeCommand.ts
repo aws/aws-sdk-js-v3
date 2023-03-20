@@ -22,7 +22,6 @@ import {
   GetUserAttributeVerificationCodeRequest,
   GetUserAttributeVerificationCodeRequestFilterSensitiveLog,
   GetUserAttributeVerificationCodeResponse,
-  GetUserAttributeVerificationCodeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetUserAttributeVerificationCodeCommand,
@@ -197,7 +196,7 @@ export class GetUserAttributeVerificationCodeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetUserAttributeVerificationCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetUserAttributeVerificationCodeResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

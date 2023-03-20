@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateAttributeGroupRequest,
-  CreateAttributeGroupRequestFilterSensitiveLog,
-  CreateAttributeGroupResponse,
-  CreateAttributeGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAttributeGroupRequest, CreateAttributeGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAttributeGroupCommand,
   serializeAws_restJson1CreateAttributeGroupCommand,
@@ -127,8 +122,8 @@ export class CreateAttributeGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAttributeGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAttributeGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

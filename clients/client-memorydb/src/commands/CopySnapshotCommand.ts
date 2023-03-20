@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
-import {
-  CopySnapshotRequest,
-  CopySnapshotRequestFilterSensitiveLog,
-  CopySnapshotResponse,
-  CopySnapshotResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CopySnapshotRequest, CopySnapshotResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CopySnapshotCommand,
   serializeAws_json1_1CopySnapshotCommand,
@@ -129,8 +124,8 @@ export class CopySnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CopySnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CopySnapshotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

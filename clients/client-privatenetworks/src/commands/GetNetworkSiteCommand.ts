@@ -15,7 +15,6 @@ import {
 
 import {
   GetNetworkSiteRequest,
-  GetNetworkSiteRequestFilterSensitiveLog,
   GetNetworkSiteResponse,
   GetNetworkSiteResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class GetNetworkSiteCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetNetworkSiteRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetNetworkSiteResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

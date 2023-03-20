@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DeleteVpcEndpointsRequest,
-  DeleteVpcEndpointsRequestFilterSensitiveLog,
-  DeleteVpcEndpointsResult,
-  DeleteVpcEndpointsResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DeleteVpcEndpointsCommand,
   serializeAws_ec2DeleteVpcEndpointsCommand,
@@ -111,8 +106,8 @@ export class DeleteVpcEndpointsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcEndpointsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVpcEndpointsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

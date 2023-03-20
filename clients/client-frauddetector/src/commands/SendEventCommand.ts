@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
-import {
-  SendEventRequest,
-  SendEventRequestFilterSensitiveLog,
-  SendEventResult,
-  SendEventResultFilterSensitiveLog,
-} from "../models/models_0";
+import { SendEventRequest, SendEventRequestFilterSensitiveLog, SendEventResult } from "../models/models_0";
 import { deserializeAws_json1_1SendEventCommand, serializeAws_json1_1SendEventCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -121,7 +116,7 @@ export class SendEventCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: SendEventRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendEventResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

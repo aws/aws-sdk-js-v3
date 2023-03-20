@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  CreateConfiguredTableAssociationInput,
-  CreateConfiguredTableAssociationInputFilterSensitiveLog,
-  CreateConfiguredTableAssociationOutput,
-  CreateConfiguredTableAssociationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateConfiguredTableAssociationInput, CreateConfiguredTableAssociationOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateConfiguredTableAssociationCommand,
   serializeAws_restJson1CreateConfiguredTableAssociationCommand,
@@ -131,8 +126,8 @@ export class CreateConfiguredTableAssociationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateConfiguredTableAssociationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateConfiguredTableAssociationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

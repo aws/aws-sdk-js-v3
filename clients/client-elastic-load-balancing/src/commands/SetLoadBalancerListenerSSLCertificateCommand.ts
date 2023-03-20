@@ -20,9 +20,7 @@ import {
 } from "../ElasticLoadBalancingClient";
 import {
   SetLoadBalancerListenerSSLCertificateInput,
-  SetLoadBalancerListenerSSLCertificateInputFilterSensitiveLog,
   SetLoadBalancerListenerSSLCertificateOutput,
-  SetLoadBalancerListenerSSLCertificateOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand,
@@ -147,8 +145,8 @@ export class SetLoadBalancerListenerSSLCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetLoadBalancerListenerSSLCertificateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: SetLoadBalancerListenerSSLCertificateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoWebRTCStorageClient";
-import { JoinStorageSessionInput, JoinStorageSessionInputFilterSensitiveLog } from "../models/models_0";
+import { JoinStorageSessionInput } from "../models/models_0";
 import {
   deserializeAws_restJson1JoinStorageSessionCommand,
   serializeAws_restJson1JoinStorageSessionCommand,
@@ -141,8 +141,8 @@ export class JoinStorageSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JoinStorageSessionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

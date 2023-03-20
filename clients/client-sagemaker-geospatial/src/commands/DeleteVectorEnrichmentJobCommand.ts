@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteVectorEnrichmentJobInput,
-  DeleteVectorEnrichmentJobInputFilterSensitiveLog,
-  DeleteVectorEnrichmentJobOutput,
-  DeleteVectorEnrichmentJobOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteVectorEnrichmentJobInput, DeleteVectorEnrichmentJobOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteVectorEnrichmentJobCommand,
   serializeAws_restJson1DeleteVectorEnrichmentJobCommand,
@@ -129,8 +124,8 @@ export class DeleteVectorEnrichmentJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVectorEnrichmentJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteVectorEnrichmentJobOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

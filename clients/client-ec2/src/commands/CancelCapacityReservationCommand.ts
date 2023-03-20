@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CancelCapacityReservationRequest,
-  CancelCapacityReservationRequestFilterSensitiveLog,
-  CancelCapacityReservationResult,
-  CancelCapacityReservationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CancelCapacityReservationRequest, CancelCapacityReservationResult } from "../models/models_0";
 import {
   deserializeAws_ec2CancelCapacityReservationCommand,
   serializeAws_ec2CancelCapacityReservationCommand,
@@ -112,8 +107,8 @@ export class CancelCapacityReservationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CancelCapacityReservationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CancelCapacityReservationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

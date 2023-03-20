@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeprecateWorkflowTypeInput, DeprecateWorkflowTypeInputFilterSensitiveLog } from "../models/models_0";
+import { DeprecateWorkflowTypeInput } from "../models/models_0";
 import {
   deserializeAws_json1_0DeprecateWorkflowTypeCommand,
   serializeAws_json1_0DeprecateWorkflowTypeCommand,
@@ -154,8 +154,8 @@ export class DeprecateWorkflowTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeprecateWorkflowTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

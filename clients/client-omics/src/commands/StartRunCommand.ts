@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartRunRequest,
-  StartRunRequestFilterSensitiveLog,
-  StartRunResponse,
-  StartRunResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartRunRequest, StartRunResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1StartRunCommand,
@@ -125,8 +120,8 @@ export class StartRunCommand extends $Command<StartRunCommandInput, StartRunComm
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartRunRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartRunResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

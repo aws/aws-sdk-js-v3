@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateServiceQuotaTemplateRequest,
-  AssociateServiceQuotaTemplateRequestFilterSensitiveLog,
-  AssociateServiceQuotaTemplateResponse,
-  AssociateServiceQuotaTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateServiceQuotaTemplateRequest, AssociateServiceQuotaTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateServiceQuotaTemplateCommand,
   serializeAws_json1_1AssociateServiceQuotaTemplateCommand,
@@ -138,8 +133,8 @@ export class AssociateServiceQuotaTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateServiceQuotaTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateServiceQuotaTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

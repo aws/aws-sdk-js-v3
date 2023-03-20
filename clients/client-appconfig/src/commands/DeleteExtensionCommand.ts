@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { DeleteExtensionRequest, DeleteExtensionRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteExtensionRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteExtensionCommand,
   serializeAws_restJson1DeleteExtensionCommand,
@@ -112,8 +112,8 @@ export class DeleteExtensionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExtensionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

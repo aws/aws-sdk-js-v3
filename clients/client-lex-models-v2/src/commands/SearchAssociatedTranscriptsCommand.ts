@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  SearchAssociatedTranscriptsRequest,
-  SearchAssociatedTranscriptsRequestFilterSensitiveLog,
-  SearchAssociatedTranscriptsResponse,
-  SearchAssociatedTranscriptsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SearchAssociatedTranscriptsRequest, SearchAssociatedTranscriptsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SearchAssociatedTranscriptsCommand,
   serializeAws_restJson1SearchAssociatedTranscriptsCommand,
@@ -129,8 +124,8 @@ export class SearchAssociatedTranscriptsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchAssociatedTranscriptsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchAssociatedTranscriptsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

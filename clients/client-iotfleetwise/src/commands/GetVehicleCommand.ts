@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  GetVehicleRequest,
-  GetVehicleRequestFilterSensitiveLog,
-  GetVehicleResponse,
-  GetVehicleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetVehicleRequest, GetVehicleResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0GetVehicleCommand,
   serializeAws_json1_0GetVehicleCommand,
@@ -120,8 +115,8 @@ export class GetVehicleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVehicleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVehicleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
 import {
   InstallToRemoteAccessSessionRequest,
-  InstallToRemoteAccessSessionRequestFilterSensitiveLog,
   InstallToRemoteAccessSessionResult,
   InstallToRemoteAccessSessionResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -140,7 +139,7 @@ export class InstallToRemoteAccessSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: InstallToRemoteAccessSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: InstallToRemoteAccessSessionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

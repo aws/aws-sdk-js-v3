@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  UpdateDatasetGroupRequest,
-  UpdateDatasetGroupRequestFilterSensitiveLog,
-  UpdateDatasetGroupResponse,
-  UpdateDatasetGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDatasetGroupRequest, UpdateDatasetGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateDatasetGroupCommand,
   serializeAws_json1_1UpdateDatasetGroupCommand,
@@ -123,8 +118,8 @@ export class UpdateDatasetGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDatasetGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDatasetGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

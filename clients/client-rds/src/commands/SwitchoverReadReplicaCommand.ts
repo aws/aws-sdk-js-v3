@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SwitchoverReadReplicaMessage,
-  SwitchoverReadReplicaMessageFilterSensitiveLog,
-  SwitchoverReadReplicaResult,
-  SwitchoverReadReplicaResultFilterSensitiveLog,
-} from "../models/models_1";
+import { SwitchoverReadReplicaMessage, SwitchoverReadReplicaResult } from "../models/models_1";
 import {
   deserializeAws_querySwitchoverReadReplicaCommand,
   serializeAws_querySwitchoverReadReplicaCommand,
@@ -115,8 +110,8 @@ export class SwitchoverReadReplicaCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SwitchoverReadReplicaMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: SwitchoverReadReplicaResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

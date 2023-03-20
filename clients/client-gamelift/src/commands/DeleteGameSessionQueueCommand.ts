@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DeleteGameSessionQueueInput,
-  DeleteGameSessionQueueInputFilterSensitiveLog,
-  DeleteGameSessionQueueOutput,
-  DeleteGameSessionQueueOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteGameSessionQueueInput, DeleteGameSessionQueueOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGameSessionQueueCommand,
   serializeAws_json1_1DeleteGameSessionQueueCommand,
@@ -127,8 +122,8 @@ export class DeleteGameSessionQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGameSessionQueueInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGameSessionQueueOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

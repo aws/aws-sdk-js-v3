@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreatePublicIpv4PoolRequest,
-  CreatePublicIpv4PoolRequestFilterSensitiveLog,
-  CreatePublicIpv4PoolResult,
-  CreatePublicIpv4PoolResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreatePublicIpv4PoolRequest, CreatePublicIpv4PoolResult } from "../models/models_1";
 import {
   deserializeAws_ec2CreatePublicIpv4PoolCommand,
   serializeAws_ec2CreatePublicIpv4PoolCommand,
@@ -107,8 +102,8 @@ export class CreatePublicIpv4PoolCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreatePublicIpv4PoolRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePublicIpv4PoolResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

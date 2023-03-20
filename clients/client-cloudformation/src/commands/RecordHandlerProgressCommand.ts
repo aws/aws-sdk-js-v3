@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  RecordHandlerProgressInput,
-  RecordHandlerProgressInputFilterSensitiveLog,
-  RecordHandlerProgressOutput,
-  RecordHandlerProgressOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/models_0";
 import {
   deserializeAws_queryRecordHandlerProgressCommand,
   serializeAws_queryRecordHandlerProgressCommand,
@@ -116,8 +111,8 @@ export class RecordHandlerProgressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RecordHandlerProgressInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RecordHandlerProgressOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

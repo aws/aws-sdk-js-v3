@@ -15,9 +15,7 @@ import {
 
 import {
   SignalApplicationInstanceNodeInstancesRequest,
-  SignalApplicationInstanceNodeInstancesRequestFilterSensitiveLog,
   SignalApplicationInstanceNodeInstancesResponse,
-  SignalApplicationInstanceNodeInstancesResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { PanoramaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PanoramaClient";
 import {
@@ -122,8 +120,8 @@ export class SignalApplicationInstanceNodeInstancesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SignalApplicationInstanceNodeInstancesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SignalApplicationInstanceNodeInstancesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

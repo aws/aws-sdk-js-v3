@@ -14,10 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutStorageLensConfigurationRequest,
-  PutStorageLensConfigurationRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { PutStorageLensConfigurationRequest } from "../models/models_0";
 import {
   deserializeAws_restXmlPutStorageLensConfigurationCommand,
   serializeAws_restXmlPutStorageLensConfigurationCommand,
@@ -116,8 +113,8 @@ export class PutStorageLensConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutStorageLensConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient";
-import {
-  DescribePackagingConfigurationRequest,
-  DescribePackagingConfigurationRequestFilterSensitiveLog,
-  DescribePackagingConfigurationResponse,
-  DescribePackagingConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribePackagingConfigurationRequest, DescribePackagingConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribePackagingConfigurationCommand,
   serializeAws_restJson1DescribePackagingConfigurationCommand,
@@ -127,8 +122,8 @@ export class DescribePackagingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribePackagingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribePackagingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

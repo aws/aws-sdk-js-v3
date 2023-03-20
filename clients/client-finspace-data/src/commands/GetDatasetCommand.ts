@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  GetDatasetRequest,
-  GetDatasetRequestFilterSensitiveLog,
-  GetDatasetResponse,
-  GetDatasetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetDatasetRequest, GetDatasetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetDatasetCommand,
   serializeAws_restJson1GetDatasetCommand,
@@ -124,8 +119,8 @@ export class GetDatasetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetDatasetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetDatasetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

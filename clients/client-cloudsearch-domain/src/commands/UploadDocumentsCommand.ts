@@ -22,7 +22,6 @@ import {
   UploadDocumentsRequest,
   UploadDocumentsRequestFilterSensitiveLog,
   UploadDocumentsResponse,
-  UploadDocumentsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UploadDocumentsCommand,
@@ -127,7 +126,7 @@ export class UploadDocumentsCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UploadDocumentsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UploadDocumentsResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

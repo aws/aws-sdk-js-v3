@@ -128,7 +128,7 @@ export class ListRoomMembershipsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListRoomMembershipsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

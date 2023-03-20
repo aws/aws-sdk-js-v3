@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { TagLogGroupRequest, TagLogGroupRequestFilterSensitiveLog } from "../models/models_0";
+import { TagLogGroupRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1TagLogGroupCommand,
   serializeAws_json1_1TagLogGroupCommand,
@@ -121,8 +121,8 @@ export class TagLogGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagLogGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

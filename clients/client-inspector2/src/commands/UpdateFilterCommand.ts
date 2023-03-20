@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  UpdateFilterRequest,
-  UpdateFilterRequestFilterSensitiveLog,
-  UpdateFilterResponse,
-  UpdateFilterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFilterRequest, UpdateFilterResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFilterCommand,
   serializeAws_restJson1UpdateFilterCommand,
@@ -121,8 +116,8 @@ export class UpdateFilterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFilterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFilterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

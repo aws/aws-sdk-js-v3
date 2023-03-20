@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateSequenceStoreRequest,
-  CreateSequenceStoreRequestFilterSensitiveLog,
-  CreateSequenceStoreResponse,
-  CreateSequenceStoreResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateSequenceStoreRequest, CreateSequenceStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1CreateSequenceStoreCommand,
@@ -125,8 +120,8 @@ export class CreateSequenceStoreCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSequenceStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSequenceStoreResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

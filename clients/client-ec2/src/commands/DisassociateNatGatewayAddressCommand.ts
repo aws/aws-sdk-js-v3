@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DisassociateNatGatewayAddressRequest,
-  DisassociateNatGatewayAddressRequestFilterSensitiveLog,
-  DisassociateNatGatewayAddressResult,
-  DisassociateNatGatewayAddressResultFilterSensitiveLog,
-} from "../models/models_5";
+import { DisassociateNatGatewayAddressRequest, DisassociateNatGatewayAddressResult } from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateNatGatewayAddressCommand,
   serializeAws_ec2DisassociateNatGatewayAddressCommand,
@@ -115,8 +110,8 @@ export class DisassociateNatGatewayAddressCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateNatGatewayAddressRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateNatGatewayAddressResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

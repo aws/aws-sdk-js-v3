@@ -18,7 +18,6 @@ import {
   CreateJobTemplateRequest,
   CreateJobTemplateRequestFilterSensitiveLog,
   CreateJobTemplateResponse,
-  CreateJobTemplateResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateJobTemplateCommand,
@@ -120,7 +119,7 @@ export class CreateJobTemplateCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateJobTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateJobTemplateResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

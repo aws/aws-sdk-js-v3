@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLensReviewInput,
-  GetLensReviewInputFilterSensitiveLog,
-  GetLensReviewOutput,
-  GetLensReviewOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLensReviewInput, GetLensReviewOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetLensReviewCommand,
   serializeAws_restJson1GetLensReviewCommand,
@@ -120,8 +115,8 @@ export class GetLensReviewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLensReviewInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLensReviewOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

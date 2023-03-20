@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  BatchGetFreeTrialInfoRequest,
-  BatchGetFreeTrialInfoRequestFilterSensitiveLog,
-  BatchGetFreeTrialInfoResponse,
-  BatchGetFreeTrialInfoResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetFreeTrialInfoRequest, BatchGetFreeTrialInfoResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetFreeTrialInfoCommand,
   serializeAws_restJson1BatchGetFreeTrialInfoCommand,
@@ -120,8 +115,8 @@ export class BatchGetFreeTrialInfoCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetFreeTrialInfoRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetFreeTrialInfoResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

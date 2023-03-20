@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import { DeleteFormRequest, DeleteFormRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteFormRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteFormCommand,
   serializeAws_restJson1DeleteFormCommand,
@@ -109,8 +109,8 @@ export class DeleteFormCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteFormRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

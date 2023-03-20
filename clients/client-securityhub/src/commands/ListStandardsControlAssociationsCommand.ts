@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListStandardsControlAssociationsRequest,
-  ListStandardsControlAssociationsRequestFilterSensitiveLog,
-  ListStandardsControlAssociationsResponse,
-  ListStandardsControlAssociationsResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ListStandardsControlAssociationsRequest, ListStandardsControlAssociationsResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ListStandardsControlAssociationsCommand,
   serializeAws_restJson1ListStandardsControlAssociationsCommand,
@@ -125,8 +120,8 @@ export class ListStandardsControlAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStandardsControlAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListStandardsControlAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateSecurityProfileRequest,
-  UpdateSecurityProfileRequestFilterSensitiveLog,
-  UpdateSecurityProfileResponse,
-  UpdateSecurityProfileResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateSecurityProfileRequest, UpdateSecurityProfileResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateSecurityProfileCommand,
   serializeAws_restJson1UpdateSecurityProfileCommand,
@@ -125,8 +120,8 @@ export class UpdateSecurityProfileCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecurityProfileResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

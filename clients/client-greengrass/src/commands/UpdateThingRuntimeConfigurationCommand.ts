@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  UpdateThingRuntimeConfigurationRequest,
-  UpdateThingRuntimeConfigurationRequestFilterSensitiveLog,
-  UpdateThingRuntimeConfigurationResponse,
-  UpdateThingRuntimeConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateThingRuntimeConfigurationRequest, UpdateThingRuntimeConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateThingRuntimeConfigurationCommand,
   serializeAws_restJson1UpdateThingRuntimeConfigurationCommand,
@@ -115,8 +110,8 @@ export class UpdateThingRuntimeConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateThingRuntimeConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateThingRuntimeConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

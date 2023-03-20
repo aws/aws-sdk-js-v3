@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  ConfigureHealthCheckInput,
-  ConfigureHealthCheckInputFilterSensitiveLog,
-  ConfigureHealthCheckOutput,
-  ConfigureHealthCheckOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ConfigureHealthCheckInput, ConfigureHealthCheckOutput } from "../models/models_0";
 import {
   deserializeAws_queryConfigureHealthCheckCommand,
   serializeAws_queryConfigureHealthCheckCommand,
@@ -145,8 +140,8 @@ export class ConfigureHealthCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfigureHealthCheckInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigureHealthCheckOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

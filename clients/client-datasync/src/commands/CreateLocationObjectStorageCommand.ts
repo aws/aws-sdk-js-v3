@@ -18,7 +18,6 @@ import {
   CreateLocationObjectStorageRequest,
   CreateLocationObjectStorageRequestFilterSensitiveLog,
   CreateLocationObjectStorageResponse,
-  CreateLocationObjectStorageResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateLocationObjectStorageCommand,
@@ -116,7 +115,7 @@ export class CreateLocationObjectStorageCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateLocationObjectStorageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLocationObjectStorageResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

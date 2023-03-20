@@ -13,27 +13,27 @@ import {
 } from "@aws-sdk/types";
 
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
-import {
-  GreetingWithErrorsInput,
-  GreetingWithErrorsInputFilterSensitiveLog,
-  GreetingWithErrorsOutput,
-  GreetingWithErrorsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GreetingWithErrorsInput, GreetingWithErrorsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0GreetingWithErrorsCommand,
   serializeAws_json1_0GreetingWithErrorsCommand,
 } from "../protocols/Aws_json1_0";
 
 /**
+ * @public
+ *
  * The input for {@link GreetingWithErrorsCommand}.
  */
 export interface GreetingWithErrorsCommandInput extends GreetingWithErrorsInput {}
 /**
+ * @public
+ *
  * The output of {@link GreetingWithErrorsCommand}.
  */
 export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This operation has three possible return values:
  *
  * 1. A successful response in the form of GreetingWithErrorsOutput
@@ -52,6 +52,8 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * const response = await client.send(command);
  * ```
  *
+ * @param GreetingWithErrorsCommandInput - {@link GreetingWithErrorsCommandInput}
+ * @returns {@link GreetingWithErrorsCommandOutput}
  * @see {@link GreetingWithErrorsCommandInput} for command's `input` shape.
  * @see {@link GreetingWithErrorsCommandOutput} for command's `response` shape.
  * @see {@link JSONRPC10ClientResolvedConfig | config} for JSONRPC10Client's `config` shape.
@@ -76,6 +78,9 @@ export class GreetingWithErrorsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: GreetingWithErrorsCommandInput) {
     // Start section: command_constructor
     super();
@@ -101,8 +106,8 @@ export class GreetingWithErrorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GreetingWithErrorsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GreetingWithErrorsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,10 +117,16 @@ export class GreetingWithErrorsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: GreetingWithErrorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_json1_0GreetingWithErrorsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GreetingWithErrorsCommandOutput> {
     return deserializeAws_json1_0GreetingWithErrorsCommand(output, context);
   }

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import {
-  DeleteGitHubAccountTokenInput,
-  DeleteGitHubAccountTokenInputFilterSensitiveLog,
-  DeleteGitHubAccountTokenOutput,
-  DeleteGitHubAccountTokenOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteGitHubAccountTokenInput, DeleteGitHubAccountTokenOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteGitHubAccountTokenCommand,
   serializeAws_json1_1DeleteGitHubAccountTokenCommand,
@@ -122,8 +117,8 @@ export class DeleteGitHubAccountTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteGitHubAccountTokenInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteGitHubAccountTokenOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

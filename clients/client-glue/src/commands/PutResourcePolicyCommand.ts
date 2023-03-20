@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import {
-  PutResourcePolicyRequest,
-  PutResourcePolicyRequestFilterSensitiveLog,
-  PutResourcePolicyResponse,
-  PutResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1PutResourcePolicyCommand,
   serializeAws_json1_1PutResourcePolicyCommand,
@@ -122,8 +117,8 @@ export class PutResourcePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutResourcePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutResourcePolicyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

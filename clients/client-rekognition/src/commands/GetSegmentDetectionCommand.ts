@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetSegmentDetectionRequest,
-  GetSegmentDetectionRequestFilterSensitiveLog,
-  GetSegmentDetectionResponse,
-  GetSegmentDetectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSegmentDetectionRequest, GetSegmentDetectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetSegmentDetectionCommand,
   serializeAws_json1_1GetSegmentDetectionCommand,
@@ -151,8 +146,8 @@ export class GetSegmentDetectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSegmentDetectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSegmentDetectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

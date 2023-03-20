@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDomainsForPackageRequest,
-  ListDomainsForPackageRequestFilterSensitiveLog,
-  ListDomainsForPackageResponse,
-  ListDomainsForPackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDomainsForPackageRequest, ListDomainsForPackageResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
   deserializeAws_restJson1ListDomainsForPackageCommand,
@@ -124,8 +119,8 @@ export class ListDomainsForPackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainsForPackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainsForPackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

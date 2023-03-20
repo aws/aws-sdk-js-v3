@@ -15,9 +15,7 @@ import {
 
 import {
   ModifyCertificateBasedAuthPropertiesRequest,
-  ModifyCertificateBasedAuthPropertiesRequestFilterSensitiveLog,
   ModifyCertificateBasedAuthPropertiesResult,
-  ModifyCertificateBasedAuthPropertiesResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand,
@@ -122,8 +120,8 @@ export class ModifyCertificateBasedAuthPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyCertificateBasedAuthPropertiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyCertificateBasedAuthPropertiesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

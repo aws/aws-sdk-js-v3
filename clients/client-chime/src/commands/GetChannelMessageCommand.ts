@@ -133,7 +133,7 @@ export class GetChannelMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetChannelMessageResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

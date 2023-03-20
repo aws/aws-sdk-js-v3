@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
-import {
-  ListPlaceIndexesRequest,
-  ListPlaceIndexesRequestFilterSensitiveLog,
-  ListPlaceIndexesResponse,
-  ListPlaceIndexesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPlaceIndexesRequest, ListPlaceIndexesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPlaceIndexesCommand,
   serializeAws_restJson1ListPlaceIndexesCommand,
@@ -120,8 +115,8 @@ export class ListPlaceIndexesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPlaceIndexesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPlaceIndexesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

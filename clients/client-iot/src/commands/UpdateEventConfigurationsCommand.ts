@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdateEventConfigurationsRequest,
-  UpdateEventConfigurationsRequestFilterSensitiveLog,
-  UpdateEventConfigurationsResponse,
-  UpdateEventConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { UpdateEventConfigurationsRequest, UpdateEventConfigurationsResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1UpdateEventConfigurationsCommand,
   serializeAws_restJson1UpdateEventConfigurationsCommand,
@@ -117,8 +112,8 @@ export class UpdateEventConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

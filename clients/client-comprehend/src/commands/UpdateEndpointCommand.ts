@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  UpdateEndpointRequest,
-  UpdateEndpointRequestFilterSensitiveLog,
-  UpdateEndpointResponse,
-  UpdateEndpointResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateEndpointCommand,
   serializeAws_json1_1UpdateEndpointCommand,
@@ -132,8 +127,8 @@ export class UpdateEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

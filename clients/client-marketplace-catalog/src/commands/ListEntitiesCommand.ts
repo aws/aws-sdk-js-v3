@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
-import {
-  ListEntitiesRequest,
-  ListEntitiesRequestFilterSensitiveLog,
-  ListEntitiesResponse,
-  ListEntitiesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListEntitiesRequest, ListEntitiesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListEntitiesCommand,
   serializeAws_restJson1ListEntitiesCommand,
@@ -124,8 +119,8 @@ export class ListEntitiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListEntitiesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListEntitiesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

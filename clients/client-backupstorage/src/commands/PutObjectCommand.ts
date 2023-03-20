@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
-import {
-  PutObjectInput,
-  PutObjectInputFilterSensitiveLog,
-  PutObjectOutput,
-  PutObjectOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PutObjectInput, PutObjectInputFilterSensitiveLog, PutObjectOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1PutObjectCommand,
   serializeAws_restJson1PutObjectCommand,
@@ -139,7 +134,7 @@ export class PutObjectCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutObjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PutObjectOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

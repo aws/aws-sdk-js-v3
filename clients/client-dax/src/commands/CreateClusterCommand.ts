@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import {
-  CreateClusterRequest,
-  CreateClusterRequestFilterSensitiveLog,
-  CreateClusterResponse,
-  CreateClusterResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateClusterCommand,
   serializeAws_json1_1CreateClusterCommand,
@@ -158,8 +153,8 @@ export class CreateClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateClusterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateClusterResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

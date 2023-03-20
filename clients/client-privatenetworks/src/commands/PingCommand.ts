@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { PingResponse, PingResponseFilterSensitiveLog } from "../models/models_0";
+import { PingResponse } from "../models/models_0";
 import { PrivateNetworksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PrivateNetworksClient";
 import { deserializeAws_restJson1PingCommand, serializeAws_restJson1PingCommand } from "../protocols/Aws_restJson1";
 
@@ -96,8 +96,8 @@ export class PingCommand extends $Command<PingCommandInput, PingCommandOutput, P
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: PingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

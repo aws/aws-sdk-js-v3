@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateOpsItemRequest,
-  CreateOpsItemRequestFilterSensitiveLog,
-  CreateOpsItemResponse,
-  CreateOpsItemResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateOpsItemRequest, CreateOpsItemResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateOpsItemCommand,
   serializeAws_json1_1CreateOpsItemCommand,
@@ -129,8 +124,8 @@ export class CreateOpsItemCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOpsItemRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOpsItemResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

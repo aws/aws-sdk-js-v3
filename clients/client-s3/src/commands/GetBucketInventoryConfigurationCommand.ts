@@ -17,7 +17,6 @@ import {
   GetBucketInventoryConfigurationOutput,
   GetBucketInventoryConfigurationOutputFilterSensitiveLog,
   GetBucketInventoryConfigurationRequest,
-  GetBucketInventoryConfigurationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restXmlGetBucketInventoryConfigurationCommand,
@@ -141,7 +140,7 @@ export class GetBucketInventoryConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBucketInventoryConfigurationRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBucketInventoryConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

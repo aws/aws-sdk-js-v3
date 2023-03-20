@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DeleteChangeSetInput,
-  DeleteChangeSetInputFilterSensitiveLog,
-  DeleteChangeSetOutput,
-  DeleteChangeSetOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteChangeSetInput, DeleteChangeSetOutput } from "../models/models_0";
 import {
   deserializeAws_queryDeleteChangeSetCommand,
   serializeAws_queryDeleteChangeSetCommand,
@@ -119,8 +114,8 @@ export class DeleteChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChangeSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteChangeSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetVoiceTemplateRequest,
-  GetVoiceTemplateRequestFilterSensitiveLog,
-  GetVoiceTemplateResponse,
-  GetVoiceTemplateResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetVoiceTemplateRequest, GetVoiceTemplateResponse } from "../models/models_1";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetVoiceTemplateCommand,
@@ -128,8 +123,8 @@ export class GetVoiceTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetVoiceTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetVoiceTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

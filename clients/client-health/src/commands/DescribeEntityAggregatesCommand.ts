@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
-import {
-  DescribeEntityAggregatesRequest,
-  DescribeEntityAggregatesRequestFilterSensitiveLog,
-  DescribeEntityAggregatesResponse,
-  DescribeEntityAggregatesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeEntityAggregatesRequest, DescribeEntityAggregatesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEntityAggregatesCommand,
   serializeAws_json1_1DescribeEntityAggregatesCommand,
@@ -107,8 +102,8 @@ export class DescribeEntityAggregatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeEntityAggregatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeEntityAggregatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

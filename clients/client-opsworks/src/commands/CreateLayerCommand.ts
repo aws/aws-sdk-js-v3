@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLayerRequest,
-  CreateLayerRequestFilterSensitiveLog,
-  CreateLayerResult,
-  CreateLayerResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateLayerRequest, CreateLayerResult } from "../models/models_0";
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient";
 import {
   deserializeAws_json1_1CreateLayerCommand,
@@ -124,8 +119,8 @@ export class CreateLayerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLayerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLayerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

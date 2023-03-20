@@ -137,7 +137,7 @@ export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Com
       clientName,
       commandName,
       inputFilterSensitiveLog: DisassociatePhoneNumbersFromVoiceConnectorGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

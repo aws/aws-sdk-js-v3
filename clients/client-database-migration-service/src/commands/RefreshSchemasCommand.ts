@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  RefreshSchemasMessage,
-  RefreshSchemasMessageFilterSensitiveLog,
-  RefreshSchemasResponse,
-  RefreshSchemasResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RefreshSchemasMessage, RefreshSchemasResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RefreshSchemasCommand,
   serializeAws_json1_1RefreshSchemasCommand,
@@ -142,8 +137,8 @@ export class RefreshSchemasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RefreshSchemasMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: RefreshSchemasResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
 import {
   GetBackupPlanFromJSONInput,
-  GetBackupPlanFromJSONInputFilterSensitiveLog,
   GetBackupPlanFromJSONOutput,
   GetBackupPlanFromJSONOutputFilterSensitiveLog,
 } from "../models/models_0";
@@ -125,7 +124,7 @@ export class GetBackupPlanFromJSONCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBackupPlanFromJSONInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetBackupPlanFromJSONOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

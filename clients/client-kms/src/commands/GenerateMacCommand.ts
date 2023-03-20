@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import {
-  GenerateMacRequest,
-  GenerateMacRequestFilterSensitiveLog,
-  GenerateMacResponse,
-  GenerateMacResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GenerateMacRequest, GenerateMacRequestFilterSensitiveLog, GenerateMacResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GenerateMacCommand,
   serializeAws_json1_1GenerateMacCommand,
@@ -210,7 +205,7 @@ export class GenerateMacCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GenerateMacRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GenerateMacResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

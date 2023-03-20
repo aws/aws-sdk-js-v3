@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DeleteObservabilityConfigurationRequest,
-  DeleteObservabilityConfigurationRequestFilterSensitiveLog,
-  DeleteObservabilityConfigurationResponse,
-  DeleteObservabilityConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteObservabilityConfigurationRequest, DeleteObservabilityConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteObservabilityConfigurationCommand,
   serializeAws_json1_0DeleteObservabilityConfigurationCommand,
@@ -119,8 +114,8 @@ export class DeleteObservabilityConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteObservabilityConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteObservabilityConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

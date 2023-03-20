@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateProductWithPortfolioInput,
-  AssociateProductWithPortfolioInputFilterSensitiveLog,
-  AssociateProductWithPortfolioOutput,
-  AssociateProductWithPortfolioOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateProductWithPortfolioInput, AssociateProductWithPortfolioOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateProductWithPortfolioCommand,
   serializeAws_json1_1AssociateProductWithPortfolioCommand,
@@ -120,8 +115,8 @@ export class AssociateProductWithPortfolioCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateProductWithPortfolioInputFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateProductWithPortfolioOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

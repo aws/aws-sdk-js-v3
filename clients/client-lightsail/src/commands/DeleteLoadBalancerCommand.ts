@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteLoadBalancerRequest,
-  DeleteLoadBalancerRequestFilterSensitiveLog,
-  DeleteLoadBalancerResult,
-  DeleteLoadBalancerResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLoadBalancerRequest, DeleteLoadBalancerResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLoadBalancerCommand,
   serializeAws_json1_1DeleteLoadBalancerCommand,
@@ -142,8 +137,8 @@ export class DeleteLoadBalancerCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLoadBalancerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLoadBalancerResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

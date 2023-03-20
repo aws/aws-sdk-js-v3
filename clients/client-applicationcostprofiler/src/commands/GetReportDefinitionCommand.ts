@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
-import {
-  GetReportDefinitionRequest,
-  GetReportDefinitionRequestFilterSensitiveLog,
-  GetReportDefinitionResult,
-  GetReportDefinitionResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReportDefinitionRequest, GetReportDefinitionResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetReportDefinitionCommand,
   serializeAws_restJson1GetReportDefinitionCommand,
@@ -123,8 +118,8 @@ export class GetReportDefinitionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReportDefinitionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetReportDefinitionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

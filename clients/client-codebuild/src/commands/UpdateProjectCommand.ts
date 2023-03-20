@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  UpdateProjectInput,
-  UpdateProjectInputFilterSensitiveLog,
-  UpdateProjectOutput,
-  UpdateProjectOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateProjectInput, UpdateProjectOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateProjectCommand,
   serializeAws_json1_1UpdateProjectCommand,
@@ -111,8 +106,8 @@ export class UpdateProjectCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProjectInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProjectOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

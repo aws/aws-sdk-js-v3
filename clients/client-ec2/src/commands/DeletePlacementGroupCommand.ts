@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeletePlacementGroupRequest, DeletePlacementGroupRequestFilterSensitiveLog } from "../models/models_2";
+import { DeletePlacementGroupRequest } from "../models/models_2";
 import {
   deserializeAws_ec2DeletePlacementGroupCommand,
   serializeAws_ec2DeletePlacementGroupCommand,
@@ -116,8 +116,8 @@ export class DeletePlacementGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePlacementGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import {
-  AssociateVehicleFleetRequest,
-  AssociateVehicleFleetRequestFilterSensitiveLog,
-  AssociateVehicleFleetResponse,
-  AssociateVehicleFleetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateVehicleFleetRequest, AssociateVehicleFleetResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0AssociateVehicleFleetCommand,
   serializeAws_json1_0AssociateVehicleFleetCommand,
@@ -122,8 +117,8 @@ export class AssociateVehicleFleetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateVehicleFleetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateVehicleFleetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

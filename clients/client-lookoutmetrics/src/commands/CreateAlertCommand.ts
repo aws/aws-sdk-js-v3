@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
-import {
-  CreateAlertRequest,
-  CreateAlertRequestFilterSensitiveLog,
-  CreateAlertResponse,
-  CreateAlertResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateAlertRequest, CreateAlertResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateAlertCommand,
   serializeAws_restJson1CreateAlertCommand,
@@ -127,8 +122,8 @@ export class CreateAlertCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateAlertRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateAlertResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

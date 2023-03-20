@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeVocabularyRequest,
-  DescribeVocabularyRequestFilterSensitiveLog,
-  DescribeVocabularyResponse,
-  DescribeVocabularyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeVocabularyRequest, DescribeVocabularyResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeVocabularyCommand,
   serializeAws_restJson1DescribeVocabularyCommand,
@@ -122,8 +117,8 @@ export class DescribeVocabularyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVocabularyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVocabularyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ValidateSecurityProfileBehaviorsRequest,
-  ValidateSecurityProfileBehaviorsRequestFilterSensitiveLog,
-  ValidateSecurityProfileBehaviorsResponse,
-  ValidateSecurityProfileBehaviorsResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { ValidateSecurityProfileBehaviorsRequest, ValidateSecurityProfileBehaviorsResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,
   serializeAws_restJson1ValidateSecurityProfileBehaviorsCommand,
@@ -119,8 +114,8 @@ export class ValidateSecurityProfileBehaviorsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateSecurityProfileBehaviorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateSecurityProfileBehaviorsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

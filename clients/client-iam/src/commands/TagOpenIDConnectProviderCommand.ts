@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagOpenIDConnectProviderRequest, TagOpenIDConnectProviderRequestFilterSensitiveLog } from "../models/models_0";
+import { TagOpenIDConnectProviderRequest } from "../models/models_0";
 import {
   deserializeAws_queryTagOpenIDConnectProviderCommand,
   serializeAws_queryTagOpenIDConnectProviderCommand,
@@ -159,8 +159,8 @@ export class TagOpenIDConnectProviderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TagOpenIDConnectProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

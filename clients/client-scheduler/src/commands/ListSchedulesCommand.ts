@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSchedulesInput,
-  ListSchedulesInputFilterSensitiveLog,
-  ListSchedulesOutput,
-  ListSchedulesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSchedulesInput, ListSchedulesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSchedulesCommand,
   serializeAws_restJson1ListSchedulesCommand,
@@ -117,8 +112,8 @@ export class ListSchedulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchedulesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSchedulesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

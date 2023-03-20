@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DeleteReadinessCheckRequest, DeleteReadinessCheckRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteReadinessCheckRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteReadinessCheckCommand,
   serializeAws_restJson1DeleteReadinessCheckCommand,
@@ -121,8 +121,8 @@ export class DeleteReadinessCheckCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteReadinessCheckRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

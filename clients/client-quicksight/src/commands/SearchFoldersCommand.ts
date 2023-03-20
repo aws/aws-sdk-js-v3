@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SearchFoldersRequest,
-  SearchFoldersRequestFilterSensitiveLog,
-  SearchFoldersResponse,
-  SearchFoldersResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { SearchFoldersRequest, SearchFoldersResponse } from "../models/models_3";
 import {
   deserializeAws_restJson1SearchFoldersCommand,
   serializeAws_restJson1SearchFoldersCommand,
@@ -135,8 +130,8 @@ export class SearchFoldersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchFoldersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchFoldersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

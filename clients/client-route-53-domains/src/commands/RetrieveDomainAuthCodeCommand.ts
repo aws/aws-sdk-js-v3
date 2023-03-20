@@ -15,7 +15,6 @@ import {
 
 import {
   RetrieveDomainAuthCodeRequest,
-  RetrieveDomainAuthCodeRequestFilterSensitiveLog,
   RetrieveDomainAuthCodeResponse,
   RetrieveDomainAuthCodeResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -117,7 +116,7 @@ export class RetrieveDomainAuthCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RetrieveDomainAuthCodeRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RetrieveDomainAuthCodeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

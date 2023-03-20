@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateWorkloadShareInput,
-  UpdateWorkloadShareInputFilterSensitiveLog,
-  UpdateWorkloadShareOutput,
-  UpdateWorkloadShareOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateWorkloadShareInput, UpdateWorkloadShareOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateWorkloadShareCommand,
   serializeAws_restJson1UpdateWorkloadShareCommand,
@@ -125,8 +120,8 @@ export class UpdateWorkloadShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateWorkloadShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateWorkloadShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

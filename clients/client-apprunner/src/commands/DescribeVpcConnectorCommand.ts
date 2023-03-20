@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  DescribeVpcConnectorRequest,
-  DescribeVpcConnectorRequestFilterSensitiveLog,
-  DescribeVpcConnectorResponse,
-  DescribeVpcConnectorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeVpcConnectorRequest, DescribeVpcConnectorResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeVpcConnectorCommand,
   serializeAws_json1_0DescribeVpcConnectorCommand,
@@ -116,8 +111,8 @@ export class DescribeVpcConnectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeVpcConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeVpcConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

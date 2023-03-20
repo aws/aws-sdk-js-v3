@@ -16,7 +16,6 @@ import {
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
 import {
   StartDevEnvironmentSessionRequest,
-  StartDevEnvironmentSessionRequestFilterSensitiveLog,
   StartDevEnvironmentSessionResponse,
   StartDevEnvironmentSessionResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class StartDevEnvironmentSessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDevEnvironmentSessionRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: StartDevEnvironmentSessionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

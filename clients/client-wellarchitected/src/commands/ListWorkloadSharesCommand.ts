@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListWorkloadSharesInput,
-  ListWorkloadSharesInputFilterSensitiveLog,
-  ListWorkloadSharesOutput,
-  ListWorkloadSharesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ListWorkloadSharesInput, ListWorkloadSharesOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1ListWorkloadSharesCommand,
   serializeAws_restJson1ListWorkloadSharesCommand,
@@ -122,8 +117,8 @@ export class ListWorkloadSharesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkloadSharesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkloadSharesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

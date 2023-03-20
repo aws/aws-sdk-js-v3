@@ -16,7 +16,6 @@ import {
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
 import {
   DescribeJobRunRequest,
-  DescribeJobRunRequestFilterSensitiveLog,
   DescribeJobRunResponse,
   DescribeJobRunResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -117,7 +116,7 @@ export class DescribeJobRunCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeJobRunRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeJobRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

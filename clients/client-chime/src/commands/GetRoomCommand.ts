@@ -117,7 +117,7 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (_: any) => _ as any,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRoomResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

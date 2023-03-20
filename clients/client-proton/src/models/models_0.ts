@@ -4968,87 +4968,6 @@ export interface UntagResourceOutput {}
 /**
  * @internal
  */
-export const AcceptEnvironmentAccountConnectionInputFilterSensitiveLog = (
-  obj: AcceptEnvironmentAccountConnectionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentAccountConnectionFilterSensitiveLog = (obj: EnvironmentAccountConnection): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AcceptEnvironmentAccountConnectionOutputFilterSensitiveLog = (
-  obj: AcceptEnvironmentAccountConnectionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryBranchFilterSensitiveLog = (obj: RepositoryBranch): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AccountSettingsFilterSensitiveLog = (obj: AccountSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsInputFilterSensitiveLog = (obj: GetAccountSettingsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAccountSettingsOutputFilterSensitiveLog = (obj: GetAccountSettingsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryBranchInputFilterSensitiveLog = (obj: RepositoryBranchInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAccountSettingsInputFilterSensitiveLog = (obj: UpdateAccountSettingsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateAccountSettingsOutputFilterSensitiveLog = (obj: UpdateAccountSettingsOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CancelComponentDeploymentInputFilterSensitiveLog = (obj: CancelComponentDeploymentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ComponentFilterSensitiveLog = (obj: Component): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -5067,13 +4986,6 @@ export const CancelComponentDeploymentOutputFilterSensitiveLog = (obj: CancelCom
 /**
  * @internal
  */
-export const CancelEnvironmentDeploymentInputFilterSensitiveLog = (obj: CancelEnvironmentDeploymentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
@@ -5087,15 +4999,6 @@ export const EnvironmentFilterSensitiveLog = (obj: Environment): any => ({
 export const CancelEnvironmentDeploymentOutputFilterSensitiveLog = (obj: CancelEnvironmentDeploymentOutput): any => ({
   ...obj,
   ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
-});
-
-/**
- * @internal
- */
-export const CancelServiceInstanceDeploymentInputFilterSensitiveLog = (
-  obj: CancelServiceInstanceDeploymentInput
-): any => ({
-  ...obj,
 });
 
 /**
@@ -5120,15 +5023,6 @@ export const CancelServiceInstanceDeploymentOutputFilterSensitiveLog = (
 /**
  * @internal
  */
-export const CancelServicePipelineDeploymentInputFilterSensitiveLog = (
-  obj: CancelServicePipelineDeploymentInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ServicePipelineFilterSensitiveLog = (obj: ServicePipeline): any => ({
   ...obj,
   ...(obj.deploymentStatusMessage && { deploymentStatusMessage: SENSITIVE_STRING }),
@@ -5148,13 +5042,6 @@ export const CancelServicePipelineDeploymentOutputFilterSensitiveLog = (
 /**
  * @internal
  */
-export const ListComponentOutputsInputFilterSensitiveLog = (obj: ListComponentOutputsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const OutputFilterSensitiveLog = (obj: Output): any => ({
   ...obj,
 });
@@ -5165,38 +5052,6 @@ export const OutputFilterSensitiveLog = (obj: Output): any => ({
 export const ListComponentOutputsOutputFilterSensitiveLog = (obj: ListComponentOutputsOutput): any => ({
   ...obj,
   ...(obj.outputs && { outputs: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListComponentProvisionedResourcesInputFilterSensitiveLog = (
-  obj: ListComponentProvisionedResourcesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProvisionedResourceFilterSensitiveLog = (obj: ProvisionedResource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListComponentProvisionedResourcesOutputFilterSensitiveLog = (
-  obj: ListComponentProvisionedResourcesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagFilterSensitiveLog = (obj: Tag): any => ({
-  ...obj,
 });
 
 /**
@@ -5221,13 +5076,6 @@ export const CreateComponentOutputFilterSensitiveLog = (obj: CreateComponentOutp
 /**
  * @internal
  */
-export const DeleteComponentInputFilterSensitiveLog = (obj: DeleteComponentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteComponentOutputFilterSensitiveLog = (obj: DeleteComponentOutput): any => ({
   ...obj,
   ...(obj.component && { component: ComponentFilterSensitiveLog(obj.component) }),
@@ -5236,23 +5084,9 @@ export const DeleteComponentOutputFilterSensitiveLog = (obj: DeleteComponentOutp
 /**
  * @internal
  */
-export const GetComponentInputFilterSensitiveLog = (obj: GetComponentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetComponentOutputFilterSensitiveLog = (obj: GetComponentOutput): any => ({
   ...obj,
   ...(obj.component && { component: ComponentFilterSensitiveLog(obj.component) }),
-});
-
-/**
- * @internal
- */
-export const ListComponentsInputFilterSensitiveLog = (obj: ListComponentsInput): any => ({
-  ...obj,
 });
 
 /**
@@ -5292,151 +5126,9 @@ export const UpdateComponentOutputFilterSensitiveLog = (obj: UpdateComponentOutp
 /**
  * @internal
  */
-export const CreateEnvironmentAccountConnectionInputFilterSensitiveLog = (
-  obj: CreateEnvironmentAccountConnectionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateEnvironmentAccountConnectionOutputFilterSensitiveLog = (
-  obj: CreateEnvironmentAccountConnectionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentAccountConnectionInputFilterSensitiveLog = (
-  obj: DeleteEnvironmentAccountConnectionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteEnvironmentAccountConnectionOutputFilterSensitiveLog = (
-  obj: DeleteEnvironmentAccountConnectionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnvironmentAccountConnectionInputFilterSensitiveLog = (
-  obj: GetEnvironmentAccountConnectionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnvironmentAccountConnectionOutputFilterSensitiveLog = (
-  obj: GetEnvironmentAccountConnectionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentAccountConnectionsInputFilterSensitiveLog = (
-  obj: ListEnvironmentAccountConnectionsInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnvironmentAccountConnectionSummaryFilterSensitiveLog = (
-  obj: EnvironmentAccountConnectionSummary
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentAccountConnectionsOutputFilterSensitiveLog = (
-  obj: ListEnvironmentAccountConnectionsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectEnvironmentAccountConnectionInputFilterSensitiveLog = (
-  obj: RejectEnvironmentAccountConnectionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RejectEnvironmentAccountConnectionOutputFilterSensitiveLog = (
-  obj: RejectEnvironmentAccountConnectionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentAccountConnectionInputFilterSensitiveLog = (
-  obj: UpdateEnvironmentAccountConnectionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateEnvironmentAccountConnectionOutputFilterSensitiveLog = (
-  obj: UpdateEnvironmentAccountConnectionOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentOutputsInputFilterSensitiveLog = (obj: ListEnvironmentOutputsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListEnvironmentOutputsOutputFilterSensitiveLog = (obj: ListEnvironmentOutputsOutput): any => ({
   ...obj,
   ...(obj.outputs && { outputs: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentProvisionedResourcesInputFilterSensitiveLog = (
-  obj: ListEnvironmentProvisionedResourcesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentProvisionedResourcesOutputFilterSensitiveLog = (
-  obj: ListEnvironmentProvisionedResourcesOutput
-): any => ({
-  ...obj,
 });
 
 /**
@@ -5459,13 +5151,6 @@ export const CreateEnvironmentOutputFilterSensitiveLog = (obj: CreateEnvironment
 /**
  * @internal
  */
-export const DeleteEnvironmentInputFilterSensitiveLog = (obj: DeleteEnvironmentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteEnvironmentOutputFilterSensitiveLog = (obj: DeleteEnvironmentOutput): any => ({
   ...obj,
   ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
@@ -5474,30 +5159,9 @@ export const DeleteEnvironmentOutputFilterSensitiveLog = (obj: DeleteEnvironment
 /**
  * @internal
  */
-export const GetEnvironmentInputFilterSensitiveLog = (obj: GetEnvironmentInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetEnvironmentOutputFilterSensitiveLog = (obj: GetEnvironmentOutput): any => ({
   ...obj,
   ...(obj.environment && { environment: EnvironmentFilterSensitiveLog(obj.environment) }),
-});
-
-/**
- * @internal
- */
-export const EnvironmentTemplateFilterFilterSensitiveLog = (obj: EnvironmentTemplateFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentsInputFilterSensitiveLog = (obj: ListEnvironmentsInput): any => ({
-  ...obj,
 });
 
 /**
@@ -5565,13 +5229,6 @@ export const CreateEnvironmentTemplateOutputFilterSensitiveLog = (obj: CreateEnv
 /**
  * @internal
  */
-export const DeleteEnvironmentTemplateInputFilterSensitiveLog = (obj: DeleteEnvironmentTemplateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteEnvironmentTemplateOutputFilterSensitiveLog = (obj: DeleteEnvironmentTemplateOutput): any => ({
   ...obj,
   ...(obj.environmentTemplate && {
@@ -5582,25 +5239,11 @@ export const DeleteEnvironmentTemplateOutputFilterSensitiveLog = (obj: DeleteEnv
 /**
  * @internal
  */
-export const GetEnvironmentTemplateInputFilterSensitiveLog = (obj: GetEnvironmentTemplateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetEnvironmentTemplateOutputFilterSensitiveLog = (obj: GetEnvironmentTemplateOutput): any => ({
   ...obj,
   ...(obj.environmentTemplate && {
     environmentTemplate: EnvironmentTemplateFilterSensitiveLog(obj.environmentTemplate),
   }),
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentTemplatesInputFilterSensitiveLog = (obj: ListEnvironmentTemplatesInput): any => ({
-  ...obj,
 });
 
 /**
@@ -5642,27 +5285,12 @@ export const UpdateEnvironmentTemplateOutputFilterSensitiveLog = (obj: UpdateEnv
 /**
  * @internal
  */
-export const S3ObjectSourceFilterSensitiveLog = (obj: S3ObjectSource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateVersionSourceInputFilterSensitiveLog = (obj: TemplateVersionSourceInput): any => {
-  if (obj.s3 !== undefined) return { s3: S3ObjectSourceFilterSensitiveLog(obj.s3) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
 export const CreateEnvironmentTemplateVersionInputFilterSensitiveLog = (
   obj: CreateEnvironmentTemplateVersionInput
 ): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.source && { source: TemplateVersionSourceInputFilterSensitiveLog(obj.source) }),
+  ...(obj.source && { source: obj.source }),
 });
 
 /**
@@ -5690,15 +5318,6 @@ export const CreateEnvironmentTemplateVersionOutputFilterSensitiveLog = (
 /**
  * @internal
  */
-export const DeleteEnvironmentTemplateVersionInputFilterSensitiveLog = (
-  obj: DeleteEnvironmentTemplateVersionInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteEnvironmentTemplateVersionOutputFilterSensitiveLog = (
   obj: DeleteEnvironmentTemplateVersionOutput
 ): any => ({
@@ -5711,13 +5330,6 @@ export const DeleteEnvironmentTemplateVersionOutputFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetEnvironmentTemplateVersionInputFilterSensitiveLog = (obj: GetEnvironmentTemplateVersionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetEnvironmentTemplateVersionOutputFilterSensitiveLog = (
   obj: GetEnvironmentTemplateVersionOutput
 ): any => ({
@@ -5725,15 +5337,6 @@ export const GetEnvironmentTemplateVersionOutputFilterSensitiveLog = (
   ...(obj.environmentTemplateVersion && {
     environmentTemplateVersion: EnvironmentTemplateVersionFilterSensitiveLog(obj.environmentTemplateVersion),
   }),
-});
-
-/**
- * @internal
- */
-export const ListEnvironmentTemplateVersionsInputFilterSensitiveLog = (
-  obj: ListEnvironmentTemplateVersionsInput
-): any => ({
-  ...obj,
 });
 
 /**
@@ -5782,226 +5385,12 @@ export const UpdateEnvironmentTemplateVersionOutputFilterSensitiveLog = (
 /**
  * @internal
  */
-export const GetRepositorySyncStatusInputFilterSensitiveLog = (obj: GetRepositorySyncStatusInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositorySyncEventFilterSensitiveLog = (obj: RepositorySyncEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositorySyncAttemptFilterSensitiveLog = (obj: RepositorySyncAttempt): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositorySyncStatusOutputFilterSensitiveLog = (obj: GetRepositorySyncStatusOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcesSummaryInputFilterSensitiveLog = (obj: GetResourcesSummaryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceCountsSummaryFilterSensitiveLog = (obj: ResourceCountsSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CountsSummaryFilterSensitiveLog = (obj: CountsSummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetResourcesSummaryOutputFilterSensitiveLog = (obj: GetResourcesSummaryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateSyncStatusInputFilterSensitiveLog = (obj: GetTemplateSyncStatusInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RevisionFilterSensitiveLog = (obj: Revision): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceSyncEventFilterSensitiveLog = (obj: ResourceSyncEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceSyncAttemptFilterSensitiveLog = (obj: ResourceSyncAttempt): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateSyncStatusOutputFilterSensitiveLog = (obj: GetTemplateSyncStatusOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositorySyncDefinitionsInputFilterSensitiveLog = (obj: ListRepositorySyncDefinitionsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositorySyncDefinitionFilterSensitiveLog = (obj: RepositorySyncDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositorySyncDefinitionsOutputFilterSensitiveLog = (
-  obj: ListRepositorySyncDefinitionsOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const NotifyResourceDeploymentStatusChangeInputFilterSensitiveLog = (
   obj: NotifyResourceDeploymentStatusChangeInput
 ): any => ({
   ...obj,
   ...(obj.outputs && { outputs: SENSITIVE_STRING }),
   ...(obj.statusMessage && { statusMessage: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const NotifyResourceDeploymentStatusChangeOutputFilterSensitiveLog = (
-  obj: NotifyResourceDeploymentStatusChangeOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRepositoryInputFilterSensitiveLog = (obj: CreateRepositoryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositoryFilterSensitiveLog = (obj: Repository): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRepositoryOutputFilterSensitiveLog = (obj: CreateRepositoryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryInputFilterSensitiveLog = (obj: DeleteRepositoryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRepositoryOutputFilterSensitiveLog = (obj: DeleteRepositoryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryInputFilterSensitiveLog = (obj: GetRepositoryInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetRepositoryOutputFilterSensitiveLog = (obj: GetRepositoryOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositoriesInputFilterSensitiveLog = (obj: ListRepositoriesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RepositorySummaryFilterSensitiveLog = (obj: RepositorySummary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListRepositoriesOutputFilterSensitiveLog = (obj: ListRepositoriesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServiceInstanceOutputsInputFilterSensitiveLog = (obj: ListServiceInstanceOutputsInput): any => ({
-  ...obj,
 });
 
 /**
@@ -6015,48 +5404,9 @@ export const ListServiceInstanceOutputsOutputFilterSensitiveLog = (obj: ListServ
 /**
  * @internal
  */
-export const ListServiceInstanceProvisionedResourcesInputFilterSensitiveLog = (
-  obj: ListServiceInstanceProvisionedResourcesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServiceInstanceProvisionedResourcesOutputFilterSensitiveLog = (
-  obj: ListServiceInstanceProvisionedResourcesOutput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetServiceInstanceInputFilterSensitiveLog = (obj: GetServiceInstanceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetServiceInstanceOutputFilterSensitiveLog = (obj: GetServiceInstanceOutput): any => ({
   ...obj,
   ...(obj.serviceInstance && { serviceInstance: ServiceInstanceFilterSensitiveLog(obj.serviceInstance) }),
-});
-
-/**
- * @internal
- */
-export const ListServiceInstancesFilterFilterSensitiveLog = (obj: ListServiceInstancesFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServiceInstancesInputFilterSensitiveLog = (obj: ListServiceInstancesInput): any => ({
-  ...obj,
 });
 
 /**
@@ -6096,34 +5446,9 @@ export const UpdateServiceInstanceOutputFilterSensitiveLog = (obj: UpdateService
 /**
  * @internal
  */
-export const ListServicePipelineOutputsInputFilterSensitiveLog = (obj: ListServicePipelineOutputsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const ListServicePipelineOutputsOutputFilterSensitiveLog = (obj: ListServicePipelineOutputsOutput): any => ({
   ...obj,
   ...(obj.outputs && { outputs: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListServicePipelineProvisionedResourcesInputFilterSensitiveLog = (
-  obj: ListServicePipelineProvisionedResourcesInput
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListServicePipelineProvisionedResourcesOutputFilterSensitiveLog = (
-  obj: ListServicePipelineProvisionedResourcesOutput
-): any => ({
-  ...obj,
 });
 
 /**
@@ -6173,13 +5498,6 @@ export const CreateServiceOutputFilterSensitiveLog = (obj: CreateServiceOutput):
 /**
  * @internal
  */
-export const DeleteServiceInputFilterSensitiveLog = (obj: DeleteServiceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteServiceOutputFilterSensitiveLog = (obj: DeleteServiceOutput): any => ({
   ...obj,
   ...(obj.service && { service: ServiceFilterSensitiveLog(obj.service) }),
@@ -6188,23 +5506,9 @@ export const DeleteServiceOutputFilterSensitiveLog = (obj: DeleteServiceOutput):
 /**
  * @internal
  */
-export const GetServiceInputFilterSensitiveLog = (obj: GetServiceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetServiceOutputFilterSensitiveLog = (obj: GetServiceOutput): any => ({
   ...obj,
   ...(obj.service && { service: ServiceFilterSensitiveLog(obj.service) }),
-});
-
-/**
- * @internal
- */
-export const ListServicesInputFilterSensitiveLog = (obj: ListServicesInput): any => ({
-  ...obj,
 });
 
 /**
@@ -6270,13 +5574,6 @@ export const CreateServiceTemplateOutputFilterSensitiveLog = (obj: CreateService
 /**
  * @internal
  */
-export const DeleteServiceTemplateInputFilterSensitiveLog = (obj: DeleteServiceTemplateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteServiceTemplateOutputFilterSensitiveLog = (obj: DeleteServiceTemplateOutput): any => ({
   ...obj,
   ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplateFilterSensitiveLog(obj.serviceTemplate) }),
@@ -6285,23 +5582,9 @@ export const DeleteServiceTemplateOutputFilterSensitiveLog = (obj: DeleteService
 /**
  * @internal
  */
-export const GetServiceTemplateInputFilterSensitiveLog = (obj: GetServiceTemplateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetServiceTemplateOutputFilterSensitiveLog = (obj: GetServiceTemplateOutput): any => ({
   ...obj,
   ...(obj.serviceTemplate && { serviceTemplate: ServiceTemplateFilterSensitiveLog(obj.serviceTemplate) }),
-});
-
-/**
- * @internal
- */
-export const ListServiceTemplatesInputFilterSensitiveLog = (obj: ListServiceTemplatesInput): any => ({
-  ...obj,
 });
 
 /**
@@ -6341,24 +5624,10 @@ export const UpdateServiceTemplateOutputFilterSensitiveLog = (obj: UpdateService
 /**
  * @internal
  */
-export const CompatibleEnvironmentTemplateInputFilterSensitiveLog = (obj: CompatibleEnvironmentTemplateInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateServiceTemplateVersionInputFilterSensitiveLog = (obj: CreateServiceTemplateVersionInput): any => ({
   ...obj,
   ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.source && { source: TemplateVersionSourceInputFilterSensitiveLog(obj.source) }),
-});
-
-/**
- * @internal
- */
-export const CompatibleEnvironmentTemplateFilterSensitiveLog = (obj: CompatibleEnvironmentTemplate): any => ({
-  ...obj,
+  ...(obj.source && { source: obj.source }),
 });
 
 /**
@@ -6384,13 +5653,6 @@ export const CreateServiceTemplateVersionOutputFilterSensitiveLog = (obj: Create
 /**
  * @internal
  */
-export const DeleteServiceTemplateVersionInputFilterSensitiveLog = (obj: DeleteServiceTemplateVersionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const DeleteServiceTemplateVersionOutputFilterSensitiveLog = (obj: DeleteServiceTemplateVersionOutput): any => ({
   ...obj,
   ...(obj.serviceTemplateVersion && {
@@ -6401,25 +5663,11 @@ export const DeleteServiceTemplateVersionOutputFilterSensitiveLog = (obj: Delete
 /**
  * @internal
  */
-export const GetServiceTemplateVersionInputFilterSensitiveLog = (obj: GetServiceTemplateVersionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetServiceTemplateVersionOutputFilterSensitiveLog = (obj: GetServiceTemplateVersionOutput): any => ({
   ...obj,
   ...(obj.serviceTemplateVersion && {
     serviceTemplateVersion: ServiceTemplateVersionFilterSensitiveLog(obj.serviceTemplateVersion),
   }),
-});
-
-/**
- * @internal
- */
-export const ListServiceTemplateVersionsInputFilterSensitiveLog = (obj: ListServiceTemplateVersionsInput): any => ({
-  ...obj,
 });
 
 /**
@@ -6457,95 +5705,4 @@ export const UpdateServiceTemplateVersionOutputFilterSensitiveLog = (obj: Update
   ...(obj.serviceTemplateVersion && {
     serviceTemplateVersion: ServiceTemplateVersionFilterSensitiveLog(obj.serviceTemplateVersion),
   }),
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateSyncConfigInputFilterSensitiveLog = (obj: CreateTemplateSyncConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateSyncConfigFilterSensitiveLog = (obj: TemplateSyncConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateTemplateSyncConfigOutputFilterSensitiveLog = (obj: CreateTemplateSyncConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTemplateSyncConfigInputFilterSensitiveLog = (obj: DeleteTemplateSyncConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTemplateSyncConfigOutputFilterSensitiveLog = (obj: DeleteTemplateSyncConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateSyncConfigInputFilterSensitiveLog = (obj: GetTemplateSyncConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetTemplateSyncConfigOutputFilterSensitiveLog = (obj: GetTemplateSyncConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTemplateSyncConfigInputFilterSensitiveLog = (obj: UpdateTemplateSyncConfigInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateTemplateSyncConfigOutputFilterSensitiveLog = (obj: UpdateTemplateSyncConfigOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
 });

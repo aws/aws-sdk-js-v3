@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  DeleteRepositoryInput,
-  DeleteRepositoryInputFilterSensitiveLog,
-  DeleteRepositoryOutput,
-  DeleteRepositoryOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRepositoryInput, DeleteRepositoryOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteRepositoryCommand,
   serializeAws_json1_1DeleteRepositoryCommand,
@@ -139,8 +134,8 @@ export class DeleteRepositoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRepositoryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRepositoryOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

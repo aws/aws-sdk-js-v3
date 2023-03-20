@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import {
-  UpdateConfiguredTableInput,
-  UpdateConfiguredTableInputFilterSensitiveLog,
-  UpdateConfiguredTableOutput,
-  UpdateConfiguredTableOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateConfiguredTableInput, UpdateConfiguredTableOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateConfiguredTableCommand,
   serializeAws_restJson1UpdateConfiguredTableCommand,
@@ -125,8 +120,8 @@ export class UpdateConfiguredTableCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateConfiguredTableInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateConfiguredTableOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

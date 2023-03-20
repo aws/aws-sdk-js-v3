@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeNodeConfigurationOptionsMessage,
-  DescribeNodeConfigurationOptionsMessageFilterSensitiveLog,
-  NodeConfigurationOptionsMessage,
-  NodeConfigurationOptionsMessageFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeNodeConfigurationOptionsMessage, NodeConfigurationOptionsMessage } from "../models/models_1";
 import {
   deserializeAws_queryDescribeNodeConfigurationOptionsCommand,
   serializeAws_queryDescribeNodeConfigurationOptionsCommand,
@@ -128,8 +123,8 @@ export class DescribeNodeConfigurationOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNodeConfigurationOptionsMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: NodeConfigurationOptionsMessageFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

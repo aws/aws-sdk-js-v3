@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import {
-  DescribeOrganizationConfigRulesRequest,
-  DescribeOrganizationConfigRulesRequestFilterSensitiveLog,
-  DescribeOrganizationConfigRulesResponse,
-  DescribeOrganizationConfigRulesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeOrganizationConfigRulesRequest, DescribeOrganizationConfigRulesResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeOrganizationConfigRulesCommand,
   serializeAws_json1_1DescribeOrganizationConfigRulesCommand,
@@ -159,8 +154,8 @@ export class DescribeOrganizationConfigRulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOrganizationConfigRulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOrganizationConfigRulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

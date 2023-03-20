@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListObjectPoliciesRequest,
-  ListObjectPoliciesRequestFilterSensitiveLog,
-  ListObjectPoliciesResponse,
-  ListObjectPoliciesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListObjectPoliciesRequest, ListObjectPoliciesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListObjectPoliciesCommand,
   serializeAws_restJson1ListObjectPoliciesCommand,
@@ -135,8 +130,8 @@ export class ListObjectPoliciesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectPoliciesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectPoliciesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  ExitStandbyAnswer,
-  ExitStandbyAnswerFilterSensitiveLog,
-  ExitStandbyQuery,
-  ExitStandbyQueryFilterSensitiveLog,
-} from "../models/models_0";
+import { ExitStandbyAnswer, ExitStandbyQuery } from "../models/models_0";
 import { deserializeAws_queryExitStandbyCommand, serializeAws_queryExitStandbyCommand } from "../protocols/Aws_query";
 
 /**
@@ -141,8 +136,8 @@ export class ExitStandbyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExitStandbyQueryFilterSensitiveLog,
-      outputFilterSensitiveLog: ExitStandbyAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

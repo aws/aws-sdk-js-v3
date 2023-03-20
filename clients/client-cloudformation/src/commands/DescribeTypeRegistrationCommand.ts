@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  DescribeTypeRegistrationInput,
-  DescribeTypeRegistrationInputFilterSensitiveLog,
-  DescribeTypeRegistrationOutput,
-  DescribeTypeRegistrationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTypeRegistrationInput, DescribeTypeRegistrationOutput } from "../models/models_0";
 import {
   deserializeAws_queryDescribeTypeRegistrationCommand,
   serializeAws_queryDescribeTypeRegistrationCommand,
@@ -120,8 +115,8 @@ export class DescribeTypeRegistrationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTypeRegistrationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTypeRegistrationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

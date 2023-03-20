@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelQualityJobDefinitionsRequest,
-  ListModelQualityJobDefinitionsRequestFilterSensitiveLog,
-  ListModelQualityJobDefinitionsResponse,
-  ListModelQualityJobDefinitionsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListModelQualityJobDefinitionsRequest, ListModelQualityJobDefinitionsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListModelQualityJobDefinitionsCommand,
   serializeAws_json1_1ListModelQualityJobDefinitionsCommand,
@@ -109,8 +104,8 @@ export class ListModelQualityJobDefinitionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelQualityJobDefinitionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelQualityJobDefinitionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

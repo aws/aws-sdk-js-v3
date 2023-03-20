@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import {
-  GetLogEventsRequest,
-  GetLogEventsRequestFilterSensitiveLog,
-  GetLogEventsResponse,
-  GetLogEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLogEventsRequest, GetLogEventsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetLogEventsCommand,
   serializeAws_json1_1GetLogEventsCommand,
@@ -124,8 +119,8 @@ export class GetLogEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLogEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLogEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

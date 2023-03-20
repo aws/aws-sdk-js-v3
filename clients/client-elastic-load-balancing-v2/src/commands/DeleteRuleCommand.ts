@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
-import {
-  DeleteRuleInput,
-  DeleteRuleInputFilterSensitiveLog,
-  DeleteRuleOutput,
-  DeleteRuleOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteRuleInput, DeleteRuleOutput } from "../models/models_0";
 import { deserializeAws_queryDeleteRuleCommand, serializeAws_queryDeleteRuleCommand } from "../protocols/Aws_query";
 
 /**
@@ -124,8 +119,8 @@ export class DeleteRuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

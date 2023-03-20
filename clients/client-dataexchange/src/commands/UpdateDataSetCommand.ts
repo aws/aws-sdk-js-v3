@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import {
-  UpdateDataSetRequest,
-  UpdateDataSetRequestFilterSensitiveLog,
-  UpdateDataSetResponse,
-  UpdateDataSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDataSetRequest, UpdateDataSetResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDataSetCommand,
   serializeAws_restJson1UpdateDataSetCommand,
@@ -120,8 +115,8 @@ export class UpdateDataSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDataSetRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDataSetResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

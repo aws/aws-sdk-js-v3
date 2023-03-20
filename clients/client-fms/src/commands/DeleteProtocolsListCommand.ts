@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import { DeleteProtocolsListRequest, DeleteProtocolsListRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteProtocolsListRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProtocolsListCommand,
   serializeAws_json1_1DeleteProtocolsListCommand,
@@ -116,8 +116,8 @@ export class DeleteProtocolsListCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProtocolsListRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

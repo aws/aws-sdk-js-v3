@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import {
-  CreateVpcIngressConnectionRequest,
-  CreateVpcIngressConnectionRequestFilterSensitiveLog,
-  CreateVpcIngressConnectionResponse,
-  CreateVpcIngressConnectionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVpcIngressConnectionRequest, CreateVpcIngressConnectionResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0CreateVpcIngressConnectionCommand,
   serializeAws_json1_0CreateVpcIngressConnectionCommand,
@@ -121,8 +116,8 @@ export class CreateVpcIngressConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcIngressConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateVpcIngressConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DeleteMultiplexProgramRequest,
-  DeleteMultiplexProgramRequestFilterSensitiveLog,
-  DeleteMultiplexProgramResponse,
-  DeleteMultiplexProgramResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteMultiplexProgramRequest, DeleteMultiplexProgramResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteMultiplexProgramCommand,
   serializeAws_restJson1DeleteMultiplexProgramCommand,
@@ -131,8 +126,8 @@ export class DeleteMultiplexProgramCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMultiplexProgramRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMultiplexProgramResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

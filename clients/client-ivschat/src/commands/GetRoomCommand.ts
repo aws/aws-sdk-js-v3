@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  GetRoomRequest,
-  GetRoomRequestFilterSensitiveLog,
-  GetRoomResponse,
-  GetRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRoomRequest, GetRoomResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetRoomCommand,
   serializeAws_restJson1GetRoomCommand,
@@ -110,8 +105,8 @@ export class GetRoomCommand extends $Command<GetRoomCommandInput, GetRoomCommand
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

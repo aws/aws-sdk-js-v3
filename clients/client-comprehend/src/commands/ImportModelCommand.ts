@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import {
-  ImportModelRequest,
-  ImportModelRequestFilterSensitiveLog,
-  ImportModelResponse,
-  ImportModelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ImportModelRequest, ImportModelResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ImportModelCommand,
   serializeAws_json1_1ImportModelCommand,
@@ -143,8 +138,8 @@ export class ImportModelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ImportModelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ImportModelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient";
-import {
-  UpdateS3ResourcesRequest,
-  UpdateS3ResourcesRequestFilterSensitiveLog,
-  UpdateS3ResourcesResult,
-  UpdateS3ResourcesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateS3ResourcesCommand,
   serializeAws_json1_1UpdateS3ResourcesCommand,
@@ -121,8 +116,8 @@ export class UpdateS3ResourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateS3ResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateS3ResourcesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

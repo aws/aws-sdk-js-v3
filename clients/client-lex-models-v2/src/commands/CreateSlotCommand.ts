@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import {
-  CreateSlotRequest,
-  CreateSlotRequestFilterSensitiveLog,
-  CreateSlotResponse,
-  CreateSlotResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateSlotRequest, CreateSlotResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1CreateSlotCommand,
   serializeAws_restJson1CreateSlotCommand,
@@ -134,8 +129,8 @@ export class CreateSlotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateSlotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateSlotResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ReceiveMessageRequest,
-  ReceiveMessageRequestFilterSensitiveLog,
-  ReceiveMessageResult,
-  ReceiveMessageResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/models_0";
 import {
   deserializeAws_queryReceiveMessageCommand,
   serializeAws_queryReceiveMessageCommand,
@@ -150,8 +145,8 @@ export class ReceiveMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ReceiveMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ReceiveMessageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

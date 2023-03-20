@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  DeleteLocationRequest,
-  DeleteLocationRequestFilterSensitiveLog,
-  DeleteLocationResponse,
-  DeleteLocationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteLocationRequest, DeleteLocationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteLocationCommand,
   serializeAws_json1_1DeleteLocationCommand,
@@ -113,8 +108,8 @@ export class DeleteLocationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLocationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

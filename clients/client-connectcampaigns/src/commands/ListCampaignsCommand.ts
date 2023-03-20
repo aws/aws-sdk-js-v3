@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCampaignsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCampaignsClient";
-import {
-  ListCampaignsRequest,
-  ListCampaignsRequestFilterSensitiveLog,
-  ListCampaignsResponse,
-  ListCampaignsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListCampaignsRequest, ListCampaignsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListCampaignsCommand,
   serializeAws_restJson1ListCampaignsCommand,
@@ -114,8 +109,8 @@ export class ListCampaignsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListCampaignsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListCampaignsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

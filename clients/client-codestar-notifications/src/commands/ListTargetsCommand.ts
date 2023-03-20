@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
-import {
-  ListTargetsRequest,
-  ListTargetsRequestFilterSensitiveLog,
-  ListTargetsResult,
-  ListTargetsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTargetsRequest, ListTargetsResult, ListTargetsResultFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1ListTargetsCommand,
   serializeAws_restJson1ListTargetsCommand,
@@ -115,7 +110,7 @@ export class ListTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTargetsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListTargetsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

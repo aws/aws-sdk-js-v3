@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import {
-  BatchGetCustomDataIdentifiersRequest,
-  BatchGetCustomDataIdentifiersRequestFilterSensitiveLog,
-  BatchGetCustomDataIdentifiersResponse,
-  BatchGetCustomDataIdentifiersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetCustomDataIdentifiersRequest, BatchGetCustomDataIdentifiersResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetCustomDataIdentifiersCommand,
   serializeAws_restJson1BatchGetCustomDataIdentifiersCommand,
@@ -130,8 +125,8 @@ export class BatchGetCustomDataIdentifiersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetCustomDataIdentifiersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetCustomDataIdentifiersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

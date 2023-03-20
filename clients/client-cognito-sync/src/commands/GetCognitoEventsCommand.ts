@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import {
-  GetCognitoEventsRequest,
-  GetCognitoEventsRequestFilterSensitiveLog,
-  GetCognitoEventsResponse,
-  GetCognitoEventsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCognitoEventsRequest, GetCognitoEventsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCognitoEventsCommand,
   serializeAws_restJson1GetCognitoEventsCommand,
@@ -127,8 +122,8 @@ export class GetCognitoEventsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCognitoEventsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCognitoEventsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

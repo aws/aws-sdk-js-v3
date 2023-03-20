@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  GetRelationalDatabasesRequest,
-  GetRelationalDatabasesRequestFilterSensitiveLog,
-  GetRelationalDatabasesResult,
-  GetRelationalDatabasesResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetRelationalDatabasesRequest, GetRelationalDatabasesResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetRelationalDatabasesCommand,
   serializeAws_json1_1GetRelationalDatabasesCommand,
@@ -137,8 +132,8 @@ export class GetRelationalDatabasesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRelationalDatabasesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRelationalDatabasesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

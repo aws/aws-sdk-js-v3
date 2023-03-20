@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import {
-  ListPluginsRequest,
-  ListPluginsRequestFilterSensitiveLog,
-  ListPluginsResponse,
-  ListPluginsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListPluginsRequest, ListPluginsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListPluginsCommand,
   serializeAws_restJson1ListPluginsCommand,
@@ -118,8 +113,8 @@ export class ListPluginsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPluginsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPluginsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

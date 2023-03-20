@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import {
-  PutRepositoryCatalogDataRequest,
-  PutRepositoryCatalogDataRequestFilterSensitiveLog,
-  PutRepositoryCatalogDataResponse,
-  PutRepositoryCatalogDataResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutRepositoryCatalogDataRequest, PutRepositoryCatalogDataResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1PutRepositoryCatalogDataCommand,
   serializeAws_json1_1PutRepositoryCatalogDataCommand,
@@ -121,8 +116,8 @@ export class PutRepositoryCatalogDataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRepositoryCatalogDataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRepositoryCatalogDataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

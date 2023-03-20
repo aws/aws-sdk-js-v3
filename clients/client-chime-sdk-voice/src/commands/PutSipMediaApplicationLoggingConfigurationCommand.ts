@@ -16,9 +16,7 @@ import {
 import { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
 import {
   PutSipMediaApplicationLoggingConfigurationRequest,
-  PutSipMediaApplicationLoggingConfigurationRequestFilterSensitiveLog,
   PutSipMediaApplicationLoggingConfigurationResponse,
-  PutSipMediaApplicationLoggingConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1PutSipMediaApplicationLoggingConfigurationCommand,
@@ -95,8 +93,8 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutSipMediaApplicationLoggingConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSipMediaApplicationLoggingConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

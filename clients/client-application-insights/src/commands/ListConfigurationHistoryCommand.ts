@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  ListConfigurationHistoryRequest,
-  ListConfigurationHistoryRequestFilterSensitiveLog,
-  ListConfigurationHistoryResponse,
-  ListConfigurationHistoryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListConfigurationHistoryCommand,
   serializeAws_json1_1ListConfigurationHistoryCommand,
@@ -133,8 +128,8 @@ export class ListConfigurationHistoryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfigurationHistoryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfigurationHistoryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,6 @@ import {
 
 import {
   GetSecretValueRequest,
-  GetSecretValueRequestFilterSensitiveLog,
   GetSecretValueResponse,
   GetSecretValueResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -176,7 +175,7 @@ export class GetSecretValueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSecretValueRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetSecretValueResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

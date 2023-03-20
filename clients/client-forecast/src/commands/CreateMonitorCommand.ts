@@ -18,7 +18,6 @@ import {
   CreateMonitorRequest,
   CreateMonitorRequestFilterSensitiveLog,
   CreateMonitorResponse,
-  CreateMonitorResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateMonitorCommand,
@@ -125,7 +124,7 @@ export class CreateMonitorCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateMonitorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMonitorResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

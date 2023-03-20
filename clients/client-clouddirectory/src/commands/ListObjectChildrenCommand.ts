@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient";
-import {
-  ListObjectChildrenRequest,
-  ListObjectChildrenRequestFilterSensitiveLog,
-  ListObjectChildrenResponse,
-  ListObjectChildrenResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListObjectChildrenRequest, ListObjectChildrenResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListObjectChildrenCommand,
   serializeAws_restJson1ListObjectChildrenCommand,
@@ -140,8 +135,8 @@ export class ListObjectChildrenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListObjectChildrenRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListObjectChildrenResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

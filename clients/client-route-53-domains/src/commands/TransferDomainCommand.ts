@@ -17,7 +17,6 @@ import {
   TransferDomainRequest,
   TransferDomainRequestFilterSensitiveLog,
   TransferDomainResponse,
-  TransferDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1TransferDomainCommand,
@@ -162,7 +161,7 @@ export class TransferDomainCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: TransferDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TransferDomainResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

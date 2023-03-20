@@ -135,7 +135,7 @@ export class CreateMeetingDialOutCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateMeetingDialOutRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListMonitoringSchedulesRequest,
-  ListMonitoringSchedulesRequestFilterSensitiveLog,
-  ListMonitoringSchedulesResponse,
-  ListMonitoringSchedulesResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListMonitoringSchedulesRequest, ListMonitoringSchedulesResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListMonitoringSchedulesCommand,
   serializeAws_json1_1ListMonitoringSchedulesCommand,
@@ -107,8 +102,8 @@ export class ListMonitoringSchedulesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMonitoringSchedulesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMonitoringSchedulesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

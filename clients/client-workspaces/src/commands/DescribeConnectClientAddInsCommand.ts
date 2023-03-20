@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeConnectClientAddInsRequest,
-  DescribeConnectClientAddInsRequestFilterSensitiveLog,
-  DescribeConnectClientAddInsResult,
-  DescribeConnectClientAddInsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeConnectClientAddInsRequest, DescribeConnectClientAddInsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeConnectClientAddInsCommand,
   serializeAws_json1_1DescribeConnectClientAddInsCommand,
@@ -116,8 +111,8 @@ export class DescribeConnectClientAddInsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeConnectClientAddInsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeConnectClientAddInsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

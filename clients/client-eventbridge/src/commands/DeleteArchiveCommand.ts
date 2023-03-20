@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  DeleteArchiveRequest,
-  DeleteArchiveRequestFilterSensitiveLog,
-  DeleteArchiveResponse,
-  DeleteArchiveResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteArchiveRequest, DeleteArchiveResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteArchiveCommand,
   serializeAws_json1_1DeleteArchiveCommand,
@@ -114,8 +109,8 @@ export class DeleteArchiveCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteArchiveRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteArchiveResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  PublishTypeInput,
-  PublishTypeInputFilterSensitiveLog,
-  PublishTypeOutput,
-  PublishTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { PublishTypeInput, PublishTypeOutput } from "../models/models_0";
 import { deserializeAws_queryPublishTypeCommand, serializeAws_queryPublishTypeCommand } from "../protocols/Aws_query";
 
 /**
@@ -111,8 +106,8 @@ export class PublishTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PublishTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: PublishTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

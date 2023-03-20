@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import {
-  ExportEC2InstanceRecommendationsRequest,
-  ExportEC2InstanceRecommendationsRequestFilterSensitiveLog,
-  ExportEC2InstanceRecommendationsResponse,
-  ExportEC2InstanceRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ExportEC2InstanceRecommendationsRequest, ExportEC2InstanceRecommendationsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand,
   serializeAws_json1_0ExportEC2InstanceRecommendationsCommand,
@@ -139,8 +134,8 @@ export class ExportEC2InstanceRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportEC2InstanceRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportEC2InstanceRecommendationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

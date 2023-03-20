@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  GetIpamDiscoveredAccountsRequest,
-  GetIpamDiscoveredAccountsRequestFilterSensitiveLog,
-  GetIpamDiscoveredAccountsResult,
-  GetIpamDiscoveredAccountsResultFilterSensitiveLog,
-} from "../models/models_5";
+import { GetIpamDiscoveredAccountsRequest, GetIpamDiscoveredAccountsResult } from "../models/models_5";
 import {
   deserializeAws_ec2GetIpamDiscoveredAccountsCommand,
   serializeAws_ec2GetIpamDiscoveredAccountsCommand,
@@ -107,8 +102,8 @@ export class GetIpamDiscoveredAccountsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetIpamDiscoveredAccountsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetIpamDiscoveredAccountsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateNFSFileShareInput,
-  UpdateNFSFileShareInputFilterSensitiveLog,
-  UpdateNFSFileShareOutput,
-  UpdateNFSFileShareOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateNFSFileShareInput, UpdateNFSFileShareOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateNFSFileShareCommand,
   serializeAws_json1_1UpdateNFSFileShareCommand,
@@ -141,8 +136,8 @@ export class UpdateNFSFileShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateNFSFileShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateNFSFileShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   GetEventPredictionRequest,
   GetEventPredictionRequestFilterSensitiveLog,
   GetEventPredictionResult,
-  GetEventPredictionResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1GetEventPredictionCommand,
@@ -129,7 +128,7 @@ export class GetEventPredictionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: GetEventPredictionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetEventPredictionResultFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

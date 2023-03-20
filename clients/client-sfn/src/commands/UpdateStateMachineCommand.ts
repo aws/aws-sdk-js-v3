@@ -17,7 +17,6 @@ import {
   UpdateStateMachineInput,
   UpdateStateMachineInputFilterSensitiveLog,
   UpdateStateMachineOutput,
-  UpdateStateMachineOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0UpdateStateMachineCommand,
@@ -149,7 +148,7 @@ export class UpdateStateMachineCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateStateMachineInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateStateMachineOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

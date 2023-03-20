@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  DeleteBucketRequest,
-  DeleteBucketRequestFilterSensitiveLog,
-  DeleteBucketResult,
-  DeleteBucketResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteBucketRequest, DeleteBucketResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteBucketCommand,
   serializeAws_json1_1DeleteBucketCommand,
@@ -132,8 +127,8 @@ export class DeleteBucketCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteBucketRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteBucketResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

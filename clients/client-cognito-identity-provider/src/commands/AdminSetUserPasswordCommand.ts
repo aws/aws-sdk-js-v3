@@ -23,7 +23,6 @@ import {
   AdminSetUserPasswordRequest,
   AdminSetUserPasswordRequestFilterSensitiveLog,
   AdminSetUserPasswordResponse,
-  AdminSetUserPasswordResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminSetUserPasswordCommand,
@@ -147,7 +146,7 @@ export class AdminSetUserPasswordCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminSetUserPasswordRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminSetUserPasswordResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

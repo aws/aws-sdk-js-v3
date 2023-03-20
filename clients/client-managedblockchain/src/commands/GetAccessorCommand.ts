@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient";
-import {
-  GetAccessorInput,
-  GetAccessorInputFilterSensitiveLog,
-  GetAccessorOutput,
-  GetAccessorOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccessorInput, GetAccessorOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAccessorCommand,
   serializeAws_restJson1GetAccessorCommand,
@@ -128,8 +123,8 @@ export class GetAccessorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessorInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessorOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

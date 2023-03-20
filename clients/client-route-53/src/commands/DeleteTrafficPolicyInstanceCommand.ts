@@ -14,12 +14,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteTrafficPolicyInstanceRequest,
-  DeleteTrafficPolicyInstanceRequestFilterSensitiveLog,
-  DeleteTrafficPolicyInstanceResponse,
-  DeleteTrafficPolicyInstanceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteTrafficPolicyInstanceRequest, DeleteTrafficPolicyInstanceResponse } from "../models/models_0";
 import {
   deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand,
   serializeAws_restXmlDeleteTrafficPolicyInstanceCommand,
@@ -129,8 +124,8 @@ export class DeleteTrafficPolicyInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrafficPolicyInstanceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrafficPolicyInstanceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

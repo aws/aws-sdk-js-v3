@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  GetPercentilesRequest,
-  GetPercentilesRequestFilterSensitiveLog,
-  GetPercentilesResponse,
-  GetPercentilesResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { GetPercentilesRequest, GetPercentilesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1GetPercentilesCommand,
   serializeAws_restJson1GetPercentilesCommand,
@@ -143,8 +138,8 @@ export class GetPercentilesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetPercentilesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetPercentilesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import {
-  DescribeRegionSettingsInput,
-  DescribeRegionSettingsInputFilterSensitiveLog,
-  DescribeRegionSettingsOutput,
-  DescribeRegionSettingsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRegionSettingsInput, DescribeRegionSettingsOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeRegionSettingsCommand,
   serializeAws_restJson1DescribeRegionSettingsCommand,
@@ -114,8 +109,8 @@ export class DescribeRegionSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRegionSettingsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRegionSettingsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

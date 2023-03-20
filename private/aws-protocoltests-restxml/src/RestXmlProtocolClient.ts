@@ -190,6 +190,9 @@ import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./command
 import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "./commands/XmlUnionsCommand";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
+/**
+ * @public
+ */
 export type ServiceInputTypes =
   | AllQueryStringTypesCommandInput
   | BodyWithXmlNameCommandInput
@@ -248,6 +251,9 @@ export type ServiceInputTypes =
   | XmlTimestampsCommandInput
   | XmlUnionsCommandInput;
 
+/**
+ * @public
+ */
 export type ServiceOutputTypes =
   | AllQueryStringTypesCommandOutput
   | BodyWithXmlNameCommandOutput
@@ -306,6 +312,9 @@ export type ServiceOutputTypes =
   | XmlTimestampsCommandOutput
   | XmlUnionsCommandOutput;
 
+/**
+ * @public
+ */
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
    * The HTTP handler to use. Fetch in browser and Https in Nodejs.
@@ -313,7 +322,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   requestHandler?: __HttpHandler;
 
   /**
-   * A constructor for a class implementing the {@link __Checksum} interface
+   * A constructor for a class implementing the {@link @aws-sdk/types#ChecksumConstructor} interface
    * that computes the SHA-256 HMAC or checksum of a string or binary buffer.
    * @internal
    */
@@ -417,11 +426,14 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   logger?: __Logger;
 
   /**
-   * The {@link __DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
+   * The {@link @aws-sdk/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
 }
 
+/**
+ * @public
+ */
 type RestXmlProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
   RegionInputConfig &
@@ -430,10 +442,15 @@ type RestXmlProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandl
   HostHeaderInputConfig &
   UserAgentInputConfig;
 /**
- * The configuration interface of RestXmlProtocolClient class constructor that set the region, credentials and other options.
+ * @public
+ *
+ *  The configuration interface of RestXmlProtocolClient class constructor that set the region, credentials and other options.
  */
 export interface RestXmlProtocolClientConfig extends RestXmlProtocolClientConfigType {}
 
+/**
+ * @public
+ */
 type RestXmlProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RegionResolvedConfig &
@@ -442,11 +459,14 @@ type RestXmlProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__H
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig;
 /**
- * The resolved configuration interface of RestXmlProtocolClient class. This is resolved and normalized from the {@link RestXmlProtocolClientConfig | constructor configuration interface}.
+ * @public
+ *
+ *  The resolved configuration interface of RestXmlProtocolClient class. This is resolved and normalized from the {@link RestXmlProtocolClientConfig | constructor configuration interface}.
  */
 export interface RestXmlProtocolClientResolvedConfig extends RestXmlProtocolClientResolvedConfigType {}
 
 /**
+ * @public
  * A REST XML service that sends XML requests and responses.
  */
 export class RestXmlProtocolClient extends __Client<

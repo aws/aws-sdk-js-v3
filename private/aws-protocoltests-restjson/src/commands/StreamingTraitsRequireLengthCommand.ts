@@ -23,9 +23,11 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link StreamingTraitsRequireLengthCommand}.
  */
-type StreamingTraitsRequireLengthCommandInputType = Omit<StreamingTraitsRequireLengthInput, "blob"> & {
+export type StreamingTraitsRequireLengthCommandInputType = Omit<StreamingTraitsRequireLengthInput, "blob"> & {
   /**
    * For *`StreamingTraitsRequireLengthInput["blob"]`*, see {@link StreamingTraitsRequireLengthInput.blob}.
    */
@@ -36,11 +38,14 @@ type StreamingTraitsRequireLengthCommandInputType = Omit<StreamingTraitsRequireL
  */
 export interface StreamingTraitsRequireLengthCommandInput extends StreamingTraitsRequireLengthCommandInputType {}
 /**
+ * @public
+ *
  * The output of {@link StreamingTraitsRequireLengthCommand}.
  */
 export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBearer {}
 
 /**
+ * @public
  * This examples serializes a streaming blob shape with a required content
  * length in the request body.
  *
@@ -56,6 +61,8 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * const response = await client.send(command);
  * ```
  *
+ * @param StreamingTraitsRequireLengthCommandInput - {@link StreamingTraitsRequireLengthCommandInput}
+ * @returns {@link StreamingTraitsRequireLengthCommandOutput}
  * @see {@link StreamingTraitsRequireLengthCommandInput} for command's `input` shape.
  * @see {@link StreamingTraitsRequireLengthCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -70,6 +77,9 @@ export class StreamingTraitsRequireLengthCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: StreamingTraitsRequireLengthCommandInput) {
     // Start section: command_constructor
     super();
@@ -96,7 +106,7 @@ export class StreamingTraitsRequireLengthCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: StreamingTraitsRequireLengthInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,10 +116,16 @@ export class StreamingTraitsRequireLengthCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: StreamingTraitsRequireLengthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1StreamingTraitsRequireLengthCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  DeregisterResourceRequest,
-  DeregisterResourceRequestFilterSensitiveLog,
-  DeregisterResourceResponse,
-  DeregisterResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterResourceRequest, DeregisterResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeregisterResourceCommand,
   serializeAws_restJson1DeregisterResourceCommand,
@@ -120,8 +115,8 @@ export class DeregisterResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

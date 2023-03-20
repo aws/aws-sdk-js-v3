@@ -208,41 +208,6 @@ export interface PutRawMessageContentResponse {}
 /**
  * @internal
  */
-export const GetRawMessageContentRequestFilterSensitiveLog = (obj: GetRawMessageContentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetRawMessageContentResponseFilterSensitiveLog = (obj: GetRawMessageContentResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ReferenceFilterSensitiveLog = (obj: S3Reference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RawMessageContentFilterSensitiveLog = (obj: RawMessageContent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRawMessageContentRequestFilterSensitiveLog = (obj: PutRawMessageContentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutRawMessageContentResponseFilterSensitiveLog = (obj: PutRawMessageContentResponse): any => ({
   ...obj,
 });

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateProvisionedProductPropertiesInput,
-  UpdateProvisionedProductPropertiesInputFilterSensitiveLog,
-  UpdateProvisionedProductPropertiesOutput,
-  UpdateProvisionedProductPropertiesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateProvisionedProductPropertiesInput, UpdateProvisionedProductPropertiesOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand,
   serializeAws_json1_1UpdateProvisionedProductPropertiesCommand,
@@ -119,8 +114,8 @@ export class UpdateProvisionedProductPropertiesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateProvisionedProductPropertiesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateProvisionedProductPropertiesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

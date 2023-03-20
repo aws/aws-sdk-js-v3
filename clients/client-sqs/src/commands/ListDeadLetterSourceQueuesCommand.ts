@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListDeadLetterSourceQueuesRequest,
-  ListDeadLetterSourceQueuesRequestFilterSensitiveLog,
-  ListDeadLetterSourceQueuesResult,
-  ListDeadLetterSourceQueuesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResult } from "../models/models_0";
 import {
   deserializeAws_queryListDeadLetterSourceQueuesCommand,
   serializeAws_queryListDeadLetterSourceQueuesCommand,
@@ -120,8 +115,8 @@ export class ListDeadLetterSourceQueuesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDeadLetterSourceQueuesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDeadLetterSourceQueuesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

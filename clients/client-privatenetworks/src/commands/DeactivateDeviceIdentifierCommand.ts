@@ -15,7 +15,6 @@ import {
 
 import {
   DeactivateDeviceIdentifierRequest,
-  DeactivateDeviceIdentifierRequestFilterSensitiveLog,
   DeactivateDeviceIdentifierResponse,
   DeactivateDeviceIdentifierResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -116,7 +115,7 @@ export class DeactivateDeviceIdentifierCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeactivateDeviceIdentifierRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeactivateDeviceIdentifierResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

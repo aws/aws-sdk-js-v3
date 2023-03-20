@@ -16,7 +16,6 @@ import {
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
 import {
   SearchContactsRequest,
-  SearchContactsRequestFilterSensitiveLog,
   SearchContactsResponse,
   SearchContactsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -108,7 +107,7 @@ export class SearchContactsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SearchContactsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: SearchContactsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

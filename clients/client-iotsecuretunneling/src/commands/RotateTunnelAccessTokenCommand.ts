@@ -20,7 +20,6 @@ import {
 } from "../IoTSecureTunnelingClient";
 import {
   RotateTunnelAccessTokenRequest,
-  RotateTunnelAccessTokenRequestFilterSensitiveLog,
   RotateTunnelAccessTokenResponse,
   RotateTunnelAccessTokenResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -122,7 +121,7 @@ export class RotateTunnelAccessTokenCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RotateTunnelAccessTokenRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: RotateTunnelAccessTokenResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeMatchmakingRuleSetsInput,
-  DescribeMatchmakingRuleSetsInputFilterSensitiveLog,
-  DescribeMatchmakingRuleSetsOutput,
-  DescribeMatchmakingRuleSetsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeMatchmakingRuleSetsInput, DescribeMatchmakingRuleSetsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeMatchmakingRuleSetsCommand,
   serializeAws_json1_1DescribeMatchmakingRuleSetsCommand,
@@ -135,8 +130,8 @@ export class DescribeMatchmakingRuleSetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeMatchmakingRuleSetsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeMatchmakingRuleSetsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  UpdateCaseRequest,
-  UpdateCaseRequestFilterSensitiveLog,
-  UpdateCaseResponse,
-  UpdateCaseResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCaseRequest, UpdateCaseResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCaseCommand,
   serializeAws_restJson1UpdateCaseCommand,
@@ -125,8 +120,8 @@ export class UpdateCaseCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCaseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCaseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  UpdateRoomRequest,
-  UpdateRoomRequestFilterSensitiveLog,
-  UpdateRoomResponse,
-  UpdateRoomResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateRoomCommand,
   serializeAws_restJson1UpdateRoomCommand,
@@ -117,8 +112,8 @@ export class UpdateRoomCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRoomRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateRoomResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

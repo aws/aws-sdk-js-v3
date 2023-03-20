@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListImageVersionsRequest,
-  ListImageVersionsRequestFilterSensitiveLog,
-  ListImageVersionsResponse,
-  ListImageVersionsResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListImageVersionsRequest, ListImageVersionsResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListImageVersionsCommand,
   serializeAws_json1_1ListImageVersionsCommand,
@@ -111,8 +106,8 @@ export class ListImageVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListImageVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListImageVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

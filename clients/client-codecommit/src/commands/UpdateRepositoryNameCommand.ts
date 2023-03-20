@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdateRepositoryNameInput, UpdateRepositoryNameInputFilterSensitiveLog } from "../models/models_1";
+import { UpdateRepositoryNameInput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateRepositoryNameCommand,
   serializeAws_json1_1UpdateRepositoryNameCommand,
@@ -124,8 +124,8 @@ export class UpdateRepositoryNameCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateRepositoryNameInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeDhcpOptionsRequest,
-  DescribeDhcpOptionsRequestFilterSensitiveLog,
-  DescribeDhcpOptionsResult,
-  DescribeDhcpOptionsResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeDhcpOptionsCommand,
   serializeAws_ec2DescribeDhcpOptionsCommand,
@@ -144,8 +139,8 @@ export class DescribeDhcpOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDhcpOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDhcpOptionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

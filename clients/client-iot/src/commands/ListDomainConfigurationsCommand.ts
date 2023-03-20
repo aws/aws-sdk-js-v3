@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListDomainConfigurationsRequest,
-  ListDomainConfigurationsRequestFilterSensitiveLog,
-  ListDomainConfigurationsResponse,
-  ListDomainConfigurationsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListDomainConfigurationsRequest, ListDomainConfigurationsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListDomainConfigurationsCommand,
   serializeAws_restJson1ListDomainConfigurationsCommand,
@@ -124,8 +119,8 @@ export class ListDomainConfigurationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDomainConfigurationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDomainConfigurationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

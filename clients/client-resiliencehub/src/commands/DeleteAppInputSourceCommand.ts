@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteAppInputSourceRequest,
-  DeleteAppInputSourceRequestFilterSensitiveLog,
-  DeleteAppInputSourceResponse,
-  DeleteAppInputSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteAppInputSourceRequest, DeleteAppInputSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAppInputSourceCommand,
   serializeAws_restJson1DeleteAppInputSourceCommand,
@@ -131,8 +126,8 @@ export class DeleteAppInputSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAppInputSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteAppInputSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

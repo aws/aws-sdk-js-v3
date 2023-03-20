@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateEventDestinationRequest,
-  UpdateEventDestinationRequestFilterSensitiveLog,
-  UpdateEventDestinationResult,
-  UpdateEventDestinationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateEventDestinationRequest, UpdateEventDestinationResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
   ServiceInputTypes,
@@ -140,8 +135,8 @@ export class UpdateEventDestinationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateEventDestinationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEventDestinationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

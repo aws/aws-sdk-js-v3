@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteAccessLogSettingsRequest, DeleteAccessLogSettingsRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteAccessLogSettingsRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteAccessLogSettingsCommand,
   serializeAws_restJson1DeleteAccessLogSettingsCommand,
@@ -108,8 +108,8 @@ export class DeleteAccessLogSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteAccessLogSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

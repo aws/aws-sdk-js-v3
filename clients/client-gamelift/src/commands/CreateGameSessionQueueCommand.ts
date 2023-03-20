@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  CreateGameSessionQueueInput,
-  CreateGameSessionQueueInputFilterSensitiveLog,
-  CreateGameSessionQueueOutput,
-  CreateGameSessionQueueOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateGameSessionQueueInput, CreateGameSessionQueueOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateGameSessionQueueCommand,
   serializeAws_json1_1CreateGameSessionQueueCommand,
@@ -175,8 +170,8 @@ export class CreateGameSessionQueueCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateGameSessionQueueInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateGameSessionQueueOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

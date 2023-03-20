@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import {
-  UpdateClusterSettingsRequest,
-  UpdateClusterSettingsRequestFilterSensitiveLog,
-  UpdateClusterSettingsResponse,
-  UpdateClusterSettingsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateClusterSettingsCommand,
   serializeAws_json1_1UpdateClusterSettingsCommand,
@@ -122,8 +117,8 @@ export class UpdateClusterSettingsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterSettingsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterSettingsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

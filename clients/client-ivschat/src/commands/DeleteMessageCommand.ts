@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
-import {
-  DeleteMessageRequest,
-  DeleteMessageRequestFilterSensitiveLog,
-  DeleteMessageResponse,
-  DeleteMessageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteMessageRequest, DeleteMessageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMessageCommand,
   serializeAws_restJson1DeleteMessageCommand,
@@ -123,8 +118,8 @@ export class DeleteMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMessageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

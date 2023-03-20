@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartGatewayInput,
-  StartGatewayInputFilterSensitiveLog,
-  StartGatewayOutput,
-  StartGatewayOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StartGatewayInput, StartGatewayOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StartGatewayCommand,
   serializeAws_json1_1StartGatewayCommand,
@@ -141,8 +136,8 @@ export class StartGatewayCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartGatewayInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartGatewayOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

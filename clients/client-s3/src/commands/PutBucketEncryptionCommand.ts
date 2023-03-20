@@ -150,7 +150,7 @@ export class PutBucketEncryptionCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: PutBucketEncryptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

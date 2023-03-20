@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCampaignDateRangeKpiRequest,
-  GetCampaignDateRangeKpiRequestFilterSensitiveLog,
-  GetCampaignDateRangeKpiResponse,
-  GetCampaignDateRangeKpiResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCampaignDateRangeKpiRequest, GetCampaignDateRangeKpiResponse } from "../models/models_0";
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import {
   deserializeAws_restJson1GetCampaignDateRangeKpiCommand,
@@ -128,8 +123,8 @@ export class GetCampaignDateRangeKpiCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCampaignDateRangeKpiRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCampaignDateRangeKpiResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

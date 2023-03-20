@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  ListInputDeviceTransfersRequest,
-  ListInputDeviceTransfersRequestFilterSensitiveLog,
-  ListInputDeviceTransfersResponse,
-  ListInputDeviceTransfersResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListInputDeviceTransfersRequest, ListInputDeviceTransfersResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListInputDeviceTransfersCommand,
   serializeAws_restJson1ListInputDeviceTransfersCommand,
@@ -128,8 +123,8 @@ export class ListInputDeviceTransfersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListInputDeviceTransfersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListInputDeviceTransfersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

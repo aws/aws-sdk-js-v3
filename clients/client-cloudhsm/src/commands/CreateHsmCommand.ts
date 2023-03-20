@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import {
-  CreateHsmRequest,
-  CreateHsmRequestFilterSensitiveLog,
-  CreateHsmResponse,
-  CreateHsmResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateHsmRequest, CreateHsmResponse } from "../models/models_0";
 import { deserializeAws_json1_1CreateHsmCommand, serializeAws_json1_1CreateHsmCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -130,8 +125,8 @@ export class CreateHsmCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateHsmRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateHsmResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

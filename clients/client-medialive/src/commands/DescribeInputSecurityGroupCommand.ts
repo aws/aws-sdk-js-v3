@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeInputSecurityGroupRequest,
-  DescribeInputSecurityGroupRequestFilterSensitiveLog,
-  DescribeInputSecurityGroupResponse,
-  DescribeInputSecurityGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeInputSecurityGroupRequest, DescribeInputSecurityGroupResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeInputSecurityGroupCommand,
   serializeAws_restJson1DescribeInputSecurityGroupCommand,
@@ -128,8 +123,8 @@ export class DescribeInputSecurityGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInputSecurityGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInputSecurityGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

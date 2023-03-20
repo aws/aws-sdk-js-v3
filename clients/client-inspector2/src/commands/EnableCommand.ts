@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
-import {
-  EnableRequest,
-  EnableRequestFilterSensitiveLog,
-  EnableResponse,
-  EnableResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { EnableRequest, EnableResponse } from "../models/models_0";
 import { deserializeAws_restJson1EnableCommand, serializeAws_restJson1EnableCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -114,8 +109,8 @@ export class EnableCommand extends $Command<EnableCommandInput, EnableCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EnableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: EnableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -16,7 +16,6 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   CreateProvisioningClaimRequest,
-  CreateProvisioningClaimRequestFilterSensitiveLog,
   CreateProvisioningClaimResponse,
   CreateProvisioningClaimResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -126,7 +125,7 @@ export class CreateProvisioningClaimCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProvisioningClaimRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: CreateProvisioningClaimResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

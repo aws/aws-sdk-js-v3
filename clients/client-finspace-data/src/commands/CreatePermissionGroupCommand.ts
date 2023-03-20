@@ -18,7 +18,6 @@ import {
   CreatePermissionGroupRequest,
   CreatePermissionGroupRequestFilterSensitiveLog,
   CreatePermissionGroupResponse,
-  CreatePermissionGroupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreatePermissionGroupCommand,
@@ -127,7 +126,7 @@ export class CreatePermissionGroupCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreatePermissionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePermissionGroupResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

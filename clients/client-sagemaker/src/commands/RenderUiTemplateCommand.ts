@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RenderUiTemplateRequest,
-  RenderUiTemplateRequestFilterSensitiveLog,
-  RenderUiTemplateResponse,
-  RenderUiTemplateResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { RenderUiTemplateRequest, RenderUiTemplateResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1RenderUiTemplateCommand,
   serializeAws_json1_1RenderUiTemplateCommand,
@@ -110,8 +105,8 @@ export class RenderUiTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RenderUiTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RenderUiTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

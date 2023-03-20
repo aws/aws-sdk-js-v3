@@ -15,12 +15,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutMultiRegionAccessPointPolicyRequest,
-  PutMultiRegionAccessPointPolicyRequestFilterSensitiveLog,
-  PutMultiRegionAccessPointPolicyResult,
-  PutMultiRegionAccessPointPolicyResultFilterSensitiveLog,
-} from "../models/models_0";
+import { PutMultiRegionAccessPointPolicyRequest, PutMultiRegionAccessPointPolicyResult } from "../models/models_0";
 import {
   deserializeAws_restXmlPutMultiRegionAccessPointPolicyCommand,
   serializeAws_restXmlPutMultiRegionAccessPointPolicyCommand,
@@ -135,8 +130,8 @@ export class PutMultiRegionAccessPointPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutMultiRegionAccessPointPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutMultiRegionAccessPointPolicyResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

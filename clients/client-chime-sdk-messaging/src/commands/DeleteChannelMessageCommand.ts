@@ -18,7 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
-import { DeleteChannelMessageRequest, DeleteChannelMessageRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteChannelMessageRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteChannelMessageCommand,
   serializeAws_restJson1DeleteChannelMessageCommand,
@@ -131,8 +131,8 @@ export class DeleteChannelMessageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteChannelMessageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

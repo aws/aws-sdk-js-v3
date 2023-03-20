@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  DissociatePackageRequest,
-  DissociatePackageRequestFilterSensitiveLog,
-  DissociatePackageResponse,
-  DissociatePackageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DissociatePackageRequest, DissociatePackageResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DissociatePackageCommand,
   serializeAws_restJson1DissociatePackageCommand,
@@ -129,8 +124,8 @@ export class DissociatePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DissociatePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DissociatePackageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

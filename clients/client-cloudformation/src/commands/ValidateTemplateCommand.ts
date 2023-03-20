@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ValidateTemplateInput,
-  ValidateTemplateInputFilterSensitiveLog,
-  ValidateTemplateOutput,
-  ValidateTemplateOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ValidateTemplateInput, ValidateTemplateOutput } from "../models/models_0";
 import {
   deserializeAws_queryValidateTemplateCommand,
   serializeAws_queryValidateTemplateCommand,
@@ -109,8 +104,8 @@ export class ValidateTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ValidateTemplateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ValidateTemplateOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyAddressAttributeRequest,
-  ModifyAddressAttributeRequestFilterSensitiveLog,
-  ModifyAddressAttributeResult,
-  ModifyAddressAttributeResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyAddressAttributeRequest, ModifyAddressAttributeResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyAddressAttributeCommand,
   serializeAws_ec2ModifyAddressAttributeCommand,
@@ -107,8 +102,8 @@ export class ModifyAddressAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyAddressAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyAddressAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

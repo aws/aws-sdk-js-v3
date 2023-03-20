@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  ModifyIpamResourceDiscoveryRequest,
-  ModifyIpamResourceDiscoveryRequestFilterSensitiveLog,
-  ModifyIpamResourceDiscoveryResult,
-  ModifyIpamResourceDiscoveryResultFilterSensitiveLog,
-} from "../models/models_6";
+import { ModifyIpamResourceDiscoveryRequest, ModifyIpamResourceDiscoveryResult } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyIpamResourceDiscoveryCommand,
   serializeAws_ec2ModifyIpamResourceDiscoveryCommand,
@@ -107,8 +102,8 @@ export class ModifyIpamResourceDiscoveryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyIpamResourceDiscoveryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyIpamResourceDiscoveryResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

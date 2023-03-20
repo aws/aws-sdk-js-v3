@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetUtilizationInput,
-  DescribeFleetUtilizationInputFilterSensitiveLog,
-  DescribeFleetUtilizationOutput,
-  DescribeFleetUtilizationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFleetUtilizationInput, DescribeFleetUtilizationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeFleetUtilizationCommand,
   serializeAws_json1_1DescribeFleetUtilizationCommand,
@@ -156,8 +151,8 @@ export class DescribeFleetUtilizationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeFleetUtilizationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFleetUtilizationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

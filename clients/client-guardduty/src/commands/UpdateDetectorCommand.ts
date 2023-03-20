@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import {
-  UpdateDetectorRequest,
-  UpdateDetectorRequestFilterSensitiveLog,
-  UpdateDetectorResponse,
-  UpdateDetectorResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateDetectorRequest, UpdateDetectorResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateDetectorCommand,
   serializeAws_restJson1UpdateDetectorCommand,
@@ -116,8 +111,8 @@ export class UpdateDetectorCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDetectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDetectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

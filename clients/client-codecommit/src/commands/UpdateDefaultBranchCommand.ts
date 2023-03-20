@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { UpdateDefaultBranchInput, UpdateDefaultBranchInputFilterSensitiveLog } from "../models/models_1";
+import { UpdateDefaultBranchInput } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateDefaultBranchCommand,
   serializeAws_json1_1UpdateDefaultBranchCommand,
@@ -144,8 +144,8 @@ export class UpdateDefaultBranchCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDefaultBranchInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

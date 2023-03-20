@@ -19,12 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  AdminLinkProviderForUserRequest,
-  AdminLinkProviderForUserRequestFilterSensitiveLog,
-  AdminLinkProviderForUserResponse,
-  AdminLinkProviderForUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminLinkProviderForUserCommand,
   serializeAws_json1_1AdminLinkProviderForUserCommand,
@@ -163,8 +158,8 @@ export class AdminLinkProviderForUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AdminLinkProviderForUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminLinkProviderForUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

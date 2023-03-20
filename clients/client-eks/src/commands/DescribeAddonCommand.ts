@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import {
-  DescribeAddonRequest,
-  DescribeAddonRequestFilterSensitiveLog,
-  DescribeAddonResponse,
-  DescribeAddonResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAddonRequest, DescribeAddonResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAddonCommand,
   serializeAws_restJson1DescribeAddonCommand,
@@ -127,8 +122,8 @@ export class DescribeAddonCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAddonRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAddonResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  PutDraftAppVersionTemplateRequest,
-  PutDraftAppVersionTemplateRequestFilterSensitiveLog,
-  PutDraftAppVersionTemplateResponse,
-  PutDraftAppVersionTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutDraftAppVersionTemplateRequest, PutDraftAppVersionTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutDraftAppVersionTemplateCommand,
   serializeAws_restJson1PutDraftAppVersionTemplateCommand,
@@ -131,8 +126,8 @@ export class PutDraftAppVersionTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutDraftAppVersionTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutDraftAppVersionTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateActivationRequest,
-  CreateActivationRequestFilterSensitiveLog,
-  CreateActivationResult,
-  CreateActivationResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateActivationRequest, CreateActivationResult } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateActivationCommand,
   serializeAws_json1_1CreateActivationCommand,
@@ -123,8 +118,8 @@ export class CreateActivationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateActivationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateActivationResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

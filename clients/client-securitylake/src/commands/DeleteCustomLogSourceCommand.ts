@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteCustomLogSourceRequest,
-  DeleteCustomLogSourceRequestFilterSensitiveLog,
-  DeleteCustomLogSourceResponse,
-  DeleteCustomLogSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCustomLogSourceRequest, DeleteCustomLogSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomLogSourceCommand,
   serializeAws_restJson1DeleteCustomLogSourceCommand,
@@ -135,8 +130,8 @@ export class DeleteCustomLogSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomLogSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomLogSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

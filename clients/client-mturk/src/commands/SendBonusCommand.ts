@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SendBonusRequest,
-  SendBonusRequestFilterSensitiveLog,
-  SendBonusResponse,
-  SendBonusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SendBonusRequest, SendBonusResponse } from "../models/models_0";
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { deserializeAws_json1_1SendBonusCommand, serializeAws_json1_1SendBonusCommand } from "../protocols/Aws_json1_1";
 
@@ -121,8 +116,8 @@ export class SendBonusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SendBonusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SendBonusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

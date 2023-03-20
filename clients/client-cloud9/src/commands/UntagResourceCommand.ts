@@ -18,7 +18,6 @@ import {
   UntagResourceRequest,
   UntagResourceRequestFilterSensitiveLog,
   UntagResourceResponse,
-  UntagResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1UntagResourceCommand,
@@ -118,7 +117,7 @@ export class UntagResourceCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagResourceResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

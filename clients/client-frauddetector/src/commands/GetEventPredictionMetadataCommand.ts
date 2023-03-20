@@ -16,7 +16,6 @@ import {
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
 import {
   GetEventPredictionMetadataRequest,
-  GetEventPredictionMetadataRequestFilterSensitiveLog,
   GetEventPredictionMetadataResult,
   GetEventPredictionMetadataResultFilterSensitiveLog,
 } from "../models/models_0";
@@ -124,7 +123,7 @@ export class GetEventPredictionMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetEventPredictionMetadataRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetEventPredictionMetadataResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

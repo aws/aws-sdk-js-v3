@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyInstanceAttributeRequest, ModifyInstanceAttributeRequestFilterSensitiveLog } from "../models/models_6";
+import { ModifyInstanceAttributeRequest } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstanceAttributeCommand,
   serializeAws_ec2ModifyInstanceAttributeCommand,
@@ -140,8 +140,8 @@ export class ModifyInstanceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyInstanceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

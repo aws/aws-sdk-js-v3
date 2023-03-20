@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
-import {
-  GetViolationDetailsRequest,
-  GetViolationDetailsRequestFilterSensitiveLog,
-  GetViolationDetailsResponse,
-  GetViolationDetailsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetViolationDetailsRequest, GetViolationDetailsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetViolationDetailsCommand,
   serializeAws_json1_1GetViolationDetailsCommand,
@@ -117,8 +112,8 @@ export class GetViolationDetailsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetViolationDetailsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetViolationDetailsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

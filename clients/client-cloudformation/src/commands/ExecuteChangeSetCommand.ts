@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  ExecuteChangeSetInput,
-  ExecuteChangeSetInputFilterSensitiveLog,
-  ExecuteChangeSetOutput,
-  ExecuteChangeSetOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { ExecuteChangeSetInput, ExecuteChangeSetOutput } from "../models/models_0";
 import {
   deserializeAws_queryExecuteChangeSetCommand,
   serializeAws_queryExecuteChangeSetCommand,
@@ -133,8 +128,8 @@ export class ExecuteChangeSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteChangeSetInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteChangeSetOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

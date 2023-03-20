@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeIpRestrictionRequest,
-  DescribeIpRestrictionRequestFilterSensitiveLog,
-  DescribeIpRestrictionResponse,
-  DescribeIpRestrictionResponseFilterSensitiveLog,
-} from "../models/models_2";
+import { DescribeIpRestrictionRequest, DescribeIpRestrictionResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeIpRestrictionCommand,
   serializeAws_restJson1DescribeIpRestrictionCommand,
@@ -125,8 +120,8 @@ export class DescribeIpRestrictionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeIpRestrictionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeIpRestrictionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

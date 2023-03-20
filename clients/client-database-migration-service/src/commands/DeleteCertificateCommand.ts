@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
-import {
-  DeleteCertificateMessage,
-  DeleteCertificateMessageFilterSensitiveLog,
-  DeleteCertificateResponse,
-  DeleteCertificateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteCertificateCommand,
   serializeAws_json1_1DeleteCertificateCommand,
@@ -133,8 +128,8 @@ export class DeleteCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCertificateMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCertificateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

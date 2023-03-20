@@ -18,7 +18,6 @@ import {
   CreateWhatIfForecastExportRequest,
   CreateWhatIfForecastExportRequestFilterSensitiveLog,
   CreateWhatIfForecastExportResponse,
-  CreateWhatIfForecastExportResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateWhatIfForecastExportCommand,
@@ -141,7 +140,7 @@ export class CreateWhatIfForecastExportCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateWhatIfForecastExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateWhatIfForecastExportResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

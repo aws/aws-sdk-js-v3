@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListUploadsRequest,
-  ListUploadsRequestFilterSensitiveLog,
-  ListUploadsResult,
-  ListUploadsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListUploadsRequest, ListUploadsResult, ListUploadsResultFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_1ListUploadsCommand,
   serializeAws_json1_1ListUploadsCommand,
@@ -134,7 +129,7 @@ export class ListUploadsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUploadsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListUploadsResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

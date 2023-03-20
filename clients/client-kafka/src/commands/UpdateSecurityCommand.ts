@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  UpdateSecurityRequest,
-  UpdateSecurityRequestFilterSensitiveLog,
-  UpdateSecurityResponse,
-  UpdateSecurityResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateSecurityRequest, UpdateSecurityResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateSecurityCommand,
   serializeAws_restJson1UpdateSecurityCommand,
@@ -128,8 +123,8 @@ export class UpdateSecurityCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSecurityRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSecurityResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

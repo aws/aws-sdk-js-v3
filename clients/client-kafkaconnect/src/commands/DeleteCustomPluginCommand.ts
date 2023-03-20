@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  DeleteCustomPluginRequest,
-  DeleteCustomPluginRequestFilterSensitiveLog,
-  DeleteCustomPluginResponse,
-  DeleteCustomPluginResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteCustomPluginRequest, DeleteCustomPluginResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteCustomPluginCommand,
   serializeAws_restJson1DeleteCustomPluginCommand,
@@ -134,8 +129,8 @@ export class DeleteCustomPluginCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCustomPluginRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteCustomPluginResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

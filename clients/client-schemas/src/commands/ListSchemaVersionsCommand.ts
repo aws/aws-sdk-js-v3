@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListSchemaVersionsRequest,
-  ListSchemaVersionsRequestFilterSensitiveLog,
-  ListSchemaVersionsResponse,
-  ListSchemaVersionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListSchemaVersionsRequest, ListSchemaVersionsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListSchemaVersionsCommand,
   serializeAws_restJson1ListSchemaVersionsCommand,
@@ -119,8 +114,8 @@ export class ListSchemaVersionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSchemaVersionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSchemaVersionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

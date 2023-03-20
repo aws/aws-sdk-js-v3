@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  AssociateDelegateToResourceRequest,
-  AssociateDelegateToResourceRequestFilterSensitiveLog,
-  AssociateDelegateToResourceResponse,
-  AssociateDelegateToResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { AssociateDelegateToResourceRequest, AssociateDelegateToResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1AssociateDelegateToResourceCommand,
   serializeAws_json1_1AssociateDelegateToResourceCommand,
@@ -128,8 +123,8 @@ export class AssociateDelegateToResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDelegateToResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateDelegateToResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

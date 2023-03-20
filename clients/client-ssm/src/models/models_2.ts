@@ -1760,76 +1760,11 @@ export const UpdateAssociationResultFilterSensitiveLog = (obj: UpdateAssociation
 /**
  * @internal
  */
-export const UpdateAssociationStatusRequestFilterSensitiveLog = (obj: UpdateAssociationStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdateAssociationStatusResultFilterSensitiveLog = (obj: UpdateAssociationStatusResult): any => ({
   ...obj,
   ...(obj.AssociationDescription && {
     AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
   }),
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentRequestFilterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentResultFilterSensitiveLog = (obj: UpdateDocumentResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentDefaultVersionRequestFilterSensitiveLog = (
-  obj: UpdateDocumentDefaultVersionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentDefaultVersionDescriptionFilterSensitiveLog = (obj: DocumentDefaultVersionDescription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentDefaultVersionResultFilterSensitiveLog = (obj: UpdateDocumentDefaultVersionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DocumentReviewsFilterSensitiveLog = (obj: DocumentReviews): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentMetadataRequestFilterSensitiveLog = (obj: UpdateDocumentMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateDocumentMetadataResponseFilterSensitiveLog = (obj: UpdateDocumentMetadataResponse): any => ({
-  ...obj,
 });
 
 /**
@@ -1897,48 +1832,6 @@ export const UpdateMaintenanceWindowTaskResultFilterSensitiveLog = (obj: UpdateM
 /**
  * @internal
  */
-export const UpdateManagedInstanceRoleRequestFilterSensitiveLog = (obj: UpdateManagedInstanceRoleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateManagedInstanceRoleResultFilterSensitiveLog = (obj: UpdateManagedInstanceRoleResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOpsItemRequestFilterSensitiveLog = (obj: UpdateOpsItemRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOpsItemResponseFilterSensitiveLog = (obj: UpdateOpsItemResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOpsMetadataRequestFilterSensitiveLog = (obj: UpdateOpsMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateOpsMetadataResultFilterSensitiveLog = (obj: UpdateOpsMetadataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const UpdatePatchBaselineRequestFilterSensitiveLog = (obj: UpdatePatchBaselineRequest): any => ({
   ...obj,
   ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
@@ -1950,60 +1843,4 @@ export const UpdatePatchBaselineRequestFilterSensitiveLog = (obj: UpdatePatchBas
 export const UpdatePatchBaselineResultFilterSensitiveLog = (obj: UpdatePatchBaselineResult): any => ({
   ...obj,
   ...(obj.Sources && { Sources: obj.Sources.map((item) => PatchSourceFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const UpdateResourceDataSyncRequestFilterSensitiveLog = (obj: UpdateResourceDataSyncRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateResourceDataSyncResultFilterSensitiveLog = (obj: UpdateResourceDataSyncResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceSettingRequestFilterSensitiveLog = (obj: UpdateServiceSettingRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateServiceSettingResultFilterSensitiveLog = (obj: UpdateServiceSettingResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InventoryAggregatorFilterSensitiveLog = (obj: InventoryAggregator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OpsAggregatorFilterSensitiveLog = (obj: OpsAggregator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInventoryRequestFilterSensitiveLog = (obj: GetInventoryRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetOpsSummaryRequestFilterSensitiveLog = (obj: GetOpsSummaryRequest): any => ({
-  ...obj,
 });

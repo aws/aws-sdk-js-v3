@@ -16,7 +16,6 @@ import {
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
 import {
   ResumeServiceRequest,
-  ResumeServiceRequestFilterSensitiveLog,
   ResumeServiceResponse,
   ResumeServiceResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class ResumeServiceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ResumeServiceRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ResumeServiceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

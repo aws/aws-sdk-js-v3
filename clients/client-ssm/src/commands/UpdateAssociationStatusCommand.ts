@@ -15,7 +15,6 @@ import {
 
 import {
   UpdateAssociationStatusRequest,
-  UpdateAssociationStatusRequestFilterSensitiveLog,
   UpdateAssociationStatusResult,
   UpdateAssociationStatusResultFilterSensitiveLog,
 } from "../models/models_2";
@@ -147,7 +146,7 @@ export class UpdateAssociationStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAssociationStatusRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: UpdateAssociationStatusResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

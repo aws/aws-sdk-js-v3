@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddRoleToDBInstanceMessage, AddRoleToDBInstanceMessageFilterSensitiveLog } from "../models/models_0";
+import { AddRoleToDBInstanceMessage } from "../models/models_0";
 import {
   deserializeAws_queryAddRoleToDBInstanceCommand,
   serializeAws_queryAddRoleToDBInstanceCommand,
@@ -119,8 +119,8 @@ export class AddRoleToDBInstanceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddRoleToDBInstanceMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

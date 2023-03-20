@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
-import {
-  DeleteExplainabilityExportRequest,
-  DeleteExplainabilityExportRequestFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteExplainabilityExportRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteExplainabilityExportCommand,
   serializeAws_json1_1DeleteExplainabilityExportCommand,
@@ -116,8 +113,8 @@ export class DeleteExplainabilityExportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteExplainabilityExportRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

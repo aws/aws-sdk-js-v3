@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  ListVodSourcesRequest,
-  ListVodSourcesRequestFilterSensitiveLog,
-  ListVodSourcesResponse,
-  ListVodSourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListVodSourcesRequest, ListVodSourcesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListVodSourcesCommand,
   serializeAws_restJson1ListVodSourcesCommand,
@@ -107,8 +102,8 @@ export class ListVodSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListVodSourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListVodSourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

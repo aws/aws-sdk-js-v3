@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateDiscovererRequest,
-  CreateDiscovererRequestFilterSensitiveLog,
-  CreateDiscovererResponse,
-  CreateDiscovererResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateDiscovererRequest, CreateDiscovererResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateDiscovererCommand,
   serializeAws_restJson1CreateDiscovererCommand,
@@ -119,8 +114,8 @@ export class CreateDiscovererCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDiscovererRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDiscovererResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient";
-import {
-  DeregisterCertificateRequest,
-  DeregisterCertificateRequestFilterSensitiveLog,
-  DeregisterCertificateResult,
-  DeregisterCertificateResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeregisterCertificateRequest, DeregisterCertificateResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeregisterCertificateCommand,
   serializeAws_json1_1DeregisterCertificateCommand,
@@ -132,8 +127,8 @@ export class DeregisterCertificateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeregisterCertificateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeregisterCertificateResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

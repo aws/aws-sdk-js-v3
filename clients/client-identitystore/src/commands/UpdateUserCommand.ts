@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
-import {
-  UpdateUserRequest,
-  UpdateUserRequestFilterSensitiveLog,
-  UpdateUserResponse,
-  UpdateUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateUserRequest, UpdateUserResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateUserCommand,
   serializeAws_json1_1UpdateUserCommand,
@@ -134,8 +129,8 @@ export class UpdateUserCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

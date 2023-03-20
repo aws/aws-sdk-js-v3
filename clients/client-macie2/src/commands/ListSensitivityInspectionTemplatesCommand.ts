@@ -16,9 +16,7 @@ import {
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
   ListSensitivityInspectionTemplatesRequest,
-  ListSensitivityInspectionTemplatesRequestFilterSensitiveLog,
   ListSensitivityInspectionTemplatesResponse,
-  ListSensitivityInspectionTemplatesResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1ListSensitivityInspectionTemplatesCommand,
@@ -124,8 +122,8 @@ export class ListSensitivityInspectionTemplatesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListSensitivityInspectionTemplatesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListSensitivityInspectionTemplatesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -17,7 +17,6 @@ import {
   DescribeFraudsterRequest,
   DescribeFraudsterRequestFilterSensitiveLog,
   DescribeFraudsterResponse,
-  DescribeFraudsterResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeFraudsterCommand,
@@ -129,7 +128,7 @@ export class DescribeFraudsterCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: DescribeFraudsterRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeFraudsterResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

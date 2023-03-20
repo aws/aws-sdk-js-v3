@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import {
-  ListGraphqlApisRequest,
-  ListGraphqlApisRequestFilterSensitiveLog,
-  ListGraphqlApisResponse,
-  ListGraphqlApisResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListGraphqlApisRequest, ListGraphqlApisResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListGraphqlApisCommand,
   serializeAws_restJson1ListGraphqlApisCommand,
@@ -117,8 +112,8 @@ export class ListGraphqlApisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListGraphqlApisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListGraphqlApisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

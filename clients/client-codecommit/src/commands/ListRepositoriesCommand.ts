@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import {
-  ListRepositoriesInput,
-  ListRepositoriesInputFilterSensitiveLog,
-  ListRepositoriesOutput,
-  ListRepositoriesOutputFilterSensitiveLog,
-} from "../models/models_1";
+import { ListRepositoriesInput, ListRepositoriesOutput } from "../models/models_1";
 import {
   deserializeAws_json1_1ListRepositoriesCommand,
   serializeAws_json1_1ListRepositoriesCommand,
@@ -116,8 +111,8 @@ export class ListRepositoriesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRepositoriesInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRepositoriesOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

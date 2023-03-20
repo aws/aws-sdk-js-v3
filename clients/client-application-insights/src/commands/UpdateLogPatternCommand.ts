@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient";
-import {
-  UpdateLogPatternRequest,
-  UpdateLogPatternRequestFilterSensitiveLog,
-  UpdateLogPatternResponse,
-  UpdateLogPatternResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateLogPatternRequest, UpdateLogPatternResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateLogPatternCommand,
   serializeAws_json1_1UpdateLogPatternCommand,
@@ -123,8 +118,8 @@ export class UpdateLogPatternCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLogPatternRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateLogPatternResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

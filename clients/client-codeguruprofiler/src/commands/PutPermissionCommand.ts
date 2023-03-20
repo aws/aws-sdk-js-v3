@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  PutPermissionRequest,
-  PutPermissionRequestFilterSensitiveLog,
-  PutPermissionResponse,
-  PutPermissionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { PutPermissionRequest, PutPermissionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1PutPermissionCommand,
   serializeAws_restJson1PutPermissionCommand,
@@ -148,8 +143,8 @@ export class PutPermissionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutPermissionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutPermissionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

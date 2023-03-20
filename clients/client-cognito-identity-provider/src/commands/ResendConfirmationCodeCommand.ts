@@ -22,7 +22,6 @@ import {
   ResendConfirmationCodeRequest,
   ResendConfirmationCodeRequestFilterSensitiveLog,
   ResendConfirmationCodeResponse,
-  ResendConfirmationCodeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1ResendConfirmationCodeCommand,
@@ -188,7 +187,7 @@ export class ResendConfirmationCodeCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: ResendConfirmationCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ResendConfirmationCodeResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

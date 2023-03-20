@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DeleteTrafficDistributionGroupRequest,
-  DeleteTrafficDistributionGroupRequestFilterSensitiveLog,
-  DeleteTrafficDistributionGroupResponse,
-  DeleteTrafficDistributionGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteTrafficDistributionGroupRequest, DeleteTrafficDistributionGroupResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteTrafficDistributionGroupCommand,
   serializeAws_restJson1DeleteTrafficDistributionGroupCommand,
@@ -127,8 +122,8 @@ export class DeleteTrafficDistributionGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteTrafficDistributionGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteTrafficDistributionGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

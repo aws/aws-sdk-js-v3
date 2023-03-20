@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  RemoveRegionsFromReplicationRequest,
-  RemoveRegionsFromReplicationRequestFilterSensitiveLog,
-  RemoveRegionsFromReplicationResponse,
-  RemoveRegionsFromReplicationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveRegionsFromReplicationRequest, RemoveRegionsFromReplicationResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveRegionsFromReplicationCommand,
   serializeAws_json1_1RemoveRegionsFromReplicationCommand,
@@ -143,8 +138,8 @@ export class RemoveRegionsFromReplicationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveRegionsFromReplicationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveRegionsFromReplicationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

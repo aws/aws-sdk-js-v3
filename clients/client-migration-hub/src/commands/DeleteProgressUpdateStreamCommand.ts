@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
-import {
-  DeleteProgressUpdateStreamRequest,
-  DeleteProgressUpdateStreamRequestFilterSensitiveLog,
-  DeleteProgressUpdateStreamResult,
-  DeleteProgressUpdateStreamResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteProgressUpdateStreamRequest, DeleteProgressUpdateStreamResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteProgressUpdateStreamCommand,
   serializeAws_json1_1DeleteProgressUpdateStreamCommand,
@@ -171,8 +166,8 @@ export class DeleteProgressUpdateStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteProgressUpdateStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteProgressUpdateStreamResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

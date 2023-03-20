@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetAccountAliasRequest,
-  GetAccountAliasRequestFilterSensitiveLog,
-  GetAccountAliasResult,
-  GetAccountAliasResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccountAliasRequest, GetAccountAliasResult } from "../models/models_0";
 import {
   deserializeAws_restJson1GetAccountAliasCommand,
   serializeAws_restJson1GetAccountAliasCommand,
@@ -111,8 +106,8 @@ export class GetAccountAliasCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccountAliasRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccountAliasResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

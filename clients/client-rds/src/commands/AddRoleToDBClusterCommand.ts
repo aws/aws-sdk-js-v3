@@ -13,7 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { AddRoleToDBClusterMessage, AddRoleToDBClusterMessageFilterSensitiveLog } from "../models/models_0";
+import { AddRoleToDBClusterMessage } from "../models/models_0";
 import {
   deserializeAws_queryAddRoleToDBClusterCommand,
   serializeAws_queryAddRoleToDBClusterCommand,
@@ -115,8 +115,8 @@ export class AddRoleToDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AddRoleToDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

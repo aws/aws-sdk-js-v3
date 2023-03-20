@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import {
-  DescribeInputDeviceRequest,
-  DescribeInputDeviceRequestFilterSensitiveLog,
-  DescribeInputDeviceResponse,
-  DescribeInputDeviceResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DescribeInputDeviceRequest, DescribeInputDeviceResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeInputDeviceCommand,
   serializeAws_restJson1DescribeInputDeviceCommand,
@@ -128,8 +123,8 @@ export class DescribeInputDeviceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeInputDeviceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeInputDeviceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
-import {
-  UpdateResourceRequest,
-  UpdateResourceRequestFilterSensitiveLog,
-  UpdateResourceResponse,
-  UpdateResourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateResourceRequest, UpdateResourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateResourceCommand,
   serializeAws_restJson1UpdateResourceCommand,
@@ -119,8 +114,8 @@ export class UpdateResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
-import {
-  EstimateTemplateCostInput,
-  EstimateTemplateCostInputFilterSensitiveLog,
-  EstimateTemplateCostOutput,
-  EstimateTemplateCostOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { EstimateTemplateCostInput, EstimateTemplateCostOutput } from "../models/models_0";
 import {
   deserializeAws_queryEstimateTemplateCostCommand,
   serializeAws_queryEstimateTemplateCostCommand,
@@ -108,8 +103,8 @@ export class EstimateTemplateCostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: EstimateTemplateCostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: EstimateTemplateCostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

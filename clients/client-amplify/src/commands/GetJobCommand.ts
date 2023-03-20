@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import {
-  GetJobRequest,
-  GetJobRequestFilterSensitiveLog,
-  GetJobResult,
-  GetJobResultFilterSensitiveLog,
-} from "../models/models_0";
+import { GetJobRequest, GetJobResult } from "../models/models_0";
 import { deserializeAws_restJson1GetJobCommand, serializeAws_restJson1GetJobCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -113,8 +108,8 @@ export class GetJobCommand extends $Command<GetJobCommandInput, GetJobCommandOut
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetJobResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

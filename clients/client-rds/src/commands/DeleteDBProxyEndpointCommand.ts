@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteDBProxyEndpointRequest,
-  DeleteDBProxyEndpointRequestFilterSensitiveLog,
-  DeleteDBProxyEndpointResponse,
-  DeleteDBProxyEndpointResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteDBProxyEndpointRequest, DeleteDBProxyEndpointResponse } from "../models/models_0";
 import {
   deserializeAws_queryDeleteDBProxyEndpointCommand,
   serializeAws_queryDeleteDBProxyEndpointCommand,
@@ -115,8 +110,8 @@ export class DeleteDBProxyEndpointCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDBProxyEndpointRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteDBProxyEndpointResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

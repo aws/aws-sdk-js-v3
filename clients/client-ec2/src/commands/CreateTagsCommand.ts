@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateTagsRequest, CreateTagsRequestFilterSensitiveLog } from "../models/models_2";
+import { CreateTagsRequest } from "../models/models_2";
 import { deserializeAws_ec2CreateTagsCommand, serializeAws_ec2CreateTagsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -124,8 +124,8 @@ export class CreateTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

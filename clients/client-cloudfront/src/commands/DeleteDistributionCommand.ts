@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteDistributionRequest, DeleteDistributionRequestFilterSensitiveLog } from "../models/models_1";
+import { DeleteDistributionRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteDistributionCommand,
   serializeAws_restXmlDeleteDistributionCommand,
@@ -119,8 +119,8 @@ export class DeleteDistributionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

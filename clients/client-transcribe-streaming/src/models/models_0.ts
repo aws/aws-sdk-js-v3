@@ -2317,117 +2317,11 @@ export interface StartStreamTranscriptionResponse {
 /**
  * @internal
  */
-export const EntityFilterSensitiveLog = (obj: Entity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ItemFilterSensitiveLog = (obj: Item): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AlternativeFilterSensitiveLog = (obj: Alternative): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AudioEventFilterSensitiveLog = (obj: AudioEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ChannelDefinitionFilterSensitiveLog = (obj: ChannelDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PostCallAnalyticsSettingsFilterSensitiveLog = (obj: PostCallAnalyticsSettings): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConfigurationEventFilterSensitiveLog = (obj: ConfigurationEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const AudioStreamFilterSensitiveLog = (obj: AudioStream): any => {
-  if (obj.AudioEvent !== undefined) return { AudioEvent: AudioEventFilterSensitiveLog(obj.AudioEvent) };
-  if (obj.ConfigurationEvent !== undefined)
-    return { ConfigurationEvent: ConfigurationEventFilterSensitiveLog(obj.ConfigurationEvent) };
+  if (obj.AudioEvent !== undefined) return { AudioEvent: obj.AudioEvent };
+  if (obj.ConfigurationEvent !== undefined) return { ConfigurationEvent: obj.ConfigurationEvent };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const CallAnalyticsEntityFilterSensitiveLog = (obj: CallAnalyticsEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CallAnalyticsItemFilterSensitiveLog = (obj: CallAnalyticsItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TimestampRangeFilterSensitiveLog = (obj: TimestampRange): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PointsOfInterestFilterSensitiveLog = (obj: PointsOfInterest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CategoryEventFilterSensitiveLog = (obj: CategoryEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CharacterOffsetsFilterSensitiveLog = (obj: CharacterOffsets): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IssueDetectedFilterSensitiveLog = (obj: IssueDetected): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UtteranceEventFilterSensitiveLog = (obj: UtteranceEvent): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -2435,8 +2329,8 @@ export const UtteranceEventFilterSensitiveLog = (obj: UtteranceEvent): any => ({
 export const CallAnalyticsTranscriptResultStreamFilterSensitiveLog = (
   obj: CallAnalyticsTranscriptResultStream
 ): any => {
-  if (obj.UtteranceEvent !== undefined) return { UtteranceEvent: UtteranceEventFilterSensitiveLog(obj.UtteranceEvent) };
-  if (obj.CategoryEvent !== undefined) return { CategoryEvent: CategoryEventFilterSensitiveLog(obj.CategoryEvent) };
+  if (obj.UtteranceEvent !== undefined) return { UtteranceEvent: obj.UtteranceEvent };
+  if (obj.CategoryEvent !== undefined) return { CategoryEvent: obj.CategoryEvent };
   if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
   if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
   if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
@@ -2445,62 +2339,12 @@ export const CallAnalyticsTranscriptResultStreamFilterSensitiveLog = (
     return { ServiceUnavailableException: obj.ServiceUnavailableException };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const LanguageWithScoreFilterSensitiveLog = (obj: LanguageWithScore): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalEntityFilterSensitiveLog = (obj: MedicalEntity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalItemFilterSensitiveLog = (obj: MedicalItem): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalAlternativeFilterSensitiveLog = (obj: MedicalAlternative): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalResultFilterSensitiveLog = (obj: MedicalResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalTranscriptFilterSensitiveLog = (obj: MedicalTranscript): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MedicalTranscriptEventFilterSensitiveLog = (obj: MedicalTranscriptEvent): any => ({
-  ...obj,
-});
 
 /**
  * @internal
  */
 export const MedicalTranscriptResultStreamFilterSensitiveLog = (obj: MedicalTranscriptResultStream): any => {
-  if (obj.TranscriptEvent !== undefined)
-    return { TranscriptEvent: MedicalTranscriptEventFilterSensitiveLog(obj.TranscriptEvent) };
+  if (obj.TranscriptEvent !== undefined) return { TranscriptEvent: obj.TranscriptEvent };
   if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
   if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
   if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };
@@ -2509,13 +2353,6 @@ export const MedicalTranscriptResultStreamFilterSensitiveLog = (obj: MedicalTran
     return { ServiceUnavailableException: obj.ServiceUnavailableException };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
-
-/**
- * @internal
- */
-export const ResultFilterSensitiveLog = (obj: Result): any => ({
-  ...obj,
-});
 
 /**
  * @internal
@@ -2568,23 +2405,8 @@ export const StartStreamTranscriptionRequestFilterSensitiveLog = (obj: StartStre
 /**
  * @internal
  */
-export const TranscriptFilterSensitiveLog = (obj: Transcript): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TranscriptEventFilterSensitiveLog = (obj: TranscriptEvent): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TranscriptResultStreamFilterSensitiveLog = (obj: TranscriptResultStream): any => {
-  if (obj.TranscriptEvent !== undefined)
-    return { TranscriptEvent: TranscriptEventFilterSensitiveLog(obj.TranscriptEvent) };
+  if (obj.TranscriptEvent !== undefined) return { TranscriptEvent: obj.TranscriptEvent };
   if (obj.BadRequestException !== undefined) return { BadRequestException: obj.BadRequestException };
   if (obj.LimitExceededException !== undefined) return { LimitExceededException: obj.LimitExceededException };
   if (obj.InternalFailureException !== undefined) return { InternalFailureException: obj.InternalFailureException };

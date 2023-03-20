@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
-import {
-  GetServiceRoleForAccountRequest,
-  GetServiceRoleForAccountRequestFilterSensitiveLog,
-  GetServiceRoleForAccountResponse,
-  GetServiceRoleForAccountResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetServiceRoleForAccountRequest, GetServiceRoleForAccountResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetServiceRoleForAccountCommand,
   serializeAws_restJson1GetServiceRoleForAccountCommand,
@@ -113,8 +108,8 @@ export class GetServiceRoleForAccountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetServiceRoleForAccountRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetServiceRoleForAccountResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

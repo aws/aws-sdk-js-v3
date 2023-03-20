@@ -16,7 +16,6 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GetParametersForImportRequest,
-  GetParametersForImportRequestFilterSensitiveLog,
   GetParametersForImportResponse,
   GetParametersForImportResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -199,7 +198,7 @@ export class GetParametersForImportCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetParametersForImportRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetParametersForImportResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

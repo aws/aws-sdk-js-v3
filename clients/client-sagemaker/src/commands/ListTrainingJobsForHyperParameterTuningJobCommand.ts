@@ -15,9 +15,7 @@ import {
 
 import {
   ListTrainingJobsForHyperParameterTuningJobRequest,
-  ListTrainingJobsForHyperParameterTuningJobRequestFilterSensitiveLog,
   ListTrainingJobsForHyperParameterTuningJobResponse,
-  ListTrainingJobsForHyperParameterTuningJobResponseFilterSensitiveLog,
 } from "../models/models_3";
 import {
   deserializeAws_json1_1ListTrainingJobsForHyperParameterTuningJobCommand,
@@ -120,8 +118,8 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTrainingJobsForHyperParameterTuningJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTrainingJobsForHyperParameterTuningJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

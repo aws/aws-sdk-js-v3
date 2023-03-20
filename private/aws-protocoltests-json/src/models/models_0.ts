@@ -7,17 +7,16 @@ import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { JsonProtocolServiceException as __BaseException } from "./JsonProtocolServiceException";
 
+/**
+ * @public
+ */
 export interface GreetingStruct {
   hi?: string;
 }
 
 /**
- * @internal
+ * @public
  */
-export const GreetingStructFilterSensitiveLog = (obj: GreetingStruct): any => ({
-  ...obj,
-});
-
 export enum FooEnum {
   BAR = "Bar",
   BAZ = "Baz",
@@ -26,18 +25,15 @@ export enum FooEnum {
   ZERO = "0",
 }
 
+/**
+ * @public
+ */
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
 
 /**
- * @internal
- */
-export const ComplexNestedErrorDataFilterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
-  ...obj,
-});
-
-/**
+ * @public
  * This error is thrown when a request is invalid.
  */
 export class ComplexError extends __BaseException {
@@ -60,59 +56,42 @@ export class ComplexError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface DatetimeOffsetsOutput {
   datetime?: Date;
 }
 
 /**
- * @internal
+ * @public
  */
-export const DatetimeOffsetsOutputFilterSensitiveLog = (obj: DatetimeOffsetsOutput): any => ({
-  ...obj,
-});
-
 export interface EmptyStruct {}
 
 /**
- * @internal
+ * @public
  */
-export const EmptyStructFilterSensitiveLog = (obj: EmptyStruct): any => ({
-  ...obj,
-});
-
 export interface HostLabelInput {
   label: string | undefined;
 }
 
 /**
- * @internal
+ * @public
  */
-export const HostLabelInputFilterSensitiveLog = (obj: HostLabelInput): any => ({
-  ...obj,
-});
-
 export interface SimpleStruct {
   Value?: string;
 }
 
 /**
- * @internal
+ * @public
  */
-export const SimpleStructFilterSensitiveLog = (obj: SimpleStruct): any => ({
-  ...obj,
-});
-
 export interface StructWithJsonName {
   Value?: string;
 }
 
 /**
- * @internal
+ * @public
  */
-export const StructWithJsonNameFilterSensitiveLog = (obj: StructWithJsonName): any => ({
-  ...obj,
-});
-
 export class ErrorWithoutMembers extends __BaseException {
   readonly name: "ErrorWithoutMembers" = "ErrorWithoutMembers";
   readonly $fault: "server" = "server";
@@ -130,6 +109,7 @@ export class ErrorWithoutMembers extends __BaseException {
 }
 
 /**
+ * @public
  * This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
  */
@@ -149,30 +129,23 @@ export class FooError extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface FractionalSecondsOutput {
   datetime?: Date;
   httpdate?: Date;
 }
 
 /**
- * @internal
+ * @public
  */
-export const FractionalSecondsOutputFilterSensitiveLog = (obj: FractionalSecondsOutput): any => ({
-  ...obj,
-});
-
 export interface GreetingWithErrorsOutput {
   greeting?: string;
 }
 
 /**
- * @internal
- */
-export const GreetingWithErrorsOutputFilterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
-  ...obj,
-});
-
-/**
+ * @public
  * This error is thrown when an invalid greeting value is provided.
  */
 export class InvalidGreeting extends __BaseException {
@@ -193,6 +166,9 @@ export class InvalidGreeting extends __BaseException {
   }
 }
 
+/**
+ * @public
+ */
 export interface JsonEnumsInputOutput {
   fooEnum1?: FooEnum | string;
   fooEnum2?: FooEnum | string;
@@ -203,13 +179,7 @@ export interface JsonEnumsInputOutput {
 }
 
 /**
- * @internal
- */
-export const JsonEnumsInputOutputFilterSensitiveLog = (obj: JsonEnumsInputOutput): any => ({
-  ...obj,
-});
-
-/**
+ * @public
  * A union with a representative set of types for members.
  */
 export type MyUnion =
@@ -224,6 +194,9 @@ export type MyUnion =
   | MyUnion.TimestampValueMember
   | MyUnion.$UnknownMember;
 
+/**
+ * @public
+ */
 export namespace MyUnion {
   export interface StringValueMember {
     stringValue: string;
@@ -381,23 +354,9 @@ export namespace MyUnion {
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
-/**
- * @internal
- */
-export const MyUnionFilterSensitiveLog = (obj: MyUnion): any => {
-  if (obj.stringValue !== undefined) return { stringValue: obj.stringValue };
-  if (obj.booleanValue !== undefined) return { booleanValue: obj.booleanValue };
-  if (obj.numberValue !== undefined) return { numberValue: obj.numberValue };
-  if (obj.blobValue !== undefined) return { blobValue: obj.blobValue };
-  if (obj.timestampValue !== undefined) return { timestampValue: obj.timestampValue };
-  if (obj.enumValue !== undefined) return { enumValue: obj.enumValue };
-  if (obj.listValue !== undefined) return { listValue: obj.listValue };
-  if (obj.mapValue !== undefined) return { mapValue: obj.mapValue };
-  if (obj.structureValue !== undefined) return { structureValue: GreetingStructFilterSensitiveLog(obj.structureValue) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
 
 /**
+ * @public
  * A shared structure that contains a single union member.
  */
 export interface UnionInputOutput {
@@ -408,13 +367,8 @@ export interface UnionInputOutput {
 }
 
 /**
- * @internal
+ * @public
  */
-export const UnionInputOutputFilterSensitiveLog = (obj: UnionInputOutput): any => ({
-  ...obj,
-  ...(obj.contents && { contents: MyUnionFilterSensitiveLog(obj.contents) }),
-});
-
 export interface NullOperationInputOutput {
   string?: string;
   sparseStringList?: string[];
@@ -422,63 +376,37 @@ export interface NullOperationInputOutput {
 }
 
 /**
- * @internal
+ * @public
  */
-export const NullOperationInputOutputFilterSensitiveLog = (obj: NullOperationInputOutput): any => ({
-  ...obj,
-});
-
 export interface OperationWithOptionalInputOutputInput {
   Value?: string;
 }
 
 /**
- * @internal
+ * @public
  */
-export const OperationWithOptionalInputOutputInputFilterSensitiveLog = (
-  obj: OperationWithOptionalInputOutputInput
-): any => ({
-  ...obj,
-});
-
 export interface OperationWithOptionalInputOutputOutput {
   Value?: string;
 }
 
 /**
- * @internal
+ * @public
  */
-export const OperationWithOptionalInputOutputOutputFilterSensitiveLog = (
-  obj: OperationWithOptionalInputOutputOutput
-): any => ({
-  ...obj,
-});
-
 export interface PutAndGetInlineDocumentsInputOutput {
   inlineDocument?: __DocumentType;
 }
 
 /**
- * @internal
+ * @public
  */
-export const PutAndGetInlineDocumentsInputOutputFilterSensitiveLog = (
-  obj: PutAndGetInlineDocumentsInputOutput
-): any => ({
-  ...obj,
-});
-
 export interface SimpleScalarPropertiesInputOutput {
   floatValue?: number;
   doubleValue?: number;
 }
 
 /**
- * @internal
+ * @public
  */
-export const SimpleScalarPropertiesInputOutputFilterSensitiveLog = (obj: SimpleScalarPropertiesInputOutput): any => ({
-  ...obj,
-});
-
 export interface KitchenSink {
   Blob?: Uint8Array;
   Boolean?: boolean;
@@ -509,12 +437,8 @@ export interface KitchenSink {
 }
 
 /**
- * @internal
+ * @public
  */
-export const KitchenSinkFilterSensitiveLog = (obj: KitchenSink): any => ({
-  ...obj,
-});
-
 export class ErrorWithMembers extends __BaseException {
   readonly name: "ErrorWithMembers" = "ErrorWithMembers";
   readonly $fault: "client" = "client";

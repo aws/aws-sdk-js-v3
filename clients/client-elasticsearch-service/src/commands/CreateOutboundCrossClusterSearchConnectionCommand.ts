@@ -20,9 +20,7 @@ import {
 } from "../ElasticsearchServiceClient";
 import {
   CreateOutboundCrossClusterSearchConnectionRequest,
-  CreateOutboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
   CreateOutboundCrossClusterSearchConnectionResponse,
-  CreateOutboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionCommand,
@@ -132,8 +130,8 @@ export class CreateOutboundCrossClusterSearchConnectionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOutboundCrossClusterSearchConnectionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOutboundCrossClusterSearchConnectionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

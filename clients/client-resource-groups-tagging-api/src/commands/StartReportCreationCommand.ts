@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartReportCreationInput,
-  StartReportCreationInputFilterSensitiveLog,
-  StartReportCreationOutput,
-  StartReportCreationOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { StartReportCreationInput, StartReportCreationOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1StartReportCreationCommand,
   serializeAws_json1_1StartReportCreationCommand,
@@ -175,8 +170,8 @@ export class StartReportCreationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartReportCreationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartReportCreationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

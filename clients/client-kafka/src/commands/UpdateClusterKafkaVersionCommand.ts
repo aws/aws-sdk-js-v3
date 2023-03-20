@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
-import {
-  UpdateClusterKafkaVersionRequest,
-  UpdateClusterKafkaVersionRequestFilterSensitiveLog,
-  UpdateClusterKafkaVersionResponse,
-  UpdateClusterKafkaVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateClusterKafkaVersionRequest, UpdateClusterKafkaVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateClusterKafkaVersionCommand,
   serializeAws_restJson1UpdateClusterKafkaVersionCommand,
@@ -128,8 +123,8 @@ export class UpdateClusterKafkaVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateClusterKafkaVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateClusterKafkaVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  PutUserStatusRequest,
-  PutUserStatusRequestFilterSensitiveLog,
-  PutUserStatusResponse,
-  PutUserStatusResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { PutUserStatusRequest, PutUserStatusResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1PutUserStatusCommand,
   serializeAws_restJson1PutUserStatusCommand,
@@ -126,8 +121,8 @@ export class PutUserStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutUserStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutUserStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

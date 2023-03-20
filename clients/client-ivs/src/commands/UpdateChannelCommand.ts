@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  UpdateChannelRequest,
-  UpdateChannelRequestFilterSensitiveLog,
-  UpdateChannelResponse,
-  UpdateChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateChannelRequest, UpdateChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateChannelCommand,
   serializeAws_restJson1UpdateChannelCommand,
@@ -121,8 +116,8 @@ export class UpdateChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

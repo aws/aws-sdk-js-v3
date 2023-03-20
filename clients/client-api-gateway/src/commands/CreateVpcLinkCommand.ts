@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import {
-  CreateVpcLinkRequest,
-  CreateVpcLinkRequestFilterSensitiveLog,
-  VpcLink,
-  VpcLinkFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateVpcLinkRequest, VpcLink } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateVpcLinkCommand,
   serializeAws_restJson1CreateVpcLinkCommand,
@@ -120,8 +115,8 @@ export class CreateVpcLinkCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateVpcLinkRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: VpcLinkFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

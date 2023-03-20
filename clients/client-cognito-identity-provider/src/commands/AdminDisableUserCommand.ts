@@ -23,7 +23,6 @@ import {
   AdminDisableUserRequest,
   AdminDisableUserRequestFilterSensitiveLog,
   AdminDisableUserResponse,
-  AdminDisableUserResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminDisableUserCommand,
@@ -137,7 +136,7 @@ export class AdminDisableUserCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminDisableUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminDisableUserResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient";
-import {
-  ApproveSkillRequest,
-  ApproveSkillRequestFilterSensitiveLog,
-  ApproveSkillResponse,
-  ApproveSkillResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ApproveSkillRequest, ApproveSkillResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ApproveSkillCommand,
   serializeAws_json1_1ApproveSkillCommand,
@@ -115,8 +110,8 @@ export class ApproveSkillCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ApproveSkillRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ApproveSkillResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

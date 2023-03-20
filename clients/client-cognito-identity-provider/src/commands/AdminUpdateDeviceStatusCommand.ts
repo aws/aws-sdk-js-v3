@@ -23,7 +23,6 @@ import {
   AdminUpdateDeviceStatusRequest,
   AdminUpdateDeviceStatusRequestFilterSensitiveLog,
   AdminUpdateDeviceStatusResponse,
-  AdminUpdateDeviceStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1AdminUpdateDeviceStatusCommand,
@@ -139,7 +138,7 @@ export class AdminUpdateDeviceStatusCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: AdminUpdateDeviceStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminUpdateDeviceStatusResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

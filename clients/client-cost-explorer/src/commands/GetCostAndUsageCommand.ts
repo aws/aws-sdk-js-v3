@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import {
-  GetCostAndUsageRequest,
-  GetCostAndUsageRequestFilterSensitiveLog,
-  GetCostAndUsageResponse,
-  GetCostAndUsageResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCostAndUsageRequest, GetCostAndUsageResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCostAndUsageCommand,
   serializeAws_json1_1GetCostAndUsageCommand,
@@ -129,8 +124,8 @@ export class GetCostAndUsageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCostAndUsageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCostAndUsageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

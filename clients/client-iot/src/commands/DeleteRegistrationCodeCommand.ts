@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  DeleteRegistrationCodeRequest,
-  DeleteRegistrationCodeRequestFilterSensitiveLog,
-  DeleteRegistrationCodeResponse,
-  DeleteRegistrationCodeResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteRegistrationCodeRequest, DeleteRegistrationCodeResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteRegistrationCodeCommand,
   serializeAws_restJson1DeleteRegistrationCodeCommand,
@@ -123,8 +118,8 @@ export class DeleteRegistrationCodeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteRegistrationCodeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteRegistrationCodeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

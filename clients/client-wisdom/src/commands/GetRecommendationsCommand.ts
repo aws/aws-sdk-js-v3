@@ -15,7 +15,6 @@ import {
 
 import {
   GetRecommendationsRequest,
-  GetRecommendationsRequestFilterSensitiveLog,
   GetRecommendationsResponse,
   GetRecommendationsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -119,7 +118,7 @@ export class GetRecommendationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRecommendationsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetRecommendationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

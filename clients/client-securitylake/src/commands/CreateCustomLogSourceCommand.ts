@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateCustomLogSourceRequest,
-  CreateCustomLogSourceRequestFilterSensitiveLog,
-  CreateCustomLogSourceResponse,
-  CreateCustomLogSourceResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCustomLogSourceRequest, CreateCustomLogSourceResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateCustomLogSourceCommand,
   serializeAws_restJson1CreateCustomLogSourceCommand,
@@ -140,8 +135,8 @@ export class CreateCustomLogSourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateCustomLogSourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateCustomLogSourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

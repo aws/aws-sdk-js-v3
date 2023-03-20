@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DeleteContactFlowRequest,
-  DeleteContactFlowRequestFilterSensitiveLog,
-  DeleteContactFlowResponse,
-  DeleteContactFlowResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteContactFlowRequest, DeleteContactFlowResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteContactFlowCommand,
   serializeAws_restJson1DeleteContactFlowCommand,
@@ -125,8 +120,8 @@ export class DeleteContactFlowCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteContactFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteContactFlowResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

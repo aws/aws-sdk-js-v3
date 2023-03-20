@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListJobExecutionsForJobRequest,
-  ListJobExecutionsForJobRequestFilterSensitiveLog,
-  ListJobExecutionsForJobResponse,
-  ListJobExecutionsForJobResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListJobExecutionsForJobRequest, ListJobExecutionsForJobResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListJobExecutionsForJobCommand,
   serializeAws_restJson1ListJobExecutionsForJobCommand,
@@ -120,8 +115,8 @@ export class ListJobExecutionsForJobCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobExecutionsForJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobExecutionsForJobResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

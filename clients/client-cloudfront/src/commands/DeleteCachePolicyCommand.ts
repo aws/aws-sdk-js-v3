@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteCachePolicyRequest, DeleteCachePolicyRequestFilterSensitiveLog } from "../models/models_1";
+import { DeleteCachePolicyRequest } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteCachePolicyCommand,
   serializeAws_restXmlDeleteCachePolicyCommand,
@@ -128,8 +128,8 @@ export class DeleteCachePolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteCachePolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

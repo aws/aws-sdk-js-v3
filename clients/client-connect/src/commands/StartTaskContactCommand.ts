@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  StartTaskContactRequest,
-  StartTaskContactRequestFilterSensitiveLog,
-  StartTaskContactResponse,
-  StartTaskContactResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { StartTaskContactRequest, StartTaskContactResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1StartTaskContactCommand,
   serializeAws_restJson1StartTaskContactCommand,
@@ -125,8 +120,8 @@ export class StartTaskContactCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartTaskContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartTaskContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateAppVersionRequest,
-  UpdateAppVersionRequestFilterSensitiveLog,
-  UpdateAppVersionResponse,
-  UpdateAppVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAppVersionRequest, UpdateAppVersionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateAppVersionCommand,
   serializeAws_restJson1UpdateAppVersionCommand,
@@ -136,8 +131,8 @@ export class UpdateAppVersionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAppVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAppVersionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

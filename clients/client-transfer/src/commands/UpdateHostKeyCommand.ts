@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateHostKeyRequest,
-  UpdateHostKeyRequestFilterSensitiveLog,
-  UpdateHostKeyResponse,
-  UpdateHostKeyResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateHostKeyRequest, UpdateHostKeyResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateHostKeyCommand,
   serializeAws_json1_1UpdateHostKeyCommand,
@@ -122,8 +117,8 @@ export class UpdateHostKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateHostKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateHostKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

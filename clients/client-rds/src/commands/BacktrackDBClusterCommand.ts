@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BacktrackDBClusterMessage,
-  BacktrackDBClusterMessageFilterSensitiveLog,
-  DBClusterBacktrack,
-  DBClusterBacktrackFilterSensitiveLog,
-} from "../models/models_0";
+import { BacktrackDBClusterMessage, DBClusterBacktrack } from "../models/models_0";
 import {
   deserializeAws_queryBacktrackDBClusterCommand,
   serializeAws_queryBacktrackDBClusterCommand,
@@ -121,8 +116,8 @@ export class BacktrackDBClusterCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BacktrackDBClusterMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DBClusterBacktrackFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

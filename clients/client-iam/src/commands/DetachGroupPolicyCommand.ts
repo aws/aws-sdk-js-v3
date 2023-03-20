@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { DetachGroupPolicyRequest, DetachGroupPolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { DetachGroupPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_queryDetachGroupPolicyCommand,
   serializeAws_queryDetachGroupPolicyCommand,
@@ -122,8 +122,8 @@ export class DetachGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DetachGroupPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

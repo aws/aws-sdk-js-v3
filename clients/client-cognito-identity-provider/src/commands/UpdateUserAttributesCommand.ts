@@ -22,7 +22,6 @@ import {
   UpdateUserAttributesRequest,
   UpdateUserAttributesRequestFilterSensitiveLog,
   UpdateUserAttributesResponse,
-  UpdateUserAttributesResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateUserAttributesCommand,
@@ -203,7 +202,7 @@ export class UpdateUserAttributesCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: UpdateUserAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateUserAttributesResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

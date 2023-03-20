@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateCanaryRequest,
-  UpdateCanaryRequestFilterSensitiveLog,
-  UpdateCanaryResponse,
-  UpdateCanaryResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateCanaryRequest, UpdateCanaryResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateCanaryCommand,
   serializeAws_restJson1UpdateCanaryCommand,
@@ -124,8 +119,8 @@ export class UpdateCanaryCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateCanaryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCanaryResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

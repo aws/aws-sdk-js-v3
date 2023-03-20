@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  ListUsersRequest,
-  ListUsersRequestFilterSensitiveLog,
-  ListUsersResponse,
-  ListUsersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
 import { deserializeAws_queryListUsersCommand, serializeAws_queryListUsersCommand } from "../protocols/Aws_query";
 
 /**
@@ -141,8 +136,8 @@ export class ListUsersCommand extends $Command<ListUsersCommandInput, ListUsersC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListUsersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

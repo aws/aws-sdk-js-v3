@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { VerifySessionResponse, VerifySessionResponseFilterSensitiveLog } from "../models/models_0";
+import { VerifySessionResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1VerifySessionCommand,
   serializeAws_restJson1VerifySessionCommand,
@@ -119,8 +119,8 @@ export class VerifySessionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: VerifySessionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

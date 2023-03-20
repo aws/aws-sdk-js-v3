@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  StartDocumentAnalysisRequest,
-  StartDocumentAnalysisRequestFilterSensitiveLog,
-  StartDocumentAnalysisResponse,
-  StartDocumentAnalysisResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { StartDocumentAnalysisRequest, StartDocumentAnalysisResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1StartDocumentAnalysisCommand,
   serializeAws_json1_1StartDocumentAnalysisCommand,
@@ -180,8 +175,8 @@ export class StartDocumentAnalysisCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartDocumentAnalysisRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartDocumentAnalysisResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

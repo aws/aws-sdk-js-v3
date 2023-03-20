@@ -14,10 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
-import {
-  UpdateQuerySuggestionsConfigRequest,
-  UpdateQuerySuggestionsConfigRequestFilterSensitiveLog,
-} from "../models/models_1";
+import { UpdateQuerySuggestionsConfigRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateQuerySuggestionsConfigCommand,
   serializeAws_json1_1UpdateQuerySuggestionsConfigCommand,
@@ -140,8 +137,8 @@ export class UpdateQuerySuggestionsConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateQuerySuggestionsConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

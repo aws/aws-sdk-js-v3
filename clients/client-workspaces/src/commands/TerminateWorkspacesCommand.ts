@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  TerminateWorkspacesRequest,
-  TerminateWorkspacesRequestFilterSensitiveLog,
-  TerminateWorkspacesResult,
-  TerminateWorkspacesResultFilterSensitiveLog,
-} from "../models/models_0";
+import { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/models_0";
 import {
   deserializeAws_json1_1TerminateWorkspacesCommand,
   serializeAws_json1_1TerminateWorkspacesCommand,
@@ -131,8 +126,8 @@ export class TerminateWorkspacesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: TerminateWorkspacesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TerminateWorkspacesResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

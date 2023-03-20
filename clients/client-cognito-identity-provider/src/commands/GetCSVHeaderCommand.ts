@@ -19,12 +19,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
-import {
-  GetCSVHeaderRequest,
-  GetCSVHeaderRequestFilterSensitiveLog,
-  GetCSVHeaderResponse,
-  GetCSVHeaderResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCSVHeaderRequest, GetCSVHeaderResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1GetCSVHeaderCommand,
   serializeAws_json1_1GetCSVHeaderCommand,
@@ -130,8 +125,8 @@ export class GetCSVHeaderCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCSVHeaderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCSVHeaderResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

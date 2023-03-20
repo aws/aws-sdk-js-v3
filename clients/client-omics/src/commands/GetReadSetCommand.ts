@@ -16,12 +16,7 @@ import {
   WithSdkStreamMixin as __WithSdkStreamMixin,
 } from "@aws-sdk/types";
 
-import {
-  GetReadSetRequest,
-  GetReadSetRequestFilterSensitiveLog,
-  GetReadSetResponse,
-  GetReadSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetReadSetRequest, GetReadSetResponse, GetReadSetResponseFilterSensitiveLog } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import {
   deserializeAws_restJson1GetReadSetCommand,
@@ -134,7 +129,7 @@ export class GetReadSetCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetReadSetRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetReadSetResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

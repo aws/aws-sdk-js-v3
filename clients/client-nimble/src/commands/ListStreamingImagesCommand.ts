@@ -15,7 +15,6 @@ import {
 
 import {
   ListStreamingImagesRequest,
-  ListStreamingImagesRequestFilterSensitiveLog,
   ListStreamingImagesResponse,
   ListStreamingImagesResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -133,7 +132,7 @@ export class ListStreamingImagesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListStreamingImagesRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListStreamingImagesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

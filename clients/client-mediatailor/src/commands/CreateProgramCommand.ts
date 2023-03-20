@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
-import {
-  CreateProgramRequest,
-  CreateProgramRequestFilterSensitiveLog,
-  CreateProgramResponse,
-  CreateProgramResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateProgramRequest, CreateProgramResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateProgramCommand,
   serializeAws_restJson1CreateProgramCommand,
@@ -105,8 +100,8 @@ export class CreateProgramCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateProgramRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateProgramResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

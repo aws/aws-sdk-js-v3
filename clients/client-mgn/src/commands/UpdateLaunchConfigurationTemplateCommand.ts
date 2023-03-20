@@ -18,7 +18,6 @@ import {
   LaunchConfigurationTemplate,
   LaunchConfigurationTemplateFilterSensitiveLog,
   UpdateLaunchConfigurationTemplateRequest,
-  UpdateLaunchConfigurationTemplateRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommand,
@@ -119,7 +118,7 @@ export class UpdateLaunchConfigurationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateLaunchConfigurationTemplateRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: LaunchConfigurationTemplateFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

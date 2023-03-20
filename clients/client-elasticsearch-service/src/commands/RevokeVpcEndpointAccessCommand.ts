@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  RevokeVpcEndpointAccessRequest,
-  RevokeVpcEndpointAccessRequestFilterSensitiveLog,
-  RevokeVpcEndpointAccessResponse,
-  RevokeVpcEndpointAccessResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RevokeVpcEndpointAccessRequest, RevokeVpcEndpointAccessResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1RevokeVpcEndpointAccessCommand,
   serializeAws_restJson1RevokeVpcEndpointAccessCommand,
@@ -127,8 +122,8 @@ export class RevokeVpcEndpointAccessCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RevokeVpcEndpointAccessRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RevokeVpcEndpointAccessResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

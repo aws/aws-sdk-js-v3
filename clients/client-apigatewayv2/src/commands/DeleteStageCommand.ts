@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { DeleteStageRequest, DeleteStageRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteStageRequest } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteStageCommand,
   serializeAws_restJson1DeleteStageCommand,
@@ -106,8 +106,8 @@ export class DeleteStageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteStageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

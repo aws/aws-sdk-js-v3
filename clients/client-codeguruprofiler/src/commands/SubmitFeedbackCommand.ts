@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient";
-import {
-  SubmitFeedbackRequest,
-  SubmitFeedbackRequestFilterSensitiveLog,
-  SubmitFeedbackResponse,
-  SubmitFeedbackResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SubmitFeedbackRequest, SubmitFeedbackResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1SubmitFeedbackCommand,
   serializeAws_restJson1SubmitFeedbackCommand,
@@ -120,8 +115,8 @@ export class SubmitFeedbackCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SubmitFeedbackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SubmitFeedbackResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpcRequest, DeleteVpcRequestFilterSensitiveLog } from "../models/models_3";
+import { DeleteVpcRequest } from "../models/models_3";
 import { deserializeAws_ec2DeleteVpcCommand, serializeAws_ec2DeleteVpcCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -104,8 +104,8 @@ export class DeleteVpcCommand extends $Command<DeleteVpcCommandInput, DeleteVpcC
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteVpcRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

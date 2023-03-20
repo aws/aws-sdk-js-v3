@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import {
-  RestoreTableFromBackupInput,
-  RestoreTableFromBackupInputFilterSensitiveLog,
-  RestoreTableFromBackupOutput,
-  RestoreTableFromBackupOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RestoreTableFromBackupInput, RestoreTableFromBackupOutput } from "../models/models_0";
 import {
   deserializeAws_json1_0RestoreTableFromBackupCommand,
   serializeAws_json1_0RestoreTableFromBackupCommand,
@@ -163,8 +158,8 @@ export class RestoreTableFromBackupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RestoreTableFromBackupInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RestoreTableFromBackupOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

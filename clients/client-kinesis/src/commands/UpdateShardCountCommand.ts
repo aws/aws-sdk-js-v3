@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
-import {
-  UpdateShardCountInput,
-  UpdateShardCountInputFilterSensitiveLog,
-  UpdateShardCountOutput,
-  UpdateShardCountOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateShardCountInput, UpdateShardCountOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateShardCountCommand,
   serializeAws_json1_1UpdateShardCountCommand,
@@ -181,8 +176,8 @@ export class UpdateShardCountCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateShardCountInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateShardCountOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

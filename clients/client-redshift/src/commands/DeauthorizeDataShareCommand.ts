@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DataShare,
-  DataShareFilterSensitiveLog,
-  DeauthorizeDataShareMessage,
-  DeauthorizeDataShareMessageFilterSensitiveLog,
-} from "../models/models_0";
+import { DataShare, DeauthorizeDataShareMessage } from "../models/models_0";
 import {
   deserializeAws_queryDeauthorizeDataShareCommand,
   serializeAws_queryDeauthorizeDataShareCommand,
@@ -110,8 +105,8 @@ export class DeauthorizeDataShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeauthorizeDataShareMessageFilterSensitiveLog,
-      outputFilterSensitiveLog: DataShareFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

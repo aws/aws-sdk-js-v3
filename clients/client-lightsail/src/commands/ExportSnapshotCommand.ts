@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import {
-  ExportSnapshotRequest,
-  ExportSnapshotRequestFilterSensitiveLog,
-  ExportSnapshotResult,
-  ExportSnapshotResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ExportSnapshotRequest, ExportSnapshotResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ExportSnapshotCommand,
   serializeAws_json1_1ExportSnapshotCommand,
@@ -151,8 +146,8 @@ export class ExportSnapshotCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExportSnapshotRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExportSnapshotResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

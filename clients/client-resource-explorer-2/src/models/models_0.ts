@@ -1215,49 +1215,7 @@ export interface UntagResourceOutput {}
 /**
  * @internal
  */
-export const AssociateDefaultViewInputFilterSensitiveLog = (obj: AssociateDefaultViewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AssociateDefaultViewOutputFilterSensitiveLog = (obj: AssociateDefaultViewOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetViewInputFilterSensitiveLog = (obj: BatchGetViewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const BatchGetViewErrorFilterSensitiveLog = (obj: BatchGetViewError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SearchFilterFilterSensitiveLog = (obj: SearchFilter): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IncludedPropertyFilterSensitiveLog = (obj: IncludedProperty): any => ({
   ...obj,
 });
 
@@ -1280,69 +1238,6 @@ export const BatchGetViewOutputFilterSensitiveLog = (obj: BatchGetViewOutput): a
 /**
  * @internal
  */
-export const CreateIndexInputFilterSensitiveLog = (obj: CreateIndexInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateIndexOutputFilterSensitiveLog = (obj: CreateIndexOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIndexInputFilterSensitiveLog = (obj: DeleteIndexInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteIndexOutputFilterSensitiveLog = (obj: DeleteIndexOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIndexesInputFilterSensitiveLog = (obj: ListIndexesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IndexFilterSensitiveLog = (obj: Index): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListIndexesOutputFilterSensitiveLog = (obj: ListIndexesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIndexTypeInputFilterSensitiveLog = (obj: UpdateIndexTypeInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateIndexTypeOutputFilterSensitiveLog = (obj: UpdateIndexTypeOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const CreateViewInputFilterSensitiveLog = (obj: CreateViewInput): any => ({
   ...obj,
   ...(obj.Filters && { Filters: SENSITIVE_STRING }),
@@ -1359,44 +1254,9 @@ export const CreateViewOutputFilterSensitiveLog = (obj: CreateViewOutput): any =
 /**
  * @internal
  */
-export const DeleteViewInputFilterSensitiveLog = (obj: DeleteViewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteViewOutputFilterSensitiveLog = (obj: DeleteViewOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetViewInputFilterSensitiveLog = (obj: GetViewInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const GetViewOutputFilterSensitiveLog = (obj: GetViewOutput): any => ({
   ...obj,
   ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
-});
-
-/**
- * @internal
- */
-export const ListViewsInputFilterSensitiveLog = (obj: ListViewsInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListViewsOutputFilterSensitiveLog = (obj: ListViewsOutput): any => ({
-  ...obj,
 });
 
 /**
@@ -1418,112 +1278,7 @@ export const UpdateViewOutputFilterSensitiveLog = (obj: UpdateViewOutput): any =
 /**
  * @internal
  */
-export const GetDefaultViewOutputFilterSensitiveLog = (obj: GetDefaultViewOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetIndexOutputFilterSensitiveLog = (obj: GetIndexOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSupportedResourceTypesInputFilterSensitiveLog = (obj: ListSupportedResourceTypesInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SupportedResourceTypeFilterSensitiveLog = (obj: SupportedResourceType): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSupportedResourceTypesOutputFilterSensitiveLog = (obj: ListSupportedResourceTypesOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourcePropertyFilterSensitiveLog = (obj: ResourceProperty): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ResourceCountFilterSensitiveLog = (obj: ResourceCount): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const SearchInputFilterSensitiveLog = (obj: SearchInput): any => ({
   ...obj,
   ...(obj.QueryString && { QueryString: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SearchOutputFilterSensitiveLog = (obj: SearchOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
-  ...obj,
 });

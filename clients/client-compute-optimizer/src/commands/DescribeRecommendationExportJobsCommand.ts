@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
-import {
-  DescribeRecommendationExportJobsRequest,
-  DescribeRecommendationExportJobsRequestFilterSensitiveLog,
-  DescribeRecommendationExportJobsResponse,
-  DescribeRecommendationExportJobsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeRecommendationExportJobsRequest, DescribeRecommendationExportJobsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_0DescribeRecommendationExportJobsCommand,
   serializeAws_json1_0DescribeRecommendationExportJobsCommand,
@@ -137,8 +132,8 @@ export class DescribeRecommendationExportJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeRecommendationExportJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeRecommendationExportJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

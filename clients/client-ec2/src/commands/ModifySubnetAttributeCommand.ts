@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifySubnetAttributeRequest, ModifySubnetAttributeRequestFilterSensitiveLog } from "../models/models_6";
+import { ModifySubnetAttributeRequest } from "../models/models_6";
 import {
   deserializeAws_ec2ModifySubnetAttributeCommand,
   serializeAws_ec2ModifySubnetAttributeCommand,
@@ -143,8 +143,8 @@ export class ModifySubnetAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifySubnetAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

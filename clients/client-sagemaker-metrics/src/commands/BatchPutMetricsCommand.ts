@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  BatchPutMetricsRequest,
-  BatchPutMetricsRequestFilterSensitiveLog,
-  BatchPutMetricsResponse,
-  BatchPutMetricsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchPutMetricsRequest, BatchPutMetricsResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchPutMetricsCommand,
   serializeAws_restJson1BatchPutMetricsCommand,
@@ -109,8 +104,8 @@ export class BatchPutMetricsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchPutMetricsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchPutMetricsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

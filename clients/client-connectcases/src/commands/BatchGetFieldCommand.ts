@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import {
-  BatchGetFieldRequest,
-  BatchGetFieldRequestFilterSensitiveLog,
-  BatchGetFieldResponse,
-  BatchGetFieldResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetFieldRequest, BatchGetFieldResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetFieldCommand,
   serializeAws_restJson1BatchGetFieldCommand,
@@ -122,8 +117,8 @@ export class BatchGetFieldCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetFieldRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetFieldResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

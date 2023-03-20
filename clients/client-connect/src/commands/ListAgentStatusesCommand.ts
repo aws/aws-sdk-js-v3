@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListAgentStatusRequest,
-  ListAgentStatusRequestFilterSensitiveLog,
-  ListAgentStatusResponse,
-  ListAgentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListAgentStatusRequest, ListAgentStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListAgentStatusesCommand,
   serializeAws_restJson1ListAgentStatusesCommand,
@@ -123,8 +118,8 @@ export class ListAgentStatusesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAgentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAgentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DisassociateMemberFromGroupRequest,
-  DisassociateMemberFromGroupRequestFilterSensitiveLog,
-  DisassociateMemberFromGroupResponse,
-  DisassociateMemberFromGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DisassociateMemberFromGroupRequest, DisassociateMemberFromGroupResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DisassociateMemberFromGroupCommand,
   serializeAws_json1_1DisassociateMemberFromGroupCommand,
@@ -137,8 +132,8 @@ export class DisassociateMemberFromGroupCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateMemberFromGroupRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DisassociateMemberFromGroupResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  CreateStreamRequest,
-  CreateStreamRequestFilterSensitiveLog,
-  CreateStreamResponse,
-  CreateStreamResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateStreamRequest, CreateStreamResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateStreamCommand,
   serializeAws_restJson1CreateStreamCommand,
@@ -132,8 +127,8 @@ export class CreateStreamCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateStreamRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateStreamResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

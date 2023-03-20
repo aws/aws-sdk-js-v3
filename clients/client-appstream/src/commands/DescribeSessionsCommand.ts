@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import {
-  DescribeSessionsRequest,
-  DescribeSessionsRequestFilterSensitiveLog,
-  DescribeSessionsResult,
-  DescribeSessionsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeSessionsRequest, DescribeSessionsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeSessionsCommand,
   serializeAws_json1_1DescribeSessionsCommand,
@@ -112,8 +107,8 @@ export class DescribeSessionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeSessionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeSessionsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

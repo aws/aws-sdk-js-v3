@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  SetIdentityDkimEnabledRequest,
-  SetIdentityDkimEnabledRequestFilterSensitiveLog,
-  SetIdentityDkimEnabledResponse,
-  SetIdentityDkimEnabledResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse } from "../models/models_0";
 import {
   deserializeAws_querySetIdentityDkimEnabledCommand,
   serializeAws_querySetIdentityDkimEnabledCommand,
@@ -131,8 +126,8 @@ export class SetIdentityDkimEnabledCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: SetIdentityDkimEnabledRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SetIdentityDkimEnabledResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

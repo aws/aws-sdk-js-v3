@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListDimensionsRequest,
-  ListDimensionsRequestFilterSensitiveLog,
-  ListDimensionsResponse,
-  ListDimensionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListDimensionsRequest, ListDimensionsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListDimensionsCommand,
   serializeAws_restJson1ListDimensionsCommand,
@@ -117,8 +112,8 @@ export class ListDimensionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListDimensionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListDimensionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

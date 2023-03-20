@@ -16,9 +16,7 @@ import {
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import {
   ListRelatedResourcesForAuditFindingRequest,
-  ListRelatedResourcesForAuditFindingRequestFilterSensitiveLog,
   ListRelatedResourcesForAuditFindingResponse,
-  ListRelatedResourcesForAuditFindingResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
   deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommand,
@@ -157,8 +155,8 @@ export class ListRelatedResourcesForAuditFindingCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListRelatedResourcesForAuditFindingRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListRelatedResourcesForAuditFindingResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

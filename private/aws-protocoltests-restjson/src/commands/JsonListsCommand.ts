@@ -12,7 +12,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { JsonListsInputOutput, JsonListsInputOutputFilterSensitiveLog } from "../models/models_0";
+import { JsonListsInputOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1JsonListsCommand,
   serializeAws_restJson1JsonListsCommand,
@@ -20,15 +20,20 @@ import {
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
 
 /**
+ * @public
+ *
  * The input for {@link JsonListsCommand}.
  */
 export interface JsonListsCommandInput extends JsonListsInputOutput {}
 /**
+ * @public
+ *
  * The output of {@link JsonListsCommand}.
  */
 export interface JsonListsCommandOutput extends JsonListsInputOutput, __MetadataBearer {}
 
 /**
+ * @public
  * This test case serializes JSON lists for the following cases for both
  * input and output:
  *
@@ -46,6 +51,8 @@ export interface JsonListsCommandOutput extends JsonListsInputOutput, __Metadata
  * const response = await client.send(command);
  * ```
  *
+ * @param JsonListsCommandInput - {@link JsonListsCommandInput}
+ * @returns {@link JsonListsCommandOutput}
  * @see {@link JsonListsCommandInput} for command's `input` shape.
  * @see {@link JsonListsCommandOutput} for command's `response` shape.
  * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
@@ -60,6 +67,9 @@ export class JsonListsCommand extends $Command<
   // Start section: command_properties
   // End section: command_properties
 
+  /**
+   * @public
+   */
   constructor(readonly input: JsonListsCommandInput) {
     // Start section: command_constructor
     super();
@@ -85,8 +95,8 @@ export class JsonListsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: JsonListsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: JsonListsInputOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,10 +106,16 @@ export class JsonListsCommand extends $Command<
     );
   }
 
+  /**
+   * @internal
+   */
   private serialize(input: JsonListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
     return serializeAws_restJson1JsonListsCommand(input, context);
   }
 
+  /**
+   * @internal
+   */
   private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JsonListsCommandOutput> {
     return deserializeAws_restJson1JsonListsCommand(output, context);
   }

@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListModelMetadataRequest,
-  ListModelMetadataRequestFilterSensitiveLog,
-  ListModelMetadataResponse,
-  ListModelMetadataResponseFilterSensitiveLog,
-} from "../models/models_3";
+import { ListModelMetadataRequest, ListModelMetadataResponse } from "../models/models_3";
 import {
   deserializeAws_json1_1ListModelMetadataCommand,
   serializeAws_json1_1ListModelMetadataCommand,
@@ -108,8 +103,8 @@ export class ListModelMetadataCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListModelMetadataRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListModelMetadataResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,7 +18,6 @@ import {
   CreateNetworkProfileRequest,
   CreateNetworkProfileRequestFilterSensitiveLog,
   CreateNetworkProfileResponse,
-  CreateNetworkProfileResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1CreateNetworkProfileCommand,
@@ -123,7 +122,7 @@ export class CreateNetworkProfileCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateNetworkProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNetworkProfileResponseFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

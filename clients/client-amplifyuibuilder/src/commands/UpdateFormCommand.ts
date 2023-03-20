@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AmplifyUIBuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyUIBuilderClient";
-import {
-  UpdateFormRequest,
-  UpdateFormRequestFilterSensitiveLog,
-  UpdateFormResponse,
-  UpdateFormResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateFormRequest, UpdateFormResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateFormCommand,
   serializeAws_restJson1UpdateFormCommand,
@@ -114,8 +109,8 @@ export class UpdateFormCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateFormRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateFormResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

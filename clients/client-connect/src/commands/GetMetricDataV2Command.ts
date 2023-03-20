@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  GetMetricDataV2Request,
-  GetMetricDataV2RequestFilterSensitiveLog,
-  GetMetricDataV2Response,
-  GetMetricDataV2ResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetMetricDataV2Request, GetMetricDataV2Response } from "../models/models_0";
 import {
   deserializeAws_restJson1GetMetricDataV2Command,
   serializeAws_restJson1GetMetricDataV2Command,
@@ -133,8 +128,8 @@ export class GetMetricDataV2Command extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMetricDataV2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMetricDataV2ResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

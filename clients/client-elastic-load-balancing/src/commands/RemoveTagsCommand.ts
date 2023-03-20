@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient";
-import {
-  RemoveTagsInput,
-  RemoveTagsInputFilterSensitiveLog,
-  RemoveTagsOutput,
-  RemoveTagsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0";
 import { deserializeAws_queryRemoveTagsCommand, serializeAws_queryRemoveTagsCommand } from "../protocols/Aws_query";
 
 /**
@@ -127,8 +122,8 @@ export class RemoveTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTagsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTagsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

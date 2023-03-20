@@ -16,7 +16,6 @@ import {
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GenerateDataKeyRequest,
-  GenerateDataKeyRequestFilterSensitiveLog,
   GenerateDataKeyResponse,
   GenerateDataKeyResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -280,7 +279,7 @@ export class GenerateDataKeyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GenerateDataKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GenerateDataKeyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

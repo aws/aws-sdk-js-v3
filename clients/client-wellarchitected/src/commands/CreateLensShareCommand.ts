@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateLensShareInput,
-  CreateLensShareInputFilterSensitiveLog,
-  CreateLensShareOutput,
-  CreateLensShareOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateLensShareInput, CreateLensShareOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateLensShareCommand,
   serializeAws_restJson1CreateLensShareCommand,
@@ -142,8 +137,8 @@ export class CreateLensShareCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateLensShareInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateLensShareOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

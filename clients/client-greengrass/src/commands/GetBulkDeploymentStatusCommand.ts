@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
-import {
-  GetBulkDeploymentStatusRequest,
-  GetBulkDeploymentStatusRequestFilterSensitiveLog,
-  GetBulkDeploymentStatusResponse,
-  GetBulkDeploymentStatusResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetBulkDeploymentStatusRequest, GetBulkDeploymentStatusResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetBulkDeploymentStatusCommand,
   serializeAws_restJson1GetBulkDeploymentStatusCommand,
@@ -110,8 +105,8 @@ export class GetBulkDeploymentStatusCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetBulkDeploymentStatusRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetBulkDeploymentStatusResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import {
-  BatchDeleteBuildsInput,
-  BatchDeleteBuildsInputFilterSensitiveLog,
-  BatchDeleteBuildsOutput,
-  BatchDeleteBuildsOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchDeleteBuildsInput, BatchDeleteBuildsOutput } from "../models/models_0";
 import {
   deserializeAws_json1_1BatchDeleteBuildsCommand,
   serializeAws_json1_1BatchDeleteBuildsCommand,
@@ -110,8 +105,8 @@ export class BatchDeleteBuildsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchDeleteBuildsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDeleteBuildsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -18,12 +18,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient";
-import {
-  ListElasticsearchInstanceTypesRequest,
-  ListElasticsearchInstanceTypesRequestFilterSensitiveLog,
-  ListElasticsearchInstanceTypesResponse,
-  ListElasticsearchInstanceTypesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListElasticsearchInstanceTypesRequest, ListElasticsearchInstanceTypesResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1ListElasticsearchInstanceTypesCommand,
   serializeAws_restJson1ListElasticsearchInstanceTypesCommand,
@@ -125,8 +120,8 @@ export class ListElasticsearchInstanceTypesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListElasticsearchInstanceTypesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListElasticsearchInstanceTypesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  DescribeContactFlowModuleRequest,
-  DescribeContactFlowModuleRequestFilterSensitiveLog,
-  DescribeContactFlowModuleResponse,
-  DescribeContactFlowModuleResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeContactFlowModuleRequest, DescribeContactFlowModuleResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeContactFlowModuleCommand,
   serializeAws_restJson1DescribeContactFlowModuleCommand,
@@ -125,8 +120,8 @@ export class DescribeContactFlowModuleCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeContactFlowModuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeContactFlowModuleResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

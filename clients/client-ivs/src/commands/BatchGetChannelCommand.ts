@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
-import {
-  BatchGetChannelRequest,
-  BatchGetChannelRequestFilterSensitiveLog,
-  BatchGetChannelResponse,
-  BatchGetChannelResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { BatchGetChannelRequest, BatchGetChannelResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1BatchGetChannelCommand,
   serializeAws_restJson1BatchGetChannelCommand,
@@ -107,8 +102,8 @@ export class BatchGetChannelCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchGetChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

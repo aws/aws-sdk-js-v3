@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetMonitoringSubscriptionRequest,
-  GetMonitoringSubscriptionRequestFilterSensitiveLog,
-  GetMonitoringSubscriptionResult,
-  GetMonitoringSubscriptionResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetMonitoringSubscriptionRequest, GetMonitoringSubscriptionResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetMonitoringSubscriptionCommand,
   serializeAws_restXmlGetMonitoringSubscriptionCommand,
@@ -120,8 +115,8 @@ export class GetMonitoringSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetMonitoringSubscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetMonitoringSubscriptionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

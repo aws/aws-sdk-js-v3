@@ -13,10 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DeleteModelPackageGroupPolicyInput,
-  DeleteModelPackageGroupPolicyInputFilterSensitiveLog,
-} from "../models/models_1";
+import { DeleteModelPackageGroupPolicyInput } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteModelPackageGroupPolicyCommand,
   serializeAws_json1_1DeleteModelPackageGroupPolicyCommand,
@@ -105,8 +102,8 @@ export class DeleteModelPackageGroupPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteModelPackageGroupPolicyInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

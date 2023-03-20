@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetViewInput,
-  GetViewInputFilterSensitiveLog,
-  GetViewOutput,
-  GetViewOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { GetViewInput, GetViewOutput, GetViewOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1GetViewCommand,
   serializeAws_restJson1GetViewCommand,
@@ -132,7 +127,7 @@ export class GetViewCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetViewInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetViewOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

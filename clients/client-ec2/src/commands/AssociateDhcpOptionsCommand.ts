@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { AssociateDhcpOptionsRequest, AssociateDhcpOptionsRequestFilterSensitiveLog } from "../models/models_0";
+import { AssociateDhcpOptionsRequest } from "../models/models_0";
 import {
   deserializeAws_ec2AssociateDhcpOptionsCommand,
   serializeAws_ec2AssociateDhcpOptionsCommand,
@@ -129,8 +129,8 @@ export class AssociateDhcpOptionsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateDhcpOptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

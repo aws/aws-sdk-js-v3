@@ -15,7 +15,6 @@ import {
 
 import {
   GetCredentialsRequest,
-  GetCredentialsRequestFilterSensitiveLog,
   GetCredentialsResponse,
   GetCredentialsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -130,7 +129,7 @@ export class GetCredentialsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCredentialsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: GetCredentialsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

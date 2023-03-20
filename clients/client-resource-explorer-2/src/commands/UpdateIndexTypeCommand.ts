@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  UpdateIndexTypeInput,
-  UpdateIndexTypeInputFilterSensitiveLog,
-  UpdateIndexTypeOutput,
-  UpdateIndexTypeOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateIndexTypeInput, UpdateIndexTypeOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1UpdateIndexTypeCommand,
   serializeAws_restJson1UpdateIndexTypeCommand,
@@ -195,8 +190,8 @@ export class UpdateIndexTypeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateIndexTypeInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateIndexTypeOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

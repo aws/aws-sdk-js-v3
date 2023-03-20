@@ -17,7 +17,6 @@ import {
   RegisterApplicationInput,
   RegisterApplicationInputFilterSensitiveLog,
   RegisterApplicationOutput,
-  RegisterApplicationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1RegisterApplicationCommand,
@@ -124,7 +123,7 @@ export class RegisterApplicationCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: RegisterApplicationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterApplicationOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import {
-  GetRealtimeLogConfigRequest,
-  GetRealtimeLogConfigRequestFilterSensitiveLog,
-  GetRealtimeLogConfigResult,
-  GetRealtimeLogConfigResultFilterSensitiveLog,
-} from "../models/models_1";
+import { GetRealtimeLogConfigRequest, GetRealtimeLogConfigResult } from "../models/models_1";
 import {
   deserializeAws_restXmlGetRealtimeLogConfigCommand,
   serializeAws_restXmlGetRealtimeLogConfigCommand,
@@ -119,8 +114,8 @@ export class GetRealtimeLogConfigCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetRealtimeLogConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetRealtimeLogConfigResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

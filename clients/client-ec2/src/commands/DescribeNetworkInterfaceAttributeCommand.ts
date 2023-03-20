@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeNetworkInterfaceAttributeRequest,
-  DescribeNetworkInterfaceAttributeRequestFilterSensitiveLog,
-  DescribeNetworkInterfaceAttributeResult,
-  DescribeNetworkInterfaceAttributeResultFilterSensitiveLog,
-} from "../models/models_4";
+import { DescribeNetworkInterfaceAttributeRequest, DescribeNetworkInterfaceAttributeResult } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeNetworkInterfaceAttributeCommand,
   serializeAws_ec2DescribeNetworkInterfaceAttributeCommand,
@@ -198,8 +193,8 @@ export class DescribeNetworkInterfaceAttributeCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeNetworkInterfaceAttributeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeNetworkInterfaceAttributeResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

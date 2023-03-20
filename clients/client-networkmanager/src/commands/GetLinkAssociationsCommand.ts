@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetLinkAssociationsRequest,
-  GetLinkAssociationsRequestFilterSensitiveLog,
-  GetLinkAssociationsResponse,
-  GetLinkAssociationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetLinkAssociationsRequest, GetLinkAssociationsResponse } from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
 import {
   deserializeAws_restJson1GetLinkAssociationsCommand,
@@ -123,8 +118,8 @@ export class GetLinkAssociationsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetLinkAssociationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetLinkAssociationsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

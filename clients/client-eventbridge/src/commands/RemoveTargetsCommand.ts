@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
-import {
-  RemoveTargetsRequest,
-  RemoveTargetsRequestFilterSensitiveLog,
-  RemoveTargetsResponse,
-  RemoveTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1RemoveTargetsCommand,
   serializeAws_json1_1RemoveTargetsCommand,
@@ -131,8 +126,8 @@ export class RemoveTargetsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RemoveTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RemoveTargetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

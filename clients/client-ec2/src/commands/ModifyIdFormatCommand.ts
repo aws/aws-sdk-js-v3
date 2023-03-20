@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyIdFormatRequest, ModifyIdFormatRequestFilterSensitiveLog } from "../models/models_6";
+import { ModifyIdFormatRequest } from "../models/models_6";
 import { deserializeAws_ec2ModifyIdFormatCommand, serializeAws_ec2ModifyIdFormatCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -122,8 +122,8 @@ export class ModifyIdFormatCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ModifyIdFormatRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchGetJobsRequest, BatchGetJobsRequestFilterSensitiveLog } from "../models/models_0";
+import { BatchGetJobsRequest } from "../models/models_0";
 import { BatchGetJobsResponse, BatchGetJobsResponseFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_json1_1BatchGetJobsCommand,
@@ -111,7 +111,7 @@ export class BatchGetJobsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: BatchGetJobsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: BatchGetJobsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

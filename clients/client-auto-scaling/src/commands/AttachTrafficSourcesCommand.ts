@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import {
-  AttachTrafficSourcesResultType,
-  AttachTrafficSourcesResultTypeFilterSensitiveLog,
-  AttachTrafficSourcesType,
-  AttachTrafficSourcesTypeFilterSensitiveLog,
-} from "../models/models_0";
+import { AttachTrafficSourcesResultType, AttachTrafficSourcesType } from "../models/models_0";
 import {
   deserializeAws_queryAttachTrafficSourcesCommand,
   serializeAws_queryAttachTrafficSourcesCommand,
@@ -122,8 +117,8 @@ export class AttachTrafficSourcesCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AttachTrafficSourcesTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: AttachTrafficSourcesResultTypeFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

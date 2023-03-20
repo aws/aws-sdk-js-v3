@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
-import {
-  ListUsersRequest,
-  ListUsersRequestFilterSensitiveLog,
-  ListUsersResponse,
-  ListUsersResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListUsersRequest, ListUsersResponse, ListUsersResponseFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_restJson1ListUsersCommand,
   serializeAws_restJson1ListUsersCommand,
@@ -118,7 +113,7 @@ export class ListUsersCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListUsersRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: ListUsersResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

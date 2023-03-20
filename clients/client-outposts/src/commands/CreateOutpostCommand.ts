@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  CreateOutpostInput,
-  CreateOutpostInputFilterSensitiveLog,
-  CreateOutpostOutput,
-  CreateOutpostOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateOutpostInput, CreateOutpostOutput } from "../models/models_0";
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import {
   deserializeAws_restJson1CreateOutpostCommand,
@@ -124,8 +119,8 @@ export class CreateOutpostCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOutpostInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateOutpostOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

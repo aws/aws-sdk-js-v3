@@ -134,7 +134,7 @@ export class CreateSipMediaApplicationCallCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateSipMediaApplicationCallRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

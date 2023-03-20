@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import {
-  ListTestGridProjectsRequest,
-  ListTestGridProjectsRequestFilterSensitiveLog,
-  ListTestGridProjectsResult,
-  ListTestGridProjectsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListTestGridProjectsRequest, ListTestGridProjectsResult } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTestGridProjectsCommand,
   serializeAws_json1_1ListTestGridProjectsCommand,
@@ -114,8 +109,8 @@ export class ListTestGridProjectsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListTestGridProjectsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListTestGridProjectsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

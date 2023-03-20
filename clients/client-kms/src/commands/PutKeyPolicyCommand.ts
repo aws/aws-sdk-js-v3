@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
-import { PutKeyPolicyRequest, PutKeyPolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { PutKeyPolicyRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1PutKeyPolicyCommand,
   serializeAws_json1_1PutKeyPolicyCommand,
@@ -171,8 +171,8 @@ export class PutKeyPolicyCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutKeyPolicyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

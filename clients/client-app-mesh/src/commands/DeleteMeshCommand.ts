@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import {
-  DeleteMeshInput,
-  DeleteMeshInputFilterSensitiveLog,
-  DeleteMeshOutput,
-  DeleteMeshOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteMeshInput, DeleteMeshOutput } from "../models/models_0";
 import {
   deserializeAws_restJson1DeleteMeshCommand,
   serializeAws_restJson1DeleteMeshCommand,
@@ -132,8 +127,8 @@ export class DeleteMeshCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteMeshInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteMeshOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

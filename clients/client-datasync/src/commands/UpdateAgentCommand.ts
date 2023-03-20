@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import {
-  UpdateAgentRequest,
-  UpdateAgentRequestFilterSensitiveLog,
-  UpdateAgentResponse,
-  UpdateAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { UpdateAgentRequest, UpdateAgentResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1UpdateAgentCommand,
   serializeAws_json1_1UpdateAgentCommand,
@@ -111,8 +106,8 @@ export class UpdateAgentCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateAgentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateAgentResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

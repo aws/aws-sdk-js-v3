@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  GetCloudFormationTemplateRequest,
-  GetCloudFormationTemplateRequestFilterSensitiveLog,
-  GetCloudFormationTemplateResponse,
-  GetCloudFormationTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetCloudFormationTemplateRequest, GetCloudFormationTemplateResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1GetCloudFormationTemplateCommand,
   serializeAws_restJson1GetCloudFormationTemplateCommand,
@@ -126,8 +121,8 @@ export class GetCloudFormationTemplateCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCloudFormationTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCloudFormationTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import {
-  DeletePackageRequest,
-  DeletePackageRequestFilterSensitiveLog,
-  DeletePackageResult,
-  DeletePackageResultFilterSensitiveLog,
-} from "../models/models_0";
+import { DeletePackageRequest, DeletePackageResult } from "../models/models_0";
 import {
   deserializeAws_restJson1DeletePackageCommand,
   serializeAws_restJson1DeletePackageCommand,
@@ -134,8 +129,8 @@ export class DeletePackageCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeletePackageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeletePackageResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

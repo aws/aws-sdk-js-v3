@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ListQueueTagsRequest,
-  ListQueueTagsRequestFilterSensitiveLog,
-  ListQueueTagsResult,
-  ListQueueTagsResultFilterSensitiveLog,
-} from "../models/models_0";
+import { ListQueueTagsRequest, ListQueueTagsResult } from "../models/models_0";
 import {
   deserializeAws_queryListQueueTagsCommand,
   serializeAws_queryListQueueTagsCommand,
@@ -111,8 +106,8 @@ export class ListQueueTagsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListQueueTagsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListQueueTagsResultFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

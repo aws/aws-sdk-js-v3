@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
-import {
-  DeleteResourceInput,
-  DeleteResourceInputFilterSensitiveLog,
-  DeleteResourceOutput,
-  DeleteResourceOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DeleteResourceInput, DeleteResourceOutput, DeleteResourceOutputFilterSensitiveLog } from "../models/models_0";
 import {
   deserializeAws_json1_0DeleteResourceCommand,
   serializeAws_json1_0DeleteResourceCommand,
@@ -184,7 +179,7 @@ export class DeleteResourceCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteResourceInputFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DeleteResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

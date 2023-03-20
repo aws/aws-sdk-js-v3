@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  ConfirmSubscriptionInput,
-  ConfirmSubscriptionInputFilterSensitiveLog,
-  ConfirmSubscriptionResponse,
-  ConfirmSubscriptionResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ConfirmSubscriptionInput, ConfirmSubscriptionResponse } from "../models/models_0";
 import {
   deserializeAws_queryConfirmSubscriptionCommand,
   serializeAws_queryConfirmSubscriptionCommand,
@@ -133,8 +128,8 @@ export class ConfirmSubscriptionCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ConfirmSubscriptionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfirmSubscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,9 +15,7 @@ import {
 
 import {
   DeleteInstanceAccessControlAttributeConfigurationRequest,
-  DeleteInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
   DeleteInstanceAccessControlAttributeConfigurationResponse,
-  DeleteInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteInstanceAccessControlAttributeConfigurationCommand,
@@ -142,8 +140,8 @@ export class DeleteInstanceAccessControlAttributeConfigurationCommand extends $C
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteInstanceAccessControlAttributeConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteInstanceAccessControlAttributeConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

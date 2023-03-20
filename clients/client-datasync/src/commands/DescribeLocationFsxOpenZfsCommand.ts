@@ -16,7 +16,6 @@ import {
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
 import {
   DescribeLocationFsxOpenZfsRequest,
-  DescribeLocationFsxOpenZfsRequestFilterSensitiveLog,
   DescribeLocationFsxOpenZfsResponse,
   DescribeLocationFsxOpenZfsResponseFilterSensitiveLog,
 } from "../models/models_0";
@@ -117,7 +116,7 @@ export class DescribeLocationFsxOpenZfsCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeLocationFsxOpenZfsRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
       outputFilterSensitiveLog: DescribeLocationFsxOpenZfsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;

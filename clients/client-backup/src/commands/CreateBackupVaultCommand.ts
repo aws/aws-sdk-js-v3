@@ -18,7 +18,6 @@ import {
   CreateBackupVaultInput,
   CreateBackupVaultInputFilterSensitiveLog,
   CreateBackupVaultOutput,
-  CreateBackupVaultOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   deserializeAws_restJson1CreateBackupVaultCommand,
@@ -131,7 +130,7 @@ export class CreateBackupVaultCommand extends $Command<
       clientName,
       commandName,
       inputFilterSensitiveLog: CreateBackupVaultInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateBackupVaultOutputFilterSensitiveLog,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

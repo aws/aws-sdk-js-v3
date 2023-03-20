@@ -14,12 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import {
-  GetAccessKeyLastUsedRequest,
-  GetAccessKeyLastUsedRequestFilterSensitiveLog,
-  GetAccessKeyLastUsedResponse,
-  GetAccessKeyLastUsedResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetAccessKeyLastUsedRequest, GetAccessKeyLastUsedResponse } from "../models/models_0";
 import {
   deserializeAws_queryGetAccessKeyLastUsedCommand,
   serializeAws_queryGetAccessKeyLastUsedCommand,
@@ -113,8 +108,8 @@ export class GetAccessKeyLastUsedCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetAccessKeyLastUsedRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetAccessKeyLastUsedResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

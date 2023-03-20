@@ -13,12 +13,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeAuditStreamConfigurationRequest,
-  DescribeAuditStreamConfigurationRequestFilterSensitiveLog,
-  DescribeAuditStreamConfigurationResponse,
-  DescribeAuditStreamConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeAuditStreamConfigurationRequest, DescribeAuditStreamConfigurationResponse } from "../models/models_0";
 import {
   deserializeAws_restJson1DescribeAuditStreamConfigurationCommand,
   serializeAws_restJson1DescribeAuditStreamConfigurationCommand,
@@ -126,8 +121,8 @@ export class DescribeAuditStreamConfigurationCommand extends $Command<
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeAuditStreamConfigurationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeAuditStreamConfigurationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (_: any) => _,
+      outputFilterSensitiveLog: (_: any) => _,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
