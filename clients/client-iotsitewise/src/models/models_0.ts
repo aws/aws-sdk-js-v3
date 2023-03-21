@@ -1038,7 +1038,7 @@ export interface AssetModelSummary {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>
    *          </p>
    */
@@ -1235,7 +1235,7 @@ export interface AssetSummary {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>
    *          </p>
    */
@@ -1477,7 +1477,7 @@ export interface AssociatedAssetsSummary {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>
    *          </p>
    */
@@ -1868,7 +1868,7 @@ export interface BatchGetAssetPropertyValueEntry {
 export interface BatchGetAssetPropertyValueRequest {
   /**
    * <p>The list of asset property value entries for the batch get request. You can specify up to
-   *       16 entries per request.</p>
+   *       128 entries per request.</p>
    */
   entries: BatchGetAssetPropertyValueEntry[] | undefined;
 
@@ -2311,7 +2311,7 @@ export interface CreateAccessPolicyResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the access policy, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy/${AccessPolicyId}</code>
    *          </p>
    */
@@ -2356,7 +2356,7 @@ export interface CreateAssetResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>
    *          </p>
    */
@@ -2426,7 +2426,7 @@ export interface CreateAssetModelResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>
    *          </p>
    */
@@ -2645,7 +2645,7 @@ export interface CreateDashboardResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the dashboard, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard/${DashboardId}</code>
    *          </p>
    */
@@ -2723,7 +2723,7 @@ export interface CreateGatewayResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the gateway, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:gateway/${GatewayId}</code>
    *          </p>
    */
@@ -2885,7 +2885,7 @@ export interface CreatePortalResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the portal, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}</code>
    *          </p>
    */
@@ -2947,7 +2947,7 @@ export interface CreateProjectResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the project, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:project/${ProjectId}</code>
    *          </p>
    */
@@ -3100,7 +3100,7 @@ export interface DescribeAccessPolicyResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the access policy, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:access-policy/${AccessPolicyId}</code>
    *          </p>
    */
@@ -3157,7 +3157,7 @@ export interface DescribeAssetResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset/${AssetId}</code>
    *          </p>
    */
@@ -3233,7 +3233,7 @@ export interface DescribeAssetModelResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the asset model, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:asset-model/${AssetModelId}</code>
    *          </p>
    */
@@ -3495,7 +3495,7 @@ export interface DescribeDashboardResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the dashboard, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:dashboard/${DashboardId}</code>
    *          </p>
    */
@@ -3656,7 +3656,7 @@ export interface DescribeGatewayResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the gateway, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:gateway/${GatewayId}</code>
    *          </p>
    */
@@ -3794,7 +3794,7 @@ export interface DescribePortalResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the portal, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:portal/${PortalId}</code>
    *          </p>
    */
@@ -3886,7 +3886,7 @@ export interface DescribeProjectResponse {
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the project, which has the following format.</p>
-   *         <p>
+   *          <p>
    *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:project/${ProjectId}</code>
    *          </p>
    */
@@ -4103,6 +4103,14 @@ export interface DescribeTimeSeriesResponse {
    * <p>The date that the time series was last updated, in Unix epoch time.</p>
    */
   timeSeriesLastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the time series, which has the following format.</p>
+   *          <p>
+   *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:time-series/${TimeSeriesId}</code>
+   *          </p>
+   */
+  timeSeriesArn: string | undefined;
 }
 
 export interface DisassociateAssetsRequest {
@@ -5336,6 +5344,14 @@ export interface TimeSeriesSummary {
    * <p>The date that the time series was last updated, in Unix epoch time.</p>
    */
   timeSeriesLastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the time series, which has the following format.</p>
+   *          <p>
+   *             <code>arn:${Partition}:iotsitewise:${Region}:${Account}:time-series/${TimeSeriesId}</code>
+   *          </p>
+   */
+  timeSeriesArn: string | undefined;
 }
 
 export interface ListTimeSeriesResponse {

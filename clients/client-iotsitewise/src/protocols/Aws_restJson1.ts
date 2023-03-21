@@ -5147,6 +5147,9 @@ export const deserializeAws_restJson1DescribeTimeSeriesCommand = async (
   if (data.propertyId != null) {
     contents.propertyId = __expectString(data.propertyId);
   }
+  if (data.timeSeriesArn != null) {
+    contents.timeSeriesArn = __expectString(data.timeSeriesArn);
+  }
   if (data.timeSeriesCreationDate != null) {
     contents.timeSeriesCreationDate = __expectNonNull(
       __parseEpochTimestamp(__expectNumber(data.timeSeriesCreationDate))
@@ -9248,6 +9251,7 @@ const deserializeAws_restJson1TimeSeriesSummary = (output: any, context: __Serde
     dataType: __expectString(output.dataType),
     dataTypeSpec: __expectString(output.dataTypeSpec),
     propertyId: __expectString(output.propertyId),
+    timeSeriesArn: __expectString(output.timeSeriesArn),
     timeSeriesCreationDate:
       output.timeSeriesCreationDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timeSeriesCreationDate)))
