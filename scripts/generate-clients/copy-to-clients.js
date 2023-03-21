@@ -154,7 +154,7 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
           ] = `node ../../scripts/generate-clients/single-service --solo ${serviceName}`;
         }
 
-        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json" }));
+        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
       } else if (packageSub === "typedoc.json") {
         const typedocJson = {
           extends: ["../../typedoc.client.json"],
@@ -216,7 +216,7 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           // don't generate documentation for private packages
           delete mergedManifest.scripts["build:docs"];
         }
-        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json" }));
+        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
