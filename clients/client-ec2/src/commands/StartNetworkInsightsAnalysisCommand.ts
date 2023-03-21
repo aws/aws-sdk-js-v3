@@ -17,9 +17,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   StartNetworkInsightsAnalysisRequest,
   StartNetworkInsightsAnalysisRequestFilterSensitiveLog,
+} from "../models/models_6";
+import {
   StartNetworkInsightsAnalysisResult,
   StartNetworkInsightsAnalysisResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   deserializeAws_ec2StartNetworkInsightsAnalysisCommand,
   serializeAws_ec2StartNetworkInsightsAnalysisCommand,

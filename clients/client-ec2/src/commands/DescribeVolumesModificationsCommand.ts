@@ -19,7 +19,7 @@ import {
   DescribeVolumesModificationsRequestFilterSensitiveLog,
   DescribeVolumesModificationsResult,
   DescribeVolumesModificationsResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DescribeVolumesModificationsCommand,
   serializeAws_ec2DescribeVolumesModificationsCommand,

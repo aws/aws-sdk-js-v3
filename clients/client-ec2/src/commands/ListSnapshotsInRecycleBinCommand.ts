@@ -19,7 +19,7 @@ import {
   ListSnapshotsInRecycleBinRequestFilterSensitiveLog,
   ListSnapshotsInRecycleBinResult,
   ListSnapshotsInRecycleBinResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ListSnapshotsInRecycleBinCommand,
   serializeAws_ec2ListSnapshotsInRecycleBinCommand,

@@ -2160,13 +2160,9 @@ import {
   CarrierGateway,
   CertificateAuthenticationRequest,
   CidrBlock,
-  ClientConnectOptions,
-  ClientLoginBannerOptions,
-  ClientVpnAuthenticationRequest,
   ClientVpnAuthorizationRuleStatus,
   ConfirmProductInstanceRequest,
   ConfirmProductInstanceResult,
-  ConnectionLogOptions,
   CopyFpgaImageRequest,
   CopyFpgaImageResult,
   CopyImageRequest,
@@ -2186,6 +2182,8 @@ import {
   Explanation,
   FailedCapacityReservationFleetCancellationResult,
   FederatedAuthenticationRequest,
+  FirewallStatefulRule,
+  FirewallStatelessRule,
   FleetCapacityReservation,
   IamInstanceProfile,
   IamInstanceProfileAssociation,
@@ -2222,6 +2220,9 @@ import {
   ResourceStatement,
   ResourceStatementRequest,
   RouteTableAssociationState,
+  RuleGroupRuleOptionsPair,
+  RuleGroupTypePair,
+  RuleOption,
   S3Storage,
   SecurityGroupRule,
   Storage,
@@ -2268,10 +2269,14 @@ import {
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
+  ClientConnectOptions,
+  ClientLoginBannerOptions,
+  ClientVpnAuthenticationRequest,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
+  ConnectionLogOptions,
   CpuManufacturer,
   CreateClientVpnEndpointRequest,
   CreateClientVpnEndpointResult,
@@ -2348,14 +2353,6 @@ import {
   CreatePublicIpv4PoolRequest,
   CreatePublicIpv4PoolResult,
   CreateReplaceRootVolumeTaskRequest,
-  CreateReplaceRootVolumeTaskResult,
-  CreateReservedInstancesListingRequest,
-  CreateReservedInstancesListingResult,
-  CreateRestoreImageTaskRequest,
-  CreateRestoreImageTaskResult,
-  CreateRouteRequest,
-  CreateRouteResult,
-  CreateRouteTableRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2369,6 +2366,7 @@ import {
   ExportTask,
   ExportToS3Task,
   ExportToS3TaskSpecification,
+  FilterPortRange,
   FleetLaunchTemplateConfigRequest,
   FleetLaunchTemplateOverrides,
   FleetLaunchTemplateOverridesRequest,
@@ -2468,14 +2466,16 @@ import {
   NetworkInterfacePrivateIpAddress,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
+  PathFilter,
+  PathRequestFilter,
   Placement,
   PlacementGroup,
   PlacementResponse,
-  PriceScheduleSpecification,
   PrivateDnsNameOptionsOnLaunch,
   PrivateIpAddressSpecification,
   ProvisionedBandwidth,
   ReplaceRootVolumeTask,
+  RequestFilterPortRange,
   RequestIpamResourceTag,
   RequestLaunchTemplateData,
   ResponseLaunchTemplateData,
@@ -2496,6 +2496,14 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateReplaceRootVolumeTaskResult,
+  CreateReservedInstancesListingRequest,
+  CreateReservedInstancesListingResult,
+  CreateRestoreImageTaskRequest,
+  CreateRestoreImageTaskResult,
+  CreateRouteRequest,
+  CreateRouteResult,
+  CreateRouteTableRequest,
   CreateRouteTableResult,
   CreateSecurityGroupRequest,
   CreateSecurityGroupResult,
@@ -2650,15 +2658,6 @@ import {
   DeleteSecurityGroupRequest,
   DeleteSnapshotRequest,
   DeleteSpotDatafeedSubscriptionRequest,
-  DeleteSubnetCidrReservationRequest,
-  DeleteSubnetCidrReservationResult,
-  DeleteSubnetRequest,
-  DeleteTagsRequest,
-  DeleteTrafficMirrorFilterRequest,
-  DeleteTrafficMirrorFilterResult,
-  DeleteTrafficMirrorFilterRuleRequest,
-  DeleteTrafficMirrorFilterRuleResult,
-  DeleteTrafficMirrorSessionRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2680,6 +2679,7 @@ import {
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
+  PriceScheduleSpecification,
   PrivateDnsNameConfiguration,
   PropagatingVgw,
   ResponseError,
@@ -2763,6 +2763,15 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteSubnetCidrReservationRequest,
+  DeleteSubnetCidrReservationResult,
+  DeleteSubnetRequest,
+  DeleteTagsRequest,
+  DeleteTrafficMirrorFilterRequest,
+  DeleteTrafficMirrorFilterResult,
+  DeleteTrafficMirrorFilterRuleRequest,
+  DeleteTrafficMirrorFilterRuleResult,
+  DeleteTrafficMirrorSessionRequest,
   DeleteTrafficMirrorSessionResult,
   DeleteTrafficMirrorTargetRequest,
   DeleteTrafficMirrorTargetResult,
@@ -2967,24 +2976,16 @@ import {
   InstanceBlockDeviceMapping,
   InstanceCapacity,
   InstanceCreditSpecification,
-  InstanceIpv4Prefix,
-  InstanceIpv6Prefix,
   InstanceMaintenanceOptions,
   InstanceMetadataOptionsResponse,
-  InstanceNetworkInterface,
-  InstanceNetworkInterfaceAssociation,
-  InstanceNetworkInterfaceAttachment,
-  InstancePrivateIpAddress,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
   LaunchPermission,
   LicenseConfiguration,
   LoadPermission,
-  Monitoring,
   OnDemandOptions,
   PciId,
-  PrivateDnsNameOptionsResponse,
   ProductCode,
   SnapshotDetail,
   SnapshotTaskDetail,
@@ -3162,11 +3163,7 @@ import {
   DescribeVerifiedAccessTrustProvidersResult,
   DescribeVolumeAttributeRequest,
   DescribeVolumeAttributeResult,
-  DescribeVolumesModificationsRequest,
-  DescribeVolumesModificationsResult,
   DescribeVolumesRequest,
-  DescribeVolumesResult,
-  DescribeVolumeStatusRequest,
   DiskInfo,
   EbsInfo,
   EbsOptimizedInfo,
@@ -3181,7 +3178,13 @@ import {
   InferenceAcceleratorInfo,
   InferenceDeviceInfo,
   Instance,
+  InstanceIpv4Prefix,
+  InstanceIpv6Prefix,
+  InstanceNetworkInterface,
+  InstanceNetworkInterfaceAssociation,
+  InstanceNetworkInterfaceAttachment,
   InstanceNetworkInterfaceSpecification,
+  InstancePrivateIpAddress,
   InstanceState,
   InstanceStatus,
   InstanceStatusDetails,
@@ -3200,6 +3203,7 @@ import {
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
   MemoryInfo,
+  Monitoring,
   MovingAddressStatus,
   NetworkCardInfo,
   NetworkInfo,
@@ -3211,6 +3215,7 @@ import {
   PrefixList,
   PricingDetail,
   PrincipalIdFormat,
+  PrivateDnsNameOptionsResponse,
   ProcessorInfo,
   PublicIpv4Pool,
   PublicIpv4PoolRange,
@@ -3261,10 +3266,6 @@ import {
   VerifiedAccessLogKinesisDataFirehoseDestination,
   VerifiedAccessLogs,
   VerifiedAccessLogS3Destination,
-  VolumeModification,
-  VolumeStatusAction,
-  VolumeStatusAttachmentStatus,
-  VolumeStatusEvent,
 } from "../models/models_4";
 import {
   AssociatedRole,
@@ -3276,6 +3277,10 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeVolumesModificationsRequest,
+  DescribeVolumesModificationsResult,
+  DescribeVolumesResult,
+  DescribeVolumeStatusRequest,
   DescribeVolumeStatusResult,
   DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
@@ -3492,7 +3497,6 @@ import {
   GetVpnConnectionDeviceTypesRequest,
   GetVpnConnectionDeviceTypesResult,
   ImageDiskContainer,
-  ImageRecycleBinInfo,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
   ImportImageLicenseConfigurationRequest,
@@ -3505,8 +3509,6 @@ import {
   ImportKeyPairResult,
   ImportSnapshotRequest,
   ImportSnapshotResult,
-  ImportVolumeRequest,
-  ImportVolumeResult,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3519,12 +3521,7 @@ import {
   IpamDiscoveryFailureReason,
   IpamResourceCidr,
   Ipv6CidrAssociation,
-  ListImagesInRecycleBinRequest,
-  ListImagesInRecycleBinResult,
-  ListSnapshotsInRecycleBinRequest,
-  ListSnapshotsInRecycleBinResult,
   MetricPoint,
-  ModifyAddressAttributeRequest,
   PrefixListAssociation,
   PrefixListEntry,
   PrivateDnsDetails,
@@ -3533,7 +3530,6 @@ import {
   ReservedInstanceReservationValue,
   ServiceDetail,
   SnapshotDiskContainer,
-  SnapshotRecycleBinInfo,
   SpotPlacementScore,
   TargetConfiguration,
   TargetReservationValue,
@@ -3548,7 +3544,11 @@ import {
   UserBucket,
   UserData,
   VolumeDetail,
+  VolumeModification,
+  VolumeStatusAction,
+  VolumeStatusAttachmentStatus,
   VolumeStatusDetails,
+  VolumeStatusEvent,
   VolumeStatusInfo,
   VolumeStatusItem,
   VpcClassicLink,
@@ -3566,6 +3566,9 @@ import {
   ElasticInferenceAccelerator,
   EnclaveOptionsRequest,
   HibernationOptionsRequest,
+  ImageRecycleBinInfo,
+  ImportVolumeRequest,
+  ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
   InstanceCreditSpecificationRequest,
   InstanceMaintenanceOptionsRequest,
@@ -3577,8 +3580,13 @@ import {
   LaunchPermissionModifications,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ListImagesInRecycleBinRequest,
+  ListImagesInRecycleBinResult,
+  ListSnapshotsInRecycleBinRequest,
+  ListSnapshotsInRecycleBinResult,
   LoadPermissionModifications,
   LoadPermissionRequest,
+  ModifyAddressAttributeRequest,
   ModifyAddressAttributeResult,
   ModifyAvailabilityZoneGroupRequest,
   ModifyAvailabilityZoneGroupResult,
@@ -3818,22 +3826,14 @@ import {
   SecurityGroupRuleRequest,
   SecurityGroupRuleUpdate,
   SendDiagnosticInterruptRequest,
+  SnapshotRecycleBinInfo,
   SpotMarketOptions,
   StartInstancesRequest,
   StartInstancesResult,
   StartNetworkInsightsAccessScopeAnalysisRequest,
   StartNetworkInsightsAccessScopeAnalysisResult,
   StartNetworkInsightsAnalysisRequest,
-  StartNetworkInsightsAnalysisResult,
-  StartVpcEndpointServicePrivateDnsVerificationRequest,
-  StartVpcEndpointServicePrivateDnsVerificationResult,
-  StopInstancesRequest,
-  StopInstancesResult,
   SuccessfulInstanceCreditSpecificationItem,
-  TerminateClientVpnConnectionsRequest,
-  TerminateClientVpnConnectionsResult,
-  TerminateConnectionStatus,
-  TerminateInstancesRequest,
   TrafficMirrorFilterRuleField,
   TrafficMirrorSessionField,
   TransitGatewayMulticastGroup,
@@ -3848,6 +3848,15 @@ import {
 } from "../models/models_6";
 import {
   SecurityGroupRuleDescription,
+  StartNetworkInsightsAnalysisResult,
+  StartVpcEndpointServicePrivateDnsVerificationRequest,
+  StartVpcEndpointServicePrivateDnsVerificationResult,
+  StopInstancesRequest,
+  StopInstancesResult,
+  TerminateClientVpnConnectionsRequest,
+  TerminateClientVpnConnectionsResult,
+  TerminateConnectionStatus,
+  TerminateInstancesRequest,
   TerminateInstancesResult,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
@@ -37251,6 +37260,20 @@ const serializeAws_ec2CreateNetworkInsightsPathRequest = (
   if (input.ClientToken != null) {
     entries["ClientToken"] = input.ClientToken;
   }
+  if (input.FilterAtSource != null) {
+    const memberEntries = serializeAws_ec2PathRequestFilter(input.FilterAtSource, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `FilterAtSource.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.FilterAtDestination != null) {
+    const memberEntries = serializeAws_ec2PathRequestFilter(input.FilterAtDestination, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `FilterAtDestination.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -53660,6 +53683,31 @@ const serializeAws_ec2PacketHeaderStatementRequest = (
   return entries;
 };
 
+const serializeAws_ec2PathRequestFilter = (input: PathRequestFilter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.SourceAddress != null) {
+    entries["SourceAddress"] = input.SourceAddress;
+  }
+  if (input.SourcePortRange != null) {
+    const memberEntries = serializeAws_ec2RequestFilterPortRange(input.SourcePortRange, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SourcePortRange.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DestinationAddress != null) {
+    entries["DestinationAddress"] = input.DestinationAddress;
+  }
+  if (input.DestinationPortRange != null) {
+    const memberEntries = serializeAws_ec2RequestFilterPortRange(input.DestinationPortRange, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DestinationPortRange.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_ec2PathStatementRequest = (input: PathStatementRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.PacketHeaderStatement != null) {
@@ -55027,6 +55075,17 @@ const serializeAws_ec2ReportInstanceStatusRequest = (
   }
   if (input.Status != null) {
     entries["Status"] = input.Status;
+  }
+  return entries;
+};
+
+const serializeAws_ec2RequestFilterPortRange = (input: RequestFilterPortRange, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.FromPort != null) {
+    entries["FromPort"] = input.FromPort;
+  }
+  if (input.ToPort != null) {
+    entries["ToPort"] = input.ToPort;
   }
   return entries;
 };
@@ -59427,12 +59486,59 @@ const deserializeAws_ec2AdditionalDetail = (output: any, context: __SerdeContext
   const contents: any = {
     AdditionalDetailType: undefined,
     Component: undefined,
+    VpcEndpointService: undefined,
+    RuleOptions: undefined,
+    RuleGroupTypePairs: undefined,
+    RuleGroupRuleOptionsPairs: undefined,
+    ServiceName: undefined,
+    LoadBalancers: undefined,
   };
   if (output["additionalDetailType"] !== undefined) {
     contents.AdditionalDetailType = __expectString(output["additionalDetailType"]);
   }
   if (output["component"] !== undefined) {
     contents.Component = deserializeAws_ec2AnalysisComponent(output["component"], context);
+  }
+  if (output["vpcEndpointService"] !== undefined) {
+    contents.VpcEndpointService = deserializeAws_ec2AnalysisComponent(output["vpcEndpointService"], context);
+  }
+  if (output.ruleOptionSet === "") {
+    contents.RuleOptions = [];
+  } else if (output["ruleOptionSet"] !== undefined && output["ruleOptionSet"]["item"] !== undefined) {
+    contents.RuleOptions = deserializeAws_ec2RuleOptionList(
+      __getArrayIfSingleItem(output["ruleOptionSet"]["item"]),
+      context
+    );
+  }
+  if (output.ruleGroupTypePairSet === "") {
+    contents.RuleGroupTypePairs = [];
+  } else if (output["ruleGroupTypePairSet"] !== undefined && output["ruleGroupTypePairSet"]["item"] !== undefined) {
+    contents.RuleGroupTypePairs = deserializeAws_ec2RuleGroupTypePairList(
+      __getArrayIfSingleItem(output["ruleGroupTypePairSet"]["item"]),
+      context
+    );
+  }
+  if (output.ruleGroupRuleOptionsPairSet === "") {
+    contents.RuleGroupRuleOptionsPairs = [];
+  } else if (
+    output["ruleGroupRuleOptionsPairSet"] !== undefined &&
+    output["ruleGroupRuleOptionsPairSet"]["item"] !== undefined
+  ) {
+    contents.RuleGroupRuleOptionsPairs = deserializeAws_ec2RuleGroupRuleOptionsPairList(
+      __getArrayIfSingleItem(output["ruleGroupRuleOptionsPairSet"]["item"]),
+      context
+    );
+  }
+  if (output["serviceName"] !== undefined) {
+    contents.ServiceName = __expectString(output["serviceName"]);
+  }
+  if (output.loadBalancerSet === "") {
+    contents.LoadBalancers = [];
+  } else if (output["loadBalancerSet"] !== undefined && output["loadBalancerSet"]["item"] !== undefined) {
+    contents.LoadBalancers = deserializeAws_ec2AnalysisComponentList(
+      __getArrayIfSingleItem(output["loadBalancerSet"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -59891,6 +59997,9 @@ const deserializeAws_ec2AnalysisRouteTableRoute = (output: any, context: __Serde
     TransitGatewayId: undefined,
     VpcPeeringConnectionId: undefined,
     State: undefined,
+    CarrierGatewayId: undefined,
+    CoreNetworkArn: undefined,
+    LocalGatewayId: undefined,
   };
   if (output["destinationCidr"] !== undefined) {
     contents.DestinationCidr = __expectString(output["destinationCidr"]);
@@ -59924,6 +60033,15 @@ const deserializeAws_ec2AnalysisRouteTableRoute = (output: any, context: __Serde
   }
   if (output["state"] !== undefined) {
     contents.State = __expectString(output["state"]);
+  }
+  if (output["carrierGatewayId"] !== undefined) {
+    contents.CarrierGatewayId = __expectString(output["carrierGatewayId"]);
+  }
+  if (output["coreNetworkArn"] !== undefined) {
+    contents.CoreNetworkArn = __expectString(output["coreNetworkArn"]);
+  }
+  if (output["localGatewayId"] !== undefined) {
+    contents.LocalGatewayId = __expectString(output["localGatewayId"]);
   }
   return contents;
 };
@@ -69667,6 +69785,8 @@ const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Ex
     TransitGatewayAttachment: undefined,
     ComponentAccount: undefined,
     ComponentRegion: undefined,
+    FirewallStatelessRule: undefined,
+    FirewallStatefulRule: undefined,
   };
   if (output["acl"] !== undefined) {
     contents.Acl = deserializeAws_ec2AnalysisComponent(output["acl"], context);
@@ -69864,6 +69984,12 @@ const deserializeAws_ec2Explanation = (output: any, context: __SerdeContext): Ex
   }
   if (output["componentRegion"] !== undefined) {
     contents.ComponentRegion = __expectString(output["componentRegion"]);
+  }
+  if (output["firewallStatelessRule"] !== undefined) {
+    contents.FirewallStatelessRule = deserializeAws_ec2FirewallStatelessRule(output["firewallStatelessRule"], context);
+  }
+  if (output["firewallStatefulRule"] !== undefined) {
+    contents.FirewallStatefulRule = deserializeAws_ec2FirewallStatefulRule(output["firewallStatefulRule"], context);
   }
   return contents;
 };
@@ -70198,6 +70324,135 @@ const deserializeAws_ec2FederatedAuthentication = (output: any, context: __Serde
   }
   if (output["selfServiceSamlProviderArn"] !== undefined) {
     contents.SelfServiceSamlProviderArn = __expectString(output["selfServiceSamlProviderArn"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2FilterPortRange = (output: any, context: __SerdeContext): FilterPortRange => {
+  const contents: any = {
+    FromPort: undefined,
+    ToPort: undefined,
+  };
+  if (output["fromPort"] !== undefined) {
+    contents.FromPort = __strictParseInt32(output["fromPort"]) as number;
+  }
+  if (output["toPort"] !== undefined) {
+    contents.ToPort = __strictParseInt32(output["toPort"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2FirewallStatefulRule = (output: any, context: __SerdeContext): FirewallStatefulRule => {
+  const contents: any = {
+    RuleGroupArn: undefined,
+    Sources: undefined,
+    Destinations: undefined,
+    SourcePorts: undefined,
+    DestinationPorts: undefined,
+    Protocol: undefined,
+    RuleAction: undefined,
+    Direction: undefined,
+  };
+  if (output["ruleGroupArn"] !== undefined) {
+    contents.RuleGroupArn = __expectString(output["ruleGroupArn"]);
+  }
+  if (output.sourceSet === "") {
+    contents.Sources = [];
+  } else if (output["sourceSet"] !== undefined && output["sourceSet"]["item"] !== undefined) {
+    contents.Sources = deserializeAws_ec2ValueStringList(__getArrayIfSingleItem(output["sourceSet"]["item"]), context);
+  }
+  if (output.destinationSet === "") {
+    contents.Destinations = [];
+  } else if (output["destinationSet"] !== undefined && output["destinationSet"]["item"] !== undefined) {
+    contents.Destinations = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["destinationSet"]["item"]),
+      context
+    );
+  }
+  if (output.sourcePortSet === "") {
+    contents.SourcePorts = [];
+  } else if (output["sourcePortSet"] !== undefined && output["sourcePortSet"]["item"] !== undefined) {
+    contents.SourcePorts = deserializeAws_ec2PortRangeList(
+      __getArrayIfSingleItem(output["sourcePortSet"]["item"]),
+      context
+    );
+  }
+  if (output.destinationPortSet === "") {
+    contents.DestinationPorts = [];
+  } else if (output["destinationPortSet"] !== undefined && output["destinationPortSet"]["item"] !== undefined) {
+    contents.DestinationPorts = deserializeAws_ec2PortRangeList(
+      __getArrayIfSingleItem(output["destinationPortSet"]["item"]),
+      context
+    );
+  }
+  if (output["protocol"] !== undefined) {
+    contents.Protocol = __expectString(output["protocol"]);
+  }
+  if (output["ruleAction"] !== undefined) {
+    contents.RuleAction = __expectString(output["ruleAction"]);
+  }
+  if (output["direction"] !== undefined) {
+    contents.Direction = __expectString(output["direction"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2FirewallStatelessRule = (output: any, context: __SerdeContext): FirewallStatelessRule => {
+  const contents: any = {
+    RuleGroupArn: undefined,
+    Sources: undefined,
+    Destinations: undefined,
+    SourcePorts: undefined,
+    DestinationPorts: undefined,
+    Protocols: undefined,
+    RuleAction: undefined,
+    Priority: undefined,
+  };
+  if (output["ruleGroupArn"] !== undefined) {
+    contents.RuleGroupArn = __expectString(output["ruleGroupArn"]);
+  }
+  if (output.sourceSet === "") {
+    contents.Sources = [];
+  } else if (output["sourceSet"] !== undefined && output["sourceSet"]["item"] !== undefined) {
+    contents.Sources = deserializeAws_ec2ValueStringList(__getArrayIfSingleItem(output["sourceSet"]["item"]), context);
+  }
+  if (output.destinationSet === "") {
+    contents.Destinations = [];
+  } else if (output["destinationSet"] !== undefined && output["destinationSet"]["item"] !== undefined) {
+    contents.Destinations = deserializeAws_ec2ValueStringList(
+      __getArrayIfSingleItem(output["destinationSet"]["item"]),
+      context
+    );
+  }
+  if (output.sourcePortSet === "") {
+    contents.SourcePorts = [];
+  } else if (output["sourcePortSet"] !== undefined && output["sourcePortSet"]["item"] !== undefined) {
+    contents.SourcePorts = deserializeAws_ec2PortRangeList(
+      __getArrayIfSingleItem(output["sourcePortSet"]["item"]),
+      context
+    );
+  }
+  if (output.destinationPortSet === "") {
+    contents.DestinationPorts = [];
+  } else if (output["destinationPortSet"] !== undefined && output["destinationPortSet"]["item"] !== undefined) {
+    contents.DestinationPorts = deserializeAws_ec2PortRangeList(
+      __getArrayIfSingleItem(output["destinationPortSet"]["item"]),
+      context
+    );
+  }
+  if (output.protocolSet === "") {
+    contents.Protocols = [];
+  } else if (output["protocolSet"] !== undefined && output["protocolSet"]["item"] !== undefined) {
+    contents.Protocols = deserializeAws_ec2ProtocolIntList(
+      __getArrayIfSingleItem(output["protocolSet"]["item"]),
+      context
+    );
+  }
+  if (output["ruleAction"] !== undefined) {
+    contents.RuleAction = __expectString(output["ruleAction"]);
+  }
+  if (output["priority"] !== undefined) {
+    contents.Priority = __strictParseInt32(output["priority"]) as number;
   }
   return contents;
 };
@@ -78928,6 +79183,8 @@ const deserializeAws_ec2NetworkInsightsPath = (output: any, context: __SerdeCont
     Protocol: undefined,
     DestinationPort: undefined,
     Tags: undefined,
+    FilterAtSource: undefined,
+    FilterAtDestination: undefined,
   };
   if (output["networkInsightsPathId"] !== undefined) {
     contents.NetworkInsightsPathId = __expectString(output["networkInsightsPathId"]);
@@ -78966,6 +79223,12 @@ const deserializeAws_ec2NetworkInsightsPath = (output: any, context: __SerdeCont
     contents.Tags = [];
   } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
     contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  if (output["filterAtSource"] !== undefined) {
+    contents.FilterAtSource = deserializeAws_ec2PathFilter(output["filterAtSource"], context);
+  }
+  if (output["filterAtDestination"] !== undefined) {
+    contents.FilterAtDestination = deserializeAws_ec2PathFilter(output["filterAtDestination"], context);
   }
   return contents;
 };
@@ -79506,6 +79769,9 @@ const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): 
     TransitGatewayRouteTableRoute: undefined,
     Explanations: undefined,
     ElasticLoadBalancerListener: undefined,
+    FirewallStatelessRule: undefined,
+    FirewallStatefulRule: undefined,
+    ServiceName: undefined,
   };
   if (output["sequenceNumber"] !== undefined) {
     contents.SequenceNumber = __strictParseInt32(output["sequenceNumber"]) as number;
@@ -79574,6 +79840,15 @@ const deserializeAws_ec2PathComponent = (output: any, context: __SerdeContext): 
       context
     );
   }
+  if (output["firewallStatelessRule"] !== undefined) {
+    contents.FirewallStatelessRule = deserializeAws_ec2FirewallStatelessRule(output["firewallStatelessRule"], context);
+  }
+  if (output["firewallStatefulRule"] !== undefined) {
+    contents.FirewallStatefulRule = deserializeAws_ec2FirewallStatefulRule(output["firewallStatefulRule"], context);
+  }
+  if (output["serviceName"] !== undefined) {
+    contents.ServiceName = __expectString(output["serviceName"]);
+  }
   return contents;
 };
 
@@ -79583,6 +79858,28 @@ const deserializeAws_ec2PathComponentList = (output: any, context: __SerdeContex
     .map((entry: any) => {
       return deserializeAws_ec2PathComponent(entry, context);
     });
+};
+
+const deserializeAws_ec2PathFilter = (output: any, context: __SerdeContext): PathFilter => {
+  const contents: any = {
+    SourceAddress: undefined,
+    SourcePortRange: undefined,
+    DestinationAddress: undefined,
+    DestinationPortRange: undefined,
+  };
+  if (output["sourceAddress"] !== undefined) {
+    contents.SourceAddress = __expectString(output["sourceAddress"]);
+  }
+  if (output["sourcePortRange"] !== undefined) {
+    contents.SourcePortRange = deserializeAws_ec2FilterPortRange(output["sourcePortRange"], context);
+  }
+  if (output["destinationAddress"] !== undefined) {
+    contents.DestinationAddress = __expectString(output["destinationAddress"]);
+  }
+  if (output["destinationPortRange"] !== undefined) {
+    contents.DestinationPortRange = deserializeAws_ec2FilterPortRange(output["destinationPortRange"], context);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2PathStatement = (output: any, context: __SerdeContext): PathStatement => {
@@ -80336,6 +80633,14 @@ const deserializeAws_ec2PropagatingVgwList = (output: any, context: __SerdeConte
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return deserializeAws_ec2PropagatingVgw(entry, context);
+    });
+};
+
+const deserializeAws_ec2ProtocolIntList = (output: any, context: __SerdeContext): number[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __strictParseInt32(entry) as number;
     });
 };
 
@@ -82166,6 +82471,82 @@ const deserializeAws_ec2RouteTableList = (output: any, context: __SerdeContext):
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return deserializeAws_ec2RouteTable(entry, context);
+    });
+};
+
+const deserializeAws_ec2RuleGroupRuleOptionsPair = (output: any, context: __SerdeContext): RuleGroupRuleOptionsPair => {
+  const contents: any = {
+    RuleGroupArn: undefined,
+    RuleOptions: undefined,
+  };
+  if (output["ruleGroupArn"] !== undefined) {
+    contents.RuleGroupArn = __expectString(output["ruleGroupArn"]);
+  }
+  if (output.ruleOptionSet === "") {
+    contents.RuleOptions = [];
+  } else if (output["ruleOptionSet"] !== undefined && output["ruleOptionSet"]["item"] !== undefined) {
+    contents.RuleOptions = deserializeAws_ec2RuleOptionList(
+      __getArrayIfSingleItem(output["ruleOptionSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2RuleGroupRuleOptionsPairList = (
+  output: any,
+  context: __SerdeContext
+): RuleGroupRuleOptionsPair[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2RuleGroupRuleOptionsPair(entry, context);
+    });
+};
+
+const deserializeAws_ec2RuleGroupTypePair = (output: any, context: __SerdeContext): RuleGroupTypePair => {
+  const contents: any = {
+    RuleGroupArn: undefined,
+    RuleGroupType: undefined,
+  };
+  if (output["ruleGroupArn"] !== undefined) {
+    contents.RuleGroupArn = __expectString(output["ruleGroupArn"]);
+  }
+  if (output["ruleGroupType"] !== undefined) {
+    contents.RuleGroupType = __expectString(output["ruleGroupType"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2RuleGroupTypePairList = (output: any, context: __SerdeContext): RuleGroupTypePair[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2RuleGroupTypePair(entry, context);
+    });
+};
+
+const deserializeAws_ec2RuleOption = (output: any, context: __SerdeContext): RuleOption => {
+  const contents: any = {
+    Keyword: undefined,
+    Settings: undefined,
+  };
+  if (output["keyword"] !== undefined) {
+    contents.Keyword = __expectString(output["keyword"]);
+  }
+  if (output.settingSet === "") {
+    contents.Settings = [];
+  } else if (output["settingSet"] !== undefined && output["settingSet"]["item"] !== undefined) {
+    contents.Settings = deserializeAws_ec2StringList(__getArrayIfSingleItem(output["settingSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2RuleOptionList = (output: any, context: __SerdeContext): RuleOption[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2RuleOption(entry, context);
     });
 };
 

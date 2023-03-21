@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { CreateRouteTableRequest, CreateRouteTableRequestFilterSensitiveLog } from "../models/models_1";
-import { CreateRouteTableResult, CreateRouteTableResultFilterSensitiveLog } from "../models/models_2";
+import {
+  CreateRouteTableRequest,
+  CreateRouteTableRequestFilterSensitiveLog,
+  CreateRouteTableResult,
+  CreateRouteTableResultFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateRouteTableCommand,
   serializeAws_ec2CreateRouteTableCommand,

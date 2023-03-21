@@ -37,8 +37,8 @@ export interface CreateNetworkInsightsPathCommandOutput extends CreateNetworkIns
 /**
  * <p>Creates a path to analyze for reachability.</p>
  *          <p>Reachability Analyzer enables you to analyze and debug network reachability between
- *           two resources in your virtual private cloud (VPC). For more information, see
- *           <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What is Reachability Analyzer</a>.</p>
+ *           two resources in your virtual private cloud (VPC). For more information, see the
+ *           <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">Reachability Analyzer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

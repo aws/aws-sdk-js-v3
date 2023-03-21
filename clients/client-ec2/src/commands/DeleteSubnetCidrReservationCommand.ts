@@ -19,7 +19,7 @@ import {
   DeleteSubnetCidrReservationRequestFilterSensitiveLog,
   DeleteSubnetCidrReservationResult,
   DeleteSubnetCidrReservationResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteSubnetCidrReservationCommand,
   serializeAws_ec2DeleteSubnetCidrReservationCommand,

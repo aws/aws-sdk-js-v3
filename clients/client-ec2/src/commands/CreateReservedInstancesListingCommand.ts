@@ -19,7 +19,7 @@ import {
   CreateReservedInstancesListingRequestFilterSensitiveLog,
   CreateReservedInstancesListingResult,
   CreateReservedInstancesListingResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateReservedInstancesListingCommand,
   serializeAws_ec2CreateReservedInstancesListingCommand,

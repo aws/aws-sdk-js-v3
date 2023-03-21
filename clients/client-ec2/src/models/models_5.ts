@@ -42,6 +42,7 @@ import {
   ResponseLaunchTemplateDataFilterSensitiveLog,
   ShutdownBehavior,
   TargetCapacityUnitType,
+  VolumeType,
   Vpc,
 } from "./models_1";
 import {
@@ -56,6 +57,7 @@ import {
   State,
   SubnetCidrReservation,
   TransitGatewayPrefixListReference,
+  Volume,
   VpcEndpoint,
   VpnConnection,
   VpnGateway,
@@ -82,13 +84,378 @@ import {
   StatisticType,
   VirtualizationType,
 } from "./models_3";
-import {
-  AnalysisStatus,
-  ArchitectureType,
-  VolumeStatusAction,
-  VolumeStatusAttachmentStatus,
-  VolumeStatusEvent,
-} from "./models_4";
+import { AnalysisStatus, ArchitectureType } from "./models_4";
+
+export interface DescribeVolumesResult {
+  /**
+   * <p>Information about the volumes.</p>
+   */
+  Volumes?: Volume[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *       This value is <code>null</code> when there are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeVolumesModificationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the volumes.</p>
+   */
+  VolumeIds?: string[];
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>modification-state</code> - The current modification state (modifying |
+   *           optimizing | completed | failed).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-iops</code> - The original IOPS rate of the volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-size</code> - The original size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>original-volume-type</code> - The original volume type of the volume (standard |
+   *           io1 | io2 | gp2 | sc1 | st1).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support was enabled (true | false).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start-time</code> - The modification start time.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-iops</code> - The target IOPS rate of the volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-size</code> - The target size of the volume, in GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-volume-type</code> - The target volume type of the volume (standard |
+   *           io1 | io2 | gp2 | sc1 | st1).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is to be enabled (true | false).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The ID of the volume.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token returned by a previous paginated request.
+   *       Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
+   *       request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+}
+
+export enum VolumeModificationState {
+  completed = "completed",
+  failed = "failed",
+  modifying = "modifying",
+  optimizing = "optimizing",
+}
+
+/**
+ * <p>Describes the modification status of an EBS volume.</p>
+ *          <p>If the volume has never been modified, some element values will be null.</p>
+ */
+export interface VolumeModification {
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The current modification state. The modification state is null for unmodified
+   *       volumes.</p>
+   */
+  ModificationState?: VolumeModificationState | string;
+
+  /**
+   * <p>A status message about the modification progress or failure.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The target size of the volume, in GiB.</p>
+   */
+  TargetSize?: number;
+
+  /**
+   * <p>The target IOPS rate of the volume.</p>
+   */
+  TargetIops?: number;
+
+  /**
+   * <p>The target EBS volume type of the volume.</p>
+   */
+  TargetVolumeType?: VolumeType | string;
+
+  /**
+   * <p>The target throughput of the volume, in MiB/s.</p>
+   */
+  TargetThroughput?: number;
+
+  /**
+   * <p>The target setting for Amazon EBS Multi-Attach.</p>
+   */
+  TargetMultiAttachEnabled?: boolean;
+
+  /**
+   * <p>The original size of the volume, in GiB.</p>
+   */
+  OriginalSize?: number;
+
+  /**
+   * <p>The original IOPS rate of the volume.</p>
+   */
+  OriginalIops?: number;
+
+  /**
+   * <p>The original EBS volume type of the volume.</p>
+   */
+  OriginalVolumeType?: VolumeType | string;
+
+  /**
+   * <p>The original throughput of the volume, in MiB/s.</p>
+   */
+  OriginalThroughput?: number;
+
+  /**
+   * <p>The original setting for Amazon EBS Multi-Attach.</p>
+   */
+  OriginalMultiAttachEnabled?: boolean;
+
+  /**
+   * <p>The modification progress, from 0 to 100 percent complete.</p>
+   */
+  Progress?: number;
+
+  /**
+   * <p>The modification start time.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The modification completion or failure time.</p>
+   */
+  EndTime?: Date;
+}
+
+export interface DescribeVolumesModificationsResult {
+  /**
+   * <p>Information about the volume modifications.</p>
+   */
+  VolumesModifications?: VolumeModification[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *       This value is <code>null</code> if there are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeVolumeStatusRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>action.code</code> - The action code for the event (for example,
+   *             <code>enable-volume-io</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>action.description</code> - A description of the action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>action.event-id</code> - The event ID associated with the action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.description</code> - A description of the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.event-id</code> - The event ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.event-type</code> - The event type (for <code>io-enabled</code>:
+   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
+   *             <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> |
+   *             <code>io-performance:stalled</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-after</code> - The latest end time for the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>event.not-before</code> - The earliest start time for the event.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-status.details-name</code> - The cause for
+   *             <code>volume-status.status</code> (<code>io-enabled</code> |
+   *           <code>io-performance</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-status.details-status</code> - The status of
+   *             <code>volume-status.details-name</code> (for <code>io-enabled</code>:
+   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
+   *             <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> |
+   *             <code>stalled</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-status.status</code> - The status of the volume (<code>ok</code> |
+   *             <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *       make another request with the token returned in the output. This value can be between 5 and 1,000;
+   *       if the value is larger than 1,000, only 1,000 results are returned. If this parameter is not used,
+   *       then all items are returned. You cannot specify this parameter and the volume IDs parameter in the
+   *       same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *       Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The IDs of the volumes.</p>
+   *          <p>Default: Describes all your volumes.</p>
+   */
+  VolumeIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes a volume status operation code.</p>
+ */
+export interface VolumeStatusAction {
+  /**
+   * <p>The code identifying the operation, for example, <code>enable-volume-io</code>.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>A description of the operation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the event associated with this operation.</p>
+   */
+  EventId?: string;
+
+  /**
+   * <p>The event type associated with this operation.</p>
+   */
+  EventType?: string;
+}
+
+/**
+ * <p>Information about the instances to which the volume is attached.</p>
+ */
+export interface VolumeStatusAttachmentStatus {
+  /**
+   * <p>The maximum IOPS supported by the attached instance.</p>
+   */
+  IoPerformance?: string;
+
+  /**
+   * <p>The ID of the attached instance.</p>
+   */
+  InstanceId?: string;
+}
+
+/**
+ * <p>Describes a volume status event.</p>
+ */
+export interface VolumeStatusEvent {
+  /**
+   * <p>A description of the event.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of this event.</p>
+   */
+  EventId?: string;
+
+  /**
+   * <p>The type of this event.</p>
+   */
+  EventType?: string;
+
+  /**
+   * <p>The latest end time of the event.</p>
+   */
+  NotAfter?: Date;
+
+  /**
+   * <p>The earliest start time of the event.</p>
+   */
+  NotBefore?: Date;
+
+  /**
+   * <p>The ID of the instance associated with the event.</p>
+   */
+  InstanceId?: string;
+}
 
 export enum VolumeStatusName {
   io_enabled = "io-enabled",
@@ -6613,201 +6980,63 @@ export interface ImportSnapshotResult {
   Tags?: Tag[];
 }
 
-export interface ImportVolumeRequest {
-  /**
-   * <p>The Availability Zone for the resulting EBS volume.</p>
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>A description of the volume.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The disk image.</p>
-   */
-  Image: DiskImageDetail | undefined;
-
-  /**
-   * <p>The volume size.</p>
-   */
-  Volume: VolumeDetail | undefined;
-}
-
-export interface ImportVolumeResult {
-  /**
-   * <p>Information about the conversion task.</p>
-   */
-  ConversionTask?: ConversionTask;
-}
-
-export interface ListImagesInRecycleBinRequest {
-  /**
-   * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that
-   *       are in the Recycle Bin. You can specify up to 20 IDs in a single request.</p>
-   */
-  ImageIds?: string[];
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeVolumesResultFilterSensitiveLog = (obj: DescribeVolumesResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Information about an AMI that is currently in the Recycle Bin.</p>
+ * @internal
  */
-export interface ImageRecycleBinInfo {
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId?: string;
-
-  /**
-   * <p>The name of the AMI.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The description of the AMI.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The date and time when the AMI entered the Recycle Bin.</p>
-   */
-  RecycleBinEnterTime?: Date;
-
-  /**
-   * <p>The date and time when the AMI is to be permanently deleted from the Recycle Bin.</p>
-   */
-  RecycleBinExitTime?: Date;
-}
-
-export interface ListImagesInRecycleBinResult {
-  /**
-   * <p>Information about the AMIs.</p>
-   */
-  Images?: ImageRecycleBinInfo[];
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListSnapshotsInRecycleBinRequest {
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the snapshots to list. Omit this parameter to list all of the
-   *       snapshots that are in the Recycle Bin.</p>
-   */
-  SnapshotIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const DescribeVolumesModificationsRequestFilterSensitiveLog = (
+  obj: DescribeVolumesModificationsRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Information about a snapshot that is currently in the Recycle Bin.</p>
+ * @internal
  */
-export interface SnapshotRecycleBinInfo {
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
+export const VolumeModificationFilterSensitiveLog = (obj: VolumeModification): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The date and time when the snaphsot entered the Recycle Bin.</p>
-   */
-  RecycleBinEnterTime?: Date;
+/**
+ * @internal
+ */
+export const DescribeVolumesModificationsResultFilterSensitiveLog = (obj: DescribeVolumesModificationsResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The date and time when the snapshot is to be permanently deleted from the Recycle Bin.</p>
-   */
-  RecycleBinExitTime?: Date;
+/**
+ * @internal
+ */
+export const DescribeVolumeStatusRequestFilterSensitiveLog = (obj: DescribeVolumeStatusRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The description for the snapshot.</p>
-   */
-  Description?: string;
+/**
+ * @internal
+ */
+export const VolumeStatusActionFilterSensitiveLog = (obj: VolumeStatusAction): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the volume from which the snapshot was created.</p>
-   */
-  VolumeId?: string;
-}
+/**
+ * @internal
+ */
+export const VolumeStatusAttachmentStatusFilterSensitiveLog = (obj: VolumeStatusAttachmentStatus): any => ({
+  ...obj,
+});
 
-export interface ListSnapshotsInRecycleBinResult {
-  /**
-   * <p>Information about the snapshots.</p>
-   */
-  Snapshots?: SnapshotRecycleBinInfo[];
-
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *   This value is <code>null</code> when there are no more items to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ModifyAddressAttributeRequest {
-  /**
-   * <p>[EC2-VPC] The allocation ID.</p>
-   */
-  AllocationId: string | undefined;
-
-  /**
-   * <p>The domain name to modify for the IP address.</p>
-   */
-  DomainName?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const VolumeStatusEventFilterSensitiveLog = (obj: VolumeStatusEvent): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -8920,6 +9149,7 @@ export const ImportImageResultFilterSensitiveLog = (obj: ImportImageResult): any
  */
 export const DiskImageDetailFilterSensitiveLog = (obj: DiskImageDetail): any => ({
   ...obj,
+  ...(obj.ImportManifestUrl && { ImportManifestUrl: SENSITIVE_STRING }),
 });
 
 /**
@@ -8934,6 +9164,7 @@ export const VolumeDetailFilterSensitiveLog = (obj: VolumeDetail): any => ({
  */
 export const DiskImageFilterSensitiveLog = (obj: DiskImage): any => ({
   ...obj,
+  ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
 });
 
 /**
@@ -8956,6 +9187,7 @@ export const ImportInstanceLaunchSpecificationFilterSensitiveLog = (obj: ImportI
  */
 export const ImportInstanceRequestFilterSensitiveLog = (obj: ImportInstanceRequest): any => ({
   ...obj,
+  ...(obj.DiskImages && { DiskImages: obj.DiskImages.map((item) => DiskImageFilterSensitiveLog(item)) }),
   ...(obj.LaunchSpecification && {
     LaunchSpecification: ImportInstanceLaunchSpecificationFilterSensitiveLog(obj.LaunchSpecification),
   }),
@@ -9000,68 +9232,5 @@ export const ImportSnapshotRequestFilterSensitiveLog = (obj: ImportSnapshotReque
  * @internal
  */
 export const ImportSnapshotResultFilterSensitiveLog = (obj: ImportSnapshotResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportVolumeRequestFilterSensitiveLog = (obj: ImportVolumeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImportVolumeResultFilterSensitiveLog = (obj: ImportVolumeResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImagesInRecycleBinRequestFilterSensitiveLog = (obj: ListImagesInRecycleBinRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ImageRecycleBinInfoFilterSensitiveLog = (obj: ImageRecycleBinInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListImagesInRecycleBinResultFilterSensitiveLog = (obj: ListImagesInRecycleBinResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSnapshotsInRecycleBinRequestFilterSensitiveLog = (obj: ListSnapshotsInRecycleBinRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotRecycleBinInfoFilterSensitiveLog = (obj: SnapshotRecycleBinInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListSnapshotsInRecycleBinResultFilterSensitiveLog = (obj: ListSnapshotsInRecycleBinResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyAddressAttributeRequestFilterSensitiveLog = (obj: ModifyAddressAttributeRequest): any => ({
   ...obj,
 });

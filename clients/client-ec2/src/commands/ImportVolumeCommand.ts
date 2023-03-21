@@ -19,7 +19,7 @@ import {
   ImportVolumeRequestFilterSensitiveLog,
   ImportVolumeResult,
   ImportVolumeResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { deserializeAws_ec2ImportVolumeCommand, serializeAws_ec2ImportVolumeCommand } from "../protocols/Aws_ec2";
 
 /**

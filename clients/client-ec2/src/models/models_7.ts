@@ -1,6 +1,153 @@
 // smithy-typescript generated code
 import { ByoipCidr, IpPermission, NatGatewayAddress } from "./models_0";
+import { ClientVpnConnectionStatus } from "./models_3";
+import { NetworkInsightsAnalysis } from "./models_4";
 import { InstanceMonitoring, InstanceStateChange } from "./models_6";
+
+export interface StartNetworkInsightsAnalysisResult {
+  /**
+   * <p>Information about the network insights analysis.</p>
+   */
+  NetworkInsightsAnalysis?: NetworkInsightsAnalysis;
+}
+
+export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the endpoint service.</p>
+   */
+  ServiceId: string | undefined;
+}
+
+export interface StartVpcEndpointServicePrivateDnsVerificationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  ReturnValue?: boolean;
+}
+
+export interface StopInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Hibernates the instance if the instance was enabled for hibernation at launch. If the
+   *             instance cannot hibernate successfully, a normal shutdown occurs. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+   *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p> Default: <code>false</code>
+   *          </p>
+   */
+  Hibernate?: boolean;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Forces the instances to stop. The instances do not have an opportunity to flush file
+   *             system caches or file system metadata. If you use this option, you must perform file
+   *             system check and repair procedures. This option is not recommended for Windows
+   *             instances.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  Force?: boolean;
+}
+
+export interface StopInstancesResult {
+  /**
+   * <p>Information about the stopped instances.</p>
+   */
+  StoppingInstances?: InstanceStateChange[];
+}
+
+export interface TerminateClientVpnConnectionsRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The ID of the client connection to be terminated.</p>
+   */
+  ConnectionId?: string;
+
+  /**
+   * <p>The name of the user who initiated the connection. Use this option to terminate all active connections for
+   * 			the specified user. This option can only be used if the user has established up to five connections.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Information about a terminated Client VPN endpoint client connection.</p>
+ */
+export interface TerminateConnectionStatus {
+  /**
+   * <p>The ID of the client connection.</p>
+   */
+  ConnectionId?: string;
+
+  /**
+   * <p>The state of the client connection.</p>
+   */
+  PreviousStatus?: ClientVpnConnectionStatus;
+
+  /**
+   * <p>A message about the status of the client connection, if applicable.</p>
+   */
+  CurrentStatus?: ClientVpnConnectionStatus;
+}
+
+export interface TerminateClientVpnConnectionsResult {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * <p>The user who established the terminated client connections.</p>
+   */
+  Username?: string;
+
+  /**
+   * <p>The current state of the client connections.</p>
+   */
+  ConnectionStatuses?: TerminateConnectionStatus[];
+}
+
+export interface TerminateInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   *          <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
+   *             smaller batches.</p>
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 export interface TerminateInstancesResult {
   /**
@@ -240,6 +387,77 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const StartNetworkInsightsAnalysisResultFilterSensitiveLog = (obj: StartNetworkInsightsAnalysisResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartVpcEndpointServicePrivateDnsVerificationRequestFilterSensitiveLog = (
+  obj: StartVpcEndpointServicePrivateDnsVerificationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartVpcEndpointServicePrivateDnsVerificationResultFilterSensitiveLog = (
+  obj: StartVpcEndpointServicePrivateDnsVerificationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopInstancesRequestFilterSensitiveLog = (obj: StopInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopInstancesResultFilterSensitiveLog = (obj: StopInstancesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateClientVpnConnectionsRequestFilterSensitiveLog = (
+  obj: TerminateClientVpnConnectionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateConnectionStatusFilterSensitiveLog = (obj: TerminateConnectionStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateClientVpnConnectionsResultFilterSensitiveLog = (
+  obj: TerminateClientVpnConnectionsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TerminateInstancesRequestFilterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

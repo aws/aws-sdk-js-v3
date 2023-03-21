@@ -19,7 +19,7 @@ import {
   CreateRouteRequestFilterSensitiveLog,
   CreateRouteResult,
   CreateRouteResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { deserializeAws_ec2CreateRouteCommand, serializeAws_ec2CreateRouteCommand } from "../protocols/Aws_ec2";
 
 /**

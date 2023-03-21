@@ -17,8 +17,6 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteTrafficMirrorSessionRequest,
   DeleteTrafficMirrorSessionRequestFilterSensitiveLog,
-} from "../models/models_2";
-import {
   DeleteTrafficMirrorSessionResult,
   DeleteTrafficMirrorSessionResultFilterSensitiveLog,
 } from "../models/models_3";

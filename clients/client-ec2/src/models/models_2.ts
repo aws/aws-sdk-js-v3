@@ -2,11 +2,13 @@
 import {
   ApplianceModeSupportValue,
   CarrierGateway,
+  CurrencyCodeValues,
   DeviceTrustProviderType,
   DnsSupportValue,
   DynamicRoutingValue,
   InstanceEventWindowState,
   Ipv6SupportValue,
+  ReservedInstancesListing,
   RouteTableAssociationState,
   Tag,
   TagSpecification,
@@ -39,11 +41,238 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
+  ReplaceRootVolumeTask,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+export interface CreateReplaceRootVolumeTaskResult {
+  /**
+   * <p>Information about the root volume replacement task.</p>
+   */
+  ReplaceRootVolumeTask?: ReplaceRootVolumeTask;
+}
+
+/**
+ * <p>Describes the price for a Reserved Instance.</p>
+ */
+export interface PriceScheduleSpecification {
+  /**
+   * <p>The currency for transacting the Reserved Instance resale.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The fixed price for the term.</p>
+   */
+  Price?: number;
+
+  /**
+   * <p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>
+   */
+  Term?: number;
+}
+
+/**
+ * <p>Contains the parameters for CreateReservedInstancesListing.</p>
+ */
+export interface CreateReservedInstancesListingRequest {
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of your
+   * 				listings. This helps avoid duplicate listings. For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken: string | undefined;
+
+  /**
+   * <p>The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.</p>
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.</p>
+   */
+  PriceSchedules: PriceScheduleSpecification[] | undefined;
+
+  /**
+   * <p>The ID of the active Standard Reserved Instance.</p>
+   */
+  ReservedInstancesId: string | undefined;
+}
+
+/**
+ * <p>Contains the output of CreateReservedInstancesListing.</p>
+ */
+export interface CreateReservedInstancesListingResult {
+  /**
+   * <p>Information about the Standard Reserved Instance listing.</p>
+   */
+  ReservedInstancesListings?: ReservedInstancesListing[];
+}
+
+export interface CreateRestoreImageTaskRequest {
+  /**
+   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The name of the stored AMI object in the bucket.</p>
+   */
+  ObjectKey: string | undefined;
+
+  /**
+   * <p>The name for the restored AMI. The name must be unique for AMIs in the Region for this
+   *       account. If you do not provide a name, the new AMI gets the same name as the original
+   *       AMI.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The tags to apply to the AMI and snapshots on restoration. You can tag the AMI, the
+   *       snapshots, or both.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To
+   *           tag the snapshots, the value for <code>ResourceType</code> must be <code>snapshot</code>. The
+   *           same tag is applied to all of the snapshots that are created.</p>
+   *             </li>
+   *          </ul>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface CreateRestoreImageTaskResult {
+  /**
+   * <p>The AMI ID.</p>
+   */
+  ImageId?: string;
+}
+
+export interface CreateRouteRequest {
+  /**
+   * <p>The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   */
+  DestinationCidrBlock?: string;
+
+  /**
+   * <p>The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.</p>
+   */
+  DestinationIpv6CidrBlock?: string;
+
+  /**
+   * <p>The ID of a prefix list used for the destination match.</p>
+   */
+  DestinationPrefixListId?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+   */
+  VpcEndpointId?: string;
+
+  /**
+   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
+   */
+  EgressOnlyInternetGatewayId?: string;
+
+  /**
+   * <p>The ID of an internet gateway or virtual private gateway attached to your
+   * 			VPC.</p>
+   */
+  GatewayId?: string;
+
+  /**
+   * <p>The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
+   */
+  NatGatewayId?: string;
+
+  /**
+   * <p>The ID of a transit gateway.</p>
+   */
+  TransitGatewayId?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The ID of the carrier gateway.</p>
+   *          <p>You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * <p>The ID of a network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The ID of the route table for the route.</p>
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of a VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   */
+  CoreNetworkArn?: string;
+}
+
+export interface CreateRouteResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export interface CreateRouteTableRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The tags to assign to the route table.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
 
 /**
  * <p>Describes an association between a route table and a subnet or gateway.</p>
@@ -251,7 +480,7 @@ export interface CreateRouteTableResult {
 
 export interface CreateSecurityGroupRequest {
   /**
-   * <p>A description for the security group. This is informational only.</p>
+   * <p>A description for the security group.</p>
    *          <p>Constraints: Up to 255 characters in length</p>
    *          <p>Constraints for EC2-Classic: ASCII characters</p>
    *          <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&;{}!$*</p>
@@ -6354,123 +6583,72 @@ export interface DeleteSpotDatafeedSubscriptionRequest {
   DryRun?: boolean;
 }
 
-export interface DeleteSubnetRequest {
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId: string | undefined;
+/**
+ * @internal
+ */
+export const CreateReplaceRootVolumeTaskResultFilterSensitiveLog = (obj: CreateReplaceRootVolumeTaskResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const PriceScheduleSpecificationFilterSensitiveLog = (obj: PriceScheduleSpecification): any => ({
+  ...obj,
+});
 
-export interface DeleteSubnetCidrReservationRequest {
-  /**
-   * <p>The ID of the subnet CIDR reservation.</p>
-   */
-  SubnetCidrReservationId: string | undefined;
+/**
+ * @internal
+ */
+export const CreateReservedInstancesListingRequestFilterSensitiveLog = (
+  obj: CreateReservedInstancesListingRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const CreateReservedInstancesListingResultFilterSensitiveLog = (
+  obj: CreateReservedInstancesListingResult
+): any => ({
+  ...obj,
+});
 
-export interface DeleteSubnetCidrReservationResult {
-  /**
-   * <p>Information about the deleted subnet CIDR reservation.</p>
-   */
-  DeletedSubnetCidrReservation?: SubnetCidrReservation;
-}
+/**
+ * @internal
+ */
+export const CreateRestoreImageTaskRequestFilterSensitiveLog = (obj: CreateRestoreImageTaskRequest): any => ({
+  ...obj,
+});
 
-export interface DeleteTagsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const CreateRestoreImageTaskResultFilterSensitiveLog = (obj: CreateRestoreImageTaskResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The IDs of the resources, separated by spaces.</p>
-   *          <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
-   */
-  Resources: string[] | undefined;
+/**
+ * @internal
+ */
+export const CreateRouteRequestFilterSensitiveLog = (obj: CreateRouteRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The tags to delete. Specify a tag key and an optional tag value to delete
-   *             specific tags. If you specify a tag key without a tag value, we delete any tag with this
-   *             key regardless of its value. If you specify a tag key with an empty string as the tag
-   *             value, we delete the tag only if its value is an empty string.</p>
-   *          <p>If you omit this parameter, we delete all user-defined tags for the specified
-   *             resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code>
-   *             prefix).</p>
-   *          <p>Constraints: Up to 1000 tags.</p>
-   */
-  Tags?: Tag[];
-}
+/**
+ * @internal
+ */
+export const CreateRouteResultFilterSensitiveLog = (obj: CreateRouteResult): any => ({
+  ...obj,
+});
 
-export interface DeleteTrafficMirrorFilterRequest {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTrafficMirrorFilterResult {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   */
-  TrafficMirrorFilterId?: string;
-}
-
-export interface DeleteTrafficMirrorFilterRuleRequest {
-  /**
-   * <p>The ID of the Traffic Mirror rule.</p>
-   */
-  TrafficMirrorFilterRuleId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTrafficMirrorFilterRuleResult {
-  /**
-   * <p>The ID of the deleted Traffic Mirror rule.</p>
-   */
-  TrafficMirrorFilterRuleId?: string;
-}
-
-export interface DeleteTrafficMirrorSessionRequest {
-  /**
-   * <p>The ID of the Traffic Mirror session.</p>
-   */
-  TrafficMirrorSessionId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const CreateRouteTableRequestFilterSensitiveLog = (obj: CreateRouteTableRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -8256,72 +8434,5 @@ export const DeleteSnapshotRequestFilterSensitiveLog = (obj: DeleteSnapshotReque
 export const DeleteSpotDatafeedSubscriptionRequestFilterSensitiveLog = (
   obj: DeleteSpotDatafeedSubscriptionRequest
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubnetRequestFilterSensitiveLog = (obj: DeleteSubnetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubnetCidrReservationRequestFilterSensitiveLog = (obj: DeleteSubnetCidrReservationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteSubnetCidrReservationResultFilterSensitiveLog = (obj: DeleteSubnetCidrReservationResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorFilterRequestFilterSensitiveLog = (obj: DeleteTrafficMirrorFilterRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorFilterResultFilterSensitiveLog = (obj: DeleteTrafficMirrorFilterResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorFilterRuleRequestFilterSensitiveLog = (
-  obj: DeleteTrafficMirrorFilterRuleRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorFilterRuleResultFilterSensitiveLog = (
-  obj: DeleteTrafficMirrorFilterRuleResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTrafficMirrorSessionRequestFilterSensitiveLog = (obj: DeleteTrafficMirrorSessionRequest): any => ({
   ...obj,
 });

@@ -18,7 +18,6 @@ import {
   CapacityReservation,
   CapacityReservationFleetState,
   CarrierGateway,
-  ClientVpnAuthenticationType,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
   FleetCapacityReservation,
@@ -40,6 +39,7 @@ import {
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  ClientVpnAuthenticationType,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipPool,
@@ -58,12 +58,9 @@ import {
   FleetReplacementStrategy,
   FleetType,
   GroupIdentifier,
-  HostnameType,
-  InstanceIpv6Address,
   InstanceLifecycle,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
-  NetworkInterfaceStatus,
   PlatformValues,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
@@ -74,6 +71,7 @@ import {
 } from "./models_1";
 import {
   FleetStateCode,
+  SubnetCidrReservation,
   TransitGateway,
   TransitGatewayConnect,
   TransitGatewayConnectPeer,
@@ -86,6 +84,124 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
 } from "./models_2";
+
+export interface DeleteSubnetRequest {
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteSubnetCidrReservationRequest {
+  /**
+   * <p>The ID of the subnet CIDR reservation.</p>
+   */
+  SubnetCidrReservationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteSubnetCidrReservationResult {
+  /**
+   * <p>Information about the deleted subnet CIDR reservation.</p>
+   */
+  DeletedSubnetCidrReservation?: SubnetCidrReservation;
+}
+
+export interface DeleteTagsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the resources, separated by spaces.</p>
+   *          <p>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller batches.</p>
+   */
+  Resources: string[] | undefined;
+
+  /**
+   * <p>The tags to delete. Specify a tag key and an optional tag value to delete
+   *             specific tags. If you specify a tag key without a tag value, we delete any tag with this
+   *             key regardless of its value. If you specify a tag key with an empty string as the tag
+   *             value, we delete the tag only if its value is an empty string.</p>
+   *          <p>If you omit this parameter, we delete all user-defined tags for the specified
+   *             resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code>
+   *             prefix).</p>
+   *          <p>Constraints: Up to 1000 tags.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface DeleteTrafficMirrorFilterRequest {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTrafficMirrorFilterResult {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterId?: string;
+}
+
+export interface DeleteTrafficMirrorFilterRuleRequest {
+  /**
+   * <p>The ID of the Traffic Mirror rule.</p>
+   */
+  TrafficMirrorFilterRuleId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTrafficMirrorFilterRuleResult {
+  /**
+   * <p>The ID of the deleted Traffic Mirror rule.</p>
+   */
+  TrafficMirrorFilterRuleId?: string;
+}
+
+export interface DeleteTrafficMirrorSessionRequest {
+  /**
+   * <p>The ID of the Traffic Mirror session.</p>
+   */
+  TrafficMirrorSessionId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 export interface DeleteTrafficMirrorSessionResult {
   /**
@@ -8060,254 +8176,71 @@ export enum MonitoringState {
 }
 
 /**
- * <p>Describes the monitoring of an instance.</p>
+ * @internal
  */
-export interface Monitoring {
-  /**
-   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
-   *             enabled.</p>
-   */
-  State?: MonitoringState | string;
-}
+export const DeleteSubnetRequestFilterSensitiveLog = (obj: DeleteSubnetRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes association information for an Elastic IP address (IPv4).</p>
+ * @internal
  */
-export interface InstanceNetworkInterfaceAssociation {
-  /**
-   * <p>The carrier IP address associated with the network interface.</p>
-   */
-  CarrierIp?: string;
-
-  /**
-   * <p>The customer-owned IP address associated with the network interface.</p>
-   */
-  CustomerOwnedIp?: string;
-
-  /**
-   * <p>The ID of the owner of the Elastic IP address.</p>
-   */
-  IpOwnerId?: string;
-
-  /**
-   * <p>The public DNS name.</p>
-   */
-  PublicDnsName?: string;
-
-  /**
-   * <p>The public IP address or Elastic IP address bound to the network interface.</p>
-   */
-  PublicIp?: string;
-}
+export const DeleteSubnetCidrReservationRequestFilterSensitiveLog = (obj: DeleteSubnetCidrReservationRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a network interface attachment.</p>
+ * @internal
  */
-export interface InstanceNetworkInterfaceAttachment {
-  /**
-   * <p>The time stamp when the attachment initiated.</p>
-   */
-  AttachTime?: Date;
-
-  /**
-   * <p>The ID of the network interface attachment.</p>
-   */
-  AttachmentId?: string;
-
-  /**
-   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
-   */
-  DeleteOnTermination?: boolean;
-
-  /**
-   * <p>The index of the device on the instance for the network interface attachment.</p>
-   */
-  DeviceIndex?: number;
-
-  /**
-   * <p>The attachment state.</p>
-   */
-  Status?: AttachmentStatus | string;
-
-  /**
-   * <p>The index of the network card.</p>
-   */
-  NetworkCardIndex?: number;
-}
+export const DeleteSubnetCidrReservationResultFilterSensitiveLog = (obj: DeleteSubnetCidrReservationResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Information about an IPv4 prefix.</p>
+ * @internal
  */
-export interface InstanceIpv4Prefix {
-  /**
-   * <p>One or more IPv4 prefixes assigned to the network interface.</p>
-   */
-  Ipv4Prefix?: string;
-}
+export const DeleteTagsRequestFilterSensitiveLog = (obj: DeleteTagsRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Information about an IPv6 prefix.</p>
+ * @internal
  */
-export interface InstanceIpv6Prefix {
-  /**
-   * <p>One or more IPv6 prefixes assigned to the network interface.</p>
-   */
-  Ipv6Prefix?: string;
-}
+export const DeleteTrafficMirrorFilterRequestFilterSensitiveLog = (obj: DeleteTrafficMirrorFilterRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a private IPv4 address.</p>
+ * @internal
  */
-export interface InstancePrivateIpAddress {
-  /**
-   * <p>The association information for an Elastic IP address for the network interface.</p>
-   */
-  Association?: InstanceNetworkInterfaceAssociation;
-
-  /**
-   * <p>Indicates whether this IPv4 address is the primary private IP address of the network interface.</p>
-   */
-  Primary?: boolean;
-
-  /**
-   * <p>The private IPv4 DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The private IPv4 address of the network interface.</p>
-   */
-  PrivateIpAddress?: string;
-}
+export const DeleteTrafficMirrorFilterResultFilterSensitiveLog = (obj: DeleteTrafficMirrorFilterResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a network interface.</p>
+ * @internal
  */
-export interface InstanceNetworkInterface {
-  /**
-   * <p>The association information for an Elastic IPv4 associated with the network
-   *             interface.</p>
-   */
-  Association?: InstanceNetworkInterfaceAssociation;
-
-  /**
-   * <p>The network interface attachment.</p>
-   */
-  Attachment?: InstanceNetworkInterfaceAttachment;
-
-  /**
-   * <p>The description.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The security groups.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * <p>The IPv6 addresses associated with the network interface.</p>
-   */
-  Ipv6Addresses?: InstanceIpv6Address[];
-
-  /**
-   * <p>The MAC address.</p>
-   */
-  MacAddress?: string;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that created the network interface.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The private DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The IPv4 address of the network interface within the subnet.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * <p>The private IPv4 addresses associated with the network interface.</p>
-   */
-  PrivateIpAddresses?: InstancePrivateIpAddress[];
-
-  /**
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   */
-  SourceDestCheck?: boolean;
-
-  /**
-   * <p>The status of the network interface.</p>
-   */
-  Status?: NetworkInterfaceStatus | string;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The type of network interface.</p>
-   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>trunk</code>
-   *          </p>
-   */
-  InterfaceType?: string;
-
-  /**
-   * <p>The IPv4 delegated prefixes that are assigned to the network interface.</p>
-   */
-  Ipv4Prefixes?: InstanceIpv4Prefix[];
-
-  /**
-   * <p>The IPv6 delegated prefixes that are assigned to the network interface.</p>
-   */
-  Ipv6Prefixes?: InstanceIpv6Prefix[];
-}
+export const DeleteTrafficMirrorFilterRuleRequestFilterSensitiveLog = (
+  obj: DeleteTrafficMirrorFilterRuleRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the options for instance hostnames.</p>
+ * @internal
  */
-export interface PrivateDnsNameOptionsResponse {
-  /**
-   * <p>The type of hostname to assign to an instance.</p>
-   */
-  HostnameType?: HostnameType | string;
+export const DeleteTrafficMirrorFilterRuleResultFilterSensitiveLog = (
+  obj: DeleteTrafficMirrorFilterRuleResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
-   *             records.</p>
-   */
-  EnableResourceNameDnsARecord?: boolean;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
-   *             records.</p>
-   */
-  EnableResourceNameDnsAAAARecord?: boolean;
-}
-
-export enum InstanceStateName {
-  pending = "pending",
-  running = "running",
-  shutting_down = "shutting-down",
-  stopped = "stopped",
-  stopping = "stopping",
-  terminated = "terminated",
-}
+/**
+ * @internal
+ */
+export const DeleteTrafficMirrorSessionRequestFilterSensitiveLog = (obj: DeleteTrafficMirrorSessionRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10158,63 +10091,5 @@ export const InstanceMaintenanceOptionsFilterSensitiveLog = (obj: InstanceMainte
  * @internal
  */
 export const InstanceMetadataOptionsResponseFilterSensitiveLog = (obj: InstanceMetadataOptionsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MonitoringFilterSensitiveLog = (obj: Monitoring): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceNetworkInterfaceAssociationFilterSensitiveLog = (
-  obj: InstanceNetworkInterfaceAssociation
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceNetworkInterfaceAttachmentFilterSensitiveLog = (obj: InstanceNetworkInterfaceAttachment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceIpv4PrefixFilterSensitiveLog = (obj: InstanceIpv4Prefix): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceIpv6PrefixFilterSensitiveLog = (obj: InstanceIpv6Prefix): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstancePrivateIpAddressFilterSensitiveLog = (obj: InstancePrivateIpAddress): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceNetworkInterfaceFilterSensitiveLog = (obj: InstanceNetworkInterface): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateDnsNameOptionsResponseFilterSensitiveLog = (obj: PrivateDnsNameOptionsResponse): any => ({
   ...obj,
 });

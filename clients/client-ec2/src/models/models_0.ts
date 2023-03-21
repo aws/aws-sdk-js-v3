@@ -990,11 +990,56 @@ export interface AnalysisComponent {
 }
 
 /**
- * <p>Describes an additional detail for a path analysis.</p>
+ * <p>Describes additional settings for a stateful rule.</p>
+ */
+export interface RuleOption {
+  /**
+   * <p>The Suricata keyword.</p>
+   */
+  Keyword?: string;
+
+  /**
+   * <p>The settings for the keyword.</p>
+   */
+  Settings?: string[];
+}
+
+/**
+ * <p>Describes the rule options for a stateful rule group.</p>
+ */
+export interface RuleGroupRuleOptionsPair {
+  /**
+   * <p>The ARN of the rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The rule options.</p>
+   */
+  RuleOptions?: RuleOption[];
+}
+
+/**
+ * <p>Describes the type of a stateful rule group.</p>
+ */
+export interface RuleGroupTypePair {
+  /**
+   * <p>The ARN of the rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The rule group type. The possible values are <code>Domain List</code> and <code>Suricata</code>.</p>
+   */
+  RuleGroupType?: string;
+}
+
+/**
+ * <p>Describes an additional detail for a path analysis. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/additional-detail-codes.html">Reachability Analyzer additional detail codes</a>.</p>
  */
 export interface AdditionalDetail {
   /**
-   * <p>The information type.</p>
+   * <p>The additional detail code.</p>
    */
   AdditionalDetailType?: string;
 
@@ -1002,6 +1047,36 @@ export interface AdditionalDetail {
    * <p>The path component.</p>
    */
   Component?: AnalysisComponent;
+
+  /**
+   * <p>The VPC endpoint service.</p>
+   */
+  VpcEndpointService?: AnalysisComponent;
+
+  /**
+   * <p>The rule options.</p>
+   */
+  RuleOptions?: RuleOption[];
+
+  /**
+   * <p>The rule group type.</p>
+   */
+  RuleGroupTypePairs?: RuleGroupTypePair[];
+
+  /**
+   * <p>The rule options.</p>
+   */
+  RuleGroupRuleOptionsPairs?: RuleGroupRuleOptionsPair[];
+
+  /**
+   * <p>The name of the VPC endpoint service.</p>
+   */
+  ServiceName?: string;
+
+  /**
+   * <p>The load balancers.</p>
+   */
+  LoadBalancers?: AnalysisComponent[];
 }
 
 /**
@@ -1017,6 +1092,98 @@ export interface AnalysisLoadBalancerListener {
    * <p>[Classic Load Balancers] The back-end port for the listener.</p>
    */
   InstancePort?: number;
+}
+
+/**
+ * <p>Describes a stateful rule.</p>
+ */
+export interface FirewallStatefulRule {
+  /**
+   * <p>The ARN of the stateful rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The source IP addresses, in CIDR notation.</p>
+   */
+  Sources?: string[];
+
+  /**
+   * <p>The destination IP addresses, in CIDR notation.</p>
+   */
+  Destinations?: string[];
+
+  /**
+   * <p>The source ports.</p>
+   */
+  SourcePorts?: PortRange[];
+
+  /**
+   * <p>The destination ports.</p>
+   */
+  DestinationPorts?: PortRange[];
+
+  /**
+   * <p>The protocol.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The rule action. The possible values are <code>pass</code>, <code>drop</code>, and
+   *          <code>alert</code>.</p>
+   */
+  RuleAction?: string;
+
+  /**
+   * <p>The direction. The possible values are <code>FORWARD</code> and <code>ANY</code>.</p>
+   */
+  Direction?: string;
+}
+
+/**
+ * <p>Describes a stateless rule.</p>
+ */
+export interface FirewallStatelessRule {
+  /**
+   * <p>The ARN of the stateless rule group.</p>
+   */
+  RuleGroupArn?: string;
+
+  /**
+   * <p>The source IP addresses, in CIDR notation.</p>
+   */
+  Sources?: string[];
+
+  /**
+   * <p>The destination IP addresses, in CIDR notation.</p>
+   */
+  Destinations?: string[];
+
+  /**
+   * <p>The source ports.</p>
+   */
+  SourcePorts?: PortRange[];
+
+  /**
+   * <p>The destination ports.</p>
+   */
+  DestinationPorts?: PortRange[];
+
+  /**
+   * <p>The protocols.</p>
+   */
+  Protocols?: number[];
+
+  /**
+   * <p>The rule action. The possible values are <code>pass</code>, <code>drop</code>, and
+   *          <code>forward_to_site</code>.</p>
+   */
+  RuleAction?: string;
+
+  /**
+   * <p>The rule priority.</p>
+   */
+  Priority?: number;
 }
 
 /**
@@ -1121,6 +1288,21 @@ export interface AnalysisRouteTableRoute {
    *          </ul>
    */
   State?: string;
+
+  /**
+   * <p>The ID of a carrier gateway.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a core network.</p>
+   */
+  CoreNetworkArn?: string;
+
+  /**
+   * <p>The ID of a local gateway.</p>
+   */
+  LocalGatewayId?: string;
 }
 
 /**
@@ -1480,6 +1662,16 @@ export interface Explanation {
    * <p>The Region for the component.</p>
    */
   ComponentRegion?: string;
+
+  /**
+   * <p>The Network Firewall stateless rule.</p>
+   */
+  FirewallStatelessRule?: FirewallStatelessRule;
+
+  /**
+   * <p>The Network Firewall stateful rule.</p>
+   */
+  FirewallStatefulRule?: FirewallStatefulRule;
 }
 
 /**
@@ -1601,6 +1793,21 @@ export interface PathComponent {
    * <p>The load balancer listener.</p>
    */
   ElasticLoadBalancerListener?: AnalysisComponent;
+
+  /**
+   * <p>The Network Firewall stateless rule.</p>
+   */
+  FirewallStatelessRule?: FirewallStatelessRule;
+
+  /**
+   * <p>The Network Firewall stateful rule.</p>
+   */
+  FirewallStatefulRule?: FirewallStatefulRule;
+
+  /**
+   * <p>The name of the VPC endpoint service.</p>
+   */
+  ServiceName?: string;
 }
 
 /**
@@ -7289,96 +7496,6 @@ export interface CertificateAuthenticationRequest {
   ClientRootCertificateChainArn?: string;
 }
 
-export enum ClientVpnAuthenticationType {
-  certificate_authentication = "certificate-authentication",
-  directory_service_authentication = "directory-service-authentication",
-  federated_authentication = "federated-authentication",
-}
-
-/**
- * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
- * 			in the <i>Client VPN Administrator Guide</i>.</p>
- */
-export interface ClientVpnAuthenticationRequest {
-  /**
-   * <p>The type of client authentication to be used.</p>
-   */
-  Type?: ClientVpnAuthenticationType | string;
-
-  /**
-   * <p>Information about the Active Directory to be used, if applicable. You must provide this information if <b>Type</b> is <code>directory-service-authentication</code>.</p>
-   */
-  ActiveDirectory?: DirectoryServiceAuthenticationRequest;
-
-  /**
-   * <p>Information about the authentication certificates to be used, if applicable. You must provide this information if <b>Type</b> is <code>certificate-authentication</code>.</p>
-   */
-  MutualAuthentication?: CertificateAuthenticationRequest;
-
-  /**
-   * <p>Information about the IAM SAML identity provider to be used, if applicable. You must provide this information if <b>Type</b> is <code>federated-authentication</code>.</p>
-   */
-  FederatedAuthentication?: FederatedAuthenticationRequest;
-}
-
-/**
- * <p>The options for managing connection authorization for new client connections.</p>
- */
-export interface ClientConnectOptions {
-  /**
-   * <p>Indicates whether client connect options are enabled. The default is <code>false</code> (not enabled).</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
-   */
-  LambdaFunctionArn?: string;
-}
-
-/**
- * <p>Options for enabling a customizable text banner that will be displayed on
- * 			Amazon Web Services provided clients when a VPN session is established.</p>
- */
-export interface ClientLoginBannerOptions {
-  /**
-   * <p>Enable or disable a customizable text banner that will be displayed on
-   * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   *          <p>Valid values: <code>true | false</code>
-   *          </p>
-   *          <p>Default value: <code>false</code>
-   *          </p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
-   * 			clients when a VPN session is established. UTF-8 encoded characters only. Maximum of
-   * 			1400 characters.</p>
-   */
-  BannerText?: string;
-}
-
-/**
- * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
- */
-export interface ConnectionLogOptions {
-  /**
-   * <p>Indicates whether connection logging is enabled.</p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>The name of the CloudWatch Logs log group. Required if connection logging is enabled.</p>
-   */
-  CloudwatchLogGroup?: string;
-
-  /**
-   * <p>The name of the CloudWatch Logs log stream to which the connection data is published.</p>
-   */
-  CloudwatchLogStream?: string;
-}
-
 /**
  * @internal
  */
@@ -7693,6 +7810,27 @@ export const AnalysisComponentFilterSensitiveLog = (obj: AnalysisComponent): any
 /**
  * @internal
  */
+export const RuleOptionFilterSensitiveLog = (obj: RuleOption): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupRuleOptionsPairFilterSensitiveLog = (obj: RuleGroupRuleOptionsPair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupTypePairFilterSensitiveLog = (obj: RuleGroupTypePair): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AdditionalDetailFilterSensitiveLog = (obj: AdditionalDetail): any => ({
   ...obj,
 });
@@ -7701,6 +7839,20 @@ export const AdditionalDetailFilterSensitiveLog = (obj: AdditionalDetail): any =
  * @internal
  */
 export const AnalysisLoadBalancerListenerFilterSensitiveLog = (obj: AnalysisLoadBalancerListener): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallStatefulRuleFilterSensitiveLog = (obj: FirewallStatefulRule): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallStatelessRuleFilterSensitiveLog = (obj: FirewallStatelessRule): any => ({
   ...obj,
 });
 
@@ -9078,33 +9230,5 @@ export const FederatedAuthenticationRequestFilterSensitiveLog = (obj: FederatedA
  * @internal
  */
 export const CertificateAuthenticationRequestFilterSensitiveLog = (obj: CertificateAuthenticationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientVpnAuthenticationRequestFilterSensitiveLog = (obj: ClientVpnAuthenticationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientConnectOptionsFilterSensitiveLog = (obj: ClientConnectOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ClientLoginBannerOptionsFilterSensitiveLog = (obj: ClientLoginBannerOptions): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionLogOptionsFilterSensitiveLog = (obj: ConnectionLogOptions): any => ({
   ...obj,
 });

@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { TerminateInstancesRequest, TerminateInstancesRequestFilterSensitiveLog } from "../models/models_6";
-import { TerminateInstancesResult, TerminateInstancesResultFilterSensitiveLog } from "../models/models_7";
+import {
+  TerminateInstancesRequest,
+  TerminateInstancesRequestFilterSensitiveLog,
+  TerminateInstancesResult,
+  TerminateInstancesResultFilterSensitiveLog,
+} from "../models/models_7";
 import {
   deserializeAws_ec2TerminateInstancesCommand,
   serializeAws_ec2TerminateInstancesCommand,

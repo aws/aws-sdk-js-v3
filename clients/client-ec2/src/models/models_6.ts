@@ -12,10 +12,7 @@ import {
   ApplianceModeSupportValue,
   AutoPlacement,
   ByoipCidr,
-  ClientConnectOptions,
-  ClientLoginBannerOptions,
   ClientVpnAuthorizationRuleStatus,
-  ConnectionLogOptions,
   CurrencyCodeValues,
   DnsSupportValue,
   EnaSrdSpecification,
@@ -43,6 +40,9 @@ import {
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTarget,
+  ClientConnectOptions,
+  ClientLoginBannerOptions,
+  ConnectionLogOptions,
   CreditSpecificationRequest,
   ElasticGpuSpecification,
   FleetExcessCapacityTerminationPolicy,
@@ -105,7 +105,7 @@ import {
   ArchitectureValues,
   AttributeBooleanValue,
   BootModeValues,
-  ClientVpnConnectionStatus,
+  ConversionTask,
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
@@ -120,7 +120,6 @@ import {
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   LaunchPermission,
-  Monitoring,
   PermissionGroup,
   TpmSupportValues,
 } from "./models_3";
@@ -131,8 +130,8 @@ import {
   InstanceState,
   InstanceStatusEvent,
   LaunchTemplateConfig,
+  Monitoring,
   NetworkInsightsAccessScopeAnalysis,
-  NetworkInsightsAnalysis,
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
   RunInstancesMonitoringEnabled,
@@ -144,14 +143,213 @@ import {
   SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
   VerifiedAccessInstanceLoggingConfiguration,
-  VolumeModification,
 } from "./models_4";
 import {
+  DiskImageDetail,
+  DiskImageDetailFilterSensitiveLog,
   InstanceFamilyCreditSpecification,
   IpamResourceCidr,
   Purchase,
   UnlimitedSupportedInstanceFamily,
+  VolumeDetail,
+  VolumeModification,
 } from "./models_5";
+
+export interface ImportVolumeRequest {
+  /**
+   * <p>The Availability Zone for the resulting EBS volume.</p>
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
+   * <p>A description of the volume.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The disk image.</p>
+   */
+  Image: DiskImageDetail | undefined;
+
+  /**
+   * <p>The volume size.</p>
+   */
+  Volume: VolumeDetail | undefined;
+}
+
+export interface ImportVolumeResult {
+  /**
+   * <p>Information about the conversion task.</p>
+   */
+  ConversionTask?: ConversionTask;
+}
+
+export interface ListImagesInRecycleBinRequest {
+  /**
+   * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that
+   *       are in the Recycle Bin. You can specify up to 20 IDs in a single request.</p>
+   */
+  ImageIds?: string[];
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Information about an AMI that is currently in the Recycle Bin.</p>
+ */
+export interface ImageRecycleBinInfo {
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>The name of the AMI.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The description of the AMI.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time when the AMI entered the Recycle Bin.</p>
+   */
+  RecycleBinEnterTime?: Date;
+
+  /**
+   * <p>The date and time when the AMI is to be permanently deleted from the Recycle Bin.</p>
+   */
+  RecycleBinExitTime?: Date;
+}
+
+export interface ListImagesInRecycleBinResult {
+  /**
+   * <p>Information about the AMIs.</p>
+   */
+  Images?: ImageRecycleBinInfo[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListSnapshotsInRecycleBinRequest {
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The IDs of the snapshots to list. Omit this parameter to list all of the
+   *       snapshots that are in the Recycle Bin.</p>
+   */
+  SnapshotIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Information about a snapshot that is currently in the Recycle Bin.</p>
+ */
+export interface SnapshotRecycleBinInfo {
+  /**
+   * <p>The ID of the snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The date and time when the snaphsot entered the Recycle Bin.</p>
+   */
+  RecycleBinEnterTime?: Date;
+
+  /**
+   * <p>The date and time when the snapshot is to be permanently deleted from the Recycle Bin.</p>
+   */
+  RecycleBinExitTime?: Date;
+
+  /**
+   * <p>The description for the snapshot.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the volume from which the snapshot was created.</p>
+   */
+  VolumeId?: string;
+}
+
+export interface ListSnapshotsInRecycleBinResult {
+  /**
+   * <p>Information about the snapshots.</p>
+   */
+  Snapshots?: SnapshotRecycleBinInfo[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ModifyAddressAttributeRequest {
+  /**
+   * <p>[EC2-VPC] The allocation ID.</p>
+   */
+  AllocationId: string | undefined;
+
+  /**
+   * <p>The domain name to modify for the IP address.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 export interface ModifyAddressAttributeResult {
   /**
@@ -7417,150 +7615,69 @@ export interface StartNetworkInsightsAnalysisRequest {
   ClientToken?: string;
 }
 
-export interface StartNetworkInsightsAnalysisResult {
-  /**
-   * <p>Information about the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysis?: NetworkInsightsAnalysis;
-}
-
-export interface StartVpcEndpointServicePrivateDnsVerificationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the endpoint service.</p>
-   */
-  ServiceId: string | undefined;
-}
-
-export interface StartVpcEndpointServicePrivateDnsVerificationResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  ReturnValue?: boolean;
-}
-
-export interface StopInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Hibernates the instance if the instance was enabled for hibernation at launch. If the
-   *             instance cannot hibernate successfully, a normal shutdown occurs. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-   *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p> Default: <code>false</code>
-   *          </p>
-   */
-  Hibernate?: boolean;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Forces the instances to stop. The instances do not have an opportunity to flush file
-   *             system caches or file system metadata. If you use this option, you must perform file
-   *             system check and repair procedures. This option is not recommended for Windows
-   *             instances.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  Force?: boolean;
-}
-
-export interface StopInstancesResult {
-  /**
-   * <p>Information about the stopped instances.</p>
-   */
-  StoppingInstances?: InstanceStateChange[];
-}
-
-export interface TerminateClientVpnConnectionsRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to which the client is connected.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The ID of the client connection to be terminated.</p>
-   */
-  ConnectionId?: string;
-
-  /**
-   * <p>The name of the user who initiated the connection. Use this option to terminate all active connections for
-   * 			the specified user. This option can only be used if the user has established up to five connections.</p>
-   */
-  Username?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const ImportVolumeRequestFilterSensitiveLog = (obj: ImportVolumeRequest): any => ({
+  ...obj,
+  ...(obj.Image && { Image: DiskImageDetailFilterSensitiveLog(obj.Image) }),
+});
 
 /**
- * <p>Information about a terminated Client VPN endpoint client connection.</p>
+ * @internal
  */
-export interface TerminateConnectionStatus {
-  /**
-   * <p>The ID of the client connection.</p>
-   */
-  ConnectionId?: string;
+export const ImportVolumeResultFilterSensitiveLog = (obj: ImportVolumeResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The state of the client connection.</p>
-   */
-  PreviousStatus?: ClientVpnConnectionStatus;
+/**
+ * @internal
+ */
+export const ListImagesInRecycleBinRequestFilterSensitiveLog = (obj: ListImagesInRecycleBinRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A message about the status of the client connection, if applicable.</p>
-   */
-  CurrentStatus?: ClientVpnConnectionStatus;
-}
+/**
+ * @internal
+ */
+export const ImageRecycleBinInfoFilterSensitiveLog = (obj: ImageRecycleBinInfo): any => ({
+  ...obj,
+});
 
-export interface TerminateClientVpnConnectionsResult {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   */
-  ClientVpnEndpointId?: string;
+/**
+ * @internal
+ */
+export const ListImagesInRecycleBinResultFilterSensitiveLog = (obj: ListImagesInRecycleBinResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The user who established the terminated client connections.</p>
-   */
-  Username?: string;
+/**
+ * @internal
+ */
+export const ListSnapshotsInRecycleBinRequestFilterSensitiveLog = (obj: ListSnapshotsInRecycleBinRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The current state of the client connections.</p>
-   */
-  ConnectionStatuses?: TerminateConnectionStatus[];
-}
+/**
+ * @internal
+ */
+export const SnapshotRecycleBinInfoFilterSensitiveLog = (obj: SnapshotRecycleBinInfo): any => ({
+  ...obj,
+});
 
-export interface TerminateInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   *          <p>Constraints: Up to 1000 instance IDs. We recommend breaking up this request into
-   *             smaller batches.</p>
-   */
-  InstanceIds: string[] | undefined;
+/**
+ * @internal
+ */
+export const ListSnapshotsInRecycleBinResultFilterSensitiveLog = (obj: ListSnapshotsInRecycleBinResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const ModifyAddressAttributeRequestFilterSensitiveLog = (obj: ModifyAddressAttributeRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9694,76 +9811,5 @@ export const StartNetworkInsightsAccessScopeAnalysisResultFilterSensitiveLog = (
 export const StartNetworkInsightsAnalysisRequestFilterSensitiveLog = (
   obj: StartNetworkInsightsAnalysisRequest
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartNetworkInsightsAnalysisResultFilterSensitiveLog = (obj: StartNetworkInsightsAnalysisResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartVpcEndpointServicePrivateDnsVerificationRequestFilterSensitiveLog = (
-  obj: StartVpcEndpointServicePrivateDnsVerificationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StartVpcEndpointServicePrivateDnsVerificationResultFilterSensitiveLog = (
-  obj: StartVpcEndpointServicePrivateDnsVerificationResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInstancesRequestFilterSensitiveLog = (obj: StopInstancesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StopInstancesResultFilterSensitiveLog = (obj: StopInstancesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateClientVpnConnectionsRequestFilterSensitiveLog = (
-  obj: TerminateClientVpnConnectionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateConnectionStatusFilterSensitiveLog = (obj: TerminateConnectionStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateClientVpnConnectionsResultFilterSensitiveLog = (
-  obj: TerminateClientVpnConnectionsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TerminateInstancesRequestFilterSensitiveLog = (obj: TerminateInstancesRequest): any => ({
   ...obj,
 });

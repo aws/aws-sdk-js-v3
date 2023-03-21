@@ -7,6 +7,7 @@ import {
   ActivityStatus,
   AllocationStrategy,
   AlternatePathHint,
+  AttachmentStatus,
   BatchState,
   CurrencyCodeValues,
   Explanation,
@@ -36,6 +37,7 @@ import {
   FleetLaunchTemplateSpecification,
   FleetType,
   GroupIdentifier,
+  HostnameType,
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
   InstanceRequirements,
@@ -61,6 +63,7 @@ import {
   NetworkInterface,
   NetworkInterfaceAttachment,
   NetworkInterfacePermission,
+  NetworkInterfaceStatus,
   Placement,
   PlacementGroup,
   PlatformValues,
@@ -71,7 +74,6 @@ import {
   Subnet,
   TargetCapacityUnitType,
   Tenancy,
-  VolumeType,
 } from "./models_1";
 import {
   RouteTable,
@@ -92,7 +94,6 @@ import {
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
-  Volume,
 } from "./models_2";
 import {
   ArchitectureValues,
@@ -114,15 +115,262 @@ import {
   InstanceLifecycleType,
   InstanceMaintenanceOptions,
   InstanceMetadataOptionsResponse,
-  InstanceNetworkInterface,
-  InstanceStateName,
   LicenseConfiguration,
-  Monitoring,
+  MonitoringState,
   PermissionGroup,
-  PrivateDnsNameOptionsResponse,
   ProductCode,
   VirtualizationType,
 } from "./models_3";
+
+/**
+ * <p>Describes the monitoring of an instance.</p>
+ */
+export interface Monitoring {
+  /**
+   * <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
+   *             enabled.</p>
+   */
+  State?: MonitoringState | string;
+}
+
+/**
+ * <p>Describes association information for an Elastic IP address (IPv4).</p>
+ */
+export interface InstanceNetworkInterfaceAssociation {
+  /**
+   * <p>The carrier IP address associated with the network interface.</p>
+   */
+  CarrierIp?: string;
+
+  /**
+   * <p>The customer-owned IP address associated with the network interface.</p>
+   */
+  CustomerOwnedIp?: string;
+
+  /**
+   * <p>The ID of the owner of the Elastic IP address.</p>
+   */
+  IpOwnerId?: string;
+
+  /**
+   * <p>The public DNS name.</p>
+   */
+  PublicDnsName?: string;
+
+  /**
+   * <p>The public IP address or Elastic IP address bound to the network interface.</p>
+   */
+  PublicIp?: string;
+}
+
+/**
+ * <p>Describes a network interface attachment.</p>
+ */
+export interface InstanceNetworkInterfaceAttachment {
+  /**
+   * <p>The time stamp when the attachment initiated.</p>
+   */
+  AttachTime?: Date;
+
+  /**
+   * <p>The ID of the network interface attachment.</p>
+   */
+  AttachmentId?: string;
+
+  /**
+   * <p>Indicates whether the network interface is deleted when the instance is terminated.</p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>The index of the device on the instance for the network interface attachment.</p>
+   */
+  DeviceIndex?: number;
+
+  /**
+   * <p>The attachment state.</p>
+   */
+  Status?: AttachmentStatus | string;
+
+  /**
+   * <p>The index of the network card.</p>
+   */
+  NetworkCardIndex?: number;
+}
+
+/**
+ * <p>Information about an IPv4 prefix.</p>
+ */
+export interface InstanceIpv4Prefix {
+  /**
+   * <p>One or more IPv4 prefixes assigned to the network interface.</p>
+   */
+  Ipv4Prefix?: string;
+}
+
+/**
+ * <p>Information about an IPv6 prefix.</p>
+ */
+export interface InstanceIpv6Prefix {
+  /**
+   * <p>One or more IPv6 prefixes assigned to the network interface.</p>
+   */
+  Ipv6Prefix?: string;
+}
+
+/**
+ * <p>Describes a private IPv4 address.</p>
+ */
+export interface InstancePrivateIpAddress {
+  /**
+   * <p>The association information for an Elastic IP address for the network interface.</p>
+   */
+  Association?: InstanceNetworkInterfaceAssociation;
+
+  /**
+   * <p>Indicates whether this IPv4 address is the primary private IP address of the network interface.</p>
+   */
+  Primary?: boolean;
+
+  /**
+   * <p>The private IPv4 DNS name.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>The private IPv4 address of the network interface.</p>
+   */
+  PrivateIpAddress?: string;
+}
+
+/**
+ * <p>Describes a network interface.</p>
+ */
+export interface InstanceNetworkInterface {
+  /**
+   * <p>The association information for an Elastic IPv4 associated with the network
+   *             interface.</p>
+   */
+  Association?: InstanceNetworkInterfaceAssociation;
+
+  /**
+   * <p>The network interface attachment.</p>
+   */
+  Attachment?: InstanceNetworkInterfaceAttachment;
+
+  /**
+   * <p>The description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The security groups.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * <p>The IPv6 addresses associated with the network interface.</p>
+   */
+  Ipv6Addresses?: InstanceIpv6Address[];
+
+  /**
+   * <p>The MAC address.</p>
+   */
+  MacAddress?: string;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that created the network interface.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The private DNS name.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>The IPv4 address of the network interface within the subnet.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>The private IPv4 addresses associated with the network interface.</p>
+   */
+  PrivateIpAddresses?: InstancePrivateIpAddress[];
+
+  /**
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   */
+  SourceDestCheck?: boolean;
+
+  /**
+   * <p>The status of the network interface.</p>
+   */
+  Status?: NetworkInterfaceStatus | string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The type of network interface.</p>
+   *          <p>Valid values: <code>interface</code> | <code>efa</code> | <code>trunk</code>
+   *          </p>
+   */
+  InterfaceType?: string;
+
+  /**
+   * <p>The IPv4 delegated prefixes that are assigned to the network interface.</p>
+   */
+  Ipv4Prefixes?: InstanceIpv4Prefix[];
+
+  /**
+   * <p>The IPv6 delegated prefixes that are assigned to the network interface.</p>
+   */
+  Ipv6Prefixes?: InstanceIpv6Prefix[];
+}
+
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ */
+export interface PrivateDnsNameOptionsResponse {
+  /**
+   * <p>The type of hostname to assign to an instance.</p>
+   */
+  HostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
+   *             records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export enum InstanceStateName {
+  pending = "pending",
+  running = "running",
+  shutting_down = "shutting-down",
+  stopped = "stopped",
+  stopping = "stopping",
+  terminated = "terminated",
+}
 
 /**
  * <p>Describes the current state of an instance.</p>
@@ -3604,7 +3852,7 @@ export interface NetworkInsightsAnalysis {
   AdditionalAccounts?: string[];
 
   /**
-   * <p>The Amazon Resource Names (ARN) of the Amazon Web Services resources that the path must traverse.</p>
+   * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
    */
   FilterInArns?: string[];
 
@@ -3689,7 +3937,28 @@ export interface DescribeNetworkInsightsPathsRequest {
    *                <p>destination - The ID of the resource.</p>
    *             </li>
    *             <li>
-   *                <p>destination-port - The destination port.</p>
+   *                <p>filter-at-source.source-address - The source IPv4 address at the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-source.source-port-range - The source port range at the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-source.destination-address - The destination IPv4 address at the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-source.destination-port-range - The destination port range at the source.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-destination.source-address - The source IPv4 address at the destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-destination.source-port-range - The source port range at the destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-destination.destination-address - The destination IPv4 address at the destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>filter-at-destination.destination-port-range - The destination port range at the destination.</p>
    *             </li>
    *             <li>
    *                <p>protocol - The protocol.</p>
@@ -10131,376 +10400,63 @@ export interface DescribeVolumesRequest {
   NextToken?: string;
 }
 
-export interface DescribeVolumesResult {
-  /**
-   * <p>Information about the volumes.</p>
-   */
-  Volumes?: Volume[];
-
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *       This value is <code>null</code> when there are no more items to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeVolumesModificationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of the volumes.</p>
-   */
-  VolumeIds?: string[];
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>modification-state</code> - The current modification state (modifying |
-   *           optimizing | completed | failed).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>original-iops</code> - The original IOPS rate of the volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>original-size</code> - The original size of the volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>original-volume-type</code> - The original volume type of the volume (standard |
-   *           io1 | io2 | gp2 | sc1 | st1).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>originalMultiAttachEnabled</code> - Indicates whether Multi-Attach support was enabled (true | false).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>start-time</code> - The modification start time.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-iops</code> - The target IOPS rate of the volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-size</code> - The target size of the volume, in GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>target-volume-type</code> - The target volume type of the volume (standard |
-   *           io1 | io2 | gp2 | sc1 | st1).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>targetMultiAttachEnabled</code> - Indicates whether Multi-Attach support is to be enabled (true | false).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-id</code> - The ID of the volume.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token returned by a previous paginated request.
-   *       Pagination continues from the end of the items returned by the previous request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
-   *       request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   */
-  MaxResults?: number;
-}
-
-export enum VolumeModificationState {
-  completed = "completed",
-  failed = "failed",
-  modifying = "modifying",
-  optimizing = "optimizing",
-}
+/**
+ * @internal
+ */
+export const MonitoringFilterSensitiveLog = (obj: Monitoring): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the modification status of an EBS volume.</p>
- *          <p>If the volume has never been modified, some element values will be null.</p>
+ * @internal
  */
-export interface VolumeModification {
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>The current modification state. The modification state is null for unmodified
-   *       volumes.</p>
-   */
-  ModificationState?: VolumeModificationState | string;
-
-  /**
-   * <p>A status message about the modification progress or failure.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The target size of the volume, in GiB.</p>
-   */
-  TargetSize?: number;
-
-  /**
-   * <p>The target IOPS rate of the volume.</p>
-   */
-  TargetIops?: number;
-
-  /**
-   * <p>The target EBS volume type of the volume.</p>
-   */
-  TargetVolumeType?: VolumeType | string;
-
-  /**
-   * <p>The target throughput of the volume, in MiB/s.</p>
-   */
-  TargetThroughput?: number;
-
-  /**
-   * <p>The target setting for Amazon EBS Multi-Attach.</p>
-   */
-  TargetMultiAttachEnabled?: boolean;
-
-  /**
-   * <p>The original size of the volume, in GiB.</p>
-   */
-  OriginalSize?: number;
-
-  /**
-   * <p>The original IOPS rate of the volume.</p>
-   */
-  OriginalIops?: number;
-
-  /**
-   * <p>The original EBS volume type of the volume.</p>
-   */
-  OriginalVolumeType?: VolumeType | string;
-
-  /**
-   * <p>The original throughput of the volume, in MiB/s.</p>
-   */
-  OriginalThroughput?: number;
-
-  /**
-   * <p>The original setting for Amazon EBS Multi-Attach.</p>
-   */
-  OriginalMultiAttachEnabled?: boolean;
-
-  /**
-   * <p>The modification progress, from 0 to 100 percent complete.</p>
-   */
-  Progress?: number;
-
-  /**
-   * <p>The modification start time.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The modification completion or failure time.</p>
-   */
-  EndTime?: Date;
-}
-
-export interface DescribeVolumesModificationsResult {
-  /**
-   * <p>Information about the volume modifications.</p>
-   */
-  VolumesModifications?: VolumeModification[];
-
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *       This value is <code>null</code> if there are no more items to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeVolumeStatusRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>action.code</code> - The action code for the event (for example,
-   *             <code>enable-volume-io</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>action.description</code> - A description of the action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>action.event-id</code> - The event ID associated with the action.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.description</code> - A description of the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.event-id</code> - The event ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.event-type</code> - The event type (for <code>io-enabled</code>:
-   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
-   *             <code>io-performance:degraded</code> | <code>io-performance:severely-degraded</code> |
-   *             <code>io-performance:stalled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-after</code> - The latest end time for the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>event.not-before</code> - The earliest start time for the event.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.details-name</code> - The cause for
-   *             <code>volume-status.status</code> (<code>io-enabled</code> |
-   *           <code>io-performance</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.details-status</code> - The status of
-   *             <code>volume-status.details-name</code> (for <code>io-enabled</code>:
-   *             <code>passed</code> | <code>failed</code>; for <code>io-performance</code>:
-   *             <code>normal</code> | <code>degraded</code> | <code>severely-degraded</code> |
-   *             <code>stalled</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-status.status</code> - The status of the volume (<code>ok</code> |
-   *             <code>impaired</code> | <code>warning</code> | <code>insufficient-data</code>).</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items,
-   *       make another request with the token returned in the output. This value can be between 5 and 1,000;
-   *       if the value is larger than 1,000, only 1,000 results are returned. If this parameter is not used,
-   *       then all items are returned. You cannot specify this parameter and the volume IDs parameter in the
-   *       same request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *       Pagination continues from the end of the items returned by the previous request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the volumes.</p>
-   *          <p>Default: Describes all your volumes.</p>
-   */
-  VolumeIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const InstanceNetworkInterfaceAssociationFilterSensitiveLog = (
+  obj: InstanceNetworkInterfaceAssociation
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a volume status operation code.</p>
+ * @internal
  */
-export interface VolumeStatusAction {
-  /**
-   * <p>The code identifying the operation, for example, <code>enable-volume-io</code>.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>A description of the operation.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the event associated with this operation.</p>
-   */
-  EventId?: string;
-
-  /**
-   * <p>The event type associated with this operation.</p>
-   */
-  EventType?: string;
-}
+export const InstanceNetworkInterfaceAttachmentFilterSensitiveLog = (obj: InstanceNetworkInterfaceAttachment): any => ({
+  ...obj,
+});
 
 /**
- * <p>Information about the instances to which the volume is attached.</p>
+ * @internal
  */
-export interface VolumeStatusAttachmentStatus {
-  /**
-   * <p>The maximum IOPS supported by the attached instance.</p>
-   */
-  IoPerformance?: string;
-
-  /**
-   * <p>The ID of the attached instance.</p>
-   */
-  InstanceId?: string;
-}
+export const InstanceIpv4PrefixFilterSensitiveLog = (obj: InstanceIpv4Prefix): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a volume status event.</p>
+ * @internal
  */
-export interface VolumeStatusEvent {
-  /**
-   * <p>A description of the event.</p>
-   */
-  Description?: string;
+export const InstanceIpv6PrefixFilterSensitiveLog = (obj: InstanceIpv6Prefix): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of this event.</p>
-   */
-  EventId?: string;
+/**
+ * @internal
+ */
+export const InstancePrivateIpAddressFilterSensitiveLog = (obj: InstancePrivateIpAddress): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The type of this event.</p>
-   */
-  EventType?: string;
+/**
+ * @internal
+ */
+export const InstanceNetworkInterfaceFilterSensitiveLog = (obj: InstanceNetworkInterface): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The latest end time of the event.</p>
-   */
-  NotAfter?: Date;
-
-  /**
-   * <p>The earliest start time of the event.</p>
-   */
-  NotBefore?: Date;
-
-  /**
-   * <p>The ID of the instance associated with the event.</p>
-   */
-  InstanceId?: string;
-}
+/**
+ * @internal
+ */
+export const PrivateDnsNameOptionsResponseFilterSensitiveLog = (obj: PrivateDnsNameOptionsResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -12464,63 +12420,5 @@ export const DescribeVolumeAttributeResultFilterSensitiveLog = (obj: DescribeVol
  * @internal
  */
 export const DescribeVolumesRequestFilterSensitiveLog = (obj: DescribeVolumesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumesResultFilterSensitiveLog = (obj: DescribeVolumesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumesModificationsRequestFilterSensitiveLog = (
-  obj: DescribeVolumesModificationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeModificationFilterSensitiveLog = (obj: VolumeModification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumesModificationsResultFilterSensitiveLog = (obj: DescribeVolumesModificationsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeVolumeStatusRequestFilterSensitiveLog = (obj: DescribeVolumeStatusRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusActionFilterSensitiveLog = (obj: VolumeStatusAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusAttachmentStatusFilterSensitiveLog = (obj: VolumeStatusAttachmentStatus): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VolumeStatusEventFilterSensitiveLog = (obj: VolumeStatusEvent): any => ({
   ...obj,
 });

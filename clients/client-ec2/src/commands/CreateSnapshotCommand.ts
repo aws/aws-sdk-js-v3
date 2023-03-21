@@ -49,8 +49,8 @@ export interface CreateSnapshotCommandOutput extends Snapshot, __MetadataBearer 
  *       should unmount the volume from within the instance, issue the snapshot command, and then
  *       remount the volume to ensure a consistent and complete snapshot. You may remount and use your
  *       volume while the snapshot status is <code>pending</code>.</p>
- *          <p>To create a snapshot for Amazon EBS volumes that serve as root devices, you should stop the
- *       instance before taking the snapshot.</p>
+ *          <p>When you create a snapshot for an EBS volume that serves as a root device, we recommend
+ *       that you stop the instance before taking the snapshot.</p>
  *          <p>Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes that
  *       are created from encrypted snapshots are also automatically encrypted. Your encrypted volumes
  *       and any associated snapshots always remain protected.</p>

@@ -19,7 +19,7 @@ import {
   StartVpcEndpointServicePrivateDnsVerificationRequestFilterSensitiveLog,
   StartVpcEndpointServicePrivateDnsVerificationResult,
   StartVpcEndpointServicePrivateDnsVerificationResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,
   serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationCommand,

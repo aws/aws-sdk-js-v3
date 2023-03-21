@@ -19,7 +19,7 @@ import {
   StopInstancesRequestFilterSensitiveLog,
   StopInstancesResult,
   StopInstancesResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import { deserializeAws_ec2StopInstancesCommand, serializeAws_ec2StopInstancesCommand } from "../protocols/Aws_ec2";
 
 /**

@@ -16,17 +16,14 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
-  ClientConnectOptions,
-  ClientLoginBannerOptions,
-  ClientVpnAuthenticationRequest,
-  ConnectionLogOptions,
-  CurrencyCodeValues,
+  CertificateAuthenticationRequest,
+  DirectoryServiceAuthenticationRequest,
+  FederatedAuthenticationRequest,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
   NatGatewayAddress,
   PortRange,
   Protocol,
-  ReservedInstancesListing,
   ResourceType,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -36,6 +33,96 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+export enum ClientVpnAuthenticationType {
+  certificate_authentication = "certificate-authentication",
+  directory_service_authentication = "directory-service-authentication",
+  federated_authentication = "federated-authentication",
+}
+
+/**
+ * <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
+ * 			in the <i>Client VPN Administrator Guide</i>.</p>
+ */
+export interface ClientVpnAuthenticationRequest {
+  /**
+   * <p>The type of client authentication to be used.</p>
+   */
+  Type?: ClientVpnAuthenticationType | string;
+
+  /**
+   * <p>Information about the Active Directory to be used, if applicable. You must provide this information if <b>Type</b> is <code>directory-service-authentication</code>.</p>
+   */
+  ActiveDirectory?: DirectoryServiceAuthenticationRequest;
+
+  /**
+   * <p>Information about the authentication certificates to be used, if applicable. You must provide this information if <b>Type</b> is <code>certificate-authentication</code>.</p>
+   */
+  MutualAuthentication?: CertificateAuthenticationRequest;
+
+  /**
+   * <p>Information about the IAM SAML identity provider to be used, if applicable. You must provide this information if <b>Type</b> is <code>federated-authentication</code>.</p>
+   */
+  FederatedAuthentication?: FederatedAuthenticationRequest;
+}
+
+/**
+ * <p>The options for managing connection authorization for new client connections.</p>
+ */
+export interface ClientConnectOptions {
+  /**
+   * <p>Indicates whether client connect options are enabled. The default is <code>false</code> (not enabled).</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.</p>
+   */
+  LambdaFunctionArn?: string;
+}
+
+/**
+ * <p>Options for enabling a customizable text banner that will be displayed on
+ * 			Amazon Web Services provided clients when a VPN session is established.</p>
+ */
+export interface ClientLoginBannerOptions {
+  /**
+   * <p>Enable or disable a customizable text banner that will be displayed on
+   * 			Amazon Web Services provided clients when a VPN session is established.</p>
+   *          <p>Valid values: <code>true | false</code>
+   *          </p>
+   *          <p>Default value: <code>false</code>
+   *          </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>Customizable text that will be displayed in a banner on Amazon Web Services provided
+   * 			clients when a VPN session is established. UTF-8 encoded characters only. Maximum of
+   * 			1400 characters.</p>
+   */
+  BannerText?: string;
+}
+
+/**
+ * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
+ */
+export interface ConnectionLogOptions {
+  /**
+   * <p>Indicates whether connection logging is enabled.</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * <p>The name of the CloudWatch Logs log group. Required if connection logging is enabled.</p>
+   */
+  CloudwatchLogGroup?: string;
+
+  /**
+   * <p>The name of the CloudWatch Logs log stream to which the connection data is published.</p>
+   */
+  CloudwatchLogStream?: string;
+}
 
 export enum SelfServicePortal {
   disabled = "disabled",
@@ -7600,26 +7687,67 @@ export interface CreateNetworkInsightsAccessScopeResult {
   NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent;
 }
 
+/**
+ * <p>Describes a port range.</p>
+ */
+export interface RequestFilterPortRange {
+  /**
+   * <p>The first port in the range.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The last port in the range.</p>
+   */
+  ToPort?: number;
+}
+
+/**
+ * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
+ *          there can be multiple resulting paths.</p>
+ */
+export interface PathRequestFilter {
+  /**
+   * <p>The source IPv4 address.</p>
+   */
+  SourceAddress?: string;
+
+  /**
+   * <p>The source port range.</p>
+   */
+  SourcePortRange?: RequestFilterPortRange;
+
+  /**
+   * <p>The destination IPv4 address.</p>
+   */
+  DestinationAddress?: string;
+
+  /**
+   * <p>The destination port range.</p>
+   */
+  DestinationPortRange?: RequestFilterPortRange;
+}
+
 export interface CreateNetworkInsightsPathRequest {
   /**
-   * <p>The IP address of the Amazon Web Services resource that is the source of the path.</p>
+   * <p>The IP address of the source.</p>
    */
   SourceIp?: string;
 
   /**
-   * <p>The IP address of the Amazon Web Services resource that is the destination of the path.</p>
+   * <p>The IP address of the destination.</p>
    */
   DestinationIp?: string;
 
   /**
-   * <p>The Amazon Web Services resource that is the source of the path.</p>
+   * <p>The ID or ARN of the source. If the resource is in another account, you must specify an ARN.</p>
    */
   Source: string | undefined;
 
   /**
-   * <p>The Amazon Web Services resource that is the destination of the path.</p>
+   * <p>The ID or ARN of the destination. If the resource is in another account, you must specify an ARN.</p>
    */
-  Destination: string | undefined;
+  Destination?: string;
 
   /**
    * <p>The protocol.</p>
@@ -7648,6 +7776,59 @@ export interface CreateNetworkInsightsPathRequest {
    *    see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure idempotency</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the source. If you specify
+   *           this parameter, you can't specify the parameters for the source IP address or the destination port.</p>
+   */
+  FilterAtSource?: PathRequestFilter;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the destination. If you specify
+   *           this parameter, you can't specify the parameter for the destination IP address.</p>
+   */
+  FilterAtDestination?: PathRequestFilter;
+}
+
+/**
+ * <p>Describes a port range.</p>
+ */
+export interface FilterPortRange {
+  /**
+   * <p>The first port in the range.</p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The last port in the range.</p>
+   */
+  ToPort?: number;
+}
+
+/**
+ * <p>Describes a set of filters for a path analysis. Use path filters to scope the analysis when
+ *           there can be multiple resulting paths.</p>
+ */
+export interface PathFilter {
+  /**
+   * <p>The source IPv4 address.</p>
+   */
+  SourceAddress?: string;
+
+  /**
+   * <p>The source port range.</p>
+   */
+  SourcePortRange?: FilterPortRange;
+
+  /**
+   * <p>The destination IPv4 address.</p>
+   */
+  DestinationAddress?: string;
+
+  /**
+   * <p>The destination port range.</p>
+   */
+  DestinationPortRange?: FilterPortRange;
 }
 
 /**
@@ -7670,12 +7851,12 @@ export interface NetworkInsightsPath {
   CreatedDate?: Date;
 
   /**
-   * <p>The Amazon Web Services resource that is the source of the path.</p>
+   * <p>The ID of the source.</p>
    */
   Source?: string;
 
   /**
-   * <p>The Amazon Web Services resource that is the destination of the path.</p>
+   * <p>The ID of the destination.</p>
    */
   Destination?: string;
 
@@ -7690,12 +7871,12 @@ export interface NetworkInsightsPath {
   DestinationArn?: string;
 
   /**
-   * <p>The IP address of the Amazon Web Services resource that is the source of the path.</p>
+   * <p>The IP address of the source.</p>
    */
   SourceIp?: string;
 
   /**
-   * <p>The IP address of the Amazon Web Services resource that is the destination of the path.</p>
+   * <p>The IP address of the destination.</p>
    */
   DestinationIp?: string;
 
@@ -7713,6 +7894,16 @@ export interface NetworkInsightsPath {
    * <p>The tags associated with the path.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the source.</p>
+   */
+  FilterAtSource?: PathFilter;
+
+  /**
+   * <p>Scopes the analysis to network paths that match specific filters at the destination.</p>
+   */
+  FilterAtDestination?: PathFilter;
 }
 
 export interface CreateNetworkInsightsPathResult {
@@ -8593,231 +8784,33 @@ export interface ReplaceRootVolumeTask {
   DeleteReplacedRootVolume?: boolean;
 }
 
-export interface CreateReplaceRootVolumeTaskResult {
-  /**
-   * <p>Information about the root volume replacement task.</p>
-   */
-  ReplaceRootVolumeTask?: ReplaceRootVolumeTask;
-}
+/**
+ * @internal
+ */
+export const ClientVpnAuthenticationRequestFilterSensitiveLog = (obj: ClientVpnAuthenticationRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the price for a Reserved Instance.</p>
+ * @internal
  */
-export interface PriceScheduleSpecification {
-  /**
-   * <p>The currency for transacting the Reserved Instance resale.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The fixed price for the term.</p>
-   */
-  Price?: number;
-
-  /**
-   * <p>The number of months remaining in the reservation. For example, 2 is the second to the last month before the capacity reservation expires.</p>
-   */
-  Term?: number;
-}
+export const ClientConnectOptionsFilterSensitiveLog = (obj: ClientConnectOptions): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for CreateReservedInstancesListing.</p>
+ * @internal
  */
-export interface CreateReservedInstancesListingRequest {
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of your
-   * 				listings. This helps avoid duplicate listings. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   */
-  ClientToken: string | undefined;
-
-  /**
-   * <p>The number of instances that are a part of a Reserved Instance account to be listed in the Reserved Instance Marketplace. This number should be less than or equal to the instance count associated with the Reserved Instance ID specified in this call.</p>
-   */
-  InstanceCount: number | undefined;
-
-  /**
-   * <p>A list specifying the price of the Standard Reserved Instance for each month remaining in the Reserved Instance term.</p>
-   */
-  PriceSchedules: PriceScheduleSpecification[] | undefined;
-
-  /**
-   * <p>The ID of the active Standard Reserved Instance.</p>
-   */
-  ReservedInstancesId: string | undefined;
-}
+export const ClientLoginBannerOptionsFilterSensitiveLog = (obj: ClientLoginBannerOptions): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the output of CreateReservedInstancesListing.</p>
+ * @internal
  */
-export interface CreateReservedInstancesListingResult {
-  /**
-   * <p>Information about the Standard Reserved Instance listing.</p>
-   */
-  ReservedInstancesListings?: ReservedInstancesListing[];
-}
-
-export interface CreateRestoreImageTaskRequest {
-  /**
-   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The name of the stored AMI object in the bucket.</p>
-   */
-  ObjectKey: string | undefined;
-
-  /**
-   * <p>The name for the restored AMI. The name must be unique for AMIs in the Region for this
-   *       account. If you do not provide a name, the new AMI gets the same name as the original
-   *       AMI.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The tags to apply to the AMI and snapshots on restoration. You can tag the AMI, the
-   *       snapshots, or both.</p>
-   *          <ul>
-   *             <li>
-   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>To
-   *           tag the snapshots, the value for <code>ResourceType</code> must be <code>snapshot</code>. The
-   *           same tag is applied to all of the snapshots that are created.</p>
-   *             </li>
-   *          </ul>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface CreateRestoreImageTaskResult {
-  /**
-   * <p>The AMI ID.</p>
-   */
-  ImageId?: string;
-}
-
-export interface CreateRouteRequest {
-  /**
-   * <p>The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   */
-  DestinationCidrBlock?: string;
-
-  /**
-   * <p>The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.</p>
-   */
-  DestinationIpv6CidrBlock?: string;
-
-  /**
-   * <p>The ID of a prefix list used for the destination match.</p>
-   */
-  DestinationPrefixListId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
-   */
-  VpcEndpointId?: string;
-
-  /**
-   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
-   */
-  EgressOnlyInternetGatewayId?: string;
-
-  /**
-   * <p>The ID of an internet gateway or virtual private gateway attached to your
-   * 			VPC.</p>
-   */
-  GatewayId?: string;
-
-  /**
-   * <p>The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
-   */
-  NatGatewayId?: string;
-
-  /**
-   * <p>The ID of a transit gateway.</p>
-   */
-  TransitGatewayId?: string;
-
-  /**
-   * <p>The ID of the local gateway.</p>
-   */
-  LocalGatewayId?: string;
-
-  /**
-   * <p>The ID of the carrier gateway.</p>
-   *          <p>You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.</p>
-   */
-  CarrierGatewayId?: string;
-
-  /**
-   * <p>The ID of a network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The ID of the route table for the route.</p>
-   */
-  RouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of a VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the core network.</p>
-   */
-  CoreNetworkArn?: string;
-}
-
-export interface CreateRouteResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export interface CreateRouteTableRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>The tags to assign to the route table.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
+export const ConnectionLogOptionsFilterSensitiveLog = (obj: ConnectionLogOptions): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10273,7 +10266,35 @@ export const CreateNetworkInsightsAccessScopeResultFilterSensitiveLog = (
 /**
  * @internal
  */
+export const RequestFilterPortRangeFilterSensitiveLog = (obj: RequestFilterPortRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PathRequestFilterFilterSensitiveLog = (obj: PathRequestFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateNetworkInsightsPathRequestFilterSensitiveLog = (obj: CreateNetworkInsightsPathRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FilterPortRangeFilterSensitiveLog = (obj: FilterPortRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PathFilterFilterSensitiveLog = (obj: PathFilter): any => ({
   ...obj,
 });
 
@@ -10446,72 +10467,5 @@ export const CreateReplaceRootVolumeTaskRequestFilterSensitiveLog = (obj: Create
  * @internal
  */
 export const ReplaceRootVolumeTaskFilterSensitiveLog = (obj: ReplaceRootVolumeTask): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReplaceRootVolumeTaskResultFilterSensitiveLog = (obj: CreateReplaceRootVolumeTaskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PriceScheduleSpecificationFilterSensitiveLog = (obj: PriceScheduleSpecification): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReservedInstancesListingRequestFilterSensitiveLog = (
-  obj: CreateReservedInstancesListingRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateReservedInstancesListingResultFilterSensitiveLog = (
-  obj: CreateReservedInstancesListingResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRestoreImageTaskRequestFilterSensitiveLog = (obj: CreateRestoreImageTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRestoreImageTaskResultFilterSensitiveLog = (obj: CreateRestoreImageTaskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRouteRequestFilterSensitiveLog = (obj: CreateRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRouteResultFilterSensitiveLog = (obj: CreateRouteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateRouteTableRequestFilterSensitiveLog = (obj: CreateRouteTableRequest): any => ({
   ...obj,
 });

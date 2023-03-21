@@ -19,7 +19,7 @@ import {
   TerminateClientVpnConnectionsRequestFilterSensitiveLog,
   TerminateClientVpnConnectionsResult,
   TerminateClientVpnConnectionsResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   deserializeAws_ec2TerminateClientVpnConnectionsCommand,
   serializeAws_ec2TerminateClientVpnConnectionsCommand,
