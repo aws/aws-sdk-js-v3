@@ -15,63 +15,52 @@ import {
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import {
-  ListConfiguredTableAssociationsInput,
-  ListConfiguredTableAssociationsInputFilterSensitiveLog,
-  ListConfiguredTableAssociationsOutput,
-  ListConfiguredTableAssociationsOutputFilterSensitiveLog,
+  UntagResourceInput,
+  UntagResourceInputFilterSensitiveLog,
+  UntagResourceOutput,
+  UntagResourceOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListConfiguredTableAssociationsCommand,
-  serializeAws_restJson1ListConfiguredTableAssociationsCommand,
+  deserializeAws_restJson1UntagResourceCommand,
+  serializeAws_restJson1UntagResourceCommand,
 } from "../protocols/Aws_restJson1";
 
 /**
- * The input for {@link ListConfiguredTableAssociationsCommand}.
+ * The input for {@link UntagResourceCommand}.
  */
-export interface ListConfiguredTableAssociationsCommandInput extends ListConfiguredTableAssociationsInput {}
+export interface UntagResourceCommandInput extends UntagResourceInput {}
 /**
- * The output of {@link ListConfiguredTableAssociationsCommand}.
+ * The output of {@link UntagResourceCommand}.
  */
-export interface ListConfiguredTableAssociationsCommandOutput
-  extends ListConfiguredTableAssociationsOutput,
-    __MetadataBearer {}
+export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Lists configured table associations for a membership.</p>
+ * <p>Removes a tag or list of tags from a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CleanRoomsClient, ListConfiguredTableAssociationsCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
- * // const { CleanRoomsClient, ListConfiguredTableAssociationsCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
+ * import { CleanRoomsClient, UntagResourceCommand } from "@aws-sdk/client-cleanrooms"; // ES Modules import
+ * // const { CleanRoomsClient, UntagResourceCommand } = require("@aws-sdk/client-cleanrooms"); // CommonJS import
  * const client = new CleanRoomsClient(config);
- * const command = new ListConfiguredTableAssociationsCommand(input);
+ * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListConfiguredTableAssociationsCommandInput} for command's `input` shape.
- * @see {@link ListConfiguredTableAssociationsCommandOutput} for command's `response` shape.
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link CleanRoomsClientResolvedConfig | config} for CleanRoomsClient's `config` shape.
- *
- * @throws {@link AccessDeniedException} (client fault)
- *  <p>Caller does not have sufficient access to perform this action.</p>
- *
- * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
- *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>Request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the specified constraints.</p>
  *
  *
  */
-export class ListConfiguredTableAssociationsCommand extends $Command<
-  ListConfiguredTableAssociationsCommandInput,
-  ListConfiguredTableAssociationsCommandOutput,
+export class UntagResourceCommand extends $Command<
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
   CleanRoomsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -86,7 +75,7 @@ export class ListConfiguredTableAssociationsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListConfiguredTableAssociationsCommandInput) {
+  constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -99,23 +88,21 @@ export class ListConfiguredTableAssociationsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CleanRoomsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListConfiguredTableAssociationsCommandInput, ListConfiguredTableAssociationsCommandOutput> {
+  ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListConfiguredTableAssociationsCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CleanRoomsClient";
-    const commandName = "ListConfiguredTableAssociationsCommand";
+    const commandName = "UntagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListConfiguredTableAssociationsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListConfiguredTableAssociationsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceInputFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,18 +112,12 @@ export class ListConfiguredTableAssociationsCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListConfiguredTableAssociationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListConfiguredTableAssociationsCommand(input, context);
+  private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UntagResourceCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListConfiguredTableAssociationsCommandOutput> {
-    return deserializeAws_restJson1ListConfiguredTableAssociationsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
+    return deserializeAws_restJson1UntagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

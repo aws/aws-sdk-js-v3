@@ -9,13 +9,10 @@
 
 AWS SDK for JavaScript CleanRooms Client for Node.js, Browser and React Native.
 
-<note>
-<p>AWS Clean Rooms is in preview release and is subject to change.</p>
-</note>
 <p>Welcome to the <i>AWS Clean Rooms API Reference</i>.</p>
 <p>AWS Clean Rooms is an AWS service that helps multiple parties to join their data
 together in a secure collaboration workspace. In the collaboration, members who can query
-and receive results can get insights into the combined data without either party getting
+and receive results can get insights into the collective datasets without either party getting
 access to the other party's raw data.</p>
 <p>To learn more about AWS Clean Rooms concepts, procedures, and best practices, see the
 <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html">AWS Clean
@@ -434,10 +431,34 @@ ListSchemas
 </details>
 <details>
 <summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/listtagsforresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
 StartProtectedQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/startprotectedquerycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/startprotectedquerycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/startprotectedquerycommandoutput.html)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/tagresourcecommandoutput.html)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cleanrooms/interfaces/untagresourcecommandoutput.html)
 
 </details>
 <details>

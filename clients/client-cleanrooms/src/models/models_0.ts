@@ -336,7 +336,7 @@ export interface Schema {
   columns: Column[] | undefined;
 
   /**
-   * <p>The partition keys for the data set underlying this schema.</p>
+   * <p>The partition keys for the dataset underlying this schema.</p>
    */
   partitionKeys: Column[] | undefined;
 
@@ -500,6 +500,7 @@ export interface ValidationExceptionField {
 export enum ValidationExceptionReason {
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
   INVALID_CONFIGURATION = "INVALID_CONFIGURATION",
+  INVALID_QUERY = "INVALID_QUERY",
 }
 
 /**
@@ -624,6 +625,14 @@ export interface CreateCollaborationInput {
    *          collaboration.</p>
    */
   queryLogStatus: CollaborationQueryLogStatus | string | undefined;
+
+  /**
+   * <p>An optional label that you can assign to a resource when you create it. Each tag
+   *          consists of a key and an optional value, both of which you define. When you use tagging,
+   *          you can also use tag-based access control in IAM policies to control access to this
+   *          resource.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export enum MemberStatus {
@@ -1170,6 +1179,14 @@ export interface CreateConfiguredTableAssociationInput {
    * <p>The service will assume this role to access catalog metadata and query the table.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>An optional label that you can assign to a resource when you create it. Each tag
+   *          consists of a key and an optional value, both of which you define. When you use tagging,
+   *          you can also use tag-based access control in IAM policies to control access to this
+   *          resource.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1396,7 +1413,7 @@ export interface GlueTableReference {
 }
 
 /**
- * <p>A pointer to the data set that underlies this table. Currently, this can only be an AWS
+ * <p>A pointer to the dataset that underlies this table. Currently, this can only be an AWS
  *          Glue table.</p>
  */
 export type TableReference = TableReference.GlueMember | TableReference.$UnknownMember;
@@ -1452,6 +1469,14 @@ export interface CreateConfiguredTableInput {
    * <p>The analysis method for the configured tables. The only valid value is currently `DIRECT_QUERY`.</p>
    */
   analysisMethod: AnalysisMethod | string | undefined;
+
+  /**
+   * <p>An optional label that you can assign to a resource when you create it. Each tag
+   *          consists of a key and an optional value, both of which you define. When you use tagging,
+   *          you can also use tag-based access control in IAM policies to control access to this
+   *          resource.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export enum ConfiguredTableAnalysisRuleType {
@@ -1835,6 +1860,20 @@ export interface UpdateConfiguredTableAnalysisRuleOutput {
   analysisRule: ConfiguredTableAnalysisRule | undefined;
 }
 
+export interface ListTagsForResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the resource you want to list tags on.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+export interface ListTagsForResourceOutput {
+  /**
+   * <p>A map of objects specifying each key name and value.</p>
+   */
+  tags: Record<string, string> | undefined;
+}
+
 export enum MembershipQueryLogStatus {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -1851,6 +1890,14 @@ export interface CreateMembershipInput {
    *          collaboration.</p>
    */
   queryLogStatus: MembershipQueryLogStatus | string | undefined;
+
+  /**
+   * <p>An optional label that you can assign to a resource when you create it. Each tag
+   *          consists of a key and an optional value, both of which you define. When you use tagging,
+   *          you can also use tag-based access control in IAM policies to control access to this
+   *          resource.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 export enum MembershipStatus {
@@ -2426,6 +2473,34 @@ export interface UpdateProtectedQueryOutput {
    */
   protectedQuery: ProtectedQuery | undefined;
 }
+
+export interface TagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the resource you want to tag.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A map of objects specifying each key name and value.</p>
+   */
+  tags: Record<string, string> | undefined;
+}
+
+export interface TagResourceOutput {}
+
+export interface UntagResourceInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) associated with the resource you want to remove the tag from.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of key names of tags to be removed.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export interface UntagResourceOutput {}
 
 /**
  * @internal
@@ -3022,6 +3097,20 @@ export const UpdateConfiguredTableAnalysisRuleOutputFilterSensitiveLog = (
 /**
  * @internal
  */
+export const ListTagsForResourceInputFilterSensitiveLog = (obj: ListTagsForResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateMembershipInputFilterSensitiveLog = (obj: CreateMembershipInput): any => ({
   ...obj,
 });
@@ -3254,4 +3343,32 @@ export const UpdateProtectedQueryInputFilterSensitiveLog = (obj: UpdateProtected
 export const UpdateProtectedQueryOutputFilterSensitiveLog = (obj: UpdateProtectedQueryOutput): any => ({
   ...obj,
   ...(obj.protectedQuery && { protectedQuery: ProtectedQueryFilterSensitiveLog(obj.protectedQuery) }),
+});
+
+/**
+ * @internal
+ */
+export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceOutputFilterSensitiveLog = (obj: TagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
 });
