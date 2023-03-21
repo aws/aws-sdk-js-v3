@@ -8,7 +8,9 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  limitedParseFloat32 as __limitedParseFloat32,
   map as __map,
   resolvedPath as __resolvedPath,
   strictParseLong as __strictParseLong,
@@ -19,6 +21,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { ArchiveApplicationCommandInput, ArchiveApplicationCommandOutput } from "../commands/ArchiveApplicationCommand";
 import { ArchiveWaveCommandInput, ArchiveWaveCommandOutput } from "../commands/ArchiveWaveCommand";
@@ -104,6 +107,10 @@ import {
 } from "../commands/GetReplicationConfigurationCommand";
 import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "../commands/InitializeServiceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
+import { ListExportErrorsCommandInput, ListExportErrorsCommandOutput } from "../commands/ListExportErrorsCommand";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand";
+import { ListImportErrorsCommandInput, ListImportErrorsCommandOutput } from "../commands/ListImportErrorsCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import {
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
@@ -136,6 +143,8 @@ import {
   RetryDataReplicationCommandOutput,
 } from "../commands/RetryDataReplicationCommand";
 import { StartCutoverCommandInput, StartCutoverCommandOutput } from "../commands/StartCutoverCommand";
+import { StartExportCommandInput, StartExportCommandOutput } from "../commands/StartExportCommand";
+import { StartImportCommandInput, StartImportCommandOutput } from "../commands/StartImportCommand";
 import { StartReplicationCommandInput, StartReplicationCommandOutput } from "../commands/StartReplicationCommand";
 import { StartTestCommandInput, StartTestCommandOutput } from "../commands/StartTestCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -188,7 +197,18 @@ import {
   DescribeSourceServersRequestFilters,
   Disk,
   ErrorDetails,
+  ExportErrorData,
+  ExportTask,
+  ExportTaskError,
+  ExportTaskSummary,
   IdentificationHints,
+  ImportErrorData,
+  ImportTask,
+  ImportTaskError,
+  ImportTaskSummary,
+  ImportTaskSummaryApplications,
+  ImportTaskSummaryServers,
+  ImportTaskSummaryWaves,
   InternalServerException,
   Job,
   JobLog,
@@ -209,6 +229,8 @@ import {
   LifeCycleLastTestReverted,
   LifeCycleState,
   ListApplicationsRequestFilters,
+  ListExportsRequestFilters,
+  ListImportsRequestFilters,
   ListWavesRequestFilters,
   NetworkInterface,
   OS,
@@ -219,12 +241,14 @@ import {
   ReplicationConfigurationTemplate,
   ReplicationType,
   ResourceNotFoundException,
+  S3BucketSource,
   ServiceQuotaExceededException,
   SourceProperties,
   SourceServer,
   SourceServerActionDocument,
   SourceServerActionsRequestFilters,
   SsmDocument,
+  SsmExternalParameter,
   SsmParameterStoreParameter,
   TemplateActionDocument,
   TemplateActionsRequestFilters,
@@ -1072,6 +1096,110 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListExportErrorsCommand = async (
+  input: ListExportErrorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListExportErrors";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.exportID != null && { exportID: input.exportID }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListExportsCommand = async (
+  input: ListExportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListExports";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters != null && { filters: serializeAws_restJson1ListExportsRequestFilters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListImportErrorsCommand = async (
+  input: ListImportErrorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImportErrors";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.importID != null && { importID: input.importID }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListImportsCommand = async (
+  input: ListImportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImports";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters != null && { filters: serializeAws_restJson1ListImportsRequestFilters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListSourceServerActionsCommand = async (
   input: ListSourceServerActionsCommandInput,
   context: __SerdeContext
@@ -1217,8 +1345,13 @@ export const serializeAws_restJson1PutSourceServerActionCommand = async (
     ...(input.actionID != null && { actionID: input.actionID }),
     ...(input.actionName != null && { actionName: input.actionName }),
     ...(input.active != null && { active: input.active }),
+    ...(input.category != null && { category: input.category }),
+    ...(input.description != null && { description: input.description }),
     ...(input.documentIdentifier != null && { documentIdentifier: input.documentIdentifier }),
     ...(input.documentVersion != null && { documentVersion: input.documentVersion }),
+    ...(input.externalParameters != null && {
+      externalParameters: serializeAws_restJson1SsmDocumentExternalParameters(input.externalParameters, context),
+    }),
     ...(input.mustSucceedForCutover != null && { mustSucceedForCutover: input.mustSucceedForCutover }),
     ...(input.order != null && { order: input.order }),
     ...(input.parameters != null && {
@@ -1252,8 +1385,13 @@ export const serializeAws_restJson1PutTemplateActionCommand = async (
     ...(input.actionID != null && { actionID: input.actionID }),
     ...(input.actionName != null && { actionName: input.actionName }),
     ...(input.active != null && { active: input.active }),
+    ...(input.category != null && { category: input.category }),
+    ...(input.description != null && { description: input.description }),
     ...(input.documentIdentifier != null && { documentIdentifier: input.documentIdentifier }),
     ...(input.documentVersion != null && { documentVersion: input.documentVersion }),
+    ...(input.externalParameters != null && {
+      externalParameters: serializeAws_restJson1SsmDocumentExternalParameters(input.externalParameters, context),
+    }),
     ...(input.launchConfigurationTemplateID != null && {
       launchConfigurationTemplateID: input.launchConfigurationTemplateID,
     }),
@@ -1368,6 +1506,59 @@ export const serializeAws_restJson1StartCutoverCommand = async (
       sourceServerIDs: serializeAws_restJson1StartCutoverRequestSourceServerIDs(input.sourceServerIDs, context),
     }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartExportCommand = async (
+  input: StartExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartExport";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.s3Bucket != null && { s3Bucket: input.s3Bucket }),
+    ...(input.s3BucketOwner != null && { s3BucketOwner: input.s3BucketOwner }),
+    ...(input.s3Key != null && { s3Key: input.s3Key }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1StartImportCommand = async (
+  input: StartImportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartImport";
+  let body: any;
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.s3BucketSource != null && {
+      s3BucketSource: serializeAws_restJson1S3BucketSource(input.s3BucketSource, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -2106,6 +2297,9 @@ export const deserializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
   if (data.dataReplicationInfo != null) {
     contents.dataReplicationInfo = deserializeAws_restJson1DataReplicationInfo(data.dataReplicationInfo, context);
   }
+  if (data.fqdnForActionFramework != null) {
+    contents.fqdnForActionFramework = __expectString(data.fqdnForActionFramework);
+  }
   if (data.isArchived != null) {
     contents.isArchived = __expectBoolean(data.isArchived);
   }
@@ -2126,6 +2320,9 @@ export const deserializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
   }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.userProvidedID != null) {
+    contents.userProvidedID = __expectString(data.userProvidedID);
   }
   if (data.vcenterClientID != null) {
     contents.vcenterClientID = __expectString(data.vcenterClientID);
@@ -3208,6 +3405,9 @@ export const deserializeAws_restJson1DisconnectFromServiceCommand = async (
   if (data.dataReplicationInfo != null) {
     contents.dataReplicationInfo = deserializeAws_restJson1DataReplicationInfo(data.dataReplicationInfo, context);
   }
+  if (data.fqdnForActionFramework != null) {
+    contents.fqdnForActionFramework = __expectString(data.fqdnForActionFramework);
+  }
   if (data.isArchived != null) {
     contents.isArchived = __expectBoolean(data.isArchived);
   }
@@ -3228,6 +3428,9 @@ export const deserializeAws_restJson1DisconnectFromServiceCommand = async (
   }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.userProvidedID != null) {
+    contents.userProvidedID = __expectString(data.userProvidedID);
   }
   if (data.vcenterClientID != null) {
     contents.vcenterClientID = __expectString(data.vcenterClientID);
@@ -3285,6 +3488,9 @@ export const deserializeAws_restJson1FinalizeCutoverCommand = async (
   if (data.dataReplicationInfo != null) {
     contents.dataReplicationInfo = deserializeAws_restJson1DataReplicationInfo(data.dataReplicationInfo, context);
   }
+  if (data.fqdnForActionFramework != null) {
+    contents.fqdnForActionFramework = __expectString(data.fqdnForActionFramework);
+  }
   if (data.isArchived != null) {
     contents.isArchived = __expectBoolean(data.isArchived);
   }
@@ -3305,6 +3511,9 @@ export const deserializeAws_restJson1FinalizeCutoverCommand = async (
   }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.userProvidedID != null) {
+    contents.userProvidedID = __expectString(data.userProvidedID);
   }
   if (data.vcenterClientID != null) {
     contents.vcenterClientID = __expectString(data.vcenterClientID);
@@ -3599,6 +3808,191 @@ const deserializeAws_restJson1ListApplicationsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListExportErrorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExportErrorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListExportErrorsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items != null) {
+    contents.items = deserializeAws_restJson1ExportErrors(data.items, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListExportErrorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExportErrorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListExportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExportsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListExportsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items != null) {
+    contents.items = deserializeAws_restJson1ExportsList(data.items, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListExportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListImportErrorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportErrorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListImportErrorsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items != null) {
+    contents.items = deserializeAws_restJson1ImportErrors(data.items, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListImportErrorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportErrorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListImportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListImportsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items != null) {
+    contents.items = deserializeAws_restJson1ImportList(data.items, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListImportsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListSourceServerActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3810,6 +4204,9 @@ export const deserializeAws_restJson1MarkAsArchivedCommand = async (
   if (data.dataReplicationInfo != null) {
     contents.dataReplicationInfo = deserializeAws_restJson1DataReplicationInfo(data.dataReplicationInfo, context);
   }
+  if (data.fqdnForActionFramework != null) {
+    contents.fqdnForActionFramework = __expectString(data.fqdnForActionFramework);
+  }
   if (data.isArchived != null) {
     contents.isArchived = __expectBoolean(data.isArchived);
   }
@@ -3830,6 +4227,9 @@ export const deserializeAws_restJson1MarkAsArchivedCommand = async (
   }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.userProvidedID != null) {
+    contents.userProvidedID = __expectString(data.userProvidedID);
   }
   if (data.vcenterClientID != null) {
     contents.vcenterClientID = __expectString(data.vcenterClientID);
@@ -3887,11 +4287,23 @@ export const deserializeAws_restJson1PutSourceServerActionCommand = async (
   if (data.active != null) {
     contents.active = __expectBoolean(data.active);
   }
+  if (data.category != null) {
+    contents.category = __expectString(data.category);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
   if (data.documentIdentifier != null) {
     contents.documentIdentifier = __expectString(data.documentIdentifier);
   }
   if (data.documentVersion != null) {
     contents.documentVersion = __expectString(data.documentVersion);
+  }
+  if (data.externalParameters != null) {
+    contents.externalParameters = deserializeAws_restJson1SsmDocumentExternalParameters(
+      data.externalParameters,
+      context
+    );
   }
   if (data.mustSucceedForCutover != null) {
     contents.mustSucceedForCutover = __expectBoolean(data.mustSucceedForCutover);
@@ -3961,11 +4373,23 @@ export const deserializeAws_restJson1PutTemplateActionCommand = async (
   if (data.active != null) {
     contents.active = __expectBoolean(data.active);
   }
+  if (data.category != null) {
+    contents.category = __expectString(data.category);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
   if (data.documentIdentifier != null) {
     contents.documentIdentifier = __expectString(data.documentIdentifier);
   }
   if (data.documentVersion != null) {
     contents.documentVersion = __expectString(data.documentVersion);
+  }
+  if (data.externalParameters != null) {
+    contents.externalParameters = deserializeAws_restJson1SsmDocumentExternalParameters(
+      data.externalParameters,
+      context
+    );
   }
   if (data.mustSucceedForCutover != null) {
     contents.mustSucceedForCutover = __expectBoolean(data.mustSucceedForCutover);
@@ -4126,6 +4550,9 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
   if (data.dataReplicationInfo != null) {
     contents.dataReplicationInfo = deserializeAws_restJson1DataReplicationInfo(data.dataReplicationInfo, context);
   }
+  if (data.fqdnForActionFramework != null) {
+    contents.fqdnForActionFramework = __expectString(data.fqdnForActionFramework);
+  }
   if (data.isArchived != null) {
     contents.isArchived = __expectBoolean(data.isArchived);
   }
@@ -4146,6 +4573,9 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
   }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.userProvidedID != null) {
+    contents.userProvidedID = __expectString(data.userProvidedID);
   }
   if (data.vcenterClientID != null) {
     contents.vcenterClientID = __expectString(data.vcenterClientID);
@@ -4230,6 +4660,106 @@ const deserializeAws_restJson1StartCutoverCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1StartExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExportCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartExportCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.exportTask != null) {
+    contents.exportTask = deserializeAws_restJson1ExportTask(data.exportTask, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StartExportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1StartImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return deserializeAws_restJson1StartImportCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.importTask != null) {
+    contents.importTask = deserializeAws_restJson1ImportTask(data.importTask, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1StartImportCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1StartReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4249,6 +4779,9 @@ export const deserializeAws_restJson1StartReplicationCommand = async (
   }
   if (data.dataReplicationInfo != null) {
     contents.dataReplicationInfo = deserializeAws_restJson1DataReplicationInfo(data.dataReplicationInfo, context);
+  }
+  if (data.fqdnForActionFramework != null) {
+    contents.fqdnForActionFramework = __expectString(data.fqdnForActionFramework);
   }
   if (data.isArchived != null) {
     contents.isArchived = __expectBoolean(data.isArchived);
@@ -4270,6 +4803,9 @@ export const deserializeAws_restJson1StartReplicationCommand = async (
   }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.userProvidedID != null) {
+    contents.userProvidedID = __expectString(data.userProvidedID);
   }
   if (data.vcenterClientID != null) {
     contents.vcenterClientID = __expectString(data.vcenterClientID);
@@ -5129,6 +5665,9 @@ export const deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand = 
   if (data.dataReplicationInfo != null) {
     contents.dataReplicationInfo = deserializeAws_restJson1DataReplicationInfo(data.dataReplicationInfo, context);
   }
+  if (data.fqdnForActionFramework != null) {
+    contents.fqdnForActionFramework = __expectString(data.fqdnForActionFramework);
+  }
   if (data.isArchived != null) {
     contents.isArchived = __expectBoolean(data.isArchived);
   }
@@ -5149,6 +5688,9 @@ export const deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand = 
   }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.userProvidedID != null) {
+    contents.userProvidedID = __expectString(data.userProvidedID);
   }
   if (data.vcenterClientID != null) {
     contents.vcenterClientID = __expectString(data.vcenterClientID);
@@ -5575,6 +6117,14 @@ const serializeAws_restJson1DisassociateSourceServersRequestSourceServerIDs = (
     });
 };
 
+const serializeAws_restJson1ImportIDsFilter = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1LaunchConfigurationTemplateIDs = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -5615,6 +6165,34 @@ const serializeAws_restJson1ListApplicationsRequestFilters = (
     }),
     ...(input.isArchived != null && { isArchived: input.isArchived }),
     ...(input.waveIDs != null && { waveIDs: serializeAws_restJson1WaveIDsFilter(input.waveIDs, context) }),
+  };
+};
+
+const serializeAws_restJson1ListExportsRequestFilters = (
+  input: ListExportsRequestFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.exportIDs != null && {
+      exportIDs: serializeAws_restJson1ListExportsRequestFiltersExportIDs(input.exportIDs, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1ListExportsRequestFiltersExportIDs = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ListImportsRequestFilters = (
+  input: ListImportsRequestFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.importIDs != null && { importIDs: serializeAws_restJson1ImportIDsFilter(input.importIDs, context) }),
   };
 };
 
@@ -5688,6 +6266,14 @@ const serializeAws_restJson1ReplicationTypes = (input: (ReplicationType | string
     });
 };
 
+const serializeAws_restJson1S3BucketSource = (input: S3BucketSource, context: __SerdeContext): any => {
+  return {
+    ...(input.s3Bucket != null && { s3Bucket: input.s3Bucket }),
+    ...(input.s3BucketOwner != null && { s3BucketOwner: input.s3BucketOwner }),
+    ...(input.s3Key != null && { s3Key: input.s3Key }),
+  };
+};
+
 const serializeAws_restJson1SourceServerActionsRequestFilters = (
   input: SourceServerActionsRequestFilters,
   context: __SerdeContext
@@ -5700,6 +6286,9 @@ const serializeAws_restJson1SourceServerActionsRequestFilters = (
 const serializeAws_restJson1SsmDocument = (input: SsmDocument, context: __SerdeContext): any => {
   return {
     ...(input.actionName != null && { actionName: input.actionName }),
+    ...(input.externalParameters != null && {
+      externalParameters: serializeAws_restJson1SsmDocumentExternalParameters(input.externalParameters, context),
+    }),
     ...(input.mustSucceedForCutover != null && { mustSucceedForCutover: input.mustSucceedForCutover }),
     ...(input.parameters != null && {
       parameters: serializeAws_restJson1SsmDocumentParameters(input.parameters, context),
@@ -5707,6 +6296,19 @@ const serializeAws_restJson1SsmDocument = (input: SsmDocument, context: __SerdeC
     ...(input.ssmDocumentName != null && { ssmDocumentName: input.ssmDocumentName }),
     ...(input.timeoutSeconds != null && { timeoutSeconds: input.timeoutSeconds }),
   };
+};
+
+const serializeAws_restJson1SsmDocumentExternalParameters = (
+  input: Record<string, SsmExternalParameter>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1SsmExternalParameter(value, context);
+    return acc;
+  }, {});
 };
 
 const serializeAws_restJson1SsmDocumentParameters = (
@@ -5728,6 +6330,13 @@ const serializeAws_restJson1SsmDocuments = (input: SsmDocument[], context: __Ser
     .map((entry) => {
       return serializeAws_restJson1SsmDocument(entry, context);
     });
+};
+
+const serializeAws_restJson1SsmExternalParameter = (input: SsmExternalParameter, context: __SerdeContext): any => {
+  return SsmExternalParameter.visit(input, {
+    dynamicPath: (value) => ({ dynamicPath: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
 };
 
 const serializeAws_restJson1SsmParameterStoreParameter = (
@@ -5999,6 +6608,66 @@ const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_restJson1ExportErrorData = (output: any, context: __SerdeContext): ExportErrorData => {
+  return {
+    rawError: __expectString(output.rawError),
+  } as any;
+};
+
+const deserializeAws_restJson1ExportErrors = (output: any, context: __SerdeContext): ExportTaskError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ExportTaskError(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ExportsList = (output: any, context: __SerdeContext): ExportTask[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ExportTask(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ExportTask = (output: any, context: __SerdeContext): ExportTask => {
+  return {
+    creationDateTime: __expectString(output.creationDateTime),
+    endDateTime: __expectString(output.endDateTime),
+    exportID: __expectString(output.exportID),
+    progressPercentage: __limitedParseFloat32(output.progressPercentage),
+    s3Bucket: __expectString(output.s3Bucket),
+    s3BucketOwner: __expectString(output.s3BucketOwner),
+    s3Key: __expectString(output.s3Key),
+    status: __expectString(output.status),
+    summary: output.summary != null ? deserializeAws_restJson1ExportTaskSummary(output.summary, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ExportTaskError = (output: any, context: __SerdeContext): ExportTaskError => {
+  return {
+    errorData:
+      output.errorData != null ? deserializeAws_restJson1ExportErrorData(output.errorData, context) : undefined,
+    errorDateTime: __expectString(output.errorDateTime),
+  } as any;
+};
+
+const deserializeAws_restJson1ExportTaskSummary = (output: any, context: __SerdeContext): ExportTaskSummary => {
+  return {
+    applicationsCount: __expectLong(output.applicationsCount),
+    serversCount: __expectLong(output.serversCount),
+    wavesCount: __expectLong(output.wavesCount),
+  } as any;
+};
+
 const deserializeAws_restJson1IdentificationHints = (output: any, context: __SerdeContext): IdentificationHints => {
   return {
     awsInstanceID: __expectString(output.awsInstanceID),
@@ -6006,6 +6675,107 @@ const deserializeAws_restJson1IdentificationHints = (output: any, context: __Ser
     hostname: __expectString(output.hostname),
     vmPath: __expectString(output.vmPath),
     vmWareUuid: __expectString(output.vmWareUuid),
+  } as any;
+};
+
+const deserializeAws_restJson1ImportErrorData = (output: any, context: __SerdeContext): ImportErrorData => {
+  return {
+    applicationID: __expectString(output.applicationID),
+    ec2LaunchTemplateID: __expectString(output.ec2LaunchTemplateID),
+    rawError: __expectString(output.rawError),
+    rowNumber: __expectLong(output.rowNumber),
+    sourceServerID: __expectString(output.sourceServerID),
+    waveID: __expectString(output.waveID),
+  } as any;
+};
+
+const deserializeAws_restJson1ImportErrors = (output: any, context: __SerdeContext): ImportTaskError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ImportTaskError(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ImportList = (output: any, context: __SerdeContext): ImportTask[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ImportTask(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ImportTask = (output: any, context: __SerdeContext): ImportTask => {
+  return {
+    creationDateTime: __expectString(output.creationDateTime),
+    endDateTime: __expectString(output.endDateTime),
+    importID: __expectString(output.importID),
+    progressPercentage: __limitedParseFloat32(output.progressPercentage),
+    s3BucketSource:
+      output.s3BucketSource != null
+        ? deserializeAws_restJson1S3BucketSource(output.s3BucketSource, context)
+        : undefined,
+    status: __expectString(output.status),
+    summary: output.summary != null ? deserializeAws_restJson1ImportTaskSummary(output.summary, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImportTaskError = (output: any, context: __SerdeContext): ImportTaskError => {
+  return {
+    errorData:
+      output.errorData != null ? deserializeAws_restJson1ImportErrorData(output.errorData, context) : undefined,
+    errorDateTime: __expectString(output.errorDateTime),
+    errorType: __expectString(output.errorType),
+  } as any;
+};
+
+const deserializeAws_restJson1ImportTaskSummary = (output: any, context: __SerdeContext): ImportTaskSummary => {
+  return {
+    applications:
+      output.applications != null
+        ? deserializeAws_restJson1ImportTaskSummaryApplications(output.applications, context)
+        : undefined,
+    servers:
+      output.servers != null ? deserializeAws_restJson1ImportTaskSummaryServers(output.servers, context) : undefined,
+    waves: output.waves != null ? deserializeAws_restJson1ImportTaskSummaryWaves(output.waves, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ImportTaskSummaryApplications = (
+  output: any,
+  context: __SerdeContext
+): ImportTaskSummaryApplications => {
+  return {
+    createdCount: __expectLong(output.createdCount),
+    modifiedCount: __expectLong(output.modifiedCount),
+  } as any;
+};
+
+const deserializeAws_restJson1ImportTaskSummaryServers = (
+  output: any,
+  context: __SerdeContext
+): ImportTaskSummaryServers => {
+  return {
+    createdCount: __expectLong(output.createdCount),
+    modifiedCount: __expectLong(output.modifiedCount),
+  } as any;
+};
+
+const deserializeAws_restJson1ImportTaskSummaryWaves = (
+  output: any,
+  context: __SerdeContext
+): ImportTaskSummaryWaves => {
+  return {
+    createdCount: __expectLong(output.createdCount),
+    modifiedCount: __expectLong(output.modifiedCount),
   } as any;
 };
 
@@ -6448,6 +7218,14 @@ const deserializeAws_restJson1ReplicationServersSecurityGroupsIDs = (
   return retVal;
 };
 
+const deserializeAws_restJson1S3BucketSource = (output: any, context: __SerdeContext): S3BucketSource => {
+  return {
+    s3Bucket: __expectString(output.s3Bucket),
+    s3BucketOwner: __expectString(output.s3BucketOwner),
+    s3Key: __expectString(output.s3Key),
+  } as any;
+};
+
 const deserializeAws_restJson1SourceProperties = (output: any, context: __SerdeContext): SourceProperties => {
   return {
     cpus: output.cpus != null ? deserializeAws_restJson1Cpus(output.cpus, context) : undefined,
@@ -6475,6 +7253,7 @@ const deserializeAws_restJson1SourceServer = (output: any, context: __SerdeConte
       output.dataReplicationInfo != null
         ? deserializeAws_restJson1DataReplicationInfo(output.dataReplicationInfo, context)
         : undefined,
+    fqdnForActionFramework: __expectString(output.fqdnForActionFramework),
     isArchived: __expectBoolean(output.isArchived),
     launchedInstance:
       output.launchedInstance != null
@@ -6488,6 +7267,7 @@ const deserializeAws_restJson1SourceServer = (output: any, context: __SerdeConte
         : undefined,
     sourceServerID: __expectString(output.sourceServerID),
     tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
+    userProvidedID: __expectString(output.userProvidedID),
     vcenterClientID: __expectString(output.vcenterClientID),
   } as any;
 };
@@ -6500,8 +7280,14 @@ const deserializeAws_restJson1SourceServerActionDocument = (
     actionID: __expectString(output.actionID),
     actionName: __expectString(output.actionName),
     active: __expectBoolean(output.active),
+    category: __expectString(output.category),
+    description: __expectString(output.description),
     documentIdentifier: __expectString(output.documentIdentifier),
     documentVersion: __expectString(output.documentVersion),
+    externalParameters:
+      output.externalParameters != null
+        ? deserializeAws_restJson1SsmDocumentExternalParameters(output.externalParameters, context)
+        : undefined,
     mustSucceedForCutover: __expectBoolean(output.mustSucceedForCutover),
     order: __expectInt32(output.order),
     parameters:
@@ -6540,12 +7326,29 @@ const deserializeAws_restJson1SourceServersList = (output: any, context: __Serde
 const deserializeAws_restJson1SsmDocument = (output: any, context: __SerdeContext): SsmDocument => {
   return {
     actionName: __expectString(output.actionName),
+    externalParameters:
+      output.externalParameters != null
+        ? deserializeAws_restJson1SsmDocumentExternalParameters(output.externalParameters, context)
+        : undefined,
     mustSucceedForCutover: __expectBoolean(output.mustSucceedForCutover),
     parameters:
       output.parameters != null ? deserializeAws_restJson1SsmDocumentParameters(output.parameters, context) : undefined,
     ssmDocumentName: __expectString(output.ssmDocumentName),
     timeoutSeconds: __expectInt32(output.timeoutSeconds),
   } as any;
+};
+
+const deserializeAws_restJson1SsmDocumentExternalParameters = (
+  output: any,
+  context: __SerdeContext
+): Record<string, SsmExternalParameter> => {
+  return Object.entries(output).reduce((acc: Record<string, SsmExternalParameter>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1SsmExternalParameter(__expectUnion(value), context);
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1SsmDocumentParameters = (
@@ -6574,6 +7377,13 @@ const deserializeAws_restJson1SsmDocuments = (output: any, context: __SerdeConte
       return deserializeAws_restJson1SsmDocument(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1SsmExternalParameter = (output: any, context: __SerdeContext): SsmExternalParameter => {
+  if (__expectString(output.dynamicPath) !== undefined) {
+    return { dynamicPath: __expectString(output.dynamicPath) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 const deserializeAws_restJson1SsmParameterStoreParameter = (
@@ -6619,8 +7429,14 @@ const deserializeAws_restJson1TemplateActionDocument = (
     actionID: __expectString(output.actionID),
     actionName: __expectString(output.actionName),
     active: __expectBoolean(output.active),
+    category: __expectString(output.category),
+    description: __expectString(output.description),
     documentIdentifier: __expectString(output.documentIdentifier),
     documentVersion: __expectString(output.documentVersion),
+    externalParameters:
+      output.externalParameters != null
+        ? deserializeAws_restJson1SsmDocumentExternalParameters(output.externalParameters, context)
+        : undefined,
     mustSucceedForCutover: __expectBoolean(output.mustSucceedForCutover),
     operatingSystem: __expectString(output.operatingSystem),
     order: __expectInt32(output.order),

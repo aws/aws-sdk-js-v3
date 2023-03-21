@@ -133,6 +133,10 @@ import {
 } from "./commands/GetReplicationConfigurationCommand";
 import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "./commands/InitializeServiceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import { ListExportErrorsCommandInput, ListExportErrorsCommandOutput } from "./commands/ListExportErrorsCommand";
+import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import { ListImportErrorsCommandInput, ListImportErrorsCommandOutput } from "./commands/ListImportErrorsCommand";
+import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
@@ -165,6 +169,8 @@ import {
   RetryDataReplicationCommandOutput,
 } from "./commands/RetryDataReplicationCommand";
 import { StartCutoverCommandInput, StartCutoverCommandOutput } from "./commands/StartCutoverCommand";
+import { StartExportCommandInput, StartExportCommandOutput } from "./commands/StartExportCommand";
+import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
 import { StartTestCommandInput, StartTestCommandOutput } from "./commands/StartTestCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -239,6 +245,10 @@ export type ServiceInputTypes =
   | GetReplicationConfigurationCommandInput
   | InitializeServiceCommandInput
   | ListApplicationsCommandInput
+  | ListExportErrorsCommandInput
+  | ListExportsCommandInput
+  | ListImportErrorsCommandInput
+  | ListImportsCommandInput
   | ListSourceServerActionsCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateActionsCommandInput
@@ -250,6 +260,8 @@ export type ServiceInputTypes =
   | RemoveTemplateActionCommandInput
   | RetryDataReplicationCommandInput
   | StartCutoverCommandInput
+  | StartExportCommandInput
+  | StartImportCommandInput
   | StartReplicationCommandInput
   | StartTestCommandInput
   | TagResourceCommandInput
@@ -296,6 +308,10 @@ export type ServiceOutputTypes =
   | GetReplicationConfigurationCommandOutput
   | InitializeServiceCommandOutput
   | ListApplicationsCommandOutput
+  | ListExportErrorsCommandOutput
+  | ListExportsCommandOutput
+  | ListImportErrorsCommandOutput
+  | ListImportsCommandOutput
   | ListSourceServerActionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateActionsCommandOutput
@@ -307,6 +323,8 @@ export type ServiceOutputTypes =
   | RemoveTemplateActionCommandOutput
   | RetryDataReplicationCommandOutput
   | StartCutoverCommandOutput
+  | StartExportCommandOutput
+  | StartImportCommandOutput
   | StartReplicationCommandOutput
   | StartTestCommandOutput
   | TagResourceCommandOutput

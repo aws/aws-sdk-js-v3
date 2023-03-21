@@ -24,6 +24,19 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+export enum ActionCategory {
+  BACKUP = "BACKUP",
+  CONFIGURATION = "CONFIGURATION",
+  DISASTER_RECOVERY = "DISASTER_RECOVERY",
+  LICENSE_AND_SUBSCRIPTION = "LICENSE_AND_SUBSCRIPTION",
+  NETWORKING = "NETWORKING",
+  OBSERVABILITY = "OBSERVABILITY",
+  OPERATING_SYSTEM = "OPERATING_SYSTEM",
+  OTHER = "OTHER",
+  SECURITY = "SECURITY",
+  VALIDATION = "VALIDATION",
+}
+
 export enum ApplicationHealthStatus {
   ERROR = "ERROR",
   HEALTHY = "HEALTHY",
@@ -416,9 +429,65 @@ export interface UpdateApplicationRequest {
   description?: string;
 }
 
-export interface InitializeServiceRequest {}
+/**
+ * <p>List export errors request.</p>
+ */
+export interface ListExportErrorsRequest {
+  /**
+   * <p>List export errors request export id.</p>
+   */
+  exportID: string | undefined;
 
-export interface InitializeServiceResponse {}
+  /**
+   * <p>List export errors request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>List export errors request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Export errors data.</p>
+ */
+export interface ExportErrorData {
+  /**
+   * <p>Export errors data raw error.</p>
+   */
+  rawError?: string;
+}
+
+/**
+ * <p>Export task error.</p>
+ */
+export interface ExportTaskError {
+  /**
+   * <p>Export task error datetime.</p>
+   */
+  errorDateTime?: string;
+
+  /**
+   * <p>Export task error data.</p>
+   */
+  errorData?: ExportErrorData;
+}
+
+/**
+ * <p>List export errors response.</p>
+ */
+export interface ListExportErrorsResponse {
+  /**
+   * <p>List export errors response items.</p>
+   */
+  items?: ExportTaskError[];
+
+  /**
+   * <p>List export errors response next token.</p>
+   */
+  nextToken?: string;
+}
 
 /**
  * <p>Validate exception field.</p>
@@ -474,6 +543,459 @@ export class ValidationException extends __BaseException {
     this.fieldList = opts.fieldList;
   }
 }
+
+/**
+ * <p>List exports request filters.</p>
+ */
+export interface ListExportsRequestFilters {
+  /**
+   * <p>List exports request filters export ids.</p>
+   */
+  exportIDs?: string[];
+}
+
+/**
+ * <p>List export request.</p>
+ */
+export interface ListExportsRequest {
+  /**
+   * <p>List exports request filters.</p>
+   */
+  filters?: ListExportsRequestFilters;
+
+  /**
+   * <p>List export request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>List export request next token.</p>
+   */
+  nextToken?: string;
+}
+
+export enum ExportStatus {
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  STARTED = "STARTED",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>Export task summary.</p>
+ */
+export interface ExportTaskSummary {
+  /**
+   * <p>Export task summary servers count.</p>
+   */
+  serversCount?: number;
+
+  /**
+   * <p>Export task summary applications count.</p>
+   */
+  applicationsCount?: number;
+
+  /**
+   * <p>Export task summary waves count.</p>
+   */
+  wavesCount?: number;
+}
+
+/**
+ * <p>Export task.</p>
+ */
+export interface ExportTask {
+  /**
+   * <p>Export task id.</p>
+   */
+  exportID?: string;
+
+  /**
+   * <p>Export task s3 bucket.</p>
+   */
+  s3Bucket?: string;
+
+  /**
+   * <p>Export task s3 key.</p>
+   */
+  s3Key?: string;
+
+  /**
+   * <p>Export task s3 bucket owner.</p>
+   */
+  s3BucketOwner?: string;
+
+  /**
+   * <p>Export task creation datetime.</p>
+   */
+  creationDateTime?: string;
+
+  /**
+   * <p>Export task end datetime.</p>
+   */
+  endDateTime?: string;
+
+  /**
+   * <p>Export task status.</p>
+   */
+  status?: ExportStatus | string;
+
+  /**
+   * <p>Export task progress percentage.</p>
+   */
+  progressPercentage?: number;
+
+  /**
+   * <p>Export task summary.</p>
+   */
+  summary?: ExportTaskSummary;
+}
+
+/**
+ * <p>List export response.</p>
+ */
+export interface ListExportsResponse {
+  /**
+   * <p>List export response items.</p>
+   */
+  items?: ExportTask[];
+
+  /**
+   * <p>List export response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Start export request.</p>
+ */
+export interface StartExportRequest {
+  /**
+   * <p>Start export request s3 bucket.</p>
+   */
+  s3Bucket: string | undefined;
+
+  /**
+   * <p>Start export request s3key.</p>
+   */
+  s3Key: string | undefined;
+
+  /**
+   * <p>Start export request s3 bucket owner.</p>
+   */
+  s3BucketOwner?: string;
+}
+
+/**
+ * <p>Start export response.</p>
+ */
+export interface StartExportResponse {
+  /**
+   * <p>Start export response export task.</p>
+   */
+  exportTask?: ExportTask;
+}
+
+/**
+ * <p>List import errors request.</p>
+ */
+export interface ListImportErrorsRequest {
+  /**
+   * <p>List import errors request import id.</p>
+   */
+  importID: string | undefined;
+
+  /**
+   * <p>List import errors request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>List import errors request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Import error data.</p>
+ */
+export interface ImportErrorData {
+  /**
+   * <p>Import error data source server ID.</p>
+   */
+  sourceServerID?: string;
+
+  /**
+   * <p>Import error data application ID.</p>
+   */
+  applicationID?: string;
+
+  /**
+   * <p>Import error data wave id.</p>
+   */
+  waveID?: string;
+
+  /**
+   * <p>Import error data ec2 LaunchTemplate ID.</p>
+   */
+  ec2LaunchTemplateID?: string;
+
+  /**
+   * <p>Import error data row number.</p>
+   */
+  rowNumber?: number;
+
+  /**
+   * <p>Import error data raw error.</p>
+   */
+  rawError?: string;
+}
+
+export enum ImportErrorType {
+  PROCESSING_ERROR = "PROCESSING_ERROR",
+  VALIDATION_ERROR = "VALIDATION_ERROR",
+}
+
+/**
+ * <p>Import task error.</p>
+ */
+export interface ImportTaskError {
+  /**
+   * <p>Import task error datetime.</p>
+   */
+  errorDateTime?: string;
+
+  /**
+   * <p>Import task error type.</p>
+   */
+  errorType?: ImportErrorType | string;
+
+  /**
+   * <p>Import task error data.</p>
+   */
+  errorData?: ImportErrorData;
+}
+
+/**
+ * <p>List imports errors response.</p>
+ */
+export interface ListImportErrorsResponse {
+  /**
+   * <p>List imports errors response items.</p>
+   */
+  items?: ImportTaskError[];
+
+  /**
+   * <p>List imports errors response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>List imports request filters.</p>
+ */
+export interface ListImportsRequestFilters {
+  /**
+   * <p>List imports request filters import IDs.</p>
+   */
+  importIDs?: string[];
+}
+
+/**
+ * <p>List imports request.</p>
+ */
+export interface ListImportsRequest {
+  /**
+   * <p>List imports request filters.</p>
+   */
+  filters?: ListImportsRequestFilters;
+
+  /**
+   * <p>List imports request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>List imports request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>S3 bucket source.</p>
+ */
+export interface S3BucketSource {
+  /**
+   * <p>S3 bucket source s3 bucket.</p>
+   */
+  s3Bucket: string | undefined;
+
+  /**
+   * <p>S3 bucket source s3 key.</p>
+   */
+  s3Key: string | undefined;
+
+  /**
+   * <p>S3 bucket source s3 bucket owner.</p>
+   */
+  s3BucketOwner?: string;
+}
+
+export enum ImportStatus {
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  STARTED = "STARTED",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>Import task summary applications.</p>
+ */
+export interface ImportTaskSummaryApplications {
+  /**
+   * <p>Import task summary applications created count.</p>
+   */
+  createdCount?: number;
+
+  /**
+   * <p>Import task summary applications modified count.</p>
+   */
+  modifiedCount?: number;
+}
+
+/**
+ * <p>Import task summary servers.</p>
+ */
+export interface ImportTaskSummaryServers {
+  /**
+   * <p>Import task summary servers created count.</p>
+   */
+  createdCount?: number;
+
+  /**
+   * <p>Import task summary servers modified count.</p>
+   */
+  modifiedCount?: number;
+}
+
+/**
+ * <p>Import task summery waves.</p>
+ */
+export interface ImportTaskSummaryWaves {
+  /**
+   * <p>Import task summery waves created count.</p>
+   */
+  createdCount?: number;
+
+  /**
+   * <p>Import task summery waves modified count.</p>
+   */
+  modifiedCount?: number;
+}
+
+/**
+ * <p>Import task summary.</p>
+ */
+export interface ImportTaskSummary {
+  /**
+   * <p>Import task summary waves.</p>
+   */
+  waves?: ImportTaskSummaryWaves;
+
+  /**
+   * <p>Import task summary applications.</p>
+   */
+  applications?: ImportTaskSummaryApplications;
+
+  /**
+   * <p>Import task summary servers.</p>
+   */
+  servers?: ImportTaskSummaryServers;
+}
+
+/**
+ * <p>Import task.</p>
+ */
+export interface ImportTask {
+  /**
+   * <p>Import task id.</p>
+   */
+  importID?: string;
+
+  /**
+   * <p>Import task s3 bucket source.</p>
+   */
+  s3BucketSource?: S3BucketSource;
+
+  /**
+   * <p>Import task creation datetime.</p>
+   */
+  creationDateTime?: string;
+
+  /**
+   * <p>Import task end datetime.</p>
+   */
+  endDateTime?: string;
+
+  /**
+   * <p>Import task status.</p>
+   */
+  status?: ImportStatus | string;
+
+  /**
+   * <p>Import task progress percentage.</p>
+   */
+  progressPercentage?: number;
+
+  /**
+   * <p>Import task summary.</p>
+   */
+  summary?: ImportTaskSummary;
+}
+
+/**
+ * <p>List import response.</p>
+ */
+export interface ListImportsResponse {
+  /**
+   * <p>List import response items.</p>
+   */
+  items?: ImportTask[];
+
+  /**
+   * <p>List import response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Start import request.</p>
+ */
+export interface StartImportRequest {
+  /**
+   * <p>Start import request client token.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * <p>Start import request s3 bucket source.</p>
+   */
+  s3BucketSource: S3BucketSource | undefined;
+}
+
+/**
+ * <p>Start import response.</p>
+ */
+export interface StartImportResponse {
+  /**
+   * <p>Start import response import task.</p>
+   */
+  importTask?: ImportTask;
+}
+
+export interface InitializeServiceRequest {}
+
+export interface InitializeServiceResponse {}
 
 export interface DeleteJobRequest {
   /**
@@ -635,6 +1157,36 @@ export enum PostLaunchActionExecutionStatus {
   SUCCESS = "SUCCESS",
 }
 
+/**
+ * <p>AWS Systems Manager Document external parameter.</p>
+ */
+export type SsmExternalParameter = SsmExternalParameter.DynamicPathMember | SsmExternalParameter.$UnknownMember;
+
+export namespace SsmExternalParameter {
+  /**
+   * <p>AWS Systems Manager Document external parameters dynamic path.</p>
+   */
+  export interface DynamicPathMember {
+    dynamicPath: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    dynamicPath?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    dynamicPath: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SsmExternalParameter, visitor: Visitor<T>): T => {
+    if (value.dynamicPath !== undefined) return visitor.dynamicPath(value.dynamicPath);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
 export enum SsmParameterStoreParameterType {
   STRING = "STRING",
 }
@@ -682,6 +1234,11 @@ export interface SsmDocument {
    * <p>AWS Systems Manager Document parameters.</p>
    */
   parameters?: Record<string, SsmParameterStoreParameter[]>;
+
+  /**
+   * <p>AWS Systems Manager Document external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
 }
 
 export enum SsmDocumentType {
@@ -1202,6 +1759,21 @@ export interface TemplateActionDocument {
    * <p>Operating system eligible for this template post migration custom action.</p>
    */
   operatingSystem?: string;
+
+  /**
+   * <p>Template post migration custom action external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
+
+  /**
+   * <p>Template post migration custom action description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Template post migration custom action category.</p>
+   */
+  category?: ActionCategory | string;
 }
 
 export interface ListTemplateActionsResponse {
@@ -1271,6 +1843,21 @@ export interface PutTemplateActionRequest {
    * <p>Operating system eligible for this template post migration custom action.</p>
    */
   operatingSystem?: string;
+
+  /**
+   * <p>Template post migration custom action external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
+
+  /**
+   * <p>Template post migration custom action description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Template post migration custom action category.</p>
+   */
+  category?: ActionCategory | string;
 }
 
 export interface RemoveTemplateActionRequest {
@@ -2052,6 +2639,7 @@ export enum LifeCycleState {
   DISCONNECTED = "DISCONNECTED",
   DISCOVERED = "DISCOVERED",
   NOT_READY = "NOT_READY",
+  PENDING_INSTALLATION = "PENDING_INSTALLATION",
   READY_FOR_CUTOVER = "READY_FOR_CUTOVER",
   READY_FOR_TEST = "READY_FOR_TEST",
   STOPPED = "STOPPED",
@@ -2293,6 +2881,16 @@ export interface SourceServer {
    * <p>Source server application ID.</p>
    */
   applicationID?: string;
+
+  /**
+   * <p>Source server user provided ID.</p>
+   */
+  userProvidedID?: string;
+
+  /**
+   * <p>Source server fqdn for action framework.</p>
+   */
+  fqdnForActionFramework?: string;
 }
 
 export interface DeleteSourceServerRequest {
@@ -2648,6 +3246,21 @@ export interface SourceServerActionDocument {
    * <p>Source server post migration custom action parameters.</p>
    */
   parameters?: Record<string, SsmParameterStoreParameter[]>;
+
+  /**
+   * <p>Source server post migration custom action external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
+
+  /**
+   * <p>Source server post migration custom action description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Source server post migration custom action category.</p>
+   */
+  category?: ActionCategory | string;
 }
 
 export interface ListSourceServerActionsResponse {
@@ -2719,6 +3332,21 @@ export interface PutSourceServerActionRequest {
    * <p>Source server post migration custom action parameters.</p>
    */
   parameters?: Record<string, SsmParameterStoreParameter[]>;
+
+  /**
+   * <p>Source server post migration custom action external parameters.</p>
+   */
+  externalParameters?: Record<string, SsmExternalParameter>;
+
+  /**
+   * <p>Source server post migration custom action description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Source server post migration custom action category.</p>
+   */
+  category?: ActionCategory | string;
 }
 
 export interface RemoveSourceServerActionRequest {
@@ -3388,6 +4016,195 @@ export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicatio
 /**
  * @internal
  */
+export const ListExportErrorsRequestFilterSensitiveLog = (obj: ListExportErrorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportErrorDataFilterSensitiveLog = (obj: ExportErrorData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportTaskErrorFilterSensitiveLog = (obj: ExportTaskError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExportErrorsResponseFilterSensitiveLog = (obj: ListExportErrorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExportsRequestFiltersFilterSensitiveLog = (obj: ListExportsRequestFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExportsRequestFilterSensitiveLog = (obj: ListExportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportTaskSummaryFilterSensitiveLog = (obj: ExportTaskSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExportTaskFilterSensitiveLog = (obj: ExportTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListExportsResponseFilterSensitiveLog = (obj: ListExportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartExportRequestFilterSensitiveLog = (obj: StartExportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartExportResponseFilterSensitiveLog = (obj: StartExportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportErrorsRequestFilterSensitiveLog = (obj: ListImportErrorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportErrorDataFilterSensitiveLog = (obj: ImportErrorData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTaskErrorFilterSensitiveLog = (obj: ImportTaskError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportErrorsResponseFilterSensitiveLog = (obj: ListImportErrorsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsRequestFiltersFilterSensitiveLog = (obj: ListImportsRequestFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsRequestFilterSensitiveLog = (obj: ListImportsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3BucketSourceFilterSensitiveLog = (obj: S3BucketSource): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTaskSummaryApplicationsFilterSensitiveLog = (obj: ImportTaskSummaryApplications): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTaskSummaryServersFilterSensitiveLog = (obj: ImportTaskSummaryServers): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTaskSummaryWavesFilterSensitiveLog = (obj: ImportTaskSummaryWaves): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTaskSummaryFilterSensitiveLog = (obj: ImportTaskSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImportTaskFilterSensitiveLog = (obj: ImportTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListImportsResponseFilterSensitiveLog = (obj: ListImportsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImportRequestFilterSensitiveLog = (obj: StartImportRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartImportResponseFilterSensitiveLog = (obj: StartImportResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const InitializeServiceRequestFilterSensitiveLog = (obj: InitializeServiceRequest): any => ({
   ...obj,
 });
@@ -3396,13 +4213,6 @@ export const InitializeServiceRequestFilterSensitiveLog = (obj: InitializeServic
  * @internal
  */
 export const InitializeServiceResponseFilterSensitiveLog = (obj: InitializeServiceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
   ...obj,
 });
 
@@ -3465,6 +4275,14 @@ export const DescribeJobsRequestFilterSensitiveLog = (obj: DescribeJobsRequest):
 /**
  * @internal
  */
+export const SsmExternalParameterFilterSensitiveLog = (obj: SsmExternalParameter): any => {
+  if (obj.dynamicPath !== undefined) return { dynamicPath: obj.dynamicPath };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const SsmParameterStoreParameterFilterSensitiveLog = (obj: SsmParameterStoreParameter): any => ({
   ...obj,
 });
@@ -3474,6 +4292,14 @@ export const SsmParameterStoreParameterFilterSensitiveLog = (obj: SsmParameterSt
  */
 export const SsmDocumentFilterSensitiveLog = (obj: SsmDocument): any => ({
   ...obj,
+  ...(obj.externalParameters && {
+    externalParameters: Object.entries(obj.externalParameters).reduce(
+      (acc: any, [key, value]: [string, SsmExternalParameter]) => (
+        (acc[key] = SsmExternalParameterFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -3481,6 +4307,7 @@ export const SsmDocumentFilterSensitiveLog = (obj: SsmDocument): any => ({
  */
 export const JobPostLaunchActionsLaunchStatusFilterSensitiveLog = (obj: JobPostLaunchActionsLaunchStatus): any => ({
   ...obj,
+  ...(obj.ssmDocument && { ssmDocument: SsmDocumentFilterSensitiveLog(obj.ssmDocument) }),
 });
 
 /**
@@ -3488,6 +4315,11 @@ export const JobPostLaunchActionsLaunchStatusFilterSensitiveLog = (obj: JobPostL
  */
 export const PostLaunchActionsStatusFilterSensitiveLog = (obj: PostLaunchActionsStatus): any => ({
   ...obj,
+  ...(obj.postLaunchActionsLaunchStatusList && {
+    postLaunchActionsLaunchStatusList: obj.postLaunchActionsLaunchStatusList.map((item) =>
+      JobPostLaunchActionsLaunchStatusFilterSensitiveLog(item)
+    ),
+  }),
 });
 
 /**
@@ -3495,6 +4327,9 @@ export const PostLaunchActionsStatusFilterSensitiveLog = (obj: PostLaunchActions
  */
 export const ParticipatingServerFilterSensitiveLog = (obj: ParticipatingServer): any => ({
   ...obj,
+  ...(obj.postLaunchActionsStatus && {
+    postLaunchActionsStatus: PostLaunchActionsStatusFilterSensitiveLog(obj.postLaunchActionsStatus),
+  }),
 });
 
 /**
@@ -3532,6 +4367,7 @@ export const LicensingFilterSensitiveLog = (obj: Licensing): any => ({
  */
 export const PostLaunchActionsFilterSensitiveLog = (obj: PostLaunchActions): any => ({
   ...obj,
+  ...(obj.ssmDocuments && { ssmDocuments: obj.ssmDocuments.map((item) => SsmDocumentFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -3541,6 +4377,7 @@ export const CreateLaunchConfigurationTemplateRequestFilterSensitiveLog = (
   obj: CreateLaunchConfigurationTemplateRequest
 ): any => ({
   ...obj,
+  ...(obj.postLaunchActions && { postLaunchActions: PostLaunchActionsFilterSensitiveLog(obj.postLaunchActions) }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
@@ -3549,6 +4386,7 @@ export const CreateLaunchConfigurationTemplateRequestFilterSensitiveLog = (
  */
 export const LaunchConfigurationTemplateFilterSensitiveLog = (obj: LaunchConfigurationTemplate): any => ({
   ...obj,
+  ...(obj.postLaunchActions && { postLaunchActions: PostLaunchActionsFilterSensitiveLog(obj.postLaunchActions) }),
   ...(obj.tags && { tags: SENSITIVE_STRING }),
 });
 
@@ -3608,6 +4446,14 @@ export const ListTemplateActionsRequestFilterSensitiveLog = (obj: ListTemplateAc
  */
 export const TemplateActionDocumentFilterSensitiveLog = (obj: TemplateActionDocument): any => ({
   ...obj,
+  ...(obj.externalParameters && {
+    externalParameters: Object.entries(obj.externalParameters).reduce(
+      (acc: any, [key, value]: [string, SsmExternalParameter]) => (
+        (acc[key] = SsmExternalParameterFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -3615,6 +4461,7 @@ export const TemplateActionDocumentFilterSensitiveLog = (obj: TemplateActionDocu
  */
 export const ListTemplateActionsResponseFilterSensitiveLog = (obj: ListTemplateActionsResponse): any => ({
   ...obj,
+  ...(obj.items && { items: obj.items.map((item) => TemplateActionDocumentFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -3622,6 +4469,14 @@ export const ListTemplateActionsResponseFilterSensitiveLog = (obj: ListTemplateA
  */
 export const PutTemplateActionRequestFilterSensitiveLog = (obj: PutTemplateActionRequest): any => ({
   ...obj,
+  ...(obj.externalParameters && {
+    externalParameters: Object.entries(obj.externalParameters).reduce(
+      (acc: any, [key, value]: [string, SsmExternalParameter]) => (
+        (acc[key] = SsmExternalParameterFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -3645,6 +4500,7 @@ export const UpdateLaunchConfigurationTemplateRequestFilterSensitiveLog = (
   obj: UpdateLaunchConfigurationTemplateRequest
 ): any => ({
   ...obj,
+  ...(obj.postLaunchActions && { postLaunchActions: PostLaunchActionsFilterSensitiveLog(obj.postLaunchActions) }),
 });
 
 /**
@@ -3964,6 +4820,7 @@ export const GetLaunchConfigurationRequestFilterSensitiveLog = (obj: GetLaunchCo
  */
 export const LaunchConfigurationFilterSensitiveLog = (obj: LaunchConfiguration): any => ({
   ...obj,
+  ...(obj.postLaunchActions && { postLaunchActions: PostLaunchActionsFilterSensitiveLog(obj.postLaunchActions) }),
 });
 
 /**
@@ -4009,6 +4866,14 @@ export const ListSourceServerActionsRequestFilterSensitiveLog = (obj: ListSource
  */
 export const SourceServerActionDocumentFilterSensitiveLog = (obj: SourceServerActionDocument): any => ({
   ...obj,
+  ...(obj.externalParameters && {
+    externalParameters: Object.entries(obj.externalParameters).reduce(
+      (acc: any, [key, value]: [string, SsmExternalParameter]) => (
+        (acc[key] = SsmExternalParameterFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -4016,6 +4881,7 @@ export const SourceServerActionDocumentFilterSensitiveLog = (obj: SourceServerAc
  */
 export const ListSourceServerActionsResponseFilterSensitiveLog = (obj: ListSourceServerActionsResponse): any => ({
   ...obj,
+  ...(obj.items && { items: obj.items.map((item) => SourceServerActionDocumentFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -4030,6 +4896,14 @@ export const MarkAsArchivedRequestFilterSensitiveLog = (obj: MarkAsArchivedReque
  */
 export const PutSourceServerActionRequestFilterSensitiveLog = (obj: PutSourceServerActionRequest): any => ({
   ...obj,
+  ...(obj.externalParameters && {
+    externalParameters: Object.entries(obj.externalParameters).reduce(
+      (acc: any, [key, value]: [string, SsmExternalParameter]) => (
+        (acc[key] = SsmExternalParameterFilterSensitiveLog(value)), acc
+      ),
+      {}
+    ),
+  }),
 });
 
 /**
@@ -4113,6 +4987,7 @@ export const TerminateTargetInstancesResponseFilterSensitiveLog = (obj: Terminat
  */
 export const UpdateLaunchConfigurationRequestFilterSensitiveLog = (obj: UpdateLaunchConfigurationRequest): any => ({
   ...obj,
+  ...(obj.postLaunchActions && { postLaunchActions: PostLaunchActionsFilterSensitiveLog(obj.postLaunchActions) }),
 });
 
 /**

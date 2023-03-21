@@ -136,6 +136,18 @@ import {
   ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  ListExportErrorsCommand,
+  ListExportErrorsCommandInput,
+  ListExportErrorsCommandOutput,
+} from "./commands/ListExportErrorsCommand";
+import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
+import {
+  ListImportErrorsCommand,
+  ListImportErrorsCommandInput,
+  ListImportErrorsCommandOutput,
+} from "./commands/ListImportErrorsCommand";
+import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import {
   ListSourceServerActionsCommand,
   ListSourceServerActionsCommandInput,
   ListSourceServerActionsCommandOutput,
@@ -186,6 +198,8 @@ import {
   StartCutoverCommandInput,
   StartCutoverCommandOutput,
 } from "./commands/StartCutoverCommand";
+import { StartExportCommand, StartExportCommandInput, StartExportCommandOutput } from "./commands/StartExportCommand";
+import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import {
   StartReplicationCommand,
   StartReplicationCommandInput,
@@ -1190,6 +1204,122 @@ export class Mgn extends MgnClient {
   }
 
   /**
+   * <p>List export errors.</p>
+   */
+  public listExportErrors(
+    args: ListExportErrorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExportErrorsCommandOutput>;
+  public listExportErrors(
+    args: ListExportErrorsCommandInput,
+    cb: (err: any, data?: ListExportErrorsCommandOutput) => void
+  ): void;
+  public listExportErrors(
+    args: ListExportErrorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportErrorsCommandOutput) => void
+  ): void;
+  public listExportErrors(
+    args: ListExportErrorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExportErrorsCommandOutput) => void),
+    cb?: (err: any, data?: ListExportErrorsCommandOutput) => void
+  ): Promise<ListExportErrorsCommandOutput> | void {
+    const command = new ListExportErrorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List exports.</p>
+   */
+  public listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
+  public listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
+  public listExports(
+    args: ListExportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportsCommandOutput) => void
+  ): void;
+  public listExports(
+    args: ListExportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExportsCommandOutput) => void),
+    cb?: (err: any, data?: ListExportsCommandOutput) => void
+  ): Promise<ListExportsCommandOutput> | void {
+    const command = new ListExportsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List import errors.</p>
+   */
+  public listImportErrors(
+    args: ListImportErrorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportErrorsCommandOutput>;
+  public listImportErrors(
+    args: ListImportErrorsCommandInput,
+    cb: (err: any, data?: ListImportErrorsCommandOutput) => void
+  ): void;
+  public listImportErrors(
+    args: ListImportErrorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportErrorsCommandOutput) => void
+  ): void;
+  public listImportErrors(
+    args: ListImportErrorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportErrorsCommandOutput) => void),
+    cb?: (err: any, data?: ListImportErrorsCommandOutput) => void
+  ): Promise<ListImportErrorsCommandOutput> | void {
+    const command = new ListImportErrorsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List imports.</p>
+   */
+  public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
+  public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportsCommandOutput) => void
+  ): void;
+  public listImports(
+    args: ListImportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportsCommandOutput) => void),
+    cb?: (err: any, data?: ListImportsCommandOutput) => void
+  ): Promise<ListImportsCommandOutput> | void {
+    const command = new ListImportsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>List source server post migration custom actions.</p>
    */
   public listSourceServerActions(
@@ -1522,6 +1652,58 @@ export class Mgn extends MgnClient {
     cb?: (err: any, data?: StartCutoverCommandOutput) => void
   ): Promise<StartCutoverCommandOutput> | void {
     const command = new StartCutoverCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Start export.</p>
+   */
+  public startExport(args: StartExportCommandInput, options?: __HttpHandlerOptions): Promise<StartExportCommandOutput>;
+  public startExport(args: StartExportCommandInput, cb: (err: any, data?: StartExportCommandOutput) => void): void;
+  public startExport(
+    args: StartExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExportCommandOutput) => void
+  ): void;
+  public startExport(
+    args: StartExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartExportCommandOutput) => void),
+    cb?: (err: any, data?: StartExportCommandOutput) => void
+  ): Promise<StartExportCommandOutput> | void {
+    const command = new StartExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Start import.</p>
+   */
+  public startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
+  public startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
+  public startImport(
+    args: StartImportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartImportCommandOutput) => void
+  ): void;
+  public startImport(
+    args: StartImportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImportCommandOutput) => void),
+    cb?: (err: any, data?: StartImportCommandOutput) => void
+  ): Promise<StartImportCommandOutput> | void {
+    const command = new StartImportCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
