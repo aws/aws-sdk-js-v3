@@ -43,8 +43,7 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  *          that perform actions on chat messages, such as stripping out profanity. You can associate
  *          channel flows with channels, and the processors in the channel flow then take action on all
  *          messages sent to that channel. This is a developer API.</p>
- *
- *            <p>Channel flows process the following items:</p>
+ *          <p>Channel flows process the following items:</p>
  *          <ol>
  *             <li>
  *                <p>New and updated messages</p>
@@ -56,7 +55,6 @@ export interface CreateChannelFlowCommandOutput extends CreateChannelFlowRespons
  *                <p>The Standard message type</p>
  *             </li>
  *          </ol>
- *
  *          <note>
  *             <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to
  *            <a href="https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>

@@ -87,6 +87,10 @@ import {
   DeleteChannelModeratorCommandInput,
   DeleteChannelModeratorCommandOutput,
 } from "./commands/DeleteChannelModeratorCommand";
+import {
+  DeleteMessagingStreamingConfigurationsCommandInput,
+  DeleteMessagingStreamingConfigurationsCommandOutput,
+} from "./commands/DeleteMessagingStreamingConfigurationsCommand";
 import { DescribeChannelBanCommandInput, DescribeChannelBanCommandOutput } from "./commands/DescribeChannelBanCommand";
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
 import {
@@ -126,6 +130,10 @@ import {
   GetMessagingSessionEndpointCommandInput,
   GetMessagingSessionEndpointCommandOutput,
 } from "./commands/GetMessagingSessionEndpointCommand";
+import {
+  GetMessagingStreamingConfigurationsCommandInput,
+  GetMessagingStreamingConfigurationsCommandOutput,
+} from "./commands/GetMessagingStreamingConfigurationsCommand";
 import { ListChannelBansCommandInput, ListChannelBansCommandOutput } from "./commands/ListChannelBansCommand";
 import { ListChannelFlowsCommandInput, ListChannelFlowsCommandOutput } from "./commands/ListChannelFlowsCommand";
 import {
@@ -162,6 +170,10 @@ import {
   PutChannelMembershipPreferencesCommandInput,
   PutChannelMembershipPreferencesCommandOutput,
 } from "./commands/PutChannelMembershipPreferencesCommand";
+import {
+  PutMessagingStreamingConfigurationsCommandInput,
+  PutMessagingStreamingConfigurationsCommandOutput,
+} from "./commands/PutMessagingStreamingConfigurationsCommand";
 import {
   RedactChannelMessageCommandInput,
   RedactChannelMessageCommandOutput,
@@ -203,6 +215,7 @@ export type ServiceInputTypes =
   | DeleteChannelMembershipCommandInput
   | DeleteChannelMessageCommandInput
   | DeleteChannelModeratorCommandInput
+  | DeleteMessagingStreamingConfigurationsCommandInput
   | DescribeChannelBanCommandInput
   | DescribeChannelCommandInput
   | DescribeChannelFlowCommandInput
@@ -215,6 +228,7 @@ export type ServiceInputTypes =
   | GetChannelMessageCommandInput
   | GetChannelMessageStatusCommandInput
   | GetMessagingSessionEndpointCommandInput
+  | GetMessagingStreamingConfigurationsCommandInput
   | ListChannelBansCommandInput
   | ListChannelFlowsCommandInput
   | ListChannelMembershipsCommandInput
@@ -227,6 +241,7 @@ export type ServiceInputTypes =
   | ListSubChannelsCommandInput
   | ListTagsForResourceCommandInput
   | PutChannelMembershipPreferencesCommandInput
+  | PutMessagingStreamingConfigurationsCommandInput
   | RedactChannelMessageCommandInput
   | SearchChannelsCommandInput
   | SendChannelMessageCommandInput
@@ -252,6 +267,7 @@ export type ServiceOutputTypes =
   | DeleteChannelMembershipCommandOutput
   | DeleteChannelMessageCommandOutput
   | DeleteChannelModeratorCommandOutput
+  | DeleteMessagingStreamingConfigurationsCommandOutput
   | DescribeChannelBanCommandOutput
   | DescribeChannelCommandOutput
   | DescribeChannelFlowCommandOutput
@@ -264,6 +280,7 @@ export type ServiceOutputTypes =
   | GetChannelMessageCommandOutput
   | GetChannelMessageStatusCommandOutput
   | GetMessagingSessionEndpointCommandOutput
+  | GetMessagingStreamingConfigurationsCommandOutput
   | ListChannelBansCommandOutput
   | ListChannelFlowsCommandOutput
   | ListChannelMembershipsCommandOutput
@@ -276,6 +293,7 @@ export type ServiceOutputTypes =
   | ListSubChannelsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutChannelMembershipPreferencesCommandOutput
+  | PutMessagingStreamingConfigurationsCommandOutput
   | RedactChannelMessageCommandOutput
   | SearchChannelsCommandOutput
   | SendChannelMessageCommandOutput

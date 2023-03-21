@@ -1443,6 +1443,13 @@ export interface DeleteChannelModeratorRequest {
   ChimeBearer: string | undefined;
 }
 
+export interface DeleteMessagingStreamingConfigurationsRequest {
+  /**
+   * <p>The ARN of the streaming configurations being deleted.</p>
+   */
+  AppInstanceArn: string | undefined;
+}
+
 export interface DescribeChannelRequest {
   /**
    * <p>The ARN of the channel.</p>
@@ -1736,6 +1743,40 @@ export interface GetMessagingSessionEndpointResponse {
    * <p>The endpoint returned in the response.</p>
    */
   Endpoint?: MessagingSessionEndpoint;
+}
+
+export interface GetMessagingStreamingConfigurationsRequest {
+  /**
+   * <p>The ARN of the streaming configurations.</p>
+   */
+  AppInstanceArn: string | undefined;
+}
+
+export enum MessagingDataType {
+  Channel = "Channel",
+  ChannelMessage = "ChannelMessage",
+}
+
+/**
+ * <p>The configuration for connecting a messaging stream to Amazon Kinesis.</p>
+ */
+export interface StreamingConfiguration {
+  /**
+   * <p>The data type of the configuration.</p>
+   */
+  DataType: MessagingDataType | string | undefined;
+
+  /**
+   * <p>The ARN of the resource in the configuration. </p>
+   */
+  ResourceArn: string | undefined;
+}
+
+export interface GetMessagingStreamingConfigurationsResponse {
+  /**
+   * <p>The streaming settings.</p>
+   */
+  StreamingConfigurations?: StreamingConfiguration[];
 }
 
 export interface ListChannelBansRequest {
@@ -2224,6 +2265,25 @@ export interface PutChannelMembershipPreferencesResponse {
    * <p>The ARN and metadata of the member being added.</p>
    */
   Preferences?: ChannelMembershipPreferences;
+}
+
+export interface PutMessagingStreamingConfigurationsRequest {
+  /**
+   * <p>The ARN of the streaming configuration.</p>
+   */
+  AppInstanceArn: string | undefined;
+
+  /**
+   * <p>The streaming configurations.</p>
+   */
+  StreamingConfigurations: StreamingConfiguration[] | undefined;
+}
+
+export interface PutMessagingStreamingConfigurationsResponse {
+  /**
+   * <p>The requested streaming configurations.</p>
+   */
+  StreamingConfigurations?: StreamingConfiguration[];
 }
 
 export interface RedactChannelMessageRequest {
@@ -3032,6 +3092,15 @@ export const DeleteChannelModeratorRequestFilterSensitiveLog = (obj: DeleteChann
 /**
  * @internal
  */
+export const DeleteMessagingStreamingConfigurationsRequestFilterSensitiveLog = (
+  obj: DeleteMessagingStreamingConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeChannelRequestFilterSensitiveLog = (obj: DescribeChannelRequest): any => ({
   ...obj,
 });
@@ -3219,6 +3288,31 @@ export const MessagingSessionEndpointFilterSensitiveLog = (obj: MessagingSession
  */
 export const GetMessagingSessionEndpointResponseFilterSensitiveLog = (
   obj: GetMessagingSessionEndpointResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMessagingStreamingConfigurationsRequestFilterSensitiveLog = (
+  obj: GetMessagingStreamingConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingConfigurationFilterSensitiveLog = (obj: StreamingConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMessagingStreamingConfigurationsResponseFilterSensitiveLog = (
+  obj: GetMessagingStreamingConfigurationsResponse
 ): any => ({
   ...obj,
 });
@@ -3459,6 +3553,24 @@ export const PutChannelMembershipPreferencesResponseFilterSensitiveLog = (
   ...obj,
   ...(obj.Member && { Member: IdentityFilterSensitiveLog(obj.Member) }),
   ...(obj.Preferences && { Preferences: ChannelMembershipPreferencesFilterSensitiveLog(obj.Preferences) }),
+});
+
+/**
+ * @internal
+ */
+export const PutMessagingStreamingConfigurationsRequestFilterSensitiveLog = (
+  obj: PutMessagingStreamingConfigurationsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutMessagingStreamingConfigurationsResponseFilterSensitiveLog = (
+  obj: PutMessagingStreamingConfigurationsResponse
+): any => ({
+  ...obj,
 });
 
 /**

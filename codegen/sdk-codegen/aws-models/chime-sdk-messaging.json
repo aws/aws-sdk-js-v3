@@ -113,7 +113,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the \n         <code>DisassociateChannelFlow</code> API.</p>\n      \n         <note>\n            <p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> \n         of the user that makes the API call as the value in the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Associates a channel flow with a channel. Once associated, all messages to that channel go through channel flow processors. To stop processing, use the \n         <code>DisassociateChannelFlow</code> API.</p>\n         <note>\n            <p>Only administrators or channel moderators can associate a channel flow. The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> \n         of the user that makes the API call as the value in the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/channels/{ChannelArn}/channel-flow",
@@ -147,6 +147,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#BadRequestException": {
@@ -316,6 +319,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the request. </p>\n         <note>\n            <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#BatchCreateChannelMembershipResponse": {
@@ -333,6 +339,9 @@
             "smithy.api#documentation": "<p>If the action fails for one or more of the memberships in the request, a list of the\n         memberships is returned, along with error codes and error messages.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CallbackIdType": {
@@ -584,7 +593,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>\n         <p>You can return one of the following processing responses:</p>                  \n         <ul>\n            <li>\n               <p>Update message content or metadata</p>\n            </li>\n            <li>\n               <p>Deny a message</p>\n            </li>\n            <li>\n               <p>Make no changes to the message</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Calls back Chime SDK Messaging with a processing response message. This should be invoked from the processor Lambda. This is a developer API.</p>\n         <p>You can return one of the following processing responses:</p>\n         <ul>\n            <li>\n               <p>Update message content or metadata</p>\n            </li>\n            <li>\n               <p>Deny a message</p>\n            </li>\n            <li>\n               <p>Make no changes to the message</p>\n            </li>\n         </ul>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}?operation=channel-flow-callback",
@@ -625,6 +634,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelFlowCallbackResponse": {
@@ -642,6 +654,9 @@
             "smithy.api#documentation": "<p>The call back ID passed in the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ChannelFlowExecutionOrder": {
@@ -1362,6 +1377,9 @@
           "target": "com.amazonaws.chimesdkmessaging#DeleteChannelModerator"
         },
         {
+          "target": "com.amazonaws.chimesdkmessaging#DeleteMessagingStreamingConfigurations"
+        },
+        {
           "target": "com.amazonaws.chimesdkmessaging#DescribeChannel"
         },
         {
@@ -1398,6 +1416,9 @@
           "target": "com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpoint"
         },
         {
+          "target": "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurations"
+        },
+        {
           "target": "com.amazonaws.chimesdkmessaging#ListChannelBans"
         },
         {
@@ -1432,6 +1453,9 @@
         },
         {
           "target": "com.amazonaws.chimesdkmessaging#PutChannelMembershipPreferences"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurations"
         },
         {
           "target": "com.amazonaws.chimesdkmessaging#RedactChannelMessage"
@@ -1480,7 +1504,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": true,
+              "required": false,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -1509,13 +1533,12 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
               "type": "tree",
@@ -1523,23 +1546,20 @@
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
                   "type": "tree",
                   "rules": [
                     {
@@ -1548,19 +1568,201 @@
                           "fn": "booleanEquals",
                           "argv": [
                             {
-                              "ref": "UseFIPS"
+                              "ref": "UseDualStack"
                             },
                             true
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
                       "type": "error"
                     },
                     {
                       "conditions": [],
+                      "endpoint": {
+                        "url": {
+                          "ref": "Endpoint"
+                        },
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "conditions": [],
+              "type": "tree",
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "tree",
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
                       "type": "tree",
                       "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://messaging-chime-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ]
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://messaging-chime-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ]
+                        },
                         {
                           "conditions": [
                             {
@@ -1573,134 +1775,52 @@
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "type": "tree",
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "tree",
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "type": "tree",
+                                  "rules": [
+                                    {
+                                      "conditions": [],
+                                      "endpoint": {
+                                        "url": "https://messaging-chime.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                        "properties": {},
+                                        "headers": {}
+                                      },
+                                      "type": "endpoint"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
                             }
                           ]
                         },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://messaging-chime-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
                         {
                           "conditions": [],
                           "type": "tree",
@@ -1708,7 +1828,7 @@
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://messaging-chime-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://messaging-chime.{Region}.{PartitionResult#dnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
@@ -1717,74 +1837,13 @@
                           ]
                         }
                       ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://messaging-chime.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
                     }
                   ]
                 },
                 {
                   "conditions": [],
-                  "endpoint": {
-                    "url": "https://messaging-chime.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
                 }
               ]
             }
@@ -1792,45 +1851,6 @@
         },
         "smithy.rules#endpointTests": {
           "testCases": [
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://messaging-chime-fips.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://messaging-chime-fips.eu-central-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region eu-central-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://messaging-chime.eu-central-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": true
-              }
-            },
             {
               "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
               "expect": {
@@ -1840,47 +1860,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "eu-central-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://messaging-chime-fips.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://messaging-chime-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseFIPS": true,
-                "Region": "us-east-1",
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://messaging-chime.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": true
+                "UseDualStack": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1892,12 +1873,207 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
-                "UseDualStack": false
+                "UseDualStack": false,
+                "Region": "us-east-1"
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "cn-north-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-gov-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-iso-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://messaging-chime.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-isob-east-1"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -1905,7 +2081,20 @@
               },
               "params": {
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Region": "us-east-1",
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
                 "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
@@ -1917,8 +2106,8 @@
               },
               "params": {
                 "UseFIPS": true,
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -1929,8 +2118,8 @@
               },
               "params": {
                 "UseFIPS": false,
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -2012,7 +2201,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a channel to which you can add users and send messages.</p>\n\n         <p>\n            <b>Restriction</b>: You can't change a channel's\n         privacy.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates a channel to which you can add users and send messages.</p>\n         <p>\n            <b>Restriction</b>: You can't change a channel's\n         privacy.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels",
@@ -2055,7 +2244,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Permanently bans a member from a channel. Moderators can't add banned members to a\n         channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then\n            <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or\n         channels.</p>\n         <p>If you ban a user who is already part of a channel, that user is automatically kicked\n         from the channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Permanently bans a member from a channel. Moderators can't add banned members to a\n         channel. To undo a ban, you first have to <code>DeleteChannelBan</code>, and then\n            <code>CreateChannelMembership</code>. Bans are cleaned up when you delete users or\n         channels.</p>\n         <p>If you ban a user who is already part of a channel, that user is automatically kicked\n         from the channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/bans",
@@ -2089,6 +2278,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelBanResponse": {
@@ -2106,6 +2298,9 @@
             "smithy.api#documentation": "<p>The <code>ChannelArn</code> and <code>BannedIdentity</code> of the member in the ban\n         response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelFlow": {
@@ -2143,7 +2338,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions\n         that perform actions on chat messages, such as stripping out profanity. You can associate\n         channel flows with channels, and the processors in the channel flow then take action on all\n         messages sent to that channel. This is a developer API.</p>\n           \n           <p>Channel flows process the following items:</p>\n         <ol>\n            <li>\n               <p>New and updated messages</p>\n            </li>\n            <li>\n               <p>Persistent and non-persistent messages</p>\n            </li>\n            <li>\n               <p>The Standard message type</p>\n            </li>\n         </ol>\n       \n         <note>\n            <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to \n           <a href=\"https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types\">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates a channel flow, a container for processors. Processors are AWS Lambda functions\n         that perform actions on chat messages, such as stripping out profanity. You can associate\n         channel flows with channels, and the processors in the channel flow then take action on all\n         messages sent to that channel. This is a developer API.</p>\n         <p>Channel flows process the following items:</p>\n         <ol>\n            <li>\n               <p>New and updated messages</p>\n            </li>\n            <li>\n               <p>Persistent and non-persistent messages</p>\n            </li>\n            <li>\n               <p>The Standard message type</p>\n            </li>\n         </ol>\n         <note>\n            <p>Channel flows don't process Control or System messages. For more information about the message types provided by Chime SDK Messaging, refer to \n           <a href=\"https://docs.aws.amazon.com/chime/latest/dg/using-the-messaging-sdk.html#msg-types\">Message types</a> in the <i>Amazon Chime developer guide</i>.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channel-flows",
@@ -2188,6 +2383,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelFlowResponse": {
@@ -2199,6 +2397,9 @@
             "smithy.api#documentation": "<p>The ARN of the channel flow.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelMembership": {
@@ -2239,7 +2440,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the\n         request header. A channel member can:</p>\n\n         <ul>\n            <li>\n               <p>List messages</p>\n            </li>\n            <li>\n               <p>Send messages</p>\n            </li>\n            <li>\n               <p>Receive messages</p>\n            </li>\n            <li>\n               <p>Edit their own messages</p>\n            </li>\n            <li>\n               <p>Leave the channel</p>\n            </li>\n         </ul>\n\n         <p>Privacy settings impact this action as follows:</p>\n\n         <ul>\n            <li>\n               <p>Public Channels: You do not need to be a member to list messages, but you must be\n               a member to send messages.</p>\n            </li>\n            <li>\n               <p>Private Channels: You must be a member to list or send messages.</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Adds a user to a channel. The <code>InvitedBy</code> field in <code>ChannelMembership</code> is derived from the\n         request header. A channel member can:</p>\n         <ul>\n            <li>\n               <p>List messages</p>\n            </li>\n            <li>\n               <p>Send messages</p>\n            </li>\n            <li>\n               <p>Receive messages</p>\n            </li>\n            <li>\n               <p>Edit their own messages</p>\n            </li>\n            <li>\n               <p>Leave the channel</p>\n            </li>\n         </ul>\n         <p>Privacy settings impact this action as follows:</p>\n         <ul>\n            <li>\n               <p>Public Channels: You do not need to be a member to list messages, but you must be\n               a member to send messages.</p>\n            </li>\n            <li>\n               <p>Private Channels: You must be a member to list or send messages.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/memberships",
@@ -2286,6 +2487,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only required when creating membership in a SubChannel for a moderator in an elastic channel.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelMembershipResponse": {
@@ -2309,6 +2513,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelModerator": {
@@ -2346,7 +2553,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>\n\n         <ul>\n            <li>\n               <p>Add and remove other members of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove other moderators of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove user bans for the channel.</p>\n            </li>\n            <li>\n               <p>Redact messages in the channel.</p>\n            </li>\n            <li>\n               <p>List messages in the channel.</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>\n         <ul>\n            <li>\n               <p>Add and remove other members of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove other moderators of the channel.</p>\n            </li>\n            <li>\n               <p>Add and remove user bans for the channel.</p>\n            </li>\n            <li>\n               <p>Redact messages in the channel.</p>\n            </li>\n            <li>\n               <p>List messages in the channel.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/moderators",
@@ -2380,6 +2587,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelModeratorResponse": {
@@ -2397,6 +2607,9 @@
             "smithy.api#documentation": "<p>The ARNs of the channel and the moderator.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelRequest": {
@@ -2480,6 +2693,9 @@
             "smithy.api#documentation": "<p>The attributes required to configure and create an elastic channel. An elastic channel can support a maximum of 1-million users, excluding moderators.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#CreateChannelResponse": {
@@ -2491,6 +2707,9 @@
             "smithy.api#documentation": "<p>The ARN of the channel.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannel": {
@@ -2522,7 +2741,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Immediately makes a channel and its memberships inaccessible and marks them for\n         deletion. This is an irreversible process.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Immediately makes a channel and its memberships inaccessible and marks them for\n         deletion. This is an irreversible process.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}",
@@ -2559,7 +2778,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes a user from a channel's ban list.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Removes a user from a channel's ban list.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}/bans/{MemberArn}",
@@ -2594,6 +2813,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelFlow": {
@@ -2647,6 +2869,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelMembership": {
@@ -2681,7 +2906,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes a member from a channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Removes a member from a channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}/memberships/{MemberArn}",
@@ -2723,6 +2948,9 @@
             "smithy.api#httpQuery": "sub-channel-id"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelMessage": {
@@ -2754,7 +2982,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a channel message. Only admins can perform this action. Deletion makes messages\n         inaccessible immediately. A background process deletes any revisions created by\n            <code>UpdateChannelMessage</code>.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Deletes a channel message. Only admins can perform this action. Deletion makes messages\n         inaccessible immediately. A background process deletes any revisions created by\n            <code>UpdateChannelMessage</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}",
@@ -2796,6 +3024,9 @@
             "smithy.api#httpQuery": "sub-channel-id"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelModerator": {
@@ -2827,7 +3058,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a channel moderator.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Deletes a channel moderator.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}",
@@ -2862,6 +3093,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DeleteChannelRequest": {
@@ -2890,6 +3124,59 @@
             "smithy.api#httpQuery": "sub-channel-id"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#DeleteMessagingStreamingConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chimesdkmessaging#DeleteMessagingStreamingConfigurationsRequest"
+      },
+      "output": {
+        "target": "smithy.api#Unit"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the streaming configurations for an <code>AppInstance</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/app-instances/{AppInstanceArn}/streaming-configurations",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#DeleteMessagingStreamingConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the streaming configurations being deleted.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannel": {
@@ -2921,7 +3208,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the full details of a channel in an Amazon Chime\n         <code>AppInstance</code>.</p>\n\n         <note>\n\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Returns the full details of a channel in an Amazon Chime\n         <code>AppInstance</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}",
@@ -2961,7 +3248,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the full details of a channel ban.</p>\n\n         <note>\n\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Returns the full details of a channel ban.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/bans/{MemberArn}",
@@ -2996,6 +3283,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelBanResponse": {
@@ -3007,6 +3297,9 @@
             "smithy.api#documentation": "<p>The details of the ban.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelFlow": {
@@ -3057,6 +3350,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelFlowResponse": {
@@ -3068,6 +3364,9 @@
             "smithy.api#documentation": "<p>The channel flow details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelMembership": {
@@ -3139,7 +3438,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Returns the details of a channel based on the membership of the specified\n            <code>AppInstanceUser</code>.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p> Returns the details of a channel based on the membership of the specified\n            <code>AppInstanceUser</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}?scope=app-instance-user-membership",
@@ -3174,6 +3473,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelMembershipForAppInstanceUserResponse": {
@@ -3185,6 +3487,9 @@
             "smithy.api#documentation": "<p>The channel to which a user belongs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelMembershipRequest": {
@@ -3221,6 +3526,9 @@
             "smithy.api#httpQuery": "sub-channel-id"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelMembershipResponse": {
@@ -3232,6 +3540,9 @@
             "smithy.api#documentation": "<p>The details of the membership.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelModeratedByAppInstanceUser": {
@@ -3263,7 +3574,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the full details of a channel moderated by the specified\n            <code>AppInstanceUser</code>.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Returns the full details of a channel moderated by the specified\n            <code>AppInstanceUser</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}?scope=app-instance-user-moderated-channel",
@@ -3298,6 +3609,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelModeratedByAppInstanceUserResponse": {
@@ -3309,6 +3623,9 @@
             "smithy.api#documentation": "<p>The moderated channel.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelModerator": {
@@ -3378,6 +3695,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelModeratorResponse": {
@@ -3389,6 +3709,9 @@
             "smithy.api#documentation": "<p>The details of the channel moderator.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelRequest": {
@@ -3410,6 +3733,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DescribeChannelResponse": {
@@ -3421,6 +3747,9 @@
             "smithy.api#documentation": "<p>The channel details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#DisassociateChannelFlow": {
@@ -3493,6 +3822,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ElasticChannelConfiguration": {
@@ -3726,6 +4058,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMembershipPreferencesResponse": {
@@ -3749,6 +4084,9 @@
             "smithy.api#documentation": "<p>The channel membership preferences for an <code>AppInstanceUser</code> .</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMessage": {
@@ -3783,7 +4121,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets the full details of a channel message.</p>\n\n         <note>\n            <p>The x-amz-chime-bearer request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Gets the full details of a channel message.</p>\n         <note>\n            <p>The x-amz-chime-bearer request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}",
@@ -3825,6 +4163,9 @@
             "smithy.api#httpQuery": "sub-channel-id"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMessageResponse": {
@@ -3836,6 +4177,9 @@
             "smithy.api#documentation": "<p>The details of and content in the message.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMessageStatus": {
@@ -3867,7 +4211,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to \n         retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>\n      \n         <p>Messages can have any one of these statuses.</p>\n      \n         <dl>\n            <dt>SENT</dt>\n            <dd>\n               <p>Message processed successfully</p>\n            </dd>\n            <dt>PENDING</dt>\n            <dd>\n               <p>Ongoing processing</p>\n            </dd>\n            <dt>FAILED</dt>\n            <dd>\n               <p>Processing failed</p>\n            </dd>\n            <dt>DENIED</dt>\n            <dd>\n               <p>Messasge denied by the processor</p>\n            </dd>\n         </dl>\n      \n         <note>\n            <ul>\n               <li>\n                  <p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p>\n               </li>\n               <li>\n                  <p>Only the message sender can invoke this API.</p>\n               </li>\n               <li>\n                  <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p>\n               </li>\n            </ul>\n         </note>",
+        "smithy.api#documentation": "<p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to \n         retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>\n         <p>Messages can have any one of these statuses.</p>\n         <dl>\n            <dt>SENT</dt>\n            <dd>\n               <p>Message processed successfully</p>\n            </dd>\n            <dt>PENDING</dt>\n            <dd>\n               <p>Ongoing processing</p>\n            </dd>\n            <dt>FAILED</dt>\n            <dd>\n               <p>Processing failed</p>\n            </dd>\n            <dt>DENIED</dt>\n            <dd>\n               <p>Messasge denied by the processor</p>\n            </dd>\n         </dl>\n         <note>\n            <ul>\n               <li>\n                  <p>This API does not return statuses for denied messages, because we don't store them once the processor denies them. </p>\n               </li>\n               <li>\n                  <p>Only the message sender can invoke this API.</p>\n               </li>\n               <li>\n                  <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the <code>AppInstanceUserArn</code> of the user that makes the API call as the value in the header</p>\n               </li>\n            </ul>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}?scope=message-status",
@@ -3909,6 +4253,9 @@
             "smithy.api#httpQuery": "sub-channel-id"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetChannelMessageStatusResponse": {
@@ -3920,6 +4267,9 @@
             "smithy.api#documentation": "<p>The message status and details.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpoint": {
@@ -3958,7 +4308,10 @@
     },
     "com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpointRequest": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
     },
     "com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpointResponse": {
       "type": "structure",
@@ -3969,6 +4322,79 @@
             "smithy.api#documentation": "<p>The endpoint returned in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the data streaming configuration for an <code>AppInstance</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/app-instances/{AppInstanceArn}/streaming-configurations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the streaming configurations.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#GetMessagingStreamingConfigurationsResponse": {
+      "type": "structure",
+      "members": {
+        "StreamingConfigurations": {
+          "target": "com.amazonaws.chimesdkmessaging#StreamingConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming settings.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#Identity": {
@@ -4063,7 +4489,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all the users banned from a particular channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Lists all the users banned from a particular channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/bans",
@@ -4109,6 +4535,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelBansResponse": {
@@ -4132,6 +4561,9 @@
             "smithy.api#documentation": "<p>The information for each requested ban.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelFlows": {
@@ -4201,6 +4633,9 @@
             "smithy.api#httpQuery": "next-token"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelFlowsResponse": {
@@ -4218,6 +4653,9 @@
             "smithy.api#documentation": "<p>The token passed by previous API calls until all requested channels are returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMemberships": {
@@ -4249,7 +4687,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all channel memberships in a channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>\n      \n         <p>If you want to list the channels to which a specific app instance user belongs, see the \n         <a href=\"https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html\">ListChannelMembershipsForAppInstanceUser</a> API.</p>",
+        "smithy.api#documentation": "<p>Lists all channel memberships in a channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>\n         <p>If you want to list the channels to which a specific app instance user belongs, see the \n         <a href=\"https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html\">ListChannelMembershipsForAppInstanceUser</a> API.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels/{ChannelArn}/memberships",
@@ -4291,7 +4729,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an\n            <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an\n            <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels?scope=app-instance-user-memberships",
@@ -4336,6 +4774,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMembershipsForAppInstanceUserResponse": {
@@ -4353,6 +4794,9 @@
             "smithy.api#documentation": "<p>The token passed by previous API calls until all requested users are returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMembershipsRequest": {
@@ -4402,6 +4846,9 @@
             "smithy.api#httpQuery": "sub-channel-id"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMembershipsResponse": {
@@ -4425,6 +4872,9 @@
             "smithy.api#documentation": "<p>The token passed by previous API calls until all requested channel memberships are\n         returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMessages": {
@@ -4530,6 +4980,9 @@
             "smithy.api#httpQuery": "sub-channel-id"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelMessagesResponse": {
@@ -4559,6 +5012,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelModerators": {
@@ -4636,6 +5092,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelModeratorsResponse": {
@@ -4659,6 +5118,9 @@
             "smithy.api#documentation": "<p>The information about and names of each moderator.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannels": {
@@ -4690,7 +5152,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all Channels created under a single Chime App as a paginated list. You can specify\n         filters to narrow results.</p>\n\n         <p class=\"title\">\n            <b>Functionality & restrictions</b>\n         </p>\n         <ul>\n            <li>\n               <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the\n               account.</p>\n            </li>\n            <li>\n               <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to\n               list the private channels in an account.</p>\n            </li>\n         </ul>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Lists all Channels created under a single Chime App as a paginated list. You can specify\n         filters to narrow results.</p>\n         <p class=\"title\">\n            <b>Functionality & restrictions</b>\n         </p>\n         <ul>\n            <li>\n               <p>Use privacy = <code>PUBLIC</code> to retrieve all public channels in the\n               account.</p>\n            </li>\n            <li>\n               <p>Only an <code>AppInstanceAdmin</code> can set privacy = <code>PRIVATE</code> to\n               list the private channels in an account.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels",
@@ -4770,6 +5232,9 @@
             "smithy.api#httpQuery": "next-token"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsAssociatedWithChannelFlowResponse": {
@@ -4787,6 +5252,9 @@
             "smithy.api#documentation": "<p>The token passed by previous API calls until all requested channels are returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsModeratedByAppInstanceUser": {
@@ -4818,7 +5286,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/channels?scope=app-instance-user-moderated-channels",
@@ -4863,6 +5331,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsModeratedByAppInstanceUserResponse": {
@@ -4880,6 +5351,9 @@
             "smithy.api#documentation": "<p>The token returned from previous API requests until the number of channels moderated by\n         the user is reached.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsRequest": {
@@ -4922,6 +5396,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListChannelsResponse": {
@@ -4939,6 +5416,9 @@
             "smithy.api#documentation": "<p>The token returned from previous API requests until the number of channels is\n         reached.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListSubChannels": {
@@ -5016,6 +5496,9 @@
             "smithy.api#httpQuery": "next-token"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListSubChannelsResponse": {
@@ -5039,6 +5522,9 @@
             "smithy.api#documentation": "<p>The token passed by previous API calls until all requested sub-channels are returned.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListTagsForResource": {
@@ -5089,6 +5575,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ListTagsForResourceResponse": {
@@ -5100,6 +5589,9 @@
             "smithy.api#documentation": "<p>The tag key-value pairs.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#MaxResults": {
@@ -5199,6 +5691,23 @@
           "max": 128
         },
         "smithy.api#pattern": "^[-_a-zA-Z0-9]*$"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#MessagingDataType": {
+      "type": "enum",
+      "members": {
+        "Channel": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Channel"
+          }
+        },
+        "ChannelMessage": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ChannelMessage"
+          }
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#MessagingSessionEndpoint": {
@@ -5512,6 +6021,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#PutChannelMembershipPreferencesResponse": {
@@ -5535,6 +6047,89 @@
             "smithy.api#documentation": "<p>The ARN and metadata of the member being added.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.chimesdkmessaging#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ForbiddenException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#NotFoundException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceFailureException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#ThrottledClientException"
+        },
+        {
+          "target": "com.amazonaws.chimesdkmessaging#UnauthorizedClientException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Sets the data streaming configuration for an <code>AppInstance</code>. For more information, see \n         <a href=\"https://docs.aws.amazon.com/chime-sdk/latest/dg/streaming-export.html\">Streaming messaging data</a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>",
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/app-instances/{AppInstanceArn}/streaming-configurations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurationsRequest": {
+      "type": "structure",
+      "members": {
+        "AppInstanceArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the streaming configuration.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "StreamingConfigurations": {
+          "target": "com.amazonaws.chimesdkmessaging#StreamingConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming configurations.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#PutMessagingStreamingConfigurationsResponse": {
+      "type": "structure",
+      "members": {
+        "StreamingConfigurations": {
+          "target": "com.amazonaws.chimesdkmessaging#StreamingConfigurationList",
+          "traits": {
+            "smithy.api#documentation": "<p>The requested streaming configurations.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#RedactChannelMessage": {
@@ -5569,7 +6164,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Redacts message content, but not metadata. The message exists in the back end, but the\n         action returns null content, and the state shows as redacted.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Redacts message content, but not metadata. The message exists in the back end, but the\n         action returns null content, and the state shows as redacted.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}?operation=redact",
@@ -5610,6 +6205,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#RedactChannelMessageResponse": {
@@ -5633,6 +6231,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>\n         <note>\n            <p>Only required when redacting messages in a SubChannel that the user belongs to.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException": {
@@ -5735,6 +6336,9 @@
             "smithy.api#httpQuery": "next-token"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#SearchChannelsResponse": {
@@ -5752,6 +6356,9 @@
             "smithy.api#documentation": "<p>The token returned from previous API responses until the number of channels is reached.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#SearchField": {
@@ -5877,7 +6484,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Sends a message to a particular channel that the member is a part of.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n\n            <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.\n               <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Sends a message to a particular channel that the member is a part of.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n            <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.\n               <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/channels/{ChannelArn}/messages",
@@ -5957,6 +6564,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#SendChannelMessageResponse": {
@@ -5986,6 +6596,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#ServiceFailureException": {
@@ -6045,6 +6658,40 @@
           "max": 256
         },
         "smithy.api#pattern": "^[\\s\\S]*$"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#StreamingConfiguration": {
+      "type": "structure",
+      "members": {
+        "DataType": {
+          "target": "com.amazonaws.chimesdkmessaging#MessagingDataType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data type of the configuration.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.chimesdkmessaging#ChimeArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the resource in the configuration. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for connecting a messaging stream to Amazon Kinesis.</p>"
+      }
+    },
+    "com.amazonaws.chimesdkmessaging#StreamingConfigurationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.chimesdkmessaging#StreamingConfiguration"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2
+        }
       }
     },
     "com.amazonaws.chimesdkmessaging#String": {
@@ -6199,6 +6846,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#TagValue": {
@@ -6308,6 +6958,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannel": {
@@ -6415,6 +7068,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelFlowResponse": {
@@ -6426,6 +7082,9 @@
             "smithy.api#documentation": "<p>The ARN of the channel flow.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelMessage": {
@@ -6460,7 +7119,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the content of a message.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Updates the content of a message.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/channels/{ChannelArn}/messages/{MessageId}",
@@ -6513,6 +7172,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>\n         <note>\n            <p>Only required when updating messages in a SubChannel that the user belongs to.</p>\n         </note>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelMessageResponse": {
@@ -6542,6 +7204,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelReadMarker": {
@@ -6576,7 +7241,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>The details of the time when a user last read messages in a channel.</p>\n\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
+        "smithy.api#documentation": "<p>The details of the time when a user last read messages in a channel.</p>\n         <note>\n            <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the\n               <code>AppInstanceUserArn</code> of the user that makes the API call as the value in\n            the header.</p>\n         </note>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/channels/{ChannelArn}/readMarker",
@@ -6609,6 +7274,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the request.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelReadMarkerResponse": {
@@ -6626,6 +7294,9 @@
             "smithy.api#documentation": "<p>The ID of the SubChannel in the response.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelRequest": {
@@ -6665,6 +7336,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UpdateChannelResponse": {
@@ -6676,6 +7350,9 @@
             "smithy.api#documentation": "<p>The ARN of the channel.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.chimesdkmessaging#UrlType": {

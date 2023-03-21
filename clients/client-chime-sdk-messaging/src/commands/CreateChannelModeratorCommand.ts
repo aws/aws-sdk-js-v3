@@ -40,7 +40,6 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
 
 /**
  * <p>Creates a new <code>ChannelModerator</code>. A channel moderator can:</p>
- *
  *          <ul>
  *             <li>
  *                <p>Add and remove other members of the channel.</p>
@@ -58,7 +57,6 @@ export interface CreateChannelModeratorCommandOutput extends CreateChannelModera
  *                <p>List messages in the channel.</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in

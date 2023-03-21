@@ -323,6 +323,14 @@ DeleteChannelModerator
 </details>
 <details>
 <summary>
+DeleteMessagingStreamingConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/classes/deletemessagingstreamingconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/deletemessagingstreamingconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/deletemessagingstreamingconfigurationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 DescribeChannel
 </summary>
 
@@ -419,6 +427,14 @@ GetMessagingSessionEndpoint
 </details>
 <details>
 <summary>
+GetMessagingStreamingConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/classes/getmessagingstreamingconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/getmessagingstreamingconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/getmessagingstreamingconfigurationscommandoutput.html)
+
+</details>
+<details>
+<summary>
 ListChannelBans
 </summary>
 
@@ -511,6 +527,14 @@ PutChannelMembershipPreferences
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/classes/putchannelmembershippreferencescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/putchannelmembershippreferencescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/putchannelmembershippreferencescommandoutput.html)
+
+</details>
+<details>
+<summary>
+PutMessagingStreamingConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/classes/putmessagingstreamingconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/putmessagingstreamingconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-messaging/interfaces/putmessagingstreamingconfigurationscommandoutput.html)
 
 </details>
 <details>

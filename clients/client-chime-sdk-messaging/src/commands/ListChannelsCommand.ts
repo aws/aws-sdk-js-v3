@@ -41,7 +41,6 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
 /**
  * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
  *          filters to narrow results.</p>
- *
  *          <p class="title">
  *             <b>Functionality & restrictions</b>
  *          </p>
@@ -55,7 +54,6 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  *                list the private channels in an account.</p>
  *             </li>
  *          </ul>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in

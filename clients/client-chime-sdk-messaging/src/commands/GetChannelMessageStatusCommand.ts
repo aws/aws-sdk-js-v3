@@ -41,9 +41,7 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
 /**
  * <p>Gets message status for a specified <code>messageId</code>. Use this API to determine the intermediate status of messages going through channel flow processing. The API provides an alternative to
  *          retrieving message status if the event was not received because a client wasn't connected to a websocket. </p>
- *
  *          <p>Messages can have any one of these statuses.</p>
- *
  *          <dl>
  *             <dt>SENT</dt>
  *             <dd>
@@ -62,7 +60,6 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  *                <p>Messasge denied by the processor</p>
  *             </dd>
  *          </dl>
- *
  *          <note>
  *             <ul>
  *                <li>

@@ -40,13 +40,11 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
 
 /**
  * <p>Lists all channel memberships in a channel.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
  *             the header.</p>
  *          </note>
- *
  *          <p>If you want to list the channels to which a specific app instance user belongs, see the
  *          <a href="https://docs.aws.amazon.com/chime/latest/APIReference/API_messaging-chime_ListChannelMembershipsForAppInstanceUser.html">ListChannelMembershipsForAppInstanceUser</a> API.</p>
  * @example

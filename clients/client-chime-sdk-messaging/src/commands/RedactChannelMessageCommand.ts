@@ -41,7 +41,6 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
 /**
  * <p>Redacts message content, but not metadata. The message exists in the back end, but the
  *          action returns null content, and the state shows as redacted.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in

@@ -40,12 +40,10 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
 
 /**
  * <p>Sends a message to a particular channel that the member is a part of.</p>
- *
  *          <note>
  *             <p>The <code>x-amz-chime-bearer</code> request header is mandatory. Use the
  *                <code>AppInstanceUserArn</code> of the user that makes the API call as the value in
  *             the header.</p>
- *
  *             <p>Also, <code>STANDARD</code> messages can contain 4KB of data and the 1KB of metadata.
  *                <code>CONTROL</code> messages can contain 30 bytes of data and no metadata.</p>
  *          </note>
