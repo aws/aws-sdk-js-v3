@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
+
+
+### Features
+
+* **client-chime-sdk-messaging:** Amazon Chime SDK messaging customers can now manage streaming configuration for messaging data for archival and analysis. ([edee457](https://github.com/aws/aws-sdk-js-v3/commit/edee4576d5a8fe124b347ffddf72fe6a152e8963))
+
+
+
+
+
 # [3.295.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.294.0...v3.295.0) (2023-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-messaging

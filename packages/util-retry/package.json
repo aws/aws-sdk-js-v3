@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-retry",
-  "version": "3.295.0",
+  "version": "3.296.0",
   "description": "Shared retry utilities to be used in middleware packages.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

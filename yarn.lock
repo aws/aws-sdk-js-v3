@@ -88,7 +88,7 @@
     tslib "^1.11.1"
 
 "@aws-sdk/client-sts@file:clients/client-sts":
-  version "3.295.0"
+  version "3.296.0"
   dependencies:
     "@aws-crypto/sha256-browser" "3.0.0"
     "@aws-crypto/sha256-js" "3.0.0"

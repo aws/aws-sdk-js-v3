@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
+
+
+### Features
+
+* **client-ec2:** This release adds support for AWS Network Firewall, AWS PrivateLink, and Gateway Load Balancers to Amazon VPC Reachability Analyzer, and it makes the path destination optional as long as a destination address in the filter at source is provided. ([eb6d517](https://github.com/aws/aws-sdk-js-v3/commit/eb6d51786513297ec1921bd98aa064a058721331))
+
+
+
+
+
 # [3.295.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.294.0...v3.295.0) (2023-03-20)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

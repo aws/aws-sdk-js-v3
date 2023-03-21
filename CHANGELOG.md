@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
+
+
+### Bug Fixes
+
+* **scripts:** prettify package.json when updating version numbers ([#4552](https://github.com/aws/aws-sdk-js-v3/issues/4552)) ([4d47810](https://github.com/aws/aws-sdk-js-v3/commit/4d478109a72b4612418adffd28c1cd71d7f9f805))
+* **scripts:** use json-stringify as parser for package.json ([#4559](https://github.com/aws/aws-sdk-js-v3/issues/4559)) ([69f53ce](https://github.com/aws/aws-sdk-js-v3/commit/69f53ce50b23c5ca4cef08eda6e69fddb39e223a))
+
+
+### Features
+
+* **client-chime-sdk-messaging:** Amazon Chime SDK messaging customers can now manage streaming configuration for messaging data for archival and analysis. ([edee457](https://github.com/aws/aws-sdk-js-v3/commit/edee4576d5a8fe124b347ffddf72fe6a152e8963))
+* **client-cleanrooms:** GA Release of AWS Clean Rooms, Added Tagging Functionality ([b310676](https://github.com/aws/aws-sdk-js-v3/commit/b31067659882adb89e550514040276a121d572df))
+* **client-ec2:** This release adds support for AWS Network Firewall, AWS PrivateLink, and Gateway Load Balancers to Amazon VPC Reachability Analyzer, and it makes the path destination optional as long as a destination address in the filter at source is provided. ([eb6d517](https://github.com/aws/aws-sdk-js-v3/commit/eb6d51786513297ec1921bd98aa064a058721331))
+* **client-iotsitewise:** Provide support for tagging of data streams and enabling tag based authorization for property alias ([0a085f6](https://github.com/aws/aws-sdk-js-v3/commit/0a085f61549a192be17792fa707eff76ab36fe02))
+* **client-mgn:** This release introduces the Import and export feature and expansion of the post-launch actions ([20befeb](https://github.com/aws/aws-sdk-js-v3/commit/20befeb26fc2d27d5b89c9b31ddc65a24244bb49))
+* **clients:** update client endpoints as of 2023-03-21 ([9cf1810](https://github.com/aws/aws-sdk-js-v3/commit/9cf1810a0ce57ef24e8d823d0f7345c61302bf0d))
+* **node-http-handler:** implement connections pool and manager interfaces ([#4508](https://github.com/aws/aws-sdk-js-v3/issues/4508)) ([86a6046](https://github.com/aws/aws-sdk-js-v3/commit/86a6046af170784a9858f101e84cf3d97df84a21))
+
+
+
+
+
 # [3.295.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.294.0...v3.295.0) (2023-03-20)
 
 

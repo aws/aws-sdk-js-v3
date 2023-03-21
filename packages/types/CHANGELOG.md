@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
+
+
+### Features
+
+* **node-http-handler:** implement connections pool and manager interfaces ([#4508](https://github.com/aws/aws-sdk-js-v3/issues/4508)) ([86a6046](https://github.com/aws/aws-sdk-js-v3/commit/86a6046af170784a9858f101e84cf3d97df84a21))
+
+
+
+
+
 # [3.295.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.294.0...v3.295.0) (2023-03-20)
 
 **Note:** Version bump only for package @aws-sdk/types
