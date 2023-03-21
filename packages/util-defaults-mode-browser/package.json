@@ -34,9 +34,19 @@
     "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
-  "engines": { "node": ">= 10.0.0" },
-  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
-  "files": ["dist-*"],
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*"
+  ],
   "react-native": {
     "./dist-es/resolveDefaultsModeConfig": "./dist-es/resolveDefaultsModeConfig.native"
   },
@@ -46,5 +56,7 @@
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-defaults-mode-node"
   },
-  "typedoc": { "entryPoint": "src/index.ts" }
+  "typedoc": {
+    "entryPoint": "src/index.ts"
+  }
 }

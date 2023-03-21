@@ -16,7 +16,10 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "dependencies": { "@aws-sdk/is-array-buffer": "*", "tslib": "^2.5.0" },
+  "dependencies": {
+    "@aws-sdk/is-array-buffer": "*",
+    "tslib": "^2.5.0"
+  },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^14.14.31",
@@ -29,14 +32,26 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
-  "engines": { "node": ">=14.0.0" },
-  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
-  "files": ["dist-*"],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-buffer-from",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-buffer-from"
   },
-  "typedoc": { "entryPoint": "src/index.ts" }
+  "typedoc": {
+    "entryPoint": "src/index.ts"
+  }
 }

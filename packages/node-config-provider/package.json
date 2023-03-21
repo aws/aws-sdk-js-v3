@@ -36,14 +36,26 @@
     "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
-  "engines": { "node": ">=14.0.0" },
-  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
-  "files": ["dist-*"],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*"
+  ],
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/node-config-provider",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/node-config-provider"
   },
-  "typedoc": { "entryPoint": "src/index.ts" }
+  "typedoc": {
+    "entryPoint": "src/index.ts"
+  }
 }

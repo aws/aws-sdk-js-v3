@@ -19,7 +19,9 @@
     "url": "https://aws.amazon.com/javascript/"
   },
   "license": "Apache-2.0",
-  "dependencies": { "@aws-sdk/url-parser": "*" },
+  "dependencies": {
+    "@aws-sdk/url-parser": "*"
+  },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
@@ -28,13 +30,23 @@
     "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
-  "engines": { "node": ">=14.0.0" },
-  "typesVersions": { "<4.0": { "dist-types/*": ["dist-types/ts3.4/*"] } },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/cloudfront-signer",
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/cloudfront-signer"
   },
-  "typedoc": { "entryPoint": "src/index.ts" }
+  "typedoc": {
+    "entryPoint": "src/index.ts"
+  }
 }
