@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.297.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.296.0...v3.297.0) (2023-03-22)
+
+
+### Features
+
+* **client-iottwinmaker:** This release adds support of adding metadata when creating a new scene or updating an existing scene. ([98c2508](https://github.com/aws/aws-sdk-js-v3/commit/98c250878fc5a638daebd684046c03bbcc65a4e6))
+* **client-pipes:** This release improves validation on the ARNs in the API model ([62c1580](https://github.com/aws/aws-sdk-js-v3/commit/62c158012a1c5a2e433d3e0079921befca263b1e))
+* **client-resiliencehub:** This release provides customers with the ability to import resources from within an EKS cluster and assess the resiliency of EKS cluster workloads. ([bb17cb4](https://github.com/aws/aws-sdk-js-v3/commit/bb17cb4c30dc437b2ed777ec0e1d8b9a9d53a039))
+* **client-ssm:** This Patch Manager release supports creating, updating, and deleting Patch Baselines for AmazonLinux2023, AlmaLinux. ([3094ca5](https://github.com/aws/aws-sdk-js-v3/commit/3094ca5e2d1af076f7f7784550b3979ef33c74bb))
+* **clients:** update client endpoints as of 2023-03-22 ([86334b3](https://github.com/aws/aws-sdk-js-v3/commit/86334b38eaf3ba0005f141a418cb36d2a6485a72))
+
+
+
+
+
 # [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
 
 

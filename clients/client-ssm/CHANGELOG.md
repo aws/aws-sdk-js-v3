@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.297.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.296.0...v3.297.0) (2023-03-22)
+
+
+### Features
+
+* **client-ssm:** This Patch Manager release supports creating, updating, and deleting Patch Baselines for AmazonLinux2023, AlmaLinux. ([3094ca5](https://github.com/aws/aws-sdk-js-v3/commit/3094ca5e2d1af076f7f7784550b3979ef33c74bb))
+
+
+
+
+
 # [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.297.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.296.0...v3.297.0) (2023-03-22)
+
+
+### Features
+
+* **client-iottwinmaker:** This release adds support of adding metadata when creating a new scene or updating an existing scene. ([98c2508](https://github.com/aws/aws-sdk-js-v3/commit/98c250878fc5a638daebd684046c03bbcc65a4e6))
+
+
+
+
+
 # [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
 
 **Note:** Version bump only for package @aws-sdk/client-iottwinmaker

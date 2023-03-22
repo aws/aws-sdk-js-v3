@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.297.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.296.0...v3.297.0) (2023-03-22)
+
+
+### Features
+
+* **client-resiliencehub:** This release provides customers with the ability to import resources from within an EKS cluster and assess the resiliency of EKS cluster workloads. ([bb17cb4](https://github.com/aws/aws-sdk-js-v3/commit/bb17cb4c30dc437b2ed777ec0e1d8b9a9d53a039))
+
+
+
+
+
 # [3.296.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.295.0...v3.296.0) (2023-03-21)
 
 **Note:** Version bump only for package @aws-sdk/client-resiliencehub
