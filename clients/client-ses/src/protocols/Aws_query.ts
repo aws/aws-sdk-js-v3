@@ -6872,9 +6872,7 @@ const deserializeAws_queryAccountSendingPausedException = (
   output: any,
   context: __SerdeContext
 ): AccountSendingPausedException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6882,10 +6880,7 @@ const deserializeAws_queryAccountSendingPausedException = (
 };
 
 const deserializeAws_queryAddHeaderAction = (output: any, context: __SerdeContext): AddHeaderAction => {
-  const contents: any = {
-    HeaderName: undefined,
-    HeaderValue: undefined,
-  };
+  const contents: any = {};
   if (output["HeaderName"] !== undefined) {
     contents.HeaderName = __expectString(output["HeaderName"]);
   }
@@ -6904,10 +6899,7 @@ const deserializeAws_queryAddressList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryAlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
-  const contents: any = {
-    Name: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -6918,13 +6910,7 @@ const deserializeAws_queryAlreadyExistsException = (output: any, context: __Serd
 };
 
 const deserializeAws_queryBounceAction = (output: any, context: __SerdeContext): BounceAction => {
-  const contents: any = {
-    TopicArn: undefined,
-    SmtpReplyCode: undefined,
-    StatusCode: undefined,
-    Message: undefined,
-    Sender: undefined,
-  };
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
@@ -6947,11 +6933,7 @@ const deserializeAws_queryBulkEmailDestinationStatus = (
   output: any,
   context: __SerdeContext
 ): BulkEmailDestinationStatus => {
-  const contents: any = {
-    Status: undefined,
-    Error: undefined,
-    MessageId: undefined,
-  };
+  const contents: any = {};
   if (output["Status"] !== undefined) {
     contents.Status = __expectString(output["Status"]);
   }
@@ -6976,10 +6958,7 @@ const deserializeAws_queryBulkEmailDestinationStatusList = (
 };
 
 const deserializeAws_queryCannotDeleteException = (output: any, context: __SerdeContext): CannotDeleteException => {
-  const contents: any = {
-    Name: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -6998,9 +6977,7 @@ const deserializeAws_queryCloneReceiptRuleSetResponse = (
 };
 
 const deserializeAws_queryCloudWatchDestination = (output: any, context: __SerdeContext): CloudWatchDestination => {
-  const contents: any = {
-    DimensionConfigurations: undefined,
-  };
+  const contents: any = {};
   if (output.DimensionConfigurations === "") {
     contents.DimensionConfigurations = [];
   } else if (
@@ -7019,11 +6996,7 @@ const deserializeAws_queryCloudWatchDimensionConfiguration = (
   output: any,
   context: __SerdeContext
 ): CloudWatchDimensionConfiguration => {
-  const contents: any = {
-    DimensionName: undefined,
-    DimensionValueSource: undefined,
-    DefaultDimensionValue: undefined,
-  };
+  const contents: any = {};
   if (output["DimensionName"] !== undefined) {
     contents.DimensionName = __expectString(output["DimensionName"]);
   }
@@ -7048,9 +7021,7 @@ const deserializeAws_queryCloudWatchDimensionConfigurations = (
 };
 
 const deserializeAws_queryConfigurationSet = (output: any, context: __SerdeContext): ConfigurationSet => {
-  const contents: any = {
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -7061,10 +7032,7 @@ const deserializeAws_queryConfigurationSetAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSetAlreadyExistsException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -7078,10 +7046,7 @@ const deserializeAws_queryConfigurationSetDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSetDoesNotExistException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -7103,10 +7068,7 @@ const deserializeAws_queryConfigurationSetSendingPausedException = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSetSendingPausedException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -7173,9 +7135,7 @@ const deserializeAws_queryCustomVerificationEmailInvalidContentException = (
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailInvalidContentException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7186,13 +7146,7 @@ const deserializeAws_queryCustomVerificationEmailTemplate = (
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailTemplate => {
-  const contents: any = {
-    TemplateName: undefined,
-    FromEmailAddress: undefined,
-    TemplateSubject: undefined,
-    SuccessRedirectionURL: undefined,
-    FailureRedirectionURL: undefined,
-  };
+  const contents: any = {};
   if (output["TemplateName"] !== undefined) {
     contents.TemplateName = __expectString(output["TemplateName"]);
   }
@@ -7215,10 +7169,7 @@ const deserializeAws_queryCustomVerificationEmailTemplateAlreadyExistsException 
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailTemplateAlreadyExistsException => {
-  const contents: any = {
-    CustomVerificationEmailTemplateName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["CustomVerificationEmailTemplateName"] !== undefined) {
     contents.CustomVerificationEmailTemplateName = __expectString(output["CustomVerificationEmailTemplateName"]);
   }
@@ -7232,10 +7183,7 @@ const deserializeAws_queryCustomVerificationEmailTemplateDoesNotExistException =
   output: any,
   context: __SerdeContext
 ): CustomVerificationEmailTemplateDoesNotExistException => {
-  const contents: any = {
-    CustomVerificationEmailTemplateName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["CustomVerificationEmailTemplateName"] !== undefined) {
     contents.CustomVerificationEmailTemplateName = __expectString(output["CustomVerificationEmailTemplateName"]);
   }
@@ -7323,9 +7271,7 @@ const deserializeAws_queryDeleteTemplateResponse = (output: any, context: __Serd
 };
 
 const deserializeAws_queryDeliveryOptions = (output: any, context: __SerdeContext): DeliveryOptions => {
-  const contents: any = {
-    TlsPolicy: undefined,
-  };
+  const contents: any = {};
   if (output["TlsPolicy"] !== undefined) {
     contents.TlsPolicy = __expectString(output["TlsPolicy"]);
   }
@@ -7336,10 +7282,7 @@ const deserializeAws_queryDescribeActiveReceiptRuleSetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeActiveReceiptRuleSetResponse => {
-  const contents: any = {
-    Metadata: undefined,
-    Rules: undefined,
-  };
+  const contents: any = {};
   if (output["Metadata"] !== undefined) {
     contents.Metadata = deserializeAws_queryReceiptRuleSetMetadata(output["Metadata"], context);
   }
@@ -7355,13 +7298,7 @@ const deserializeAws_queryDescribeConfigurationSetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeConfigurationSetResponse => {
-  const contents: any = {
-    ConfigurationSet: undefined,
-    EventDestinations: undefined,
-    TrackingOptions: undefined,
-    DeliveryOptions: undefined,
-    ReputationOptions: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSet"] !== undefined) {
     contents.ConfigurationSet = deserializeAws_queryConfigurationSet(output["ConfigurationSet"], context);
   }
@@ -7389,9 +7326,7 @@ const deserializeAws_queryDescribeReceiptRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeReceiptRuleResponse => {
-  const contents: any = {
-    Rule: undefined,
-  };
+  const contents: any = {};
   if (output["Rule"] !== undefined) {
     contents.Rule = deserializeAws_queryReceiptRule(output["Rule"], context);
   }
@@ -7402,10 +7337,7 @@ const deserializeAws_queryDescribeReceiptRuleSetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeReceiptRuleSetResponse => {
-  const contents: any = {
-    Metadata: undefined,
-    Rules: undefined,
-  };
+  const contents: any = {};
   if (output["Metadata"] !== undefined) {
     contents.Metadata = deserializeAws_queryReceiptRuleSetMetadata(output["Metadata"], context);
   }
@@ -7431,14 +7363,7 @@ const deserializeAws_queryDkimAttributes = (
 };
 
 const deserializeAws_queryEventDestination = (output: any, context: __SerdeContext): EventDestination => {
-  const contents: any = {
-    Name: undefined,
-    Enabled: undefined,
-    MatchingEventTypes: undefined,
-    KinesisFirehoseDestination: undefined,
-    CloudWatchDestination: undefined,
-    SNSDestination: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -7475,11 +7400,7 @@ const deserializeAws_queryEventDestinationAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): EventDestinationAlreadyExistsException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    EventDestinationName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -7496,11 +7417,7 @@ const deserializeAws_queryEventDestinationDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): EventDestinationDoesNotExistException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    EventDestinationName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -7533,10 +7450,7 @@ const deserializeAws_queryFromEmailAddressNotVerifiedException = (
   output: any,
   context: __SerdeContext
 ): FromEmailAddressNotVerifiedException => {
-  const contents: any = {
-    FromEmailAddress: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["FromEmailAddress"] !== undefined) {
     contents.FromEmailAddress = __expectString(output["FromEmailAddress"]);
   }
@@ -7550,9 +7464,7 @@ const deserializeAws_queryGetAccountSendingEnabledResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccountSendingEnabledResponse => {
-  const contents: any = {
-    Enabled: undefined,
-  };
+  const contents: any = {};
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
@@ -7563,14 +7475,7 @@ const deserializeAws_queryGetCustomVerificationEmailTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): GetCustomVerificationEmailTemplateResponse => {
-  const contents: any = {
-    TemplateName: undefined,
-    FromEmailAddress: undefined,
-    TemplateSubject: undefined,
-    TemplateContent: undefined,
-    SuccessRedirectionURL: undefined,
-    FailureRedirectionURL: undefined,
-  };
+  const contents: any = {};
   if (output["TemplateName"] !== undefined) {
     contents.TemplateName = __expectString(output["TemplateName"]);
   }
@@ -7596,9 +7501,7 @@ const deserializeAws_queryGetIdentityDkimAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityDkimAttributesResponse => {
-  const contents: any = {
-    DkimAttributes: undefined,
-  };
+  const contents: any = {};
   if (output.DkimAttributes === "") {
     contents.DkimAttributes = {};
   } else if (output["DkimAttributes"] !== undefined && output["DkimAttributes"]["entry"] !== undefined) {
@@ -7614,9 +7517,7 @@ const deserializeAws_queryGetIdentityMailFromDomainAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityMailFromDomainAttributesResponse => {
-  const contents: any = {
-    MailFromDomainAttributes: undefined,
-  };
+  const contents: any = {};
   if (output.MailFromDomainAttributes === "") {
     contents.MailFromDomainAttributes = {};
   } else if (
@@ -7635,9 +7536,7 @@ const deserializeAws_queryGetIdentityNotificationAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityNotificationAttributesResponse => {
-  const contents: any = {
-    NotificationAttributes: undefined,
-  };
+  const contents: any = {};
   if (output.NotificationAttributes === "") {
     contents.NotificationAttributes = {};
   } else if (
@@ -7656,9 +7555,7 @@ const deserializeAws_queryGetIdentityPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityPoliciesResponse => {
-  const contents: any = {
-    Policies: undefined,
-  };
+  const contents: any = {};
   if (output.Policies === "") {
     contents.Policies = {};
   } else if (output["Policies"] !== undefined && output["Policies"]["entry"] !== undefined) {
@@ -7671,9 +7568,7 @@ const deserializeAws_queryGetIdentityVerificationAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): GetIdentityVerificationAttributesResponse => {
-  const contents: any = {
-    VerificationAttributes: undefined,
-  };
+  const contents: any = {};
   if (output.VerificationAttributes === "") {
     contents.VerificationAttributes = {};
   } else if (
@@ -7689,11 +7584,7 @@ const deserializeAws_queryGetIdentityVerificationAttributesResponse = (
 };
 
 const deserializeAws_queryGetSendQuotaResponse = (output: any, context: __SerdeContext): GetSendQuotaResponse => {
-  const contents: any = {
-    Max24HourSend: undefined,
-    MaxSendRate: undefined,
-    SentLast24Hours: undefined,
-  };
+  const contents: any = {};
   if (output["Max24HourSend"] !== undefined) {
     contents.Max24HourSend = __strictParseFloat(output["Max24HourSend"]) as number;
   }
@@ -7710,9 +7601,7 @@ const deserializeAws_queryGetSendStatisticsResponse = (
   output: any,
   context: __SerdeContext
 ): GetSendStatisticsResponse => {
-  const contents: any = {
-    SendDataPoints: undefined,
-  };
+  const contents: any = {};
   if (output.SendDataPoints === "") {
     contents.SendDataPoints = [];
   } else if (output["SendDataPoints"] !== undefined && output["SendDataPoints"]["member"] !== undefined) {
@@ -7725,9 +7614,7 @@ const deserializeAws_queryGetSendStatisticsResponse = (
 };
 
 const deserializeAws_queryGetTemplateResponse = (output: any, context: __SerdeContext): GetTemplateResponse => {
-  const contents: any = {
-    Template: undefined,
-  };
+  const contents: any = {};
   if (output["Template"] !== undefined) {
     contents.Template = deserializeAws_queryTemplate(output["Template"], context);
   }
@@ -7735,11 +7622,7 @@ const deserializeAws_queryGetTemplateResponse = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryIdentityDkimAttributes = (output: any, context: __SerdeContext): IdentityDkimAttributes => {
-  const contents: any = {
-    DkimEnabled: undefined,
-    DkimVerificationStatus: undefined,
-    DkimTokens: undefined,
-  };
+  const contents: any = {};
   if (output["DkimEnabled"] !== undefined) {
     contents.DkimEnabled = __parseBoolean(output["DkimEnabled"]);
   }
@@ -7769,11 +7652,7 @@ const deserializeAws_queryIdentityMailFromDomainAttributes = (
   output: any,
   context: __SerdeContext
 ): IdentityMailFromDomainAttributes => {
-  const contents: any = {
-    MailFromDomain: undefined,
-    MailFromDomainStatus: undefined,
-    BehaviorOnMXFailure: undefined,
-  };
+  const contents: any = {};
   if (output["MailFromDomain"] !== undefined) {
     contents.MailFromDomain = __expectString(output["MailFromDomain"]);
   }
@@ -7790,15 +7669,7 @@ const deserializeAws_queryIdentityNotificationAttributes = (
   output: any,
   context: __SerdeContext
 ): IdentityNotificationAttributes => {
-  const contents: any = {
-    BounceTopic: undefined,
-    ComplaintTopic: undefined,
-    DeliveryTopic: undefined,
-    ForwardingEnabled: undefined,
-    HeadersInBounceNotificationsEnabled: undefined,
-    HeadersInComplaintNotificationsEnabled: undefined,
-    HeadersInDeliveryNotificationsEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["BounceTopic"] !== undefined) {
     contents.BounceTopic = __expectString(output["BounceTopic"]);
   }
@@ -7827,10 +7698,7 @@ const deserializeAws_queryIdentityVerificationAttributes = (
   output: any,
   context: __SerdeContext
 ): IdentityVerificationAttributes => {
-  const contents: any = {
-    VerificationStatus: undefined,
-    VerificationToken: undefined,
-  };
+  const contents: any = {};
   if (output["VerificationStatus"] !== undefined) {
     contents.VerificationStatus = __expectString(output["VerificationStatus"]);
   }
@@ -7844,11 +7712,7 @@ const deserializeAws_queryInvalidCloudWatchDestinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidCloudWatchDestinationException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    EventDestinationName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -7865,9 +7729,7 @@ const deserializeAws_queryInvalidConfigurationSetException = (
   output: any,
   context: __SerdeContext
 ): InvalidConfigurationSetException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7878,9 +7740,7 @@ const deserializeAws_queryInvalidDeliveryOptionsException = (
   output: any,
   context: __SerdeContext
 ): InvalidDeliveryOptionsException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7891,11 +7751,7 @@ const deserializeAws_queryInvalidFirehoseDestinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidFirehoseDestinationException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    EventDestinationName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -7912,10 +7768,7 @@ const deserializeAws_queryInvalidLambdaFunctionException = (
   output: any,
   context: __SerdeContext
 ): InvalidLambdaFunctionException => {
-  const contents: any = {
-    FunctionArn: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["FunctionArn"] !== undefined) {
     contents.FunctionArn = __expectString(output["FunctionArn"]);
   }
@@ -7926,9 +7779,7 @@ const deserializeAws_queryInvalidLambdaFunctionException = (
 };
 
 const deserializeAws_queryInvalidPolicyException = (output: any, context: __SerdeContext): InvalidPolicyException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7939,10 +7790,7 @@ const deserializeAws_queryInvalidRenderingParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidRenderingParameterException => {
-  const contents: any = {
-    TemplateName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["TemplateName"] !== undefined) {
     contents.TemplateName = __expectString(output["TemplateName"]);
   }
@@ -7956,10 +7804,7 @@ const deserializeAws_queryInvalidS3ConfigurationException = (
   output: any,
   context: __SerdeContext
 ): InvalidS3ConfigurationException => {
-  const contents: any = {
-    Bucket: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["Bucket"] !== undefined) {
     contents.Bucket = __expectString(output["Bucket"]);
   }
@@ -7973,11 +7818,7 @@ const deserializeAws_queryInvalidSNSDestinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidSNSDestinationException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    EventDestinationName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -7994,10 +7835,7 @@ const deserializeAws_queryInvalidSnsTopicException = (
   output: any,
   context: __SerdeContext
 ): InvalidSnsTopicException => {
-  const contents: any = {
-    Topic: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["Topic"] !== undefined) {
     contents.Topic = __expectString(output["Topic"]);
   }
@@ -8011,10 +7849,7 @@ const deserializeAws_queryInvalidTemplateException = (
   output: any,
   context: __SerdeContext
 ): InvalidTemplateException => {
-  const contents: any = {
-    TemplateName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["TemplateName"] !== undefined) {
     contents.TemplateName = __expectString(output["TemplateName"]);
   }
@@ -8028,9 +7863,7 @@ const deserializeAws_queryInvalidTrackingOptionsException = (
   output: any,
   context: __SerdeContext
 ): InvalidTrackingOptionsException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -8041,10 +7874,7 @@ const deserializeAws_queryKinesisFirehoseDestination = (
   output: any,
   context: __SerdeContext
 ): KinesisFirehoseDestination => {
-  const contents: any = {
-    IAMRoleARN: undefined,
-    DeliveryStreamARN: undefined,
-  };
+  const contents: any = {};
   if (output["IAMRoleARN"] !== undefined) {
     contents.IAMRoleARN = __expectString(output["IAMRoleARN"]);
   }
@@ -8055,11 +7885,7 @@ const deserializeAws_queryKinesisFirehoseDestination = (
 };
 
 const deserializeAws_queryLambdaAction = (output: any, context: __SerdeContext): LambdaAction => {
-  const contents: any = {
-    TopicArn: undefined,
-    FunctionArn: undefined,
-    InvocationType: undefined,
-  };
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
@@ -8073,9 +7899,7 @@ const deserializeAws_queryLambdaAction = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -8086,10 +7910,7 @@ const deserializeAws_queryListConfigurationSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListConfigurationSetsResponse => {
-  const contents: any = {
-    ConfigurationSets: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ConfigurationSets === "") {
     contents.ConfigurationSets = [];
   } else if (output["ConfigurationSets"] !== undefined && output["ConfigurationSets"]["member"] !== undefined) {
@@ -8108,10 +7929,7 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
   output: any,
   context: __SerdeContext
 ): ListCustomVerificationEmailTemplatesResponse => {
-  const contents: any = {
-    CustomVerificationEmailTemplates: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.CustomVerificationEmailTemplates === "") {
     contents.CustomVerificationEmailTemplates = [];
   } else if (
@@ -8130,10 +7948,7 @@ const deserializeAws_queryListCustomVerificationEmailTemplatesResponse = (
 };
 
 const deserializeAws_queryListIdentitiesResponse = (output: any, context: __SerdeContext): ListIdentitiesResponse => {
-  const contents: any = {
-    Identities: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Identities === "") {
     contents.Identities = [];
   } else if (output["Identities"] !== undefined && output["Identities"]["member"] !== undefined) {
@@ -8152,9 +7967,7 @@ const deserializeAws_queryListIdentityPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListIdentityPoliciesResponse => {
-  const contents: any = {
-    PolicyNames: undefined,
-  };
+  const contents: any = {};
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
   } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
@@ -8170,9 +7983,7 @@ const deserializeAws_queryListReceiptFiltersResponse = (
   output: any,
   context: __SerdeContext
 ): ListReceiptFiltersResponse => {
-  const contents: any = {
-    Filters: undefined,
-  };
+  const contents: any = {};
   if (output.Filters === "") {
     contents.Filters = [];
   } else if (output["Filters"] !== undefined && output["Filters"]["member"] !== undefined) {
@@ -8188,10 +7999,7 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListReceiptRuleSetsResponse => {
-  const contents: any = {
-    RuleSets: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.RuleSets === "") {
     contents.RuleSets = [];
   } else if (output["RuleSets"] !== undefined && output["RuleSets"]["member"] !== undefined) {
@@ -8207,10 +8015,7 @@ const deserializeAws_queryListReceiptRuleSetsResponse = (
 };
 
 const deserializeAws_queryListTemplatesResponse = (output: any, context: __SerdeContext): ListTemplatesResponse => {
-  const contents: any = {
-    TemplatesMetadata: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.TemplatesMetadata === "") {
     contents.TemplatesMetadata = [];
   } else if (output["TemplatesMetadata"] !== undefined && output["TemplatesMetadata"]["member"] !== undefined) {
@@ -8229,9 +8034,7 @@ const deserializeAws_queryListVerifiedEmailAddressesResponse = (
   output: any,
   context: __SerdeContext
 ): ListVerifiedEmailAddressesResponse => {
-  const contents: any = {
-    VerifiedEmailAddresses: undefined,
-  };
+  const contents: any = {};
   if (output.VerifiedEmailAddresses === "") {
     contents.VerifiedEmailAddresses = [];
   } else if (
@@ -8263,9 +8066,7 @@ const deserializeAws_queryMailFromDomainNotVerifiedException = (
   output: any,
   context: __SerdeContext
 ): MailFromDomainNotVerifiedException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -8273,9 +8074,7 @@ const deserializeAws_queryMailFromDomainNotVerifiedException = (
 };
 
 const deserializeAws_queryMessageRejected = (output: any, context: __SerdeContext): MessageRejected => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -8286,10 +8085,7 @@ const deserializeAws_queryMissingRenderingAttributeException = (
   output: any,
   context: __SerdeContext
 ): MissingRenderingAttributeException => {
-  const contents: any = {
-    TemplateName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["TemplateName"] !== undefined) {
     contents.TemplateName = __expectString(output["TemplateName"]);
   }
@@ -8334,9 +8130,7 @@ const deserializeAws_queryProductionAccessNotGrantedException = (
   output: any,
   context: __SerdeContext
 ): ProductionAccessNotGrantedException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -8360,15 +8154,7 @@ const deserializeAws_queryPutIdentityPolicyResponse = (
 };
 
 const deserializeAws_queryReceiptAction = (output: any, context: __SerdeContext): ReceiptAction => {
-  const contents: any = {
-    S3Action: undefined,
-    BounceAction: undefined,
-    WorkmailAction: undefined,
-    LambdaAction: undefined,
-    StopAction: undefined,
-    AddHeaderAction: undefined,
-    SNSAction: undefined,
-  };
+  const contents: any = {};
   if (output["S3Action"] !== undefined) {
     contents.S3Action = deserializeAws_queryS3Action(output["S3Action"], context);
   }
@@ -8402,10 +8188,7 @@ const deserializeAws_queryReceiptActionsList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryReceiptFilter = (output: any, context: __SerdeContext): ReceiptFilter => {
-  const contents: any = {
-    Name: undefined,
-    IpFilter: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -8424,10 +8207,7 @@ const deserializeAws_queryReceiptFilterList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryReceiptIpFilter = (output: any, context: __SerdeContext): ReceiptIpFilter => {
-  const contents: any = {
-    Policy: undefined,
-    Cidr: undefined,
-  };
+  const contents: any = {};
   if (output["Policy"] !== undefined) {
     contents.Policy = __expectString(output["Policy"]);
   }
@@ -8438,14 +8218,7 @@ const deserializeAws_queryReceiptIpFilter = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryReceiptRule = (output: any, context: __SerdeContext): ReceiptRule => {
-  const contents: any = {
-    Name: undefined,
-    Enabled: undefined,
-    TlsPolicy: undefined,
-    Recipients: undefined,
-    Actions: undefined,
-    ScanEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -8478,10 +8251,7 @@ const deserializeAws_queryReceiptRule = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryReceiptRuleSetMetadata = (output: any, context: __SerdeContext): ReceiptRuleSetMetadata => {
-  const contents: any = {
-    Name: undefined,
-    CreatedTimestamp: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -8524,11 +8294,7 @@ const deserializeAws_queryReorderReceiptRuleSetResponse = (
 };
 
 const deserializeAws_queryReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
-  const contents: any = {
-    SendingEnabled: undefined,
-    ReputationMetricsEnabled: undefined,
-    LastFreshStart: undefined,
-  };
+  const contents: any = {};
   if (output["SendingEnabled"] !== undefined) {
     contents.SendingEnabled = __parseBoolean(output["SendingEnabled"]);
   }
@@ -8545,10 +8311,7 @@ const deserializeAws_queryRuleDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): RuleDoesNotExistException => {
-  const contents: any = {
-    Name: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -8562,10 +8325,7 @@ const deserializeAws_queryRuleSetDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): RuleSetDoesNotExistException => {
-  const contents: any = {
-    Name: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -8576,12 +8336,7 @@ const deserializeAws_queryRuleSetDoesNotExistException = (
 };
 
 const deserializeAws_queryS3Action = (output: any, context: __SerdeContext): S3Action => {
-  const contents: any = {
-    TopicArn: undefined,
-    BucketName: undefined,
-    ObjectKeyPrefix: undefined,
-    KmsKeyArn: undefined,
-  };
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
@@ -8598,9 +8353,7 @@ const deserializeAws_queryS3Action = (output: any, context: __SerdeContext): S3A
 };
 
 const deserializeAws_querySendBounceResponse = (output: any, context: __SerdeContext): SendBounceResponse => {
-  const contents: any = {
-    MessageId: undefined,
-  };
+  const contents: any = {};
   if (output["MessageId"] !== undefined) {
     contents.MessageId = __expectString(output["MessageId"]);
   }
@@ -8611,9 +8364,7 @@ const deserializeAws_querySendBulkTemplatedEmailResponse = (
   output: any,
   context: __SerdeContext
 ): SendBulkTemplatedEmailResponse => {
-  const contents: any = {
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output.Status === "") {
     contents.Status = [];
   } else if (output["Status"] !== undefined && output["Status"]["member"] !== undefined) {
@@ -8629,9 +8380,7 @@ const deserializeAws_querySendCustomVerificationEmailResponse = (
   output: any,
   context: __SerdeContext
 ): SendCustomVerificationEmailResponse => {
-  const contents: any = {
-    MessageId: undefined,
-  };
+  const contents: any = {};
   if (output["MessageId"] !== undefined) {
     contents.MessageId = __expectString(output["MessageId"]);
   }
@@ -8639,13 +8388,7 @@ const deserializeAws_querySendCustomVerificationEmailResponse = (
 };
 
 const deserializeAws_querySendDataPoint = (output: any, context: __SerdeContext): SendDataPoint => {
-  const contents: any = {
-    Timestamp: undefined,
-    DeliveryAttempts: undefined,
-    Bounces: undefined,
-    Complaints: undefined,
-    Rejects: undefined,
-  };
+  const contents: any = {};
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
@@ -8673,9 +8416,7 @@ const deserializeAws_querySendDataPointList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySendEmailResponse = (output: any, context: __SerdeContext): SendEmailResponse => {
-  const contents: any = {
-    MessageId: undefined,
-  };
+  const contents: any = {};
   if (output["MessageId"] !== undefined) {
     contents.MessageId = __expectString(output["MessageId"]);
   }
@@ -8683,9 +8424,7 @@ const deserializeAws_querySendEmailResponse = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySendRawEmailResponse = (output: any, context: __SerdeContext): SendRawEmailResponse => {
-  const contents: any = {
-    MessageId: undefined,
-  };
+  const contents: any = {};
   if (output["MessageId"] !== undefined) {
     contents.MessageId = __expectString(output["MessageId"]);
   }
@@ -8696,9 +8435,7 @@ const deserializeAws_querySendTemplatedEmailResponse = (
   output: any,
   context: __SerdeContext
 ): SendTemplatedEmailResponse => {
-  const contents: any = {
-    MessageId: undefined,
-  };
+  const contents: any = {};
   if (output["MessageId"] !== undefined) {
     contents.MessageId = __expectString(output["MessageId"]);
   }
@@ -8762,10 +8499,7 @@ const deserializeAws_querySetReceiptRulePositionResponse = (
 };
 
 const deserializeAws_querySNSAction = (output: any, context: __SerdeContext): SNSAction => {
-  const contents: any = {
-    TopicArn: undefined,
-    Encoding: undefined,
-  };
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }
@@ -8776,9 +8510,7 @@ const deserializeAws_querySNSAction = (output: any, context: __SerdeContext): SN
 };
 
 const deserializeAws_querySNSDestination = (output: any, context: __SerdeContext): SNSDestination => {
-  const contents: any = {
-    TopicARN: undefined,
-  };
+  const contents: any = {};
   if (output["TopicARN"] !== undefined) {
     contents.TopicARN = __expectString(output["TopicARN"]);
   }
@@ -8786,10 +8518,7 @@ const deserializeAws_querySNSDestination = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryStopAction = (output: any, context: __SerdeContext): StopAction => {
-  const contents: any = {
-    Scope: undefined,
-    TopicArn: undefined,
-  };
+  const contents: any = {};
   if (output["Scope"] !== undefined) {
     contents.Scope = __expectString(output["Scope"]);
   }
@@ -8800,12 +8529,7 @@ const deserializeAws_queryStopAction = (output: any, context: __SerdeContext): S
 };
 
 const deserializeAws_queryTemplate = (output: any, context: __SerdeContext): Template => {
-  const contents: any = {
-    TemplateName: undefined,
-    SubjectPart: undefined,
-    TextPart: undefined,
-    HtmlPart: undefined,
-  };
+  const contents: any = {};
   if (output["TemplateName"] !== undefined) {
     contents.TemplateName = __expectString(output["TemplateName"]);
   }
@@ -8825,10 +8549,7 @@ const deserializeAws_queryTemplateDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): TemplateDoesNotExistException => {
-  const contents: any = {
-    TemplateName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["TemplateName"] !== undefined) {
     contents.TemplateName = __expectString(output["TemplateName"]);
   }
@@ -8839,10 +8560,7 @@ const deserializeAws_queryTemplateDoesNotExistException = (
 };
 
 const deserializeAws_queryTemplateMetadata = (output: any, context: __SerdeContext): TemplateMetadata => {
-  const contents: any = {
-    Name: undefined,
-    CreatedTimestamp: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -8864,9 +8582,7 @@ const deserializeAws_queryTestRenderTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): TestRenderTemplateResponse => {
-  const contents: any = {
-    RenderedTemplate: undefined,
-  };
+  const contents: any = {};
   if (output["RenderedTemplate"] !== undefined) {
     contents.RenderedTemplate = __expectString(output["RenderedTemplate"]);
   }
@@ -8874,9 +8590,7 @@ const deserializeAws_queryTestRenderTemplateResponse = (
 };
 
 const deserializeAws_queryTrackingOptions = (output: any, context: __SerdeContext): TrackingOptions => {
-  const contents: any = {
-    CustomRedirectDomain: undefined,
-  };
+  const contents: any = {};
   if (output["CustomRedirectDomain"] !== undefined) {
     contents.CustomRedirectDomain = __expectString(output["CustomRedirectDomain"]);
   }
@@ -8887,10 +8601,7 @@ const deserializeAws_queryTrackingOptionsAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): TrackingOptionsAlreadyExistsException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -8904,10 +8615,7 @@ const deserializeAws_queryTrackingOptionsDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): TrackingOptionsDoesNotExistException => {
-  const contents: any = {
-    ConfigurationSetName: undefined,
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["ConfigurationSetName"] !== undefined) {
     contents.ConfigurationSetName = __expectString(output["ConfigurationSetName"]);
   }
@@ -8971,9 +8679,7 @@ const deserializeAws_queryVerifyDomainDkimResponse = (
   output: any,
   context: __SerdeContext
 ): VerifyDomainDkimResponse => {
-  const contents: any = {
-    DkimTokens: undefined,
-  };
+  const contents: any = {};
   if (output.DkimTokens === "") {
     contents.DkimTokens = [];
   } else if (output["DkimTokens"] !== undefined && output["DkimTokens"]["member"] !== undefined) {
@@ -8989,9 +8695,7 @@ const deserializeAws_queryVerifyDomainIdentityResponse = (
   output: any,
   context: __SerdeContext
 ): VerifyDomainIdentityResponse => {
-  const contents: any = {
-    VerificationToken: undefined,
-  };
+  const contents: any = {};
   if (output["VerificationToken"] !== undefined) {
     contents.VerificationToken = __expectString(output["VerificationToken"]);
   }
@@ -9007,10 +8711,7 @@ const deserializeAws_queryVerifyEmailIdentityResponse = (
 };
 
 const deserializeAws_queryWorkmailAction = (output: any, context: __SerdeContext): WorkmailAction => {
-  const contents: any = {
-    TopicArn: undefined,
-    OrganizationArn: undefined,
-  };
+  const contents: any = {};
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = __expectString(output["TopicArn"]);
   }

@@ -5152,9 +5152,7 @@ const serializeAws_restXmlTimestampList = (input: Date[], context: __SerdeContex
 };
 
 const deserializeAws_restXmlComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
-  const contents: any = {
-    Foo: undefined,
-  };
+  const contents: any = {};
   if (output["Foo"] !== undefined) {
     contents.Foo = __expectString(output["Foo"]);
   }
@@ -5217,10 +5215,7 @@ const deserializeAws_restXmlNestedMap = (
 };
 
 const deserializeAws_restXmlNestedPayload = (output: any, context: __SerdeContext): NestedPayload => {
-  const contents: any = {
-    greeting: undefined,
-    name: undefined,
-  };
+  const contents: any = {};
   if (output["greeting"] !== undefined) {
     contents.greeting = __expectString(output["greeting"]);
   }
@@ -5231,9 +5226,7 @@ const deserializeAws_restXmlNestedPayload = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlPayloadWithXmlName = (output: any, context: __SerdeContext): PayloadWithXmlName => {
-  const contents: any = {
-    name: undefined,
-  };
+  const contents: any = {};
   if (output["name"] !== undefined) {
     contents.name = __expectString(output["name"]);
   }
@@ -5244,9 +5237,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespace = (
   output: any,
   context: __SerdeContext
 ): PayloadWithXmlNamespace => {
-  const contents: any = {
-    name: undefined,
-  };
+  const contents: any = {};
   if (output["name"] !== undefined) {
     contents.name = __expectString(output["name"]);
   }
@@ -5257,9 +5248,7 @@ const deserializeAws_restXmlPayloadWithXmlNamespaceAndPrefix = (
   output: any,
   context: __SerdeContext
 ): PayloadWithXmlNamespaceAndPrefix => {
-  const contents: any = {
-    name: undefined,
-  };
+  const contents: any = {};
   if (output["name"] !== undefined) {
     contents.name = __expectString(output["name"]);
   }
@@ -5270,10 +5259,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested1 = (
   output: any,
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
-  const contents: any = {
-    foo: undefined,
-    nested: undefined,
-  };
+  const contents: any = {};
   if (output["foo"] !== undefined) {
     contents.foo = __expectString(output["foo"]);
   }
@@ -5287,10 +5273,7 @@ const deserializeAws_restXmlRecursiveShapesInputOutputNested2 = (
   output: any,
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
-  const contents: any = {
-    bar: undefined,
-    recursiveMember: undefined,
-  };
+  const contents: any = {};
   if (output["bar"] !== undefined) {
     contents.bar = __expectString(output["bar"]);
   }
@@ -5320,10 +5303,7 @@ const deserializeAws_restXmlStructureList = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_restXmlStructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
-  const contents: any = {
-    a: undefined,
-    b: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.a = __expectString(output["value"]);
   }
@@ -5337,10 +5317,7 @@ const deserializeAws_restXmlXmlAttributesInputOutput = (
   output: any,
   context: __SerdeContext
 ): XmlAttributesInputOutput => {
-  const contents: any = {
-    foo: undefined,
-    attr: undefined,
-  };
+  const contents: any = {};
   if (output["foo"] !== undefined) {
     contents.foo = __expectString(output["foo"]);
   }
@@ -5385,10 +5362,7 @@ const deserializeAws_restXmlXmlNamespacedList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restXmlXmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
-  const contents: any = {
-    foo: undefined,
-    values: undefined,
-  };
+  const contents: any = {};
   if (output["foo"] !== undefined) {
     contents.foo = __expectString(output["foo"]);
   }
@@ -5404,16 +5378,7 @@ const deserializeAws_restXmlXmlNamespaceNested = (output: any, context: __SerdeC
 };
 
 const deserializeAws_restXmlXmlNestedUnionStruct = (output: any, context: __SerdeContext): XmlNestedUnionStruct => {
-  const contents: any = {
-    stringValue: undefined,
-    booleanValue: undefined,
-    byteValue: undefined,
-    shortValue: undefined,
-    integerValue: undefined,
-    longValue: undefined,
-    floatValue: undefined,
-    doubleValue: undefined,
-  };
+  const contents: any = {};
   if (output["stringValue"] !== undefined) {
     contents.stringValue = __expectString(output["stringValue"]);
   }
@@ -5532,9 +5497,7 @@ const deserializeAws_restXmlFooEnumSet = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_restXmlGreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
-  const contents: any = {
-    hi: undefined,
-  };
+  const contents: any = {};
   if (output["hi"] !== undefined) {
     contents.hi = __expectString(output["hi"]);
   }

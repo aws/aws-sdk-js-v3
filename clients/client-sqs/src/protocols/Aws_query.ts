@@ -2170,12 +2170,7 @@ const deserializeAws_queryBatchRequestTooLong = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryBatchResultErrorEntry = (output: any, context: __SerdeContext): BatchResultErrorEntry => {
-  const contents: any = {
-    Id: undefined,
-    SenderFault: undefined,
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -2214,10 +2209,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchResult = (
   output: any,
   context: __SerdeContext
 ): ChangeMessageVisibilityBatchResult => {
-  const contents: any = {
-    Successful: undefined,
-    Failed: undefined,
-  };
+  const contents: any = {};
   if (output.ChangeMessageVisibilityBatchResultEntry === "") {
     contents.Successful = [];
   } else if (output["ChangeMessageVisibilityBatchResultEntry"] !== undefined) {
@@ -2241,9 +2233,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntry = (
   output: any,
   context: __SerdeContext
 ): ChangeMessageVisibilityBatchResultEntry => {
-  const contents: any = {
-    Id: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -2262,9 +2252,7 @@ const deserializeAws_queryChangeMessageVisibilityBatchResultEntryList = (
 };
 
 const deserializeAws_queryCreateQueueResult = (output: any, context: __SerdeContext): CreateQueueResult => {
-  const contents: any = {
-    QueueUrl: undefined,
-  };
+  const contents: any = {};
   if (output["QueueUrl"] !== undefined) {
     contents.QueueUrl = __expectString(output["QueueUrl"]);
   }
@@ -2275,10 +2263,7 @@ const deserializeAws_queryDeleteMessageBatchResult = (
   output: any,
   context: __SerdeContext
 ): DeleteMessageBatchResult => {
-  const contents: any = {
-    Successful: undefined,
-    Failed: undefined,
-  };
+  const contents: any = {};
   if (output.DeleteMessageBatchResultEntry === "") {
     contents.Successful = [];
   } else if (output["DeleteMessageBatchResultEntry"] !== undefined) {
@@ -2302,9 +2287,7 @@ const deserializeAws_queryDeleteMessageBatchResultEntry = (
   output: any,
   context: __SerdeContext
 ): DeleteMessageBatchResultEntry => {
-  const contents: any = {
-    Id: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -2331,9 +2314,7 @@ const deserializeAws_queryGetQueueAttributesResult = (
   output: any,
   context: __SerdeContext
 ): GetQueueAttributesResult => {
-  const contents: any = {
-    Attributes: undefined,
-  };
+  const contents: any = {};
   if (output.Attribute === "") {
     contents.Attributes = {};
   } else if (output["Attribute"] !== undefined) {
@@ -2343,9 +2324,7 @@ const deserializeAws_queryGetQueueAttributesResult = (
 };
 
 const deserializeAws_queryGetQueueUrlResult = (output: any, context: __SerdeContext): GetQueueUrlResult => {
-  const contents: any = {
-    QueueUrl: undefined,
-  };
+  const contents: any = {};
   if (output["QueueUrl"] !== undefined) {
     contents.QueueUrl = __expectString(output["QueueUrl"]);
   }
@@ -2376,10 +2355,7 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
   output: any,
   context: __SerdeContext
 ): ListDeadLetterSourceQueuesResult => {
-  const contents: any = {
-    queueUrls: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.QueueUrl === "") {
     contents.queueUrls = [];
   } else if (output["QueueUrl"] !== undefined) {
@@ -2392,10 +2368,7 @@ const deserializeAws_queryListDeadLetterSourceQueuesResult = (
 };
 
 const deserializeAws_queryListQueuesResult = (output: any, context: __SerdeContext): ListQueuesResult => {
-  const contents: any = {
-    NextToken: undefined,
-    QueueUrls: undefined,
-  };
+  const contents: any = {};
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
   }
@@ -2408,9 +2381,7 @@ const deserializeAws_queryListQueuesResult = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryListQueueTagsResult = (output: any, context: __SerdeContext): ListQueueTagsResult => {
-  const contents: any = {
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output.Tag === "") {
     contents.Tags = {};
   } else if (output["Tag"] !== undefined) {
@@ -2420,15 +2391,7 @@ const deserializeAws_queryListQueueTagsResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryMessage = (output: any, context: __SerdeContext): Message => {
-  const contents: any = {
-    MessageId: undefined,
-    ReceiptHandle: undefined,
-    MD5OfBody: undefined,
-    Body: undefined,
-    Attributes: undefined,
-    MD5OfMessageAttributes: undefined,
-    MessageAttributes: undefined,
-  };
+  const contents: any = {};
   if (output["MessageId"] !== undefined) {
     contents.MessageId = __expectString(output["MessageId"]);
   }
@@ -2464,13 +2427,7 @@ const deserializeAws_queryMessage = (output: any, context: __SerdeContext): Mess
 };
 
 const deserializeAws_queryMessageAttributeValue = (output: any, context: __SerdeContext): MessageAttributeValue => {
-  const contents: any = {
-    StringValue: undefined,
-    BinaryValue: undefined,
-    StringListValues: undefined,
-    BinaryListValues: undefined,
-    DataType: undefined,
-  };
+  const contents: any = {};
   if (output["StringValue"] !== undefined) {
     contents.StringValue = __expectString(output["StringValue"]);
   }
@@ -2587,9 +2544,7 @@ const deserializeAws_queryReceiptHandleIsInvalid = (output: any, context: __Serd
 };
 
 const deserializeAws_queryReceiveMessageResult = (output: any, context: __SerdeContext): ReceiveMessageResult => {
-  const contents: any = {
-    Messages: undefined,
-  };
+  const contents: any = {};
   if (output.Message === "") {
     contents.Messages = [];
   } else if (output["Message"] !== undefined) {
@@ -2599,10 +2554,7 @@ const deserializeAws_queryReceiveMessageResult = (output: any, context: __SerdeC
 };
 
 const deserializeAws_querySendMessageBatchResult = (output: any, context: __SerdeContext): SendMessageBatchResult => {
-  const contents: any = {
-    Successful: undefined,
-    Failed: undefined,
-  };
+  const contents: any = {};
   if (output.SendMessageBatchResultEntry === "") {
     contents.Successful = [];
   } else if (output["SendMessageBatchResultEntry"] !== undefined) {
@@ -2626,14 +2578,7 @@ const deserializeAws_querySendMessageBatchResultEntry = (
   output: any,
   context: __SerdeContext
 ): SendMessageBatchResultEntry => {
-  const contents: any = {
-    Id: undefined,
-    MessageId: undefined,
-    MD5OfMessageBody: undefined,
-    MD5OfMessageAttributes: undefined,
-    MD5OfMessageSystemAttributes: undefined,
-    SequenceNumber: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -2667,13 +2612,7 @@ const deserializeAws_querySendMessageBatchResultEntryList = (
 };
 
 const deserializeAws_querySendMessageResult = (output: any, context: __SerdeContext): SendMessageResult => {
-  const contents: any = {
-    MD5OfMessageBody: undefined,
-    MD5OfMessageAttributes: undefined,
-    MD5OfMessageSystemAttributes: undefined,
-    MessageId: undefined,
-    SequenceNumber: undefined,
-  };
+  const contents: any = {};
   if (output["MD5OfMessageBody"] !== undefined) {
     contents.MD5OfMessageBody = __expectString(output["MD5OfMessageBody"]);
   }

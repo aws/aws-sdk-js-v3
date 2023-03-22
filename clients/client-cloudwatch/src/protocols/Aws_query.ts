@@ -4395,14 +4395,7 @@ const serializeAws_queryValues = (input: number[], context: __SerdeContext): any
 };
 
 const deserializeAws_queryAlarmHistoryItem = (output: any, context: __SerdeContext): AlarmHistoryItem => {
-  const contents: any = {
-    AlarmName: undefined,
-    AlarmType: undefined,
-    Timestamp: undefined,
-    HistoryItemType: undefined,
-    HistorySummary: undefined,
-    HistoryData: undefined,
-  };
+  const contents: any = {};
   if (output["AlarmName"] !== undefined) {
     contents.AlarmName = __expectString(output["AlarmName"]);
   }
@@ -4433,16 +4426,7 @@ const deserializeAws_queryAlarmHistoryItems = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryAnomalyDetector = (output: any, context: __SerdeContext): AnomalyDetector => {
-  const contents: any = {
-    Namespace: undefined,
-    MetricName: undefined,
-    Dimensions: undefined,
-    Stat: undefined,
-    Configuration: undefined,
-    StateValue: undefined,
-    SingleMetricAnomalyDetector: undefined,
-    MetricMathAnomalyDetector: undefined,
-  };
+  const contents: any = {};
   if (output["Namespace"] !== undefined) {
     contents.Namespace = __expectString(output["Namespace"]);
   }
@@ -4485,10 +4469,7 @@ const deserializeAws_queryAnomalyDetectorConfiguration = (
   output: any,
   context: __SerdeContext
 ): AnomalyDetectorConfiguration => {
-  const contents: any = {
-    ExcludedTimeRanges: undefined,
-    MetricTimezone: undefined,
-  };
+  const contents: any = {};
   if (output.ExcludedTimeRanges === "") {
     contents.ExcludedTimeRanges = [];
   } else if (output["ExcludedTimeRanges"] !== undefined && output["ExcludedTimeRanges"]["member"] !== undefined) {
@@ -4528,27 +4509,7 @@ const deserializeAws_queryBatchFailures = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryCompositeAlarm = (output: any, context: __SerdeContext): CompositeAlarm => {
-  const contents: any = {
-    ActionsEnabled: undefined,
-    AlarmActions: undefined,
-    AlarmArn: undefined,
-    AlarmConfigurationUpdatedTimestamp: undefined,
-    AlarmDescription: undefined,
-    AlarmName: undefined,
-    AlarmRule: undefined,
-    InsufficientDataActions: undefined,
-    OKActions: undefined,
-    StateReason: undefined,
-    StateReasonData: undefined,
-    StateUpdatedTimestamp: undefined,
-    StateValue: undefined,
-    StateTransitionedTimestamp: undefined,
-    ActionsSuppressedBy: undefined,
-    ActionsSuppressedReason: undefined,
-    ActionsSuppressor: undefined,
-    ActionsSuppressorWaitPeriod: undefined,
-    ActionsSuppressorExtensionPeriod: undefined,
-  };
+  const contents: any = {};
   if (output["ActionsEnabled"] !== undefined) {
     contents.ActionsEnabled = __parseBoolean(output["ActionsEnabled"]);
   }
@@ -4645,9 +4606,7 @@ const deserializeAws_queryConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
@@ -4663,12 +4622,7 @@ const deserializeAws_queryDashboardEntries = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryDashboardEntry = (output: any, context: __SerdeContext): DashboardEntry => {
-  const contents: any = {
-    DashboardName: undefined,
-    DashboardArn: undefined,
-    LastModified: undefined,
-    Size: undefined,
-  };
+  const contents: any = {};
   if (output["DashboardName"] !== undefined) {
     contents.DashboardName = __expectString(output["DashboardName"]);
   }
@@ -4688,10 +4642,7 @@ const deserializeAws_queryDashboardInvalidInputError = (
   output: any,
   context: __SerdeContext
 ): DashboardInvalidInputError => {
-  const contents: any = {
-    message: undefined,
-    dashboardValidationMessages: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4710,9 +4661,7 @@ const deserializeAws_queryDashboardInvalidInputError = (
 };
 
 const deserializeAws_queryDashboardNotFoundError = (output: any, context: __SerdeContext): DashboardNotFoundError => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -4723,10 +4672,7 @@ const deserializeAws_queryDashboardValidationMessage = (
   output: any,
   context: __SerdeContext
 ): DashboardValidationMessage => {
-  const contents: any = {
-    DataPath: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["DataPath"] !== undefined) {
     contents.DataPath = __expectString(output["DataPath"]);
   }
@@ -4748,16 +4694,7 @@ const deserializeAws_queryDashboardValidationMessages = (
 };
 
 const deserializeAws_queryDatapoint = (output: any, context: __SerdeContext): Datapoint => {
-  const contents: any = {
-    Timestamp: undefined,
-    SampleCount: undefined,
-    Average: undefined,
-    Sum: undefined,
-    Minimum: undefined,
-    Maximum: undefined,
-    Unit: undefined,
-    ExtendedStatistics: undefined,
-  };
+  const contents: any = {};
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
@@ -4833,9 +4770,7 @@ const deserializeAws_queryDeleteInsightRulesOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteInsightRulesOutput => {
-  const contents: any = {
-    Failures: undefined,
-  };
+  const contents: any = {};
   if (output.Failures === "") {
     contents.Failures = [];
   } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
@@ -4859,10 +4794,7 @@ const deserializeAws_queryDescribeAlarmHistoryOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeAlarmHistoryOutput => {
-  const contents: any = {
-    AlarmHistoryItems: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.AlarmHistoryItems === "") {
     contents.AlarmHistoryItems = [];
   } else if (output["AlarmHistoryItems"] !== undefined && output["AlarmHistoryItems"]["member"] !== undefined) {
@@ -4881,9 +4813,7 @@ const deserializeAws_queryDescribeAlarmsForMetricOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeAlarmsForMetricOutput => {
-  const contents: any = {
-    MetricAlarms: undefined,
-  };
+  const contents: any = {};
   if (output.MetricAlarms === "") {
     contents.MetricAlarms = [];
   } else if (output["MetricAlarms"] !== undefined && output["MetricAlarms"]["member"] !== undefined) {
@@ -4896,11 +4826,7 @@ const deserializeAws_queryDescribeAlarmsForMetricOutput = (
 };
 
 const deserializeAws_queryDescribeAlarmsOutput = (output: any, context: __SerdeContext): DescribeAlarmsOutput => {
-  const contents: any = {
-    CompositeAlarms: undefined,
-    MetricAlarms: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.CompositeAlarms === "") {
     contents.CompositeAlarms = [];
   } else if (output["CompositeAlarms"] !== undefined && output["CompositeAlarms"]["member"] !== undefined) {
@@ -4927,10 +4853,7 @@ const deserializeAws_queryDescribeAnomalyDetectorsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeAnomalyDetectorsOutput => {
-  const contents: any = {
-    AnomalyDetectors: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.AnomalyDetectors === "") {
     contents.AnomalyDetectors = [];
   } else if (output["AnomalyDetectors"] !== undefined && output["AnomalyDetectors"]["member"] !== undefined) {
@@ -4949,10 +4872,7 @@ const deserializeAws_queryDescribeInsightRulesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeInsightRulesOutput => {
-  const contents: any = {
-    NextToken: undefined,
-    InsightRules: undefined,
-  };
+  const contents: any = {};
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
   }
@@ -4968,10 +4888,7 @@ const deserializeAws_queryDescribeInsightRulesOutput = (
 };
 
 const deserializeAws_queryDimension = (output: any, context: __SerdeContext): Dimension => {
-  const contents: any = {
-    Name: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -4993,9 +4910,7 @@ const deserializeAws_queryDisableInsightRulesOutput = (
   output: any,
   context: __SerdeContext
 ): DisableInsightRulesOutput => {
-  const contents: any = {
-    Failures: undefined,
-  };
+  const contents: any = {};
   if (output.Failures === "") {
     contents.Failures = [];
   } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
@@ -5011,9 +4926,7 @@ const deserializeAws_queryEnableInsightRulesOutput = (
   output: any,
   context: __SerdeContext
 ): EnableInsightRulesOutput => {
-  const contents: any = {
-    Failures: undefined,
-  };
+  const contents: any = {};
   if (output.Failures === "") {
     contents.Failures = [];
   } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
@@ -5026,11 +4939,7 @@ const deserializeAws_queryEnableInsightRulesOutput = (
 };
 
 const deserializeAws_queryGetDashboardOutput = (output: any, context: __SerdeContext): GetDashboardOutput => {
-  const contents: any = {
-    DashboardArn: undefined,
-    DashboardBody: undefined,
-    DashboardName: undefined,
-  };
+  const contents: any = {};
   if (output["DashboardArn"] !== undefined) {
     contents.DashboardArn = __expectString(output["DashboardArn"]);
   }
@@ -5047,14 +4956,7 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
   output: any,
   context: __SerdeContext
 ): GetInsightRuleReportOutput => {
-  const contents: any = {
-    KeyLabels: undefined,
-    AggregationStatistic: undefined,
-    AggregateValue: undefined,
-    ApproximateUniqueCount: undefined,
-    Contributors: undefined,
-    MetricDatapoints: undefined,
-  };
+  const contents: any = {};
   if (output.KeyLabels === "") {
     contents.KeyLabels = [];
   } else if (output["KeyLabels"] !== undefined && output["KeyLabels"]["member"] !== undefined) {
@@ -5092,11 +4994,7 @@ const deserializeAws_queryGetInsightRuleReportOutput = (
 };
 
 const deserializeAws_queryGetMetricDataOutput = (output: any, context: __SerdeContext): GetMetricDataOutput => {
-  const contents: any = {
-    MetricDataResults: undefined,
-    NextToken: undefined,
-    Messages: undefined,
-  };
+  const contents: any = {};
   if (output.MetricDataResults === "") {
     contents.MetricDataResults = [];
   } else if (output["MetricDataResults"] !== undefined && output["MetricDataResults"]["member"] !== undefined) {
@@ -5123,10 +5021,7 @@ const deserializeAws_queryGetMetricStatisticsOutput = (
   output: any,
   context: __SerdeContext
 ): GetMetricStatisticsOutput => {
-  const contents: any = {
-    Label: undefined,
-    Datapoints: undefined,
-  };
+  const contents: any = {};
   if (output["Label"] !== undefined) {
     contents.Label = __expectString(output["Label"]);
   }
@@ -5142,20 +5037,7 @@ const deserializeAws_queryGetMetricStatisticsOutput = (
 };
 
 const deserializeAws_queryGetMetricStreamOutput = (output: any, context: __SerdeContext): GetMetricStreamOutput => {
-  const contents: any = {
-    Arn: undefined,
-    Name: undefined,
-    IncludeFilters: undefined,
-    ExcludeFilters: undefined,
-    FirehoseArn: undefined,
-    RoleArn: undefined,
-    State: undefined,
-    CreationDate: undefined,
-    LastUpdateDate: undefined,
-    OutputFormat: undefined,
-    StatisticsConfigurations: undefined,
-    IncludeLinkedAccountsMetrics: undefined,
-  };
+  const contents: any = {};
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
   }
@@ -5217,9 +5099,7 @@ const deserializeAws_queryGetMetricWidgetImageOutput = (
   output: any,
   context: __SerdeContext
 ): GetMetricWidgetImageOutput => {
-  const contents: any = {
-    MetricWidgetImage: undefined,
-  };
+  const contents: any = {};
   if (output["MetricWidgetImage"] !== undefined) {
     contents.MetricWidgetImage = context.base64Decoder(output["MetricWidgetImage"]);
   }
@@ -5227,13 +5107,7 @@ const deserializeAws_queryGetMetricWidgetImageOutput = (
 };
 
 const deserializeAws_queryInsightRule = (output: any, context: __SerdeContext): InsightRule => {
-  const contents: any = {
-    Name: undefined,
-    State: undefined,
-    Schema: undefined,
-    Definition: undefined,
-    ManagedRule: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -5253,11 +5127,7 @@ const deserializeAws_queryInsightRule = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryInsightRuleContributor = (output: any, context: __SerdeContext): InsightRuleContributor => {
-  const contents: any = {
-    Keys: undefined,
-    ApproximateAggregateValue: undefined,
-    Datapoints: undefined,
-  };
+  const contents: any = {};
   if (output.Keys === "") {
     contents.Keys = [];
   } else if (output["Keys"] !== undefined && output["Keys"]["member"] !== undefined) {
@@ -5284,10 +5154,7 @@ const deserializeAws_queryInsightRuleContributorDatapoint = (
   output: any,
   context: __SerdeContext
 ): InsightRuleContributorDatapoint => {
-  const contents: any = {
-    Timestamp: undefined,
-    ApproximateValue: undefined,
-  };
+  const contents: any = {};
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
@@ -5339,16 +5206,7 @@ const deserializeAws_queryInsightRuleMetricDatapoint = (
   output: any,
   context: __SerdeContext
 ): InsightRuleMetricDatapoint => {
-  const contents: any = {
-    Timestamp: undefined,
-    UniqueContributors: undefined,
-    MaxContributorValue: undefined,
-    SampleCount: undefined,
-    Average: undefined,
-    Sum: undefined,
-    Minimum: undefined,
-    Maximum: undefined,
-  };
+  const contents: any = {};
   if (output["Timestamp"] !== undefined) {
     contents.Timestamp = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["Timestamp"]));
   }
@@ -5396,9 +5254,7 @@ const deserializeAws_queryInsightRules = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryInternalServiceFault = (output: any, context: __SerdeContext): InternalServiceFault => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
@@ -5406,9 +5262,7 @@ const deserializeAws_queryInternalServiceFault = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryInvalidFormatFault = (output: any, context: __SerdeContext): InvalidFormatFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5416,9 +5270,7 @@ const deserializeAws_queryInvalidFormatFault = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryInvalidNextToken = (output: any, context: __SerdeContext): InvalidNextToken => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5429,9 +5281,7 @@ const deserializeAws_queryInvalidParameterCombinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5442,9 +5292,7 @@ const deserializeAws_queryInvalidParameterValueException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterValueException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5452,9 +5300,7 @@ const deserializeAws_queryInvalidParameterValueException = (
 };
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
@@ -5462,9 +5308,7 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 };
 
 const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5472,10 +5316,7 @@ const deserializeAws_queryLimitExceededFault = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryListDashboardsOutput = (output: any, context: __SerdeContext): ListDashboardsOutput => {
-  const contents: any = {
-    DashboardEntries: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.DashboardEntries === "") {
     contents.DashboardEntries = [];
   } else if (output["DashboardEntries"] !== undefined && output["DashboardEntries"]["member"] !== undefined) {
@@ -5494,10 +5335,7 @@ const deserializeAws_queryListManagedInsightRulesOutput = (
   output: any,
   context: __SerdeContext
 ): ListManagedInsightRulesOutput => {
-  const contents: any = {
-    ManagedRules: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ManagedRules === "") {
     contents.ManagedRules = [];
   } else if (output["ManagedRules"] !== undefined && output["ManagedRules"]["member"] !== undefined) {
@@ -5513,11 +5351,7 @@ const deserializeAws_queryListManagedInsightRulesOutput = (
 };
 
 const deserializeAws_queryListMetricsOutput = (output: any, context: __SerdeContext): ListMetricsOutput => {
-  const contents: any = {
-    Metrics: undefined,
-    NextToken: undefined,
-    OwningAccounts: undefined,
-  };
+  const contents: any = {};
   if (output.Metrics === "") {
     contents.Metrics = [];
   } else if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
@@ -5538,10 +5372,7 @@ const deserializeAws_queryListMetricsOutput = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryListMetricStreamsOutput = (output: any, context: __SerdeContext): ListMetricStreamsOutput => {
-  const contents: any = {
-    NextToken: undefined,
-    Entries: undefined,
-  };
+  const contents: any = {};
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
   }
@@ -5560,9 +5391,7 @@ const deserializeAws_queryListTagsForResourceOutput = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
-  const contents: any = {
-    Tags: undefined,
-  };
+  const contents: any = {};
   if (output.Tags === "") {
     contents.Tags = [];
   } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
@@ -5572,11 +5401,7 @@ const deserializeAws_queryListTagsForResourceOutput = (
 };
 
 const deserializeAws_queryManagedRuleDescription = (output: any, context: __SerdeContext): ManagedRuleDescription => {
-  const contents: any = {
-    TemplateName: undefined,
-    ResourceARN: undefined,
-    RuleState: undefined,
-  };
+  const contents: any = {};
   if (output["TemplateName"] !== undefined) {
     contents.TemplateName = __expectString(output["TemplateName"]);
   }
@@ -5601,10 +5426,7 @@ const deserializeAws_queryManagedRuleDescriptions = (
 };
 
 const deserializeAws_queryManagedRuleState = (output: any, context: __SerdeContext): ManagedRuleState => {
-  const contents: any = {
-    RuleName: undefined,
-    State: undefined,
-  };
+  const contents: any = {};
   if (output["RuleName"] !== undefined) {
     contents.RuleName = __expectString(output["RuleName"]);
   }
@@ -5615,10 +5437,7 @@ const deserializeAws_queryManagedRuleState = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryMessageData = (output: any, context: __SerdeContext): MessageData => {
-  const contents: any = {
-    Code: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -5629,11 +5448,7 @@ const deserializeAws_queryMessageData = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metric => {
-  const contents: any = {
-    Namespace: undefined,
-    MetricName: undefined,
-    Dimensions: undefined,
-  };
+  const contents: any = {};
   if (output["Namespace"] !== undefined) {
     contents.Namespace = __expectString(output["Namespace"]);
   }
@@ -5652,37 +5467,7 @@ const deserializeAws_queryMetric = (output: any, context: __SerdeContext): Metri
 };
 
 const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): MetricAlarm => {
-  const contents: any = {
-    AlarmName: undefined,
-    AlarmArn: undefined,
-    AlarmDescription: undefined,
-    AlarmConfigurationUpdatedTimestamp: undefined,
-    ActionsEnabled: undefined,
-    OKActions: undefined,
-    AlarmActions: undefined,
-    InsufficientDataActions: undefined,
-    StateValue: undefined,
-    StateReason: undefined,
-    StateReasonData: undefined,
-    StateUpdatedTimestamp: undefined,
-    MetricName: undefined,
-    Namespace: undefined,
-    Statistic: undefined,
-    ExtendedStatistic: undefined,
-    Dimensions: undefined,
-    Period: undefined,
-    Unit: undefined,
-    EvaluationPeriods: undefined,
-    DatapointsToAlarm: undefined,
-    Threshold: undefined,
-    ComparisonOperator: undefined,
-    TreatMissingData: undefined,
-    EvaluateLowSampleCountPercentile: undefined,
-    Metrics: undefined,
-    ThresholdMetricId: undefined,
-    EvaluationState: undefined,
-    StateTransitionedTimestamp: undefined,
-  };
+  const contents: any = {};
   if (output["AlarmName"] !== undefined) {
     contents.AlarmName = __expectString(output["AlarmName"]);
   }
@@ -5822,15 +5607,7 @@ const deserializeAws_queryMetricDataQueries = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContext): MetricDataQuery => {
-  const contents: any = {
-    Id: undefined,
-    MetricStat: undefined,
-    Expression: undefined,
-    Label: undefined,
-    ReturnData: undefined,
-    Period: undefined,
-    AccountId: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -5856,14 +5633,7 @@ const deserializeAws_queryMetricDataQuery = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryMetricDataResult = (output: any, context: __SerdeContext): MetricDataResult => {
-  const contents: any = {
-    Id: undefined,
-    Label: undefined,
-    Timestamps: undefined,
-    Values: undefined,
-    StatusCode: undefined,
-    Messages: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -5917,9 +5687,7 @@ const deserializeAws_queryMetricMathAnomalyDetector = (
   output: any,
   context: __SerdeContext
 ): MetricMathAnomalyDetector => {
-  const contents: any = {
-    MetricDataQueries: undefined,
-  };
+  const contents: any = {};
   if (output.MetricDataQueries === "") {
     contents.MetricDataQueries = [];
   } else if (output["MetricDataQueries"] !== undefined && output["MetricDataQueries"]["member"] !== undefined) {
@@ -5940,12 +5708,7 @@ const deserializeAws_queryMetrics = (output: any, context: __SerdeContext): Metr
 };
 
 const deserializeAws_queryMetricStat = (output: any, context: __SerdeContext): MetricStat => {
-  const contents: any = {
-    Metric: undefined,
-    Period: undefined,
-    Stat: undefined,
-    Unit: undefined,
-  };
+  const contents: any = {};
   if (output["Metric"] !== undefined) {
     contents.Metric = deserializeAws_queryMetric(output["Metric"], context);
   }
@@ -5970,15 +5733,7 @@ const deserializeAws_queryMetricStreamEntries = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryMetricStreamEntry = (output: any, context: __SerdeContext): MetricStreamEntry => {
-  const contents: any = {
-    Arn: undefined,
-    CreationDate: undefined,
-    LastUpdateDate: undefined,
-    Name: undefined,
-    FirehoseArn: undefined,
-    State: undefined,
-    OutputFormat: undefined,
-  };
+  const contents: any = {};
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
   }
@@ -6004,9 +5759,7 @@ const deserializeAws_queryMetricStreamEntry = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryMetricStreamFilter = (output: any, context: __SerdeContext): MetricStreamFilter => {
-  const contents: any = {
-    Namespace: undefined,
-  };
+  const contents: any = {};
   if (output["Namespace"] !== undefined) {
     contents.Namespace = __expectString(output["Namespace"]);
   }
@@ -6036,10 +5789,7 @@ const deserializeAws_queryMetricStreamStatisticsConfiguration = (
   output: any,
   context: __SerdeContext
 ): MetricStreamStatisticsConfiguration => {
-  const contents: any = {
-    IncludeMetrics: undefined,
-    AdditionalStatistics: undefined,
-  };
+  const contents: any = {};
   if (output.IncludeMetrics === "") {
     contents.IncludeMetrics = [];
   } else if (output["IncludeMetrics"] !== undefined && output["IncludeMetrics"]["member"] !== undefined) {
@@ -6085,10 +5835,7 @@ const deserializeAws_queryMetricStreamStatisticsMetric = (
   output: any,
   context: __SerdeContext
 ): MetricStreamStatisticsMetric => {
-  const contents: any = {
-    Namespace: undefined,
-    MetricName: undefined,
-  };
+  const contents: any = {};
   if (output["Namespace"] !== undefined) {
     contents.Namespace = __expectString(output["Namespace"]);
   }
@@ -6102,9 +5849,7 @@ const deserializeAws_queryMissingRequiredParameterException = (
   output: any,
   context: __SerdeContext
 ): MissingRequiredParameterException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6120,12 +5865,7 @@ const deserializeAws_queryOwningAccounts = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryPartialFailure = (output: any, context: __SerdeContext): PartialFailure => {
-  const contents: any = {
-    FailureResource: undefined,
-    ExceptionType: undefined,
-    FailureCode: undefined,
-    FailureDescription: undefined,
-  };
+  const contents: any = {};
   if (output["FailureResource"] !== undefined) {
     contents.FailureResource = __expectString(output["FailureResource"]);
   }
@@ -6150,9 +5890,7 @@ const deserializeAws_queryPutAnomalyDetectorOutput = (
 };
 
 const deserializeAws_queryPutDashboardOutput = (output: any, context: __SerdeContext): PutDashboardOutput => {
-  const contents: any = {
-    DashboardValidationMessages: undefined,
-  };
+  const contents: any = {};
   if (output.DashboardValidationMessages === "") {
     contents.DashboardValidationMessages = [];
   } else if (
@@ -6176,9 +5914,7 @@ const deserializeAws_queryPutManagedInsightRulesOutput = (
   output: any,
   context: __SerdeContext
 ): PutManagedInsightRulesOutput => {
-  const contents: any = {
-    Failures: undefined,
-  };
+  const contents: any = {};
   if (output.Failures === "") {
     contents.Failures = [];
   } else if (output["Failures"] !== undefined && output["Failures"]["member"] !== undefined) {
@@ -6191,9 +5927,7 @@ const deserializeAws_queryPutManagedInsightRulesOutput = (
 };
 
 const deserializeAws_queryPutMetricStreamOutput = (output: any, context: __SerdeContext): PutMetricStreamOutput => {
-  const contents: any = {
-    Arn: undefined,
-  };
+  const contents: any = {};
   if (output["Arn"] !== undefined) {
     contents.Arn = __expectString(output["Arn"]);
   }
@@ -6201,10 +5935,7 @@ const deserializeAws_queryPutMetricStreamOutput = (output: any, context: __Serde
 };
 
 const deserializeAws_queryRange = (output: any, context: __SerdeContext): Range => {
-  const contents: any = {
-    StartTime: undefined,
-    EndTime: undefined,
-  };
+  const contents: any = {};
   if (output["StartTime"] !== undefined) {
     contents.StartTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["StartTime"]));
   }
@@ -6223,9 +5954,7 @@ const deserializeAws_queryResourceList = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryResourceNotFound = (output: any, context: __SerdeContext): ResourceNotFound => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6236,11 +5965,7 @@ const deserializeAws_queryResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  const contents: any = {
-    ResourceType: undefined,
-    ResourceId: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["ResourceType"] !== undefined) {
     contents.ResourceType = __expectString(output["ResourceType"]);
   }
@@ -6257,12 +5982,7 @@ const deserializeAws_querySingleMetricAnomalyDetector = (
   output: any,
   context: __SerdeContext
 ): SingleMetricAnomalyDetector => {
-  const contents: any = {
-    Namespace: undefined,
-    MetricName: undefined,
-    Dimensions: undefined,
-    Stat: undefined,
-  };
+  const contents: any = {};
   if (output["Namespace"] !== undefined) {
     contents.Namespace = __expectString(output["Namespace"]);
   }
@@ -6297,10 +6017,7 @@ const deserializeAws_queryStopMetricStreamsOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Key"] !== undefined) {
     contents.Key = __expectString(output["Key"]);
   }

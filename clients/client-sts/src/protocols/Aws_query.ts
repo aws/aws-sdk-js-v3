@@ -929,10 +929,7 @@ const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): a
 };
 
 const deserializeAws_queryAssumedRoleUser = (output: any, context: __SerdeContext): AssumedRoleUser => {
-  const contents: any = {
-    AssumedRoleId: undefined,
-    Arn: undefined,
-  };
+  const contents: any = {};
   if (output["AssumedRoleId"] !== undefined) {
     contents.AssumedRoleId = __expectString(output["AssumedRoleId"]);
   }
@@ -943,12 +940,7 @@ const deserializeAws_queryAssumedRoleUser = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryAssumeRoleResponse = (output: any, context: __SerdeContext): AssumeRoleResponse => {
-  const contents: any = {
-    Credentials: undefined,
-    AssumedRoleUser: undefined,
-    PackedPolicySize: undefined,
-    SourceIdentity: undefined,
-  };
+  const contents: any = {};
   if (output["Credentials"] !== undefined) {
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
@@ -968,17 +960,7 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
   output: any,
   context: __SerdeContext
 ): AssumeRoleWithSAMLResponse => {
-  const contents: any = {
-    Credentials: undefined,
-    AssumedRoleUser: undefined,
-    PackedPolicySize: undefined,
-    Subject: undefined,
-    SubjectType: undefined,
-    Issuer: undefined,
-    Audience: undefined,
-    NameQualifier: undefined,
-    SourceIdentity: undefined,
-  };
+  const contents: any = {};
   if (output["Credentials"] !== undefined) {
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
@@ -1013,15 +995,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
   output: any,
   context: __SerdeContext
 ): AssumeRoleWithWebIdentityResponse => {
-  const contents: any = {
-    Credentials: undefined,
-    SubjectFromWebIdentityToken: undefined,
-    AssumedRoleUser: undefined,
-    PackedPolicySize: undefined,
-    Provider: undefined,
-    Audience: undefined,
-    SourceIdentity: undefined,
-  };
+  const contents: any = {};
   if (output["Credentials"] !== undefined) {
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
@@ -1047,12 +1021,7 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
 };
 
 const deserializeAws_queryCredentials = (output: any, context: __SerdeContext): Credentials => {
-  const contents: any = {
-    AccessKeyId: undefined,
-    SecretAccessKey: undefined,
-    SessionToken: undefined,
-    Expiration: undefined,
-  };
+  const contents: any = {};
   if (output["AccessKeyId"] !== undefined) {
     contents.AccessKeyId = __expectString(output["AccessKeyId"]);
   }
@@ -1072,9 +1041,7 @@ const deserializeAws_queryDecodeAuthorizationMessageResponse = (
   output: any,
   context: __SerdeContext
 ): DecodeAuthorizationMessageResponse => {
-  const contents: any = {
-    DecodedMessage: undefined,
-  };
+  const contents: any = {};
   if (output["DecodedMessage"] !== undefined) {
     contents.DecodedMessage = __expectString(output["DecodedMessage"]);
   }
@@ -1082,9 +1049,7 @@ const deserializeAws_queryDecodeAuthorizationMessageResponse = (
 };
 
 const deserializeAws_queryExpiredTokenException = (output: any, context: __SerdeContext): ExpiredTokenException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -1092,10 +1057,7 @@ const deserializeAws_queryExpiredTokenException = (output: any, context: __Serde
 };
 
 const deserializeAws_queryFederatedUser = (output: any, context: __SerdeContext): FederatedUser => {
-  const contents: any = {
-    FederatedUserId: undefined,
-    Arn: undefined,
-  };
+  const contents: any = {};
   if (output["FederatedUserId"] !== undefined) {
     contents.FederatedUserId = __expectString(output["FederatedUserId"]);
   }
@@ -1109,9 +1071,7 @@ const deserializeAws_queryGetAccessKeyInfoResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccessKeyInfoResponse => {
-  const contents: any = {
-    Account: undefined,
-  };
+  const contents: any = {};
   if (output["Account"] !== undefined) {
     contents.Account = __expectString(output["Account"]);
   }
@@ -1122,11 +1082,7 @@ const deserializeAws_queryGetCallerIdentityResponse = (
   output: any,
   context: __SerdeContext
 ): GetCallerIdentityResponse => {
-  const contents: any = {
-    UserId: undefined,
-    Account: undefined,
-    Arn: undefined,
-  };
+  const contents: any = {};
   if (output["UserId"] !== undefined) {
     contents.UserId = __expectString(output["UserId"]);
   }
@@ -1143,11 +1099,7 @@ const deserializeAws_queryGetFederationTokenResponse = (
   output: any,
   context: __SerdeContext
 ): GetFederationTokenResponse => {
-  const contents: any = {
-    Credentials: undefined,
-    FederatedUser: undefined,
-    PackedPolicySize: undefined,
-  };
+  const contents: any = {};
   if (output["Credentials"] !== undefined) {
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
@@ -1161,9 +1113,7 @@ const deserializeAws_queryGetFederationTokenResponse = (
 };
 
 const deserializeAws_queryGetSessionTokenResponse = (output: any, context: __SerdeContext): GetSessionTokenResponse => {
-  const contents: any = {
-    Credentials: undefined,
-  };
+  const contents: any = {};
   if (output["Credentials"] !== undefined) {
     contents.Credentials = deserializeAws_queryCredentials(output["Credentials"], context);
   }
@@ -1174,9 +1124,7 @@ const deserializeAws_queryIDPCommunicationErrorException = (
   output: any,
   context: __SerdeContext
 ): IDPCommunicationErrorException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -1187,9 +1135,7 @@ const deserializeAws_queryIDPRejectedClaimException = (
   output: any,
   context: __SerdeContext
 ): IDPRejectedClaimException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -1200,9 +1146,7 @@ const deserializeAws_queryInvalidAuthorizationMessageException = (
   output: any,
   context: __SerdeContext
 ): InvalidAuthorizationMessageException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -1213,9 +1157,7 @@ const deserializeAws_queryInvalidIdentityTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidIdentityTokenException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -1226,9 +1168,7 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
   output: any,
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -1239,9 +1179,7 @@ const deserializeAws_queryPackedPolicyTooLargeException = (
   output: any,
   context: __SerdeContext
 ): PackedPolicyTooLargeException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -1249,9 +1187,7 @@ const deserializeAws_queryPackedPolicyTooLargeException = (
 };
 
 const deserializeAws_queryRegionDisabledException = (output: any, context: __SerdeContext): RegionDisabledException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }

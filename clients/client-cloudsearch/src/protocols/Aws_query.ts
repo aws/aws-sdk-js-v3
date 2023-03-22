@@ -2884,10 +2884,7 @@ const serializeAws_queryUpdateServiceAccessPoliciesRequest = (
 };
 
 const deserializeAws_queryAccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = __expectString(output["Options"]);
   }
@@ -2898,13 +2895,7 @@ const deserializeAws_queryAccessPoliciesStatus = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContext): AnalysisOptions => {
-  const contents: any = {
-    Synonyms: undefined,
-    Stopwords: undefined,
-    StemmingDictionary: undefined,
-    JapaneseTokenizationDictionary: undefined,
-    AlgorithmicStemming: undefined,
-  };
+  const contents: any = {};
   if (output["Synonyms"] !== undefined) {
     contents.Synonyms = __expectString(output["Synonyms"]);
   }
@@ -2924,11 +2915,7 @@ const deserializeAws_queryAnalysisOptions = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext): AnalysisScheme => {
-  const contents: any = {
-    AnalysisSchemeName: undefined,
-    AnalysisSchemeLanguage: undefined,
-    AnalysisOptions: undefined,
-  };
+  const contents: any = {};
   if (output["AnalysisSchemeName"] !== undefined) {
     contents.AnalysisSchemeName = __expectString(output["AnalysisSchemeName"]);
   }
@@ -2942,10 +2929,7 @@ const deserializeAws_queryAnalysisScheme = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryAnalysisSchemeStatus = (output: any, context: __SerdeContext): AnalysisSchemeStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = deserializeAws_queryAnalysisScheme(output["Options"], context);
   }
@@ -2967,10 +2951,7 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
   output: any,
   context: __SerdeContext
 ): AvailabilityOptionsStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = __parseBoolean(output["Options"]);
   }
@@ -2981,10 +2962,7 @@ const deserializeAws_queryAvailabilityOptionsStatus = (
 };
 
 const deserializeAws_queryBaseException = (output: any, context: __SerdeContext): BaseException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -2995,9 +2973,7 @@ const deserializeAws_queryBaseException = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryBuildSuggestersResponse = (output: any, context: __SerdeContext): BuildSuggestersResponse => {
-  const contents: any = {
-    FieldNames: undefined,
-  };
+  const contents: any = {};
   if (output.FieldNames === "") {
     contents.FieldNames = [];
   } else if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
@@ -3010,9 +2986,7 @@ const deserializeAws_queryBuildSuggestersResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_queryCreateDomainResponse = (output: any, context: __SerdeContext): CreateDomainResponse => {
-  const contents: any = {
-    DomainStatus: undefined,
-  };
+  const contents: any = {};
   if (output["DomainStatus"] !== undefined) {
     contents.DomainStatus = deserializeAws_queryDomainStatus(output["DomainStatus"], context);
   }
@@ -3020,13 +2994,7 @@ const deserializeAws_queryCreateDomainResponse = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeContext): DateArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3046,14 +3014,7 @@ const deserializeAws_queryDateArrayOptions = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryDateOptions = (output: any, context: __SerdeContext): DateOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3079,9 +3040,7 @@ const deserializeAws_queryDefineAnalysisSchemeResponse = (
   output: any,
   context: __SerdeContext
 ): DefineAnalysisSchemeResponse => {
-  const contents: any = {
-    AnalysisScheme: undefined,
-  };
+  const contents: any = {};
   if (output["AnalysisScheme"] !== undefined) {
     contents.AnalysisScheme = deserializeAws_queryAnalysisSchemeStatus(output["AnalysisScheme"], context);
   }
@@ -3092,9 +3051,7 @@ const deserializeAws_queryDefineExpressionResponse = (
   output: any,
   context: __SerdeContext
 ): DefineExpressionResponse => {
-  const contents: any = {
-    Expression: undefined,
-  };
+  const contents: any = {};
   if (output["Expression"] !== undefined) {
     contents.Expression = deserializeAws_queryExpressionStatus(output["Expression"], context);
   }
@@ -3105,9 +3062,7 @@ const deserializeAws_queryDefineIndexFieldResponse = (
   output: any,
   context: __SerdeContext
 ): DefineIndexFieldResponse => {
-  const contents: any = {
-    IndexField: undefined,
-  };
+  const contents: any = {};
   if (output["IndexField"] !== undefined) {
     contents.IndexField = deserializeAws_queryIndexFieldStatus(output["IndexField"], context);
   }
@@ -3115,9 +3070,7 @@ const deserializeAws_queryDefineIndexFieldResponse = (
 };
 
 const deserializeAws_queryDefineSuggesterResponse = (output: any, context: __SerdeContext): DefineSuggesterResponse => {
-  const contents: any = {
-    Suggester: undefined,
-  };
+  const contents: any = {};
   if (output["Suggester"] !== undefined) {
     contents.Suggester = deserializeAws_querySuggesterStatus(output["Suggester"], context);
   }
@@ -3128,9 +3081,7 @@ const deserializeAws_queryDeleteAnalysisSchemeResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteAnalysisSchemeResponse => {
-  const contents: any = {
-    AnalysisScheme: undefined,
-  };
+  const contents: any = {};
   if (output["AnalysisScheme"] !== undefined) {
     contents.AnalysisScheme = deserializeAws_queryAnalysisSchemeStatus(output["AnalysisScheme"], context);
   }
@@ -3138,9 +3089,7 @@ const deserializeAws_queryDeleteAnalysisSchemeResponse = (
 };
 
 const deserializeAws_queryDeleteDomainResponse = (output: any, context: __SerdeContext): DeleteDomainResponse => {
-  const contents: any = {
-    DomainStatus: undefined,
-  };
+  const contents: any = {};
   if (output["DomainStatus"] !== undefined) {
     contents.DomainStatus = deserializeAws_queryDomainStatus(output["DomainStatus"], context);
   }
@@ -3151,9 +3100,7 @@ const deserializeAws_queryDeleteExpressionResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteExpressionResponse => {
-  const contents: any = {
-    Expression: undefined,
-  };
+  const contents: any = {};
   if (output["Expression"] !== undefined) {
     contents.Expression = deserializeAws_queryExpressionStatus(output["Expression"], context);
   }
@@ -3164,9 +3111,7 @@ const deserializeAws_queryDeleteIndexFieldResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteIndexFieldResponse => {
-  const contents: any = {
-    IndexField: undefined,
-  };
+  const contents: any = {};
   if (output["IndexField"] !== undefined) {
     contents.IndexField = deserializeAws_queryIndexFieldStatus(output["IndexField"], context);
   }
@@ -3174,9 +3119,7 @@ const deserializeAws_queryDeleteIndexFieldResponse = (
 };
 
 const deserializeAws_queryDeleteSuggesterResponse = (output: any, context: __SerdeContext): DeleteSuggesterResponse => {
-  const contents: any = {
-    Suggester: undefined,
-  };
+  const contents: any = {};
   if (output["Suggester"] !== undefined) {
     contents.Suggester = deserializeAws_querySuggesterStatus(output["Suggester"], context);
   }
@@ -3187,9 +3130,7 @@ const deserializeAws_queryDescribeAnalysisSchemesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAnalysisSchemesResponse => {
-  const contents: any = {
-    AnalysisSchemes: undefined,
-  };
+  const contents: any = {};
   if (output.AnalysisSchemes === "") {
     contents.AnalysisSchemes = [];
   } else if (output["AnalysisSchemes"] !== undefined && output["AnalysisSchemes"]["member"] !== undefined) {
@@ -3205,9 +3146,7 @@ const deserializeAws_queryDescribeAvailabilityOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAvailabilityOptionsResponse => {
-  const contents: any = {
-    AvailabilityOptions: undefined,
-  };
+  const contents: any = {};
   if (output["AvailabilityOptions"] !== undefined) {
     contents.AvailabilityOptions = deserializeAws_queryAvailabilityOptionsStatus(
       output["AvailabilityOptions"],
@@ -3221,9 +3160,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDomainEndpointOptionsResponse => {
-  const contents: any = {
-    DomainEndpointOptions: undefined,
-  };
+  const contents: any = {};
   if (output["DomainEndpointOptions"] !== undefined) {
     contents.DomainEndpointOptions = deserializeAws_queryDomainEndpointOptionsStatus(
       output["DomainEndpointOptions"],
@@ -3234,9 +3171,7 @@ const deserializeAws_queryDescribeDomainEndpointOptionsResponse = (
 };
 
 const deserializeAws_queryDescribeDomainsResponse = (output: any, context: __SerdeContext): DescribeDomainsResponse => {
-  const contents: any = {
-    DomainStatusList: undefined,
-  };
+  const contents: any = {};
   if (output.DomainStatusList === "") {
     contents.DomainStatusList = [];
   } else if (output["DomainStatusList"] !== undefined && output["DomainStatusList"]["member"] !== undefined) {
@@ -3252,9 +3187,7 @@ const deserializeAws_queryDescribeExpressionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeExpressionsResponse => {
-  const contents: any = {
-    Expressions: undefined,
-  };
+  const contents: any = {};
   if (output.Expressions === "") {
     contents.Expressions = [];
   } else if (output["Expressions"] !== undefined && output["Expressions"]["member"] !== undefined) {
@@ -3270,9 +3203,7 @@ const deserializeAws_queryDescribeIndexFieldsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeIndexFieldsResponse => {
-  const contents: any = {
-    IndexFields: undefined,
-  };
+  const contents: any = {};
   if (output.IndexFields === "") {
     contents.IndexFields = [];
   } else if (output["IndexFields"] !== undefined && output["IndexFields"]["member"] !== undefined) {
@@ -3288,9 +3219,7 @@ const deserializeAws_queryDescribeScalingParametersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeScalingParametersResponse => {
-  const contents: any = {
-    ScalingParameters: undefined,
-  };
+  const contents: any = {};
   if (output["ScalingParameters"] !== undefined) {
     contents.ScalingParameters = deserializeAws_queryScalingParametersStatus(output["ScalingParameters"], context);
   }
@@ -3301,9 +3230,7 @@ const deserializeAws_queryDescribeServiceAccessPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeServiceAccessPoliciesResponse => {
-  const contents: any = {
-    AccessPolicies: undefined,
-  };
+  const contents: any = {};
   if (output["AccessPolicies"] !== undefined) {
     contents.AccessPolicies = deserializeAws_queryAccessPoliciesStatus(output["AccessPolicies"], context);
   }
@@ -3314,9 +3241,7 @@ const deserializeAws_queryDescribeSuggestersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSuggestersResponse => {
-  const contents: any = {
-    Suggesters: undefined,
-  };
+  const contents: any = {};
   if (output.Suggesters === "") {
     contents.Suggesters = [];
   } else if (output["Suggesters"] !== undefined && output["Suggesters"]["member"] !== undefined) {
@@ -3332,10 +3257,7 @@ const deserializeAws_queryDisabledOperationException = (
   output: any,
   context: __SerdeContext
 ): DisabledOperationException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3349,11 +3271,7 @@ const deserializeAws_queryDocumentSuggesterOptions = (
   output: any,
   context: __SerdeContext
 ): DocumentSuggesterOptions => {
-  const contents: any = {
-    SourceField: undefined,
-    FuzzyMatching: undefined,
-    SortExpression: undefined,
-  };
+  const contents: any = {};
   if (output["SourceField"] !== undefined) {
     contents.SourceField = __expectString(output["SourceField"]);
   }
@@ -3367,10 +3285,7 @@ const deserializeAws_queryDocumentSuggesterOptions = (
 };
 
 const deserializeAws_queryDomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
-  const contents: any = {
-    EnforceHTTPS: undefined,
-    TLSSecurityPolicy: undefined,
-  };
+  const contents: any = {};
   if (output["EnforceHTTPS"] !== undefined) {
     contents.EnforceHTTPS = __parseBoolean(output["EnforceHTTPS"]);
   }
@@ -3384,10 +3299,7 @@ const deserializeAws_queryDomainEndpointOptionsStatus = (
   output: any,
   context: __SerdeContext
 ): DomainEndpointOptionsStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = deserializeAws_queryDomainEndpointOptions(output["Options"], context);
   }
@@ -3408,21 +3320,7 @@ const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryDomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
-  const contents: any = {
-    DomainId: undefined,
-    DomainName: undefined,
-    ARN: undefined,
-    Created: undefined,
-    Deleted: undefined,
-    DocService: undefined,
-    SearchService: undefined,
-    RequiresIndexDocuments: undefined,
-    Processing: undefined,
-    SearchInstanceType: undefined,
-    SearchPartitionCount: undefined,
-    SearchInstanceCount: undefined,
-    Limits: undefined,
-  };
+  const contents: any = {};
   if (output["DomainId"] !== undefined) {
     contents.DomainId = __expectString(output["DomainId"]);
   }
@@ -3474,13 +3372,7 @@ const deserializeAws_queryDomainStatusList = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeContext): DoubleArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __strictParseFloat(output["DefaultValue"]) as number;
   }
@@ -3500,14 +3392,7 @@ const deserializeAws_queryDoubleArrayOptions = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext): DoubleOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __strictParseFloat(output["DefaultValue"]) as number;
   }
@@ -3530,10 +3415,7 @@ const deserializeAws_queryDoubleOptions = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryExpression = (output: any, context: __SerdeContext): Expression => {
-  const contents: any = {
-    ExpressionName: undefined,
-    ExpressionValue: undefined,
-  };
+  const contents: any = {};
   if (output["ExpressionName"] !== undefined) {
     contents.ExpressionName = __expectString(output["ExpressionName"]);
   }
@@ -3544,10 +3426,7 @@ const deserializeAws_queryExpression = (output: any, context: __SerdeContext): E
 };
 
 const deserializeAws_queryExpressionStatus = (output: any, context: __SerdeContext): ExpressionStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = deserializeAws_queryExpression(output["Options"], context);
   }
@@ -3574,9 +3453,7 @@ const deserializeAws_queryFieldNameList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __SerdeContext): IndexDocumentsResponse => {
-  const contents: any = {
-    FieldNames: undefined,
-  };
+  const contents: any = {};
   if (output.FieldNames === "") {
     contents.FieldNames = [];
   } else if (output["FieldNames"] !== undefined && output["FieldNames"]["member"] !== undefined) {
@@ -3589,21 +3466,7 @@ const deserializeAws_queryIndexDocumentsResponse = (output: any, context: __Serd
 };
 
 const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): IndexField => {
-  const contents: any = {
-    IndexFieldName: undefined,
-    IndexFieldType: undefined,
-    IntOptions: undefined,
-    DoubleOptions: undefined,
-    LiteralOptions: undefined,
-    TextOptions: undefined,
-    DateOptions: undefined,
-    LatLonOptions: undefined,
-    IntArrayOptions: undefined,
-    DoubleArrayOptions: undefined,
-    LiteralArrayOptions: undefined,
-    TextArrayOptions: undefined,
-    DateArrayOptions: undefined,
-  };
+  const contents: any = {};
   if (output["IndexFieldName"] !== undefined) {
     contents.IndexFieldName = __expectString(output["IndexFieldName"]);
   }
@@ -3647,10 +3510,7 @@ const deserializeAws_queryIndexField = (output: any, context: __SerdeContext): I
 };
 
 const deserializeAws_queryIndexFieldStatus = (output: any, context: __SerdeContext): IndexFieldStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = deserializeAws_queryIndexField(output["Options"], context);
   }
@@ -3669,13 +3529,7 @@ const deserializeAws_queryIndexFieldStatusList = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContext): IntArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __strictParseLong(output["DefaultValue"]) as number;
   }
@@ -3695,10 +3549,7 @@ const deserializeAws_queryIntArrayOptions = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryInternalException = (output: any, context: __SerdeContext): InternalException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3709,14 +3560,7 @@ const deserializeAws_queryInternalException = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): IntOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __strictParseLong(output["DefaultValue"]) as number;
   }
@@ -3739,10 +3583,7 @@ const deserializeAws_queryIntOptions = (output: any, context: __SerdeContext): I
 };
 
 const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3753,14 +3594,7 @@ const deserializeAws_queryInvalidTypeException = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext): LatLonOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3783,10 +3617,7 @@ const deserializeAws_queryLatLonOptions = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3797,10 +3628,7 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 };
 
 const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limits => {
-  const contents: any = {
-    MaximumReplicationCount: undefined,
-    MaximumPartitionCount: undefined,
-  };
+  const contents: any = {};
   if (output["MaximumReplicationCount"] !== undefined) {
     contents.MaximumReplicationCount = __strictParseInt32(output["MaximumReplicationCount"]) as number;
   }
@@ -3811,9 +3639,7 @@ const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit
 };
 
 const deserializeAws_queryListDomainNamesResponse = (output: any, context: __SerdeContext): ListDomainNamesResponse => {
-  const contents: any = {
-    DomainNames: undefined,
-  };
+  const contents: any = {};
   if (output.DomainNames === "") {
     contents.DomainNames = {};
   } else if (output["DomainNames"] !== undefined && output["DomainNames"]["entry"] !== undefined) {
@@ -3826,13 +3652,7 @@ const deserializeAws_queryListDomainNamesResponse = (output: any, context: __Ser
 };
 
 const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeContext): LiteralArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3852,14 +3672,7 @@ const deserializeAws_queryLiteralArrayOptions = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext): LiteralOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    FacetEnabled: undefined,
-    SearchEnabled: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -3882,13 +3695,7 @@ const deserializeAws_queryLiteralOptions = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryOptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
-  const contents: any = {
-    CreationDate: undefined,
-    UpdateDate: undefined,
-    UpdateVersion: undefined,
-    State: undefined,
-    PendingDeletion: undefined,
-  };
+  const contents: any = {};
   if (output["CreationDate"] !== undefined) {
     contents.CreationDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreationDate"]));
   }
@@ -3911,10 +3718,7 @@ const deserializeAws_queryResourceAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3928,10 +3732,7 @@ const deserializeAws_queryResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }
@@ -3942,11 +3743,7 @@ const deserializeAws_queryResourceNotFoundException = (
 };
 
 const deserializeAws_queryScalingParameters = (output: any, context: __SerdeContext): ScalingParameters => {
-  const contents: any = {
-    DesiredInstanceType: undefined,
-    DesiredReplicationCount: undefined,
-    DesiredPartitionCount: undefined,
-  };
+  const contents: any = {};
   if (output["DesiredInstanceType"] !== undefined) {
     contents.DesiredInstanceType = __expectString(output["DesiredInstanceType"]);
   }
@@ -3960,10 +3757,7 @@ const deserializeAws_queryScalingParameters = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryScalingParametersStatus = (output: any, context: __SerdeContext): ScalingParametersStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = deserializeAws_queryScalingParameters(output["Options"], context);
   }
@@ -3974,9 +3768,7 @@ const deserializeAws_queryScalingParametersStatus = (output: any, context: __Ser
 };
 
 const deserializeAws_queryServiceEndpoint = (output: any, context: __SerdeContext): ServiceEndpoint => {
-  const contents: any = {
-    Endpoint: undefined,
-  };
+  const contents: any = {};
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = __expectString(output["Endpoint"]);
   }
@@ -3984,10 +3776,7 @@ const deserializeAws_queryServiceEndpoint = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_querySuggester = (output: any, context: __SerdeContext): Suggester => {
-  const contents: any = {
-    SuggesterName: undefined,
-    DocumentSuggesterOptions: undefined,
-  };
+  const contents: any = {};
   if (output["SuggesterName"] !== undefined) {
     contents.SuggesterName = __expectString(output["SuggesterName"]);
   }
@@ -4001,10 +3790,7 @@ const deserializeAws_querySuggester = (output: any, context: __SerdeContext): Su
 };
 
 const deserializeAws_querySuggesterStatus = (output: any, context: __SerdeContext): SuggesterStatus => {
-  const contents: any = {
-    Options: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["Options"] !== undefined) {
     contents.Options = deserializeAws_querySuggester(output["Options"], context);
   }
@@ -4023,13 +3809,7 @@ const deserializeAws_querySuggesterStatusList = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeContext): TextArrayOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceFields: undefined,
-    ReturnEnabled: undefined,
-    HighlightEnabled: undefined,
-    AnalysisScheme: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -4049,14 +3829,7 @@ const deserializeAws_queryTextArrayOptions = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryTextOptions = (output: any, context: __SerdeContext): TextOptions => {
-  const contents: any = {
-    DefaultValue: undefined,
-    SourceField: undefined,
-    ReturnEnabled: undefined,
-    SortEnabled: undefined,
-    HighlightEnabled: undefined,
-    AnalysisScheme: undefined,
-  };
+  const contents: any = {};
   if (output["DefaultValue"] !== undefined) {
     contents.DefaultValue = __expectString(output["DefaultValue"]);
   }
@@ -4082,9 +3855,7 @@ const deserializeAws_queryUpdateAvailabilityOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateAvailabilityOptionsResponse => {
-  const contents: any = {
-    AvailabilityOptions: undefined,
-  };
+  const contents: any = {};
   if (output["AvailabilityOptions"] !== undefined) {
     contents.AvailabilityOptions = deserializeAws_queryAvailabilityOptionsStatus(
       output["AvailabilityOptions"],
@@ -4098,9 +3869,7 @@ const deserializeAws_queryUpdateDomainEndpointOptionsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDomainEndpointOptionsResponse => {
-  const contents: any = {
-    DomainEndpointOptions: undefined,
-  };
+  const contents: any = {};
   if (output["DomainEndpointOptions"] !== undefined) {
     contents.DomainEndpointOptions = deserializeAws_queryDomainEndpointOptionsStatus(
       output["DomainEndpointOptions"],
@@ -4114,9 +3883,7 @@ const deserializeAws_queryUpdateScalingParametersResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateScalingParametersResponse => {
-  const contents: any = {
-    ScalingParameters: undefined,
-  };
+  const contents: any = {};
   if (output["ScalingParameters"] !== undefined) {
     contents.ScalingParameters = deserializeAws_queryScalingParametersStatus(output["ScalingParameters"], context);
   }
@@ -4127,9 +3894,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateServiceAccessPoliciesResponse => {
-  const contents: any = {
-    AccessPolicies: undefined,
-  };
+  const contents: any = {};
   if (output["AccessPolicies"] !== undefined) {
     contents.AccessPolicies = deserializeAws_queryAccessPoliciesStatus(output["AccessPolicies"], context);
   }
@@ -4137,10 +3902,7 @@ const deserializeAws_queryUpdateServiceAccessPoliciesResponse = (
 };
 
 const deserializeAws_queryValidationException = (output: any, context: __SerdeContext): ValidationException => {
-  const contents: any = {
-    Code: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Code"] !== undefined) {
     contents.Code = __expectString(output["Code"]);
   }

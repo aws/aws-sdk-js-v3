@@ -4774,16 +4774,7 @@ const serializeAws_queryVersionLabelsList = (input: string[], context: __SerdeCo
 };
 
 const deserializeAws_queryApplicationDescription = (output: any, context: __SerdeContext): ApplicationDescription => {
-  const contents: any = {
-    ApplicationArn: undefined,
-    ApplicationName: undefined,
-    Description: undefined,
-    DateCreated: undefined,
-    DateUpdated: undefined,
-    Versions: undefined,
-    ConfigurationTemplates: undefined,
-    ResourceLifecycleConfig: undefined,
-  };
+  const contents: any = {};
   if (output["ApplicationArn"] !== undefined) {
     contents.ApplicationArn = __expectString(output["ApplicationArn"]);
   }
@@ -4842,9 +4833,7 @@ const deserializeAws_queryApplicationDescriptionMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationDescriptionMessage => {
-  const contents: any = {
-    Application: undefined,
-  };
+  const contents: any = {};
   if (output["Application"] !== undefined) {
     contents.Application = deserializeAws_queryApplicationDescription(output["Application"], context);
   }
@@ -4855,9 +4844,7 @@ const deserializeAws_queryApplicationDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationDescriptionsMessage => {
-  const contents: any = {
-    Applications: undefined,
-  };
+  const contents: any = {};
   if (output.Applications === "") {
     contents.Applications = [];
   } else if (output["Applications"] !== undefined && output["Applications"]["member"] !== undefined) {
@@ -4870,12 +4857,7 @@ const deserializeAws_queryApplicationDescriptionsMessage = (
 };
 
 const deserializeAws_queryApplicationMetrics = (output: any, context: __SerdeContext): ApplicationMetrics => {
-  const contents: any = {
-    Duration: undefined,
-    RequestCount: undefined,
-    StatusCodes: undefined,
-    Latency: undefined,
-  };
+  const contents: any = {};
   if (output["Duration"] !== undefined) {
     contents.Duration = __strictParseInt32(output["Duration"]) as number;
   }
@@ -4895,10 +4877,7 @@ const deserializeAws_queryApplicationResourceLifecycleConfig = (
   output: any,
   context: __SerdeContext
 ): ApplicationResourceLifecycleConfig => {
-  const contents: any = {
-    ServiceRole: undefined,
-    VersionLifecycleConfig: undefined,
-  };
+  const contents: any = {};
   if (output["ServiceRole"] !== undefined) {
     contents.ServiceRole = __expectString(output["ServiceRole"]);
   }
@@ -4915,10 +4894,7 @@ const deserializeAws_queryApplicationResourceLifecycleDescriptionMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationResourceLifecycleDescriptionMessage => {
-  const contents: any = {
-    ApplicationName: undefined,
-    ResourceLifecycleConfig: undefined,
-  };
+  const contents: any = {};
   if (output["ApplicationName"] !== undefined) {
     contents.ApplicationName = __expectString(output["ApplicationName"]);
   }
@@ -4935,18 +4911,7 @@ const deserializeAws_queryApplicationVersionDescription = (
   output: any,
   context: __SerdeContext
 ): ApplicationVersionDescription => {
-  const contents: any = {
-    ApplicationVersionArn: undefined,
-    ApplicationName: undefined,
-    Description: undefined,
-    VersionLabel: undefined,
-    SourceBuildInformation: undefined,
-    BuildArn: undefined,
-    SourceBundle: undefined,
-    DateCreated: undefined,
-    DateUpdated: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["ApplicationVersionArn"] !== undefined) {
     contents.ApplicationVersionArn = __expectString(output["ApplicationVersionArn"]);
   }
@@ -4998,9 +4963,7 @@ const deserializeAws_queryApplicationVersionDescriptionMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationVersionDescriptionMessage => {
-  const contents: any = {
-    ApplicationVersion: undefined,
-  };
+  const contents: any = {};
   if (output["ApplicationVersion"] !== undefined) {
     contents.ApplicationVersion = deserializeAws_queryApplicationVersionDescription(
       output["ApplicationVersion"],
@@ -5014,10 +4977,7 @@ const deserializeAws_queryApplicationVersionDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): ApplicationVersionDescriptionsMessage => {
-  const contents: any = {
-    ApplicationVersions: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ApplicationVersions === "") {
     contents.ApplicationVersions = [];
   } else if (output["ApplicationVersions"] !== undefined && output["ApplicationVersions"]["member"] !== undefined) {
@@ -5036,10 +4996,7 @@ const deserializeAws_queryApplicationVersionLifecycleConfig = (
   output: any,
   context: __SerdeContext
 ): ApplicationVersionLifecycleConfig => {
-  const contents: any = {
-    MaxCountRule: undefined,
-    MaxAgeRule: undefined,
-  };
+  const contents: any = {};
   if (output["MaxCountRule"] !== undefined) {
     contents.MaxCountRule = deserializeAws_queryMaxCountRule(output["MaxCountRule"], context);
   }
@@ -5053,12 +5010,7 @@ const deserializeAws_queryApplyEnvironmentManagedActionResult = (
   output: any,
   context: __SerdeContext
 ): ApplyEnvironmentManagedActionResult => {
-  const contents: any = {
-    ActionId: undefined,
-    ActionDescription: undefined,
-    ActionType: undefined,
-    Status: undefined,
-  };
+  const contents: any = {};
   if (output["ActionId"] !== undefined) {
     contents.ActionId = __expectString(output["ActionId"]);
   }
@@ -5075,9 +5027,7 @@ const deserializeAws_queryApplyEnvironmentManagedActionResult = (
 };
 
 const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
-  const contents: any = {
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -5112,9 +5062,7 @@ const deserializeAws_queryAvailableSolutionStackNamesList = (output: any, contex
 };
 
 const deserializeAws_queryBuilder = (output: any, context: __SerdeContext): Builder => {
-  const contents: any = {
-    ARN: undefined,
-  };
+  const contents: any = {};
   if (output["ARN"] !== undefined) {
     contents.ARN = __expectString(output["ARN"]);
   }
@@ -5133,10 +5081,7 @@ const deserializeAws_queryCheckDNSAvailabilityResultMessage = (
   output: any,
   context: __SerdeContext
 ): CheckDNSAvailabilityResultMessage => {
-  const contents: any = {
-    Available: undefined,
-    FullyQualifiedCNAME: undefined,
-  };
+  const contents: any = {};
   if (output["Available"] !== undefined) {
     contents.Available = __parseBoolean(output["Available"]);
   }
@@ -5150,9 +5095,7 @@ const deserializeAws_queryCodeBuildNotInServiceRegionException = (
   output: any,
   context: __SerdeContext
 ): CodeBuildNotInServiceRegionException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5163,19 +5106,7 @@ const deserializeAws_queryConfigurationOptionDescription = (
   output: any,
   context: __SerdeContext
 ): ConfigurationOptionDescription => {
-  const contents: any = {
-    Namespace: undefined,
-    Name: undefined,
-    DefaultValue: undefined,
-    ChangeSeverity: undefined,
-    UserDefined: undefined,
-    ValueType: undefined,
-    ValueOptions: undefined,
-    MinValue: undefined,
-    MaxValue: undefined,
-    MaxLength: undefined,
-    Regex: undefined,
-  };
+  const contents: any = {};
   if (output["Namespace"] !== undefined) {
     contents.Namespace = __expectString(output["Namespace"]);
   }
@@ -5240,11 +5171,7 @@ const deserializeAws_queryConfigurationOptionsDescription = (
   output: any,
   context: __SerdeContext
 ): ConfigurationOptionsDescription => {
-  const contents: any = {
-    SolutionStackName: undefined,
-    PlatformArn: undefined,
-    Options: undefined,
-  };
+  const contents: any = {};
   if (output["SolutionStackName"] !== undefined) {
     contents.SolutionStackName = __expectString(output["SolutionStackName"]);
   }
@@ -5266,12 +5193,7 @@ const deserializeAws_queryConfigurationOptionSetting = (
   output: any,
   context: __SerdeContext
 ): ConfigurationOptionSetting => {
-  const contents: any = {
-    ResourceName: undefined,
-    Namespace: undefined,
-    OptionName: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["ResourceName"] !== undefined) {
     contents.ResourceName = __expectString(output["ResourceName"]);
   }
@@ -5302,18 +5224,7 @@ const deserializeAws_queryConfigurationSettingsDescription = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSettingsDescription => {
-  const contents: any = {
-    SolutionStackName: undefined,
-    PlatformArn: undefined,
-    ApplicationName: undefined,
-    TemplateName: undefined,
-    Description: undefined,
-    EnvironmentName: undefined,
-    DeploymentStatus: undefined,
-    DateCreated: undefined,
-    DateUpdated: undefined,
-    OptionSettings: undefined,
-  };
+  const contents: any = {};
   if (output["SolutionStackName"] !== undefined) {
     contents.SolutionStackName = __expectString(output["SolutionStackName"]);
   }
@@ -5367,9 +5278,7 @@ const deserializeAws_queryConfigurationSettingsDescriptions = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSettingsDescriptions => {
-  const contents: any = {
-    ConfigurationSettings: undefined,
-  };
+  const contents: any = {};
   if (output.ConfigurationSettings === "") {
     contents.ConfigurationSettings = [];
   } else if (output["ConfigurationSettings"] !== undefined && output["ConfigurationSettings"]["member"] !== undefined) {
@@ -5385,9 +5294,7 @@ const deserializeAws_queryConfigurationSettingsValidationMessages = (
   output: any,
   context: __SerdeContext
 ): ConfigurationSettingsValidationMessages => {
-  const contents: any = {
-    Messages: undefined,
-  };
+  const contents: any = {};
   if (output.Messages === "") {
     contents.Messages = [];
   } else if (output["Messages"] !== undefined && output["Messages"]["member"] !== undefined) {
@@ -5408,16 +5315,7 @@ const deserializeAws_queryConfigurationTemplateNamesList = (output: any, context
 };
 
 const deserializeAws_queryCPUUtilization = (output: any, context: __SerdeContext): CPUUtilization => {
-  const contents: any = {
-    User: undefined,
-    Nice: undefined,
-    System: undefined,
-    Idle: undefined,
-    IOWait: undefined,
-    IRQ: undefined,
-    SoftIRQ: undefined,
-    Privileged: undefined,
-  };
+  const contents: any = {};
   if (output["User"] !== undefined) {
     contents.User = __strictParseFloat(output["User"]) as number;
   }
@@ -5449,10 +5347,7 @@ const deserializeAws_queryCreatePlatformVersionResult = (
   output: any,
   context: __SerdeContext
 ): CreatePlatformVersionResult => {
-  const contents: any = {
-    PlatformSummary: undefined,
-    Builder: undefined,
-  };
+  const contents: any = {};
   if (output["PlatformSummary"] !== undefined) {
     contents.PlatformSummary = deserializeAws_queryPlatformSummary(output["PlatformSummary"], context);
   }
@@ -5466,9 +5361,7 @@ const deserializeAws_queryCreateStorageLocationResultMessage = (
   output: any,
   context: __SerdeContext
 ): CreateStorageLocationResultMessage => {
-  const contents: any = {
-    S3Bucket: undefined,
-  };
+  const contents: any = {};
   if (output["S3Bucket"] !== undefined) {
     contents.S3Bucket = __expectString(output["S3Bucket"]);
   }
@@ -5476,10 +5369,7 @@ const deserializeAws_queryCreateStorageLocationResultMessage = (
 };
 
 const deserializeAws_queryCustomAmi = (output: any, context: __SerdeContext): CustomAmi => {
-  const contents: any = {
-    VirtualizationType: undefined,
-    ImageId: undefined,
-  };
+  const contents: any = {};
   if (output["VirtualizationType"] !== undefined) {
     contents.VirtualizationType = __expectString(output["VirtualizationType"]);
   }
@@ -5501,9 +5391,7 @@ const deserializeAws_queryDeletePlatformVersionResult = (
   output: any,
   context: __SerdeContext
 ): DeletePlatformVersionResult => {
-  const contents: any = {
-    PlatformSummary: undefined,
-  };
+  const contents: any = {};
   if (output["PlatformSummary"] !== undefined) {
     contents.PlatformSummary = deserializeAws_queryPlatformSummary(output["PlatformSummary"], context);
   }
@@ -5511,12 +5399,7 @@ const deserializeAws_queryDeletePlatformVersionResult = (
 };
 
 const deserializeAws_queryDeployment = (output: any, context: __SerdeContext): Deployment => {
-  const contents: any = {
-    VersionLabel: undefined,
-    DeploymentId: undefined,
-    Status: undefined,
-    DeploymentTime: undefined,
-  };
+  const contents: any = {};
   if (output["VersionLabel"] !== undefined) {
     contents.VersionLabel = __expectString(output["VersionLabel"]);
   }
@@ -5536,9 +5419,7 @@ const deserializeAws_queryDescribeAccountAttributesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeAccountAttributesResult => {
-  const contents: any = {
-    ResourceQuotas: undefined,
-  };
+  const contents: any = {};
   if (output["ResourceQuotas"] !== undefined) {
     contents.ResourceQuotas = deserializeAws_queryResourceQuotas(output["ResourceQuotas"], context);
   }
@@ -5549,16 +5430,7 @@ const deserializeAws_queryDescribeEnvironmentHealthResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentHealthResult => {
-  const contents: any = {
-    EnvironmentName: undefined,
-    HealthStatus: undefined,
-    Status: undefined,
-    Color: undefined,
-    Causes: undefined,
-    ApplicationMetrics: undefined,
-    InstancesHealth: undefined,
-    RefreshedAt: undefined,
-  };
+  const contents: any = {};
   if (output["EnvironmentName"] !== undefined) {
     contents.EnvironmentName = __expectString(output["EnvironmentName"]);
   }
@@ -5592,10 +5464,7 @@ const deserializeAws_queryDescribeEnvironmentManagedActionHistoryResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentManagedActionHistoryResult => {
-  const contents: any = {
-    ManagedActionHistoryItems: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.ManagedActionHistoryItems === "") {
     contents.ManagedActionHistoryItems = [];
   } else if (
@@ -5617,9 +5486,7 @@ const deserializeAws_queryDescribeEnvironmentManagedActionsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentManagedActionsResult => {
-  const contents: any = {
-    ManagedActions: undefined,
-  };
+  const contents: any = {};
   if (output.ManagedActions === "") {
     contents.ManagedActions = [];
   } else if (output["ManagedActions"] !== undefined && output["ManagedActions"]["member"] !== undefined) {
@@ -5635,11 +5502,7 @@ const deserializeAws_queryDescribeInstancesHealthResult = (
   output: any,
   context: __SerdeContext
 ): DescribeInstancesHealthResult => {
-  const contents: any = {
-    InstanceHealthList: undefined,
-    RefreshedAt: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.InstanceHealthList === "") {
     contents.InstanceHealthList = [];
   } else if (output["InstanceHealthList"] !== undefined && output["InstanceHealthList"]["member"] !== undefined) {
@@ -5661,9 +5524,7 @@ const deserializeAws_queryDescribePlatformVersionResult = (
   output: any,
   context: __SerdeContext
 ): DescribePlatformVersionResult => {
-  const contents: any = {
-    PlatformDescription: undefined,
-  };
+  const contents: any = {};
   if (output["PlatformDescription"] !== undefined) {
     contents.PlatformDescription = deserializeAws_queryPlatformDescription(output["PlatformDescription"], context);
   }
@@ -5674,9 +5535,7 @@ const deserializeAws_queryElasticBeanstalkServiceException = (
   output: any,
   context: __SerdeContext
 ): ElasticBeanstalkServiceException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -5684,29 +5543,7 @@ const deserializeAws_queryElasticBeanstalkServiceException = (
 };
 
 const deserializeAws_queryEnvironmentDescription = (output: any, context: __SerdeContext): EnvironmentDescription => {
-  const contents: any = {
-    EnvironmentName: undefined,
-    EnvironmentId: undefined,
-    ApplicationName: undefined,
-    VersionLabel: undefined,
-    SolutionStackName: undefined,
-    PlatformArn: undefined,
-    TemplateName: undefined,
-    Description: undefined,
-    EndpointURL: undefined,
-    CNAME: undefined,
-    DateCreated: undefined,
-    DateUpdated: undefined,
-    Status: undefined,
-    AbortableOperationInProgress: undefined,
-    Health: undefined,
-    HealthStatus: undefined,
-    Resources: undefined,
-    Tier: undefined,
-    EnvironmentLinks: undefined,
-    EnvironmentArn: undefined,
-    OperationsRole: undefined,
-  };
+  const contents: any = {};
   if (output["EnvironmentName"] !== undefined) {
     contents.EnvironmentName = __expectString(output["EnvironmentName"]);
   }
@@ -5793,10 +5630,7 @@ const deserializeAws_queryEnvironmentDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): EnvironmentDescriptionsMessage => {
-  const contents: any = {
-    Environments: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Environments === "") {
     contents.Environments = [];
   } else if (output["Environments"] !== undefined && output["Environments"]["member"] !== undefined) {
@@ -5815,12 +5649,7 @@ const deserializeAws_queryEnvironmentInfoDescription = (
   output: any,
   context: __SerdeContext
 ): EnvironmentInfoDescription => {
-  const contents: any = {
-    InfoType: undefined,
-    Ec2InstanceId: undefined,
-    SampleTimestamp: undefined,
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["InfoType"] !== undefined) {
     contents.InfoType = __expectString(output["InfoType"]);
   }
@@ -5848,10 +5677,7 @@ const deserializeAws_queryEnvironmentInfoDescriptionList = (
 };
 
 const deserializeAws_queryEnvironmentLink = (output: any, context: __SerdeContext): EnvironmentLink => {
-  const contents: any = {
-    LinkName: undefined,
-    EnvironmentName: undefined,
-  };
+  const contents: any = {};
   if (output["LinkName"] !== undefined) {
     contents.LinkName = __expectString(output["LinkName"]);
   }
@@ -5873,16 +5699,7 @@ const deserializeAws_queryEnvironmentResourceDescription = (
   output: any,
   context: __SerdeContext
 ): EnvironmentResourceDescription => {
-  const contents: any = {
-    EnvironmentName: undefined,
-    AutoScalingGroups: undefined,
-    Instances: undefined,
-    LaunchConfigurations: undefined,
-    LaunchTemplates: undefined,
-    LoadBalancers: undefined,
-    Triggers: undefined,
-    Queues: undefined,
-  };
+  const contents: any = {};
   if (output["EnvironmentName"] !== undefined) {
     contents.EnvironmentName = __expectString(output["EnvironmentName"]);
   }
@@ -5943,9 +5760,7 @@ const deserializeAws_queryEnvironmentResourceDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): EnvironmentResourceDescriptionsMessage => {
-  const contents: any = {
-    EnvironmentResources: undefined,
-  };
+  const contents: any = {};
   if (output["EnvironmentResources"] !== undefined) {
     contents.EnvironmentResources = deserializeAws_queryEnvironmentResourceDescription(
       output["EnvironmentResources"],
@@ -5959,9 +5774,7 @@ const deserializeAws_queryEnvironmentResourcesDescription = (
   output: any,
   context: __SerdeContext
 ): EnvironmentResourcesDescription => {
-  const contents: any = {
-    LoadBalancer: undefined,
-  };
+  const contents: any = {};
   if (output["LoadBalancer"] !== undefined) {
     contents.LoadBalancer = deserializeAws_queryLoadBalancerDescription(output["LoadBalancer"], context);
   }
@@ -5969,11 +5782,7 @@ const deserializeAws_queryEnvironmentResourcesDescription = (
 };
 
 const deserializeAws_queryEnvironmentTier = (output: any, context: __SerdeContext): EnvironmentTier => {
-  const contents: any = {
-    Name: undefined,
-    Type: undefined,
-    Version: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -5987,17 +5796,7 @@ const deserializeAws_queryEnvironmentTier = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryEventDescription = (output: any, context: __SerdeContext): EventDescription => {
-  const contents: any = {
-    EventDate: undefined,
-    Message: undefined,
-    ApplicationName: undefined,
-    VersionLabel: undefined,
-    TemplateName: undefined,
-    EnvironmentName: undefined,
-    PlatformArn: undefined,
-    RequestId: undefined,
-    Severity: undefined,
-  };
+  const contents: any = {};
   if (output["EventDate"] !== undefined) {
     contents.EventDate = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["EventDate"]));
   }
@@ -6040,10 +5839,7 @@ const deserializeAws_queryEventDescriptionsMessage = (
   output: any,
   context: __SerdeContext
 ): EventDescriptionsMessage => {
-  const contents: any = {
-    Events: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.Events === "") {
     contents.Events = [];
   } else if (output["Events"] !== undefined && output["Events"]["member"] !== undefined) {
@@ -6059,9 +5855,7 @@ const deserializeAws_queryEventDescriptionsMessage = (
 };
 
 const deserializeAws_queryInstance = (output: any, context: __SerdeContext): Instance => {
-  const contents: any = {
-    Id: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -6077,16 +5871,7 @@ const deserializeAws_queryInstanceHealthList = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryInstanceHealthSummary = (output: any, context: __SerdeContext): InstanceHealthSummary => {
-  const contents: any = {
-    NoData: undefined,
-    Unknown: undefined,
-    Pending: undefined,
-    Ok: undefined,
-    Info: undefined,
-    Warning: undefined,
-    Degraded: undefined,
-    Severe: undefined,
-  };
+  const contents: any = {};
   if (output["NoData"] !== undefined) {
     contents.NoData = __strictParseInt32(output["NoData"]) as number;
   }
@@ -6126,9 +5911,7 @@ const deserializeAws_queryInsufficientPrivilegesException = (
   output: any,
   context: __SerdeContext
 ): InsufficientPrivilegesException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6136,9 +5919,7 @@ const deserializeAws_queryInsufficientPrivilegesException = (
 };
 
 const deserializeAws_queryInvalidRequestException = (output: any, context: __SerdeContext): InvalidRequestException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6146,16 +5927,7 @@ const deserializeAws_queryInvalidRequestException = (output: any, context: __Ser
 };
 
 const deserializeAws_queryLatency = (output: any, context: __SerdeContext): Latency => {
-  const contents: any = {
-    P999: undefined,
-    P99: undefined,
-    P95: undefined,
-    P90: undefined,
-    P85: undefined,
-    P75: undefined,
-    P50: undefined,
-    P10: undefined,
-  };
+  const contents: any = {};
   if (output["P999"] !== undefined) {
     contents.P999 = __strictParseFloat(output["P999"]) as number;
   }
@@ -6184,9 +5956,7 @@ const deserializeAws_queryLatency = (output: any, context: __SerdeContext): Late
 };
 
 const deserializeAws_queryLaunchConfiguration = (output: any, context: __SerdeContext): LaunchConfiguration => {
-  const contents: any = {
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -6202,9 +5972,7 @@ const deserializeAws_queryLaunchConfigurationList = (output: any, context: __Ser
 };
 
 const deserializeAws_queryLaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate => {
-  const contents: any = {
-    Id: undefined,
-  };
+  const contents: any = {};
   if (output["Id"] !== undefined) {
     contents.Id = __expectString(output["Id"]);
   }
@@ -6223,10 +5991,7 @@ const deserializeAws_queryListAvailableSolutionStacksResultMessage = (
   output: any,
   context: __SerdeContext
 ): ListAvailableSolutionStacksResultMessage => {
-  const contents: any = {
-    SolutionStacks: undefined,
-    SolutionStackDetails: undefined,
-  };
+  const contents: any = {};
   if (output.SolutionStacks === "") {
     contents.SolutionStacks = [];
   } else if (output["SolutionStacks"] !== undefined && output["SolutionStacks"]["member"] !== undefined) {
@@ -6247,10 +6012,7 @@ const deserializeAws_queryListAvailableSolutionStacksResultMessage = (
 };
 
 const deserializeAws_queryListener = (output: any, context: __SerdeContext): Listener => {
-  const contents: any = {
-    Protocol: undefined,
-    Port: undefined,
-  };
+  const contents: any = {};
   if (output["Protocol"] !== undefined) {
     contents.Protocol = __expectString(output["Protocol"]);
   }
@@ -6264,10 +6026,7 @@ const deserializeAws_queryListPlatformBranchesResult = (
   output: any,
   context: __SerdeContext
 ): ListPlatformBranchesResult => {
-  const contents: any = {
-    PlatformBranchSummaryList: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.PlatformBranchSummaryList === "") {
     contents.PlatformBranchSummaryList = [];
   } else if (
@@ -6289,10 +6048,7 @@ const deserializeAws_queryListPlatformVersionsResult = (
   output: any,
   context: __SerdeContext
 ): ListPlatformVersionsResult => {
-  const contents: any = {
-    PlatformSummaryList: undefined,
-    NextToken: undefined,
-  };
+  const contents: any = {};
   if (output.PlatformSummaryList === "") {
     contents.PlatformSummaryList = [];
   } else if (output["PlatformSummaryList"] !== undefined && output["PlatformSummaryList"]["member"] !== undefined) {
@@ -6316,9 +6072,7 @@ const deserializeAws_queryLoadAverage = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
-  const contents: any = {
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -6326,11 +6080,7 @@ const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryLoadBalancerDescription = (output: any, context: __SerdeContext): LoadBalancerDescription => {
-  const contents: any = {
-    LoadBalancerName: undefined,
-    Domain: undefined,
-    Listeners: undefined,
-  };
+  const contents: any = {};
   if (output["LoadBalancerName"] !== undefined) {
     contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
   }
@@ -6365,13 +6115,7 @@ const deserializeAws_queryLoadBalancerListenersDescription = (output: any, conte
 };
 
 const deserializeAws_queryManagedAction = (output: any, context: __SerdeContext): ManagedAction => {
-  const contents: any = {
-    ActionId: undefined,
-    ActionDescription: undefined,
-    ActionType: undefined,
-    Status: undefined,
-    WindowStartTime: undefined,
-  };
+  const contents: any = {};
   if (output["ActionId"] !== undefined) {
     contents.ActionId = __expectString(output["ActionId"]);
   }
@@ -6394,16 +6138,7 @@ const deserializeAws_queryManagedActionHistoryItem = (
   output: any,
   context: __SerdeContext
 ): ManagedActionHistoryItem => {
-  const contents: any = {
-    ActionId: undefined,
-    ActionType: undefined,
-    ActionDescription: undefined,
-    FailureType: undefined,
-    Status: undefined,
-    FailureDescription: undefined,
-    ExecutedTime: undefined,
-    FinishedTime: undefined,
-  };
+  const contents: any = {};
   if (output["ActionId"] !== undefined) {
     contents.ActionId = __expectString(output["ActionId"]);
   }
@@ -6446,9 +6181,7 @@ const deserializeAws_queryManagedActionInvalidStateException = (
   output: any,
   context: __SerdeContext
 ): ManagedActionInvalidStateException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6464,11 +6197,7 @@ const deserializeAws_queryManagedActions = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryMaxAgeRule = (output: any, context: __SerdeContext): MaxAgeRule => {
-  const contents: any = {
-    Enabled: undefined,
-    MaxAgeInDays: undefined,
-    DeleteSourceFromS3: undefined,
-  };
+  const contents: any = {};
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
@@ -6482,11 +6211,7 @@ const deserializeAws_queryMaxAgeRule = (output: any, context: __SerdeContext): M
 };
 
 const deserializeAws_queryMaxCountRule = (output: any, context: __SerdeContext): MaxCountRule => {
-  const contents: any = {
-    Enabled: undefined,
-    MaxCount: undefined,
-    DeleteSourceFromS3: undefined,
-  };
+  const contents: any = {};
   if (output["Enabled"] !== undefined) {
     contents.Enabled = __parseBoolean(output["Enabled"]);
   }
@@ -6503,9 +6228,7 @@ const deserializeAws_queryOperationInProgressException = (
   output: any,
   context: __SerdeContext
 ): OperationInProgressException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6513,10 +6236,7 @@ const deserializeAws_queryOperationInProgressException = (
 };
 
 const deserializeAws_queryOptionRestrictionRegex = (output: any, context: __SerdeContext): OptionRestrictionRegex => {
-  const contents: any = {
-    Pattern: undefined,
-    Label: undefined,
-  };
+  const contents: any = {};
   if (output["Pattern"] !== undefined) {
     contents.Pattern = __expectString(output["Pattern"]);
   }
@@ -6527,13 +6247,7 @@ const deserializeAws_queryOptionRestrictionRegex = (output: any, context: __Serd
 };
 
 const deserializeAws_queryPlatformBranchSummary = (output: any, context: __SerdeContext): PlatformBranchSummary => {
-  const contents: any = {
-    PlatformName: undefined,
-    BranchName: undefined,
-    LifecycleState: undefined,
-    BranchOrder: undefined,
-    SupportedTierList: undefined,
-  };
+  const contents: any = {};
   if (output["PlatformName"] !== undefined) {
     contents.PlatformName = __expectString(output["PlatformName"]);
   }
@@ -6569,29 +6283,7 @@ const deserializeAws_queryPlatformBranchSummaryList = (
 };
 
 const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeContext): PlatformDescription => {
-  const contents: any = {
-    PlatformArn: undefined,
-    PlatformOwner: undefined,
-    PlatformName: undefined,
-    PlatformVersion: undefined,
-    SolutionStackName: undefined,
-    PlatformStatus: undefined,
-    DateCreated: undefined,
-    DateUpdated: undefined,
-    PlatformCategory: undefined,
-    Description: undefined,
-    Maintainer: undefined,
-    OperatingSystemName: undefined,
-    OperatingSystemVersion: undefined,
-    ProgrammingLanguages: undefined,
-    Frameworks: undefined,
-    CustomAmiList: undefined,
-    SupportedTierList: undefined,
-    SupportedAddonList: undefined,
-    PlatformLifecycleState: undefined,
-    PlatformBranchName: undefined,
-    PlatformBranchLifecycleState: undefined,
-  };
+  const contents: any = {};
   if (output["PlatformArn"] !== undefined) {
     contents.PlatformArn = __expectString(output["PlatformArn"]);
   }
@@ -6684,10 +6376,7 @@ const deserializeAws_queryPlatformDescription = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryPlatformFramework = (output: any, context: __SerdeContext): PlatformFramework => {
-  const contents: any = {
-    Name: undefined,
-    Version: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -6709,10 +6398,7 @@ const deserializeAws_queryPlatformProgrammingLanguage = (
   output: any,
   context: __SerdeContext
 ): PlatformProgrammingLanguage => {
-  const contents: any = {
-    Name: undefined,
-    Version: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -6734,20 +6420,7 @@ const deserializeAws_queryPlatformProgrammingLanguages = (
 };
 
 const deserializeAws_queryPlatformSummary = (output: any, context: __SerdeContext): PlatformSummary => {
-  const contents: any = {
-    PlatformArn: undefined,
-    PlatformOwner: undefined,
-    PlatformStatus: undefined,
-    PlatformCategory: undefined,
-    OperatingSystemName: undefined,
-    OperatingSystemVersion: undefined,
-    SupportedTierList: undefined,
-    SupportedAddonList: undefined,
-    PlatformLifecycleState: undefined,
-    PlatformVersion: undefined,
-    PlatformBranchName: undefined,
-    PlatformBranchLifecycleState: undefined,
-  };
+  const contents: any = {};
   if (output["PlatformArn"] !== undefined) {
     contents.PlatformArn = __expectString(output["PlatformArn"]);
   }
@@ -6809,9 +6482,7 @@ const deserializeAws_queryPlatformVersionStillReferencedException = (
   output: any,
   context: __SerdeContext
 ): PlatformVersionStillReferencedException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6819,10 +6490,7 @@ const deserializeAws_queryPlatformVersionStillReferencedException = (
 };
 
 const deserializeAws_queryQueue = (output: any, context: __SerdeContext): Queue => {
-  const contents: any = {
-    Name: undefined,
-    URL: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -6844,9 +6512,7 @@ const deserializeAws_queryResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6854,9 +6520,7 @@ const deserializeAws_queryResourceNotFoundException = (
 };
 
 const deserializeAws_queryResourceQuota = (output: any, context: __SerdeContext): ResourceQuota => {
-  const contents: any = {
-    Maximum: undefined,
-  };
+  const contents: any = {};
   if (output["Maximum"] !== undefined) {
     contents.Maximum = __strictParseInt32(output["Maximum"]) as number;
   }
@@ -6864,13 +6528,7 @@ const deserializeAws_queryResourceQuota = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryResourceQuotas = (output: any, context: __SerdeContext): ResourceQuotas => {
-  const contents: any = {
-    ApplicationQuota: undefined,
-    ApplicationVersionQuota: undefined,
-    EnvironmentQuota: undefined,
-    ConfigurationTemplateQuota: undefined,
-    CustomPlatformQuota: undefined,
-  };
+  const contents: any = {};
   if (output["ApplicationQuota"] !== undefined) {
     contents.ApplicationQuota = deserializeAws_queryResourceQuota(output["ApplicationQuota"], context);
   }
@@ -6896,10 +6554,7 @@ const deserializeAws_queryResourceTagsDescriptionMessage = (
   output: any,
   context: __SerdeContext
 ): ResourceTagsDescriptionMessage => {
-  const contents: any = {
-    ResourceArn: undefined,
-    ResourceTags: undefined,
-  };
+  const contents: any = {};
   if (output["ResourceArn"] !== undefined) {
     contents.ResourceArn = __expectString(output["ResourceArn"]);
   }
@@ -6918,9 +6573,7 @@ const deserializeAws_queryResourceTypeNotSupportedException = (
   output: any,
   context: __SerdeContext
 ): ResourceTypeNotSupportedException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6931,9 +6584,7 @@ const deserializeAws_queryRetrieveEnvironmentInfoResultMessage = (
   output: any,
   context: __SerdeContext
 ): RetrieveEnvironmentInfoResultMessage => {
-  const contents: any = {
-    EnvironmentInfo: undefined,
-  };
+  const contents: any = {};
   if (output.EnvironmentInfo === "") {
     contents.EnvironmentInfo = [];
   } else if (output["EnvironmentInfo"] !== undefined && output["EnvironmentInfo"]["member"] !== undefined) {
@@ -6946,10 +6597,7 @@ const deserializeAws_queryRetrieveEnvironmentInfoResultMessage = (
 };
 
 const deserializeAws_queryS3Location = (output: any, context: __SerdeContext): S3Location => {
-  const contents: any = {
-    S3Bucket: undefined,
-    S3Key: undefined,
-  };
+  const contents: any = {};
   if (output["S3Bucket"] !== undefined) {
     contents.S3Bucket = __expectString(output["S3Bucket"]);
   }
@@ -6963,9 +6611,7 @@ const deserializeAws_queryS3LocationNotInServiceRegionException = (
   output: any,
   context: __SerdeContext
 ): S3LocationNotInServiceRegionException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6976,9 +6622,7 @@ const deserializeAws_queryS3SubscriptionRequiredException = (
   output: any,
   context: __SerdeContext
 ): S3SubscriptionRequiredException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -6986,18 +6630,7 @@ const deserializeAws_queryS3SubscriptionRequiredException = (
 };
 
 const deserializeAws_querySingleInstanceHealth = (output: any, context: __SerdeContext): SingleInstanceHealth => {
-  const contents: any = {
-    InstanceId: undefined,
-    HealthStatus: undefined,
-    Color: undefined,
-    Causes: undefined,
-    LaunchedAt: undefined,
-    ApplicationMetrics: undefined,
-    System: undefined,
-    Deployment: undefined,
-    AvailabilityZone: undefined,
-    InstanceType: undefined,
-  };
+  const contents: any = {};
   if (output["InstanceId"] !== undefined) {
     contents.InstanceId = __expectString(output["InstanceId"]);
   }
@@ -7037,10 +6670,7 @@ const deserializeAws_querySolutionStackDescription = (
   output: any,
   context: __SerdeContext
 ): SolutionStackDescription => {
-  const contents: any = {
-    SolutionStackName: undefined,
-    PermittedFileTypes: undefined,
-  };
+  const contents: any = {};
   if (output["SolutionStackName"] !== undefined) {
     contents.SolutionStackName = __expectString(output["SolutionStackName"]);
   }
@@ -7064,11 +6694,7 @@ const deserializeAws_querySolutionStackFileTypeList = (output: any, context: __S
 };
 
 const deserializeAws_querySourceBuildInformation = (output: any, context: __SerdeContext): SourceBuildInformation => {
-  const contents: any = {
-    SourceType: undefined,
-    SourceRepository: undefined,
-    SourceLocation: undefined,
-  };
+  const contents: any = {};
   if (output["SourceType"] !== undefined) {
     contents.SourceType = __expectString(output["SourceType"]);
   }
@@ -7085,9 +6711,7 @@ const deserializeAws_querySourceBundleDeletionException = (
   output: any,
   context: __SerdeContext
 ): SourceBundleDeletionException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7095,12 +6719,7 @@ const deserializeAws_querySourceBundleDeletionException = (
 };
 
 const deserializeAws_queryStatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
-  const contents: any = {
-    Status2xx: undefined,
-    Status3xx: undefined,
-    Status4xx: undefined,
-    Status5xx: undefined,
-  };
+  const contents: any = {};
   if (output["Status2xx"] !== undefined) {
     contents.Status2xx = __strictParseInt32(output["Status2xx"]) as number;
   }
@@ -7133,10 +6752,7 @@ const deserializeAws_querySupportedTierList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_querySystemStatus = (output: any, context: __SerdeContext): SystemStatus => {
-  const contents: any = {
-    CPUUtilization: undefined,
-    LoadAverage: undefined,
-  };
+  const contents: any = {};
   if (output["CPUUtilization"] !== undefined) {
     contents.CPUUtilization = deserializeAws_queryCPUUtilization(output["CPUUtilization"], context);
   }
@@ -7152,10 +6768,7 @@ const deserializeAws_querySystemStatus = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
-  const contents: any = {
-    Key: undefined,
-    Value: undefined,
-  };
+  const contents: any = {};
   if (output["Key"] !== undefined) {
     contents.Key = __expectString(output["Key"]);
   }
@@ -7177,9 +6790,7 @@ const deserializeAws_queryTooManyApplicationsException = (
   output: any,
   context: __SerdeContext
 ): TooManyApplicationsException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7190,9 +6801,7 @@ const deserializeAws_queryTooManyApplicationVersionsException = (
   output: any,
   context: __SerdeContext
 ): TooManyApplicationVersionsException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7200,9 +6809,7 @@ const deserializeAws_queryTooManyApplicationVersionsException = (
 };
 
 const deserializeAws_queryTooManyBucketsException = (output: any, context: __SerdeContext): TooManyBucketsException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7213,9 +6820,7 @@ const deserializeAws_queryTooManyConfigurationTemplatesException = (
   output: any,
   context: __SerdeContext
 ): TooManyConfigurationTemplatesException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7226,9 +6831,7 @@ const deserializeAws_queryTooManyEnvironmentsException = (
   output: any,
   context: __SerdeContext
 ): TooManyEnvironmentsException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7239,9 +6842,7 @@ const deserializeAws_queryTooManyPlatformsException = (
   output: any,
   context: __SerdeContext
 ): TooManyPlatformsException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7249,9 +6850,7 @@ const deserializeAws_queryTooManyPlatformsException = (
 };
 
 const deserializeAws_queryTooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
-  const contents: any = {
-    message: undefined,
-  };
+  const contents: any = {};
   if (output["message"] !== undefined) {
     contents.message = __expectString(output["message"]);
   }
@@ -7259,9 +6858,7 @@ const deserializeAws_queryTooManyTagsException = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryTrigger = (output: any, context: __SerdeContext): Trigger => {
-  const contents: any = {
-    Name: undefined,
-  };
+  const contents: any = {};
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
   }
@@ -7277,12 +6874,7 @@ const deserializeAws_queryTriggerList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_queryValidationMessage = (output: any, context: __SerdeContext): ValidationMessage => {
-  const contents: any = {
-    Message: undefined,
-    Severity: undefined,
-    Namespace: undefined,
-    OptionName: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }

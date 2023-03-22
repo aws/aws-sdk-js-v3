@@ -2132,10 +2132,7 @@ const serializeAws_queryStringMap = (input: Record<string, string>, context: __S
 };
 
 const deserializeAws_queryComplexError = (output: any, context: __SerdeContext): ComplexError => {
-  const contents: any = {
-    TopLevel: undefined,
-    Nested: undefined,
-  };
+  const contents: any = {};
   if (output["TopLevel"] !== undefined) {
     contents.TopLevel = __expectString(output["TopLevel"]);
   }
@@ -2146,9 +2143,7 @@ const deserializeAws_queryComplexError = (output: any, context: __SerdeContext):
 };
 
 const deserializeAws_queryComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
-  const contents: any = {
-    Foo: undefined,
-  };
+  const contents: any = {};
   if (output["Foo"] !== undefined) {
     contents.Foo = __expectString(output["Foo"]);
   }
@@ -2156,9 +2151,7 @@ const deserializeAws_queryComplexNestedErrorData = (output: any, context: __Serd
 };
 
 const deserializeAws_queryCustomCodeError = (output: any, context: __SerdeContext): CustomCodeError => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
@@ -2166,9 +2159,7 @@ const deserializeAws_queryCustomCodeError = (output: any, context: __SerdeContex
 };
 
 const deserializeAws_queryDatetimeOffsetsOutput = (output: any, context: __SerdeContext): DatetimeOffsetsOutput => {
-  const contents: any = {
-    datetime: undefined,
-  };
+  const contents: any = {};
   if (output["datetime"] !== undefined) {
     contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["datetime"]));
   }
@@ -2184,9 +2175,7 @@ const deserializeAws_queryEmptyInputAndEmptyOutputOutput = (
 };
 
 const deserializeAws_queryFlattenedXmlMapOutput = (output: any, context: __SerdeContext): FlattenedXmlMapOutput => {
-  const contents: any = {
-    myMap: undefined,
-  };
+  const contents: any = {};
   if (output.myMap === "") {
     contents.myMap = {};
   } else if (output["myMap"] !== undefined) {
@@ -2199,9 +2188,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutput = (
   output: any,
   context: __SerdeContext
 ): FlattenedXmlMapWithXmlNameOutput => {
-  const contents: any = {
-    myMap: undefined,
-  };
+  const contents: any = {};
   if (output.KVP === "") {
     contents.myMap = {};
   } else if (output["KVP"] !== undefined) {
@@ -2230,9 +2217,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutput = (
   output: any,
   context: __SerdeContext
 ): FlattenedXmlMapWithXmlNamespaceOutput => {
-  const contents: any = {
-    myMap: undefined,
-  };
+  const contents: any = {};
   if (output.KVP === "") {
     contents.myMap = {};
   } else if (output["KVP"] !== undefined) {
@@ -2258,10 +2243,7 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutputMap = (
 };
 
 const deserializeAws_queryFractionalSecondsOutput = (output: any, context: __SerdeContext): FractionalSecondsOutput => {
-  const contents: any = {
-    datetime: undefined,
-    httpdate: undefined,
-  };
+  const contents: any = {};
   if (output["datetime"] !== undefined) {
     contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["datetime"]));
   }
@@ -2275,9 +2257,7 @@ const deserializeAws_queryGreetingWithErrorsOutput = (
   output: any,
   context: __SerdeContext
 ): GreetingWithErrorsOutput => {
-  const contents: any = {
-    greeting: undefined,
-  };
+  const contents: any = {};
   if (output["greeting"] !== undefined) {
     contents.greeting = __expectString(output["greeting"]);
   }
@@ -2288,9 +2268,7 @@ const deserializeAws_queryIgnoresWrappingXmlNameOutput = (
   output: any,
   context: __SerdeContext
 ): IgnoresWrappingXmlNameOutput => {
-  const contents: any = {
-    foo: undefined,
-  };
+  const contents: any = {};
   if (output["foo"] !== undefined) {
     contents.foo = __expectString(output["foo"]);
   }
@@ -2298,9 +2276,7 @@ const deserializeAws_queryIgnoresWrappingXmlNameOutput = (
 };
 
 const deserializeAws_queryInvalidGreeting = (output: any, context: __SerdeContext): InvalidGreeting => {
-  const contents: any = {
-    Message: undefined,
-  };
+  const contents: any = {};
   if (output["Message"] !== undefined) {
     contents.Message = __expectString(output["Message"]);
   }
@@ -2332,9 +2308,7 @@ const deserializeAws_queryRecursiveXmlShapesOutput = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutput => {
-  const contents: any = {
-    nested: undefined,
-  };
+  const contents: any = {};
   if (output["nested"] !== undefined) {
     contents.nested = deserializeAws_queryRecursiveXmlShapesOutputNested1(output["nested"], context);
   }
@@ -2345,10 +2319,7 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested1 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested1 => {
-  const contents: any = {
-    foo: undefined,
-    nested: undefined,
-  };
+  const contents: any = {};
   if (output["foo"] !== undefined) {
     contents.foo = __expectString(output["foo"]);
   }
@@ -2362,10 +2333,7 @@ const deserializeAws_queryRecursiveXmlShapesOutputNested2 = (
   output: any,
   context: __SerdeContext
 ): RecursiveXmlShapesOutputNested2 => {
-  const contents: any = {
-    bar: undefined,
-    recursiveMember: undefined,
-  };
+  const contents: any = {};
   if (output["bar"] !== undefined) {
     contents.bar = __expectString(output["bar"]);
   }
@@ -2387,18 +2355,7 @@ const deserializeAws_querySimpleScalarXmlPropertiesOutput = (
   output: any,
   context: __SerdeContext
 ): SimpleScalarXmlPropertiesOutput => {
-  const contents: any = {
-    stringValue: undefined,
-    emptyStringValue: undefined,
-    trueBooleanValue: undefined,
-    falseBooleanValue: undefined,
-    byteValue: undefined,
-    shortValue: undefined,
-    integerValue: undefined,
-    longValue: undefined,
-    floatValue: undefined,
-    doubleValue: undefined,
-  };
+  const contents: any = {};
   if (output["stringValue"] !== undefined) {
     contents.stringValue = __expectString(output["stringValue"]);
   }
@@ -2441,10 +2398,7 @@ const deserializeAws_queryStructureList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_queryStructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
-  const contents: any = {
-    a: undefined,
-    b: undefined,
-  };
+  const contents: any = {};
   if (output["value"] !== undefined) {
     contents.a = __expectString(output["value"]);
   }
@@ -2455,9 +2409,7 @@ const deserializeAws_queryStructureListMember = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryXmlBlobsOutput = (output: any, context: __SerdeContext): XmlBlobsOutput => {
-  const contents: any = {
-    data: undefined,
-  };
+  const contents: any = {};
   if (output["data"] !== undefined) {
     contents.data = context.base64Decoder(output["data"]);
   }
@@ -2465,14 +2417,7 @@ const deserializeAws_queryXmlBlobsOutput = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext): XmlEnumsOutput => {
-  const contents: any = {
-    fooEnum1: undefined,
-    fooEnum2: undefined,
-    fooEnum3: undefined,
-    fooEnumList: undefined,
-    fooEnumSet: undefined,
-    fooEnumMap: undefined,
-  };
+  const contents: any = {};
   if (output["fooEnum1"] !== undefined) {
     contents.fooEnum1 = __expectString(output["fooEnum1"]);
   }
@@ -2510,14 +2455,7 @@ const deserializeAws_queryXmlEnumsOutput = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryXmlIntEnumsOutput = (output: any, context: __SerdeContext): XmlIntEnumsOutput => {
-  const contents: any = {
-    intEnum1: undefined,
-    intEnum2: undefined,
-    intEnum3: undefined,
-    intEnumList: undefined,
-    intEnumSet: undefined,
-    intEnumMap: undefined,
-  };
+  const contents: any = {};
   if (output["intEnum1"] !== undefined) {
     contents.intEnum1 = __strictParseInt32(output["intEnum1"]) as number;
   }
@@ -2555,22 +2493,7 @@ const deserializeAws_queryXmlIntEnumsOutput = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext): XmlListsOutput => {
-  const contents: any = {
-    stringList: undefined,
-    stringSet: undefined,
-    integerList: undefined,
-    booleanList: undefined,
-    timestampList: undefined,
-    enumList: undefined,
-    intEnumList: undefined,
-    nestedStringList: undefined,
-    renamedListMembers: undefined,
-    flattenedList: undefined,
-    flattenedList2: undefined,
-    flattenedListWithMemberNamespace: undefined,
-    flattenedListWithNamespace: undefined,
-    structureList: undefined,
-  };
+  const contents: any = {};
   if (output.stringList === "") {
     contents.stringList = [];
   } else if (output["stringList"] !== undefined && output["stringList"]["member"] !== undefined) {
@@ -2681,9 +2604,7 @@ const deserializeAws_queryXmlListsOutput = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_queryXmlMapsOutput = (output: any, context: __SerdeContext): XmlMapsOutput => {
-  const contents: any = {
-    myMap: undefined,
-  };
+  const contents: any = {};
   if (output.myMap === "") {
     contents.myMap = {};
   } else if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
@@ -2703,9 +2624,7 @@ const deserializeAws_queryXmlMapsOutputMap = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_queryXmlMapsXmlNameOutput = (output: any, context: __SerdeContext): XmlMapsXmlNameOutput => {
-  const contents: any = {
-    myMap: undefined,
-  };
+  const contents: any = {};
   if (output.myMap === "") {
     contents.myMap = {};
   } else if (output["myMap"] !== undefined && output["myMap"]["entry"] !== undefined) {
@@ -2739,10 +2658,7 @@ const deserializeAws_queryXmlNamespacedList = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryXmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
-  const contents: any = {
-    foo: undefined,
-    values: undefined,
-  };
+  const contents: any = {};
   if (output["foo"] !== undefined) {
     contents.foo = __expectString(output["foo"]);
   }
@@ -2758,9 +2674,7 @@ const deserializeAws_queryXmlNamespaceNested = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryXmlNamespacesOutput = (output: any, context: __SerdeContext): XmlNamespacesOutput => {
-  const contents: any = {
-    nested: undefined,
-  };
+  const contents: any = {};
   if (output["nested"] !== undefined) {
     contents.nested = deserializeAws_queryXmlNamespaceNested(output["nested"], context);
   }
@@ -2768,15 +2682,7 @@ const deserializeAws_queryXmlNamespacesOutput = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_queryXmlTimestampsOutput = (output: any, context: __SerdeContext): XmlTimestampsOutput => {
-  const contents: any = {
-    normal: undefined,
-    dateTime: undefined,
-    dateTimeOnTarget: undefined,
-    epochSeconds: undefined,
-    epochSecondsOnTarget: undefined,
-    httpDate: undefined,
-    httpDateOnTarget: undefined,
-  };
+  const contents: any = {};
   if (output["normal"] !== undefined) {
     contents.normal = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["normal"]));
   }
@@ -2836,9 +2742,7 @@ const deserializeAws_queryFooEnumSet = (output: any, context: __SerdeContext): (
 };
 
 const deserializeAws_queryGreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
-  const contents: any = {
-    hi: undefined,
-  };
+  const contents: any = {};
   if (output["hi"] !== undefined) {
     contents.hi = __expectString(output["hi"]);
   }
