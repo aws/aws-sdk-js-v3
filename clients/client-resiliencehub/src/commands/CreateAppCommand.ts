@@ -40,11 +40,11 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
 
 /**
  * @public
- * <p>Creates an AWS Resilience Hub application. An AWS Resilience Hub application is a collection of Amazon Web Services
+ * <p>Creates an Resilience Hub application. An Resilience Hub application is a collection of Amazon Web Services
  *       resources structured to prevent and recover Amazon Web Services application disruptions. To describe a
- *       AWS Resilience Hub application, you provide an application name, resources from one or more–up to
+ *       Resilience Hub application, you provide an application name, resources from one or more–up to
  *       five–CloudFormation stacks, and an appropriate resiliency policy.</p>
- *          <p>After you create an AWS Resilience Hub application, you publish it so that you can run a resiliency
+ *          <p>After you create an Resilience Hub application, you publish it so that you can run a resiliency
  *       assessment on it. You can then use recommendations from the assessment to improve resiliency
  *       by running another assessment, comparing results, and then iterating the process until you
  *       achieve your goals for recovery time objective (RTO) and recovery point objective
@@ -77,7 +77,7 @@ export interface CreateAppCommandOutput extends CreateAppResponse, __MetadataBea
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

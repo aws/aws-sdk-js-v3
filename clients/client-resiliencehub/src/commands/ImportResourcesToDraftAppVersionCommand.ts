@@ -42,7 +42,7 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
 
 /**
  * @public
- * <p>Imports resources to AWS Resilience Hub application draft version from different input sources. For more information about the input sources supported by AWS Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
+ * <p>Imports resources to Resilience Hub application draft version from different input sources. For more information about the input sources supported by Resilience Hub, see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/discover-structure.html">Discover
  *         the structure and describe your Resilience Hub application</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,7 +72,7 @@ export interface ImportResourcesToDraftAppVersionCommandOutput
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

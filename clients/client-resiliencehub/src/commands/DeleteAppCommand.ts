@@ -40,7 +40,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
 
 /**
  * @public
- * <p>Deletes an AWS Resilience Hub application. This is a destructive action that can't be
+ * <p>Deletes an Resilience Hub application. This is a destructive action that can't be
  *       undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,7 +65,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

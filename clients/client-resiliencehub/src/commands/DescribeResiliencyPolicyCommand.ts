@@ -40,7 +40,7 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
 
 /**
  * @public
- * <p>Describes a specified resiliency policy for an AWS Resilience Hub application. The returned
+ * <p>Describes a specified resiliency policy for an Resilience Hub application. The returned
  *       policy object includes creation time, data location constraints, the Amazon Resource Name
  *       (ARN) for the policy, tags, tier, and more.</p>
  * @example
@@ -65,7 +65,7 @@ export interface DescribeResiliencyPolicyCommandOutput extends DescribeResilienc
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

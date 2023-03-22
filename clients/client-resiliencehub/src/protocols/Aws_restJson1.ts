@@ -208,6 +208,8 @@ import {
   Cost,
   DisruptionCompliance,
   DisruptionType,
+  EksSource,
+  EksSourceClusterNamespace,
   FailurePolicy,
   InternalServerException,
   LogicalResourceId,
@@ -495,6 +497,12 @@ export const serializeAws_restJson1DeleteAppInputSourceCommand = async (
   body = JSON.stringify({
     ...(input.appArn != null && { appArn: input.appArn }),
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.eksSourceClusterNamespace != null && {
+      eksSourceClusterNamespace: serializeAws_restJson1EksSourceClusterNamespace(
+        input.eksSourceClusterNamespace,
+        context
+      ),
+    }),
     ...(input.sourceArn != null && { sourceArn: input.sourceArn }),
     ...(input.terraformSource != null && {
       terraformSource: serializeAws_restJson1TerraformSource(input.terraformSource, context),
@@ -875,6 +883,7 @@ export const serializeAws_restJson1ImportResourcesToDraftAppVersionCommand = asy
   let body: any;
   body = JSON.stringify({
     ...(input.appArn != null && { appArn: input.appArn }),
+    ...(input.eksSources != null && { eksSources: serializeAws_restJson1EksSourceList(input.eksSources, context) }),
     ...(input.importStrategy != null && { importStrategy: input.importStrategy }),
     ...(input.sourceArns != null && { sourceArns: serializeAws_restJson1ArnList(input.sourceArns, context) }),
     ...(input.terraformSources != null && {
@@ -1421,6 +1430,9 @@ export const serializeAws_restJson1RemoveDraftAppVersionResourceMappingsCommand 
     ...(input.appArn != null && { appArn: input.appArn }),
     ...(input.appRegistryAppNames != null && {
       appRegistryAppNames: serializeAws_restJson1EntityNameList(input.appRegistryAppNames, context),
+    }),
+    ...(input.eksSourceNames != null && {
+      eksSourceNames: serializeAws_restJson1String255List(input.eksSourceNames, context),
     }),
     ...(input.logicalStackNames != null && {
       logicalStackNames: serializeAws_restJson1String255List(input.logicalStackNames, context),
@@ -3031,6 +3043,9 @@ export const deserializeAws_restJson1ImportResourcesToDraftAppVersionCommand = a
   }
   if (data.appVersion != null) {
     contents.appVersion = __expectString(data.appVersion);
+  }
+  if (data.eksSources != null) {
+    contents.eksSources = deserializeAws_restJson1EksSourceList(data.eksSources, context);
   }
   if (data.sourceArns != null) {
     contents.sourceArns = deserializeAws_restJson1ArnList(data.sourceArns, context);
@@ -4933,6 +4948,39 @@ const serializeAws_restJson1DisruptionPolicy = (input: Record<string, FailurePol
   }, {});
 };
 
+const serializeAws_restJson1EksNamespaceList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1EksSource = (input: EksSource, context: __SerdeContext): any => {
+  return {
+    ...(input.eksClusterArn != null && { eksClusterArn: input.eksClusterArn }),
+    ...(input.namespaces != null && { namespaces: serializeAws_restJson1EksNamespaceList(input.namespaces, context) }),
+  };
+};
+
+const serializeAws_restJson1EksSourceClusterNamespace = (
+  input: EksSourceClusterNamespace,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.eksClusterArn != null && { eksClusterArn: input.eksClusterArn }),
+    ...(input.namespace != null && { namespace: input.namespace }),
+  };
+};
+
+const serializeAws_restJson1EksSourceList = (input: EksSource[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1EksSource(entry, context);
+    });
+};
+
 const serializeAws_restJson1EntityNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4950,6 +4998,7 @@ const serializeAws_restJson1FailurePolicy = (input: FailurePolicy, context: __Se
 
 const serializeAws_restJson1LogicalResourceId = (input: LogicalResourceId, context: __SerdeContext): any => {
   return {
+    ...(input.eksSourceName != null && { eksSourceName: input.eksSourceName }),
     ...(input.identifier != null && { identifier: input.identifier }),
     ...(input.logicalStackName != null && { logicalStackName: input.logicalStackName }),
     ...(input.resourceGroupName != null && { resourceGroupName: input.resourceGroupName }),
@@ -4988,6 +5037,7 @@ const serializeAws_restJson1RenderRecommendationTypeList = (
 const serializeAws_restJson1ResourceMapping = (input: ResourceMapping, context: __SerdeContext): any => {
   return {
     ...(input.appRegistryAppName != null && { appRegistryAppName: input.appRegistryAppName }),
+    ...(input.eksSourceName != null && { eksSourceName: input.eksSourceName }),
     ...(input.logicalStackName != null && { logicalStackName: input.logicalStackName }),
     ...(input.mappingType != null && { mappingType: input.mappingType }),
     ...(input.physicalResourceId != null && {
@@ -5235,6 +5285,10 @@ const deserializeAws_restJson1AppComponentList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1AppInputSource = (output: any, context: __SerdeContext): AppInputSource => {
   return {
+    eksSourceClusterNamespace:
+      output.eksSourceClusterNamespace != null
+        ? deserializeAws_restJson1EksSourceClusterNamespace(output.eksSourceClusterNamespace, context)
+        : undefined,
     importType: __expectString(output.importType),
     resourceCount: __expectInt32(output.resourceCount),
     sourceArn: __expectString(output.sourceArn),
@@ -5465,6 +5519,48 @@ const deserializeAws_restJson1DisruptionResiliencyScore = (
   }, {});
 };
 
+const deserializeAws_restJson1EksNamespaceList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EksSource = (output: any, context: __SerdeContext): EksSource => {
+  return {
+    eksClusterArn: __expectString(output.eksClusterArn),
+    namespaces:
+      output.namespaces != null ? deserializeAws_restJson1EksNamespaceList(output.namespaces, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EksSourceClusterNamespace = (
+  output: any,
+  context: __SerdeContext
+): EksSourceClusterNamespace => {
+  return {
+    eksClusterArn: __expectString(output.eksClusterArn),
+    namespace: __expectString(output.namespace),
+  } as any;
+};
+
+const deserializeAws_restJson1EksSourceList = (output: any, context: __SerdeContext): EksSource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EksSource(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1FailurePolicy = (output: any, context: __SerdeContext): FailurePolicy => {
   return {
     rpoInSecs: __expectInt32(output.rpoInSecs),
@@ -5474,6 +5570,7 @@ const deserializeAws_restJson1FailurePolicy = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1LogicalResourceId = (output: any, context: __SerdeContext): LogicalResourceId => {
   return {
+    eksSourceName: __expectString(output.eksSourceName),
     identifier: __expectString(output.identifier),
     logicalStackName: __expectString(output.logicalStackName),
     resourceGroupName: __expectString(output.resourceGroupName),
@@ -5723,6 +5820,7 @@ const deserializeAws_restJson1ResourceErrorsDetails = (output: any, context: __S
 const deserializeAws_restJson1ResourceMapping = (output: any, context: __SerdeContext): ResourceMapping => {
   return {
     appRegistryAppName: __expectString(output.appRegistryAppName),
+    eksSourceName: __expectString(output.eksSourceName),
     logicalStackName: __expectString(output.logicalStackName),
     mappingType: __expectString(output.mappingType),
     physicalResourceId:
@@ -5861,6 +5959,7 @@ const deserializeAws_restJson1UnsupportedResource = (output: any, context: __Ser
         ? deserializeAws_restJson1PhysicalResourceId(output.physicalResourceId, context)
         : undefined,
     resourceType: __expectString(output.resourceType),
+    unsupportedResourceStatus: __expectString(output.unsupportedResourceStatus),
   } as any;
 };
 

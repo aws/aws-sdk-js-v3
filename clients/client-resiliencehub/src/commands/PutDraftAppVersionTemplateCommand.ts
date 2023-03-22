@@ -40,7 +40,7 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
 
 /**
  * @public
- * <p>Adds or updates the app template for an AWS Resilience Hub application draft version.</p>
+ * <p>Adds or updates the app template for an Resilience Hub application draft version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +69,7 @@ export interface PutDraftAppVersionTemplateCommandOutput extends PutDraftAppVers
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

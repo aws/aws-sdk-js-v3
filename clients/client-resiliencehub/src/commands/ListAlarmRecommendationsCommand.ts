@@ -40,7 +40,7 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
 
 /**
  * @public
- * <p>Lists the alarm recommendations for an AWS Resilience Hub application.</p>
+ * <p>Lists the alarm recommendations for an Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +63,7 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

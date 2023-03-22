@@ -40,7 +40,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
 
 /**
  * @public
- * <p>Describes a resource of the AWS Resilience Hub application.</p>
+ * <p>Describes a resource of the Resilience Hub application.</p>
  *          <note>
  *             <p>This API accepts only one of the following parameters to descibe the resource:</p>
  *             <ul>
@@ -89,7 +89,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

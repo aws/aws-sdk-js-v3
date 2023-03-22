@@ -40,7 +40,7 @@ export interface ListAppVersionResourcesCommandOutput extends ListAppVersionReso
 
 /**
  * @public
- * <p>Lists all the resources in an AWS Resilience Hub application.</p>
+ * <p>Lists all the resources in an Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +69,7 @@ export interface ListAppVersionResourcesCommandOutput extends ListAppVersionReso
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

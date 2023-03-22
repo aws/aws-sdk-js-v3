@@ -40,14 +40,14 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
 
 /**
  * @public
- * <p>Updates the resource details in the AWS Resilience Hub application.</p>
+ * <p>Updates the resource details in the Resilience Hub application.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>This action has no effect outside AWS Resilience Hub.</p>
+ *                   <p>This action has no effect outside Resilience Hub.</p>
  *                </li>
  *                <li>
- *                   <p>This API updates the AWS Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *                <li>
  *                   <p>To update application version with new <code>physicalResourceID</code>, you must call
@@ -83,7 +83,7 @@ export interface UpdateAppVersionResourceCommandOutput extends UpdateAppVersionR
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

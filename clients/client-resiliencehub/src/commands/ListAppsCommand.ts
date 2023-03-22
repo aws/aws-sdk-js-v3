@@ -40,7 +40,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
 
 /**
  * @public
- * <p>Lists your AWS Resilience Hub applications.</p>
+ * <p>Lists your Resilience Hub applications.</p>
  *          <note>
  *             <p>You can filter applications using only one filter at a time or without using any filter.
  *         If you try to filter applications using multiple filters, you will get the following
@@ -72,7 +72,7 @@ export interface ListAppsCommandOutput extends ListAppsResponse, __MetadataBeare
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ThrottlingException} (client fault)

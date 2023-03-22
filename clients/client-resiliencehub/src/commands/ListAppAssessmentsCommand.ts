@@ -40,7 +40,7 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
 
 /**
  * @public
- * <p>Lists the assessments for an AWS Resilience Hub application. You can use request parameters to
+ * <p>Lists the assessments for an Resilience Hub application. You can use request parameters to
  *       refine the results for the response object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -64,7 +64,7 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

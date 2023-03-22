@@ -42,9 +42,9 @@ export interface UpdateAppVersionAppComponentCommandOutput
 
 /**
  * @public
- * <p>Updates an existing Application Component in the AWS Resilience Hub application.</p>
+ * <p>Updates an existing Application Component in the Resilience Hub application.</p>
  *          <note>
- *             <p>This API updates the AWS Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *             <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,7 +74,7 @@ export interface UpdateAppVersionAppComponentCommandOutput
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

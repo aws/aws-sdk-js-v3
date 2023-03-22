@@ -40,7 +40,7 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
 
 /**
  * @public
- * <p>Describes an assessment for an AWS Resilience Hub application.</p>
+ * <p>Describes an assessment for an Resilience Hub application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +63,7 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
  *       required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

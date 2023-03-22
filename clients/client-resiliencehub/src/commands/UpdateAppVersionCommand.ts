@@ -40,10 +40,10 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
 
 /**
  * @public
- * <p>Updates the AWS Resilience Hub application version.</p>
+ * <p>Updates the Resilience Hub application version.</p>
  *          <note>
- *             <p>This API updates the AWS Resilience Hub application draft version. To use this information
- *         for running resiliency assessments, you must publish the AWS Resilience Hub application using the
+ *             <p>This API updates the Resilience Hub application draft version. To use this information
+ *         for running resiliency assessments, you must publish the Resilience Hub application using the
  *           <code>PublishAppVersion</code> API.</p>
  *          </note>
  * @example
@@ -74,7 +74,7 @@ export interface UpdateAppVersionCommandOutput extends UpdateAppVersionResponse,
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

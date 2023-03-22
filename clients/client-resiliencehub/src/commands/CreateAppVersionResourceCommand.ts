@@ -40,17 +40,17 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
 
 /**
  * @public
- * <p>Adds a resource to the AWS Resilience Hub applicationand assigns it to the specified
- *       Application Components. If you specify a new Application Component, AWS Resilience Hub will automatically
+ * <p>Adds a resource to the Resilience Hub application and assigns it to the specified
+ *       Application Components. If you specify a new Application Component, Resilience Hub will automatically
  *       create the Application Component.</p>
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>This action has no effect outside AWS Resilience Hub.</p>
+ *                   <p>This action has no effect outside Resilience Hub.</p>
  *                </li>
  *                <li>
- *                   <p>This API updates the AWS Resilience Hub application draft version. To use this resource
- *             for running resiliency assessments, you must publish the AWS Resilience Hub application using
+ *                   <p>This API updates the Resilience Hub application draft version. To use this resource
+ *             for running resiliency assessments, you must publish the Resilience Hub application using
  *             the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *                <li>
@@ -87,7 +87,7 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)

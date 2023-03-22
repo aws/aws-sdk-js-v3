@@ -31,6 +31,7 @@ export class AccessDeniedException extends __BaseException {
 export enum ResourceMappingType {
   APP_REGISTRY_APP = "AppRegistryApp",
   CFN_STACK = "CfnStack",
+  EKS = "EKS",
   RESOURCE = "Resource",
   RESOURCE_GROUP = "ResourceGroup",
   TERRAFORM = "Terraform",
@@ -63,7 +64,7 @@ export interface PhysicalResourceId {
    *             </dd>
    *             <dt>Native</dt>
    *             <dd>
-   *                <p>The resource identifier is an AWS Resilience Hub-native identifier.</p>
+   *                <p>The resource identifier is an Resilience Hub-native identifier.</p>
    *             </dd>
    *          </dl>
    */
@@ -125,7 +126,7 @@ export interface ResourceMapping {
    *             </dd>
    *             <dt>ResourceGroup</dt>
    *             <dd>
-   *                <p>The resource is mapped to a resource group. The name of the resource group is
+   *                <p>The resource is mapped to an Resource Groups. The name of the resource group is
    *             contained in the <code>resourceGroupName</code> property.</p>
    *             </dd>
    *          </dl>
@@ -143,6 +144,14 @@ export interface ResourceMapping {
    *     </p>
    */
   terraformSourceName?: string;
+
+  /**
+   * <p>The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.</p>
+   *          <note>
+   *             <p>This parameter accepts values in "eks-cluster/namespace" format.</p>
+   *          </note>
+   */
+  eksSourceName?: string;
 }
 
 /**
@@ -233,7 +242,7 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
- * <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ * <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  */
 export class InternalServerException extends __BaseException {
@@ -441,7 +450,7 @@ export enum AppStatusType {
 
 /**
  * @public
- * <p>Defines an AWS Resilience Hub application.</p>
+ * <p>Defines an Resilience Hub application.</p>
  */
 export interface App {
   /**
@@ -1053,6 +1062,26 @@ export interface AppComponentCompliance {
 
 /**
  * @public
+ * <p>The input source of the namespace that is located on your Amazon Elastic Kubernetes Service cluster.</p>
+ */
+export interface EksSourceClusterNamespace {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The format for this ARN is:
+   * arn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>AWS General Reference</i> guide.</p>
+   */
+  eksClusterArn: string | undefined;
+
+  /**
+   * <p>Name of the namespace that is located on your Amazon Elastic Kubernetes Service cluster.</p>
+   */
+  namespace: string | undefined;
+}
+
+/**
+ * @public
  * <p>
  *       The Terraform s3 state file you need to import.
  *     </p>
@@ -1060,7 +1089,7 @@ export interface AppComponentCompliance {
 export interface TerraformSource {
   /**
    * <p>
-   *       The Terraform s3 state file you need to import.
+   *       The URL of the Terraform s3 state file you need to import.
    *     </p>
    */
   s3StateFileUrl: string | undefined;
@@ -1068,7 +1097,7 @@ export interface TerraformSource {
 
 /**
  * @public
- * <p>The list of AWS Resilience Hub application input sources.</p>
+ * <p>The list of Resilience Hub application input sources.</p>
  */
 export interface AppInputSource {
   /**
@@ -1095,9 +1124,14 @@ export interface AppInputSource {
   terraformSource?: TerraformSource;
 
   /**
-   * <p>The number of resources that were imported.</p>
+   * <p>The number of resources.</p>
    */
   resourceCount?: number;
+
+  /**
+   * <p>The namespace on your Amazon Elastic Kubernetes Service cluster.</p>
+   */
+  eksSourceClusterNamespace?: EksSourceClusterNamespace;
 }
 
 /**
@@ -1297,7 +1331,7 @@ export interface CreateAppVersionAppComponentResponse {
   appVersion: string | undefined;
 
   /**
-   * <p>Defines an Application Component.</p>
+   * <p>The list of Application Components that belong to this resource.</p>
    */
   appComponent?: AppComponent;
 }
@@ -1328,6 +1362,14 @@ export interface LogicalResourceId {
    *     </p>
    */
   terraformSourceName?: string;
+
+  /**
+   * <p>The name of the Amazon Elastic Kubernetes Service cluster and namespace this resource belongs to.</p>
+   *          <note>
+   *             <p>This parameter accepts values in "eks-cluster/namespace" format.</p>
+   *          </note>
+   */
+  eksSourceName?: string;
 }
 
 /**
@@ -1393,7 +1435,7 @@ export interface CreateAppVersionResourceRequest {
 /**
  * @public
  * <p>Defines a physical resource. A physical resource is a resource that exists in your
- *       account. It can be identified using an Amazon Resource Name (ARN) or an AWS Resilience Hub-native
+ *       account. It can be identified using an Amazon Resource Name (ARN) or an Resilience Hub-native
  *       identifier. </p>
  */
 export interface PhysicalResource {
@@ -1772,7 +1814,7 @@ export interface DeleteAppRequest {
   appArn: string | undefined;
 
   /**
-   * <p>A boolean option to force the deletion of an AWS Resilience Hub application. </p>
+   * <p>A boolean option to force the deletion of an Resilience Hub application. </p>
    */
   forceDelete?: boolean;
 
@@ -1851,7 +1893,7 @@ export interface DeleteAppInputSourceRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the imported resource you want to remove from the
-   *       AWS Resilience Hub application. For more information about ARNs,
+   *       Resilience Hub application. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
    *                     <i>AWS General Reference</i> guide.</p>
@@ -1859,7 +1901,7 @@ export interface DeleteAppInputSourceRequest {
   sourceArn?: string;
 
   /**
-   * <p>The imported Terraform s3 state ﬁle you want to remove from the AWS Resilience Hub application.</p>
+   * <p>The imported Terraform s3 state ﬁle you want to remove from the Resilience Hub application.</p>
    */
   terraformSource?: TerraformSource;
 
@@ -1868,6 +1910,11 @@ export interface DeleteAppInputSourceRequest {
    * You should not reuse the same client token for other API requests.</p>
    */
   clientToken?: string;
+
+  /**
+   * <p>The namespace on your Amazon Elastic Kubernetes Service cluster that you want to delete from the Resilience Hub application.</p>
+   */
+  eksSourceClusterNamespace?: EksSourceClusterNamespace;
 }
 
 /**
@@ -1933,7 +1980,7 @@ export interface DeleteAppVersionAppComponentResponse {
   appVersion: string | undefined;
 
   /**
-   * <p>Defines an Application Component.</p>
+   * <p>The list of Application Components that belong to this resource.</p>
    */
   appComponent?: AppComponent;
 }
@@ -2116,7 +2163,7 @@ export interface DescribeAppAssessmentRequest {
  */
 export interface DescribeAppAssessmentResponse {
   /**
-   * <p>The assessment for an AWS Resilience Hub application, returned as an object. This object
+   * <p>The assessment for an Resilience Hub application, returned as an object. This object
    *       includes Amazon Resource Names (ARNs), compliance information, compliance status, cost,
    *       messages, resiliency scores, and more.</p>
    */
@@ -2212,7 +2259,7 @@ export interface DescribeAppVersionAppComponentResponse {
   appVersion: string | undefined;
 
   /**
-   * <p>Defines an Application Component.</p>
+   * <p>The list of Application Components that belong to this resource.</p>
    */
   appComponent?: AppComponent;
 }
@@ -2402,7 +2449,7 @@ export interface DescribeAppVersionTemplateResponse {
    *                      <code>resources</code>
    *                   </b>
    *                </p>
-   *                <p>The list of logical resources that needs to be included in the application.</p>
+   *                <p>The list of logical resources that needs to be included in the Resilience Hub application.</p>
    *                <p>Type: Array</p>
    *                <note>
    *                   <p>Don't add the resources that you want to exclude.</p>
@@ -2466,6 +2513,19 @@ export interface DescribeAppVersionTemplateResponse {
    *                      </p>
    *                      <p>The name of the resource.</p>
    *                      <p>Type: String</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>additionalInfo</code>
+   *                      </p>
+   *                      <p>Additional configuration parameters for an AWS Resilience Hub application.</p>
+   *                      <note>
+   *                         <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p>
+   *                         <p>Key: <code>"failover-regions"</code>
+   *                         </p>
+   *                         <p>Value: <code>"[\{"region":"&lt;REGION&gt;", "accounts":[\{"id":"&lt;ACCOUNT_ID&gt;"\}]\}]"</code>
+   *                         </p>
+   *                      </note>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2590,6 +2650,27 @@ export interface DescribeAppVersionTemplateResponse {
    *                   </li>
    *                </ul>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>version</code>
+   *                   </b>
+   *                </p>
+   *                <p>The AWS Resilience Hub application version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>additionalInfo</code>
+   *                </p>
+   *                <p>Additional configuration parameters for an AWS Resilience Hub application.</p>
+   *                <note>
+   *                   <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p>
+   *                   <p>Key: <code>"failover-regions"</code>
+   *                   </p>
+   *                   <p>Value: <code>"[\{"region":"&lt;REGION&gt;", "accounts":[\{"id":"&lt;ACCOUNT_ID&gt;"\}]\}]"</code>
+   *                   </p>
+   *                </note>
+   *             </li>
    *          </ul>
    */
   appTemplateBody: string | undefined;
@@ -2681,6 +2762,26 @@ export interface DescribeResiliencyPolicyResponse {
 
 /**
  * @public
+ * <p>The input source of the Amazon Elastic Kubernetes Service cluster.</p>
+ */
+export interface EksSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The format for this ARN is:
+   * arn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs,
+   * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
+   *                     Amazon Resource Names (ARNs)</a> in the
+   *                     <i>AWS General Reference</i> guide.</p>
+   */
+  eksClusterArn: string | undefined;
+
+  /**
+   * <p>The list of namespaces located on your Amazon Elastic Kubernetes Service cluster.</p>
+   */
+  namespaces: string[] | undefined;
+}
+
+/**
+ * @public
  */
 export enum ResourceImportStrategyType {
   ADD_ONLY = "AddOnly",
@@ -2701,7 +2802,7 @@ export interface ImportResourcesToDraftAppVersionRequest {
   appArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) for the resources that you want to import.</p>
+   * <p>The Amazon Resource Names (ARNs) for the resources.</p>
    */
   sourceArns?: string[];
 
@@ -2713,10 +2814,15 @@ export interface ImportResourcesToDraftAppVersionRequest {
   terraformSources?: TerraformSource[];
 
   /**
-   * <p>The import strategy you would like to set to import resources into AWS Resilience Hub
+   * <p>The import strategy you would like to set to import resources into Resilience Hub
    *       application.</p>
    */
   importStrategy?: ResourceImportStrategyType | string;
+
+  /**
+   * <p>The input sources of the Amazon Elastic Kubernetes Service resources you need to import.</p>
+   */
+  eksSources?: EksSource[];
 }
 
 /**
@@ -2738,7 +2844,7 @@ export interface ImportResourcesToDraftAppVersionResponse {
   appVersion: string | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) for the resources that you imported.</p>
+   * <p>The Amazon Resource Names (ARNs) for the resources you have imported.</p>
    */
   sourceArns?: string[];
 
@@ -2749,10 +2855,15 @@ export interface ImportResourcesToDraftAppVersionResponse {
 
   /**
    * <p>
-   *       A list of terraform file s3 URLs you need to import.
+   *       A list of terraform file s3 URLs you have imported.
    *     </p>
    */
   terraformSources?: TerraformSource[];
+
+  /**
+   * <p>The input sources of the Amazon Elastic Kubernetes Service resources you have imported.</p>
+   */
+  eksSources?: EksSource[];
 }
 
 /**
@@ -2785,7 +2896,7 @@ export interface ListAlarmRecommendationsRequest {
  */
 export interface ListAlarmRecommendationsResponse {
   /**
-   * <p>The alarm recommendations for an AWS Resilience Hub application, returned as an object. This
+   * <p>The alarm recommendations for an Resilience Hub application, returned as an object. This
    *       object includes Application Component names, descriptions, information about whether a
    *       recommendation has already been implemented or not, prerequisites, and more.</p>
    */
@@ -2896,7 +3007,7 @@ export interface ListAppComponentCompliancesRequest {
  */
 export interface ListAppComponentCompliancesResponse {
   /**
-   * <p>The compliances for an AWS Resilience Hub Application Component, returned as an object. This
+   * <p>The compliances for an Resilience Hub Application Component, returned as an object. This
    *       object contains the names of the Application Components, compliances, costs, resiliency scores, outage scores, and
    *       more.</p>
    */
@@ -3058,7 +3169,7 @@ export enum RecommendationComplianceStatus {
 
 /**
  * @public
- * <p>Defines recommendations for an AWS Resilience Hub Application Component, returned as an object. This
+ * <p>Defines recommendations for an Resilience Hub Application Component, returned as an object. This
  *       object contains component names, configuration recommendations, and recommendation
  *       statuses.</p>
  */
@@ -3084,7 +3195,7 @@ export interface ComponentRecommendation {
  */
 export interface ListAppComponentRecommendationsResponse {
   /**
-   * <p>The recommendations for an AWS Resilience Hub Application Component, returned as an object. This
+   * <p>The recommendations for an Resilience Hub Application Component, returned as an object. This
    *       object contains the names of the Application Components, configuration recommendations, and recommendation
    *       statuses.</p>
    */
@@ -3120,7 +3231,7 @@ export interface ListAppInputSourcesRequest {
   nextToken?: string;
 
   /**
-   * <p>Maximum number of input sources to be displayed per AWS Resilience Hub application.</p>
+   * <p>Maximum number of input sources to be displayed per Resilience Hub application.</p>
    */
   maxResults?: number;
 }
@@ -3130,7 +3241,7 @@ export interface ListAppInputSourcesRequest {
  */
 export interface ListAppInputSourcesResponse {
   /**
-   * <p>The list of AWS Resilience Hub application input sources.</p>
+   * <p>The list of Resilience Hub application input sources.</p>
    */
   appInputSources: AppInputSource[] | undefined;
 
@@ -3175,7 +3286,7 @@ export interface ListAppsRequest {
  */
 export interface ListAppsResponse {
   /**
-   * <p>Summaries for the AWS Resilience Hub application.</p>
+   * <p>Summaries for the Resilience Hub application.</p>
    */
   appSummaries: AppSummary[] | undefined;
 
@@ -3443,7 +3554,7 @@ export interface ListRecommendationTemplatesResponse {
   nextToken?: string;
 
   /**
-   * <p>The recommendation templates for the AWS Resilience Hub applications.</p>
+   * <p>The recommendation templates for the Resilience Hub applications.</p>
    */
   recommendationTemplates?: RecommendationTemplate[];
 }
@@ -3474,7 +3585,7 @@ export interface ListResiliencyPoliciesRequest {
  */
 export interface ListResiliencyPoliciesResponse {
   /**
-   * <p>The resiliency policies for the AWS Resilience Hub applications.</p>
+   * <p>The resiliency policies for the Resilience Hub applications.</p>
    */
   resiliencyPolicies: ResiliencyPolicy[] | undefined;
 
@@ -3572,7 +3683,7 @@ export interface ListSopRecommendationsResponse {
   nextToken?: string;
 
   /**
-   * <p>The standard operating procedure (SOP) recommendations for the AWS Resilience Hub
+   * <p>The standard operating procedure (SOP) recommendations for the Resilience Hub
    *       applications.</p>
    */
   sopRecommendations: SopRecommendation[] | undefined;
@@ -3599,7 +3710,7 @@ export interface ListSuggestedResiliencyPoliciesRequest {
  */
 export interface ListSuggestedResiliencyPoliciesResponse {
   /**
-   * <p>The suggested resiliency policies for the AWS Resilience Hub applications.</p>
+   * <p>The suggested resiliency policies for the Resilience Hub applications.</p>
    */
   resiliencyPolicies: ResiliencyPolicy[] | undefined;
 
@@ -3614,7 +3725,7 @@ export interface ListSuggestedResiliencyPoliciesResponse {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) for a specific resource in your AWS Resilience Hub
+   * <p>The Amazon Resource Name (ARN) for a specific resource in your Resilience Hub
    *       application.</p>
    */
   resourceArn: string | undefined;
@@ -3748,7 +3859,7 @@ export interface ListTestRecommendationsResponse {
   nextToken?: string;
 
   /**
-   * <p>The test recommendations for the AWS Resilience Hub application.</p>
+   * <p>The test recommendations for the Resilience Hub application.</p>
    */
   testRecommendations: TestRecommendation[] | undefined;
 }
@@ -3790,7 +3901,7 @@ export interface ListUnsupportedAppVersionResourcesRequest {
 
 /**
  * @public
- * <p>Defines a resource that is not supported by AWS Resilience Hub.</p>
+ * <p>Defines a resource that is not supported by Resilience Hub.</p>
  */
 export interface UnsupportedResource {
   /**
@@ -3807,6 +3918,11 @@ export interface UnsupportedResource {
    * <p>The type of resource.</p>
    */
   resourceType: string | undefined;
+
+  /**
+   * <p>The status of unsupported resource.</p>
+   */
+  unsupportedResourceStatus?: string;
 }
 
 /**
@@ -3887,7 +4003,7 @@ export interface PutDraftAppVersionTemplateRequest {
    *                      <code>resources</code>
    *                   </b>
    *                </p>
-   *                <p>The list of logical resources that needs to be included in the application.</p>
+   *                <p>The list of logical resources that needs to be included in the Resilience Hub application.</p>
    *                <p>Type: Array</p>
    *                <note>
    *                   <p>Don't add the resources that you want to exclude.</p>
@@ -3951,6 +4067,19 @@ export interface PutDraftAppVersionTemplateRequest {
    *                      </p>
    *                      <p>The name of the resource.</p>
    *                      <p>Type: String</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>additionalInfo</code>
+   *                      </p>
+   *                      <p>Additional configuration parameters for an AWS Resilience Hub application.</p>
+   *                      <note>
+   *                         <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p>
+   *                         <p>Key: <code>"failover-regions"</code>
+   *                         </p>
+   *                         <p>Value: <code>"[\{"region":"&lt;REGION&gt;", "accounts":[\{"id":"&lt;ACCOUNT_ID&gt;"\}]\}]"</code>
+   *                         </p>
+   *                      </note>
    *                   </li>
    *                </ul>
    *             </li>
@@ -4075,6 +4204,27 @@ export interface PutDraftAppVersionTemplateRequest {
    *                   </li>
    *                </ul>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>version</code>
+   *                   </b>
+   *                </p>
+   *                <p>The AWS Resilience Hub application version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>additionalInfo</code>
+   *                </p>
+   *                <p>Additional configuration parameters for an AWS Resilience Hub application.</p>
+   *                <note>
+   *                   <p>Currently, this parameter accepts a key-value mapping (in a string format) of only one failover region and one associated account.</p>
+   *                   <p>Key: <code>"failover-regions"</code>
+   *                   </p>
+   *                   <p>Value: <code>"[\{"region":"&lt;REGION&gt;", "accounts":[\{"id":"&lt;ACCOUNT_ID&gt;"\}]\}]"</code>
+   *                   </p>
+   *                </note>
+   *             </li>
    *          </ul>
    */
   appTemplateBody: string | undefined;
@@ -4136,6 +4286,14 @@ export interface RemoveDraftAppVersionResourceMappingsRequest {
    * <p>The names of the Terraform sources you want to remove from the resource mappings.</p>
    */
   terraformSourceNames?: string[];
+
+  /**
+   * <p>The names of the Amazon Elastic Kubernetes Service clusters and namespaces you want to remove from the resource mappings.</p>
+   *          <note>
+   *             <p>This parameter accepts values in "eks-cluster/namespace" format.</p>
+   *          </note>
+   */
+  eksSourceNames?: string[];
 }
 
 /**
@@ -4448,7 +4606,7 @@ export interface UpdateAppVersionAppComponentResponse {
   appVersion: string | undefined;
 
   /**
-   * <p>Defines an Application Component.</p>
+   * <p>The list of Application Components that belong to this resource.</p>
    */
   appComponent?: AppComponent;
 }
@@ -4507,9 +4665,9 @@ export interface UpdateAppVersionResourceRequest {
   additionalInfo?: Record<string, string[]>;
 
   /**
-   * <p>Indicates if a resource is excluded from an AWS Resilience Hub application.</p>
+   * <p>Indicates if a resource is excluded from an Resilience Hub application.</p>
    *          <note>
-   *             <p>You can exclude only imported resources from an AWS Resilience Hub application.</p>
+   *             <p>You can exclude only imported resources from an Resilience Hub application.</p>
    *          </note>
    */
   excluded?: boolean;
@@ -4723,6 +4881,13 @@ export const AppComponentFilterSensitiveLog = (obj: AppComponent): any => ({
  * @internal
  */
 export const AppComponentComplianceFilterSensitiveLog = (obj: AppComponentCompliance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EksSourceClusterNamespaceFilterSensitiveLog = (obj: EksSourceClusterNamespace): any => ({
   ...obj,
 });
 
@@ -5114,6 +5279,13 @@ export const DescribeResiliencyPolicyRequestFilterSensitiveLog = (obj: DescribeR
 export const DescribeResiliencyPolicyResponseFilterSensitiveLog = (obj: DescribeResiliencyPolicyResponse): any => ({
   ...obj,
   ...(obj.policy && { policy: ResiliencyPolicyFilterSensitiveLog(obj.policy) }),
+});
+
+/**
+ * @internal
+ */
+export const EksSourceFilterSensitiveLog = (obj: EksSource): any => ({
+  ...obj,
 });
 
 /**

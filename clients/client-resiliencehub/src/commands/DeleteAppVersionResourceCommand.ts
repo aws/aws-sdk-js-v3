@@ -40,17 +40,17 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
 
 /**
  * @public
- * <p>Deletes a resource from the AWS Resilience Hub application.</p>
+ * <p>Deletes a resource from the Resilience Hub application.</p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>You can only delete a manually added resource. To exclude non-manually added resources, use the <code>UpdateAppVersionResource</code> API.</p>
  *                </li>
  *                <li>
- *                   <p>This action has no effect outside AWS Resilience Hub.</p>
+ *                   <p>This action has no effect outside Resilience Hub.</p>
  *                </li>
  *                <li>
- *                   <p>This API updates the AWS Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the AWS Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this resource for running resiliency assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -82,7 +82,7 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  *       exception.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the AWS Resilience Hub
+ *  <p>This exception occurs when there is an internal failure in the Resilience Hub
  *       service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
