@@ -35,7 +35,8 @@ export interface EntityPropertyReference {
   componentName?: string;
 
   /**
-   * <p>A mapping of external IDs to property names. External IDs uniquely identify properties from external data stores.</p>
+   * <p>A mapping of external IDs to property names. External IDs uniquely identify properties
+   *          from external data stores.</p>
    */
   externalIdProperty?: Record<string, string>;
 
@@ -188,7 +189,8 @@ export interface DataConnector {
   lambda?: LambdaFunction;
 
   /**
-   * <p>A Boolean value that specifies whether the data connector is native to IoT TwinMaker.</p>
+   * <p>A Boolean value that specifies whether the data connector is native to IoT
+   *          TwinMaker.</p>
    */
   isNative?: boolean;
 }
@@ -346,7 +348,7 @@ export enum PropertyGroupUpdateType {
 
 /**
  * @public
- * <p/>
+ * <p>The component property group request.</p>
  */
 export interface ComponentPropertyGroupRequest {
   /**
@@ -423,6 +425,11 @@ export interface CreateSceneRequest {
    * <p>Metadata that you can use to manage the scene.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The request metadata.</p>
+   */
+  sceneMetadata?: Record<string, string>;
 }
 
 /**
@@ -445,21 +452,21 @@ export interface CreateSceneResponse {
  */
 export interface CreateSyncJobRequest {
   /**
-   * <p>The workspace Id.</p>
+   * <p>The workspace ID.</p>
    */
   workspaceId: string | undefined;
 
   /**
    * <p>The sync source.</p>
    *          <note>
-   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *             <p>Currently the only supported syncSoource is <code>SITEWISE </code>.</p>
    *          </note>
    */
   syncSource: string | undefined;
 
   /**
-   * <p>The SyncJob IAM role. This IAM role is used by the sync job to read from the syncSource, and create,
-   *          update or delete the corresponding resources.</p>
+   * <p>The SyncJob IAM role. This IAM role is used by the SyncJob to read from the syncSource,
+   *          and create, update, or delete the corresponding resources.</p>
    */
   syncRole: string | undefined;
 
@@ -515,7 +522,8 @@ export interface CreateWorkspaceRequest {
   description?: string;
 
   /**
-   * <p>The ARN of the S3 bucket where resources associated with the workspace are stored.</p>
+   * <p>The ARN of the S3 bucket where resources associated with the workspace are
+   *          stored.</p>
    */
   s3Location: string | undefined;
 
@@ -625,14 +633,14 @@ export interface DeleteSceneResponse {}
  */
 export interface DeleteSyncJobRequest {
   /**
-   * <p>The workspace Id.</p>
+   * <p>The workspace ID.</p>
    */
   workspaceId: string | undefined;
 
   /**
    * <p>The sync source.</p>
    *          <note>
-   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *             <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
    *          </note>
    */
   syncSource: string | undefined;
@@ -823,7 +831,8 @@ export interface PropertyGroupResponse {
   propertyNames: string[] | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether the property group is inherited from a parent entity</p>
+   * <p>A Boolean value that specifies whether the property group is inherited from a parent
+   *          entity</p>
    */
   isInherited: boolean | undefined;
 }
@@ -857,7 +866,8 @@ export interface ErrorDetails {
 
 /**
  * @public
- * <p>An object that represents the status of an entity, component, component type, or workspace.</p>
+ * <p>An object that represents the status of an entity, component, component type, or
+ *          workspace.</p>
  */
 export interface Status {
   /**
@@ -902,7 +912,8 @@ export interface ComponentPropertyGroupResponse {
   propertyNames: string[] | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether the property group is inherited from a parent entity</p>
+   * <p>A Boolean value that specifies whether the property group is inherited from a parent
+   *          entity</p>
    */
   isInherited: boolean | undefined;
 }
@@ -924,7 +935,7 @@ export enum PricingTier {
 
 /**
  * @public
- * <p>Information about pricing bundle.</p>
+ * <p>Information about the pricing bundle.</p>
  */
 export interface BundleInformation {
   /**
@@ -989,7 +1000,7 @@ export interface PricingPlan {
   updateDateTime: Date | undefined;
 
   /**
-   * <p>The update reason, for changing a pricing plan.</p>
+   * <p>The update reason for changing a pricing plan.</p>
    */
   updateReason: UpdateReason | string | undefined;
 }
@@ -1059,7 +1070,8 @@ export enum Order {
 
 /**
  * @public
- * <p>Filter criteria that orders the return output. It can be sorted in ascending or descending order.</p>
+ * <p>Filter criteria that orders the return output. It can be sorted in ascending or
+ *          descending order.</p>
  */
 export interface OrderBy {
   /**
@@ -1162,6 +1174,16 @@ export interface GetSceneResponse {
    * <p>A list of capabilities that the scene uses to render.</p>
    */
   capabilities?: string[];
+
+  /**
+   * <p>The response metadata.</p>
+   */
+  sceneMetadata?: Record<string, string>;
+
+  /**
+   * <p>The generated scene metadata.</p>
+   */
+  generatedSceneMetadata?: Record<string, string>;
 }
 
 /**
@@ -1169,15 +1191,15 @@ export interface GetSceneResponse {
  */
 export interface GetSyncJobRequest {
   /**
-   * <p>The sync soucre.</p>
+   * <p>The sync source.</p>
    *          <note>
-   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *             <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
    *          </note>
    */
   syncSource: string | undefined;
 
   /**
-   * <p>The workspace Id.</p>
+   * <p>The workspace ID.</p>
    */
   workspaceId?: string;
 }
@@ -1215,7 +1237,7 @@ export interface GetSyncJobResponse {
   /**
    * <p>The sync soucre.</p>
    *          <note>
-   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *             <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
    *          </note>
    */
   syncSource: string | undefined;
@@ -1271,7 +1293,8 @@ export interface GetWorkspaceResponse {
   description?: string;
 
   /**
-   * <p>The ARN of the S3 bucket where resources associated with the workspace are stored.</p>
+   * <p>The ARN of the S3 bucket where resources associated with the workspace are
+   *          stored.</p>
    */
   s3Location: string | undefined;
 
@@ -1329,7 +1352,8 @@ export namespace ListComponentTypesFilter {
   }
 
   /**
-   * <p>A Boolean value that specifies whether the component types in the list are abstract.</p>
+   * <p>A Boolean value that specifies whether the component types in the list are
+   *          abstract.</p>
    */
   export interface IsAbstractMember {
     extendsFrom?: never;
@@ -1487,7 +1511,8 @@ export namespace ListEntitiesFilter {
   }
 
   /**
-   * <p>The external-Id property of a component. The external-Id property is the primary key of an external storage system.</p>
+   * <p>The external-Id property of a component. The external-Id property is the primary key of
+   *          an external storage system.</p>
    */
   export interface ExternalIdMember {
     parentEntityId?: never;
@@ -1802,7 +1827,7 @@ export namespace SyncResourceFilter {
   }
 
   /**
-   * <p>The sync resource filter resoucre type</p>
+   * <p>The sync resource filter resource type</p>
    */
   export interface ResourceTypeMember {
     state?: never;
@@ -1813,7 +1838,7 @@ export namespace SyncResourceFilter {
   }
 
   /**
-   * <p>The sync resource filter resource Id.</p>
+   * <p>The sync resource filter resource ID.</p>
    */
   export interface ResourceIdMember {
     state?: never;
@@ -1824,7 +1849,7 @@ export namespace SyncResourceFilter {
   }
 
   /**
-   * <p>The external Id.</p>
+   * <p>The external ID.</p>
    */
   export interface ExternalIdMember {
     state?: never;
@@ -1869,15 +1894,27 @@ export interface ListSyncResourcesRequest {
   workspaceId: string | undefined;
 
   /**
-   * <p>The sync soucre.</p>
+   * <p>The sync source.</p>
    *          <note>
-   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *             <p>Currently the only supported syncSource is <code>SITEWISE </code>.</p>
    *          </note>
    */
   syncSource: string | undefined;
 
   /**
    * <p>A list of objects that filter the request.</p>
+   *          <p>The following filter combinations are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Filter with state</p>
+   *             </li>
+   *             <li>
+   *                <p>Filter with ResourceType and ResourceId</p>
+   *             </li>
+   *             <li>
+   *                <p>Filter with ResourceType and ExternalId</p>
+   *             </li>
+   *          </ul>
    */
   filters?: SyncResourceFilter[];
 
@@ -1920,12 +1957,12 @@ export interface SyncResourceSummary {
   resourceType?: SyncResourceType | string;
 
   /**
-   * <p>The external Id.</p>
+   * <p>The external ID.</p>
    */
   externalId?: string;
 
   /**
-   * <p>The resource Id.</p>
+   * <p>The resource ID.</p>
    */
   resourceId?: string;
 
@@ -2103,7 +2140,8 @@ export interface UntagResourceRequest {
   resourceARN: string | undefined;
 
   /**
-   * <p>A list of tag key names to remove from the resource. You don't specify the value. Both the key and its associated value are removed.</p>
+   * <p>A list of tag key names to remove from the resource. You don't specify the value. Both
+   *          the key and its associated value are removed.</p>
    */
   tagKeys: string[] | undefined;
 }
@@ -2244,6 +2282,11 @@ export interface UpdateSceneRequest {
    * <p>A list of capabilities that the scene uses to render.</p>
    */
   capabilities?: string[];
+
+  /**
+   * <p>The scene metadata.</p>
+   */
+  sceneMetadata?: Record<string, string>;
 }
 
 /**
@@ -2364,7 +2407,7 @@ export interface PropertyFilter {
  */
 export interface PropertyLatestValue {
   /**
-   * <p>An object that specifies information about a property.&gt;</p>
+   * <p>An object that specifies information about a property.</p>
    */
   propertyReference: EntityPropertyReference | undefined;
 
@@ -2393,7 +2436,8 @@ export interface PropertyValue {
 
   /**
    * <p>ISO8601 DateTime of a value for a time series property.</p>
-   *          <p>The time for when the property value was recorded in ISO 8601 format: <i>YYYY-MM-DDThh:mm:ss[.SSSSSSSSS][Z/±HH:mm]</i>.</p>
+   *          <p>The time for when the property value was recorded in ISO 8601 format:
+   *             <i>YYYY-MM-DDThh:mm:ss[.SSSSSSSSS][Z/±HH:mm]</i>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2421,8 +2465,8 @@ export interface PropertyValue {
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>[.SSSSSSSSS]</i>: additional precision, where precedence is maintained. For
-   *                example: [.573123] is equal to 573123000 nanoseconds.</p>
+   *                   <i>[.SSSSSSSSS]</i>: additional precision, where precedence is
+   *                maintained. For example: [.573123] is equal to 573123000 nanoseconds.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2519,7 +2563,8 @@ export interface GetPropertyValueHistoryRequest {
   endDateTime?: Date;
 
   /**
-   * <p>An object that specifies the interpolation type and the interval over which to interpolate data.</p>
+   * <p>An object that specifies the interpolation type and the interval over which to
+   *          interpolate data.</p>
    */
   interpolation?: InterpolationParameters;
 
@@ -2554,7 +2599,8 @@ export interface GetPropertyValueHistoryRequest {
 
 /**
  * @public
- * <p>An object that specifies information about time series property values. This object is used  and consumed by the <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_BatchPutPropertyValues.html">BatchPutPropertyValues</a> action.</p>
+ * <p>An object that specifies information about time series property values. This object is
+ *          used and consumed by the <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_BatchPutPropertyValues.html">BatchPutPropertyValues</a> action.</p>
  */
 export interface PropertyValueEntry {
   /**
@@ -2579,7 +2625,8 @@ export interface PropertyValueHistory {
   entityPropertyReference: EntityPropertyReference | undefined;
 
   /**
-   * <p>A list of objects that contain information about the values in the history of a time series property.</p>
+   * <p>A list of objects that contain information about the values in the history of a time
+   *          series property.</p>
    */
   values?: PropertyValue[];
 }
@@ -2590,12 +2637,14 @@ export interface PropertyValueHistory {
  */
 export interface TabularConditions {
   /**
-   * <p>Filter criteria that orders the output. It can be sorted in ascending or descending order.</p>
+   * <p>Filter criteria that orders the output. It can be sorted in ascending or descending
+   *          order.</p>
    */
   orderBy?: OrderBy[];
 
   /**
-   * <p>You can filter the request using various logical operators and a key-value format. For example:</p>
+   * <p>You can filter the request using various logical operators and a key-value format. For
+   *          example:</p>
    *          <p>
    *             <code>\{"key": "serverType", "value": "webServer"\}</code>
    *          </p>
@@ -2619,7 +2668,8 @@ export interface BatchPutPropertyError {
   errorMessage: string | undefined;
 
   /**
-   * <p>An object that contains information about errors returned by the <code>BatchPutProperty</code> action.</p>
+   * <p>An object that contains information about errors returned by the
+   *             <code>BatchPutProperty</code> action.</p>
    */
   entry: PropertyValueEntry | undefined;
 }
@@ -2685,8 +2735,8 @@ export interface BatchPutPropertyValuesRequest {
   workspaceId: string | undefined;
 
   /**
-   * <p>An object that maps strings to the property value entries to set. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the property value entries to set. Each string in the
+   *          mapping must be unique to this object.</p>
    */
   entries: PropertyValueEntry[] | undefined;
 }
@@ -2696,8 +2746,8 @@ export interface BatchPutPropertyValuesRequest {
  */
 export interface GetPropertyValueHistoryResponse {
   /**
-   * <p>An object that maps strings to the property definitions in the component type. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the property definitions in the component type. Each
+   *          string in the mapping must be unique to this object.</p>
    */
   propertyValues: PropertyValueHistory[] | undefined;
 
@@ -2709,7 +2759,8 @@ export interface GetPropertyValueHistoryResponse {
 
 /**
  * @public
- * <p>An object that contains information about errors returned by the <code>BatchPutProperty</code> action.</p>
+ * <p>An object that contains information about errors returned by the
+ *             <code>BatchPutProperty</code> action.</p>
  */
 export interface BatchPutPropertyErrorEntry {
   /**
@@ -2735,7 +2786,8 @@ export interface PropertyDefinitionRequest {
   isRequiredInEntity?: boolean;
 
   /**
-   * <p>A Boolean value that specifies whether the property ID comes from an external data store.</p>
+   * <p>A Boolean value that specifies whether the property ID comes from an external data
+   *          store.</p>
    */
   isExternalId?: boolean;
 
@@ -2787,7 +2839,8 @@ export interface PropertyDefinitionResponse {
   isRequiredInEntity: boolean | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether the property ID comes from an external data store.</p>
+   * <p>A Boolean value that specifies whether the property ID comes from an external data
+   *          store.</p>
    */
   isExternalId: boolean | undefined;
 
@@ -2797,7 +2850,8 @@ export interface PropertyDefinitionResponse {
   isStoredExternally: boolean | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether the property definition is imported from an external data store.</p>
+   * <p>A Boolean value that specifies whether the property definition is imported from an
+   *          external data store.</p>
    */
   isImported: boolean | undefined;
 
@@ -2807,7 +2861,8 @@ export interface PropertyDefinitionResponse {
   isFinal: boolean | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether the property definition is inherited from a parent entity.</p>
+   * <p>A Boolean value that specifies whether the property definition is inherited from a
+   *          parent entity.</p>
    */
   isInherited: boolean | undefined;
 
@@ -2842,8 +2897,8 @@ export interface BatchPutPropertyValuesResponse {
  */
 export interface GetPropertyValueResponse {
   /**
-   * <p>An object that maps strings to the properties and latest property values in the response. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the properties and latest property values in the
+   *          response. Each string in the mapping must be unique to this object.</p>
    */
   propertyValues?: Record<string, PropertyLatestValue>;
 
@@ -2884,8 +2939,8 @@ export interface CreateComponentTypeRequest {
   description?: string;
 
   /**
-   * <p>An object that maps strings to the property definitions in the component type. Each string
-   *       in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the property definitions in the component type. Each
+   *          string in the mapping must be unique to this object.</p>
    */
   propertyDefinitions?: Record<string, PropertyDefinitionRequest>;
 
@@ -2926,8 +2981,8 @@ export interface GetComponentTypeResponse {
   workspaceId: string | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether an entity can have more than one component of this
-   *          type.</p>
+   * <p>A Boolean value that specifies whether an entity can have more than one component of
+   *          this type.</p>
    */
   isSingleton?: boolean;
 
@@ -2942,8 +2997,8 @@ export interface GetComponentTypeResponse {
   description?: string;
 
   /**
-   * <p>An object that maps strings to the property definitions in the component type. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the property definitions in the component type. Each
+   *          string in the mapping must be unique to this object.</p>
    */
   propertyDefinitions?: Record<string, PropertyDefinitionResponse>;
 
@@ -2953,8 +3008,8 @@ export interface GetComponentTypeResponse {
   extendsFrom?: string[];
 
   /**
-   * <p>An object that maps strings to the functions in the component type. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the functions in the component type. Each string in the
+   *          mapping must be unique to this object.</p>
    */
   functions?: Record<string, FunctionResponse>;
 
@@ -2979,8 +3034,8 @@ export interface GetComponentTypeResponse {
   isAbstract?: boolean;
 
   /**
-   * <p>A Boolean value that specifies whether the component type has a schema initializer and that the
-   *       schema initializer has run.</p>
+   * <p>A Boolean value that specifies whether the component type has a schema initializer and
+   *          that the schema initializer has run.</p>
    */
   isSchemaInitialized?: boolean;
 
@@ -2996,7 +3051,7 @@ export interface GetComponentTypeResponse {
   propertyGroups?: Record<string, PropertyGroupResponse>;
 
   /**
-   * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
+   * <p>The syncSource of the SyncJob, if this entity was created by a SyncJob.</p>
    */
   syncSource?: string;
 
@@ -3016,8 +3071,8 @@ export interface UpdateComponentTypeRequest {
   workspaceId: string | undefined;
 
   /**
-   * <p>A Boolean value that specifies whether an entity can have more than one component of this
-   *          type.</p>
+   * <p>A Boolean value that specifies whether an entity can have more than one component of
+   *          this type.</p>
    */
   isSingleton?: boolean;
 
@@ -3032,8 +3087,8 @@ export interface UpdateComponentTypeRequest {
   description?: string;
 
   /**
-   * <p>An object that maps strings to the property definitions in the component type. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the property definitions in the component type. Each
+   *          string in the mapping must be unique to this object.</p>
    */
   propertyDefinitions?: Record<string, PropertyDefinitionRequest>;
 
@@ -3043,13 +3098,13 @@ export interface UpdateComponentTypeRequest {
   extendsFrom?: string[];
 
   /**
-   * <p>An object that maps strings to the functions in the component type. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the functions in the component type. Each string in the
+   *          mapping must be unique to this object.</p>
    */
   functions?: Record<string, FunctionRequest>;
 
   /**
-   * <p>The property groups</p>
+   * <p>The property groups.</p>
    */
   propertyGroups?: Record<string, PropertyGroupRequest>;
 
@@ -3113,7 +3168,7 @@ export interface ComponentRequest {
 
   /**
    * <p>An object that maps strings to the properties to set in the component type. Each string
-   *        in the mapping must be unique to this object.</p>
+   *          in the mapping must be unique to this object.</p>
    */
   properties?: Record<string, PropertyRequest>;
 
@@ -3125,7 +3180,8 @@ export interface ComponentRequest {
 
 /**
  * @public
- * <p>An object that returns information about a component type create or update request.</p>
+ * <p>An object that returns information about a component type create or update
+ *          request.</p>
  */
 export interface ComponentResponse {
   /**
@@ -3155,7 +3211,7 @@ export interface ComponentResponse {
 
   /**
    * <p>An object that maps strings to the properties to set in the component type. Each string
-   *        in the mapping must be unique to this object.</p>
+   *          in the mapping must be unique to this object.</p>
    */
   properties?: Record<string, PropertyResponse>;
 
@@ -3191,8 +3247,8 @@ export interface ComponentUpdateRequest {
   componentTypeId?: string;
 
   /**
-   * <p>An object that maps strings to the properties to set in the component type update. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the properties to set in the component type update. Each
+   *          string in the mapping must be unique to this object.</p>
    */
   propertyUpdates?: Record<string, PropertyRequest>;
 
@@ -3227,8 +3283,8 @@ export interface CreateEntityRequest {
   description?: string;
 
   /**
-   * <p>An object that maps strings to the components in the entity. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the components in the entity. Each string in the mapping
+   *          must be unique to this object.</p>
    */
   components?: Record<string, ComponentRequest>;
 
@@ -3278,8 +3334,8 @@ export interface GetEntityResponse {
   description?: string;
 
   /**
-   * <p>An object that maps strings to the components in the entity. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the components in the entity. Each string in the mapping
+   *          must be unique to this object.</p>
    */
   components?: Record<string, ComponentResponse>;
 
@@ -3334,8 +3390,8 @@ export interface UpdateEntityRequest {
   description?: string;
 
   /**
-   * <p>An object that maps strings to the component updates in the request. Each string
-   *        in the mapping must be unique to this object.</p>
+   * <p>An object that maps strings to the component updates in the request. Each string in the
+   *          mapping must be unique to this object.</p>
    */
   componentUpdates?: Record<string, ComponentUpdateRequest>;
 

@@ -143,11 +143,13 @@ import { IoTTwinMakerClient } from "./IoTTwinMakerClient";
 
 /**
  * @public
- * <p>IoT TwinMaker is a service that enables you to build operational digital twins of
- *          physical systems. IoT TwinMaker overlays measurements and analysis from real-world sensors,
- *          cameras, and enterprise applications so you can create data visualizations to monitor your
- *          physical factory, building, or industrial plant. You can use this real-world data to
- *          monitor operations and diagnose and repair errors.</p>
+ * <p>IoT TwinMaker is a service with which you
+ *          can
+ *          build operational digital twins of physical systems. IoT TwinMaker overlays measurements
+ *          and analysis from real-world sensors, cameras, and enterprise applications so you can
+ *          create data visualizations to monitor your physical factory, building, or industrial plant.
+ *          You can use this real-world data to monitor operations and diagnose and repair
+ *          errors.</p>
  */
 export class IoTTwinMaker extends IoTTwinMakerClient {
   /**
@@ -497,7 +499,8 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
 
   /**
    * @public
-   * <p>Run queries to access information from your knowledge graph of entities within individual workspaces.</p>
+   * <p>Run queries to access information from your knowledge graph of entities within
+   *          individual workspaces.</p>
    */
   public executeQuery(
     args: ExecuteQueryCommandInput,
@@ -621,7 +624,8 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   /**
    * @public
    * <p>Gets the property values for a component, component type, entity, or workspace.</p>
-   *          <p>You must specify a value for either <code>componentName</code>, <code>componentTypeId</code>, <code>entityId</code>, or <code>workspaceId</code>.</p>
+   *          <p>You must specify a value for either <code>componentName</code>,
+   *             <code>componentTypeId</code>, <code>entityId</code>, or <code>workspaceId</code>.</p>
    */
   public getPropertyValue(
     args: GetPropertyValueCommandInput,
@@ -654,9 +658,11 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
 
   /**
    * @public
-   * <p>Retrieves information about the history of a time series property value for a component, component type, entity, or workspace.</p>
-   *          <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries, specify values for <code>componentName</code> and
-   *         <code>entityId</code>. For cross-entity quries, specify a value for <code>componentTypeId</code>.</p>
+   * <p>Retrieves information about the history of a time series property value for a component,
+   *          component type, entity, or workspace.</p>
+   *          <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries,
+   *          specify values for <code>componentName</code> and <code>entityId</code>. For cross-entity
+   *          quries, specify a value for <code>componentTypeId</code>.</p>
    */
   public getPropertyValueHistory(
     args: GetPropertyValueHistoryCommandInput,

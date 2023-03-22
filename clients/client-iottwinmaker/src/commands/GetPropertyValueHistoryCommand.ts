@@ -40,9 +40,11 @@ export interface GetPropertyValueHistoryCommandOutput extends GetPropertyValueHi
 
 /**
  * @public
- * <p>Retrieves information about the history of a time series property value for a component, component type, entity, or workspace.</p>
- *          <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries, specify values for <code>componentName</code> and
- *         <code>entityId</code>. For cross-entity quries, specify a value for <code>componentTypeId</code>.</p>
+ * <p>Retrieves information about the history of a time series property value for a component,
+ *          component type, entity, or workspace.</p>
+ *          <p>You must specify a value for <code>workspaceId</code>. For entity-specific queries,
+ *          specify values for <code>componentName</code> and <code>entityId</code>. For cross-entity
+ *          quries, specify a value for <code>componentTypeId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

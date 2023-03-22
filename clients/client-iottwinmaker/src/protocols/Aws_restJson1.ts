@@ -289,6 +289,9 @@ export const serializeAws_restJson1CreateSceneCommand = async (
     ...(input.contentLocation != null && { contentLocation: input.contentLocation }),
     ...(input.description != null && { description: input.description }),
     ...(input.sceneId != null && { sceneId: input.sceneId }),
+    ...(input.sceneMetadata != null && {
+      sceneMetadata: serializeAws_restJson1SceneMetadataMap(input.sceneMetadata, context),
+    }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1309,6 +1312,9 @@ export const serializeAws_restJson1UpdateSceneCommand = async (
     }),
     ...(input.contentLocation != null && { contentLocation: input.contentLocation }),
     ...(input.description != null && { description: input.description }),
+    ...(input.sceneMetadata != null && {
+      sceneMetadata: serializeAws_restJson1SceneMetadataMap(input.sceneMetadata, context),
+    }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2436,8 +2442,17 @@ export const deserializeAws_restJson1GetSceneCommand = async (
   if (data.description != null) {
     contents.description = __expectString(data.description);
   }
+  if (data.generatedSceneMetadata != null) {
+    contents.generatedSceneMetadata = deserializeAws_restJson1GeneratedSceneMetadataMap(
+      data.generatedSceneMetadata,
+      context
+    );
+  }
   if (data.sceneId != null) {
     contents.sceneId = __expectString(data.sceneId);
+  }
+  if (data.sceneMetadata != null) {
+    contents.sceneMetadata = deserializeAws_restJson1SceneMetadataMap(data.sceneMetadata, context);
   }
   if (data.updateDateTime != null) {
     contents.updateDateTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.updateDateTime)));
@@ -4013,6 +4028,16 @@ const serializeAws_restJson1SceneCapabilities = (input: string[], context: __Ser
     });
 };
 
+const serializeAws_restJson1SceneMetadataMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
 const serializeAws_restJson1SelectedPropertyList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -4387,6 +4412,19 @@ const deserializeAws_restJson1FunctionsResponse = (
   }, {});
 };
 
+const deserializeAws_restJson1GeneratedSceneMetadataMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
+};
+
 const deserializeAws_restJson1LambdaFunction = (output: any, context: __SerdeContext): LambdaFunction => {
   return {
     arn: __expectString(output.arn),
@@ -4682,6 +4720,16 @@ const deserializeAws_restJson1SceneCapabilities = (output: any, context: __Serde
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1SceneMetadataMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1SceneSummaries = (output: any, context: __SerdeContext): SceneSummary[] => {

@@ -40,7 +40,8 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
 
 /**
  * @public
- * <p>Run queries to access information from your knowledge graph of entities within individual workspaces.</p>
+ * <p>Run queries to access information from your knowledge graph of entities within
+ *          individual workspaces.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

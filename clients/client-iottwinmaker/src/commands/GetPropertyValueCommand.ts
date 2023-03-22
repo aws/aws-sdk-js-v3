@@ -41,7 +41,8 @@ export interface GetPropertyValueCommandOutput extends GetPropertyValueResponse,
 /**
  * @public
  * <p>Gets the property values for a component, component type, entity, or workspace.</p>
- *          <p>You must specify a value for either <code>componentName</code>, <code>componentTypeId</code>, <code>entityId</code>, or <code>workspaceId</code>.</p>
+ *          <p>You must specify a value for either <code>componentName</code>,
+ *             <code>componentTypeId</code>, <code>entityId</code>, or <code>workspaceId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
