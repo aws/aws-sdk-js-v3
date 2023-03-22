@@ -43,7 +43,7 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  *             a role. Use the boundary to control the maximum permissions that the role can have.
  *             Setting a permissions boundary is an advanced feature that can affect the permissions
  *             for the role.</p>
- *          <p>You cannot set the boundary for a service-linked role. </p>
+ *          <p>You cannot set the boundary for a service-linked role.</p>
  *          <important>
  *             <p>Policies used as permissions boundaries do not provide permissions. You must also
  *                 attach a permissions policy to the role. To learn how the effective permissions for
@@ -83,10 +83,10 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  *       failure.</p>
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because only the service that depends on the service-linked role
- *       can modify or delete the role on your behalf. The error message includes the name of the
- *       service that depends on this service-linked role. You must request the change through that
- *       service.</p>
+ *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
+ *       the service that depends on the service-linked role can modify or delete the role on your
+ *       behalf. The error message includes the name of the service that depends on this service-linked
+ *       role. You must request the change through that service.</p>
  *
  *
  */

@@ -351,10 +351,10 @@ export class EntityAlreadyExistsException extends __BaseException {
 
 /**
  * @public
- * <p>The request was rejected because only the service that depends on the service-linked role
- *       can modify or delete the role on your behalf. The error message includes the name of the
- *       service that depends on this service-linked role. You must request the change through that
- *       service.</p>
+ * <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
+ *       the service that depends on the service-linked role can modify or delete the role on your
+ *       behalf. The error message includes the name of the service that depends on this service-linked
+ *       role. You must request the change through that service.</p>
  */
 export class UnmodifiableEntityException extends __BaseException {
   readonly name: "UnmodifiableEntityException" = "UnmodifiableEntityException";
@@ -1935,8 +1935,8 @@ export interface CreateVirtualMFADeviceRequest {
   Path?: string;
 
   /**
-   * <p>The name of the virtual MFA device, which must be unique. Use with path to uniquely identify a virtual MFA
-   *             device.</p>
+   * <p>The name of the virtual MFA device, which must be unique. Use with path to uniquely
+   *             identify a virtual MFA device.</p>
    *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
    *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
    */

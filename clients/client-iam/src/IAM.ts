@@ -2052,10 +2052,11 @@ export class IAM extends IAMClient {
   /**
    * @public
    * <p>Deletes the permissions boundary for the specified IAM role. </p>
+   *          <p>You cannot set the boundary for a service-linked role.</p>
    *          <important>
    *             <p>Deleting the permissions boundary for a role might increase its permissions. For
    *                 example, it might allow anyone who assumes the role to perform all the actions
-   *                 granted in its permissions policies. </p>
+   *                 granted in its permissions policies.</p>
    *          </important>
    */
   public deleteRolePermissionsBoundary(
@@ -5415,7 +5416,7 @@ export class IAM extends IAMClient {
    *             a role. Use the boundary to control the maximum permissions that the role can have.
    *             Setting a permissions boundary is an advanced feature that can affect the permissions
    *             for the role.</p>
-   *          <p>You cannot set the boundary for a service-linked role. </p>
+   *          <p>You cannot set the boundary for a service-linked role.</p>
    *          <important>
    *             <p>Policies used as permissions boundaries do not provide permissions. You must also
    *                 attach a permissions policy to the role. To learn how the effective permissions for

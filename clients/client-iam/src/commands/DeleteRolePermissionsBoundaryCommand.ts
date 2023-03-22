@@ -39,10 +39,11 @@ export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBe
 /**
  * @public
  * <p>Deletes the permissions boundary for the specified IAM role. </p>
+ *          <p>You cannot set the boundary for a service-linked role.</p>
  *          <important>
  *             <p>Deleting the permissions boundary for a role might increase its permissions. For
  *                 example, it might allow anyone who assumes the role to perform all the actions
- *                 granted in its permissions policies. </p>
+ *                 granted in its permissions policies.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,10 +70,10 @@ export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBe
  *       failure.</p>
  *
  * @throws {@link UnmodifiableEntityException} (client fault)
- *  <p>The request was rejected because only the service that depends on the service-linked role
- *       can modify or delete the role on your behalf. The error message includes the name of the
- *       service that depends on this service-linked role. You must request the change through that
- *       service.</p>
+ *  <p>The request was rejected because service-linked roles are protected Amazon Web Services resources. Only
+ *       the service that depends on the service-linked role can modify or delete the role on your
+ *       behalf. The error message includes the name of the service that depends on this service-linked
+ *       role. You must request the change through that service.</p>
  *
  *
  */
