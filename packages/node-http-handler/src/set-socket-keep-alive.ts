@@ -1,18 +1,24 @@
 import { ClientRequest } from "http";
 
-const DEFAULT_INITIAL_DELAY = 10 * 1000;
+const DEFAULT_INITIAL_DELAY = 300 * 1000;
 
 export interface SocketKeepAliveOptions {
     keepAlive: boolean;
-    initialDelay: number;
+    initialDelayInMSecs?: number;
 }
 
-export const setSocketKeepAlive = (request: ClientRequest, socketKeepAlive: SocketKeepAliveOptions) => {
-    if (!socketKeepAlive || socketKeepAlive.keepAlive === false) {
+export const setSocketKeepAlive = (
+    request: ClientRequest,
+    socketKeepAlive: SocketKeepAliveOptions
+) => {
+    if (!(socketKeepAlive?.keepAlive === true)) {
         return;
     }
 
-    request.on('socket', (socket) => {
-        socket.setKeepAlive(socketKeepAlive.keepAlive, socketKeepAlive.initialDelay || DEFAULT_INITIAL_DELAY);
-    })
-}
+    request.on("socket", (socket) => {
+        socket.setKeepAlive(
+            socketKeepAlive.keepAlive,
+            socketKeepAlive.initialDelayInMSecs || DEFAULT_INITIAL_DELAY
+        );
+    });
+};
