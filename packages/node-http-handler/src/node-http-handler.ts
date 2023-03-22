@@ -7,7 +7,11 @@ import { Agent as hsAgent, request as hsRequest, RequestOptions } from "https";
 import { NODEJS_TIMEOUT_ERROR_CODES } from "./constants";
 import { getTransformedHeaders } from "./get-transformed-headers";
 import { writeRequestBody } from "./write-request-body";
-import {setSocketKeepAlive, SocketKeepAliveOptions} from "./set-socket-keep-alive";
+import {
+  setSocketKeepAlive,
+  SocketKeepAliveOptions,
+} from "./set-socket-keep-alive";
+
 
 /**
  * Represents the http options that can be passed to a node http client.
