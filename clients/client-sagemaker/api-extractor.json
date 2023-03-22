@@ -1,13 +1,4 @@
 {
   "extends": "../../api-extractor.json",
-  "mainEntryPointFilePath": "<projectFolder>/dist-types/index.d.ts",
-  "apiReport": {
-    "enabled": true,
-    "reportFolder": "../../etc/",
-    "reportTempFolder": "../../temp"
-  },
-  "docModel": {
-    "enabled": true,
-    "apiJsonFilePath": "../../temp/<unscopedPackageName>.api.json"
-  }
+  "mainEntryPointFilePath": "<projectFolder>/dist-types/index.d.ts"
 }
