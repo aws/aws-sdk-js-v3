@@ -8,5 +8,6 @@ export * from "./MalformedPatternOverride";
 export * from "./MalformedRange";
 export * from "./MalformedRangeOverride";
 export * from "./MalformedRequired";
+export * from "./MalformedUniqueItems";
 export * from "./RecursiveStructures";
 export * from "./SensitiveValidation";

@@ -14,6 +14,7 @@ import { MalformedPatternOverride } from "../../src/server/operations/MalformedP
 import { MalformedRange } from "../../src/server/operations/MalformedRange";
 import { MalformedRangeOverride } from "../../src/server/operations/MalformedRangeOverride";
 import { MalformedRequired } from "../../src/server/operations/MalformedRequired";
+import { MalformedUniqueItems } from "../../src/server/operations/MalformedUniqueItems";
 import { RecursiveStructures } from "../../src/server/operations/RecursiveStructures";
 import { SensitiveValidation } from "../../src/server/operations/SensitiveValidation";
 import { RestJsonValidationService } from "../../src/server/RestJsonValidationService";
@@ -155,7 +156,8 @@ const fail = (error?: any): never => {
 
 /**
  * When a string member does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumString_case0:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -185,15 +187,16 @@ it("RestJsonMalformedEnumString_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
 
 /**
  * When a string member does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumString_case1:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -223,15 +226,16 @@ it("RestJsonMalformedEnumString_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value XYZ at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value XYZ at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
 
 /**
  * When a list member value does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumList_case0:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -261,15 +265,16 @@ it("RestJsonMalformedEnumList_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/list/0\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/list/0\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
 
 /**
  * When a list member value does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumList_case1:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -299,15 +304,16 @@ it("RestJsonMalformedEnumList_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value XYZ at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value XYZ at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/list/0\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/list/0\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
 
 /**
  * When a map member's key does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumMapKey_case0:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -337,15 +343,16 @@ it("RestJsonMalformedEnumMapKey_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
 
 /**
  * When a map member's key does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumMapKey_case1:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -375,15 +382,16 @@ it("RestJsonMalformedEnumMapKey_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value XYZ at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value XYZ at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
 
 /**
  * When a map member's value does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumMapValue_case0:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -413,15 +421,16 @@ it("RestJsonMalformedEnumMapValue_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map/abc\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map/abc\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
 
 /**
  * When a map member's value does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumMapValue_case1:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -451,15 +460,16 @@ it("RestJsonMalformedEnumMapValue_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value XYZ at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value XYZ at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map/abc\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/map/abc\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
 
 /**
  * When a union member's value does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumUnion_case0:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -489,15 +499,16 @@ it("RestJsonMalformedEnumUnion_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/union/first\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/union/first\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
 
 /**
  * When a union member's value does not contain a valid enum value,
- * the response should be a 400 ValidationException.
+ * the response should be a 400 ValidationException. Internal-only
+ * enum values are excluded from the response message.
  */
 it("RestJsonMalformedEnumUnion_case1:MalformedRequest", async () => {
   const testFunction = jest.fn();
@@ -527,8 +538,8 @@ it("RestJsonMalformedEnumUnion_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value XYZ at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value XYZ at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/union/first\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/union/first\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -1681,8 +1692,8 @@ it("RestJsonMalformedPatternString_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -1719,8 +1730,8 @@ it("RestJsonMalformedPatternString_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -1759,8 +1770,8 @@ it.skip("RestJsonMalformedPatternReDOSString:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value $value:L at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$$\",
-    \"fieldList\" : [{\"message\": \"Value $value:L at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$$\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$$\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$$\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -1797,8 +1808,8 @@ it("RestJsonMalformedPatternList_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/list/0\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/list/0\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -1835,8 +1846,8 @@ it("RestJsonMalformedPatternList_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/list/0\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/list/0\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -1873,8 +1884,8 @@ it("RestJsonMalformedPatternMapKey_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -1911,8 +1922,8 @@ it("RestJsonMalformedPatternMapKey_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -1949,8 +1960,8 @@ it("RestJsonMalformedPatternMapValue_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map/abc\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map/abc\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -1987,8 +1998,8 @@ it("RestJsonMalformedPatternMapValue_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map/abc\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/map/abc' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/map/abc\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2025,8 +2036,8 @@ it("RestJsonMalformedPatternUnion_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value ABC at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value ABC at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/union/first\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/union/first\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2063,8 +2074,8 @@ it("RestJsonMalformedPatternUnion_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/union/first\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[a-m]+$\", \"path\": \"/union/first\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2101,8 +2112,8 @@ it("RestJsonMalformedPatternStringOverride_case0:MalformedRequest", async () => 
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value abc at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value abc at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2139,8 +2150,8 @@ it("RestJsonMalformedPatternStringOverride_case1:MalformedRequest", async () => 
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2177,8 +2188,8 @@ it("RestJsonMalformedPatternListOverride_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value abc at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value abc at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/list/0\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/list/0\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2215,8 +2226,8 @@ it("RestJsonMalformedPatternListOverride_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/list/0\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/list/0' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/list/0\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2253,8 +2264,8 @@ it("RestJsonMalformedPatternMapKeyOverride_case0:MalformedRequest", async () => 
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value abc at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value abc at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2291,8 +2302,8 @@ it("RestJsonMalformedPatternMapKeyOverride_case1:MalformedRequest", async () => 
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/map' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2329,8 +2340,8 @@ it("RestJsonMalformedPatternMapValueOverride_case0:MalformedRequest", async () =
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value abc at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value abc at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map/ghi\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map/ghi\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2367,8 +2378,8 @@ it("RestJsonMalformedPatternMapValueOverride_case1:MalformedRequest", async () =
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map/ghi\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/map/ghi' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/map/ghi\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2405,8 +2416,8 @@ it("RestJsonMalformedPatternUnionOverride_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value abc at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value abc at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/union/first\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/union/first\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2443,8 +2454,8 @@ it("RestJsonMalformedPatternUnionOverride_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value xyz at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
-    \"fieldList\" : [{\"message\": \"Value xyz at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/union/first\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\",
+    \"fieldList\" : [{\"message\": \"Value at '/union/first' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[g-m]+$\", \"path\": \"/union/first\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2481,8 +2492,8 @@ it("RestJsonMalformedRangeByte_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 1 at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/byte\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/byte\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2519,8 +2530,8 @@ it("RestJsonMalformedRangeByte_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 9 at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/byte\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/byte' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/byte\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2557,8 +2568,8 @@ it("RestJsonMalformedRangeMinByte:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 2\",
-    \"fieldList\" : [{\"message\": \"Value 1 at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minByte\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 2\",
+    \"fieldList\" : [{\"message\": \"Value at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minByte\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2595,8 +2606,8 @@ it("RestJsonMalformedRangeMaxByte:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 8\",
-    \"fieldList\" : [{\"message\": \"Value 9 at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxByte\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 8\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxByte\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2633,8 +2644,8 @@ it("RestJsonMalformedRangeFloat_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 2.1 at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 2.1 at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\", \"path\": \"/float\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\", \"path\": \"/float\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2671,8 +2682,8 @@ it("RestJsonMalformedRangeFloat_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 8.9 at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 8.9 at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\", \"path\": \"/float\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/float' failed to satisfy constraint: Member must be between 2.2 and 8.8, inclusive\", \"path\": \"/float\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2709,8 +2720,8 @@ it("RestJsonMalformedRangeMinFloat:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 2.1 at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 2.2\",
-    \"fieldList\" : [{\"message\": \"Value 2.1 at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 2.2\", \"path\": \"/minFloat\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 2.2\",
+    \"fieldList\" : [{\"message\": \"Value at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 2.2\", \"path\": \"/minFloat\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2747,8 +2758,8 @@ it("RestJsonMalformedRangeMaxFloat:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 8.9 at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 8.8\",
-    \"fieldList\" : [{\"message\": \"Value 8.9 at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 8.8\", \"path\": \"/maxFloat\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 8.8\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 8.8\", \"path\": \"/maxFloat\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2785,8 +2796,8 @@ it("RestJsonMalformedRangeShort_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 1 at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/short\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/short\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2823,8 +2834,8 @@ it("RestJsonMalformedRangeShort_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 9 at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/short\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/short' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/short\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2861,8 +2872,8 @@ it("RestJsonMalformedRangeMinShort:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 2\",
-    \"fieldList\" : [{\"message\": \"Value 1 at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minShort\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 2\",
+    \"fieldList\" : [{\"message\": \"Value at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minShort\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2899,8 +2910,8 @@ it("RestJsonMalformedRangeMaxShort:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 8\",
-    \"fieldList\" : [{\"message\": \"Value 9 at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxShort\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 8\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxShort\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2937,8 +2948,8 @@ it("RestJsonMalformedRangeInteger_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 1 at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/integer\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/integer\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -2975,8 +2986,8 @@ it("RestJsonMalformedRangeInteger_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 9 at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/integer\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/integer' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/integer\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3013,8 +3024,8 @@ it("RestJsonMalformedRangeMinInteger:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 2\",
-    \"fieldList\" : [{\"message\": \"Value 1 at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minInteger\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 2\",
+    \"fieldList\" : [{\"message\": \"Value at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minInteger\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3051,8 +3062,8 @@ it("RestJsonMalformedRangeMaxInteger:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 8\",
-    \"fieldList\" : [{\"message\": \"Value 9 at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxInteger\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 8\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxInteger\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3089,8 +3100,8 @@ it("RestJsonMalformedRangeLong_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 1 at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/long\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/long\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3127,8 +3138,8 @@ it("RestJsonMalformedRangeLong_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 9 at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/long\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/long' failed to satisfy constraint: Member must be between 2 and 8, inclusive\", \"path\": \"/long\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3165,8 +3176,8 @@ it("RestJsonMalformedRangeMinLong:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 1 at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 2\",
-    \"fieldList\" : [{\"message\": \"Value 1 at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minLong\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 2\",
+    \"fieldList\" : [{\"message\": \"Value at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 2\", \"path\": \"/minLong\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3203,8 +3214,8 @@ it("RestJsonMalformedRangeMaxLong:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 9 at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 8\",
-    \"fieldList\" : [{\"message\": \"Value 9 at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxLong\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 8\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 8\", \"path\": \"/maxLong\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3241,8 +3252,8 @@ it("RestJsonMalformedRangeByteOverride_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 3 at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/byte\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/byte\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3279,8 +3290,8 @@ it("RestJsonMalformedRangeByteOverride_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 7 at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/byte\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/byte' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/byte\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3317,8 +3328,8 @@ it("RestJsonMalformedRangeMinByteOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 4\",
-    \"fieldList\" : [{\"message\": \"Value 3 at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minByte\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 4\",
+    \"fieldList\" : [{\"message\": \"Value at '/minByte' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minByte\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3355,8 +3366,8 @@ it("RestJsonMalformedRangeMaxByteOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 6\",
-    \"fieldList\" : [{\"message\": \"Value 7 at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxByte\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 6\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxByte' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxByte\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3393,8 +3404,8 @@ it("RestJsonMalformedRangeFloatOverride_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 4.3 at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 4.3 at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\", \"path\": \"/float\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\", \"path\": \"/float\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3431,8 +3442,8 @@ it("RestJsonMalformedRangeFloatOverride_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 6.7 at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 6.7 at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\", \"path\": \"/float\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/float' failed to satisfy constraint: Member must be between 4.4 and 6.6, inclusive\", \"path\": \"/float\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3469,8 +3480,8 @@ it("RestJsonMalformedRangeMinFloatOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 4.3 at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 4.4\",
-    \"fieldList\" : [{\"message\": \"Value 4.3 at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 4.4\", \"path\": \"/minFloat\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 4.4\",
+    \"fieldList\" : [{\"message\": \"Value at '/minFloat' failed to satisfy constraint: Member must be greater than or equal to 4.4\", \"path\": \"/minFloat\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3507,8 +3518,8 @@ it("RestJsonMalformedRangeMaxFloatOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 6.7 at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 6.6\",
-    \"fieldList\" : [{\"message\": \"Value 6.7 at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 6.6\", \"path\": \"/maxFloat\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 6.6\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxFloat' failed to satisfy constraint: Member must be less than or equal to 6.6\", \"path\": \"/maxFloat\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3545,8 +3556,8 @@ it("RestJsonMalformedRangeShortOverride_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 3 at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/short\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/short\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3583,8 +3594,8 @@ it("RestJsonMalformedRangeShortOverride_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 7 at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/short\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/short' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/short\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3621,8 +3632,8 @@ it("RestJsonMalformedRangeMinShortOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 4\",
-    \"fieldList\" : [{\"message\": \"Value 3 at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minShort\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 4\",
+    \"fieldList\" : [{\"message\": \"Value at '/minShort' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minShort\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3659,8 +3670,8 @@ it("RestJsonMalformedRangeMaxShortOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 6\",
-    \"fieldList\" : [{\"message\": \"Value 7 at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxShort\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 6\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxShort' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxShort\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3697,8 +3708,8 @@ it("RestJsonMalformedRangeIntegerOverride_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 3 at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/integer\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/integer\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3735,8 +3746,8 @@ it("RestJsonMalformedRangeIntegerOverride_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 7 at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/integer\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/integer' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/integer\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3773,8 +3784,8 @@ it("RestJsonMalformedRangeMinIntegerOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 4\",
-    \"fieldList\" : [{\"message\": \"Value 3 at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minInteger\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 4\",
+    \"fieldList\" : [{\"message\": \"Value at '/minInteger' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minInteger\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3811,8 +3822,8 @@ it("RestJsonMalformedRangeMaxIntegerOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 6\",
-    \"fieldList\" : [{\"message\": \"Value 7 at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxInteger\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 6\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxInteger' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxInteger\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3849,8 +3860,8 @@ it("RestJsonMalformedRangeLongOverride_case0:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 3 at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/long\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/long\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3887,8 +3898,8 @@ it("RestJsonMalformedRangeLongOverride_case1:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
-    \"fieldList\" : [{\"message\": \"Value 7 at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/long\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\",
+    \"fieldList\" : [{\"message\": \"Value at '/long' failed to satisfy constraint: Member must be between 4 and 6, inclusive\", \"path\": \"/long\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3925,8 +3936,8 @@ it("RestJsonMalformedRangeMinLongOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 3 at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 4\",
-    \"fieldList\" : [{\"message\": \"Value 3 at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minLong\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 4\",
+    \"fieldList\" : [{\"message\": \"Value at '/minLong' failed to satisfy constraint: Member must be greater than or equal to 4\", \"path\": \"/minLong\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -3963,8 +3974,8 @@ it("RestJsonMalformedRangeMaxLongOverride:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value 7 at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 6\",
-    \"fieldList\" : [{\"message\": \"Value 7 at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxLong\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 6\",
+    \"fieldList\" : [{\"message\": \"Value at '/maxLong' failed to satisfy constraint: Member must be less than or equal to 6\", \"path\": \"/maxLong\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -4004,8 +4015,8 @@ it("RestJsonMalformedRequiredBodyUnset:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value null at '/string' failed to satisfy constraint: Member must not be null\",
-    \"fieldList\" : [{\"message\": \"Value null at '/string' failed to satisfy constraint: Member must not be null\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must not be null\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must not be null\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -4045,8 +4056,8 @@ it("RestJsonMalformedRequiredBodyExplicitNull:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value null at '/string' failed to satisfy constraint: Member must not be null\",
-    \"fieldList\" : [{\"message\": \"Value null at '/string' failed to satisfy constraint: Member must not be null\", \"path\": \"/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/string' failed to satisfy constraint: Member must not be null\",
+    \"fieldList\" : [{\"message\": \"Value at '/string' failed to satisfy constraint: Member must not be null\", \"path\": \"/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -4085,8 +4096,694 @@ it("RestJsonMalformedRequiredHeaderUnset:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value null at '/stringInHeader' failed to satisfy constraint: Member must not be null\",
-    \"fieldList\" : [{\"message\": \"Value null at '/stringInHeader' failed to satisfy constraint: Member must not be null\", \"path\": \"/stringInHeader\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/stringInHeader' failed to satisfy constraint: Member must not be null\",
+    \"fieldList\" : [{\"message\": \"Value at '/stringInHeader' failed to satisfy constraint: Member must not be null\", \"path\": \"/stringInHeader\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a blob list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsBlobList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "blobList" : ["YQ==", "YQ=="] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/blobList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/blobList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/blobList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a boolean list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsBooleanList_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "booleanList" : [true, true] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/booleanList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/booleanList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/booleanList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a boolean list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsBooleanList_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "booleanList" : [false, false] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/booleanList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/booleanList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/booleanList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a string list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsStringList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "stringList" : ["abc", "abc"] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/stringList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/stringList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/stringList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a byte list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsByteList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "byteList" : [1, 1] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/byteList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/byteList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/byteList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a short list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsShortList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "shortList" : [2, 2] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/shortList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/shortList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/shortList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When an integer list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsIntegerList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "integerList" : [3, 3] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/integerList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/integerList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/integerList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When an integer list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsLongList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "longList" : [4, 4] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/longList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/longList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/longList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a timestamp list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsTimestampList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "timestampList" : [1676660607, 1676660607] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/timestampList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/timestampList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/timestampList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a date-time timestamp list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsDateTimeList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "dateTimeList" : ["1985-04-12T23:20:50.52Z", "1985-04-12T23:20:50.52Z"] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/dateTimeList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/dateTimeList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/dateTimeList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a http-date timestamp list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsHttpDateList_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "httpDateList" : ["Tue, 29 Apr 2014 18:30:38 GMT", "Tue, 29 Apr 2014 18:30:38 GMT"] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/httpDateList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/httpDateList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/httpDateList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When a http-date timestamp list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsHttpDateList_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from([
+      '{ "httpDateList" : ["Sun, 02 Jan 2000 20:34:56.000 GMT", "Sun, 02 Jan 2000 20:34:56.000 GMT"] }',
+    ]),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/httpDateList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/httpDateList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/httpDateList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When an enum list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsEnumList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "enumList" : ["Foo", "Foo"] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/enumList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/enumList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/enumList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When an intEnum list contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsIntEnumList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "intEnumList" : [3, 3] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/intEnumList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/intEnumList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/intEnumList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When an list of lists contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsListList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "listList" : [["foo","bar"], ["foo","bar"]] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/listList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/listList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/listList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When an list of structures contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsStructureList:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "structureList" : [{"hi": "hello"}, {"hi": "hello"}] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/structureList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/structureList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/structureList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When an list of unions contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsUnionList_case0:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "unionList" : [{"string": "foo"}, {"string": "foo"}] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/unionList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/unionList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/unionList\"}]}`;
+  const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+  expect(unequalParts).toBeUndefined();
+});
+
+/**
+ * When an list of unions contains non-unique values,
+ * the response should be a 400 ValidationException.
+ */
+it("RestJsonMalformedUniqueItemsUnionList_case1:MalformedRequest", async () => {
+  const testFunction = jest.fn();
+  testFunction.mockImplementation(() => {
+    throw new Error("This request should have been rejected.");
+  });
+  const testService: Partial<RestJsonValidationService<{}>> = {
+    MalformedUniqueItems: testFunction as MalformedUniqueItems<{}>,
+  };
+  const handler = getRestJsonValidationServiceHandler(testService as RestJsonValidationService<{}>);
+  const request = new HttpRequest({
+    method: "POST",
+    hostname: "foo.example.com",
+    path: "/MalformedUniqueItems",
+    query: {},
+    headers: {
+      "content-type": "application/json",
+    },
+    body: Readable.from(['{ "unionList" : [{"integer": 1}, {"integer": 1}] }']),
+  });
+  const r = await handler.handle(request, {});
+
+  expect(testFunction.mock.calls.length).toBe(0);
+  expect(r.statusCode).toBe(400);
+  expect(r.headers["x-amzn-errortype"]).toBeDefined();
+  expect(r.headers["x-amzn-errortype"]).toBe("ValidationException");
+
+  expect(r.body).toBeDefined();
+  const utf8Encoder = __utf8Encoder;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/unionList' failed to satisfy constraint: Member must have unique values\",
+    \"fieldList\" : [{\"message\": \"Value at '/unionList' failed to satisfy constraint: Member must have unique values\", \"path\": \"/unionList\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });
@@ -4165,8 +4862,8 @@ it("RestJsonMalformedRecursiveStructures:MalformedRequest", async () => {
 
   expect(r.body).toBeDefined();
   const utf8Encoder = __utf8Encoder;
-  const bodyString = `{ \"message\" : \"1 validation error detected. Value XYZ at '/union/union/union/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
-    \"fieldList\" : [{\"message\": \"Value XYZ at '/union/union/union/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/union/union/union/string\"}]}`;
+  const bodyString = `{ \"message\" : \"1 validation error detected. Value at '/union/union/union/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\",
+    \"fieldList\" : [{\"message\": \"Value at '/union/union/union/string' failed to satisfy constraint: Member must satisfy enum value set: [abc, def]\", \"path\": \"/union/union/union/string\"}]}`;
   const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
   expect(unequalParts).toBeUndefined();
 });

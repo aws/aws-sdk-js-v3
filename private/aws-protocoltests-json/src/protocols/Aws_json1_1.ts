@@ -39,6 +39,7 @@ import {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelOperationCommand";
+import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "../commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
 import {
   HostWithPathOperationCommandInput,
@@ -73,6 +74,7 @@ import {
   ErrorWithoutMembers,
   FooEnum,
   FooError,
+  FractionalSecondsOutput,
   GreetingStruct,
   GreetingWithErrorsOutput,
   HostLabelInput,
@@ -155,6 +157,18 @@ export const serializeAws_json1_1EndpointWithHostLabelOperationCommand = async (
     }
   }
   return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+export const serializeAws_json1_1FractionalSecondsCommand = async (
+  input: FractionalSecondsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "JsonProtocol.FractionalSeconds",
+  };
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_json1_1GreetingWithErrorsCommand = async (
@@ -389,6 +403,41 @@ const deserializeAws_json1_1EndpointWithHostLabelOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_json1_1FractionalSecondsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FractionalSecondsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1FractionalSecondsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1FractionalSecondsOutput(data, context);
+  const response: FractionalSecondsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1FractionalSecondsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FractionalSecondsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1164,6 +1213,16 @@ const deserializeAws_json1_1ErrorWithoutMembers = (output: any, context: __Serde
 
 const deserializeAws_json1_1FooError = (output: any, context: __SerdeContext): FooError => {
   return {} as any;
+};
+
+const deserializeAws_json1_1FractionalSecondsOutput = (
+  output: any,
+  context: __SerdeContext
+): FractionalSecondsOutput => {
+  return {
+    datetime: output.datetime != null ? __expectNonNull(__parseRfc3339DateTimeWithOffset(output.datetime)) : undefined,
+    httpdate: output.httpdate != null ? __expectNonNull(__parseRfc7231DateTime(output.httpdate)) : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1GreetingWithErrorsOutput = (

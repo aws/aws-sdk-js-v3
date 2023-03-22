@@ -94,6 +94,7 @@ import {
   EndpointWithHostLabelOperationServerInput,
   EndpointWithHostLabelOperationServerOutput,
 } from "../server/operations/EndpointWithHostLabelOperation";
+import { FractionalSecondsServerInput, FractionalSecondsServerOutput } from "../server/operations/FractionalSeconds";
 import { GreetingWithErrorsServerInput, GreetingWithErrorsServerOutput } from "../server/operations/GreetingWithErrors";
 import {
   HostWithPathOperationServerInput,
@@ -262,6 +263,10 @@ import {
   OmitsNullSerializesEmptyStringServerInput,
   OmitsNullSerializesEmptyStringServerOutput,
 } from "../server/operations/OmitsNullSerializesEmptyString";
+import {
+  OmitsSerializingEmptyListsServerInput,
+  OmitsSerializingEmptyListsServerOutput,
+} from "../server/operations/OmitsSerializingEmptyLists";
 import { PostPlayerActionServerInput, PostPlayerActionServerOutput } from "../server/operations/PostPlayerAction";
 import {
   PostUnionWithJsonNameServerInput,
@@ -784,6 +789,31 @@ export const deserializeEndpointWithHostLabelOperationRequest = async (
   if (data.label != null) {
     contents.label = __expectString(data.label);
   }
+  return contents;
+};
+
+export const deserializeFractionalSecondsRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<FractionalSecondsServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -2975,6 +3005,78 @@ export const deserializeOmitsNullSerializesEmptyStringRequest = async (
   return contents;
 };
 
+export const deserializeOmitsSerializingEmptyListsRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<OmitsSerializingEmptyListsServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const query = output.query;
+  if (query != null) {
+    if (query["StringList"] !== undefined) {
+      const queryValue = Array.isArray(query["StringList"])
+        ? (query["StringList"] as string[])
+        : [query["StringList"] as string];
+      contents.queryStringList = queryValue.map((_entry) => _entry.trim() as any);
+    }
+    if (query["IntegerList"] !== undefined) {
+      const queryValue = Array.isArray(query["IntegerList"])
+        ? (query["IntegerList"] as string[])
+        : [query["IntegerList"] as string];
+      contents.queryIntegerList = queryValue.map((_entry) => __strictParseInt32(_entry.trim()) as any);
+    }
+    if (query["DoubleList"] !== undefined) {
+      const queryValue = Array.isArray(query["DoubleList"])
+        ? (query["DoubleList"] as string[])
+        : [query["DoubleList"] as string];
+      contents.queryDoubleList = queryValue.map((_entry) => __strictParseDouble(_entry.trim()) as any);
+    }
+    if (query["BooleanList"] !== undefined) {
+      const queryValue = Array.isArray(query["BooleanList"])
+        ? (query["BooleanList"] as string[])
+        : [query["BooleanList"] as string];
+      contents.queryBooleanList = queryValue.map((_entry) => __parseBoolean(_entry.trim()) as any);
+    }
+    if (query["TimestampList"] !== undefined) {
+      const queryValue = Array.isArray(query["TimestampList"])
+        ? (query["TimestampList"] as string[])
+        : [query["TimestampList"] as string];
+      contents.queryTimestampList = queryValue.map(
+        (_entry) => __expectNonNull(__parseRfc3339DateTime(_entry.trim())) as any
+      );
+    }
+    if (query["EnumList"] !== undefined) {
+      const queryValue = Array.isArray(query["EnumList"])
+        ? (query["EnumList"] as string[])
+        : [query["EnumList"] as string];
+      contents.queryEnumList = queryValue.map((_entry) => _entry.trim() as any);
+    }
+    if (query["IntegerEnumList"] !== undefined) {
+      const queryValue = Array.isArray(query["IntegerEnumList"])
+        ? (query["IntegerEnumList"] as string[])
+        : [query["IntegerEnumList"] as string];
+      contents.queryIntegerEnumList = queryValue.map((_entry) => __strictParseInt32(_entry.trim()) as any);
+    }
+  }
+  await collectBody(output.body, context);
+  return contents;
+};
+
 export const deserializePostPlayerActionRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -3805,6 +3907,46 @@ export const serializeEndpointWithHostLabelOperationResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {});
   let body: any;
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeFractionalSecondsResponse = async (
+  input: FractionalSecondsServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.datetime != null && { datetime: input.datetime.toISOString().split(".")[0] + "Z" }),
+    ...(input.httpdate != null && { httpdate: __dateToUtcString(input.httpdate) }),
+  });
   if (
     body &&
     Object.keys(headers)
@@ -6196,6 +6338,40 @@ export const serializeNullAndEmptyHeadersServerResponse = async (
 
 export const serializeOmitsNullSerializesEmptyStringResponse = async (
   input: OmitsNullSerializesEmptyStringServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {});
+  let body: any;
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeOmitsSerializingEmptyListsResponse = async (
+  input: OmitsSerializingEmptyListsServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
   const context: __SerdeContext = {

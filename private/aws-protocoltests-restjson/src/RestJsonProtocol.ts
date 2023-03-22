@@ -47,6 +47,11 @@ import {
   EndpointWithHostLabelOperationCommandOutput,
 } from "./commands/EndpointWithHostLabelOperationCommand";
 import {
+  FractionalSecondsCommand,
+  FractionalSecondsCommandInput,
+  FractionalSecondsCommandOutput,
+} from "./commands/FractionalSecondsCommand";
+import {
   GreetingWithErrorsCommand,
   GreetingWithErrorsCommandInput,
   GreetingWithErrorsCommandOutput,
@@ -341,6 +346,11 @@ import {
   OmitsNullSerializesEmptyStringCommandInput,
   OmitsNullSerializesEmptyStringCommandOutput,
 } from "./commands/OmitsNullSerializesEmptyStringCommand";
+import {
+  OmitsSerializingEmptyListsCommand,
+  OmitsSerializingEmptyListsCommandInput,
+  OmitsSerializingEmptyListsCommandOutput,
+} from "./commands/OmitsSerializingEmptyListsCommand";
 import {
   PostPlayerActionCommand,
   PostPlayerActionCommandInput,
@@ -701,6 +711,35 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: EndpointWithHostLabelOperationCommandOutput) => void
   ): Promise<EndpointWithHostLabelOperationCommandOutput> | void {
     const command = new EndpointWithHostLabelOperationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FractionalSecondsCommandOutput>;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    cb: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): void;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): void;
+  public fractionalSeconds(
+    args: FractionalSecondsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FractionalSecondsCommandOutput) => void),
+    cb?: (err: any, data?: FractionalSecondsCommandOutput) => void
+  ): Promise<FractionalSecondsCommandOutput> | void {
+    const command = new FractionalSecondsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2602,6 +2641,40 @@ export class RestJsonProtocol extends RestJsonProtocolClient {
     cb?: (err: any, data?: OmitsNullSerializesEmptyStringCommandOutput) => void
   ): Promise<OmitsNullSerializesEmptyStringCommandOutput> | void {
     const command = new OmitsNullSerializesEmptyStringCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Omits serializing empty lists. Because empty strings are serilized as
+   * `Foo=`, empty lists cannot also be serialized as `Foo=` and instead
+   * must be omitted.
+   */
+  public omitsSerializingEmptyLists(
+    args: OmitsSerializingEmptyListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OmitsSerializingEmptyListsCommandOutput>;
+  public omitsSerializingEmptyLists(
+    args: OmitsSerializingEmptyListsCommandInput,
+    cb: (err: any, data?: OmitsSerializingEmptyListsCommandOutput) => void
+  ): void;
+  public omitsSerializingEmptyLists(
+    args: OmitsSerializingEmptyListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OmitsSerializingEmptyListsCommandOutput) => void
+  ): void;
+  public omitsSerializingEmptyLists(
+    args: OmitsSerializingEmptyListsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: OmitsSerializingEmptyListsCommandOutput) => void),
+    cb?: (err: any, data?: OmitsSerializingEmptyListsCommandOutput) => void
+  ): Promise<OmitsSerializingEmptyListsCommandOutput> | void {
+    const command = new OmitsSerializingEmptyListsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

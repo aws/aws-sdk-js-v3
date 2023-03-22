@@ -42,6 +42,7 @@ import {
   EndpointWithHostLabelOperationCommandInput,
   EndpointWithHostLabelOperationCommandOutput,
 } from "../commands/EndpointWithHostLabelOperationCommand";
+import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "../commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
 import {
   HostWithPathOperationCommandInput,
@@ -81,6 +82,7 @@ import {
   EmptyInputAndEmptyOutputInput,
   EmptyInputAndEmptyOutputOutput,
   FooEnum,
+  FractionalSecondsOutput,
   GreetingStruct,
   GreetingWithErrorsOutput,
   HostLabelInput,
@@ -185,6 +187,20 @@ export const serializeAws_ec2EndpointWithHostLabelOperationCommand = async (
     }
   }
   return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+export const serializeAws_ec2FractionalSecondsCommand = async (
+  input: FractionalSecondsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  const body = buildFormUrlencodedString({
+    Action: "FractionalSeconds",
+    Version: "2020-01-08",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
 export const serializeAws_ec2GreetingWithErrorsCommand = async (
@@ -583,6 +599,41 @@ const deserializeAws_ec2EndpointWithHostLabelOperationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2FractionalSecondsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FractionalSecondsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2FractionalSecondsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2FractionalSecondsOutput(data, context);
+  const response: FractionalSecondsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2FractionalSecondsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FractionalSecondsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1547,6 +1598,20 @@ const deserializeAws_ec2EmptyInputAndEmptyOutputOutput = (
   context: __SerdeContext
 ): EmptyInputAndEmptyOutputOutput => {
   const contents: any = {};
+  return contents;
+};
+
+const deserializeAws_ec2FractionalSecondsOutput = (output: any, context: __SerdeContext): FractionalSecondsOutput => {
+  const contents: any = {
+    datetime: undefined,
+    httpdate: undefined,
+  };
+  if (output["datetime"] !== undefined) {
+    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["datetime"]));
+  }
+  if (output["httpdate"] !== undefined) {
+    contents.httpdate = __expectNonNull(__parseRfc7231DateTime(output["httpdate"]));
+  }
   return contents;
 };
 
